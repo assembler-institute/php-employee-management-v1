@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+<body>
+    <section>
+        <form  action="./src/library/loginController.php" method="POST" class="login__form">
+            <div class="login__form-div">
+                <h2 class="login__form-div-h2">Log In</h2>
+                <hr>
+                <div>
+                    <label class="login__form-div-label" for="email"><b>Email</b></label>
+                    <input class="login__form-div-input" type="email" placeholder="Enter email" name="email">
+                </div>
+                <div>
+                    <label class="login__form-div-label" for="psw"><b>Password</b></label>
+                    <input class="login__form-div-input" type="password" placeholder="Enter Password" name="password">
+                </div>
+                <div class="clearfix">
+                    <input type="reset" class="button btn cancelbtn" id="cancelbtn" value="Cancel"></input>
+                    <input type="submit" name="submit" class="button btn loginbtn" id="loginbtn" value="Log In"></input>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
