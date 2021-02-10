@@ -9,6 +9,11 @@ body {
 
 #login-header_img {
     background-color: none;
+    min-width: 100%;
+    max-width: 100%;
+}
+#login-main {
+    min-width: 100%;
 }
 
 
