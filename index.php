@@ -34,7 +34,7 @@
   <!-- Header -->
   <h1 class="header-img">Log in</h1>
   <!-- Log in form -->
-  <form action="src/library/loginManager.php" method="post">
+  <form action="src/library/loginController.php" method="post">
     <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" name="email" placeholder="email" class="form-control">
@@ -43,7 +43,7 @@
       <label for="password">Password</label>
       <input type="password" name="password" placeholder="password" class="form-control">
     </div>
-    <input type="submit" name="submit" value="Log In" class="btn btn-primary">
+    <input type="submit" name="login" value="Log In" class="btn btn-primary">
   </form>
 </section>
 <!--Bootstrap scripts -->
