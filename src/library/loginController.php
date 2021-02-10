@@ -14,5 +14,5 @@ if (isset($userEmail)) {
     }
 } else {
     $hasLoggedOut = logOut();
-    header('Location: ../index.php');
+    header('Location: ../../index.php');
 }
