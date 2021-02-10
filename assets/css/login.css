@@ -1,0 +1,15 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: rgb(233, 233, 233);
+}
+
+#login-header_img {
+    background-color: none;
+}
+
+
+
