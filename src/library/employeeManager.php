@@ -24,7 +24,6 @@ function deleteEmployee(string $id)
     }
 }
 
-
 function updateEmployee(array $updateEmployee)
 {
     $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
@@ -43,7 +42,6 @@ function updateEmployee(array $updateEmployee)
     file_put_contents(EMPLOYEES_JSON_PATH, $fileData);
 }
 
-
 function getEmployee(string $id)
 {
     $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
@@ -54,12 +52,10 @@ function getEmployee(string $id)
     }
 }
 
-
 function removeAvatar($id)
 {
     // TODO implement it
 }
-
 
 function getQueryStringParameters(): array
 {
