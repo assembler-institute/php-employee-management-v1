@@ -2,54 +2,71 @@
 
 define("EMPLOYEES_JSON_PATH", $_SERVER["DOCUMENT_ROOT"] . "/php-employee-management-v1/resources/employees.json");
 
+require_once('./employeeHelper.php');
+
 function addEmployee(array $newEmployee)
 {
-    $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
+    $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
     $newEmployee['id'] = end($employees)['id'] + 1;
     array_push($employees, $newEmployee);
-    $fileData = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    file_put_contents(EMPLOYEES_JSON_PATH, $fileData);
+
+    saveArrayAsJson(EMPLOYEES_JSON_PATH, $employees);
 }
 
 function deleteEmployee(string $id)
 {
-    $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
-    foreach ($employees as $i => $employee) {
-        if ($employee['id'] == $id) {
-            unset($employees[$i]);
-            $fileData = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            file_put_contents(EMPLOYEES_JSON_PATH, $fileData);
-            break;
-        }
+    $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
+    $employee = findItemWithId($employees, $id);
+
+    if ($employee) {
+        unset($employees[$employee->key]);
+        saveArrayAsJson(EMPLOYEES_JSON_PATH, $employees);
+
+        return true;
+    } else {
+        return false;
     }
 }
 
 function updateEmployee(array $updateEmployee)
 {
-    $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
-    $employeeExists = false;
-    foreach ($employees as &$employee) {
-        if ($employee['id'] == $updateEmployee['id']) {
-            $employeeExists = true;
-            $employee = $updateEmployee;
-            break;
-        }
-    }
-    if (!$employeeExists) {
+    $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
+    $employee = findItemWithId($employees, $updateEmployee['id']);
+
+    if ($employee) {
+        $employee->value = $updateEmployee;
+    } else {
         array_push($employees, $updateEmployee);
     }
-    $fileData = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-    file_put_contents(EMPLOYEES_JSON_PATH, $fileData);
+
+    saveArrayAsJson(EMPLOYEES_JSON_PATH, array_sort($employees, 'id'));
+}
+
+function getEmployees(array $ids = [])
+{
+    if (empty($ids)) {
+        return file_get_contents(EMPLOYEES_JSON_PATH);
+    }
+
+    $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
+
+    $foundEmployees = array();
+    foreach ($ids as $id) {
+        $found = findItemWithId($employees, $id);
+        if ($found) {
+            array_push($foundEmployees, $found->value);
+        }
+    }
+
+    return encodeJson(array_values($foundEmployees));
 }
 
 function getEmployee(string $id)
 {
-    $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
-    foreach ($employees as $i => $employee) {
-        if ($employee['id'] == $id) {
-            return json_encode($employees[$i], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n";
-        }
-    }
+    $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
+    $employee = findItemWithId($employees, $id)->value;
+
+    return encodeJson($employee);
 }
 
 function removeAvatar($id)
