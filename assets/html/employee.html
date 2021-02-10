@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/employee.css">
+</head>
+<body class="h-100">
+    <main id="employee-main" class="d-flex flex-column justify-content-center h-100">
+        <form id="employee-form" class="d-flex flex-column align-self-center m-4 p-2" action="" method="">
+            <section id="employee-form_row1" class="row mx-2 my-1">
+                <section class="form-group col-md-6">
+                    <label for="employee-name" class="py-2">Name</label>
+                    <input type="text" id="employee-name" class="form-control" placeholder="Name">
+                </section>
+                <section class="form-group col-md-6">
+                    <label for="employee-lastName" class="py-2">Last name</label>
+                    <input type="text" id="employee-lastName" class="form-control" placeholder="Last name">
+                </section>
+            </section>
+            <section id="employee-form_row2" class="row mx-2 my-1">
+                <section class="form-group col-md-6">
+                    <label for="employee-email" class="py-2">Email address</label>
+                    <input type="email" id="employee-email" class="form-control" aria-describedby="emailHelp" placeholder="Email address">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </section>
+                <section class="form-group col-md-6">
+                    <label for="employee-gender" class="py-2">Gender</label>
+                    <select id="employee-gender" class="form-control">
+                        <option selected>Woman</option>
+                        <option>Man</option>
+                        <option>Other</option>
+                    </select>
+                </section>
+            </section>
+            <section id="employee-form_row3" class="row mx-2 my-1">
+                <section class="form-group col-md-6">
+                    <label for="employee-city" class="py-2">City</label>
+                    <input type="text" id="employee-city" class="form-control" placeholder="City">
+                </section>
+                <section class="form-group col-md-6">
+                    <label for="employee-streetAddress" class="py-2">Street Address</label>
+                    <input type="number" id="employee-streetAddress" class="form-control" placeholder="Street address">
+                </section>
+            </section>
+            <section id="employee-form_row4" class="row mx-2 my-1">
+                <section class="form-group col-md-6">
+                    <label for="employee-state" class="py-2">State</label>
+                    <input type="text" id="employee-state" class="form-control" placeholder="State">
+                </section>
+                <section class="form-group col-md-6">
+                    <label for="employee-age" class="py-2">Age</label>
+                    <input type="number" id="employee-age" class="form-control" placeholder="Age">
+                </section>
+            </section>
+            <section id="employee-form_row5" class="row mx-2 my-1">
+                <section class="form-group col-md-6">
+                    <label for="employee-postalCode" class="py-2">Postal Code</label>
+                    <input type="number" id="employee-postalCode" class="form-control" placeholder="Postal code">
+                </section>
+                <section class="form-group col-md-6">
+                    <label for="employee-phoneNumber" class="py-2">Phone Number</label>
+                    <input type="tel" id="employee-phoneNumber" class="form-control" placeholder="Phone number">
+                </section>
+            </section>
+            <section id="employee-form_btn" class="d-flex flex-row align-self-start mx-3 my-3 w-50">
+                <input type="submit" id="employee-form_submit" class="btn btn-primary btn-block mx-1 w-25" value="Submit">
+                <input type="return" id="employee-form_return" class="btn btn-secondary btn-block mx-1 w-25" value="Return">
+            </section>
+        </form>
+    </main>
+</body>
+</html>
