@@ -1,0 +1,83 @@
+.login__form {
+    background-color: #fefefe;
+    margin: 12vh auto 15vh auto;
+    border: 1px solid #888;
+    width: 80vw;
+    max-width: 35rem;
+    border-radius: 5px;
+}
+
+.login__form-div {
+    padding: 2vh;
+    margin-bottom: 3.5vh;
+}
+
+.login__form-div-h2 {
+    font-size: 2rem;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 2.5rem;
+}
+
+.login__form-div-label {
+    padding-top: 2vh;
+    font-size: 1.8rem;
+}
+
+.login__form-div-input {
+    width: 100%;
+    padding: 1vh;
+    font-size: 1.6rem;
+    border: none;
+    display: inline-block;
+    background: linear-gradient(360deg, #dee1e1 10%, #f4f4f4 360%);
+    border-radius: 5px;
+    margin: 1.5vh 0;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+}
+
+.btn {
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 1px solid #888;
+}
+
+.btn:hover {
+    background-color:  var(--middle-dark);
+    opacity:1;
+}
+
+.cancelbtn {
+    float: left;
+    width: 45%;
+}
+
+.loginbtn {
+    float: right;
+    width: 45%;
+}
+
+.clearfix {
+    position: relative;
+    top: 3vh;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.error {
+    color: var(--red-error);
+    text-align: center;
+}
