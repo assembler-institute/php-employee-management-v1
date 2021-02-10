@@ -7,7 +7,7 @@ function addEmployee(array $newEmployee)
     $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
     $employeeExists = false;
     foreach ($employees as $employee) {
-        if ($employee["id"] == $newEmployee['id']) {
+        if ($employee['id'] == $newEmployee['id']) {
             $employeeExists = true;
             break;
         }
@@ -23,7 +23,7 @@ function deleteEmployee(string $id)
 {
     $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
     foreach ($employees as $i => $employee) {
-        if ($employee["id"] == $id) {
+        if ($employee['id'] == $id) {
             unset($employees[$i]);
             $fileData = json_encode(array_values($employees), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             file_put_contents(EMPLOYEES_JSON_PATH, $fileData);
@@ -38,7 +38,7 @@ function updateEmployee(array $updateEmployee)
     $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
     $employeeExists = false;
     foreach ($employees as &$employee) {
-        if ($employee["id"] == $updateEmployee['id']) {
+        if ($employee['id'] == $updateEmployee['id']) {
             $employeeExists = true;
             $employee = $updateEmployee;
             break;
@@ -56,7 +56,7 @@ function getEmployee(string $id)
 {
     $employees = json_decode(file_get_contents(EMPLOYEES_JSON_PATH), true);
     foreach ($employees as $i => $employee) {
-        if ($employee["id"] == $id) {
+        if ($employee['id'] == $id) {
             return json_encode($employees[$i], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n";
         }
     }
