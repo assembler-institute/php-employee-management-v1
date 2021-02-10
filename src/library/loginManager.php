@@ -1,12 +1,11 @@
 <?php
 session_start();
-//define( 'USERS_JSON_PATH', $_SERVER[ 'DOCUMENT_ROOT' ] . "/php-employee-mangement-v1/resources/users.json" );
 
-print_r( logIn( 'admin@assemblerschool.com' , '123456' ) );
+define( 'USERS_JSON_PATH', $_SERVER[ 'DOCUMENT_ROOT' ] . "/php-employee-management-v1/resources/users.json" );
 
 function getUser( string $userEmail )
 {
-    $users = json_decode( file_get_contents( "../../resources/users.json" ) ) -> users;
+    $users = json_decode( file_get_contents( USERS_JSON_PATH ) ) -> users;
 
     foreach ( $users as $user) {
         if( $user -> email === $userEmail ){
@@ -40,7 +39,7 @@ function logIn( string $userEmail, string $password ) : bool
     }
 }
 
-function logOut( )
+function logOut() :bool
 {
-    //toDo 
+    return session_destroy();
 }
