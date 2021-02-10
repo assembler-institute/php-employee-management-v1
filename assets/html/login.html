@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
 </head>
-<body>
-    <main id="login">
-        <form id="login_form" action="" method="">
-            <input type="email" id="login_form_email" placeholder="Email address" autofocus required>
-            <input type="password" id="login_form_password" placeholder="Password" required>
-            <input type="submit" id="login_form_sign-in" value="Sign in">
+<body class="d-flex flex-column h-100 w-100">
+    <header id="header-footer" class="align-self-center mt-2 w-25">
+        <img id="header-footer_img"  src="./assets/css/img/login.svg" alt="employee-management">
+    </header>
+    <main id="login-main" class="d-flex flex-column w-100">
+        <form id="login_form" class="form-signin align-self-center my-5 mx-2 w-25" action="" method="">
+            <input type="email" id="login_form_email" class="form-control py-1 my-1" placeholder="Email address" autofocus required>
+            <input type="password" id="login_form_password" class="form-control py-1 my-1" placeholder="Password" required>
+            <input type="submit" id="login_form_sign-in" class="btn btn-primary btn-block mt-3 w-100" value="Sign in">
         </form>
     </main>
+    <footer id="login-footer" class="fixed-bottom">
+        <p class="text-center mt-1"><small>&copy; Ignacio Fernández and Estefanía Cordeiro</small></p>
+    </footer>
 </body>
 </html>
