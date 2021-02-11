@@ -1,0 +1,9 @@
+@import 'login.css';
+@import 'main.css';
+@import 'nav.css';
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
