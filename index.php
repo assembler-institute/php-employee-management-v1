@@ -11,26 +11,7 @@
 </head>
 <body>
     <?php include_once('./assets/html/loginForm.html'); ?>
-    <?php if (!isset($_GET['login'])) {
-                exit();
-        }
-        else {
-            $loginCheck = $_GET['login'];
-
-            if ($loginCheck == "empty") {
-                echo '<p class="error">Please fill all the fields</p>';
-                exit();
-            }
-            elseif ($loginCheck == "invalidemail") {
-                echo '<p class="error">Please write a valid email</p>';
-                exit();
-            }
-            elseif ($loginCheck == "invaliduser") {
-                echo '<p class="error">Incorrect user credentials</p>';
-                exit();
-            }
-        }
-    ?>
+    <?php include_once('./src/library/errorHandler.php'); ?>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>

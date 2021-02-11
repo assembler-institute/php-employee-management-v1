@@ -1,6 +1,7 @@
 <!-- File to handle all HTTP request of login interactions -->
 
 <?php
+    require_once('loginManager.php');
     //We are checking if the user has clicked the login button
     if (isset($_POST['submit'])) {
 
@@ -10,20 +11,25 @@
 
         // Checking if the inputs are empty
         if (empty($email) || empty($password)) {
-            header("Location: ../../index.php?login=empty");
+            setErrorMessage("empty");
+            // header("Location: ../../index.php?login=empty");
+            exit();
+        }
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            //Checking if email is valid
+            setErrorMessage("invalidemail");
+            // header("Location: ../../index.php?login=invalidemail");
+            exit();
+        }
+        elseif (verifyUser($email, $password)) {
+            //Checking if this user is valid
+            header("Location: ../dashboard.php");
             exit();
         }
         else {
-            //Checking if email is valid
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                header("Location: ../../index.php?login=invalidemail");
-                exit();
-            }
-            else {
-                include_once('loginManager.php');
-                verifyUser($email, $password);
-                exit();
-            }
+            setErrorMessage("invaliduser");
+            // header("Location: ../../index.php?login=invaliduser");
+            exit();
         }
     }
     else {
