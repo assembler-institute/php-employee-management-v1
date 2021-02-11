@@ -1,4 +1,5 @@
 <!-- TODO Application entry point. Login view -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +9,17 @@
     <title>Employee Management</title>
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/error.css">
 </head>
 <body>
+    <?php if (isset($_GET['login'])) {
+            $loginCheck = $_GET['login'];
+            echo '<aside class="login__error">
+                    <p class="error">'.$loginCheck.'</p>
+                </aside>';
+        }
+    ?>
     <?php include_once('./assets/html/loginForm.html'); ?>
-    <?php include_once('./src/library/errorHandler.php'); ?>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
