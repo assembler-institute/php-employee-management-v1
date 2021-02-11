@@ -40,4 +40,3 @@ $(window).ready(function(){
 
 });
 
-export default;

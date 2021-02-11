@@ -1,3 +1,29 @@
 h1{
     color:red;
 }
+
+.footer {
+    
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: lightgray;
+    color: black;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: lightgray;
+}
+
+.header-info{
+    display: flex;
+    
+}
+.header-info p{
+    margin-right: 10px;
+}
