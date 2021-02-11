@@ -14,6 +14,8 @@
 
 <body class='employee'>
     <?php include('../assets/html/header.html'); ?>
+
+    <?php include('../assets/html/footer.html'); ?>
 </body>
 
 </html>
