@@ -2,7 +2,7 @@
 
 define("EMPLOYEES_JSON_PATH", $_SERVER["DOCUMENT_ROOT"] . "/php-employee-management-v1/resources/employees.json");
 
-require_once('./employeeHelper.php');
+require('employeeHelper.php');
 
 function addEmployee(array $newEmployee)
 {
