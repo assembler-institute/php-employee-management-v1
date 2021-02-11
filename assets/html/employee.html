@@ -14,7 +14,7 @@
             <section id="employee-form_row1" class="row mx-2 my-1">
                 <section class="form-group col-md-6">
                     <label for="employee-name" class="py-2">Name</label>
-                    <input type="text" id="employee-name" class="form-control" placeholder="Name">
+                    <input type="text" id="employee-name" class="form-control" placeholder="Name" required>
                 </section>
                 <section class="form-group col-md-6">
                     <label for="employee-lastName" class="py-2">Last name</label>
@@ -24,13 +24,14 @@
             <section id="employee-form_row2" class="row mx-2 my-1">
                 <section class="form-group col-md-6">
                     <label for="employee-email" class="py-2">Email address</label>
-                    <input type="email" id="employee-email" class="form-control" aria-describedby="emailHelp" placeholder="Email address">
+                    <input type="email" id="employee-email" class="form-control" aria-describedby="emailHelp" placeholder="Email address" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </section>
                 <section class="form-group col-md-6">
                     <label for="employee-gender" class="py-2">Gender</label>
-                    <select id="employee-gender" class="form-control">
-                        <option selected>Woman</option>
+                    <select id="employee-gender" class="form-select">
+                        <option selected></option>
+                        <option>Woman</option>
                         <option>Man</option>
                         <option>Other</option>
                     </select>
@@ -39,31 +40,31 @@
             <section id="employee-form_row3" class="row mx-2 my-1">
                 <section class="form-group col-md-6">
                     <label for="employee-city" class="py-2">City</label>
-                    <input type="text" id="employee-city" class="form-control" placeholder="City">
+                    <input type="text" id="employee-city" class="form-control" placeholder="City" required>
                 </section>
                 <section class="form-group col-md-6">
                     <label for="employee-streetAddress" class="py-2">Street Address</label>
-                    <input type="number" id="employee-streetAddress" class="form-control" placeholder="Street address">
+                    <input type="text" id="employee-streetAddress" class="form-control" placeholder="Street address" required>
                 </section>
             </section>
             <section id="employee-form_row4" class="row mx-2 my-1">
                 <section class="form-group col-md-6">
                     <label for="employee-state" class="py-2">State</label>
-                    <input type="text" id="employee-state" class="form-control" placeholder="State">
+                    <input type="text" id="employee-state" class="form-control" placeholder="State" required>
                 </section>
                 <section class="form-group col-md-6">
                     <label for="employee-age" class="py-2">Age</label>
-                    <input type="number" id="employee-age" class="form-control" placeholder="Age">
+                    <input type="number" id="employee-age" class="form-control" placeholder="Age" required>
                 </section>
             </section>
             <section id="employee-form_row5" class="row mx-2 my-1">
                 <section class="form-group col-md-6">
                     <label for="employee-postalCode" class="py-2">Postal Code</label>
-                    <input type="number" id="employee-postalCode" class="form-control" placeholder="Postal code">
+                    <input type="number" id="employee-postalCode" class="form-control" placeholder="Postal code" required>
                 </section>
                 <section class="form-group col-md-6">
                     <label for="employee-phoneNumber" class="py-2">Phone Number</label>
-                    <input type="tel" id="employee-phoneNumber" class="form-control" placeholder="Phone number">
+                    <input type="tel" id="employee-phoneNumber" class="form-control" placeholder="Phone number" required>
                 </section>
             </section>
             <section id="employee-form_btn" class="d-flex flex-row align-self-start mx-3 my-3 w-50">
@@ -72,5 +73,6 @@
             </section>
         </form>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 </html>
