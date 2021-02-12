@@ -1,27 +1,20 @@
 .login__form {
-    background-color: #fefefe;
     margin: 12vh auto 15vh auto;
-    border: 1px solid var(--light-dark);
+    border: 3px solid var(--green);
     width: 80vw;
     max-width: 35rem;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    background-color: var(--green);
 }
 
 .login__form-div {
-    padding: 2vh;
-    margin-bottom: 3.5vh;
-}
-
-.login__form-div-h2 {
-    font-size: 2rem;
-}
-
-hr {
-    border: 0.3px solid var(--light-dark);
-    margin-bottom: 2.5rem;
+    background-color: #fefefe;
+    margin-top: 6vh;
+    padding: 3.6vh 2vh;
 }
 
 .login__form-div-label {
+    color: var(--dark);
     padding-top: 2vh;
     font-size: 1.8rem;
 }
@@ -39,6 +32,7 @@ hr {
 
 input[type=email]:focus, input[type=password]:focus, input[type=submit]:focus, input[type=reset]:focus {
     outline: none;
+	border: 1px solid var(--light-dark);
 }
 
 .btn {
@@ -48,7 +42,8 @@ input[type=email]:focus, input[type=password]:focus, input[type=submit]:focus, i
     font-size: 1.3rem;
     font-weight: 700;
     border-radius: 5px;
-    border: 1px solid var(--light-dark);
+    border: 2px solid rgb(226, 226, 226);
+    background-color: transparent;
 }
 
 .btn:hover {
