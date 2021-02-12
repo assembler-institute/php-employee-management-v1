@@ -1,5 +1,25 @@
+.section-employee {
+	max-width: 800px;
+	width: 90%;
+	margin: auto;
+	padding: 40px;
+}
+
 .employee {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
+}
+
+.employee__label {
+	display: block;
+	font-weight: 700;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.employee__input:focus {
+	border: 2px solid var(--green);
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
