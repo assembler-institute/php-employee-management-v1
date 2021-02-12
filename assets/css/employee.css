@@ -6,17 +6,14 @@ html {
 #employee-form {
     width: 100%;
     max-width: 900px;
-    border: 1px solid red;
 }
 
 @media (max-width: 630px) {
     #employee-form_btn {
-        border: 1px solid red;
         width: 85% !important;
     }
     #employee-form_submit, #employee-form_return {
         width: 50% !important;
-        /* align-items: space-between; */
         justify-content: center;
     }
 }

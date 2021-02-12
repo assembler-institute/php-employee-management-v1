@@ -58,3 +58,7 @@
     font-weight: 700;
     padding-right: 50px;
 }
+
+.footer {
+    position: fixed;
+}
