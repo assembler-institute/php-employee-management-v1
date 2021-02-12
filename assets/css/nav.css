@@ -3,9 +3,10 @@ header {
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
+    height: 10vh;
     background-color: brown;
 }
-.title {
+.title, h4 {
     color: rgb(226, 226, 226);
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -29,4 +30,6 @@ header {
 header button, .searchBar__submit {
     padding: 3px 25px;
     text-transform: uppercase;
+    margin: 5px;
+    font-weight: bold;
 }

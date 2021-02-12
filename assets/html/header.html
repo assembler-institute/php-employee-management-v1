@@ -1,25 +1,22 @@
-<section class="searchBar-container">
-    <form class="searchBar" action="index.php" method="get">
-        <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
-        <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
-    </form> 
-</section>
-<nav class="sections-container">
+<header class="header">
     <section class="title">
         <h4>Employees Manager</h4>
     </section>
-    <ul>
-        <li>
-            <a href="#">Login</a>
-        </li>
-        <li>
-            <a href="#">Dashboard</a>
-        </li>
-        <li>
-            <a href="#">Employee</a>
-        </li>
+
+    <ul class="nav-links">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Employee</a></li>
     </ul>
-</nav>
-<section class="logout-container">
-    <button id="logout"> Log Out </button>
-</section>
+    
+    <section class="searchBar-container">
+        <form class="searchBar" action="index.php" method="get">
+            <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
+            <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
+        </form> 
+        </section>
+
+    <section class="logout-container">
+        <button id="logout"> Log Out </button>
+    </section>
+</header>
