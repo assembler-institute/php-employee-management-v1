@@ -18,7 +18,10 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
     if($returnValidate === true) {
         $url = "../dashboard.php";
         header('Location: ' . $url);
+        exit();
     } else {
-
+        $url = "../../index.php";
+        header("Refresh: 0; URL=$url?error=LoginIncorrect");
+        exit();
     }
 }
