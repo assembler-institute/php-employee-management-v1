@@ -1,14 +1,24 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-<?php
-    //session_start();
-    //$userName = $_SESSION["username"];
-    //echo $userName;
-    $jsondata = file_get_contents("./resources/employees.json");
-    $json = json_decode($jsondata, true);
-    $output = 
-        "<table>
-            <tr>
-                <th>";
-    foreach($json as $employee){
-    }
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashbord</title>
+</head>
+<body>
+    <?php
+        include_once("./library/sessionHelper.php");
+
+        session_start();
+        $sessionStart = $_SESSION["start"];
+        $sessionDuration = $_SESSION["duration"];
+        $sessionTime = time() - $sessionStart;
+
+        if(isset($_SESSION["id"])){
+            closeUserSession($sessionTime, $sessionDuration);
+        }
+    ?>
+</body>
+</html>

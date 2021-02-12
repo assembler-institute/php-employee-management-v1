@@ -1,0 +1,15 @@
+.login__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+    background-color: var(--green);
+}
+
+.error {
+    color: var(--white-title);
+    padding: 10px auto;
+    font-size: 2rem;
+    font-weight: 600;
+}
