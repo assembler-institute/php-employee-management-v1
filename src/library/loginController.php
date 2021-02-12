@@ -13,15 +13,15 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
     $userPassword = $_POST["password"];
 
     //Validation email and password true or false?
-    $returnValidate = validateUser($userEmail, $userPassword);
+    $validationCredentials = validateUser($userEmail, $userPassword);
     //Redirect if true or false
-    if($returnValidate === true) {
+    if($validationCredentials === true) {
         $url = "../dashboard.php";
         header('Location: ' . $url);
         exit();
     } else {
         $url = "../../index.php";
-        header("Refresh: 0; URL=$url?error=LoginIncorrect");
+        header("Refresh: 0; URL=$url?error=Login incorrect!");
         exit();
     }
 }

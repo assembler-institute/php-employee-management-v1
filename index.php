@@ -16,9 +16,13 @@
 <body class="d-flex flex-column h-100 w-100">
 
     <?php
-    //Error login incorrect
+    //Errors
     if(isset($_GET['error'])) {
-        echo "<p id=error-login class='bg-white fixed-top py-2 text-danger text-center'>Incorrect credentials!</p>";
+        if($_GET['error'] === "Login incorrect!") {
+            echo "<p id=error-login class='bg-white fixed-top py-2 text-danger text-center'>Incorrect credentials!</p>";
+        } elseif ($_GET['error'] === "Session expired!") {
+            echo "<p id=error-login class='bg-white fixed-top py-2 text-danger text-center'>Session expired, please login again.</p>";
+        }
     }
 
     include "./assets/html/login.html";
