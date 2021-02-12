@@ -41,26 +41,26 @@
                 <a href="#">Employee</a>
             </li>
         </ul>
-    
-      <section class="searchBar-container">
-          <form class="searchBar" action="index.php" method="get">
-              <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
-              <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
-          </form> 
-      </section>
-      <section class="logout-container">
-          <button id="logout"> Log Out </button>
-      </section>
-  </header>
-  <main class="main-container">
-      <div id="JsGrid"></div>
+
+        <section class="searchBar-container">
+            <form class="searchBar" action="index.php" method="get">
+                <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
+                <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
+            </form>
+        </section>
+        <section class="logout-container">
+            <button id="logout"> Log Out </button>
+        </section>
+    </header>
+    <main class="main-container">
+        <div id="JsGrid"></div>
     <section class="main">
     </section>
-  </main>
+    </main>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
 

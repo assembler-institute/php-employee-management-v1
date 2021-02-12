@@ -1,67 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee</title>
-</head>
-<body>
-    <section>
-        <form action="" class="employee" id="employee">
-			<div class="employee__grupo" id="grupo__name">
-				<label for="name" class="employee__label">Name</label>
-                <input type="text" class="employee__input" name="name" id="name" placeholder="Enter your name">
-			</div>
-
-			<!-- Grupo: Surname -->
-			<div class="employee__grupo" id="grupo__surname">
-				<label for="surname" class="employee__label">Surname</label>
-                <input type="text" class="employee__input" name="surname" id="surname" placeholder="John Doe">
-			</div>
-
-            <!-- Grupo: Correo Electronico -->
-            <div class="employee__grupo" id="grupo__correo">
-                <label for="correo" class="employee__label">Email address</label>
-                <input type="email" class="employee__input" name="correo" id="correo" placeholder="correo@correo.com">
-            </div>
-
-			<!-- Grupo: Contraseña -->
-			<div class="employee__grupo" id="grupo__password">
-				<label for="password" class="employee__label">Contraseña</label>
-                <input type="password" class="employee__input" name="password" id="password">
-			</div>
-
-			<!-- Grupo: Contraseña 2 -->
-			<div class="employee__grupo" id="grupo__password2">
-				<label for="password2" class="employee__label">Repetir Contraseña</label>
-                <input type="password" class="employee__input" name="password2" id="password2">
-			</div>
-
-
-			<!-- Grupo: Teléfono -->
-			<div class="employee__grupo" id="grupo__telefono">
-				<label for="telefono" class="employee__label">Teléfono</label>
-                <input type="text" class="employee__input" name="telefono" id="telefono" placeholder="4491234567">
-			</div>
-
-			<!-- Grupo: Terminos y Condiciones -->
-			<div class="employee__grupo" id="grupo__terminos">
-				<label class="employee__label">
-					<input class="employee__checkbox" type="checkbox" name="terminos" id="terminos">
-					Acepto los Terminos y Condiciones
-				</label>
-			</div>
-
-			<div class="employee__mensaje" id="employee__mensaje">
-				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el employee correctamente. </p>
-			</div>
-
-			<div class="employee__grupo employee__grupo-btn-enviar">
-				<button type="submit" class="employee__btn">Enviar</button>
-				<p class="employee__mensaje-exito" id="employee__mensaje-exito">Formulario enviado exitosamente!</p>
-			</div>
-		</form>
-    </section>
-</body>
-</html>
+<section>
+    <form action="" class="employee" id="employee">
+		<div class="employee__grupo" id="grupo__name">
+			<label for="name" class="employee__label">Name</label>
+            <input type="text" class="employee__input" name="name" id="name" placeholder="Enter your name">
+		</div>
+		<!-- Grupo: Surname -->
+		<div class="employee__grupo" id="grupo__surname">
+			<label for="surname" class="employee__label">Surname</label>
+            <input type="text" class="employee__input" name="surname" id="surname" placeholder="John Doe">
+		</div>
+        <!-- Grupo: Correo Electronico -->
+        <div class="employee__grupo" id="grupo__correo">
+            <label for="correo" class="employee__label">Email address</label>
+            <input type="email" class="employee__input" name="correo" id="correo" placeholder="correo@correo.com">
+        </div>
+		<!-- Grupo: Contraseña -->
+		<div class="employee__grupo" id="grupo__password">
+			<label for="password" class="employee__label">Contraseña</label>
+            <input type="password" class="employee__input" name="password" id="password">
+		</div>
+		<!-- Grupo: Contraseña 2 -->
+		<div class="employee__grupo" id="grupo__password2">
+			<label for="password2" class="employee__label">Repetir Contraseña</label>
+            <input type="password" class="employee__input" name="password2" id="password2">
+		</div>
+		<!-- Grupo: Teléfono -->
+		<div class="employee__grupo" id="grupo__telefono">
+			<label for="telefono" class="employee__label">Teléfono</label>
+            <input type="text" class="employee__input" name="telefono" id="telefono" placeholder="4491234567">
+		</div>
+		<!-- Grupo: Terminos y Condiciones -->
+		<div class="employee__grupo" id="grupo__terminos">
+			<label class="employee__label">
+			<input class="employee__checkbox" type="checkbox" name="terminos" id="terminos">
+				Acepto los Terminos y Condiciones
+			</label>
+		</div>
+		<div class="employee__mensaje" id="employee__mensaje">
+			<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el employee correctamente. </p>
+		</div>
+		<div class="employee__grupo employee__grupo-btn-enviar">
+			<button type="submit" class="employee__btn">Enviar</button>
+			<p class="employee__mensaje-exito" id="employee__mensaje-exito">Formulario enviado exitosamente!</p>
+		</div>
+	</form>
+</section>
