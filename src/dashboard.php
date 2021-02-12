@@ -20,6 +20,16 @@
 
 <body>
     <?php
+    session_start();
+
+    if (isset($_SESSION["userId"])){
+        require("./library/sessionHelper.php");
+    }else{
+        $url = '../index.php';
+        header("Refresh: 0; URL=$url?error=You aren't logged in");
+        exit();
+    }
+
     include '../assets/html/header.html';
     include '../assets/html/dashboard.html';
     include '../assets/html/footer.html';
@@ -28,7 +38,3 @@
     <script src="../assets/js/dashboard.js"></script>
 </body>
 </html>
-
-<?php
-
-

@@ -14,18 +14,37 @@ function validateUser($userEmail, $userPassword) {
     foreach ($users["users"] as $user) {
         //Match email and verify password matches a hash
         if($user["email"] === $userEmail && password_verify($userPassword, $user["password"])) {
-            $matchResult = true;
+            $matchCredentials = true;
+            saveSession($user);
+            echo'<pre>';
+            print_r($_SESSION);
         } else {
-            $matchResult = false;
+            $matchCredentials = false;
         }
     }
-    return $matchResult;
+    return $matchCredentials;
 }
 
-function saveSession() {
-
+function saveSession($user) {
+    session_start();
+    //Create session variables
+    $_SESSION["userId"] = $user["userId"];
+    $_SESSION["name"] = $user["name"];
+    $_SESSION["password"] = $user["password"];
+    $_SESSION["email"] = $user["email"];
+    $_SESSION["time"] = time();
+    $_SESSION["lifeTime"] = 10;
 }
 
-function logout() {
+function logout($errorMessage) {
+    if($errorMessage) {
+        $url = "../index.php";
+        header('Location: ' . $url . "?error=Session expired!");
+        exit();
+    }
+    echo $errorMessage;
 
+    /* $url = "../index.php";
+    header('Location: ' . $url . "?error=Session expired!");
+    exit(); */
 }
