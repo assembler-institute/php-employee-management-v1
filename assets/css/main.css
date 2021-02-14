@@ -70,6 +70,7 @@ body{
     display:none;
 }
 
+
 /*-----footer-----*/
 
 footer{
@@ -94,3 +95,151 @@ footer > p > a{
 footer > p > a:hover, footer > p > a:focus{
     text-decoration: underline;
 }
+
+
+
+
+
+
+/*-----Modal-----*/
+.avatarModal__background{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    top: 0;
+    left:0;
+    background-color: #feffff55;
+}
+.avatarModal{
+    background-color: var(--dark);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #0008;
+    height: 90vh;
+    margin: 5vh auto;
+    max-width: 510px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+    position: relative;
+    width: 80vw;
+}
+
+.avatarModal__close{
+    background-color: #0000;
+    border:none;
+    color: var(--smooth);
+    cursor: pointer;
+    left: 0;
+    margin: 0.5em;
+    position: absolute;
+    top: 0;
+}
+
+.avatarModal__close:hover, .avatarModal__close:focus{
+    color: var(--light);
+    outline:none;
+}
+
+.avatarModal__image{
+    width:fit-content;
+    margin: 20px auto;
+}
+
+#avatarOptions{
+    color:#feffff;
+    background-color: #2b7a78;
+    border-radius: 10px;
+    font-size: large;
+    font-family: 'Lato', sans-serif;
+    margin: 10px;
+    border:none;
+    border: 2px solid #0000;
+    text-transform: capitalize;
+}
+
+#avatarOptions:focus, #avatarOptions:hover{
+    border: 2px solid var(--light);
+    cursor: pointer;
+    outline:none;
+}
+.avatarModal__results__button{
+    padding:0;
+    width: 105px;
+    margin: 10px;
+    background-color: var(--secondary);
+    border: 2px solid #0000;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px #0008;
+}
+
+.avatarModal__results__button:hover, .avatarModal__results__button:focus{
+    border: 2px solid var(--smooth);
+    box-shadow: 1px 1px 5px #0008;
+    cursor: pointer;
+    outline: none;
+}
+.avatarModal__colors{
+    margin: 5px;
+}
+.avatarModal__colors > p{
+    color:var(--light);
+    font-size: x-large;
+    font-family: 'Lato', sans-serif;
+    margin-left: 10px;
+}
+.avatarModal__hairColors > p{
+    color:var(--light);
+    font-size: x-large;
+    font-family: 'Lato', sans-serif;
+    margin-left: 10px;
+}
+.avatarModal__colors__button{
+    border:none;
+    border-radius: 50%;
+    border: 2px solid #0000;
+    margin: 5px;
+    width:60px;
+    height:60px;
+    box-shadow: 2px 2px 10px #0008;
+}
+
+.avatarModal__colors__button:hover, .avatarModal__colors__button:focus{
+    border: 2px solid var(--light);
+    box-shadow: 0px 0px 5px var(--light);
+    cursor: pointer;
+    outline: none;
+}
+path, g, mask, svg{
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+/*-----ScrollBars-----*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--dark);
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--main); 
+  }

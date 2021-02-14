@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    <script src="../assets/js/employee.js" type="module"></script>
     <title>Employee</title>
 </head>
 
-<body class='employee'>
+<body class='employee' id='employee'>
     <?php include('../assets/html/header.html'); ?>
-
+    <div id='image'></div>
     <?php include('../assets/html/footer.html'); ?>
+    
 </body>
 
 </html>
