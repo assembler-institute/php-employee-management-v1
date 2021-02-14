@@ -37,7 +37,7 @@
             height: "400px",
 
             inserting: true,
-            editing: true,
+            editing: false,
             sorting: true,
             paging: true,
 
@@ -49,7 +49,7 @@
                 { name: "Address", type: "text", width: 200 },
                 { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
                 { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-                { type: "control" }
+                { type: "control", editButton: false }
             ]
         });
     </script>
