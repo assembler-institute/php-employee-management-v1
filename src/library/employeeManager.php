@@ -23,12 +23,10 @@ function updateEmployee(array $updateEmployee)
     $url = '../../resources/employees.json'; // path to your JSON file
     $data = file_get_contents($url); // put the contents of the file into a variable
     $employees = json_decode($data, true); // decode the JSON to key value array
-    print_r($employees[$updateEmployee['id'] - 1]);
-    echo "<br>";
-    print_r($updateEmployee);
-    echo "<br>";
-    print_r(array_replace($employees[$updateEmployee['id'] - 1],$updateEmployee));
-
+    $employees[$updateEmployee['id'] - 1] = array_replace($employees[$updateEmployee['id'] - 1],$updateEmployee);
+    $updatedEmployeesJson = json_encode($employees);
+    $result = file_put_contents($url, $updatedEmployeesJson);
+    return $result;
 }
 
 

@@ -5,5 +5,11 @@
     if (isset($_POST['submit'])) {
         unset($_POST['submit']);
         // print_r($_POST);
-        updateEmployee($_POST);
+        // updateEmployee($_POST);
+        if (updateEmployee($_POST)){
+            echo "true";
+        }
+        else {
+            
+        }
     }

@@ -17,8 +17,8 @@
         <form action="./library/employeeController.php" method="POST" class="employee" id="employee">
             <div class="employee__grupo" id="grupo__name">
                 <label for="name" class="employee__label">First name</label>
-                <input type="text" class="employee__input" name="name" id="name" value="'.getEmployee('2')['name'].'">
                 <input type="hidden" name="id" id="id" value="'.getEmployee('2')['id'].'">
+                <input type="text" class="employee__input" name="name" id="name" value="'.getEmployee('2')['name'].'">
             </div>
             <div class="employee__grupo" id="grupo__lastName">
                 <label for="lastName" class="employee__label">Last name</label>
