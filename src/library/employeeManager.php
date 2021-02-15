@@ -5,6 +5,18 @@
  * @author: Jose Manuel Orts
  * @date: 11/06/2020
  */
+    // if(isset($_POST['data'])) {
+    //     $currentData = file_get_contents('../../resources/employees.json');
+    //     //echo "'<script>console.log(".$currentData.")</script>'";
+    //     echo $currentData;
+    // }
+
+
+
+function getEmployeesData() {
+    $json_data = file_get_contents('../../resources/employees.json');
+    return $json_data;
+}
 
 function addEmployee(array $newEmployee)
 {
@@ -15,6 +27,9 @@ function addEmployee(array $newEmployee)
 function deleteEmployee(string $id)
 {
 // TODO implement it
+    $json_data = file_get_contents('../../resources/employees.json');
+    return $json_data;
+
 }
 
 
@@ -27,6 +42,7 @@ function updateEmployee(array $updateEmployee)
 function getEmployee(string $id)
 {
 // TODO implement it
+    
 }
 
 

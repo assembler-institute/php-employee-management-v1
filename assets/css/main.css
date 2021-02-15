@@ -1,6 +1,10 @@
+@import 'input-bar.css';
+
 .container{
     max-width: 1200px;
     margin: 0 auto;
+    overflow: scroll;
+
 }
 
 .footer {
@@ -16,7 +20,7 @@
     height: 50px;
     background: lightgray;
     color: black;
-    background: rgb(238, 234, 234);
+    background: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px 0;
 
 }
@@ -58,3 +62,19 @@
     font-weight: 700;
     padding-right: 50px;
 }
+
+.table{
+    margin: 20px 0;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px 0;
+}
+tr{
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* .click-none{
+    pointer-events: none;
+} */
+
