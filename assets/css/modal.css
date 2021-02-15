@@ -1,0 +1,145 @@
+
+.modal-wrapper {
+    position: fixed;
+    z-index: 1;
+    background-color: #17252a38;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.modal-wrapper.appearing {
+    animation: fadeIn 0.3s forwards;
+}
+
+.modal-wrapper.disappearing {
+    animation: fadeOut 0.3s forwards;
+}
+
+.modal-container {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.modal__input {
+    color:#feffff;
+    background-color: #2b7a78;
+    border-radius: 10px;
+    font-size: large;
+    font-family: 'Lato', sans-serif;
+    margin: 10px;
+    border: 2px solid #0000;
+}
+
+.modal__input:hover, .modal__input:focus {
+    border: 2px solid var(--light);
+    outline: none;
+}
+
+.add-modal {
+    padding: 30px;
+    color: var(--light);
+    border: 4px solid black;
+}
+
+.add-modal .modal-title {
+    text-align: center;
+    margin-top: 0;
+}
+
+.add-modal form {
+}
+
+.labeled-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-modal form .fields {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+
+}
+
+.add-modal form input[type="submit"] {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.deletion-modal-container {
+    border: 3px solid var(--dark);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: deletionAppear 0.6s forwards;
+}
+
+.deletion-modal {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 16px;
+}
+
+.deletion-modal .message {
+    color: var(--light);
+}
+
+.deletion-modal .message .employee {
+    color: var(--main);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.deletion-modal .message .employee:hover {
+    color: var(--light);
+}
+
+.deletion-modal .button__delete {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.deletion-modal .button__close {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: 0;
+    color: var(--dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes deletionAppear {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 600px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

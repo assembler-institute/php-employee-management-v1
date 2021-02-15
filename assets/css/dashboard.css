@@ -1,0 +1,123 @@
+.main {
+    background-color: var(--dark);
+}
+
+#table-wrapper {
+	overflow: hidden;
+}
+
+.gridjs-container {
+    font-family: 'Lato', sans-serif;
+}
+
+.gridjs-tbody {
+	cursor: pointer;
+}
+
+.gridjs-tbody > .gridjs-tr:hover .gridjs-td {
+	background-color: var(--smooth);
+}
+
+.gridjs-search {
+	margin-left: 80px;
+}
+
+.material-icons.gridjs-search-icon {
+	position: absolute;
+	color: #a3b1b7;
+	cursor: pointer;
+	font-size: 32px;
+	top: 13px;
+	left: 97px;
+	transition: color 0.4s;
+}
+
+.gridjs-search .gridjs-search-input {
+	padding-left: 43px;
+	width: 0;
+	transition: width 0.6s, padding-left 0.6s;
+	cursor: pointer;
+	
+}
+
+.gridjs-search .gridjs-search-input.unfolded {
+	width: 250px;
+	padding-left: 53px;
+	cursor: text;
+}
+
+.gridjs-search .gridjs-search-input:focus ~ i {
+	color:var(--dark);
+}
+
+.gridjs-td[data-column-id='email'] {
+	width: fit-content;
+}
+
+.gridjs-td[data-column-id='age'], 
+.gridjs-td[data-column-id='state'],
+.gridjs-td[data-column-id='phoneNumber'],
+.gridjs-td[data-column-id='delete'],
+.gridjs-th[data-column-id='delete']
+{
+	text-align: center;
+}
+
+.gridjs-td[data-column-id='email'] .email-wrapper {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+}
+
+.gridjs-td[data-column-id='email'] .email-wrapper span {
+	overflow: hidden;
+}
+
+.gridjs-td a {
+	margin-left: auto;
+	color: var(--secondary);
+	cursor: pointer;
+	font-size: x-large;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.gridjs-td a:visited {
+	color: var(--secondary);
+}
+
+.gridjs-td a:focus, .gridjs-td a:hover {
+	color: var(--main);
+	text-decoration: underline;
+}
+
+.gridjs-td[data-column-id='delete'] {
+	text-align: center;
+}
+
+.gridjs-th[data-column-id='delete'] button,
+.gridjs-td[data-column-id='delete'] button {
+	background-color: transparent;
+	color: var(--secondary);
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: x-large;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.gridjs-th[data-column-id='delete'] button {
+	color: green;
+}
+
+.gridjs-th button:visited,
+.gridjs-td button:visited {
+	color: var(--secondary);
+}
+
+.gridjs-th button:focus, .gridjs-th button:hover,
+.gridjs-td button:focus, .gridjs-td button:hover {
+	color: var(--main);
+	text-decoration: underline;
+}
