@@ -9,15 +9,15 @@ const columns = [
 	},
 	{
 		name: 'Name',
-		width: '20%',
+		width: 'auto',
 	},
 	{
 		name: 'Role',
-		width: '20%',
+		width: 'auto',
 	},
 	{
 		name: 'Email',
-		width: '17%',
+		width: 'auto',
 		formatter: (_, row) =>
 			html(`
 				<div class="email-wrapper">
@@ -27,15 +27,15 @@ const columns = [
 	},
 	{
 		name: 'Age',
-		width: '5%',
+		width: 'auto',
 	},
 	{
 		name: 'City',
-		width: '8%',
+		width: 'auto',
 	},
 	{
 		name: 'Phone Number',
-		width: '8%',
+		width: 'auto',
 	},
 	{
 		name: h(
@@ -46,7 +46,7 @@ const columns = [
 			},
 			'person_add'
 		),
-		width: '60px',
+		width: 'auto',
 		id: 'delete',
 		formatter: (_, row) =>
 			h(
@@ -88,6 +88,7 @@ const grid = new Grid({
 	editing: true,
 	columns: columns,
 	server: server,
+	width: '80vw',
 });
 
 grid.render(document.getElementById('table-wrapper'));

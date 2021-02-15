@@ -1,53 +1,105 @@
 .main {
-    background-color: var(--dark);
+    background-color: var(--secondary);
 }
 
 #table-wrapper {
 	overflow: hidden;
+	text-align: center;
+	 margin:20px;
+
+}
+
+.gridjs-wrapper{
+	border-radius: 0 8px 0 0;
+	
+	
 }
 
 .gridjs-container {
     font-family: 'Lato', sans-serif;
+	margin: 0 auto;
+}
+
+.gridjs-table{
+	margin: 0 auto;
 }
 
 .gridjs-tbody {
 	cursor: pointer;
 }
-
+th.gridjs-th{
+	background-color: var(--smooth);
+	color: var(--dark);
+}
+.gridjs-td{
+	border: 1px solid black;
+}
 .gridjs-tbody > .gridjs-tr:hover .gridjs-td {
 	background-color: var(--smooth);
 }
-
+.gridjs-head{
+	margin-bottom: 0;
+	width: fit-content;
+	border-radius: 8px 8px 0 0;
+	background-color: var(--light);
+	margin-top: 40px;
+	height: 10px;
+	overflow: hidden;
+	transition: all 0.5s ease-in-out;
+}
+.gridjs-head:focus, .gridjs-head:hover {
+	margin-top: 00px;
+	height: 50px;
+	overflow: hidden;
+	transition: all 0.5s ease-in-out;
+	background-color: var(--smooth);
+}
 .gridjs-search {
-	margin-left: 80px;
+	/* margin-left: 80px; */
+	background-color: transparent;
 }
 
 .material-icons.gridjs-search-icon {
 	position: absolute;
-	color: #a3b1b7;
+	color: var(--main);
 	cursor: pointer;
 	font-size: 32px;
+	top: 63px;
+	left: 17px;
+	transition: color 0.4s, top 0.5s ease-in-out;
+}
+
+.gridjs-head:focus .material-icons.gridjs-search-icon, .gridjs-head:hover .material-icons.gridjs-search-icon{
 	top: 13px;
-	left: 97px;
-	transition: color 0.4s;
 }
 
 .gridjs-search .gridjs-search-input {
-	padding-left: 43px;
+	margin-left: 33px;
 	width: 0;
-	transition: width 0.6s, padding-left 0.6s;
+	transition: width 0.6s, padding-left 0.6s, background-color 0.5s ease-in-out;
 	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	background-color: var(--light);
+	box-shadow: none;
 	
+}
+.gridjs-head:focus .gridjs-search-input, .gridjs-head:hover .gridjs-search-input{
+	background-color: var(--smooth);
 }
 
 .gridjs-search .gridjs-search-input.unfolded {
 	width: 250px;
-	padding-left: 53px;
+	margin-left: 43px;
 	cursor: text;
+	border: none;
+	outline: none;
+	box-shadow: none;
 }
 
 .gridjs-search .gridjs-search-input:focus ~ i {
-	color:var(--dark);
+	/* color:var(--dark); */
+	box-shadow: none;
 }
 
 .gridjs-td[data-column-id='email'] {
@@ -88,7 +140,6 @@
 
 .gridjs-td a:focus, .gridjs-td a:hover {
 	color: var(--main);
-	text-decoration: underline;
 }
 
 .gridjs-td[data-column-id='delete'] {
@@ -108,7 +159,7 @@
 }
 
 .gridjs-th[data-column-id='delete'] button {
-	color: green;
+	color: var(--dark);
 }
 
 .gridjs-th button:visited,
@@ -119,5 +170,4 @@
 .gridjs-th button:focus, .gridjs-th button:hover,
 .gridjs-td button:focus, .gridjs-td button:hover {
 	color: var(--main);
-	text-decoration: underline;
 }
