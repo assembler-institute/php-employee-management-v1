@@ -33,18 +33,19 @@ function saveSession($user) {
     $_SESSION["password"] = $user["password"];
     $_SESSION["email"] = $user["email"];
     $_SESSION["time"] = time();
-    $_SESSION["lifeTime"] = 10;
+    $_SESSION["lifeTime"] = 600;
 }
 
-function logout($errorMessage) {
-    if($errorMessage) {
+function logout($error) {
+    session_start();
+    session_destroy();
+
+    if($error === "Session expired!") {
         $url = "../index.php";
         header('Location: ' . $url . "?error=Session expired!");
         exit();
     }
-    echo $errorMessage;
-
-    /* $url = "../index.php";
-    header('Location: ' . $url . "?error=Session expired!");
-    exit(); */
+    if($error === "Session closed!") {
+        return $error;
+    }
 }

@@ -2,10 +2,7 @@
 
 <?php
 
-/* print_r($_SESSION); */
-
-
 if(time() - $_SESSION["time"] > $_SESSION["lifeTime"]) {
     require("loginManager.php");
-    logout('Session expired!');
+    logout("Session expired!");
 }
