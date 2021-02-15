@@ -7,9 +7,10 @@
         // print_r($_POST);
         // updateEmployee($_POST);
         if (updateEmployee($_POST)){
+            setErrorEmployeeMessage("Please write a valid email");
             echo "true";
         }
         else {
-            
+            echo "false";
         }
     }
