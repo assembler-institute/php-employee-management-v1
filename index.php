@@ -18,15 +18,7 @@
     <title>Employees Manager</title>
 </head>
 <body>
-    <?php if (isset($_GET['login'])) {
-            $loginCheck = $_GET['login'];
-            echo '<aside class="login__error">
-                    <p class="error">'.$loginCheck.'</p>
-                </aside>';
-        }
-    ?>
-    <?php include_once('./assets/html/loginForm.html'); ?>
-    <header class="header">
+    <!-- <header class="header">
         <section class="title">
             <h4>Employees Manager</h4>
         </section>
@@ -51,7 +43,15 @@
         <section class="logout-container">
             <button id="logout"> Log Out </button>
         </section>
-    </header>
+    </header> -->
+    <?php if (isset($_GET['login'])) {
+            $loginCheck = $_GET['login'];
+            echo '<aside class="error_message">
+                    <p class="error">'.$loginCheck.'</p>
+                </aside>';
+        }
+    ?>
+    <?php include_once('./assets/html/loginForm.html'); ?>
     <main class="main-container">
         <div id="JsGrid"></div>
     <section class="main">

@@ -18,19 +18,19 @@
 </html>
     <script>
         var clients = [
-            { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
-            { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
-            { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
-            { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
-            { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
+            { "Id": 1, "Name":"Rack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+            { "Id": 2, "Name":"Jack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+            { "Id": 3, "Name":"Mary", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+            { "Id": 4, "Name":"Donna", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+            { "Id": 5, "Name":"Roy", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" }
         ];
 
-        var countries = [
-            { Name: "", Id: 0 },
-            { Name: "United States", Id: 1 },
-            { Name: "Canada", Id: 2 },
-            { Name: "United Kingdom", Id: 3 }
-        ];
+        // var countries = [
+        //     { Name: "", Id: 0 },
+        //     { Name: "United States", Id: 1 },
+        //     { Name: "Canada", Id: 2 },
+        //     { Name: "United Kingdom", Id: 3 }
+        // ];
 
         $("#jsGrid").jsGrid({
             width: "100%",
@@ -44,11 +44,12 @@
             data: clients,
 
             fields: [
+                { name: "Id", type: "number", width: 50 },
                 { name: "Name", type: "text", width: 150, validate: "required" },
+                { name: "Last name", type: "text", width: 150, validate: "required" },
+                { name: "Email", type: "text", width: 200 },
                 { name: "Age", type: "number", width: 50 },
-                { name: "Address", type: "text", width: 200 },
-                { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-                { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                { name: "Phone number", type: "number", width: 50 },
                 { type: "control", editButton: false }
             ]
         });

@@ -1,4 +1,13 @@
-.login__error {
+.error_message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+    background-color: brown;
+}
+
+.success_message {
     display: flex;
     justify-content: center;
     align-items: center;

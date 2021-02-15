@@ -1,51 +1,65 @@
-<section class="section-employee">
-	<form action="" class="employee" id="employee">
-		<div class="employee__grupo" id="grupo__first">
-			<label for="first" class="employee__label">First name</label>
-			<input type="text" class="employee__input" name="first" id="first" placeholder="John">
-		</div>
-		<div class="employee__grupo" id="grupo__last">
-			<label for="last" class="employee__label">Last name</label>
-			<input type="text" class="employee__input" name="last" id="last" placeholder="Doe">
-		</div>
-		<div class="employee__grupo" id="grupo__correo">
-			<label for="correo" class="employee__label">Email address</label>
-			<input type="email" class="employee__input" name="correo" id="correo" placeholder="correo@correo.com">
-		</div>
-		<div class="employee__grupo" id="grupo__gender">
-			<label for="gender" class="employee__label">Gender</label>
-			<select name="gender" class="employee__input">
-				<option value="male">Male</option>
-				<option value="female">Female</option>
-			</select>
-		</div>
-		<div class="employee__grupo" id="grupo__city">
-			<label for="city" class="employee__label">City</label>
-			<input type="text" class="employee__input" name="city" id="city">
-		</div>
-		<div class="employee__grupo" id="grupo__street">
-			<label for="street" class="employee__label">Street address</label>
-			<input type="text" class="employee__input" name="street" id="street">
-		</div>
-		<div class="employee__grupo" id="grupo__state">
-			<label for="state" class="employee__label">State</label>
-			<input type="text" class="employee__input" name="state" id="state" placeholder="4491234567">
-		</div>
-		<div class="employee__grupo" id="grupo__age">
-			<label for="age" class="employee__label">Age</label>
-			<input type="text" class="employee__input" name="age" id="age" placeholder="4491234567">
-		</div>
-		<div class="employee__grupo" id="grupo__code">
-			<label for="code" class="employee__label">Postal code</label>
-			<input type="text" class="employee__input" name="code" id="code" placeholder="4491234567">
-		</div>
-		<div class="employee__grupo" id="grupo__phone">
-			<label for="phone" class="employee__label">Phone number</label>
-			<input type="text" class="employee__input" name="phone" id="phone" placeholder="4491234567">
-		</div>
-		<div class="employee__grupo employee__grupo-btn-enviar">
-			<input type="submit" name="return" class="btn returnbtn" id="cancelbtn" value="Return"></input>
-			<input type="submit" name="submit" class="btn submitbtn" id="loginbtn" value="Submit"></input>
-		</div>
-	</form>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/employee.css">
+	<title>Document</title>
+</head>
+<body>
+
+	<section class="section-employee">
+		<form action="" class="employee jsgrid-table" id="employee">
+			<div class="employee__grupo" id="grupo__first">
+				<label for="first" class="employee__label">First name</label>
+				<input type="text" class="employee__input" name="first" id="first" placeholder="John">
+			</div>
+			<div class="employee__grupo" id="grupo__last">
+				<label for="last" class="employee__label">Last name</label>
+				<input type="text" class="employee__input" name="last" id="last" placeholder="Doe">
+			</div>
+			<div class="employee__grupo" id="grupo__correo">
+				<label for="correo" class="employee__label">Email address</label>
+				<input type="email" class="employee__input" name="correo" id="correo" placeholder="correo@correo.com">
+			</div>
+			<div class="employee__grupo" id="grupo__gender">
+				<label for="gender" class="employee__label">Gender</label>
+				<select name="gender" class="employee__input">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+			<div class="employee__grupo" id="grupo__city">
+				<label for="city" class="employee__label">City</label>
+				<input type="text" class="employee__input" name="city" id="city">
+			</div>
+			<div class="employee__grupo" id="grupo__street">
+				<label for="street" class="employee__label">Street address</label>
+				<input type="text" class="employee__input" name="street" id="street">
+			</div>
+			<div class="employee__grupo" id="grupo__state">
+				<label for="state" class="employee__label">State</label>
+				<input type="text" class="employee__input" name="state" id="state" placeholder="4491234567">
+			</div>
+			<div class="employee__grupo" id="grupo__age">
+				<label for="age" class="employee__label">Age</label>
+				<input type="text" class="employee__input" name="age" id="age" placeholder="4491234567">
+			</div>
+			<div class="employee__grupo" id="grupo__code">
+				<label for="code" class="employee__label">Postal code</label>
+				<input type="text" class="employee__input" name="code" id="code" placeholder="4491234567">
+			</div>
+			<div class="employee__grupo" id="grupo__phone">
+				<label for="phone" class="employee__label">Phone number</label>
+				<input type="text" class="employee__input" name="phone" id="phone" placeholder="4491234567">
+			</div>
+			<div class="employee__grupo employee__grupo-btn-enviar">
+				<input type="submit" name="return" class="btn returnbtn" id="cancelbtn" value="Return"></input>
+				<input type="submit" name="submit" class="btn submitbtn" id="loginbtn" value="Submit"></input>
+			</div>
+		</form>
+	</section>
+    <script src="../js/employeeRequest.js"></script>
+</body>
+</html>

@@ -62,6 +62,6 @@ function getNextIdentifier(array $employeesCollection)
 
 function setErrorEmployeeMessage($message){
     $url = $message? "?employee=$message" : "";
-    header("Location: ../dashbord$url");
+    header("Location: ../employee.php$url");
     exit();
 }
