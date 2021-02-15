@@ -22,15 +22,15 @@
 
 <body>
     <?php
-    session_start();
+    // session_start();
 
-    if (isset($_SESSION["userId"])){
-        require("./library/sessionHelper.php");
-    }else{
-        $url = '../index.php';
-        header("Refresh: 0; URL=$url?error=You aren't logged in");
-        exit();
-    }
+    // if (isset($_SESSION["userId"])){
+    //     require("./library/sessionHelper.php");
+    // }else{
+    //     $url = '../index.php';
+    //     header("Refresh: 0; URL=$url?error=You aren't logged in");
+    //     exit();
+    // }
 
     include '../assets/html/header.html';
     include '../assets/html/dashboard.html';

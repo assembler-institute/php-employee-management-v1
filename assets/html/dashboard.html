@@ -1,6 +1,6 @@
 <div class="container">
     <!--<div id=jsGrid ></div>-->
-    <table class="table table-hover table-responsive click-none">
+    <table class="table table-hover table-responsive">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -15,7 +15,19 @@
             <th scope="col" class="add">+</th>
           </tr>
         </thead>
-        <tbody class="click-none">
+        <tbody>
+            <tr class="input-bar" style="display: none">
+                <th scope="col">id</th>
+                <th scope="col"><input type="text" size="10"></th>
+                <th scope="col"><input type="email" size="15"></th>
+                <th scope="col"><input type="number" size="2" maxlength="2" class="input-age"></th>
+                <th scope="col"><input type="text" class="input-street"></th>
+                <th scope="col"><input type="text" class="input-city"></th>
+                <th scope="col"><input type="text" class="input-state"></th>
+                <th scope="col"><input type="number" class="input-postalCode"></th>
+                <th scope="col"><input type="number" class="input-phone"></th>
+                <th scope="col" class="new-button">Create</th>
+            </tr>
         </tbody>
-      </table>
+    </table>
 </div>

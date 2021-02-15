@@ -1,9 +1,9 @@
 
 
-$(window).ready(function(){
-
-        $.ajax({
-            url: '../src/library/employeeController.php',
+$(window).on('load', function(){
+                                            
+        $.ajax({                                                // First we do the request to load the data
+            url: '../src/library/employeeController.php',       // And display the data in the table.
             type: 'get',
             success: function(data){
                 let employees = JSON.parse(data);
@@ -34,6 +34,7 @@ $(window).ready(function(){
             }
         });
 
+    
 
 
         //DELETE REQUEST
@@ -41,40 +42,54 @@ $(window).ready(function(){
         $(document).on('click', '.delete', (function() {
             let element = $(this)[0].parentElement;
             console.log(element)
-            let id = $(element).attr('empId');
+            let id = $(element).attr('empId');  
             console.log(id)
-            $.ajax({
-                url: '../src/library/employeeDelete.php',
+            $.ajax({                                               // We do the ajax request to delete the employee.
+                url: '../src/library/employeeDelete.php',           
                 type: 'post',
                 data: {id},
-                success: function(data) {
-                    console.log(data);
+                success: function(data) {                           // We get back the data without the employee.
+                    let newEmployees = JSON.parse(data);            // and we create the template and display the new data.
+                    console.log(newEmployees);
+                    let template = '';
+                    let id = 0;
+                    alert('Are you sure you want to delete this employee?');
+                    $('tbody').empty();
+                    newEmployees.forEach(employee => {
+                    
+                        template = `
+                        <tr empId="${id+=1}" class="">
+                            <th scope="row" class="employee-data">${id}</th>
+                            <td class="employee-data">${employee.name}</td>
+                            <td class="employee-data">${employee.email}</td>
+                            <td class="employee-data">${employee.age}</td>
+                            <td class="employee-data">${employee.streetAddress}</td>
+                            <td class="employee-data">${employee.city}</td>
+                            <td class="employee-data">${employee.state}</td>
+                            <td class="employee-data">${employee.postalCode}</td>
+                            <td >${employee.phoneNumber}</td>
+                            <td class="delete"><span class="material-icons">
+                            delete
+                            </span></td>
+                        <tr>
+                    `;
+                    $('tbody').append(template);
+                    
+                    });
                 }
             })
         }));
 
 
         // NEW EMPLOYEE REQUEST
-
-        $(document).on('click', '.add', (function() {
-            let element = $(this)[0];
-            console.log(element);
-            const template = `<tr class="input-bar">
-                                <th scope="col">id</th>
-                                <th scope="col"><input type="text" size="10"></th>
-                                <th scope="col"><input type="email" size="15"></th>
-                                <th scope="col"><input type="number" size="2" maxlength="2" class="input-age"></th>
-                                <th scope="col"><input type="text" class="input-street"></th>
-                                <th scope="col"><input type="text" class="input-city"></th>
-                                <th scope="col"><input type="text" class="input-state"></th>
-                                <th scope="col"><input type="number" class="input-postalCode"></th>
-                                <th scope="col"><input type="number" class="input-phone"></th>
-                                <th scope="col" class="new-button">Create</th>
-                            </tr>`
-            $('tbody').prepend(template);
-        }))
-
-
+            $(document).on('click', '.add', function(){
+                if($('.input-bar').is(":hidden")){
+                    $('.add').html('close')
+                } else {
+                    $('.add').html('+')
+                }
+                $('.input-bar').toggle();
+            });
         
 
         $(document).on('click', '.employee-data', (function() {
