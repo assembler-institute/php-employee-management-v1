@@ -1,5 +1,3 @@
-<!-- Recibe la petición y llamará a la función necesaria de loginManager.php para comprobar la información.
-Entonces loginController.php deberá decidir qué hacer, si el usuario ha introducido el email y password correctas deberá redirigir a dashboard.php, sino a index.php de nuevo.  -->
 <!-- This file will handle the user's HTTP requests when they want to log in or log out , therefore, it must call the functions of the " loginManager.php " once the request has been received to carry out the action . -->
 
 <?php
@@ -18,10 +16,16 @@ if(isset($_POST["email"]) && isset($_POST["password"])) {
     if($validationCredentials === true) {
         $url = "../dashboard.php";
         header('Location: ' . $url);
-        exit();
     } else {
         $url = "../../index.php";
         header("Refresh: 0; URL=$url?error=Login incorrect!");
         exit();
     }
 }
+if(isset($_POST["logout"])) {
+    $errorClosed = logout("Session closed!");
+    $url = "../../index.php";
+    header('Location: ' . $url . "?error=$errorClosed");
+    exit();
+}
+exit();
