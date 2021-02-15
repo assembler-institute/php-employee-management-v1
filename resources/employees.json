@@ -14,8 +14,8 @@
     },
     {
         "id": "2",
-        "name": "John",
-        "lastName": "Doe",
+        "name": "Sara",
+        "lastName": "Damm",
         "email": "jhondoe@foo.com",
         "gender": "man",
         "city": "New York",
@@ -39,12 +39,12 @@
         "phoneNumber": "9983632461"
     },
     {
-        "id": 4,
+        "id": "4",
         "name": "Richard",
         "lastName": "Desmond",
         "email": "dismond@foo.com",
         "gender": "man",
-        "age": 30,
+        "age": "30",
         "streetAddress": "90",
         "city": "Salt lake city",
         "state": "UT",
@@ -52,12 +52,12 @@
         "phoneNumber": "90876987654"
     },
     {
-        "id": 5,
+        "id": "5",
         "name": "Susan",
         "lastName": "Smith",
         "email": "susanmith@baz.com",
         "gender": "woman",
-        "age": 28,
+        "age": "28",
         "streetAddress": "43",
         "city": "Louisville",
         "state": "KNT",
@@ -65,12 +65,12 @@
         "phoneNumber": "224355488976"
     },
     {
-        "id": 6,
+        "id": "6",
         "name": "Brad",
         "lastName": "Simpson",
         "email": "brad@foo.com",
         "gender": "man",
-        "age": 40,
+        "age": "40",
         "streetAddress": "128",
         "city": "Atlanta",
         "state": "GEO",
@@ -78,12 +78,12 @@
         "phoneNumber": "6854634522"
     },
     {
-        "id": 7,
+        "id": "7",
         "name": "Neil",
         "lastName": "Walker",
         "email": "walkerneil@baz.com",
         "gender": "man",
-        "age": 42,
+        "age": "42",
         "streetAddress": "1",
         "city": "Nashville",
         "state": "TN",
@@ -91,12 +91,12 @@
         "phoneNumber": "45372788192"
     },
     {
-        "id": 8,
+        "id": "8",
         "name": "Robert",
         "lastName": "Thomson",
         "email": "jackon@network.com",
         "gender": "man",
-        "age": 24,
+        "age": "24",
         "streetAddress": "126",
         "city": "New Orleans",
         "state": "LU",

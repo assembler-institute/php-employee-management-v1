@@ -17,40 +17,43 @@
 </body>
 </html>
     <script>
-        var clients = [
-            { "Id": 1, "Name":"Rack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-            { "Id": 2, "Name":"Jack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-            { "Id": 3, "Name":"Mary", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-            { "Id": 4, "Name":"Donna", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-            { "Id": 5, "Name":"Roy", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" }
-        ];
+        fetch("../resources/employees.json")
+            .then(response => {
+            return response.json();
+            })
+            .then(data => {
+                $("#jsGrid").jsGrid({
+                width: "100%",
+                height: "400px",
 
-        // var countries = [
-        //     { Name: "", Id: 0 },
-        //     { Name: "United States", Id: 1 },
-        //     { Name: "Canada", Id: 2 },
-        //     { Name: "United Kingdom", Id: 3 }
+                inserting: true,
+                editing: false,
+                sorting: true,
+                paging: true,
+
+                data,
+
+                fields: [
+                    { name: "Id", type: "number", width: 50 },
+                    { name: "Name", type: "text", width: 150, validate: "required" },
+                    { name: "Last name", type: "text", width: 150, validate: "required" },
+                    { name: "Email", type: "text", width: 200 },
+                    { name: "Age", type: "number", width: 50 },
+                    { name: "Phone number", type: "number", width: 50 },
+                    { type: "control", editButton: false }
+                ]
+        });
+                });
+
+        // var clients = [
+        //     { "Id": 1, "Name":"Rack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+        //     { "Id": 2, "Name":"Jack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+        //     { "Id": 3, "Name":"Mary", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+        //     { "Id": 4, "Name":"Donna", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
+        //     { "Id": 5, "Name":"Roy", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" }
         // ];
 
-        $("#jsGrid").jsGrid({
-            width: "100%",
-            height: "400px",
-
-            inserting: true,
-            editing: false,
-            sorting: true,
-            paging: true,
-
-            data: clients,
-
-            fields: [
-                { name: "Id", type: "number", width: 50 },
-                { name: "Name", type: "text", width: 150, validate: "required" },
-                { name: "Last name", type: "text", width: 150, validate: "required" },
-                { name: "Email", type: "text", width: 200 },
-                { name: "Age", type: "number", width: 50 },
-                { name: "Phone number", type: "number", width: 50 },
-                { type: "control", editButton: false }
-            ]
-        });
     </script>
+        <?php
+            // echo "<script>document.writeln(employees);</script>";
+        ?>
