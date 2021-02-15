@@ -78,3 +78,6 @@ tr{
     pointer-events: none;
 } */
 
+.footer {
+    position: fixed;
+}
