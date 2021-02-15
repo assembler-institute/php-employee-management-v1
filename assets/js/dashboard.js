@@ -89,11 +89,31 @@ $(window).on('load', function(){
                     $('.add').html('+')
                 }
                 $('.input-bar').toggle();
+
+                $('form').submit(function(e){
+                    let formData = $('form').serializeArray();
+                    let data = {};
+                    $( formData ).each(function(index, obj){
+                        data[obj.name] = obj.value; 
+                        e.preventDefault();
+                    });
+                    console.log(data);
+                    $.ajax({
+                        url: '../src/library/newEmployee.php',
+                        data: data,
+                        type: 'post',
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+                });    
             });
-        
+
+            
 
         $(document).on('click', '.employee-data', (function() {
-            window.location = './employee.php'
+            //window.location = './employee.php'
+            console.log($(this)[0].parentElement);
         }))
 
     });

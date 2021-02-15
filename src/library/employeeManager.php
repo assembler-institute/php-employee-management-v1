@@ -27,9 +27,7 @@ function addEmployee(array $newEmployee)
 function deleteEmployee(string $id)
 {
 // TODO implement it
-    $json_data = file_get_contents('../../resources/employees.json');
-    return $json_data;
-
+    
 }
 
 

@@ -17,16 +17,18 @@
         </thead>
         <tbody>
             <tr class="input-bar" style="display: none">
+              <form>
                 <th scope="col">id</th>
-                <th scope="col"><input type="text" size="10"></th>
-                <th scope="col"><input type="email" size="15"></th>
-                <th scope="col"><input type="number" size="2" maxlength="2" class="input-age"></th>
-                <th scope="col"><input type="text" class="input-street"></th>
-                <th scope="col"><input type="text" class="input-city"></th>
-                <th scope="col"><input type="text" class="input-state"></th>
-                <th scope="col"><input type="number" class="input-postalCode"></th>
-                <th scope="col"><input type="number" class="input-phone"></th>
-                <th scope="col" class="new-button">Create</th>
+                <th scope="col"><input type="text" size="10" name="name"></th>
+                <th scope="col"><input type="email" size="15" name="email"></th>
+                <th scope="col"><input type="number" size="2" maxlength="2" name="age" class="input-age"></th>
+                <th scope="col"><input type="number" name="streetAddress" class="input-street" size="2" maxlength="2"></th>
+                <th scope="col"><input type="text" class="input-city" name="city"></th>
+                <th scope="col"><input type="text" class="input-state" name="state"></th>
+                <th scope="col"><input type="number" class="input-postalCode" name="postalCode"></th>
+                <th scope="col"><input type="number" class="input-phone" name="phoneNumber"></th>
+                <th scope="col" class="new-button" ><button type="submit"> Create</button> </th>
+              </form>
             </tr>
         </tbody>
     </table>
