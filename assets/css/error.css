@@ -2,18 +2,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 8vh;
+    width: 45%;
+    height: 6.6vh;
     background-color: brown;
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
 .success_message {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 8vh;
+    width: 45%;
+    height: 6.6vh;
     background-color: var(--green);
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
 .error {

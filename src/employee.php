@@ -10,8 +10,35 @@
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/error.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
 </head>
 <body>
+    <header class="header">
+        <section class="title">
+            <h4>Employees Manager</h4>
+        </section>
+        <ul class="nav-links">
+            <li>
+                <a href="#">Login</a>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li>
+                <a href="#">Employee</a>
+            </li>
+        </ul>
+
+        <section class="searchBar-container">
+            <form class="searchBar" action="index.php" method="get">
+                <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
+                <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
+            </form>
+        </section>
+        <section class="logout-container">
+            <button id="logout"> Log Out </button>
+        </section>
+    </header>
     <?php if (isset($_GET['employee'])) {
             $employeeCheck = $_GET['employee'];
             if (strpos($employeeCheck, 'Success') !== false) {

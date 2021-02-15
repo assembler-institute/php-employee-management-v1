@@ -24,7 +24,7 @@ function updateEmployee(array $updateEmployee)
     $data = file_get_contents($url); // put the contents of the file into a variable
     $employees = json_decode($data, true); // decode the JSON to key value array
     $employees[$updateEmployee['id'] - 1] = array_replace($employees[$updateEmployee['id'] - 1],$updateEmployee);
-    $updatedEmployeesJson = json_encode($employees);
+    $updatedEmployeesJson = json_encode($employees, JSON_PRETTY_PRINT);
     $result = file_put_contents($url, $updatedEmployeesJson);
     return $result;
 }
