@@ -12,13 +12,11 @@
         // Checking if the inputs are empty
         if (empty($email) || empty($password)) {
             setErrorMessage("Please fill in all the fields");
-            // header("Location: ../../index.php?login=empty");
             exit();
         }
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             //Checking if email is valid
             setErrorMessage("Please write a valid email");
-            // header("Location: ../../index.php?login=invalidemail");
             exit();
         }
         elseif (verifyUser($email, $password)) {
@@ -28,7 +26,6 @@
         }
         else {
             setErrorMessage("Incorrect user credentials");
-            // header("Location: ../../index.php?login=invaliduser");
             exit();
         }
     }
