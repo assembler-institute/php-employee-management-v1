@@ -33,7 +33,7 @@ export const Avataaars = {
     let clotheGraphicType = this._getShape('clothingGraphic', options.clothingGraphic);
     let clotheColor = this._getColor('palette', options.clothingColor);
     let eyeType = this._getShape('eyes', options.eyes);
-    let eyebrowType = this._getShape('eyebrows', options.eyebrow);
+    let eyebrowType = this._getShape('eyebrows', options.eyebrows);
     let mouthType = this._getShape('mouth', options.mouth);
     let accessoriesType = this._getShape('accessories', options.accessories);
     let accessoriesColor = this._getColor('palette', options.accessoriesColor);
@@ -245,7 +245,7 @@ export const Avataaars = {
       `,
         graphicShirt: (color, clotheGraphic) => `
         <path d="M132.5 54c18.502 0 33.5-9.626 33.5-21.5a14.08 14.08 0 00-.376-3.232C202.76 32.138 232 63.18 232 101.052V110H32v-8.948c0-38.217 29.775-69.48 67.393-71.855A14.108 14.108 0 0099 32.5C99 44.374 113.998 54 132.5 54z" fill="${color}"/>
-        <g transform="translate(77, 228)">${clotheGraphic}</g>
+        <g transform="translate(77, 65)">${clotheGraphic}</g>
       `,
         hoodie: (color) => `
         <path d="M108 14.694C92.484 18.38 80.895 25.529 77.228 34.142 50.72 44.765 32 70.696 32 101v9h200v-9.001c0-30.303-18.721-56.234-45.228-66.858-3.667-8.613-15.256-15.761-30.772-19.447V32c0 13.255-10.745 24-24 24s-24-10.745-24-24V14.694z" fill="${color}"/>

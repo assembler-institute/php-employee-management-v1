@@ -98,9 +98,6 @@ footer > p > a:hover, footer > p > a:focus{
 
 
 
-
-
-
 /*-----Modal-----*/
 .avatarModal__background{
     position: absolute;
@@ -112,14 +109,13 @@ footer > p > a:hover, footer > p > a:focus{
     background-color: #feffff55;
 }
 .avatarModal{
+    box-sizing: border-box;
     background-color: var(--dark);
     border-radius: 10px;
     box-shadow: 2px 2px 10px #0008;
     height: 90vh;
     margin: 5vh auto;
-    max-width: 510px;
-    overflow: hidden;
-    overflow-y: scroll;
+    max-width: 530px;
     padding: 10px;
     position: relative;
     width: 80vw;
@@ -133,7 +129,7 @@ footer > p > a:hover, footer > p > a:focus{
     left: 0;
     margin: 0.5em;
     position: absolute;
-    top: 0;
+    font-size: 28px;
 }
 
 .avatarModal__close:hover, .avatarModal__close:focus{
@@ -144,6 +140,38 @@ footer > p > a:hover, footer > p > a:focus{
 .avatarModal__image{
     width:fit-content;
     margin: 20px auto;
+}
+
+button#avatarRandom__button {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    font-size: x-large;
+}
+
+#avatarOptions {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#avatarRandom__button > * + * {
+    margin-left: 10px;
+}
+
+#avatarRandom__button{
+    background-color: #0000;
+    border:none;
+    color: var(--smooth);
+    cursor: pointer;
+    right: 0;
+    margin: 0.5em;
+    position: absolute;
+    font-size: xx-large;
+}
+#avatarRandom__button:focus, #avatarRandom__button:hover{
+    color: var(--light);
+    outline:none;
 }
 
 #avatarOptions{
@@ -163,6 +191,13 @@ footer > p > a:hover, footer > p > a:focus{
     cursor: pointer;
     outline:none;
 }
+
+.avatarModal__results {
+    overflow-y: scroll;
+    max-height: 53%
+
+}
+
 .avatarModal__results__button{
     padding:0;
     width: 105px;
@@ -173,15 +208,73 @@ footer > p > a:hover, footer > p > a:focus{
     box-shadow: 2px 2px 10px #0008;
 }
 
+.avatarModal__results__button.selected{
+    border: 2px solid var(--smooth);
+}
+
 .avatarModal__results__button:hover, .avatarModal__results__button:focus{
     border: 2px solid var(--smooth);
     box-shadow: 1px 1px 5px #0008;
     cursor: pointer;
     outline: none;
 }
-.avatarModal__colors{
-    margin: 5px;
+
+.avatarModal__colorTag {
+    position: absolute;
+    right: -15px;
+    top: 190px;
+    font-size: x-large;
+    font-family: 'Lato', sans-serif;
+    color: var(--smooth);
+    transform: rotate(-90deg);
+    transition: opacity 0.2s;
 }
+
+.avatarModal__hairColorTag {
+    position: absolute;
+    left: -35px;
+    top: 190px;
+    font-size: x-large;
+    font-family: 'Lato', sans-serif;
+    color: var(--smooth);
+    transform: rotate(90deg);
+    transition: opacity 0.2s;
+}
+
+.colors-container {
+    padding: 3px;
+}
+
+.avatarModal__colors{
+    position: absolute;
+    max-width: 0;
+    overflow: hidden auto;
+    background-color: var(--dark);
+    margin-left: 5px;
+    z-index: 3;
+    top: 0px;
+    left: 100%;
+    height: fit-content;
+    max-height: 706px;
+    border-radius:10px 10px;
+    transition: max-width 0.5s linear;
+}
+
+#avatarModalHairColors{
+    position: absolute;
+    max-width: 0;
+    overflow: hidden auto;
+    background-color: var(--dark);
+    margin-right: 5px;
+    z-index: 3;
+    right: 530px;
+    top: 0px;
+    direction: rtl;
+    max-height: 100%;
+    border-radius: 10px;
+    transition: max-width 0.5s linear;
+}
+
 .avatarModal__colors > p{
     color:var(--light);
     font-size: x-large;
@@ -204,6 +297,7 @@ footer > p > a:hover, footer > p > a:focus{
     box-shadow: 2px 2px 10px #0008;
 }
 
+.avatarModal__colors__button.selected,
 .avatarModal__colors__button:hover, .avatarModal__colors__button:focus{
     border: 2px solid var(--light);
     box-shadow: 0px 0px 5px var(--light);
@@ -212,6 +306,16 @@ footer > p > a:hover, footer > p > a:focus{
 }
 path, g, mask, svg{
     pointer-events: none;
+}
+
+
+@keyframes appearWidth {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 200px;
+    }
 }
 
 

@@ -1,11 +1,12 @@
-import { printMainAvatar, printResults } from "./avatarModal.js";
+import { printMainAvatar, printResults, printColors } from "./avatarModal.js";
 
 let avatar;
 
 export function avatarModalListeners(myAvatar) {
   avatar = myAvatar;
+  generateRandomAvatarListener();
   changeAvatarOptionListener();
-  changeAvatarPropietyListener();
+  changeAvatarPropertyListener();
   changeAvatarColorsListener();
   changeAvatarHairColorsListener();
   closeModalListeners();
@@ -13,7 +14,7 @@ export function avatarModalListeners(myAvatar) {
 
 function removeAvaarModalListeners() {
   removeChangeAvatarOptionListener();
-  removeChangeAvatarPropietyListener();
+  removeChangeAvatarPropertyListener();
   removeChangeAvatarColorsListener();
   removeChangeAvatarHairColorsListener();
   removeCloseModalListeners();
@@ -50,40 +51,53 @@ function removeCloseModalListeners() {
 function changeAvatarOptionListener() {
   const avatarOptions = document.getElementById("avatarOptions");
   avatarOptions.addEventListener("change", function (event) {
-    printResults(event.target.value, avatar);
+    printResults(avatar, event.target.value);
+    printColors(avatar, event.target.value);
   });
+}
+
+function generateRandomAvatarListener() {
+  const avatarOptions = document.getElementById("avatarOptions");
+  const randomButton = document.getElementById("avatarRandom__button");
+  randomButton.addEventListener("click", () => {
+    avatar.randomize();
+    printMainAvatar(avatar);
+    printResults(avatar, avatarOptions.value);
+    printColors(avatar, avatarOptions.value);
+  })
 }
 
 function removeChangeAvatarOptionListener() {
   const avatarOptions = document.getElementById("avatarOptions");
   avatarOptions.removeEventListener("change", function (event) {
-    printResults(event.target.value, avatar);
+    printResults(avatar, event.target.value);
+    printColors(avatar, event.target.value);
   });
 }
 
-function changeAvatarPropietyListener() {
+function changeAvatarPropertyListener() {
   const avatarModalResults = document.getElementById("avatarModalResults");
-  avatarModalResults.addEventListener("click", changeMainAvatarPropietyByClick);
+  avatarModalResults.addEventListener("click", changeMainAvatarPropertyByClick);
 }
 
-function removeChangeAvatarPropietyListener() {
+function removeChangeAvatarPropertyListener() {
   const avatarModalResults = document.getElementById("avatarModalResults");
   avatarModalResults.removeEventListener(
     "click",
-    changeMainAvatarPropietyByClick
+    changeMainAvatarPropertyByClick
   );
 }
 
 function changeAvatarColorsListener() {
   const avatarModalColors = document.getElementById("avatarModalColors");
-  avatarModalColors.addEventListener("click", changeMainAvatarPropietyByClick);
+  avatarModalColors.addEventListener("click", changeMainAvatarPropertyByClick);
 }
 
 function removeChangeAvatarColorsListener() {
   const avatarModalColors = document.getElementById("avatarModalColors");
   avatarModalColors.removeEventListener(
     "click",
-    changeMainAvatarPropietyByClick
+    changeMainAvatarPropertyByClick
   );
 }
 
@@ -93,7 +107,7 @@ function changeAvatarHairColorsListener() {
   );
   avatarModalHairColors.addEventListener(
     "click",
-    changeMainAvatarPropietyByClick
+    changeMainAvatarPropertyByClick
   );
 }
 
@@ -103,20 +117,23 @@ function removeChangeAvatarHairColorsListener() {
   );
   avatarModalHairColors.removeEventListener(
     "click",
-    changeMainAvatarPropietyByClick
+    changeMainAvatarPropertyByClick
   );
 }
 
-function changeMainAvatarPropietyByClick(event) {
+function changeMainAvatarPropertyByClick(event) {
   const target = event.target;
+  const avatarOptions = document.getElementById("avatarOptions");
   if (
     target.classList.contains("avatarModal__colors__button") ||
     target.classList.contains("avatarModal__results__button")
   ) {
-    const propiety = target.dataset.propiety;
+    const property = target.dataset.property;
     const value = target.dataset.value;
-    avatar.changePropiety(propiety, value);
+    avatar.changeProperty(property, value === 'undefined' ? undefined : value);
     printMainAvatar(avatar);
+    printResults(avatar, avatarOptions.value);
+    printColors(avatar, avatarOptions.value);
   }
 }
 

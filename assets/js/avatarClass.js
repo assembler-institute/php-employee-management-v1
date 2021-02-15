@@ -1,59 +1,65 @@
-export class avatar{
-    background= '#3aafa9';
-    propieties = {
-        skin : 'tanned',
-        top : 'shortWaved',
-        hairColor : 'auburn',
-        hatColor : 'blue02',
-        accessories : 'none',
-        accessoriesColor : 'black',
-        facialHair : 'none',
-        facialHairColor : 'auburn',
-        clothing : 'shirtCrewNeck',
-        clothingGraphic : 'pizza',
-        clothingColor : 'black',
-        eyes : 'default',
-        eyebrows : 'defaultNatural',
-        mouth : 'default'
-    }
+import { Avataaars } from './avataaars.js';
+import { colorProperties } from './avatarOptions.js';
 
-    constructor( propieties ) {
-        if( propieties !== null ){
-            this.propieties = propieties;
-        }
-        console.log(this.propieties);
-      }
+export class avatar {
+	properties = {	
+		background: undefined,
+		skin: 'tanned',
+		top: 'eyepatch',
+		hairColor: 'auburn',
+		hatColor: 'blue02',
+		accessories: undefined,
+		accessoriesColor: 'black',
+		facialHair: 'default',
+		facialHairColor: 'auburn',
+		clothing: 'shirtCrewNeck',
+		clothingGraphic: 'pizza',
+		clothingColor: 'black',
+		eyes: 'default',
+		eyebrows: 'defaultNatural',
+		mouth: 'default'
+	};
 
-    getPropieties = () => {
-        return {
-            skin : this.propieties.skin,
-            top : this.propieties.top,
-            hairColor : this.propieties.hairColor,
-            hatColor : this.propieties.hatColor,
-            accessories : this.propieties.accessories,
-            accessoriesColor : this.propieties.accessoriesColor,
-            facialHair : this.propieties.facialHair,
-            facialHairColor : this.propieties.facialHairColor,
-            clothing : this.propieties.clothing,
-            clothingGraphic : this.propieties.clothingGraphic,
-            clothingColor : this.propieties.clothingColor,
-            eyes : this.propieties.eyes,
-            eyebrows : this.propieties.eyebrows,
-            mouth : this.propieties.mouth,
-            background : this.background
-        }
-    }
+	constructor(properties) {
+		if (properties) {
+			this.properties = properties;
+		}
+	}
 
-    changePropiety = ( propietyName, value) => {
-        if(value != 'null'){
-            this.propieties[ propietyName ] = value;
-        }else{
-            delete this.propieties[ propietyName ];
-        }
-    }
+	getAvatar = (properties = {}) => {
+		let newProperties = {...this.properties}
+		Object.entries(properties).forEach(([key, value]) => newProperties[key] = value)
+		return Avataaars.create(newProperties);
+	}
 
-    changeAllPropieties = ( propieties ) => {
-        this.propieties = propieties;
-    }
+	getProperty = (optionName) => {
+		return this.properties[optionName];
+	}
 
+	changeProperty = (propertyName, value) => {
+		if (value != 'null') {
+			this.properties[propertyName] = value;
+		} else {
+			delete this.properties[propertyName];
+		}
+	};
+
+	randomize = () => {
+		for(const property in this.properties) {
+			if(Avataaars.paths[property]) {
+				const availableOptions = Object.keys(Avataaars.paths[property]);
+				const randomIndex = getRandomInt(0, availableOptions.length-1);
+				this.properties[property] = availableOptions[randomIndex];
+			}
+			if(colorProperties[property]) {
+				const availableOptions = Object.keys(Avataaars.colors[colorProperties[property]]);
+				const randomIndex = getRandomInt(0, availableOptions.length-1);
+				this.properties[property] = availableOptions[randomIndex];
+			}
+		}
+
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min)) + min;
+		}
+	}
 }
