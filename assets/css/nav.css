@@ -77,3 +77,9 @@ header button, .searchBar__submit {
 .logoutBtn:hover {
     filter: opacity(0.6);
 }
+
+.jsGrid {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+}

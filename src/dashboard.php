@@ -16,7 +16,6 @@
 <body>
     <?php
         include_once("./library/sessionHelper.php");
-        include_once("./jsgrid.php");
 
         session_start();
         $sessionStart = $_SESSION["start"];
@@ -31,8 +30,6 @@
             $userId = 5;
         }
     ?>
-
-<script src="assets/js/createGrid.js"></script>
     <header class="header">
         <section class="title">
             <h4>Employees Manager</h4>
@@ -59,6 +56,8 @@
             <a href="http://127.0.0.1/php-employee-management-v1/src/library/loginController.php?logout='true'"><button class="logoutBtn" id="logout"> Log Out </button></a>
         </section>
     </header>
+    <?php include_once("./jsgrid.php"); ?>
+    <script src="assets/js/createGrid.js"></script>
 </body>
 
 </html>
