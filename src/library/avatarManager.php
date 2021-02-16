@@ -11,6 +11,8 @@ function addAvatar(array $newAvatar)
     array_push($avatars, $newAvatar);
 
     saveArrayAsJson(AVATARS_JSON_PATH, $avatars);
+
+    return $newAvatar;
 }
 
 function deleteAvatar(int $id)
@@ -43,17 +45,17 @@ function updateAvatar(array $updateAvatar)
     return $updateAvatar;
 }
 
-function getAvatars(array $ids = [])
+function getAvatars(array $employeeIds = [])
 {
-    if (empty($ids)) {
+    if (empty($employeeIds)) {
         return file_get_contents(AVATARS_JSON_PATH);
     }
 
     $avatars = decodeJsonFile(AVATARS_JSON_PATH);
 
     $foundAvatars = array();
-    foreach ($ids as $id) {
-        $found = findItemWithId($avatars, $id);
+    foreach ($employeeIds as $id) {
+        $found = findItemWithEmployeeId($avatars, $id);
         if ($found) {
             array_push($foundAvatars, $found->value);
         }
@@ -62,10 +64,10 @@ function getAvatars(array $ids = [])
     return encodeJson(array_values($foundAvatars));
 }
 
-function getAvatar(int $id)
+function getAvatar(int $employeeId)
 {
     $avatars = decodeJsonFile(AVATARS_JSON_PATH);
-    $found = findItemWithId($avatars, $id);
+    $found = findItemWithEmployeeId($avatars, $employeeId);
     $avatar = $found ? $found->value : array();
 
     return encodeJson($avatar);

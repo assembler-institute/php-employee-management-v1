@@ -45,18 +45,26 @@
 .add-modal {
     padding: 30px;
     color: var(--secondary);
-    /* border: 4px solid black; */
     border-radius: 10px;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-modal #modal-image {
+    cursor: pointer;
+    transition: filter 0.4s;
+}
+
+.add-modal #modal-image:hover {
+    filter: sepia(0.4);
 }
 
 .add-modal .modal-title {
     text-align: center;
     margin-top: 0;
     color: var(--dark);
-}
-
-.add-modal form {
 }
 
 .labeled-input {
@@ -147,8 +155,6 @@
 }
 
 .modal-image{
-    width: 100%;
-    text-align: center;
     margin: 1em;
 }
 

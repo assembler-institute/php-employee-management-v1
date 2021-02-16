@@ -13,6 +13,19 @@ function findItemWithId(array &$array, string $id)
     return false;
 }
 
+function findItemWithEmployeeId(array &$array, string $id)
+{
+    foreach ($array as $key => &$item) {
+        if ($item['employeeId'] == $id) {
+            return (object) array(
+                'key' => $key,
+                'value' => &$item
+            );
+        }
+    }
+    return false;
+}
+
 function encodeJson($item)
 {
     return json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);

@@ -41,13 +41,13 @@ body{
     justify-content: center;
     text-align: center;
     top: -100px;
-    left: -50px;
+    left: 50%;
     height: 150px;
     width: 300px;
     background: white;
     border-radius: 50%;
     box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
-    transform: scale(0);
+    transform: scale(0) translateY(-70%) translateX(-10%);
 }
 
 .login .bubble::before {

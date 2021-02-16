@@ -1,7 +1,6 @@
 [
     {
         "id": 1,
-        "avatarId": 1,
         "name": "Pau",
         "lastName": "García",
         "role": "Tech Lead",
@@ -11,8 +10,7 @@
         "city": "Barcelona",
         "state": "Cataluña",
         "age": null,
-        "phoneNumber": null,
-        "githubLink": "https://github.com/Pau111111"
+        "phoneNumber": null
     },
     {
         "id": 2,

@@ -71,7 +71,7 @@ $avatars = getAvatars();
         };
 
         function showBubble() {
-            $bubble.style.transform = "scale(1)";
+            $bubble.style.transform = "scale(1) translateX(-80%)";
             $bubble.style.transition = "transform 0.4s";
             $image.removeEventListener('click', showBubble)
             $image.addEventListener('click', showPunchline)
