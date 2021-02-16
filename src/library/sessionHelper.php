@@ -9,5 +9,5 @@ if (isset($_SESSION['userId'])) {
         logout();
     }
 } else {
-    header('Location: ../../index.php');
+    header('Location: ../index.php');
 }

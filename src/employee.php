@@ -1,6 +1,7 @@
 <?php
 include_once('./library/employeeManager.php');
 include_once('./library/avatarManager.php');
+include('./library/sessionHelper.php')
 ?>
 
 <!DOCTYPE html>

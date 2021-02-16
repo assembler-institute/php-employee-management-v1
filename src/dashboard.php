@@ -1,3 +1,7 @@
+<?php
+    include('./library/sessionHelper.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +23,7 @@
 </head>
 
 <body class='dashboard'>
+
     <?php include('../assets/html/header.html'); ?>
     <main class='main'>
         <div id='table-wrapper'></div>
