@@ -40,13 +40,18 @@ include('./library/sessionHelper.php');
   if( !isset( $employee['githubLink'] ) ){
     $employee['githubLink']=null;
   }
+  if( !isset( $employee['age'] ) ){
+    $employee['age']=' - ';
+  }
 
   echo "<section class='employee__page'>
     <button id='employeeEditButton' class='material-icons employee__edit__button' data-id='" . $employee['id'] ."'>edit</button>
         <div class='employee__avatar'></div>
         <div class='employee__info'>
           <h2 class='employee__name'>" . $employee['name'] . " " . $employee['lastName'] . "</h2>
-          <h5 class='employee__role'>" . $employee['role'] . "</h5>
+          <h4 class='employee__info'>" . $employee['gender'] . ", " . $employee['age'] . "</h4>
+          <h4 class='employee__role'>" . $employee['role'] . "</h4>
+          <h4 class='employee__ubication'>" . $employee['city'] . ", " .$employee['state'] . ", " . $employee['country'] . "</h4>
           <div class='employee__contact'>
             <div class='employee__email'>
               <a href='mailto:" . $employee['email'] . "'>          
@@ -57,7 +62,6 @@ include('./library/sessionHelper.php');
               <a href='callto:" . $employee['phoneNumber'] . "'>          
                 <span class='material-icons contact__icon'>stay_primary_portrait</span>
               </a>
-
             </div>
             <div class='awesome employee__linkedin'>
               <a href='" . $employee['linkedinLink'] . "'>      

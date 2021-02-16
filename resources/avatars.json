@@ -449,14 +449,14 @@
             "accessoriesColor": "black",
             "facialHair": "default",
             "facialHairColor": "auburn",
-            "clothing": "shirtCrewNeck",
+            "clothing": "hoodie",
             "clothingGraphic": "pizza",
-            "clothingColor": "pastelOrange",
+            "clothingColor": "gray02",
             "eyes": "default",
             "eyebrows": "defaultNatural",
             "mouth": "default"
         },
-        "employeeId": 24,
+        "employeeId": "24",
         "id": 323
     },
     {
@@ -555,5 +555,25 @@
         },
         "employeeId": 29,
         "id": 328
+    },
+    {
+        "properties": {
+            "skin": "tanned",
+            "top": "frida",
+            "hairColor": "auburn",
+            "hatColor": "blue02",
+            "accessories": "kurt",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "employeeId": 30,
+        "id": 329
     }
 ]

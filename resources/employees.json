@@ -299,17 +299,17 @@
         "phoneNumber": null
     },
     {
-        "id": 24,
         "name": "Jan",
         "lastName": "Puig",
+        "age": "24",
+        "gender": "male",
         "role": "Student",
         "email": "janpuigcapella@gmail.com",
-        "gender": "male",
-        "age": null,
-        "country": "España",
+        "phoneNumber": "123456789",
         "city": "Barcelona",
         "state": "Cataluña",
-        "phoneNumber": null
+        "country": "España",
+        "id": "24"
     },
     {
         "id": 25,

@@ -6,7 +6,7 @@
     align-items: center;
     position: relative;
     background-color: var(--light);
-    max-width: 450px;
+    max-width: 500px;
     margin: 0 auto;
     margin-top: 20vh;
     display: flex;
@@ -69,4 +69,17 @@
     white-space: nowrap;
     word-wrap: normal;
     -webkit-font-smoothing: antialiased;
+}
+.employee__info h2{
+    margin: 0.4em 0;
+    text-transform: capitalize;
+}
+.employee__info h4{
+    margin: 0.4em 0;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.employee__info h4:last-of-type{
+    margin-bottom: 1em;
 }
