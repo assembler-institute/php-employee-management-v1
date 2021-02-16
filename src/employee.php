@@ -11,34 +11,58 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/error.css">
     <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="header">
+    <?php include_once('../assets/html/header.html'); ?>
+    <?php
+        include_once("./library/sessionHelper.php");
+
+        session_start();
+        $sessionStart = $_SESSION["start"];
+        $sessionDuration = $_SESSION["duration"];
+        $sessionTime = time() - $sessionStart;
+
+        if(!isset($_SESSION["id"])){
+            header("Location: ../index.php");
+        }
+        else {
+            closeUserSession($sessionTime, $sessionDuration);
+        }
+        // $sessionStart = $_SESSION["start"];
+        // $sessionDuration = $_SESSION["duration"];
+        // $sessionTime = time() - $sessionStart;
+
+        // if(isset($_SESSION["id"])){
+        //     closeUserSession($sessionTime, $sessionDuration);
+        // }
+    ?>
+    <!-- <header class="header">
         <section class="title">
             <h4>Employees Manager</h4>
         </section>
         <ul class="nav-links">
             <li>
-                <a href="#">Login</a>
+                <a href="http://127.0.0.1/php-employee-management-v1/src/library/loginController.php?logout='true'">Login</a>
             </li>
             <li>
-                <a href="#">Dashboard</a>
+                <a href="http://127.0.0.1/php-employee-management-v1/src/dashboard.php">Dashboard</a>
             </li>
             <li>
-                <a href="#">Employee</a>
+                <a href="http://127.0.0.1/php-employee-management-v1/src/employee.php">Employee</a>
             </li>
         </ul>
 
         <section class="searchBar-container">
-            <form class="searchBar" action="index.php" method="get">
+            <form class="searchBar" action="" method="get">
                 <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
-                <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
+                <button class="searchBar__submit" id="searchBtn" type="submit"><i class="fa fa-search"></i></button>
             </form>
         </section>
         <section class="logout-container">
-            <button id="logout"> Log Out </button>
+            <a href="./library/loginController.php?logout='true'"><button class="logoutBtn" id="logout"> Log Out </button></a>
         </section>
-    </header>
+    </header> -->
     <?php if (isset($_GET['employee'])) {
             $employeeCheck = $_GET['employee'];
             if (strpos($employeeCheck, 'Success') !== false) {

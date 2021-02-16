@@ -24,7 +24,7 @@
         $_SESSION['id'] = $user['userId'];
         $_SESSION['username'] = $user['name'];
         $_SESSION['start'] = time();
-        $_SESSION['duration'] = 600;
+        $_SESSION['duration'] = 20;
     }
 
     function setErrorMessage($message){
