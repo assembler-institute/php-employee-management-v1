@@ -42,7 +42,7 @@ $(window).on('load', function(){
         $(document).on('click', '.delete', (function() {
             let element = $(this)[0].parentElement;
             console.log(element)
-            let id = $(element).attr('empId');  
+            let id = $(element).attr('counter');  
             console.log(id)
             $.ajax({                                                // We do the ajax request to delete the employee.
                 url: '../src/library/employeeDelete.php',           
@@ -145,7 +145,7 @@ $(window).on('load', function(){
         //EMPLOYEE VIEW AND UPLOAD DATA
 
         $(document).on('click', '.employee-data', (function() {
-            window.location = './employee.php'
+            //window.location = './employee.php'
             console.log($(this)[0].parentElement);
         }))
 
