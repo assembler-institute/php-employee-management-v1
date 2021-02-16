@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <?php include_once("../assets/html/header.html"); ?>
     <?php
         include_once("./library/sessionHelper.php");
         include_once("./jsgrid.php");
@@ -29,11 +28,37 @@
         }
         else {
             closeUserSession($sessionTime, $sessionDuration);
-            $userId = 1;
+            $userId = 5;
         }
     ?>
 
 <script src="assets/js/createGrid.js"></script>
+    <header class="header">
+        <section class="title">
+            <h4>Employees Manager</h4>
+        </section>
+        <ul class="nav-links">
+            <li>
+                <a href="http://127.0.0.1/php-employee-management-v1/src/library/loginController.php?logout='true'">Login</a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1/php-employee-management-v1/src/dashboard.php">Dashboard</a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1/php-employee-management-v1/src/employee.php?userId=<?=$userId?>">Employee</a>
+            </li>
+        </ul>
+
+        <section class="searchBar-container">
+            <form class="searchBar" action="" method="get">
+                <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
+                <button class="searchBar__submit" id="searchBtn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </section>
+        <section class="logout-container">
+            <a href="http://127.0.0.1/php-employee-management-v1/src/library/loginController.php?logout='true'"><button class="logoutBtn" id="logout"> Log Out </button></a>
+        </section>
+    </header>
 </body>
 
 </html>
