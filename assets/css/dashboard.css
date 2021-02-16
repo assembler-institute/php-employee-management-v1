@@ -42,8 +42,8 @@ th.gridjs-th{
 	width: fit-content;
 	border-radius: 8px 8px 0 0;
 	background-color: var(--light);
-	margin-top: 40px;
-	height: 10px;
+	margin-top: 25px;
+	height: 25px;
 	overflow: hidden;
 	transition: all 0.5s ease-in-out;
 }
@@ -64,13 +64,16 @@ th.gridjs-th{
 	color: var(--main);
 	cursor: pointer;
 	font-size: 32px;
-	top: 63px;
-	left: 17px;
-	transition: color 0.4s, top 0.5s ease-in-out;
+	top: 28px;
+	left: 20px;
+	transition: color 0.4s ease-in-out, top 0.5s ease-in-out, font-size 0.5s ease-in-out, left 0.5s ease-in-out;
+	font-size: x-large;
 }
 
 .gridjs-head:focus .material-icons.gridjs-search-icon, .gridjs-head:hover .material-icons.gridjs-search-icon{
 	top: 13px;
+	left: 17px;
+	font-size: xx-large;
 }
 
 .gridjs-search .gridjs-search-input {
