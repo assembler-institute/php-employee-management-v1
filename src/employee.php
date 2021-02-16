@@ -16,6 +16,7 @@ include('./library/sessionHelper.php');
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/employee.css">
+  <link rel="stylesheet" href="../assets/css/modal.css">
 
   <script type="module" src="/php-employee-management-v1/assets/js/Avatar.js"></script>
 
@@ -41,7 +42,7 @@ include('./library/sessionHelper.php');
   }
 
   echo "<section class='employee__page'>
-    <button class='material-icons employee__edit__button'>edit</button>
+    <button id='employeeEditButton' class='material-icons employee__edit__button' data-id='" . $employee['id'] ."'>edit</button>
         <div class='employee__avatar'></div>
         <div class='employee__info'>
           <h2 class='employee__name'>" . $employee['name'] . " " . $employee['lastName'] . "</h2>
