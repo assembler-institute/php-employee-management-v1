@@ -122,7 +122,6 @@ include('./library/sessionHelper.php')
       $avatarContainer.innerHTML = avatar.getAvatar({
         width: 200
       });
-      $avatarContainer.addEventListener('click', () => createAvatarModal(employee.gender, avatar.getProperties(), callback))
     }
   </script>
 

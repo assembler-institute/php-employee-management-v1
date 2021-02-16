@@ -83,9 +83,10 @@ export function createAddModal() {
 		event.preventDefault();
 		const formData = new FormData(event.target);
 		addEmployee(formData, (response) => {
-			addAvatar(response.data.id, myAvatar.getProperties(), response => {
-        console.log(response);
-      });
+			addAvatar(response.data.id, myAvatar.getProperties(), () => {
+				closeModal();
+				update();
+			});
 		});
 	});
 

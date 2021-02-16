@@ -9,16 +9,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     }
     case 'POST': {
-        if (isset($_POST)) {
-            echo var_dump($_POST);
-            echo var_dump($_GET);
-            echo var_dump($_REQUEST);
-            return;
-            addAvatar($_POST);
-            http_response_code(201);
-        } else {
-            http_response_code(400);
-        }
+        $added = addAvatar(json_decode(file_get_contents('php://input'), true));
+        http_response_code(201);
+        echo json_encode($added);
         break;
     }
     case 'PUT': {

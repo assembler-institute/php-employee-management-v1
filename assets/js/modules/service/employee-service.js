@@ -11,7 +11,6 @@ export function deleteEmployee(id, onSucess) {
 }
 
 export function addEmployee(employee, onSuccess) {
-	console.log(employee);
 	axios.post(
 		EMPLOYEE_URL, employee
 	)

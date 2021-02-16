@@ -11,6 +11,8 @@ function addAvatar(array $newAvatar)
     array_push($avatars, $newAvatar);
 
     saveArrayAsJson(AVATARS_JSON_PATH, $avatars);
+
+    return $newAvatar;
 }
 
 function deleteAvatar(int $id)
