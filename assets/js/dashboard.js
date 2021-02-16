@@ -42,12 +42,12 @@ $(window).on('load', function(){
         $(document).on('click', '.delete', (function() {
             let element = $(this)[0].parentElement;
             console.log(element)
-            let id = $(element).attr('counter');  
-            console.log(id)
+            let counter = $(element).attr('counter');  
+            console.log(counter)
             $.ajax({                                                // We do the ajax request to delete the employee.
                 url: '../src/library/employeeDelete.php',           
                 type: 'post',
-                data: {id},
+                data: {counter},
                 success: function(data) {                           // We get back the data without the employee.
                     let newEmployees = JSON.parse(data);            // and we create the template and display the new data.
                     console.log(newEmployees);
@@ -145,8 +145,11 @@ $(window).on('load', function(){
         //EMPLOYEE VIEW AND UPLOAD DATA
 
         $(document).on('click', '.employee-data', (function() {
-            //window.location = './employee.php'
-            console.log($(this)[0].parentElement);
+            // 
+            let employeeNode = $(this)[0].parentElement;
+            let id = ($(employeeNode).attr('counter'));
+            window.location = `./employee.php?id=${id}`;
+            
         }))
 
     });

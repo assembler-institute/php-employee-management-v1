@@ -1,7 +1,7 @@
 <?php
 
-if(isset($_POST['id'])) {
-    $id = $_POST['id'];
+if(isset($_POST['counter'])) {
+    $id = $_POST['counter'];
     $id -= 1;
     $data = file_get_contents('../../resources/employees.json');
     $dataArray = json_decode($data);
