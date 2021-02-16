@@ -129,6 +129,7 @@ footer > p > a:hover, footer > p > a:focus{
     margin:0;
     top: 0;
     left:0;
+    z-index: 1;
     background-color: #feffff55;
 }
 .avatarModal{
@@ -141,6 +142,7 @@ footer > p > a:hover, footer > p > a:focus{
     max-width: 530px;
     padding: 10px;
     position: relative;
+    z-index: 1;
     width: 80vw;
 }
 
@@ -340,11 +342,6 @@ path, g, mask, svg{
         max-width: 200px;
     }
 }
-
-
-
-
-
 
 
 /*-----ScrollBars-----*/

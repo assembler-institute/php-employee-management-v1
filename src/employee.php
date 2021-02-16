@@ -96,14 +96,15 @@ include('./library/sessionHelper.php');
       width: 200
     });
     let callback = (avatarProps) => {
-      axios.put(`http://localhost/php-employee-management-v1/src/library/avatarController.php?id=${employee.id}`, {
-          properties: avatarProps
+      axios.put(`http://localhost/php-employee-management-v1/src/library/avatarController.php?id=${avatarObj.id}`, {
+          properties: avatarProps,
+          employeeId: employee.id
         })
         .then((response) => {
           updateAvatar(response.data.properties);
         })
     }
-    $avatarContainer.addEventListener('click', () => createAvatarModal(employee.gender, avatarObj.properties, callback))
+    $avatarContainer.addEventListener('click', () => createAvatarModal(employee.gender, avatar.getProperties(), callback))
 
     function programateWink() {
       let $avatarContainer = document.querySelector('.employee__avatar');
@@ -132,7 +133,6 @@ include('./library/sessionHelper.php');
       $avatarContainer.innerHTML = avatar.getAvatar({
         width: 200
       });
-      $avatarContainer.addEventListener('click', () => createAvatarModal(employee.gender, avatarObj.properties, callback))
     }
   </script>
 

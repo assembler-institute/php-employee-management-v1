@@ -1,18 +1,16 @@
 [
     {
-        "id": 1,
-        "avatarId": 1,
         "name": "Pau",
         "lastName": "García",
+        "age": "10",
+        "gender": "male",
         "role": "Tech Lead",
         "email": "pau@assemblerschool.com",
-        "gender": "male",
-        "country": "España",
+        "phoneNumber": "8",
         "city": "Barcelona",
         "state": "Cataluña",
-        "age": null,
-        "phoneNumber": null,
-        "githubLink": "https://github.com/Pau111111"
+        "country": "España",
+        "id": "1"
     },
     {
         "id": 2,
