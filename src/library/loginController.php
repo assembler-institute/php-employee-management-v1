@@ -5,7 +5,7 @@ require('loginManager.php');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-if (isset($userEmail)) {
+if (isset($email)) {
     $hasLoggedIn = logIn($email, $password);
     if ($hasLoggedIn) {
         header('Location: ../dashboard.php');
