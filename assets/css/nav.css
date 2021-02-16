@@ -21,6 +21,9 @@ header {
 .nav-links li {
     list-style: none;
 }
+.nav-links li:hover {
+    filter: opacity(0.6);
+}
 .nav-links a {
     color:rgb(226, 226, 226);
     text-decoration: none;
@@ -34,11 +37,9 @@ header button, .searchBar__submit {
     margin: 5px;
     font-weight: bold;
 }
-
 .searchBar {
     display: flex;
 }
-
 .searchBar__input {
     width: 100%;
     padding: 1vh;
@@ -48,6 +49,10 @@ header button, .searchBar__submit {
     border-radius: 5px;
 }
 
+.searchBar__input:focus {
+    outline: none;
+	border: 1px solid var(--light-dark);
+}
 .searchBar__submit {
     background-color: transparent;
     border: none;
@@ -55,11 +60,9 @@ header button, .searchBar__submit {
     cursor: pointer;
     outline: none;
 }
-
 .searchBar__submit i{
     color: rgb(226, 226, 226);
 }
-
 .logoutBtn {
     height: 10vh;
     background-color: transparent;
@@ -68,11 +71,9 @@ header button, .searchBar__submit {
     cursor: pointer;
     outline: none;
 }
-
 .searchBar__submit i:hover {
     filter: opacity(0.6);
 }
-
 .logoutBtn:hover {
     filter: opacity(0.6);
 }

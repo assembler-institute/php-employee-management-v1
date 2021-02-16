@@ -10,11 +10,11 @@
         unset($_POST['submit']);
 
         if (updateEmployee($_POST)){
-            setErrorEmployeeMessage("Employee Successfully Saved!");
+            setErrorEmployeeMessage("Employee Successfully Saved!", $_POST['id']);
             exit();
         }
         else {
-            setErrorEmployeeMessage("Faile To Save!");
+            setErrorEmployeeMessage("Faile To Save!", $_POST['id']);
             exit();
         }
 
