@@ -77,7 +77,7 @@ body {
 	margin: 0 0.5em;
 }
 
-.dashboard .dashboardLink {
+.dashboard .dashboardLink, .dashboard .employeeLink, .dashboard b  {
 	display: none;
 }
 
