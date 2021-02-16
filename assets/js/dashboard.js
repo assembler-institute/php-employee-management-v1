@@ -1,11 +1,11 @@
-
+import {renderTemplate} from '../js/render.js'
 
 $(window).on('load', function(){
                                             
         $.ajax({                                                // First we do the request to load the data
             url: '../src/library/employeeController.php',       // And display the data in the table.
             type: 'get',
-            success: function(data){
+            success: function renderTemplate(data){
                 let employees = JSON.parse(data);
                 let template = '';
                 let id = 0;
@@ -44,7 +44,7 @@ $(window).on('load', function(){
             console.log(element)
             let id = $(element).attr('empId');  
             console.log(id)
-            $.ajax({                                               // We do the ajax request to delete the employee.
+            $.ajax({                                                // We do the ajax request to delete the employee.
                 url: '../src/library/employeeDelete.php',           
                 type: 'post',
                 data: {id},
@@ -54,7 +54,7 @@ $(window).on('load', function(){
                     let template = '';
                     let id = 0;
                     alert('Are you sure you want to delete this employee?');
-                    $('tbody').empty();
+                    $("tbody > *:not('.input-bar')").remove();
                     newEmployees.forEach(employee => {
                     
                         template = `
@@ -82,6 +82,9 @@ $(window).on('load', function(){
 
 
         // NEW EMPLOYEE REQUEST
+
+            //First we put a toggle on the form '+' button.
+
             $(document).on('click', '.add', function(){
                 if($('.input-bar').is(":hidden")){
                     $('.add').html('close')
@@ -90,23 +93,52 @@ $(window).on('load', function(){
                 }
                 $('.input-bar').toggle();
 
-                $('form').submit(function(e){
-                    let formData = $('form').serializeArray();
-                    let data = {};
-                    $( formData ).each(function(index, obj){
-                        data[obj.name] = obj.value; 
-                        e.preventDefault();
-                    });
-                    console.log(data);
-                    $.ajax({
-                        url: '../src/library/newEmployee.php',
-                        data: data,
-                        type: 'post',
-                        success: function (data) {
-                            console.log(data);
-                        }
-                    });
-                });    
+                    
+            });
+
+            
+            $('form').submit(function(e){                   // We get the form data
+                let formData = $('form').serializeArray();  
+                let data = {};                              // Convert the data to an object
+                $( formData ).each(function(index, obj){
+                    data[obj.name] = obj.value; 
+                    e.preventDefault();
+                });
+                console.log(data);                          // We send the data to the php file.
+                $.ajax({
+                    url: '../src/library/newEmployee.php',
+                    data: data,
+                    type: 'post',
+                    success: function renderTemplate(data){     // With the data we get back we
+                        let employees = JSON.parse(data);      // create a template and display it on the table.
+                        let template = '';
+                        let id = 0;
+                        $("tbody > *:not('.input-bar')").remove();
+
+
+                        employees.forEach(employee => {
+                            
+                            template = `
+                            <tr empId="${id+=1}" class="">
+                                <th scope="row" class="employee-data">${id}</th>
+                                <td class="employee-data">${employee.name}</td>
+                                <td class="employee-data">${employee.email}</td>
+                                <td class="employee-data">${employee.age}</td>
+                                <td class="employee-data">${employee.streetAddress}</td>
+                                <td class="employee-data">${employee.city}</td>
+                                <td class="employee-data">${employee.state}</td>
+                                <td class="employee-data">${employee.postalCode}</td>
+                                <td >${employee.phoneNumber}</td>
+                                <td class="delete"><span class="material-icons">
+                                delete
+                                </span></td>
+                            <tr>
+                        `;
+                        $('tbody').append(template);
+                        
+                        });
+                    }
+                });
             });
 
             

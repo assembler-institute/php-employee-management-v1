@@ -37,7 +37,7 @@
     include '../assets/html/footer.html';
     ?>
 
-    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/dashboard.js" type="module"></script>
     <script src="../assets/js/index.js"></script>
 </body>
 </html>
