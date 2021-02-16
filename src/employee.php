@@ -1,7 +1,7 @@
 <?php
 include_once('./library/employeeManager.php');
 include_once('./library/avatarManager.php');
-include('./library/sessionHelper.php')
+include('./library/sessionHelper.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,32 +33,40 @@ include('./library/sessionHelper.php')
   } else {
     die();
   }
+  if( !isset( $employee['linkedinLink'] ) ){
+    $employee['linkedinLink']=null;
+  }
+  if( !isset( $employee['githubLink'] ) ){
+    $employee['githubLink']=null;
+  }
 
   echo "<section class='employee__page'>
         <div class='employee__avatar'></div>
-        <h2 class='employee__name'>" . $employee['name'] . " " . $employee['lastName'] . "</h2>
-        <h5 class='employee__role'>" . $employee['role'] . "</h5>
-        <div class='employee__contact'>
-          <div class='employee__email'>
-            <a href='mailto:" . $employee['email'] . "'>          
-              <span class='material-icons contact__icon'>email</span>
-            </a>
-          </div>
-          <div class='employee__phone'>
-            <a href='callto:" . $employee['phoneNumber'] . "'>          
-              <span class='material-icons contact__icon'>stay_primary_portrait</span>
-            </a>
+        <div class='employee__info'>
+          <h2 class='employee__name'>" . $employee['name'] . " " . $employee['lastName'] . "</h2>
+          <h5 class='employee__role'>" . $employee['role'] . "</h5>
+          <div class='employee__contact'>
+            <div class='employee__email'>
+              <a href='mailto:" . $employee['email'] . "'>          
+                <span class='material-icons contact__icon'>email</span>
+              </a>
+            </div>
+            <div class='employee__phone'>
+              <a href='callto:" . $employee['phoneNumber'] . "'>          
+                <span class='material-icons contact__icon'>stay_primary_portrait</span>
+              </a>
 
-          </div>
-          <div class='awesome employee__linkedin'>
-            <a href='" . $employee['linkedinLink'] . "'>      
-              <i class='fab fa-linkedin contact__icon'></i>    
-            </a>
-          </div>
-          <div class='awesome employee__github'>
-            <a href='" . $employee['githubLink'] . "'>   
-              <i class='fab fa-github contact__icon'></i>       
-            </a>
+            </div>
+            <div class='awesome employee__linkedin'>
+              <a href='" . $employee['linkedinLink'] . "'>      
+                <span class='fab fa-linkedin contact__icon'></span>    
+              </a>
+            </div>
+            <div class='awesome employee__github'>
+              <a href='" . $employee['githubLink'] . "'>   
+                <span class='fab fa-github contact__icon'></span>       
+              </a>
+            </div>
           </div>
         </div>
         </section>"

@@ -4,12 +4,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 100px;
     position: relative;
+    background-color: var(--light);
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    box-shadow: 2px 2px 10px;
+    border-radius: 10px;
 }
 
 .employee__name {
-    margin-top: 120px;
+    /* margin-top: 120px; */
 }
 
 .employee__role {
@@ -17,11 +26,11 @@
 }
 
 .employee__avatar {
-    position: absolute;
-    right: 5%;
-    top: 20px;
     cursor: pointer;
     transition: filter 0.4s;
+    height: fit-content;
+    margin: 10px 20px 20px 10px; 
+    padding: 0;
 }
 
 .employee__avatar:hover {
@@ -34,6 +43,12 @@
     align-items: center;
 }
 
+.employee__contact a>span, .employee__contact a:visited>span{
+    color: var(--secondary);
+}
+.employee__contact a:hover>span, .employee__contact a:focus >span, .employee__contact a:active>span {
+    color: var(--main);
+} 
 .awesome {
     font-size: 24px;
     padding: 0 2px;
