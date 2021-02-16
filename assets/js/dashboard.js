@@ -8,13 +8,13 @@ $(window).on('load', function(){
             success: function renderTemplate(data){
                 let employees = JSON.parse(data);
                 let template = '';
-                let id = 0;
+                let counter = 0;
                 console.log(employees);
                 employees.forEach(employee => {
                     
                     template = `
-                    <tr empId="${id+=1}" class="">
-                        <th scope="row" class="employee-data">${id}</th>
+                    <tr empId="${employee.id}" counter="${counter+=1}"class="">
+                        <th scope="row" class="employee-data">${counter}</th>
                         <td class="employee-data">${employee.name}</td>
                         <td class="employee-data">${employee.email}</td>
                         <td class="employee-data">${employee.age}</td>
@@ -52,14 +52,14 @@ $(window).on('load', function(){
                     let newEmployees = JSON.parse(data);            // and we create the template and display the new data.
                     console.log(newEmployees);
                     let template = '';
-                    let id = 0;
+                    let counter = 0;
                     alert('Are you sure you want to delete this employee?');
                     $("tbody > *:not('.input-bar')").remove();
                     newEmployees.forEach(employee => {
                     
                         template = `
-                        <tr empId="${id+=1}" class="">
-                            <th scope="row" class="employee-data">${id}</th>
+                        <tr empId="${employee.id}" counter="${counter+=1}" class="">
+                            <th scope="row" class="employee-data">${counter}</th>
                             <td class="employee-data">${employee.name}</td>
                             <td class="employee-data">${employee.email}</td>
                             <td class="employee-data">${employee.age}</td>
@@ -112,15 +112,15 @@ $(window).on('load', function(){
                     success: function renderTemplate(data){     // With the data we get back we
                         let employees = JSON.parse(data);      // create a template and display it on the table.
                         let template = '';
-                        let id = 0;
+                        let counter = 0;
                         $("tbody > *:not('.input-bar')").remove();
 
 
                         employees.forEach(employee => {
                             
                             template = `
-                            <tr empId="${id+=1}" class="">
-                                <th scope="row" class="employee-data">${id}</th>
+                            <tr empId="${employee.id}" counter="${counter+=1}"class="">
+                                <th scope="row" class="employee-data">${counter}</th>
                                 <td class="employee-data">${employee.name}</td>
                                 <td class="employee-data">${employee.email}</td>
                                 <td class="employee-data">${employee.age}</td>
@@ -142,9 +142,10 @@ $(window).on('load', function(){
             });
 
             
+        //EMPLOYEE VIEW AND UPLOAD DATA
 
         $(document).on('click', '.employee-data', (function() {
-            //window.location = './employee.php'
+            window.location = './employee.php'
             console.log($(this)[0].parentElement);
         }))
 
