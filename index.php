@@ -1,4 +1,3 @@
-<!-- TODO Application entry point. Login view -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +11,11 @@
 </head>
 
 <body>
+<?php
+    if(isset( $_GET['error'] )){
+        echo '<div class="loginErrorContainer"><div class="loginError"> Incorrect Email or Password! </div></div>';
+    }
+    ?>
     <section class="login">
         <div id='image'></div>
         <form action="./src/library/loginController.php" method="post">
