@@ -69,6 +69,13 @@
 	width: 100%;
 }
 
+.gridjs-td[data-column-id='name'] > span {
+	display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
 .gridjs-td[data-column-id='email'] .email-wrapper span {
 	overflow: hidden;
 }

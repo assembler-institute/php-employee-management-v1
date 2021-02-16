@@ -1,6 +1,9 @@
 import { Grid, html, h } from 'https://unpkg.com/gridjs/dist/gridjs.production.es.min.js';
+import { Avataaars } from '../../avataaars.js';
+import { Avatar } from '../../Avatar.js';
+import { DEF, FEMALE_DEF, MALE_DEF } from '../../default.js';
 import { EMPLOYEE_URL } from '../service/employee-service.js';
-import { createDeletionModal, createAddModal } from '../util/modals.js';
+import { createDeletionModal, createAddModal } from './modals.js';
 
 const columns = [
 	{
@@ -8,8 +11,31 @@ const columns = [
 		hidden: true,
 	},
 	{
+		id: 'avatarProps',
+		hidden: true
+	},
+	{
 		name: 'Name',
 		width: '20%',
+		formatter: (cell, row) => {
+			let properties = {};
+			if(row.cells[1].data) {
+				properties = JSON.parse(row.cells[1].data);
+			} else {
+				if(row.cells[8].data == 'male') {
+					properties = MALE_DEF;
+				} else if(row.cells[8].data == 'female') {
+					properties = FEMALE_DEF;
+				} else {
+					properties = DEF;
+				}
+			}
+			properties.width = 50;
+			return html(`
+				${Avataaars.create(properties)}
+				<span>${cell}</span>
+			`)
+		}
 	},
 	{
 		name: 'Role',
@@ -18,11 +44,11 @@ const columns = [
 	{
 		name: 'Email',
 		width: '17%',
-		formatter: (_, row) =>
+		formatter: cell => 
 			html(`
 				<div class="email-wrapper">
-					<span>${row.cells[3].data}</span>
-					<a href='mailto:${row.cells[3].data}' class="material-icons">email</a>
+					<span>${cell}</span>
+					<a href='mailto:${cell}' class="material-icons">email</a>
 				</div>`),
 	},
 	{
@@ -55,7 +81,7 @@ const columns = [
 					className: 'material-icons',
 					onClick: (event) =>
 						createDeletionModal(event, {
-							name: row.cells[1].data,
+							name: row.cells[2].data,
 							id: row.cells[0].data,
 						}),
 				},
@@ -63,20 +89,28 @@ const columns = [
 			),
 		sort: false,
 	},
+	{
+		id: 'gender',
+		hidden: true
+	}
 ];
 
 const server = {
 	url: EMPLOYEE_URL,
 	then: (data) =>
-		data.map((employee) => [
-			employee.id,
-			`${employee.name} ${employee.lastName}`,
-			employee.role,
-			employee.email,
-			employee.age,
-			employee.city,
-			employee.phoneNumber,
-		]),
+		data.map((employee) => {
+			return [
+				employee.id,
+				employee.avatar ? JSON.stringify(employee.avatar.properties) : false,
+				`${employee.name} ${employee.lastName}`,
+				employee.role,
+				employee.email,
+				employee.age,
+				employee.city,
+				employee.phoneNumber,
+				employee.gender
+			];
+		}),
 };
 
 const grid = new Grid({
@@ -94,8 +128,7 @@ grid.render(document.getElementById('table-wrapper'));
 
 grid.on('rowClick', (...args) => {
 	if (!args[0].target.classList.contains('material-icons')) {
-		//TODO Navigate to employees
-		console.log(args);
+		window.location.href = `http://localhost/php-employee-management-v1/src/employee.php?id=${args[1].cells[0].data}`;
 	}
 });
 

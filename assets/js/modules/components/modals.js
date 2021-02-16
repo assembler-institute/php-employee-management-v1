@@ -1,5 +1,5 @@
 import { deleteEmployee } from '../service/employee-service.js';
-import { closeModal, openModal } from './modal.js';
+import { closeModal, openModal } from '../util/modal.js';
 
 export function createAddModal() {
 	const addModal = document.createElement('div');

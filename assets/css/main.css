@@ -262,7 +262,7 @@ button#avatarRandom__button {
     height: fit-content;
     max-height: 706px;
     border-radius:10px 10px;
-    transition: max-width 0.5s linear;
+    transition: max-width 0.6s ease-in-out;
 }
 
 #avatarModalHairColors{
@@ -277,7 +277,7 @@ button#avatarRandom__button {
     direction: rtl;
     max-height: 100%;
     border-radius: 10px;
-    transition: max-width 0.5s linear;
+    transition: max-width 0.6s ease-in-out;
 }
 
 .avatarModal__colors > p{

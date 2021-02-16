@@ -20,13 +20,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
     case 'PUT': {
             $employeeData = file_get_contents('php://input');
-            echo var_dump(json_decode($employeeData, true));
             updateEmployee(json_decode($employeeData, true));
             break;
         }
     case 'DELETE': {
             if (isset($_GET['id'])) {
-                echo deleteEmployee($_GET['id']);
+                deleteEmployee($_GET['id']);
                 http_response_code(204);
             }
             break;
