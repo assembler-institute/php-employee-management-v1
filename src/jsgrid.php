@@ -46,6 +46,3 @@
                 });
 
     </script>
-        <?php
-            // echo "<script>document.writeln(employees);</script>";
-        ?>
