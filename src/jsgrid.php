@@ -45,14 +45,6 @@
         });
                 });
 
-        // var clients = [
-        //     { "Id": 1, "Name":"Rack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-        //     { "Id": 2, "Name":"Jack", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-        //     { "Id": 3, "Name":"Mary", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-        //     { "Id": 4, "Name":"Donna", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" },
-        //     { "Id": 5, "Name":"Roy", "Last name":"Lei", "Email":"jackon@network.com", "Age":"24", "Phone number":"91232876454" }
-        // ];
-
     </script>
         <?php
             // echo "<script>document.writeln(employees);</script>";
