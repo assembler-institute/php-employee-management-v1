@@ -17,6 +17,20 @@
     border-radius: 10px;
 }
 
+.employee__edit__button{
+    position: absolute;
+    top: 0.75em;
+    right: 0.75em;
+    background-color: transparent;
+    border:none;
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+.employee__edit__button:hover, .employee__edit__button:focus{
+    color: var(--dark);
+    outline: none;
+}
 .employee__name {
     /* margin-top: 120px; */
 }

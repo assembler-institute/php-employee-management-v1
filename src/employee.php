@@ -41,6 +41,7 @@ include('./library/sessionHelper.php');
   }
 
   echo "<section class='employee__page'>
+    <button class='material-icons employee__edit__button'>edit</button>
         <div class='employee__avatar'></div>
         <div class='employee__info'>
           <h2 class='employee__name'>" . $employee['name'] . " " . $employee['lastName'] . "</h2>
