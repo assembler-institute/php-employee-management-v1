@@ -34,3 +34,45 @@ header button, .searchBar__submit {
     margin: 5px;
     font-weight: bold;
 }
+
+.searchBar {
+    display: flex;
+}
+
+.searchBar__input {
+    width: 100%;
+    padding: 1vh;
+    font-size: 1.2rem;
+    border: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.searchBar__submit {
+    background-color: transparent;
+    border: none;
+    color: rgb(226, 226, 226);
+    cursor: pointer;
+    outline: none;
+}
+
+.searchBar__submit i{
+    color: rgb(226, 226, 226);
+}
+
+.logoutBtn {
+    height: 10vh;
+    background-color: transparent;
+    border: none;
+    color: rgb(226, 226, 226);
+    cursor: pointer;
+    outline: none;
+}
+
+.searchBar__submit i:hover {
+    filter: opacity(0.6);
+}
+
+.logoutBtn:hover {
+    filter: opacity(0.6);
+}

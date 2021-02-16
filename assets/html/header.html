@@ -2,21 +2,25 @@
     <section class="title">
         <h4>Employees Manager</h4>
     </section>
-
     <ul class="nav-links">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Employee</a></li>
+        <li>
+            <a href="http://127.0.0.1/php-employee-management-v1/src/library/loginController.php?logout='true'">Login</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1/php-employee-management-v1/src/dashboard.php">Dashboard</a>
+        </li>
+        <li>
+            <a href="http://127.0.0.1/php-employee-management-v1/src/employee.php">Employee</a>
+        </li>
     </ul>
-    
-    <section class="searchBar-container">
-        <form class="searchBar" action="index.php" method="get">
-            <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
-            <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
-        </form> 
-        </section>
 
+    <section class="searchBar-container">
+        <form class="searchBar" action="" method="get">
+            <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
+            <button class="searchBar__submit" id="searchBtn" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </section>
     <section class="logout-container">
-        <button id="logout"> Log Out </button>
+        <a href="http://127.0.0.1/php-employee-management-v1/src/library/loginController.php?logout='true'"><button class="logoutBtn" id="logout"> Log Out </button></a>
     </section>
 </header>

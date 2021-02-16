@@ -1,23 +1,30 @@
-table = document.querySelector(".js-grid-table");
+const init = () => {
+    axios.get('http://127.0.0.1/php-employee-management-v1/resources/employees.json').then(({ data }) => {
 
-table.addEventListener('click', printFunction);
+        console.log('hello');
 
-function printFunction(e){
-    e.preventDefault();
-    console.log(e.target);
-}
+        $("#jsGrid").jsGrid({
+        width: "100%",
+        height: "400px",
 
-// submitButton.addEventListener("click", request);
+        inserting: true,
+        editing: false,
+        sorting: true,
+        paging: true,
 
-// function request(e) {
+        data,
 
-//     e.prevent
+        fields: [
+            { name: "Id", type: "number", width: 50 },
+            { name: "Name", type: "text", width: 150, validate: "required" },
+            { name: "Last name", type: "text", width: 150, validate: "required" },
+            { name: "Email", type: "text", width: 200 },
+            { name: "Age", type: "number", width: 50 },
+            { name: "Phone number", type: "number", width: 50 },
+            { type: "control", editButton: false }
+        ]
+});
+        });
+        }
 
-//     axios.post("../../src/library/index.php", JSON.stringify(data))
-//     .then(response => {
-//         // location.reload();
-//         console.log(response);
-//     }).catch(error => {
-//         console.log(error);
-//     })
-// }
+$(init);
