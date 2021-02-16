@@ -2,14 +2,14 @@ import { printMainAvatar, printResults, printColors } from "./avatarModal.js";
 
 let avatar;
 
-export function avatarModalListeners(myAvatar) {
+export function avatarModalListeners(myAvatar, onClose) {
   avatar = myAvatar;
   generateRandomAvatarListener();
   changeAvatarOptionListener();
   changeAvatarPropertyListener();
   changeAvatarColorsListener();
   changeAvatarHairColorsListener();
-  closeModalListeners();
+  closeModalListeners(onClose);
 }
 
 function removeAvaarModalListeners() {
@@ -20,7 +20,7 @@ function removeAvaarModalListeners() {
   removeCloseModalListeners();
 }
 
-function closeModalListeners() {
+function closeModalListeners(onClose) {
   const $modalBackground = document.getElementById("avatarModalBackground");
   $modalBackground.addEventListener("click", function (event) {
     const target = event.target;
@@ -28,8 +28,9 @@ function closeModalListeners() {
       target.classList.contains("avatarModal__background") ||
       target.classList.contains("avatarModal__close")
     ) {
-      closeAvatarModal();
+      onClose(avatar.getProperties());
       removeAvaarModalListeners();
+      closeAvatarModal();
     }
   });
 }

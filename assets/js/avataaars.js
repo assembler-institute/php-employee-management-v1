@@ -142,7 +142,7 @@ export const Avataaars = {
         silverGray: '#E8E1E1',
     },
     palette: {
-        black: '#262E33',
+        black: '#141719',
         blue01: '#65C9FF',
         blue02: '#5199E4',
         blue03: '#25557C',

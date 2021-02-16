@@ -35,7 +35,6 @@
     border: 2px solid var(--smooth);
     box-shadow: inset 1px 1px 5px #0008;
     padding: 0.2em 0.25em;
-    
 }
 
 .modal__input:hover, .modal__input:focus {
@@ -134,6 +133,12 @@
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.modal-image{
+    width: 100%;
+    text-align: center;
+    margin: 1em;
 }
 
 @keyframes deletionAppear {

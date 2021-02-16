@@ -13,12 +13,15 @@ body {
 	margin: 0;
 	padding: 0;
     overflow: hidden;
+    background-color: var(--smooth);
+   
 }
 /*-----header-----*/
 .main{
     height: 90vh;
     overflow: hidden;
     overflow-y: auto;
+    background-color: var(--smooth);
 }
 .header {
     width: 100%;
@@ -277,7 +280,7 @@ button#avatarRandom__button {
     height: fit-content;
     max-height: 706px;
     border-radius:10px 10px;
-    transition: max-width 0.5s linear;
+    transition: max-width 0.6s ease-in-out;
 }
 
 #avatarModalHairColors{
@@ -292,7 +295,7 @@ button#avatarRandom__button {
     direction: rtl;
     max-height: 100%;
     border-radius: 10px;
-    transition: max-width 0.5s linear;
+    transition: max-width 0.6s ease-in-out;
 }
 
 .avatarModal__colors > p{
@@ -359,7 +362,7 @@ path, g, mask, svg{
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
+    background: var(--main);
     border-radius: 10px;
   }
   

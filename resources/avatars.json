@@ -1,0 +1,512 @@
+[
+    {
+        "properties": {
+            "skin": "pale",
+            "top": "theCaesar",
+            "hairColor": "auburn",
+            "hatColor": "gray02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtScoopNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "gray01",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "twinkle"
+        },
+        "id": "1"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "shortFlat",
+            "hairColor": "brownDark",
+            "hatColor": "pastelOrange",
+            "accessoriesColor": "pastelGreen",
+            "facialHair": "beardLight",
+            "facialHairColor": "brownDark",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "deer",
+            "clothingColor": "pastelOrange",
+            "eyes": "default",
+            "eyebrows": "default",
+            "mouth": "smile"
+        },
+        "id": "2"
+    },
+    {
+        "properties": {
+            "skin": "tanned",
+            "top": "shaggy",
+            "hairColor": "black",
+            "hatColor": "heather",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "black",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "default",
+            "mouth": "default"
+        },
+        "id": "3"
+    },
+    {
+        "properties": {
+            "skin": "pale",
+            "top": "fro",
+            "hairColor": "brownDark",
+            "hatColor": "pastelBlue",
+            "accessories": "prescription01",
+            "accessoriesColor": "black",
+            "facialHair": "beardLight",
+            "facialHairColor": "brown",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "resist",
+            "clothingColor": "heather",
+            "eyes": "squint",
+            "eyebrows": "default",
+            "mouth": "serious"
+        },
+        "id": "4"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "bob",
+            "hairColor": "blonde",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "pink",
+            "eyes": "squint",
+            "eyebrows": "default",
+            "mouth": "default"
+        },
+        "id": "5"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "longButNotTooLong",
+            "hairColor": "blondeGolden",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "6"
+    },
+    {
+        "properties": {
+            "skin": "tanned",
+            "top": "dreads01",
+            "hairColor": "brownDark",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "twinkle"
+        },
+        "id": "7"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "theCaesarAndSidePart",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessories": "prescription01",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "blue03",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "8"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "straight01",
+            "hairColor": "blonde",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtScoopNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "white",
+            "eyes": "winkWacky",
+            "eyebrows": "default",
+            "mouth": "smile"
+        },
+        "id": "9"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "longButNotTooLong",
+            "hairColor": "blonde",
+            "hatColor": "black",
+            "accessories": "round",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "10"
+    },
+    {
+        "properties": {
+            "skin": "tanned",
+            "top": "theCaesarAndSidePart",
+            "hairColor": "auburn",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "squint",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "11"
+    },
+    {
+        "properties": {
+            "skin": "darkBrown",
+            "top": "shortCurly",
+            "hairColor": "black",
+            "hatColor": "black",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "heather",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "twinkle"
+        },
+        "id": "12"
+    },
+    {
+        "properties": {
+            "skin": "tanned",
+            "top": "shortFlat",
+            "hairColor": "brownDark",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "graphicShirt",
+            "clothingGraphic": "deer",
+            "clothingColor": "red",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "13"
+    },
+    {
+        "properties": {
+            "skin": "pale",
+            "top": "straight02",
+            "hairColor": "black",
+            "hatColor": "black",
+            "accessories": "prescription02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtScoopNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "heather",
+            "eyes": "happy",
+            "eyebrows": "default",
+            "mouth": "default"
+        },
+        "id": "14"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "shortFlat",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "graphicShirt",
+            "clothingGraphic": "diamond",
+            "clothingColor": "pastelGreen",
+            "eyes": "eyeRoll",
+            "eyebrows": "defaultNatural",
+            "mouth": "twinkle"
+        },
+        "id": "15"
+    },
+    {
+        "properties": {
+            "skin": "brown",
+            "top": "straightAndStrand",
+            "hairColor": "brownDark",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "overall",
+            "clothingGraphic": "pizza",
+            "clothingColor": "red",
+            "eyes": "happy",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "16"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "shaggy",
+            "hairColor": "black",
+            "hatColor": "pastelGreen",
+            "accessoriesColor": "black",
+            "facialHair": "moustaceFancy",
+            "facialHairColor": "brownDark",
+            "clothing": "graphicShirt",
+            "clothingGraphic": "skrull",
+            "clothingColor": "black",
+            "eyes": "squint",
+            "eyebrows": "raisedExcitedNatural",
+            "mouth": "smile"
+        },
+        "id": "17"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "fro",
+            "hairColor": "black",
+            "hatColor": "black",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "graphicShirt",
+            "clothingGraphic": "hola",
+            "clothingColor": "heather",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "smile"
+        },
+        "id": "18"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "dreads02",
+            "hairColor": "blonde",
+            "hatColor": "blue01",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "heather",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "19"
+    },
+    {
+        "properties": {
+            "skin": "darkBrown",
+            "top": "dreads01",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "blue03",
+            "eyes": "default",
+            "eyebrows": "default",
+            "mouth": "default"
+        },
+        "id": "20"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "shortFlat",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "hoodie",
+            "clothingGraphic": "pizza",
+            "clothingColor": "blue03",
+            "eyes": "closed",
+            "eyebrows": "default",
+            "mouth": "smile"
+        },
+        "id": "22"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "eyepatch",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "beardMedium",
+            "facialHairColor": "black",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "happy",
+            "eyebrows": "raisedExcited",
+            "mouth": "smile"
+        },
+        "id": "23"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "shortFlat",
+            "hairColor": "auburn",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "pastelOrange",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "24"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "dreads01",
+            "hairColor": "blonde",
+            "hatColor": "gray01",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "graphicShirt",
+            "clothingGraphic": "dumbia",
+            "clothingColor": "blue03",
+            "eyes": "default",
+            "eyebrows": "default",
+            "mouth": "twinkle"
+        },
+        "id": "25"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "shaggy",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "black",
+            "clothing": "graphicShirt",
+            "clothingGraphic": "pizza",
+            "clothingColor": "red",
+            "eyes": "default",
+            "eyebrows": "raisedExcitedNatural",
+            "mouth": "default"
+        },
+        "id": "26"
+    },
+    {
+        "properties": {
+            "skin": "light",
+            "top": "theCaesar",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessories": "prescription01",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "hoodie",
+            "clothingGraphic": "pizza",
+            "clothingColor": "red",
+            "eyes": "squint",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "27"
+    },
+    {
+        "properties": {
+            "skin": "pale",
+            "top": "bigHair",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessories": "prescription02",
+            "accessoriesColor": "black",
+            "facialHair": "beardMedium",
+            "facialHairColor": "brown",
+            "clothing": "collarAndSweater",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "twinkle"
+        },
+        "id": "28"
+    },
+    {
+        "properties": {
+            "skin": "pale",
+            "top": "longButNotTooLong",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessoriesColor": "black",
+            "facialHair": "default",
+            "facialHairColor": "auburn",
+            "clothing": "shirtCrewNeck",
+            "clothingGraphic": "pizza",
+            "clothingColor": "black",
+            "eyes": "default",
+            "eyebrows": "defaultNatural",
+            "mouth": "default"
+        },
+        "id": "29"
+    }
+]

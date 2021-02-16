@@ -2,7 +2,8 @@
 
 define("EMPLOYEES_JSON_PATH", $_SERVER["DOCUMENT_ROOT"] . "/php-employee-management-v1/resources/employees.json");
 
-require('employeeHelper.php');
+require_once('helper.php');
+require_once('avatarManager.php');
 
 function addEmployee(array $newEmployee)
 {
@@ -13,7 +14,7 @@ function addEmployee(array $newEmployee)
     saveArrayAsJson(EMPLOYEES_JSON_PATH, $employees);
 }
 
-function deleteEmployee(string $id)
+function deleteEmployee(int $id)
 {
     $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
     $employee = findItemWithId($employees, $id);
@@ -45,15 +46,24 @@ function updateEmployee(array $updateEmployee)
 function getEmployees(array $ids = [])
 {
     if (empty($ids)) {
-        return file_get_contents(EMPLOYEES_JSON_PATH);
+        $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
+        $allEmployees = array();
+        foreach($employees as $employee) {
+            $avatar = json_decode(getAvatar($employee['id']), true);
+            $employee['avatar'] = $avatar;
+            array_push($allEmployees, $employee);
+        }
+        return encodeJson(array_values($allEmployees));
     }
-
+ 
     $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
 
     $foundEmployees = array();
     foreach ($ids as $id) {
+        $avatar = json_decode(getAvatar($id), true);
         $found = findItemWithId($employees, $id);
         if ($found) {
+            $found->value['avatar'] = $avatar;
             array_push($foundEmployees, $found->value);
         }
     }
@@ -61,27 +71,21 @@ function getEmployees(array $ids = [])
     return encodeJson(array_values($foundEmployees));
 }
 
-function getEmployee(string $id)
+function getEmployee(int $id)
 {
     $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
-    $employee = findItemWithId($employees, $id)->value;
+    $found = findItemWithId($employees, $id);
+    
+    $employee = $found ? $found->value : array();
 
     return encodeJson($employee);
 }
 
-function removeAvatar($id)
+function getEmployeeAsArray(int $id)
 {
-    // TODO implement it
+    $employees = decodeJsonFile(EMPLOYEES_JSON_PATH);
+    $found = findItemWithId($employees, $id);
+    $employee = $found ? $found->value : array();
+    return $employee;
 }
 
-function getQueryStringParameters(): array
-{
-    // TODO implement it
-    return  array();
-}
-
-function getNextIdentifier(array $employeesCollection): int
-{
-    // TODO implement it
-    return 0;
-}

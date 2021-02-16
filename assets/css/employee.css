@@ -1,0 +1,43 @@
+
+.employee__page {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.employee__name {
+    margin-top: 120px;
+}
+
+.employee__role {
+    margin-top: 0;
+}
+
+.employee__avatar {
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    cursor: pointer;
+    transition: filter 0.4s;
+}
+
+.employee__avatar:hover {
+    filter: sepia(0.4);
+}
+
+.employee__contact {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.awesome {
+    font-size: 24px;
+    padding: 0 2px;
+    white-space: nowrap;
+    word-wrap: normal;
+    -webkit-font-smoothing: antialiased;
+}

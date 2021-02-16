@@ -18,6 +18,7 @@
 .gridjs-container {
     font-family: 'Lato', sans-serif;
 	margin: 0 auto;
+	margin-bottom: 100px;
 }
 
 .gridjs-table{
@@ -122,6 +123,13 @@ th.gridjs-th{
 	display: flex;
 	gap: 10px;
 	width: 100%;
+}
+
+.gridjs-td[data-column-id='name'] > span {
+	display: flex;
+    align-items: center;
+    gap: 10px;
+
 }
 
 .gridjs-td[data-column-id='email'] .email-wrapper span {

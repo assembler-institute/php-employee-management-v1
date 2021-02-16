@@ -1,11 +1,15 @@
-import { deleteEmployee } from '../service/employee-service.js';
-import { closeModal, openModal } from './modal.js';
+import { Avatar } from "../../Avatar.js";
+import { DEF } from "../../default.js";
+import { deleteEmployee } from "../service/employee-service.js";
+import { closeModal, openModal } from "../util/modal.js";
 
 export function createAddModal() {
-	const addModal = document.createElement('div');
-	addModal.className = 'add-modal';
-	addModal.innerHTML = `
+  const addModal = document.createElement("div");
+  addModal.className = "add-modal";
+  const myAvatar = new Avatar(DEF);
+  addModal.innerHTML = `
     <h3 class="modal-title">Add new employee</h3>
+    <div class="modal-image" id="modal-image">${myAvatar.getAvatar({width:300})}</div>
     <form action="http://localhost/php-employee-management-v1/src/library/employeeController.php" method="POST">
         <div class="fields">
             <div class="labeled-input">
@@ -62,49 +66,52 @@ export function createAddModal() {
         <input type="submit" name="submit" class="modal__input">
     </form>
     `;
-	addModal.querySelector('form').addEventListener('submit', (event) => {
-		event.preventDefault();
-		const formData = new FormData(event.target);
-		axios
-			.post('http://localhost/php-employee-management-v1/src/library/employeeController.php', formData)
-			.then(closeModal);
-	});
+  addModal.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    axios
+      .post(
+        "http://localhost/php-employee-management-v1/src/library/employeeController.php",
+        formData
+      )
+      .then(closeModal);
+  });
 
-	openModal({
-		node: addModal,
-		classes: ['add-modal-container'],
-		styles: {
-			position: 'fixed',
-			top: '50%',
-			left: '50%',
-			transform: 'translate(-50%,-50%)',
-		},
-	});
+  openModal({
+    node: addModal,
+    classes: ["add-modal-container"],
+    styles: {
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%,-50%)",
+    },
+  });
 }
 
 export function createDeletionModal(event, employee) {
-	const right = window.innerWidth - event.clientX + 'px';
-	const top = event.clientY + 'px';
+  const right = window.innerWidth - event.clientX + "px";
+  const top = event.clientY + "px";
 
-	const delModal = document.createElement('div');
-	delModal.className = 'deletion-modal';
-	delModal.innerHTML = `
+  const delModal = document.createElement("div");
+  delModal.className = "deletion-modal";
+  delModal.innerHTML = `
     <button class="button__close material-icons">close</button>
     <div class="message"> Confirm deletion of <a class="employee">${employee.name}</a></div>
     <button class="modal__input button__delete">Yes</button>
     `;
-	delModal.querySelector('.button__delete').addEventListener('click', () => {
-		deleteEmployee(employee.id);
-		closeModal();
-	});
+  delModal.querySelector(".button__delete").addEventListener("click", () => {
+    deleteEmployee(employee.id);
+    closeModal();
+  });
 
-	openModal({
-		node: delModal,
-		classes: ['deletion-modal-container'],
-		styles: {
-			position: 'fixed',
-			top: top,
-			right: right,
-		},
-	});
+  openModal({
+    node: delModal,
+    classes: ["deletion-modal-container"],
+    styles: {
+      position: "fixed",
+      top: top,
+      right: right,
+    },
+  });
 }
