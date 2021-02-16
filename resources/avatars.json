@@ -5,6 +5,7 @@
             "top": "theCaesar",
             "hairColor": "auburn",
             "hatColor": "gray02",
+            "accessories": "prescription01",
             "accessoriesColor": "blue02",
             "facialHair": "default",
             "facialHairColor": "auburn",
@@ -23,6 +24,7 @@
             "top": "shortFlat",
             "hairColor": "brownDark",
             "hatColor": "pastelOrange",
+            "accessories": "prescription01",
             "accessoriesColor": "pastelGreen",
             "facialHair": "beardLight",
             "facialHairColor": "brownDark",
@@ -55,20 +57,20 @@
     },
     {
         "properties": {
-            "skin": "pale",
-            "top": "fro",
-            "hairColor": "brownDark",
-            "hatColor": "pastelBlue",
-            "accessories": "prescription01",
-            "accessoriesColor": "black",
-            "facialHair": "beardLight",
-            "facialHairColor": "brown",
-            "clothing": "shirtCrewNeck",
+            "skin": "brown",
+            "top": "winterHat02",
+            "hairColor": "black",
+            "hatColor": "blue02",
+            "accessories": "prescription02",
+            "accessoriesColor": "blue02",
+            "facialHair": "default",
+            "facialHairColor": "black",
+            "clothing": "blazerAndSweater",
             "clothingGraphic": "resist",
-            "clothingColor": "heather",
-            "eyes": "squint",
-            "eyebrows": "default",
-            "mouth": "serious"
+            "clothingColor": "pastelGreen",
+            "eyes": "eyeRoll",
+            "eyebrows": "raisedExcited",
+            "mouth": "eating"
         },
         "id": "4"
     },
@@ -508,5 +510,8 @@
             "mouth": "default"
         },
         "id": "29"
+    },
+    {
+        "id": 30
     }
 ]

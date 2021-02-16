@@ -6,22 +6,22 @@ import { customColor, optionsWithBlank, menuText } from "./avatarOptions.js";
 export function createAvatarModal(gender, properties, onClose = () => "") {
   const myAvatar = new Avatar(gender, properties);
 
-  const $modal = `
-    <div id="avatarModalBackground" class="avatarModal__background">
-        <div id="avatarModal" class="avatarModal">
-            <button id="avatarModalClose" class="avatarModal__close material-icons">cancel</button>
-            <div id="avatarModalImage" class="avatarModal__image"></div>
-            <select name="avatarOptions" id="avatarOptions"> </select>
-            <button id="avatarRandom__button"><i class="fas fa-random"></i></button>
-            <div id="avatarModalResults" class="avatarModal__results"></div>
-            <span class="avatarModal__colorTag">Color</span>
-            <div id="avatarModalColors" class="avatarModal__colors"></div>
-            <span class="avatarModal__hairColorTag">Hair color</span>
-            <div id="avatarModalHairColors" class="avatarModal__hairColors"></div>
-        </div>
-    </div>`;
+  const $modal = document.createElement('div');
+  $modal.className = 'avatarModal__background';
+  $modal.id = 'avatarModalBackground';
+  $modal.innerHTML = `<div id="avatarModal" class="avatarModal">
+        <button id="avatarModalClose" class="avatarModal__close material-icons">cancel</button>
+        <div id="avatarModalImage" class="avatarModal__image"></div>
+        <select name="avatarOptions" id="avatarOptions"> </select>
+        <button id="avatarRandom__button"><i class="fas fa-random"></i></button>
+        <div id="avatarModalResults" class="avatarModal__results"></div>
+        <span class="avatarModal__colorTag">Color</span>
+        <div id="avatarModalColors" class="avatarModal__colors"></div>
+        <span class="avatarModal__hairColorTag">Hair color</span>
+        <div id="avatarModalHairColors" class="avatarModal__hairColors"></div>
+      </div>`;
 
-  document.body.innerHTML += $modal;
+  document.body.appendChild($modal);
 
 
   printSelectOptions();

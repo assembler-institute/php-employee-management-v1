@@ -10,9 +10,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
     case 'POST': {
             if (isset($_POST)) {
-                addEmployee($_POST);
+                $added = addEmployee($_POST);
                 http_response_code(201);
                 header('Location: http://localhost/php-employee-management-v1/src/dashboard.php');
+                echo json_encode($added);
             } else {
                 http_response_code(400);
             }

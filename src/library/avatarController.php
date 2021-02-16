@@ -10,6 +10,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
     }
     case 'POST': {
         if (isset($_POST)) {
+            echo var_dump($_POST);
+            echo var_dump($_GET);
+            echo var_dump($_REQUEST);
+            return;
             addAvatar($_POST);
             http_response_code(201);
         } else {

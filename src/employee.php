@@ -93,7 +93,7 @@ include('./library/sessionHelper.php')
           updateAvatar(response.data.properties);
         })
     }
-    $avatarContainer.addEventListener('click', () => createAvatarModal(employee.gender, avatarObj.properties, callback))
+    $avatarContainer.addEventListener('click', () => createAvatarModal(employee.gender, avatar.getProperties(), callback))
 
     function programateWink() {
       let $avatarContainer = document.querySelector('.employee__avatar');

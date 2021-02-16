@@ -12,6 +12,7 @@ function addEmployee(array $newEmployee)
     array_push($employees, $newEmployee);
 
     saveArrayAsJson(EMPLOYEES_JSON_PATH, $employees);
+    return $newEmployee;
 }
 
 function deleteEmployee(int $id)
