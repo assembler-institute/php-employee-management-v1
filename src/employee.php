@@ -49,7 +49,7 @@
     include_once('./library/employeeManager.php');
     ?>
     <section class="section-employee">
-        <form action="./library/employeeController.php" method="POST" class="employee" id="employee">
+        <form action="./library/employeeController.php?userID=<?= $_GET['userId']?>" method="POST" class="employee" id="employee">
             <div class="employee__grupo" id="grupo__name">
                 <label for="name" class="employee__label">First name</label>
                 <input type="hidden" name="id" id="id" value="<?=getEmployee($_GET['userId'])['id']?>">

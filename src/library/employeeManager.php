@@ -20,7 +20,7 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    $url = '../../resources/employees.json'; // path to your JSON file
+    $url = '../resources/employees.json'; // path to your JSON file
     $data = file_get_contents($url); // put the contents of the file into a variable
     $employees = json_decode($data, true); // decode the JSON to key value array
     $employees[$updateEmployee['id'] - 1] = array_replace($employees[$updateEmployee['id'] - 1],$updateEmployee);

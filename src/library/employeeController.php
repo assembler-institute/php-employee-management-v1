@@ -4,6 +4,7 @@
 
     //We are checking if the user has clicked the submit button
     if (isset($_POST['submit'])) {
+        print_r($_POST);
 
         //We are deleting submit item from $_POST array
         unset($_POST['submit']);
