@@ -33,7 +33,7 @@
     <main class="main-container">
         <div id="JsGrid"></div>
     <section class="main">
-    <section class="employee-form">
+    <!--<section class="employee-form">
         <form action="" method="POST" id="employeeManager">
             <div class="form-entry">
                 <label for="name">Name</label>
@@ -76,7 +76,7 @@
                 <input type="number" name="phone-number" id="phone-number" value="Enter employee's phone-number">
             </div>
             <button type="submit" class="btn btn-primary" name="save">Save</button>
-        </form>
+        </form>-->
     </section>
     </main>
 
@@ -84,7 +84,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
-<script src="assets/js/createGrid.js"></script>
 <script src="assets/js/submitForm.js"></script>
 </html>
 

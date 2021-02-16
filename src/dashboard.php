@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashbord</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../assets/css/employee.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/login.css">
@@ -17,6 +17,7 @@
     <?php include_once("../assets/html/header.html"); ?>
     <?php
         include_once("./library/sessionHelper.php");
+        include_once("./jsgrid.php");
 
         session_start();
         $sessionStart = $_SESSION["start"];

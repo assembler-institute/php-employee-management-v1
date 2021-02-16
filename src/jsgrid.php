@@ -24,22 +24,24 @@
             .then(data => {
                 $("#jsGrid").jsGrid({
                 width: "100%",
-                height: "400px",
+                height: "auto",
 
                 inserting: true,
                 editing: false,
                 sorting: true,
                 paging: true,
 
-                data,
+                data: data,
 
                 fields: [
-                    { name: "Id", type: "number", width: 50 },
-                    { name: "Name", type: "text", width: 150, validate: "required" },
-                    { name: "Last name", type: "text", width: 150, validate: "required" },
-                    { name: "Email", type: "text", width: 200 },
-                    { name: "Age", type: "number", width: 50 },
-                    { name: "Phone number", type: "number", width: 50 },
+                    { name: "id", title:"ID", type: "number", width: 50 },
+                    { name: "name", title:"Name", type: "text", width: 150, validate: "required"},
+                    { name: "lastName", title:"Last Name", type: "text", width: 150, validate: "required"},
+                    { name: "email", title:"Email", type: "text", width: 200, validate: "required"},
+                    { name: "age", title:"Age", type: "number", width: 50 },
+                    { name: "city", title:"City", type: "text", width: 100 },
+                    { name: "postalCode", title:"Postal Code", type: "number", width: 75 },
+                    { name: "phoneNumber", title:"Phone Number", type: "number", width: 80 },
                     { type: "control", editButton: false }
                 ]
         });
