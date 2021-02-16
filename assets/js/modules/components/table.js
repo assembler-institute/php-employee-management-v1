@@ -16,7 +16,7 @@ const columns = [
 	},
 	{
 		name: 'Name',
-		width: '20%',
+		width: '12%',
 		formatter: (cell, row) => {
 			let properties = {};
 			if(row.cells[1].data) {
@@ -39,7 +39,7 @@ const columns = [
 	},
 	{
 		name: 'Role',
-		width: '20%',
+		width: '12%',
 	},
 	{
 		name: 'Email',
@@ -53,15 +53,15 @@ const columns = [
 	},
 	{
 		name: 'Age',
-		width: '5%',
+		width: '3%',
 	},
 	{
 		name: 'City',
-		width: '8%',
+		width: '5%',
 	},
 	{
 		name: 'Phone Number',
-		width: '8%',
+		width: '10%',
 	},
 	{
 		name: h(
@@ -72,7 +72,7 @@ const columns = [
 			},
 			'person_add'
 		),
-		width: '60px',
+		width: '2%',
 		id: 'delete',
 		formatter: (_, row) =>
 			h(
@@ -122,13 +122,14 @@ const grid = new Grid({
 	editing: true,
 	columns: columns,
 	server: server,
+	width: '95vw',
 });
 
 grid.render(document.getElementById('table-wrapper'));
 
 grid.on('rowClick', (...args) => {
 	if (!args[0].target.classList.contains('material-icons')) {
-		window.location.href = `http://localhost/php-employee-management-v1/src/employee.php?id=${args[1].cells[0].data}`;
+		window.location.href = `../src/employee.php?id=${args[1].cells[0].data}`;
 	}
 });
 
@@ -140,19 +141,40 @@ window.addEventListener('load', () => {
 function appendSearchIcon() {
 	const gridJsSearch = document.querySelector('.gridjs-search');
 	const input = gridJsSearch.querySelector('input');
+	const inputWrapper = document.querySelector('.gridjs-head');
 	const searchIcon = document.createElement('i');
 	searchIcon.className = 'material-icons gridjs-search-icon';
 	searchIcon.innerText = 'search';
-	searchIcon.addEventListener('click', () => input.focus());
+	searchIcon.addEventListener('click', () => {
+		input.classList.add('unfolded')
+		inputWrapper.classList.add('unfolded');
+	});
 	gridJsSearch.appendChild(searchIcon);
 }
 
 function manageInputFocusEvents() {
+	const inputWrapper = document.querySelector('.gridjs-head');
 	const input = document.querySelector('.gridjs-search input');
-	input.addEventListener('focusin', () => input.classList.add('unfolded'));
+
+	inputWrapper.addEventListener('mouseenter', () =>  {
+		inputWrapper.classList.add('unfolded');
+	})
+
+	inputWrapper.addEventListener('mouseleave', () =>  {
+		if (!(input.value || document.activeElement === input)) {
+			inputWrapper.classList.remove('unfolded');
+			input.classList.remove('unfolded');
+		}
+	})
+
+	input.addEventListener('focusin', () => {
+		input.classList.add('unfolded')
+		inputWrapper.classList.add('unfolded');
+	});
 	input.addEventListener('focusout', () => {
 		if (!input.value) {
 			input.classList.remove('unfolded');
+			inputWrapper.classList.remove('unfolded');
 		}
 	});
 }

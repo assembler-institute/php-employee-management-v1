@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/php-employee-management-v1/assets/css/main.css">
     <link rel="stylesheet" href="/php-employee-management-v1/assets/css/dashboard.css">
     <link rel="stylesheet" href="/php-employee-management-v1/assets/css/modal.css">
-    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <script type="module" src="/php-employee-management-v1/assets/js/index.js"></script>
     <script type="modules" src="/php-employee-management-v1/assets/js/modules"></script>
@@ -28,7 +28,6 @@
     <main class='main'>
         <div id='table-wrapper'></div>
     </main>
-
     <?php include('../assets/html/footer.html'); ?>
 </body>
 
