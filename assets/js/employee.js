@@ -13,9 +13,7 @@ function getData( id , callback){
   });
 }
 
-
 function createEditModal(employee) {
-    console.log(employee.gender=='female')
     const editModal = document.createElement("div");
     editModal.className = "add-modal";
     editModal.innerHTML = `
@@ -78,12 +76,13 @@ function createEditModal(employee) {
       `;
       editModal.querySelector("form").addEventListener("submit", (event) => {
         event.preventDefault();
-        console.log('aaa')
         const formData = new FormData(event.target);
+        formData.append('id', employee.id)
+        const value = Object.fromEntries(formData.entries())
         axios
           .put(
             "../src/library/employeeController.php",
-            formData
+            value
           )
           .then(closeModal);
       });
