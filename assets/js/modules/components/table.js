@@ -129,7 +129,7 @@ grid.render(document.getElementById('table-wrapper'));
 
 grid.on('rowClick', (...args) => {
 	if (!args[0].target.classList.contains('material-icons')) {
-		window.location.href = `http://localhost/php-employee-management-v1/src/employee.php?id=${args[1].cells[0].data}`;
+		window.location.href = `../src/employee.php?id=${args[1].cells[0].data}`;
 	}
 });
 
