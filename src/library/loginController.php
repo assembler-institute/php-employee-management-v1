@@ -29,6 +29,12 @@
             exit();
         }
     }
+    elseif (isset($_GET['logout'])){
+        // echo session_id();
+        session_start();
+        session_destroy();
+        header("Location: ../../index.php");
+    }
     else {
         header("Location: ../../index.php");
     }

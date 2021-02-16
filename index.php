@@ -8,7 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/employee.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/error.css">
+    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -16,32 +21,7 @@
     <title>Employees Manager</title>
 </head>
 <body>
-    <!-- <header class="header">
-        <section class="title">
-            <h4>Employees Manager</h4>
-        </section>
-        <ul class="nav-links">
-            <li>
-                <a href="#">Login</a>
-            </li>
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Employee</a>
-            </li>
-        </ul>
-
-        <section class="searchBar-container">
-            <form class="searchBar" action="index.php" method="get">
-                <input id="headerSearch" class="searchBar__input" type="text" name="searchValue" required>
-                <input type="submit" class="searchBar__submit" id="searchBtn" value="Search">
-            </form>
-        </section>
-        <section class="logout-container">
-            <button id="logout"> Log Out </button>
-        </section>
-    </header> -->
+    <?php include_once('./assets/html/header.html'); ?>
     <?php if (isset($_GET['login'])) {
             $loginCheck = $_GET['login'];
             echo '<aside class="error_message">
