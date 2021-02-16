@@ -20,13 +20,27 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    $url = '../../resources/employees.json'; // path to your JSON file
+    $data = file_get_contents($url); // put the contents of the file into a variable
+    $employees = json_decode($data, true); // decode the JSON to key value array
+    $employees[$updateEmployee['id'] - 1] = array_replace($employees[$updateEmployee['id'] - 1],$updateEmployee);
+    $updatedEmployeesJson = json_encode($employees, JSON_PRETTY_PRINT);
+    $result = file_put_contents($url, $updatedEmployeesJson);
+    return $result;
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    $url = '../resources/employees.json'; // path to your JSON file
+    $data = file_get_contents($url); // put the contents of the file into a variable
+    $employees = json_decode($data, true); // decode the JSON to key value array
+
+    foreach ($employees as $employee) {
+        if($employee['id'] == $id){
+            return $employee;
+        }
+    }
 }
 
 
@@ -44,4 +58,10 @@ function getQueryStringParameters()
 function getNextIdentifier(array $employeesCollection)
 {
 // TODO implement it
+}
+
+function setErrorEmployeeMessage($message){
+    $url = $message? "?employee=$message" : "";
+    header("Location: ../employee.php$url");
+    exit();
 }

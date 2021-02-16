@@ -5,6 +5,7 @@ header {
     min-height: 8vh;
     height: 10vh;
     background-color: brown;
+    background-color: var(--green);
 }
 .title, h4 {
     color: rgb(226, 226, 226);
