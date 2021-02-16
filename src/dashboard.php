@@ -29,6 +29,7 @@
         }
         else {
             closeUserSession($sessionTime, $sessionDuration);
+            $userId = 1;
         }
     ?>
 
