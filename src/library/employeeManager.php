@@ -1,3 +1,4 @@
+
 <?php
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
@@ -60,8 +61,8 @@ function getNextIdentifier(array $employeesCollection)
 // TODO implement it
 }
 
-function setErrorEmployeeMessage($message){
+function setErrorEmployeeMessage($message, $id){
     $url = $message? "?employee=$message" : "";
-    header("Location: ../employee.php$url");
+    header("Location: ../employee.php$url&userId=$id");
     exit();
 }

@@ -11,7 +11,7 @@
     <title>Inline table</title>
 </head>
 <body>
-    <section>
+    <section class="jsGrid">
         <div id="jsGrid"></div>
     </section>
 </body>
@@ -23,7 +23,7 @@
             })
             .then(data => {
                 $("#jsGrid").jsGrid({
-                width: "100%",
+                width: "92%",
                 height: "auto",
 
                 inserting: true,
