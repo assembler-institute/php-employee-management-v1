@@ -4,7 +4,7 @@
     align-items: center;
     width: 45%;
     height: 6.6vh;
-    background-color: brown;
+    background-color: var(--error);
     margin: 20px auto;
     border-radius: 10px;
 }

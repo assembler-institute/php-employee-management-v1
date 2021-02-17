@@ -4,7 +4,6 @@ header {
     align-items: center;
     min-height: 8vh;
     height: 10vh;
-    background-color: brown;
     background-color: var(--green);
 }
 .title, h4 {
@@ -51,7 +50,7 @@ header button, .searchBar__submit {
 
 .searchBar__input:focus {
     outline: none;
-	border: 1px solid var(--light-dark);
+	border: 1px solid var(--light-grey);
 }
 .searchBar__submit {
     background-color: transparent;

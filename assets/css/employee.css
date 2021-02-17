@@ -5,7 +5,7 @@
 	padding: 40px 40px 10px 40px;
 	background-color: #fefefe;
     margin: 4vh auto 2vh auto;
-    border: 2px solid var(--light-dark);
+    border: 2px solid var(--light-grey);
     width: 80vw;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .employee__input:focus {
-	border: 1px solid var(--light-dark);
+	border: 1px solid var(--light-grey);
 	outline: none;
 }
 

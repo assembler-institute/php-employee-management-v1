@@ -14,11 +14,10 @@ html {
 }
 
 :root {
-    --light-dark: rgb(201,192,187);
-    --middle-dark:  #a5a7aa;
+    --grey: #888;
+    --light-grey: rgb(201,192,187);
     --white-title: rgb(248, 246, 246);
-    --red-error: rgb(173, 32, 32);
+    --error: brown;
     --dark: #282c34;
     --green: #009879;
-    --grey: #888;
 }

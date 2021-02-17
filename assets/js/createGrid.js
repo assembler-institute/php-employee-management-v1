@@ -1,15 +1,15 @@
 fetch("././resources/employees.json").then(response => {
     return response.json();
-  }).then(data => { 
-      renderGrid("employeesDashboard");
-      createGrid(data);
-  })
+    }).then(data => {
+        renderGrid("employeesDashboard");
+        createGrid(data);
+})
 
 function renderGrid(tableID){
     let tableTemplate = `
-      <table id="${tableID}">
-        <tr id="tableHeader"></tr>
-      </table>`
+        <table id="${tableID}">
+            <tr id="tableHeader"></tr>
+        </table>`
     document.querySelector("#jsGrid").innerHTML = tableTemplate;
 }
 
@@ -23,6 +23,5 @@ function createGrid(data){
         Object.values(employee).forEach(value => {
             document.querySelector("#employee" + employee["id"]).insertAdjacentHTML('beforeend', `<td>${value}</td>`)
         })
-        
     })
 }

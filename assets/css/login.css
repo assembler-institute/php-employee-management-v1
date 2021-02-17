@@ -10,7 +10,7 @@
 .login__form-div {
     background-color: #fefefe;
     margin-top: 6vh;
-    padding: 3.6vh 2vh;
+    padding: 3.6vh 3vh;
 }
 
 .login__form-div-label {
@@ -32,7 +32,7 @@
 
 input[type=email]:focus, input[type=password]:focus, input[type=submit]:focus, input[type=reset]:focus {
     outline: none;
-	border: 1px solid var(--light-dark);
+	border: 1px solid var(--light-grey);
 }
 
 .btn {
@@ -52,23 +52,12 @@ input[type=email]:focus, input[type=password]:focus, input[type=submit]:focus, i
     color: var(--white-title);
 }
 
-.cancelbtn {
-    float: left;
-    width: 45%;
+.login__submit {
+    margin-top: 1.8vh;
+    display: flex;
+    justify-content: center;
 }
 
 .loginbtn {
-    float: right;
-    width: 45%;
-}
-
-.clearfix {
-    position: relative;
-    top: 3vh;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+    width: 85%;
 }

@@ -46,7 +46,15 @@
         }
     ?>
     <?php if (isset($_GET['userId'])) {
-            $userId = $_GET['userId'];
+            if (($_GET['userId']) !== "") {
+                $userId = $_GET['userId'];
+            }
+            else {
+                $userId = 1;
+            }
+        }
+        else {
+            $userId = 1;
         }
     ?>
     <?php

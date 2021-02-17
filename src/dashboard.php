@@ -27,7 +27,6 @@
         }
         else {
             closeUserSession($sessionTime, $sessionDuration);
-            $userId = 5;
         }
     ?>
     <header class="header">
@@ -58,6 +57,6 @@
     </header>
     <?php include_once("./jsgrid.php"); ?>
     <script src="assets/js/createGrid.js"></script>
+    <script src="../assets/js/getEmployeeId.js"></script>
 </body>
-
 </html>
