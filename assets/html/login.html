@@ -1,0 +1,13 @@
+<header id="header-footer" class="align-self-center mt-2">
+    <img id="header-footer_img" class="w-100 pt-4" src="./assets/css/img/login.svg" alt="employee-management">
+</header>
+<main id="login-main" class="d-flex flex-column">
+    <form id="login_form" class="form-signin align-self-center mt-3 mb-5 mx-2" action="./src/library/loginController.php" method="post">
+        <input type="email" name="email" id="login_form_email" class="form-control py-1 my-1" placeholder="Email address" value="" minlength="3" autofocus required>
+        <input type="password" name="password" id="login_form_password" class="form-control py-1 my-1" placeholder="Password" minlength="3"  required>
+        <input type="submit" id="login_form_sign-in" class="btn btn-primary btn-block mt-3 w-100" value="Sign in">
+    </form>
+</main>
+<footer id="login-footer" class="fixed-bottom">
+    <p class="text-center mt-1"><small>&copy; Ignacio Fernández and Estefanía Cordeiro</small></p>
+</footer>

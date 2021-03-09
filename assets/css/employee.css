@@ -1,0 +1,19 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#employee-form {
+    width: 100%;
+    max-width: 900px;
+}
+
+@media (max-width: 630px) {
+    #employee-form_btn {
+        width: 85% !important;
+    }
+    #employee-form_submit, #employee-form_return {
+        width: 50% !important;
+        justify-content: center;
+    }
+}
