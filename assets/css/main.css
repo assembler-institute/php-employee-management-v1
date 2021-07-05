@@ -1,0 +1,71 @@
+
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+
+* {
+  /* outline: 1px solid rgb(168, 168, 168); */
+  box-sizing: border-box;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(255, 255, 255);
+}
+*::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: rgb(161, 161, 161);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+.main__header {
+  border-bottom: solid 1px rgb(161, 161, 161);
+	min-height: 50px;
+  z-index: 1000;
+}
+
+.logo__wrapper {
+  max-width: 200px;
+  width: 190px;
+  overflow: hidden;
+}
+
+.logo__app {
+  height: 100%;
+  object-fit: cover;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.logo__app img {
+  height: 100%;
+}
+.logo__app img:hover {
+  filter: saturate(200%) sepia(100%) drop-shadow(10px 10px 40px rgb(221, 221, 221));
+}
+
+.logout__wrapper {
+  width: fit-content;
+  min-width: 300px;
+  padding-right: 2%;
+}
