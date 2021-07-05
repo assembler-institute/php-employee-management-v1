@@ -1,26 +1,51 @@
-var settings = {
-  url: "http://localhost/src/library/employeeController.php",
-  method: "GET",
-  timeout: 0,
-};
+const employeeUrl = "http://localhost/src/library/employeeController.php";
 
-$.ajax(settings).done(function (response) {
+$.ajax({
+  url: employeeUrl,
+  method: "GET",
+}).done(function (response) {
   renderTable(response);
 });
+
+function insertItemHandler(item) {
+  return $.ajax({
+    type: "POST",
+    url: employeeUrl,
+    data: item,
+  });
+}
+
+function deleteItemHandler(grid) {
+  console.log("item deleted");
+  // TODO
+}
 
 function renderTable(employeesJson = {}) {
   $("#jsGrid").jsGrid({
     width: "100%",
-    height: "400px",
+    height: "500px",
 
     inserting: true,
-    editing: true,
+    editing: false,
     sorting: true,
     paging: true,
+    rowDoubleClick: {
+      //TODO
+    },
+
+    controller: {
+      insertItem: function (item) {
+        return insertItemHandler(item);
+      },
+      deleteItem: function (grid) {
+        deleteItemHandler(grid);
+      },
+    },
 
     data: employeesJson,
 
     fields: [
+      { name: "id", title: "id", type: "text", visible: false },
       {
         name: "name",
         title: "Name",

@@ -1,14 +1,21 @@
 <?php
-$jsonString = file_get_contents("../../resources/employees.json");
-$employees = json_decode($jsonString, true);
+include "./employeeManager.php";
 
-// ! To update the json
-// $newJsonString = json_encode($data);
-// file_put_contents('jsonFile.json', $newJsonString);
+
+
+
 
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
+        $jsonString = file_get_contents("../../resources/employees.json");
+        $employees = json_decode($jsonString, true);
         $result = $employees;
+        break;
+    case "POST":
+        $result = addEmployee($_POST);
+        break;
+    case "DELETE":
+        deleteEmployee($_DELETE);
         break;
 }
 
