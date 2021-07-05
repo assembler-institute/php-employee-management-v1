@@ -1,4 +1,8 @@
 <?php
 function validateLoginData($user, $password){
- echo nl2br("$user\n$password");
+    $userJson=require("../../resources/users.json");
+    $userJsonArray=json_decode($userJson); 
+    echo print_r($userJsonArray["users"]);
+    //echo nl2br("$user\n$password\n$UserJsonArray");
+    
 }
