@@ -43,9 +43,13 @@ session_start();
                         url: "./library/employeeController.php",
                         dataType: "json",
                         data: filter,
-                        success: function(data) {
-                            console.log(data);
-                        }
+                    });
+                },
+                insertItem: function(item) {
+                    return $.ajax({
+                        type: "POST",
+                        url: "./library/employeeController.php",
+                        data: item
                     });
                 },
             },
@@ -70,7 +74,7 @@ session_start();
         // $.ajax({
         //     type: "GET",
         //     url: "./library/employeeController.php",
-        //     dataType: "json",
+        //     dataType: "html",
         //     success: function(data) {
         //         console.log(data);
         //     }

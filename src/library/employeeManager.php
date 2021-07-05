@@ -9,7 +9,10 @@
 
 function addEmployee(array $newEmployee)
 {
-    // TODO implement it
+    $employees = getEmployees();
+    $employees['id'] = generateId($employees);
+    $employees[] = $newEmployee;
+    return $newEmployee;
 }
 
 
@@ -41,6 +44,21 @@ function getEmployees()
 function removeAvatar($id)
 {
     // TODO implement it
+}
+
+function generateId($arr)
+{
+    for ($i = 1; $i < 3000; $i++) {
+        $searchedValue = false;
+        foreach ($arr as $item) {
+            if ($i == intval($item['id'])) {
+                $searchedValue = true;
+                break;
+            }
+        }
+
+        if (!$searchedValue) return $i;
+    }
 }
 
 
