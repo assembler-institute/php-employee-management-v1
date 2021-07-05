@@ -1,71 +1,41 @@
-var clients = [
-  {
-    Name: "Otto Clay",
-    Age: 25,
-    Country: 1,
-    Address: "Ap #897-1459 Quam Avenue",
-    Married: false,
-  },
-  {
-    Name: "Connor Johnston",
-    Age: 45,
-    Country: 2,
-    Address: "Ap #370-4647 Dis Av.",
-    Married: true,
-  },
-  {
-    Name: "Lacey Hess",
-    Age: 29,
-    Country: 3,
-    Address: "Ap #365-8835 Integer St.",
-    Married: false,
-  },
-  {
-    Name: "Timothy Henson",
-    Age: 56,
-    Country: 1,
-    Address: "911-5143 Luctus Ave",
-    Married: true,
-  },
-  {
-    Name: "Ramona Benton",
-    Age: 32,
-    Country: 3,
-    Address: "Ap #614-689 Vehicula Street",
-    Married: false,
-  },
-];
+var settings = {
+  url: "http://localhost/src/library/employeeController.php",
+  method: "GET",
+  timeout: 0,
+};
 
-var countries = [
-  { Name: "", Id: 0 },
-  { Name: "United States", Id: 1 },
-  { Name: "Canada", Id: 2 },
-  { Name: "United Kingdom", Id: 3 },
-];
-
-$("#jsGrid").jsGrid({
-  width: "100%",
-  height: "400px",
-
-  inserting: true,
-  editing: true,
-  sorting: true,
-  paging: true,
-
-  data: clients,
-
-  fields: [
-    { name: "Name", type: "text", width: 150, validate: "required" },
-    { name: "Age", type: "number", width: 50 },
-    { name: "Address", type: "text", width: 200 },
-    {
-      name: "Country",
-      type: "select",
-      items: countries,
-      valueField: "Id",
-      textField: "Name",
-    },
-    { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-    { type: "control" },
-  ],
+$.ajax(settings).done(function (response) {
+  renderTable(response);
 });
+
+function renderTable(employeesJson = {}) {
+  $("#jsGrid").jsGrid({
+    width: "100%",
+    height: "400px",
+
+    inserting: true,
+    editing: true,
+    sorting: true,
+    paging: true,
+
+    data: employeesJson,
+
+    fields: [
+      {
+        name: "name",
+        title: "Name",
+        type: "text",
+        width: 15,
+        validate: "required",
+      },
+      { name: "email", title: "Email", type: "text", width: 35 },
+      { name: "age", title: "Age", type: "number", width: 6 },
+      { name: "streetAddress", title: "Street No.", type: "number", width: 10 },
+      { name: "city", title: "City", type: "text", width: 15 },
+      { name: "state", title: "State", type: "text", width: 8 },
+      { name: "postalCode", title: "Postal Code", type: "number", width: 10 },
+      { name: "phoneNumber", title: "Phone Number", type: "number", width: 15 },
+      { type: "control" },
+    ],
+  });
+}
