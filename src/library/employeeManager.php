@@ -27,9 +27,16 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
+
     // TODO implement it
+
 }
 
+function getEmployees()
+{
+    $employeesJson = file_get_contents('../../resources/employees.json');
+    return json_decode($employeesJson, true);
+}
 
 function removeAvatar($id)
 {
@@ -37,12 +44,12 @@ function removeAvatar($id)
 }
 
 
-function getQueryStringParameters(): array
-{
-    // TODO implement it
-}
+// function getQueryStringParameters(): array
+// {
+//     // TODO implement it
+// }
 
-function getNextIdentifier(array $employeesCollection): int
-{
-    // TODO implement it
-}
+// function getNextIdentifier(array $employeesCollection): int
+// {
+//     // TODO implement it
+// }
