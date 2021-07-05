@@ -13,7 +13,7 @@
     <link href="./assets/css/login.css" rel="stylesheet" />
   </head>
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="./src/dashboard.php">
       <img
         class="mb-4"
         src="./node_modules/bootstrap-icons/icons/box-arrow-in-right.svg"
@@ -28,7 +28,7 @@
         id="inputEmail"
         class="form-control"
         placeholder="Email address"
-        required=""
+
         autofocus=""
       />
       <label for="inputPassword" class="sr-only">Password</label>
@@ -37,7 +37,7 @@
         id="inputPassword"
         class="form-control"
         placeholder="Password"
-        required=""
+
       />
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Sign in
