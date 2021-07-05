@@ -1,33 +1,31 @@
 <?php
 
-if(isset($_POST['submit'])){
-	autentificar_usuario();
+if (isset($_POST["submit"])) {
+  autentificar_usuario();
 }
 
-if (isset($_GET["logoutClicked"])){
-	cerrar_sesion();
+if (isset($_GET["logoutClicked"])) {
+  cerrar_sesion();
 }
-
 
 function autentificar_usuario()
 {
-
-	require_once ("../library/loginManager.php");
+  require_once "../library/loginManager.php";
 
   session_start();
 
   $username = $_POST["username"];
   $pass = $_POST["password"];
 
-	check_usuario_on_database($username, $pass);
+  check_usuario_on_database($username, $pass);
 
   if (check_usuario_on_database($username, $pass) == true) {
     $_SESSION["username"] = $username;
     header("Location: ../dashboard.php");
   } else {
     $_SESSION["ErrorDeAcceso"] = "Username y contraseña incorrectos";
-		echo $username;
-		echo $pass;
+    echo $username;
+    echo $pass;
     header("location:../../index.php");
   }
 }
@@ -52,6 +50,9 @@ function revisar_si_existe_sesion()
       if ($alert = check_logout()) {
         return $alert;
       }
+      if ($alert = check_error_de_registro()) {
+        return $alert;
+      }
     }
   } else {
     if (isset($_SESSION["username"]) == false) {
@@ -66,7 +67,7 @@ function cerrar_sesion()
 {
   session_start();
 
-	echo "se ejecuto cerrar_sesion()";
+  echo "se ejecuto cerrar_sesion()";
 
   // borra lo que haya dentro de las variables de session
   unset($_SESSION);
@@ -110,6 +111,19 @@ function check_error_de_login()
     ];
   }
 }
+function check_error_de_registro()
+{
+  if (isset($_SESSION["ErrorDeRegistro"])) {
+    $texto_de_error = $_SESSION["ErrorDeRegistro"];
+    unset($_SESSION["ErrorDeRegistro"]);
+    return [
+      "bg" => "bg-white",
+      "type" => "text-danger",
+      "emoticon" => "&#128557;",
+      "texto" => $texto_de_error,
+    ];
+  }
+}
 
 function check_login_info()
 {
@@ -134,5 +148,29 @@ function check_logout()
       "emoticon" => "&#128524;",
       "texto" => "Logout succesful",
     ];
+  }
+}
+
+// NEW USEEEERR!!!
+
+if (isset($_POST["register_submit"])) {
+  handle_new_user();
+}
+
+function handle_new_user()
+{
+  require_once "../library/loginManager.php";
+
+  session_start();
+
+  $new_username = $_POST["new_username"];
+  $new_pass = $_POST["new_password"];
+
+  if (empty($_POST["new_username"]) || empty($_POST["new_password"])) {
+    $_SESSION["ErrorDeRegistro"] = "Username y contraseña no adecuados";
+    header("location:../../index.php");
+  } elseif (create_new_usuario_on_database($new_username, $new_pass) == true) {
+    $_SESSION["username"] = $new_username;
+    header("Location: ../dashboard.php");
   }
 }

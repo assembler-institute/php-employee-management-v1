@@ -17,6 +17,18 @@
       "name": "alfonso",
       "password": "$2y$10$4k79bLf0SgmFDkGOeebxy.uYce4XRQ0VcxecEII9h97rk9GH94kKS",
       "email": "alfonso@info.com"
+    },
+    {
+      "userId": 4,
+      "name": "Erick Noiztbander",
+      "password": "$2y$10$lfTpOsL1v077RwugrSfoMuHrQmewcbhslceMGKmhhPztMBq8d6ncC",
+      "email": "no email bitx"
+    },
+    {
+      "userId": 5,
+      "name": "alberto el paco",
+      "password": "$2y$10$e2WrryyDxxew4rbGQJ6iYeLMhutlgYhjj.Atbd9CvCVkADQcEwtOK",
+      "email": "no email bitx"
     }
   ]
 }

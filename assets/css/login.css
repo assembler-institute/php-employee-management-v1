@@ -49,14 +49,6 @@ input:focus {
   width: 100%;
 }
 
-.main__container {
-  display: flex;
-  min-height: 90vh;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
 .search__component {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
@@ -100,4 +92,8 @@ input:focus {
 
 .emoticon__advise{
 	font-size: 35px;
+}
+
+#register_form{
+  display: none;
 }
