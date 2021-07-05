@@ -10,8 +10,9 @@
 function addEmployee(array $newEmployee)
 {
     $employees = getEmployees();
-    $employees['id'] = generateId($employees);
+    $newEmployee['id'] = generateId($employees);
     $employees[] = $newEmployee;
+    saveDataToJson($employees);
     return $newEmployee;
 }
 
@@ -61,6 +62,13 @@ function generateId($arr)
     }
 }
 
+function saveDataToJson($data)
+{
+    file_put_contents(
+        "../../resources/employees.json",
+        json_encode($data, JSON_PRETTY_PRINT)
+    );
+}
 
 // function getQueryStringParameters(): array
 // {

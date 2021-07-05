@@ -102,5 +102,15 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
+    },
+    {
+        "name": "brahim benalia",
+        "age": "27",
+        "id": 9
+    },
+    {
+        "name": "ethan lo",
+        "age": "19",
+        "id": 10
     }
 ]

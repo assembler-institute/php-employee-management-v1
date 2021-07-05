@@ -5,8 +5,10 @@ require './employeeManager.php';
 $employees = getEmployees();
 $method = $_SERVER['REQUEST_METHOD'];
 
-echo generateId($employees);
-exit;
+// echo '<pre>';
+// var_dump($employees);
+// echo '</pre>';
+// exit;
 
 if ($method == 'GET') {
     echo json_encode($employees);
@@ -14,6 +16,11 @@ if ($method == 'GET') {
 }
 
 if ($method == 'POST') {
+    $newEmployee = [
+        "name" => $_POST['name'],
+        "age" => $_POST['age'],
+    ];
+    addEmployee($newEmployee);
 }
 
 if ($method == 'DELETE') {
