@@ -1,5 +1,4 @@
 const dataPath = "../resources/employees.json";
-console.log("hey");
 
 async function getEmployees(dataPath) {
   let result = await $.getJSON(dataPath);
