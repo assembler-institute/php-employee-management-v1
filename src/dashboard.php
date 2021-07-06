@@ -53,7 +53,7 @@ session_start();
                         type: "DELETE",
                         url: "./library/employeeController.php",
                         data: item,
-                        dataType: "html",
+                        dataType: "json",
                         success: function(data) {
                             console.log(data);
                         }
