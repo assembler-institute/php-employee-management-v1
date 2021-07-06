@@ -1,3 +1,5 @@
+const employeeUrl = "../../src/library/employeeController.php";
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   "use strict";
@@ -21,3 +23,44 @@
     );
   });
 })();
+
+function populateEmployeeForm(id) {
+  $.ajax({
+    url: `${employeeUrl}/?id=${id}`,
+    method: "GET",
+  })
+    .done((employee) => {
+      console.log(employee);
+      $("#firstName").val(
+        typeof employee.name !== "undefined" ? employee.name : ""
+      );
+      $("#lastName").val(
+        typeof employee.lastName !== "undefined" ? employee.lastName : ""
+      );
+      $("#email").val(
+        typeof employee.email !== "undefined" ? employee.email : ""
+      );
+      $("#gender").val(
+        typeof employee.gender !== "undefined" ? employee.gender : ""
+      );
+      $("#city").val(typeof employee.city !== "undefined" ? employee.city : "");
+      $("#streetAddress").val(
+        typeof employee.streetAddress !== "undefined"
+          ? employee.streetAddress
+          : ""
+      );
+      $("#state").val(
+        typeof employee.state !== "undefined" ? employee.state : ""
+      );
+      $("#age").val(typeof employee.age !== "undefined" ? employee.age : "");
+      $("#postalCode").val(
+        typeof employee.postalCode !== "undefined" ? employee.postalCode : ""
+      );
+      $("#phoneNumber").val(
+        typeof employee.phoneNumber !== "undefined" ? employee.phoneNumber : ""
+      );
+    })
+    .fail((response) => {
+      //   debugger;
+    });
+}
