@@ -18,7 +18,7 @@ $authUser = getUserById($userId);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
-
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Employee</title>
 </head>
 
@@ -59,6 +59,64 @@ $authUser = getUserById($userId);
         </div>
     </nav>
 
+    <section class="form-section">
+        <h3>User Detail</h3>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="email" class="form-control" id="inputName">
+            </div>
+            <div class="col-md-6">
+                <label for="inputLastName" class="form-label">Last Name</label>
+                <input type="password" class="form-control" id="inputLastName">
+            </div>
+            <div class="col-6">
+                <label for="inputEmail" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="inputEmial" placeholder="user@mail.com">
+            </div>
+            <div class="col-6">
+                <label for="selectGender" class="form-label">Gender</label>
+                <select class="form-control" id="SelectGender">
+                    <option>Man</option>
+                    <option>Women</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label for="inputAge" class="form-label">Age</label>
+                    <input type="text" class="form-control" id="inputAge">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-md-6">
+                <label for="inputAddress" class="form-label">Street Address</label>
+                <input type="text" class="form-control" id="inputAddress">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPhone" class="form-label">Phone number</label>
+                <input type="text" class="form-control" id="inputPhone">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </form>
+    </section>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 

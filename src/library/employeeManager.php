@@ -25,7 +25,6 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    // TODO implement it
 }
 
 
