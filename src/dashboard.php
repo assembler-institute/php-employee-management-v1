@@ -55,9 +55,24 @@ session_start();
                         data: item
                     });
                 },
+                deleteItem: function(item) {
+                    return $.ajax({
+                        type: "DELETE",
+                        url: "./library/employeeController.php",
+                        data: item,
+                        dataType: "html",
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
+                },
             },
 
             fields: [{
+                    name: 'id',
+                    type: 'text',
+                },
+                {
                     name: "name",
                     type: "text",
                     width: 150,
@@ -75,7 +90,7 @@ session_start();
         });
 
         // $.ajax({
-        //     type: "GET",
+        //     type: "DELETE",
         //     url: "./library/employeeController.php",
         //     dataType: "html",
         //     success: function(data) {
