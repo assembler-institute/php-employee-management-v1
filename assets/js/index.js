@@ -1,14 +1,21 @@
 const dataPath = "../resources/employees.json";
+console.log("hey");
 
 async function getEmployees(dataPath) {
   let result = await $.getJSON(dataPath);
   $("#jsGrid").jsGrid({
     width: "100%",
     height: "auto",
+    // paging: true,
+    pageSize: 15,
+    pageButtonCount: 5,
     inserting: true,
     editing: true,
     sorting: true,
     paging: true,
+    filtering: true,
+    deleteConfirm:
+      "This action will delete the employee from the system. Are you sure?",
     data: result,
     fields: [
       // { name: "id", type: "number" },
@@ -22,6 +29,7 @@ async function getEmployees(dataPath) {
       { name: "postalCode", type: "number", width: 50 },
       { name: "phoneNumber", type: "number", width: 50 },
       // { name: "gender", type: "text", width: 50 },
+      { type: "control" },
     ],
   });
 }
