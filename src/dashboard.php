@@ -1,4 +1,13 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+session_start();
+
+if(isset($_SESSION["login_time"])){
+    if(time()-$_SESSION["login_time"]>10){
+        echo $_SESSION["login_time"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

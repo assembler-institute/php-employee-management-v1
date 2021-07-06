@@ -70,6 +70,12 @@ session_start();
                     echo $_SESSION["WPass"];
                     echo "</div>";
                     break;
+                case (isset($_SESSION["logout"])):
+                    echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
+                    echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
+                    echo $_SESSION["logout"];
+                    echo "</div>";
+                    break;
 
                 default:
                     # code...

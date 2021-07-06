@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require("./loginManager.php");
 $userJson=file_get_contents("../../resources/users.json");
 $users=json_decode($userJson,true); 
@@ -19,7 +20,7 @@ echo($login);
 switch ($login) {
     case "Loged":
         $_SESSION["loged"]=$logedUserName;
-        header("Location:../dashboard.php");
+        header("Location:./sessionHelper.php?starting=start");
         break;
     case "Wrong name and password":
         $_SESSION["WEmailPass"]="Wrong email and password";
