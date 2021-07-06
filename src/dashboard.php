@@ -45,7 +45,7 @@ require_once("./library/employeeController.php")
 
                     autoload: true,
                     inserting: true,
-                    editing: true,
+                    // editing: true,
                     sorting: true,
                     paging: true,
                     // pageSize: 5,
@@ -159,7 +159,8 @@ require_once("./library/employeeController.php")
                         },
                         {
                             type: "control",
-                            width: 20
+                            width: 20,
+                            editButton: false,
                         }
 
                     ]
