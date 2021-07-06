@@ -3,6 +3,10 @@
 require_once('library/loginManager.php');
 
 session_start();
+if (!isset($_SESSION['authUserId'])) {
+    http_response_code(401);
+    header('Location:../index.php');
+}
 
 $userId = $_SESSION['authUserId'];
 $authUser = getUserById($userId);
@@ -50,10 +54,17 @@ $authUser = getUserById($userId);
                             Profile
                         </a>
                     </li>
-                    <li><a class="dropdown-item" href="#">
+                    <li>
+                        <!-- <a id="logout" class="dropdown-item" href="#">
                             <i class="bi bi-box-arrow-left me-2"></i>
                             logout
-                        </a>
+                        </a> -->
+
+                        <form class="dropdown-item" action="library/loginController.php" method="post">
+                            <input type="hidden" name="action" value="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            <input class="bg-transparent border-0" type="submit" value="logout"></input>
+                        </form>
                     </li>
                 </ul>
             </li>
@@ -125,6 +136,23 @@ $authUser = getUserById($userId);
         //     success: function(data) {
         //         console.log(data);
         //     }
+        // });
+
+        // $('#logout').on('click', function(e) {
+        //     e.preventDefault();
+        //     console.log('holaaa');
+
+        //     $.post("library/loginController.php", {
+        //         'action': 'logout',
+        //     }, function(data) {
+        //         // if (data.status) {
+        //         //     window.location.reload();
+        //         // } else {
+        //         //     $('#renameForm-name').addClass('is-invalid');
+        //         //     $('.renameForm-name').text(data.msg);
+        //         //     console.log("Error doing ", data.action);
+        //         // }
+        //     }, 'json');
         // });
     </script>
 </body>
