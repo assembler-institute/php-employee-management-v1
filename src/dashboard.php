@@ -12,5 +12,8 @@ session_start();
 </head>
 <body>
     <h1>Welcome <?php echo $_SESSION["loged"];?><h1>
+
+        <a href="./library/sessionHelper.php" class="btn btn-outline-success">logout</a>   
+  
 </body>
 </html>
