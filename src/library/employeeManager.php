@@ -42,7 +42,6 @@ function saveDataToJson($data)
 
 function updateEmployee(array $updateEmployee)
 {
-    // TODO implement it
 }
 
 
