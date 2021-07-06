@@ -11,7 +11,6 @@ function loginAuth($email, $pass)
             return $user;
         }
     }
-    // return null;
 }
 
 function getUser()

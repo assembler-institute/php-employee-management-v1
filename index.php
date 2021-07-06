@@ -1,4 +1,3 @@
-<!-- TODO Application entry point. Login view -->
 <?php
 session_start();
 if (isset($_SESSION['authUserId'])) {
