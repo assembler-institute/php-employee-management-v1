@@ -1,8 +1,10 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+
 <?php
 require_once('library/loginManager.php');
 
 session_start();
+
 if (!isset($_SESSION['authUserId'])) {
     http_response_code(401);
     header('Location:../index.php');
@@ -10,8 +12,8 @@ if (!isset($_SESSION['authUserId'])) {
 
 $userId = $_SESSION['authUserId'];
 $authUser = getUserById($userId);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,15 +67,14 @@ $authUser = getUserById($userId);
             </li>
         </div>
     </nav>
-
     <div class="px-5">
         <div id="jsGrid"></div>
     </div>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
     <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
+
     <script>
         $("#jsGrid").jsGrid({
             width: "100%",
@@ -88,7 +89,6 @@ $authUser = getUserById($userId);
             pageSize: 5,
             pageButtonCount: 5,
 
-            // data: clients,
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
@@ -104,6 +104,7 @@ $authUser = getUserById($userId);
                         url: "./library/employeeController.php",
                         data: item
                     });
+
                 },
                 deleteItem: function(item) {
                     return $.ajax({
@@ -116,28 +117,96 @@ $authUser = getUserById($userId);
                         }
                     });
                 },
-            },
 
+            },
             fields: [{
-                    name: 'id',
-                    type: 'text',
-                },
-                {
                     name: "name",
                     type: "text",
-                    width: 150,
+                    width: 100,
                     validate: "required"
                 },
                 {
+                    name: "email",
+                    type: "text",
+                    width: 100,
+                    validate: [
+                        "required",
+                        {
+                            message: "Please put a valid email address",
+                            validator: function(value, item) {
+                                return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
+                            },
+                        }
+                    ]
+                },
+
+                {
                     name: "age",
                     type: "text",
-                    width: 50
+                    width: 50,
+                    validate: {
+                        validator: function(value) {
+                            if (value > 0 && value < 80) {
+                                return true;
+                            }
+                        },
+                        message: function(value, item) {
+                            return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
+                        },
+                        param: [0, 80]
+                    }
+                },
+                {
+                    name: 'streetAddress',
+                    type: 'text',
+                    width: '50',
+                    validate: 'required',
+                },
+                {
+                    name: 'city',
+                    type: 'text',
+                    width: '100',
+                    validate: 'required',
+                },
+                {
+                    name: 'state',
+                    type: 'text',
+                    width: '50',
+                    validate: 'required',
+                },
+                {
+                    name: 'postalCode',
+                    type: 'text',
+                    width: '100',
+                    validate: {
+                        validator: function(value) {
+                            if (value.length == 6) {
+                                return true;
+                            }
+                        },
+                        message: "Please enter a valid postal code",
+                    }
+                },
+                {
+                    name: 'phoneNumber',
+                    type: 'text',
+                    width: '100',
+                    validate: {
+                        validator: function(value, item) {
+                            if (value.length < 20) {
+                                return true;
+                            }
+                        },
+                        message: "Please enter a valid phone number",
+                    }
+
                 },
                 {
                     type: "control"
                 }
             ]
         });
+
 
         // $.ajax({
         //     type: "DELETE",
