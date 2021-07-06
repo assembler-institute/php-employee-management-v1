@@ -3,21 +3,24 @@ require("employeeManager.php");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
+
 switch ($method) {
     case "GET":
-        return "Getting data";
         break;
     case "PUT":
-        // updateEmployee();
+        updateEmployee($_POST["updatedEmployee"]);
         break;
     case "POST":
-        addEmployee();
+        addEmployee($_POST["newEmployee"]);
         break;
+        echo "Creating data";
     case "DELETE":
-        // deleteEmployee();
+        parse_str(file_get_contents("php://input"), $_DELETE);
+        // deleteEmployee($_DELETE);
+        // echo "Deleting data: ", $_DELETE["deletedID"];
         break;
     default:
-        return "Not valid method";
+        echo "Not valid method";
 }
 
 

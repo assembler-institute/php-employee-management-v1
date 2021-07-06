@@ -1,4 +1,8 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+require_once("./library/employeeController.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,12 +69,13 @@
 
                         insertItem: function(item) {
                             return $.ajax({
+                                url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
                                 type: "POST",
-                                url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
-                                data: item,
-                                contentType: "application/json",
+                                data: {
+                                    "newEmployee": item,
+                                },
                                 success: function(resp) {
-                                    console.log("POST: ", item.id);
+                                    console.log("POST");
                                 }
                             });
                         },
@@ -78,11 +83,12 @@
                         updateItem: function(item) {
                             return $.ajax({
                                 type: "PUT",
-                                // url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json?" + item.Id,
-                                data: item,
-                                contentType: "application/json",
+                                url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                                data: {
+                                    "updatedEmployee": item
+                                },
                                 success: function(resp) {
-                                    console.log("PUT: ", item);
+                                    console.log("PUT");
                                 }
                             });
                         },
@@ -90,12 +96,12 @@
                         deleteItem: function(item) {
                             return $.ajax({
                                 type: "DELETE",
-                                // url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
-                                data: item,
-                                dataType: "json",
-                                contentType: "application/json",
+                                url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                                data: {
+                                    "deletedID": item.id
+                                },
                                 success: function(resp) {
-                                    console.log("DELETE: ", item);
+                                    console.log("DELETE: ", resp);
                                 }
                             });
                         },

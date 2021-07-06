@@ -1,12 +1,32 @@
 <?php
 
-
-function addEmployee()
+function addEmployee(array $newEmployee)
 {
-    // $rawJSON = require("../../resources/employees.json");
-    header("Location:../../index.php");
-    // echo print_r($rawJSON);
-    // echo print_r($_POST);
+    $jsonPath = file_get_contents("../../resources/employees.json");
+    $decodedJSON = json_decode($jsonPath, true);
+    $employeesLength = count($decodedJSON);
+
+    // Template array
+    $newEmployeeArray = array(
+        "id" => "$employeesLength" + 20,
+        "name" => $newEmployee["name"],
+        "lastName" => "",
+        "email" => $newEmployee["email"],
+        "gender" => "?",
+        "city" => $newEmployee["city"],
+        "streetAddress" => $newEmployee["streetAddress"],
+        "state" => $newEmployee["state"],
+        "age" => $newEmployee["age"],
+        "postalCode" => $newEmployee["postalCode"],
+        "phoneNumber" => $newEmployee["phoneNumber"]
+    );
+
+    array_push(
+        $decodedJSON,
+        $newEmployeeArray
+    );
+
+    file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
 }
 
 
@@ -25,6 +45,18 @@ function updateEmployee(array $updateEmployee)
 function getEmployee(string $id)
 {
     // TODO implement it
+    // $_SESSION["employeeID"] = $id;
+    // $jsonPath = file_get_contents("../../resources/employees.json");
+    // $decodedJSON = json_decode($jsonPath, true);
+
+    // $foundEmployee = array_filter($decodedJSON, function ($employee) {
+    //     if ($employee["id"] == $_SESSION["employeeID"]) {
+    //         return $employee;
+    //     }
+    // });
+
+    // $foundEmployeeJSON = json_encode($foundEmployee, true);
+    // echo print_r($foundEmployee);
 }
 
 
