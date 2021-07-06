@@ -21,10 +21,7 @@ function addEmployee(array $newEmployee)
         "phoneNumber" => $newEmployee["phoneNumber"]
     );
 
-    array_push(
-        $decodedJSON,
-        $newEmployeeArray
-    );
+    array_push($decodedJSON, $newEmployeeArray);
 
     file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
 }
@@ -35,20 +32,22 @@ function deleteEmployee(string $id)
     $jsonPath = file_get_contents("../../resources/employees.json");
     $decodedJSON = json_decode($jsonPath, true);
 
+    $updatedArray = array();
     $index = 0;
     foreach ($decodedJSON as $employee) {
         if ($employee["id"] == $id) {
-            // echo print_r($decodedJSON[$index]);
             unset($decodedJSON[$index]);
-            break;
         } else {
+            array_push($updatedArray, $employee);
             $index++;
         }
     }
 
-    // file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
-    // echo json_encode($decodedJSON);
+    echo json_encode($updatedArray);
+
+    file_put_contents("../../resources/employees.json", json_encode($updatedArray));
 }
+
 
 function updateEmployee(array $updateEmployee)
 {

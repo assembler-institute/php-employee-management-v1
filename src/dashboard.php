@@ -1,23 +1,11 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
-
 session_start();
 
 if(isset($_SESSION["login_time"])){
     if(time()-$_SESSION["login_time"]>10){
         echo $_SESSION["login_time"];
 }
-
-    // session_unset();
-    // setcookie(session_name(),"",time() - 3600);
-    // session_destroy();
-    // session_start();
-    // $_SESSION["logout"]="You already logout";
-    // header("Location:../index.php");
-}
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -52,137 +40,137 @@ if(isset($_SESSION["login_time"])){
     <!-- Javascript -->
     <script>
         // Setting a JS Grid with the response
-        $(function() {
-            $.getJSON("../resources/employees.json", function(response) {
-                let employeesDb = response;
+        $("#jsGrid").jsGrid({
+            height: "100%",
+            width: "100%",
 
-                $("#jsGrid").jsGrid({
-                    height: "100%",
-                    width: "100%",
+            autoload: true,
+            inserting: true,
+            // editing: true,
+            sorting: true,
+            paging: true,
+            // pageSize: 5,
+            // pageIndex: 1,
 
-                    autoload: true,
-                    inserting: true,
-                    editing: true,
-                    sorting: true,
-                    paging: true,
-                    // pageSize: 5,
-                    // pageIndex: 1,
+            // Redirect to employee's page
+            rowClick: function(args) {
+                employeeRowId = args.item.id;
+                $("#dashboardLink").toggleClass("active");
+                $("#employeeLink").addClass("active");
+                document.location = `./employee.php?employeeRowId=${employeeRowId}`;
+            },
 
-                    data: employeesDb,
-
-                    controller: {
-                        loadData: function(filter) {
-                            return $.ajax({
-                                url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
-                                type: "GET",
-                                data: filter,
-                                dataType: "json",
-                                contentType: "application/json",
-                                success: function(resp) {
-                                    console.log("GET: ", resp);
-                                }
-                            })
-                        },
-
-                        insertItem: function(item) {
-                            return $.ajax({
-                                url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
-                                type: "POST",
-                                data: {
-                                    "newEmployee": item,
-                                },
-                                success: function(resp) {
-                                    console.log("POST");
-                                }
-                            });
-                        },
-
-                        updateItem: function(item) {
-                            return $.ajax({
-                                type: "PUT",
-                                url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
-                                data: {
-                                    "updatedEmployee": item
-                                },
-                                success: function(resp) {
-                                    console.log("PUT");
-                                }
-                            });
-                        },
-
-                        deleteItem: function(item) {
-                            return $.ajax({
-                                type: "DELETE",
-                                url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
-                                data: {
-                                    "deletedID": item.id
-                                },
-                                success: function(resp) {
-                                    console.log("DELETE: ", resp);
-                                }
-                            });
-                        },
-                    },
-
-
-                    fields: [{
-                            title: "Name",
-                            name: "name",
-                            type: "text",
-                            width: 30,
-
-                        },
-                        {
-                            title: "Email",
-                            name: "email",
-                            type: "text",
-                            width: 60
-                        },
-                        {
-                            title: "Age",
-                            name: "age",
-                            type: "text",
-                            width: 20
-                        },
-                        {
-                            title: "St. Num.",
-                            name: "streetAddress",
-                            type: "text",
-                            width: 20
-                        },
-                        {
-                            title: "City",
-                            name: "city",
-                            type: "text",
-                            width: 35
-                        },
-                        {
-                            title: "State",
-                            name: "state",
-                            type: "text",
-                            width: 20
-                        },
-                        {
-                            title: "Postal code",
-                            name: "postalCode",
-                            type: "text",
-                            width: 30
-                        },
-                        {
-                            title: "Phone",
-                            name: "phoneNumber",
-                            type: "text",
-                            width: 40
-                        },
-                        {
-                            type: "control",
-                            width: 20
+            controller: {
+                loadData: function(filter) {
+                    return $.ajax({
+                        url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
+                        type: "GET",
+                        data: filter,
+                        dataType: "json",
+                        contentType: "application/json",
+                        success: function(resp) {
+                            console.log("GET: ", resp);
                         }
+                    })
+                },
 
-                    ]
-                });
+                insertItem: function(item) {
+                    return $.ajax({
+                        url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                        type: "POST",
+                        data: {
+                            "newEmployee": item,
+                        },
+                        success: function(resp) {
+                            console.log("POST");
+                        }
+                    });
+                },
 
-            });
+                // updateItem: function(item) {
+                //     return $.ajax({
+                //         type: "PUT",
+                //         url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                //         data: {
+                //             "updatedEmployee": item
+                //         },
+                //         success: function(resp) {
+                //             console.log("PUT");
+                //         }
+                //     });
+                // },
+
+                deleteItem: function(item) {
+                    return $.ajax({
+                        type: "DELETE",
+                        url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                        data: {
+                            "deletedID": item.id
+                        },
+                        success: function(resp) {
+                            console.log("DELETE: ", resp);
+                        }
+                    });
+                },
+            },
+
+
+            fields: [{
+                    title: "Name",
+                    name: "name",
+                    type: "text",
+                    width: 30,
+
+                },
+                {
+                    title: "Email",
+                    name: "email",
+                    type: "text",
+                    width: 60
+                },
+                {
+                    title: "Age",
+                    name: "age",
+                    type: "text",
+                    width: 20
+                },
+                {
+                    title: "St. Num.",
+                    name: "streetAddress",
+                    type: "text",
+                    width: 20
+                },
+                {
+                    title: "City",
+                    name: "city",
+                    type: "text",
+                    width: 35
+                },
+                {
+                    title: "State",
+                    name: "state",
+                    type: "text",
+                    width: 20
+                },
+                {
+                    title: "Postal code",
+                    name: "postalCode",
+                    type: "text",
+                    width: 30
+                },
+                {
+                    title: "Phone",
+                    name: "phoneNumber",
+                    type: "text",
+                    width: 40
+                },
+                {
+                    type: "control",
+                    width: 20,
+                    editButton: false,
+                }
+
+            ]
         });
     </script>
 </body>
