@@ -5,7 +5,7 @@ function goLogin()
 {
     $url = $_SERVER['REQUEST_URI'];
     if (!str_contains($url, 'index.php')) {
-        header('Location: /php-employee-management-v1/index.php');
+        header('Location: /index.php');
     }
 }
 
@@ -24,7 +24,7 @@ if (isset($_SESSION['userId'])) {
     } else {
         $url = $_SERVER['REQUEST_URI'];
         if (str_contains($url, 'index.php')) {
-            header('Location: /php-employee-management-v1/src/dashboard.php');
+            header('Location: /src/dashboard.php');
         }
     }
 } else {
