@@ -16,7 +16,11 @@
   </header>
   <main class="mx-auto">
     <h3>Employees:</h3>
-    <div></div>
+    <div>
+      <?php
+session_start();
+echo 'Hi user: '.$_SESSION["user"];
+?></div>
   </main>
   <footer>
     <?php 
