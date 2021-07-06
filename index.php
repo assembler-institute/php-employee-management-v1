@@ -11,7 +11,7 @@
       href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
     <link href="./assets/css/login.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body class="text-center">
     <form class="form-signin" action="./src/library/loginController.php" method="POST">
