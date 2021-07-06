@@ -1,9 +1,5 @@
 <?php
 
-// ! To update the json
-// $newJsonString = json_encode($data);
-// file_put_contents('jsonFile.json', $newJsonString);
-
 function maxIdInArray($array)
 {
     $object = array_reduce($array, function ($a, $b) {
@@ -11,8 +7,6 @@ function maxIdInArray($array)
     });
     return $object["id"];
 }
-
-
 
 function addEmployee(array $newEmployee)
 {

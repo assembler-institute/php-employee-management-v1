@@ -19,7 +19,6 @@ function insertItemHandler(item) {
 }
 
 function deleteItemHandler(item) {
-  debugger;
   console.log(item);
   return $.ajax({
     type: "DELETE",
@@ -31,8 +30,7 @@ function deleteItemHandler(item) {
 function renderTable(employeesJson = {}) {
   $("#jsGrid").jsGrid({
     width: "100%",
-    height: "500px",
-
+    height: "auto",
     inserting: true,
     editing: false,
     sorting: true,
@@ -68,12 +66,7 @@ function renderTable(employeesJson = {}) {
       { name: "streetAddress", title: "Street No.", type: "number", width: 2 },
       { name: "city", title: "City", type: "text", width: 3 },
       { name: "state", title: "State", type: "text", width: 2 },
-      {
-        name: "postalCode",
-        title: "Postal Code",
-        type: "number",
-        width: 2,
-      },
+      { name: "postalCode", title: "Postal Code", type: "number", width: 2 },
       { name: "phoneNumber", title: "Phone Number", type: "number", width: 3 },
       { type: "control", width: 1, editButton: false },
     ],
