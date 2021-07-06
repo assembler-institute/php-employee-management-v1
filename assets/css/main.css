@@ -40,13 +40,13 @@ input:focus {
 
 .main__header {
   border-bottom: solid 1px rgb(161, 161, 161);
-	min-height: 50px;
   z-index: 1000;
+  background-color: #0054f6;
 }
 
 .logo__wrapper {
   max-width: 200px;
-  width: 190px;
+  width: 100px;
   overflow: hidden;
 }
 
@@ -54,14 +54,10 @@ input:focus {
   height: 100%;
   object-fit: cover;
   padding-left: 20px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+
 }
 .logo__app img {
-  height: 100%;
-}
-.logo__app img:hover {
-  filter: saturate(200%) sepia(100%) drop-shadow(10px 10px 40px rgb(221, 221, 221));
+  width: 100%;
 }
 
 .logout__wrapper {

@@ -8,6 +8,8 @@ if (isset($_GET["logoutClicked"])) {
   cerrar_sesion();
 }
 
+
+
 function autentificar_usuario()
 {
   require_once "../library/loginManager.php";
@@ -17,7 +19,7 @@ function autentificar_usuario()
   $username = $_POST["username"];
   $pass = $_POST["password"];
 
-  check_usuario_on_database($username, $pass);
+  // check_usuario_on_database($username, $pass);
 
   if (check_usuario_on_database($username, $pass) == true) {
     $_SESSION["username"] = $username;
@@ -111,6 +113,7 @@ function check_error_de_login()
     ];
   }
 }
+
 function check_error_de_registro()
 {
   if (isset($_SESSION["ErrorDeRegistro"])) {
@@ -152,7 +155,6 @@ function check_logout()
 }
 
 // NEW USEEEERR!!!
-
 if (isset($_POST["register_submit"])) {
   handle_new_user();
 }

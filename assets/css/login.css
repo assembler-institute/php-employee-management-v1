@@ -33,25 +33,22 @@ input:focus {
 }
 
 .logo__wrapper {
-  width: 190px;
-  width: 100%;
   overflow: hidden;
+  max-height: 300px;
 }
 
 .logo__app {
-  width: 50%;
+  height: 100%;
   object-fit: cover;
 }
-.logo__app:hover {
-  filter: saturate(200%) sepia(100%) drop-shadow(5px 5px 40px rgb(221, 221, 221));
-}
+
 .logo__app img {
   width: 100%;
 }
 
 .search__component {
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
+  border-radius: 5px;
   min-width: 500px;
   padding: 0px 20px;
 }
@@ -96,4 +93,8 @@ input:focus {
 
 #register_form{
   display: none;
+}
+
+.body_bg{
+  background-color: #0054f6;
 }

@@ -8,26 +8,8 @@
     },
     {
       "userId": 2,
-      "name": "erick",
-      "password": "$2y$10$mGlXqzhFNRu4nFsUcpkAWOtuHq2/kb58/9YTf6qcAIEaIK0xm.m1C",
-      "email": "erick@info.com"
-    },
-    {
-      "userId": 3,
-      "name": "alfonso",
-      "password": "$2y$10$4k79bLf0SgmFDkGOeebxy.uYce4XRQ0VcxecEII9h97rk9GH94kKS",
-      "email": "alfonso@info.com"
-    },
-    {
-      "userId": 4,
       "name": "Erick Noiztbander",
-      "password": "$2y$10$lfTpOsL1v077RwugrSfoMuHrQmewcbhslceMGKmhhPztMBq8d6ncC",
-      "email": "no email bitx"
-    },
-    {
-      "userId": 5,
-      "name": "alberto el paco",
-      "password": "$2y$10$e2WrryyDxxew4rbGQJ6iYeLMhutlgYhjj.Atbd9CvCVkADQcEwtOK",
+      "password": "$2y$10$0CrU8swERZ.RcIPF5x4QAOtXk6W2W/a9S.z1c6gYZDpk.xpQbvxAi",
       "email": "no email bitx"
     }
   ]

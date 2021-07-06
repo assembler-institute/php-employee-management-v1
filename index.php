@@ -25,11 +25,11 @@ $alert = revisar_si_existe_sesion();
 
 </head>
 
-<body class="d-flex min-vh-100 flex-column justify-content-between align-item-between d-inline-block bg-light m-0 p-0">
+<body class="d-flex min-vh-100 flex-column justify-content-between align-item-between d-inline-block m-0 p-0 body_bg">
 
-	<header class="bg-white m-0">
+	<header class="bg-light m-0">
 		<div class="d-flex flex-row justify-content-center align-items-center pt-2 pb-2  border-bottom">
-			<h3>
+			<h3 class="text-dark">
 				Employee Management
 			</h3>
 		</div>
@@ -37,11 +37,11 @@ $alert = revisar_si_existe_sesion();
 
 	<main class="">
 		<section class="d-flex flex-column gap-2 justify-content-center align-item-between h-100 w-100">
-			<!-- <div class="logo__wrapper d-flex flex-row justify-content-center align-items-center">
+			<div class="logo__wrapper d-flex flex-row justify-content-center align-items-center w-100">
 				<div class="logo__app">
-					<img src="../../../doc/img/JonathanAndErick_logo.png" alt="logo">
+					<img src="assets\images\Alfonso y Erick Logotipos.gif" alt="logo">
 				</div>
-			</div> -->
+			</div>
 			<div class="d-flex flex-row gap-2 justify-content-center align-item-between h-100 w-100">
 				<form action="./src/library/loginController.php" method="POST" class="d-flex flex-column gap-3 p-2">
 					<div class="w-100 d-flex justify-content-center pt-2  h-100">
@@ -60,7 +60,7 @@ $alert = revisar_si_existe_sesion();
 							<input class="form-control form-control-dark w-100" name="password" type="password" placeholder="Your password..." id="input__password--login" value="">
 						</div>
 					</div>
-					<button type="submit" name="submit" class="btn btn-dark border border-secondary pt-3 pb-3" id="bt__submit--login">Log in</button>
+					<button type="submit" name="submit" class="btn btn-light border pt-3 pb-3 text-dark" id="bt__submit--login">Log in</button>
 
 				</form>
 				<form action="./src/library/loginController.php" method="POST" class=" flex-column gap-3 p-2" id="register_form">
@@ -80,15 +80,15 @@ $alert = revisar_si_existe_sesion();
 							<input class="form-control form-control-dark w-100" name="new_password" type="password" placeholder="New password..." id="input__new--password--login" value="">
 						</div>
 					</div>
-					<button type="submit" name="register_submit" class="btn btn-dark border border-secondary pt-3 pb-3" id="bt__new--submit--login">Register</button>
+					<button type="submit" name="register_submit" class="btn btn-light border border-secondary pt-3 pb-3 text-dark" id="bt__new--submit--login">Register<span> &#128520;</span></button>
 				</form>
 			</div>
 			<div class="text__password--forgot d-flex flex-row justify-content-center align-items-center">
-				<p class="text-primary pt-1 pb-2" id="new__user--text">New user, register now?</p>
+				<p class="text-light pt-1 pb-2" id="new__user--text">New user, register now?</p>
 			</div>
 			<div class="d-flex flex-row justify-content-center  align-items-center advise__login ">
 				<?= $alert
-					? "<div class='d-flex flex-row justify-content-center  align-items-center'>
+					? "<div class='d-flex flex-row justify-content-center align-items-center'>
 								<div class='$alert[bg] p-2 p-2 border border-secondary d-flex flex-row justify-content-between align-items-center w-100 rounded-3'>
 									<div class='$alert[type]'>
 									$alert[texto]
@@ -104,7 +104,8 @@ $alert = revisar_si_existe_sesion();
 	</main>
 	<?php include "./assets/html/footer.html"; ?>
 	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="./assets/js/new_user.js"></script>
+	<script src="./assets/js/index.js"></script>
+	<script>switchRegisterForm();</script>
 </body>
 
 </html>

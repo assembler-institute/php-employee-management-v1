@@ -19,16 +19,26 @@ revisar_si_existe_sesion();
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
 	<!-- Iconos traidos de Font Awesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
 
 	<link rel="stylesheet" href="../assets/css/main.css">
+
+	<!-- grid styles and functions -->
+	<link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
+	<link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
+	<script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
+
 </head>
 
-<body>
+<body class="d-flex min-vh-100 flex-column justify-content-start align-item-between d-inline-block m-0 p-0">
 	<?php include "../assets/html/header.html"; ?>
-	<h1>Estoy en el Dashboard</h1>
+	<main class="d-flex w-100 min-vh-50 justify-content-center align-item-center">
+	<div class="d-flex w-100 h-100 justify-content-center align-item-center">
+		<div id="jsGrid"></div>
+	</div>
+	</main>
+
+	<script src="../assets/js/grid_dates.js"></script>
 </body>
 </html>
