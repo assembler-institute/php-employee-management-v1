@@ -32,9 +32,25 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-    // TODO implement it
+    $jsonPath = file_get_contents("../../resources/employees.json");
+    $decodedJSON = json_decode($jsonPath, true);
+
+    $index = 0;
+    foreach ($decodedJSON as $employee) {
+        if ($employee["id"] == $id) {
+            // echo print_r($decodedJSON[$index]);
+            unset($decodedJSON[$index]);
+            break;
+        } else {
+            $index++;
+        }
+    }
+
+    file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
+    echo json_encode($decodedJSON);
 }
 
+deleteEmployee("3");
 
 function updateEmployee(array $updateEmployee)
 {

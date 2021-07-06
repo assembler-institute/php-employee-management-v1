@@ -16,8 +16,8 @@ switch ($method) {
         echo "Creating data";
     case "DELETE":
         parse_str(file_get_contents("php://input"), $_DELETE);
-        // deleteEmployee($_DELETE);
-        // echo "Deleting data: ", $_DELETE["deletedID"];
+        // deleteEmployee($_DELETE["deletedID"]);
+        echo $_DELETE["deletedID"];
         break;
     default:
         echo "Not valid method";
