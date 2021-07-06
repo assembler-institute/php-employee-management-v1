@@ -37,7 +37,9 @@ function renderTable(employeesJson = {}) {
     paging: true,
     autoload: true,
     // filtering: true,
-    rowDoubleClick: {
+    rowDoubleClick: function (item) {
+      // console.log(item);
+      window.location.replace("./employee.php?id=" + item.item.id);
       //TODO
     },
 
