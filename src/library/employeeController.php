@@ -13,6 +13,10 @@ if ($method == 'POST') {
 }
 
 if ($method == 'DELETE') {
+    parse_str(file_get_contents("php://input"), $_DELETE);
+    $id = $_DELETE['id'];
+    deleteEmployee($id);
+    exit;
 }
 
 if ($method == 'PUT') {
