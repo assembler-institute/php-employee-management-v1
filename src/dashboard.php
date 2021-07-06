@@ -14,7 +14,7 @@
       require ("../assets/html/header.html");
     ?>
   </header>
-  <main class="d-flex">
+  <main class="mx-auto">
     <h3>Employees:</h3>
     <div></div>
   </main>
@@ -23,5 +23,6 @@
       require ("../assets/html/footer.html");
     ?>
   </footer>
+  <script src="../assets/js/index.js"></script>
 </body>
 </html>
