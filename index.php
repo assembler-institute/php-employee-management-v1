@@ -62,7 +62,6 @@ if (isset($_SESSION['authUserId'])) {
                     let err = JSON.parse(xhr.responseText);
                     $('#login-error').addClass('show');
                     $('.msg-login').text(err.message);
-
                 }
             })
         })

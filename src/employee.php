@@ -4,6 +4,10 @@
 require_once('library/loginManager.php');
 
 session_start();
+if (!isset($_SESSION['authUserId'])) {
+    http_response_code(401);
+    header('Location:../index.php');
+}
 
 $userId = $_SESSION['authUserId'];
 $authUser = getUserById($userId);
@@ -61,18 +65,18 @@ $authUser = getUserById($userId);
 
     <section class="form-section">
         <h3>User Detail</h3>
-        <form class="row g-3">
+        <form id="employee-form" class="row g-3">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
-                <input type="email" class="form-control" id="inputName">
+                <input type="text" class="form-control" id="inputName">
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last Name</label>
-                <input type="password" class="form-control" id="inputLastName">
+                <input type="text" class="form-control" id="inputLastName">
             </div>
             <div class="col-6">
                 <label for="inputEmail" class="form-label">Email address</label>
-                <input type="text" class="form-control" id="inputEmial" placeholder="user@mail.com">
+                <input type="email" class="form-control" id="inputEmail" placeholder="user@mail.com">
             </div>
             <div class="col-6">
                 <label for="selectGender" class="form-label">Gender</label>
@@ -116,8 +120,49 @@ $authUser = getUserById($userId);
             </div>
         </form>
     </section>
+
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        <?php if (isset($_GET['id'])) : ?>
+            // Here Update code
+        <?php else : ?>
+            $('#employee-form').on('submit', function(e) {
+                e.preventDefault();
+                let formData = new FormData(document.querySelector('#employee-form'))
+                console.log(formData);
+
+                // const name = $(this).find('#inputName'),
+                //     lastName = $(this).find('#inputLastName'),
+                //     email = $(this).find('#inputEmail'),
+                //     gender = $(this).find('#SelectGender'),
+                //     age = $(this).find('#inputAge');
+
+                // const city = $(this).find('#inputCity');
+                // const state = $(this).find('#inputState');
+                // const zip = $(this).find('#inputZip');
+
+                // $.ajax({
+                //     url: "src/library/loginController.php",
+                //     type: "post",
+                //     dataType: "json",
+                //     data: {
+                //         'action': 'login',
+                //         'email': email.val(),
+                //         'password': pass.val(),
+                //     },
+                //     success: function(data, status) {
+                //         window.location.reload();
+                //     },
+                //     error: function(xhr, status, error) {
+                //         let err = JSON.parse(xhr.responseText);
+                //         $('#login-error').addClass('show');
+                //         $('.msg-login').text(err.message);
+                //     }
+                // })
+            })
+        <?php endif; ?>
+    </script>
 </body>
 
 </html>

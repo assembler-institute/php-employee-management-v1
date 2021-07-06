@@ -55,11 +55,6 @@ $authUser = getUserById($userId);
                         </a>
                     </li>
                     <li>
-                        <!-- <a id="logout" class="dropdown-item" href="#">
-                            <i class="bi bi-box-arrow-left me-2"></i>
-                            logout
-                        </a> -->
-
                         <form class="dropdown-item" action="library/loginController.php" method="post">
                             <input type="hidden" name="action" value="logout">
                             <i class="bi bi-box-arrow-left"></i>
@@ -151,23 +146,6 @@ $authUser = getUserById($userId);
         //     success: function(data) {
         //         console.log(data);
         //     }
-        // });
-
-        // $('#logout').on('click', function(e) {
-        //     e.preventDefault();
-        //     console.log('holaaa');
-
-        //     $.post("library/loginController.php", {
-        //         'action': 'logout',
-        //     }, function(data) {
-        //         // if (data.status) {
-        //         //     window.location.reload();
-        //         // } else {
-        //         //     $('#renameForm-name').addClass('is-invalid');
-        //         //     $('.renameForm-name').text(data.msg);
-        //         //     console.log("Error doing ", data.action);
-        //         // }
-        //     }, 'json');
         // });
     </script>
 </body>
