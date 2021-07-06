@@ -79,13 +79,6 @@ function generateId($arr)
     }
 }
 
-function saveDataToJson($data)
-{
-    file_put_contents(
-        "../../resources/employees.json",
-        json_encode($data, JSON_PRETTY_PRINT)
-    );
-}
 
 // function getQueryStringParameters(): array
 // {
