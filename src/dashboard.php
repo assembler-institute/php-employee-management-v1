@@ -1,8 +1,4 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,32 +22,85 @@
 </head>
 
 <body>
-    <?php require_once("../assets/html/header.html") ?>
+    <?php require("../assets/html/header.html") ?>
     <main class="container-fluid">
         <div id="jsGrid"></div>
     </main>
-    <?php require_once("../assets/html/footer.html") ?>
+    <?php require("../assets/html/footer.html") ?>
 
     <!-- Javascript -->
     <script>
+        // Setting a JS Grid with the response
         $(function() {
             $.getJSON("../resources/employees.json", function(response) {
                 let employeesDb = response;
 
-                // Setting a JS Grid with the response
                 $("#jsGrid").jsGrid({
                     height: "100%",
                     width: "100%",
 
-                    // Post when updated
-                    onItemUpdated: () => console.log("Updated"),
-
+                    autoload: true,
                     inserting: true,
                     editing: true,
                     sorting: true,
                     paging: true,
+                    // pageSize: 5,
+                    // pageIndex: 1,
 
                     data: employeesDb,
+
+                    controller: {
+                        loadData: function(filter) {
+                            return $.ajax({
+                                url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
+                                type: "GET",
+                                data: filter,
+                                dataType: "json",
+                                contentType: "application/json",
+                                success: function(resp) {
+                                    console.log("GET: ", resp);
+                                }
+                            })
+                        },
+
+                        insertItem: function(item) {
+                            return $.ajax({
+                                type: "POST",
+                                url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
+                                data: item,
+                                contentType: "application/json",
+                                success: function(resp) {
+                                    console.log("POST: ", item.id);
+                                }
+                            });
+                        },
+
+                        updateItem: function(item) {
+                            return $.ajax({
+                                type: "PUT",
+                                // url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json?" + item.Id,
+                                data: item,
+                                contentType: "application/json",
+                                success: function(resp) {
+                                    console.log("PUT: ", item);
+                                }
+                            });
+                        },
+
+                        deleteItem: function(item) {
+                            return $.ajax({
+                                type: "DELETE",
+                                // url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
+                                data: item,
+                                dataType: "json",
+                                contentType: "application/json",
+                                success: function(resp) {
+                                    console.log("DELETE: ", item);
+                                }
+                            });
+                        },
+                    },
+
 
                     fields: [{
                             title: "Name",
@@ -109,6 +158,7 @@
 
                     ]
                 });
+
             });
         });
     </script>
