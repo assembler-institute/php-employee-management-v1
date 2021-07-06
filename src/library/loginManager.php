@@ -14,6 +14,12 @@ function getUsersArray()
 
 function updateUsers($updatedUsers)
 {
-	file_put_contents("../../resources/users.json", $updatedUsers);
+  file_put_contents("../../resources/users.json", $updatedUsers);
 }
 
+function newUserToUpdate($pastUsers, $newArray_from_user)
+{
+  array_push($pastUsers["users"], $newArray_from_user);
+  $updatedUsers = json_encode($pastUsers);
+  updateUsers($updatedUsers);
+}

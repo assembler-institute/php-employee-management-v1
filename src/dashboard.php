@@ -31,14 +31,16 @@ revisar_si_existe_sesion();
 
 </head>
 
-<body class="d-flex min-vh-100 flex-column justify-content-start align-item-between d-inline-block m-0 p-0">
+<body class="d-flex min-vh-100 flex-column justify-content-between align-item-between d-inline-block m-0 p-0">
+
 	<?php include "../assets/html/header.html"; ?>
-	<main class="d-flex w-100 min-vh-50 justify-content-center align-item-center">
-	<div class="d-flex w-100 h-100 justify-content-center align-item-center">
-		<div id="jsGrid"></div>
-	</div>
+	<main class="min-vh-50 h-100 d-inline-block">
+		<div class="container-fluid">
+			<div id="jsGrid"></div>
+		</div>
 	</main>
 
 	<script src="../assets/js/grid_dates.js"></script>
+	<?php include "../assets/html/footer.html"; ?>
 </body>
 </html>

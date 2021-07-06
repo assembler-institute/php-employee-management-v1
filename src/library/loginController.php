@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__."/loginManager.php";
+require_once __DIR__ . "/loginManager.php";
 
 if (isset($_POST["submit"])) {
   autentificar_usuario();
@@ -12,8 +12,7 @@ if (isset($_GET["logoutClicked"])) {
 
 function check_usuario_on_database($username, $pass)
 {
-
-	$users = getUsers();
+  $users = getUsers();
   // $my_data_base_of_users = file_get_contents("../../resources/users.json");
   // $array_json = json_decode($my_data_base_of_users);
 
@@ -40,7 +39,6 @@ function check_usuario_on_database($username, $pass)
 
 function autentificar_usuario()
 {
-
   session_start();
 
   $username = $_POST["username"];
@@ -190,7 +188,7 @@ function create_new_usuario_on_database($new_username, $new_pass)
 {
   $newEncriptedPass = password_hash($new_pass, PASSWORD_DEFAULT);
 
-	$users = getUsersArray();
+  $users = getUsersArray();
 
   // $my_data_base_of_users = file_get_contents("../../resources/users.json");
   // $array_json = json_decode($my_data_base_of_users, true);
@@ -203,11 +201,12 @@ function create_new_usuario_on_database($new_username, $new_pass)
     "email" => "no email bitx",
   ];
 
-  array_push($users["users"], $newArray_from_user);
-  $updatedUsers = json_encode($users);
+  newUserToUpdate($users, $newArray_from_user);
+  // array_push($users["users"], $newArray_from_user);
+  // $updatedUsers = json_encode($users);
   // print_r($final_data);
 
-	updateUsers($updatedUsers);
+  // updateUsers($updatedUsers);
   // file_put_contents("../../resources/users.json", $final_data);
 
   return true;
