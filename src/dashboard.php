@@ -29,11 +29,14 @@ session_start();
             width: "100%",
             height: "400px",
 
+            filtering: true,
             inserting: true,
             editing: true,
             sorting: true,
             paging: true,
             autoload: true,
+            pageSize: 5,
+            pageButtonCount: 5,
 
             // data: clients,
             controller: {
@@ -43,9 +46,13 @@ session_start();
                         url: "./library/employeeController.php",
                         dataType: "json",
                         data: filter,
-                        success: function(data) {
-                            console.log(data);
-                        }
+                    });
+                },
+                insertItem: function(item) {
+                    return $.ajax({
+                        type: "POST",
+                        url: "./library/employeeController.php",
+                        data: item
                     });
                 },
             },
@@ -70,7 +77,7 @@ session_start();
         // $.ajax({
         //     type: "GET",
         //     url: "./library/employeeController.php",
-        //     dataType: "json",
+        //     dataType: "html",
         //     success: function(data) {
         //         console.log(data);
         //     }

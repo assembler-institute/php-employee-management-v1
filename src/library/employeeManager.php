@@ -9,7 +9,11 @@
 
 function addEmployee(array $newEmployee)
 {
-    // TODO implement it
+    $employees = getEmployees();
+    $newEmployee['id'] = generateId($employees);
+    $employees[] = $newEmployee;
+    saveDataToJson($employees);
+    return $newEmployee;
 }
 
 
@@ -43,6 +47,28 @@ function removeAvatar($id)
     // TODO implement it
 }
 
+function generateId($arr)
+{
+    for ($i = 1; $i < 3000; $i++) {
+        $searchedValue = false;
+        foreach ($arr as $item) {
+            if ($i == intval($item['id'])) {
+                $searchedValue = true;
+                break;
+            }
+        }
+
+        if (!$searchedValue) return $i;
+    }
+}
+
+function saveDataToJson($data)
+{
+    file_put_contents(
+        "../../resources/employees.json",
+        json_encode($data, JSON_PRETTY_PRINT)
+    );
+}
 
 // function getQueryStringParameters(): array
 // {
