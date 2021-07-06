@@ -12,6 +12,8 @@ function maxIdInArray($array)
     return $object["id"];
 }
 
+
+
 function addEmployee(array $newEmployee)
 {
     $jsonString = file_get_contents("../../resources/employees.json");
@@ -20,13 +22,28 @@ function addEmployee(array $newEmployee)
     $newEmployee["id"] = $newId;
     array_push($employees, $newEmployee);
     file_put_contents("../../resources/employees.json", json_encode($employees));
-    return $employees;
+    return $newEmployee;
 }
 
 
 function deleteEmployee(string $id)
 {
-    // TODO implement it
+    $jsonString = file_get_contents("../../resources/employees.json");
+    $employees = json_decode($jsonString);
+    $found = false;
+    foreach ($employees as $key => $value) {
+        if ($value->id == $id) {
+            $found = true;
+            break;
+        }
+    }
+    if ($found) {
+        unset($employees[$key]);
+        file_put_contents("../../resources/employees.json", json_encode($employees));
+        return "Success";
+    } else {
+        return "Failed";
+    }
 }
 
 

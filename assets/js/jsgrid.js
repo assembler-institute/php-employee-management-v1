@@ -18,9 +18,14 @@ function insertItemHandler(item) {
   });
 }
 
-function deleteItemHandler(grid) {
-  console.log("item deleted");
-  // TODO
+function deleteItemHandler(item) {
+  debugger;
+  console.log(item);
+  return $.ajax({
+    type: "DELETE",
+    url: employeeUrl,
+    data: item,
+  });
 }
 
 function renderTable(employeesJson = {}) {
@@ -32,6 +37,7 @@ function renderTable(employeesJson = {}) {
     editing: false,
     sorting: true,
     paging: true,
+    autoload: true,
     // filtering: true,
     rowDoubleClick: {
       //TODO
@@ -41,8 +47,8 @@ function renderTable(employeesJson = {}) {
       insertItem: function (item) {
         return insertItemHandler(item);
       },
-      deleteItem: function (grid) {
-        deleteItemHandler(grid);
+      deleteItem: function (item) {
+        deleteItemHandler(item);
       },
     },
 
