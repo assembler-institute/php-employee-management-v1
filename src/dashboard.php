@@ -46,8 +46,8 @@
             // Redirect to employee's page
             rowClick: function(args) {
                 employeeRowId = args.item.id;
-                $("#employeeLink").toggleClass("active");
-                $("#employeeLink").toggleClass("active");
+                $("#dashboardLink").toggleClass("active");
+                $("#employeeLink").addClass("active");
                 document.location = `./employee.php?employeeRowId=${employeeRowId}`;
             },
 
