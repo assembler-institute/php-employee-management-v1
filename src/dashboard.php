@@ -26,7 +26,7 @@ require_once("./library/employeeController.php")
 </head>
 
 <body>
-    <?php require("../assets/html/header.html") ?>
+    <?php require("../assets/html/header.php") ?>
     <main class="container-fluid">
         <div id="jsGrid"></div>
     </main>

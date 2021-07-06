@@ -8,7 +8,7 @@ function addEmployee(array $newEmployee)
 
     // Template array
     $newEmployeeArray = array(
-        "id" => "$employeesLength" + 20,
+        "id" => strval($employeesLength + 20),
         "name" => $newEmployee["name"],
         "lastName" => "",
         "email" => $newEmployee["email"],
@@ -16,7 +16,7 @@ function addEmployee(array $newEmployee)
         "city" => $newEmployee["city"],
         "streetAddress" => $newEmployee["streetAddress"],
         "state" => $newEmployee["state"],
-        "age" => $newEmployee["age"],
+        "age" => intval($newEmployee["age"]),
         "postalCode" => $newEmployee["postalCode"],
         "phoneNumber" => $newEmployee["phoneNumber"]
     );
@@ -46,11 +46,9 @@ function deleteEmployee(string $id)
         }
     }
 
-    file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
-    echo json_encode($decodedJSON);
+    // file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
+    // echo json_encode($decodedJSON);
 }
-
-deleteEmployee("3");
 
 function updateEmployee(array $updateEmployee)
 {

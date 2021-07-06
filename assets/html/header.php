@@ -1,12 +1,13 @@
-<nav
-  class="
+<?php
+session_start();
+?>
+<nav class="
     navbar navbar-expand-lg navbar-light
     bg-light
     container-fluid
     d-flex
     justify-content-between
-  "
->
+  ">
   <a class="navbar-brand font-weight-bold" href="#">Employee Management</a>
   <!-- Left buttons -->
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -21,17 +22,17 @@
   </div>
   <!-- Logout functionality -->
   <div class="d-flex align-items-center">
-    <p class="m-0 text-info">Username</p>
-    <button type="button" class="btn btn-outline-info ml-3">Logout</button>
+    <p class="m-0 text-info"><?php echo $_SESSION["loged"]; ?></p>
+    <a class="btn btn-outline-info ml-3" href="#">Logout</a>
   </div>
 </nav>
 
 <script>
-  $("#dashboardLink").on("click", function () {
+  $("#dashboardLink").on("click", function() {
     console.log("Redirecting to dashboard page");
   });
 
-  $("#employeeLink").on("click", function () {
+  $("#employeeLink").on("click", function() {
     console.log("Redirecting to employee page");
   });
 </script>
