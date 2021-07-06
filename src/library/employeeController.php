@@ -1,23 +1,20 @@
 <?php
 include "./employeeManager.php";
 
-
-
-
+header("Content-Type: application/json");
 
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         $jsonString = file_get_contents("../../resources/employees.json");
-        $employees = json_decode($jsonString, true);
-        $result = $employees;
+        echo $jsonString;
         break;
     case "POST":
-        $result = addEmployee($_POST);
+        echo json_encode(addEmployee($_POST));
         break;
     case "DELETE":
-        deleteEmployee($_DELETE);
+        parse_str(file_get_contents("php://input"), $_DELETE);
+        echo json_encode(deleteEmployee($_DELETE["id"]));
+        // deleteEmployee($_DELETE);
+
         break;
 }
-
-header("Content-Type: application/json");
-echo json_encode($result);

@@ -1,11 +1,14 @@
-const employeeUrl = "http://localhost/src/library/employeeController.php";
+const employeeUrl = "../../src/library/employeeController.php";
 
 $.ajax({
   url: employeeUrl,
   method: "GET",
-}).done(function (response) {
-  renderTable(response);
-});
+})
+  .done(function (response) {
+    renderTable(response);
+  })
+  .fail(function (response) {})
+  .always(function () {});
 
 function insertItemHandler(item) {
   return $.ajax({
@@ -15,20 +18,25 @@ function insertItemHandler(item) {
   });
 }
 
-function deleteItemHandler(grid) {
-  console.log("item deleted");
-  // TODO
+function deleteItemHandler(item) {
+  console.log(item);
+  return $.ajax({
+    type: "DELETE",
+    url: employeeUrl,
+    data: item,
+  });
 }
 
 function renderTable(employeesJson = {}) {
   $("#jsGrid").jsGrid({
     width: "100%",
-    height: "500px",
-
+    height: "auto",
     inserting: true,
     editing: false,
     sorting: true,
     paging: true,
+    autoload: true,
+    // filtering: true,
     rowDoubleClick: {
       //TODO
     },
@@ -37,8 +45,8 @@ function renderTable(employeesJson = {}) {
       insertItem: function (item) {
         return insertItemHandler(item);
       },
-      deleteItem: function (grid) {
-        deleteItemHandler(grid);
+      deleteItem: function (item) {
+        deleteItemHandler(item);
       },
     },
 
@@ -50,17 +58,17 @@ function renderTable(employeesJson = {}) {
         name: "name",
         title: "Name",
         type: "text",
-        width: 15,
+        width: 3,
         validate: "required",
       },
-      { name: "email", title: "Email", type: "text", width: 35 },
-      { name: "age", title: "Age", type: "number", width: 6 },
-      { name: "streetAddress", title: "Street No.", type: "number", width: 10 },
-      { name: "city", title: "City", type: "text", width: 15 },
-      { name: "state", title: "State", type: "text", width: 8 },
-      { name: "postalCode", title: "Postal Code", type: "number", width: 10 },
-      { name: "phoneNumber", title: "Phone Number", type: "number", width: 15 },
-      { type: "control" },
+      { name: "email", title: "Email", type: "text", width: 10 },
+      { name: "age", title: "Age", type: "number", width: 2 },
+      { name: "streetAddress", title: "Street No.", type: "number", width: 2 },
+      { name: "city", title: "City", type: "text", width: 3 },
+      { name: "state", title: "State", type: "text", width: 2 },
+      { name: "postalCode", title: "Postal Code", type: "number", width: 2 },
+      { name: "phoneNumber", title: "Phone Number", type: "number", width: 3 },
+      { type: "control", width: 1, editButton: false },
     ],
   });
 }
