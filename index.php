@@ -1,4 +1,7 @@
 <!-- TODO Application entry point. Login view -->
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,28 +48,25 @@
                     </svg>
                     <?php
                     switch (true) {
-                        case (isset($_GET["wrongPassword_andName"])):
+                        case (isset($_SESSION["WEmailPass"])):
                             echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                             echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
-                            echo $_GET["wrongPassword_andName"];
+                            echo $_SESSION["WEmailPass"];
                             echo "</div>";
-                            unset($_GET["wrongPassword_andName"]);
                             break;
 
-                        case (isset($_GET["wrongName"])):
+                        case (isset($_SESSION["WName"])):
                             echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                             echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
-                            echo $_GET["wrongName"];
+                            echo $_SESSION["WName"];
                             echo "</div>";
-                            unset($_GET["wrongName"]);
                             break;
 
-                        case (isset($_GET["wrongPass"])):
+                        case (isset($_SESSION["WPass"])):
                             echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                             echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
-                            echo $_GET["wrongPass"];
+                            echo $_SESSION["WPass"];
                             echo "</div>";
-                            unset($_GET["wrongPass"]);
                             break;
 
                         default:
