@@ -19,7 +19,24 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-    // TODO implement it
+    $employees = getEmployees();
+    foreach ($employees as $index => $employee) {
+        if ($employee['id'] == $id) {
+            // unset($employees[$index]);
+            array_splice($employees, $index, 1);
+        }
+    }
+    saveDataToJson($employees);
+}
+
+function saveDataToJson($data)
+{
+    file_put_contents(
+
+        "../../resources/employees.json",
+        json_encode($data, JSON_PRETTY_PRINT)
+
+    );
 }
 
 
@@ -61,13 +78,6 @@ function generateId($arr)
     }
 }
 
-function saveDataToJson($data)
-{
-    file_put_contents(
-        "../../resources/employees.json",
-        json_encode($data, JSON_PRETTY_PRINT)
-    );
-}
 
 // function getQueryStringParameters(): array
 // {
