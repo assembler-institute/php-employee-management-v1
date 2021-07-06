@@ -30,7 +30,7 @@
         name="email"
         class="form-control"
         placeholder="Email address"
-
+        required=""
         autofocus=""
       />
       <label for="inputPassword" class="sr-only">Password</label>
@@ -40,7 +40,7 @@
         name="pwd"
         class="form-control"
         placeholder="Password"
-
+        required=""
       />
       <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">
         Sign in
