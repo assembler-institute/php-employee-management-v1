@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <nav class="
     navbar navbar-expand-lg navbar-light
     bg-light
@@ -23,7 +21,7 @@ session_start();
   <!-- Logout functionality -->
   <div class="d-flex align-items-center">
     <p class="m-0 text-info"><?php echo $_SESSION["loged"]; ?></p>
-    <a class="btn btn-outline-info ml-3" href="./library/sessionHelper.php">Logout</a>
+    <a class="btn btn-outline-info ml-3" href="./library/sessionHelper.php?logout=finish">Logout</a>
   </div>
 </nav>
 

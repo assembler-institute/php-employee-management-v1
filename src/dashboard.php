@@ -1,6 +1,23 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
-require_once("./library/employeeController.php")
+
+session_start();
+
+if(isset($_SESSION["login_time"])){
+    if(time()-$_SESSION["login_time"]>10){
+        echo $_SESSION["login_time"];
+}
+
+    // session_unset();
+    // setcookie(session_name(),"",time() - 3600);
+    // session_destroy();
+    // session_start();
+    // $_SESSION["logout"]="You already logout";
+    // header("Location:../index.php");
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
