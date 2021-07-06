@@ -4,6 +4,7 @@
 require_once('library/loginManager.php');
 
 session_start();
+
 if (!isset($_SESSION['authUserId'])) {
     http_response_code(401);
     header('Location:../index.php');
@@ -53,10 +54,12 @@ $authUser = getUserById($userId);
                             Profile
                         </a>
                     </li>
-                    <li><a class="dropdown-item" href="#">
-                            <i class="bi bi-box-arrow-left me-2"></i>
-                            logout
-                        </a>
+                    <li>
+                        <form class="dropdown-item" action="library/loginController.php" method="post">
+                            <input type="hidden" name="action" value="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            <input class="bg-transparent border-0" type="submit" value="logout"></input>
+                        </form>
                     </li>
                 </ul>
             </li>
