@@ -32,8 +32,9 @@ function deleteEmployee(string $id)
 
 function saveDataToJson($data)
 {
+    $dir = dirname(__DIR__, 2);
     file_put_contents(
-        "../../resources/employees.json",
+        $dir . "/resources/employees.json",
         json_encode($data, JSON_PRETTY_PRINT)
     );
 }
@@ -53,19 +54,20 @@ function updateEmployee($id, $data)
 }
 
 
-function getEmployeeById(string $id)
+function getEmployeeById($id)
 {
     // TODO implement it
     $employees = getEmployees();
     foreach ($employees as $employee) {
-        if ($employees['id'] == $id) return $employee;
+        if ($employee['id'] == $id) return $employee;
     }
     return null;
 }
 
 function getEmployees()
 {
-    $employeesJson = file_get_contents('/Applications/MAMP/htdocs/php-employee-management-v1/resources/employees.json');
+    $dir = dirname(__DIR__, 2);
+    $employeesJson = file_get_contents($dir . '/resources/employees.json');
     return json_decode($employeesJson, true);
 }
 
