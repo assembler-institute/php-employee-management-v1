@@ -6,6 +6,11 @@ require_once('library/employeeManager.php');
 
 session_start();
 
+if (!isset($_SESSION['authUserId'])) {
+    http_response_code(401);
+    header('Location:../index.php');
+}
+
 $userId = $_SESSION['authUserId'];
 $authUser = getUserById($userId);
 
@@ -23,6 +28,7 @@ $employee = getEmployeeById($id);
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+
     <title>Employee</title>
 </head>
 
@@ -53,10 +59,12 @@ $employee = getEmployeeById($id);
                             Profile
                         </a>
                     </li>
-                    <li><a class="dropdown-item" href="#">
-                            <i class="bi bi-box-arrow-left me-2"></i>
-                            logout
-                        </a>
+                    <li>
+                        <form class="dropdown-item" action="library/loginController.php" method="post">
+                            <input type="hidden" name="action" value="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            <input class="bg-transparent border-0" type="submit" value="logout"></input>
+                        </form>
                     </li>
                 </ul>
             </li>
@@ -100,10 +108,9 @@ $employee = getEmployeeById($id);
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
                 <select id="inputState" class="form-select" value="<?php echo $employee['state'] ?>">
-                    <option selected>CA</option>
-                    <option>TX</option>
-                    <option>LU</option>
-
+                    <option value="" selected>Choose...</option>
+                    <option value="CA">CA</option>
+                    <option value="UA">UA</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -125,11 +132,15 @@ $employee = getEmployeeById($id);
         <div class="alert-wrapper">
         </div>
     </section>
+
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
+        let gender = "<?php echo $employee['gender'] ?>";
+        $("#SelectGender").val(gender);
         $("#updateForm").on('submit', function(e) {
             e.preventDefault();
+            // let formData = new FormData(document.querySelector('#employee-form'))
 
             const id = $(this).find('#employeeId').val(),
                 name = $(this).find('#inputName').val(),
@@ -146,6 +157,7 @@ $employee = getEmployeeById($id);
             $.ajax({
                 type: "PUT",
                 url: "./library/employeeController.php",
+                dataType: "json",
                 data: {
                     id,
                     name,
@@ -160,20 +172,32 @@ $employee = getEmployeeById($id);
                     phoneNumber,
 
                 },
-                dataType: "json",
-                success: function(data) {
+                success: function(data, status) {
                     console.log(data);
                     if (data.Status) {
                         $(".alert-wrapper").append('<div class="alert alert-success" role="alert ">Employee updated!</div>');
                     } else {
                         $(".alert-wrapper").append('<div class="alert alert-danger" role="alert ">Error updating employee</div>');
                     }
+                    $('#employee-form').trigger("reset");
+                    $('#success-alert').removeClass('d-none');
+
+                    window.setTimeout(function() {
+                        $('#success-alert').addClass('d-none');
+                    }, 3000);
+                },
+                error: function(xhr, status, error) {
+                    let err = JSON.parse(xhr.responseText);
+                    $('#danger-alert').removeClass('d-none');
+                    $('#danger-alert').text(err.message);
+
+                    window.setTimeout(function() {
+                        $('#danger-alert').addClass('d-none');
+                    }, 3000);
                 }
+
             });
         });
-
-        let gender = "<?php echo $employee['gender'] ?>";
-        $("#SelectGender").val(gender);
     </script>
 </body>
 

@@ -5,22 +5,19 @@ require './employeeManager.php';
 $employees = getEmployees();
 $method = $_SERVER['REQUEST_METHOD'];
 
-// echo '<pre>';
-// var_dump($employees);
-// echo '</pre>';
-// exit;
-
 if ($method == 'GET') {
     echo json_encode($employees);
     exit;
 }
 
 if ($method == 'POST') {
-    $newEmployee = [
-        "name" => $_POST['name'],
-        "age" => $_POST['age'],
-    ];
-    addEmployee($newEmployee);
+    if (addEmployee($_POST)) {
+        echo json_encode($_POST);
+        http_response_code(200);
+        exit;
+    };
+    echo json_encode(['message' => 'could not create employee']);
+    http_response_code(400);
 }
 
 if ($method == 'DELETE') {

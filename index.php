@@ -1,7 +1,11 @@
-<!-- TODO Application entry point. Login view -->
 <?php
-//header("Location: src/library/loginManager.php");
+session_start();
+if (isset($_SESSION['authUserId'])) {
+    http_response_code(401);
+    header('Location:src/dashboard.php');
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,6 +50,32 @@
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $('#login').on('submit', function(e) {
+            e.preventDefault();
+            const email = $(this).find('#inputEmail');
+            const pass = $(this).find('#inputPassword');
+
+            $.ajax({
+                url: "src/library/loginController.php",
+                type: "post",
+                dataType: "json",
+                data: {
+                    'action': 'login',
+                    'email': email.val(),
+                    'password': pass.val(),
+                },
+                success: function(data, status) {
+                    window.location.reload();
+                },
+                error: function(xhr, status, error) {
+                    let err = JSON.parse(xhr.responseText);
+                    $('#login-error').addClass('show');
+                    $('.msg-login').text(err.message);
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

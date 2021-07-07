@@ -10,7 +10,8 @@
 function addEmployee(array $newEmployee)
 {
     $employees = getEmployees();
-    $newEmployee['id'] = generateId($employees);
+    $newEmployee = array_merge(['id' => generateId($employees)], $newEmployee);
+    // $newEmployee['id'] = generateId($employees);
     $employees[] = $newEmployee;
     saveDataToJson($employees);
     return $newEmployee;
@@ -32,10 +33,8 @@ function deleteEmployee(string $id)
 function saveDataToJson($data)
 {
     file_put_contents(
-
-        "/Applications/MAMP/htdocs/php-employee-management-v1/resources/employees.json",
+        "../../resources/employees.json",
         json_encode($data, JSON_PRETTY_PRINT)
-
     );
 }
 
@@ -54,14 +53,14 @@ function updateEmployee($id, $data)
 }
 
 
-function getEmployeeById($id)
+function getEmployeeById(string $id)
 {
+    // TODO implement it
     $employees = getEmployees();
     foreach ($employees as $employee) {
-        if ($employee['id'] == $id) {
-            return $employee;
-        }
+        if ($employees['id'] == $id) return $employee;
     }
+    return null;
 }
 
 function getEmployees()
