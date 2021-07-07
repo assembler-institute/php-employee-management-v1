@@ -1,23 +1,26 @@
 <?php
 session_start();
 
-    if(isset($_GET["starting"])){
-        echo"entra";
-        $_SESSION["login_time"]=time();
-        echo $_SESSION["login_time"] ;
-        header("Location:../dashboard.php");
-    }else if(isset($_GET["logout"])){
-        session_unset();
-        setcookie(session_name(),"",time() - 3600);
-        session_destroy();
-        session_start();
-        $_SESSION["logout"]="You already logout";
-        header("Location:../../index.php");
+require("./loginManager.php");
+
+// Opening or closing the session
+if (isset($_GET["login"])) {
+    if ($_GET["login"] == "true") {
+        startSession();
+    } else if ($_GET["login"] == "false") {
+        destroySession();
     }
-        
+}
 
-
-
-
-
-//header("Location:../../index.php");
+// Checking remaning time
+if (isset($_SESSION["login_time"])) {
+    if (isset($_GET["timeoutCheck"])) {
+        if (time() - $_SESSION["login_time"] >= 10 * 60) {
+            echo "Logout";
+        } else {
+            $remainingTime =  time() - $_SESSION["login_time"];
+            echo "$remainingTime is less than 10 minutes: ";
+            echo "not loging out.";
+        }
+    }
+}

@@ -2,11 +2,10 @@
 <?php
 session_start();
 
-if(isset($_SESSION["login_time"])){
-    if(time()-$_SESSION["login_time"]>10){
-        echo $_SESSION["login_time"];
-    }
+if (!isset($_SESSION["loggedUsername"])) {
+    header("Location:../index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +16,7 @@ if(isset($_SESSION["login_time"])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <script src="../assets/js/timeout.js"></script>
 
     <!-- Dependencies -->
     <script src="../node_modules/jquery/dist/jquery.js"></script>
@@ -47,9 +47,9 @@ if(isset($_SESSION["login_time"])){
 
             autoload: true,
             inserting: true,
-            // editing: true,
             sorting: true,
             paging: true,
+            // editing: true,
             // pageSize: 5,
             // pageIndex: 1,
 

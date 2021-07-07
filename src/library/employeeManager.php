@@ -43,8 +43,6 @@ function deleteEmployee(string $id)
         }
     }
 
-    echo json_encode($updatedArray);
-
     file_put_contents("../../resources/employees.json", json_encode($updatedArray));
 }
 
