@@ -19,7 +19,7 @@ $("#jsGrid").jsGrid({
 		height: "80vh",
 
 		inserting: true,
-		editing: true,
+		editing: false,
 		sorting: true,
 		paging: true,
 

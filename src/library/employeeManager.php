@@ -26,7 +26,10 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-// TODO implement it
+	$employeesData = file_get_contents('../../resources/employees.json');
+  $decodeEmployee = json_decode($employeesData);
+	$foundEmployee = array_filter($decodeEmployee, function($employee) use ($id) { return $employee["id"] == $id;});
+	return $foundEmployee;
 }
 
 

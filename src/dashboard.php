@@ -42,5 +42,7 @@ revisar_si_existe_sesion();
 
 	<script src="../assets/js/grid_dates.js"></script>
 	<?php include "../assets/html/footer.html"; ?>
+	<script src="../assets/js/index.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
