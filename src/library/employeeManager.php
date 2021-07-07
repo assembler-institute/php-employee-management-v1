@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 
 function getAllEmployees()
@@ -12,11 +13,30 @@ function addEmployee(array $newEmployee)
 {
     $jsonPath = file_get_contents("../../resources/employees.json");
     $decodedJSON = json_decode($jsonPath, true);
-    $employeesLength = count($decodedJSON);
+
+    if (!isset($_SESSION["newEmployeeId"])) {
+
+        $idArray = array();
+        foreach ($decodedJSON as $employee) {
+            $idArray[] = $employee["id"];
+        }
+
+        echo print_r($idArray, true);
+        asort($idArray);
+        $maxId = end($idArray);
+
+        echo "This is highest id: " . $maxId;
+
+        $_SESSION["newEmployeeId"] = $maxId + 1;
+        echo $_SESSION["newEmployeeId"];
+    } else {
+        $_SESSION["newEmployeeId"]++;
+    }
+
 
     // Template array
     $newEmployeeArray = array(
-        "id" => strval($employeesLength + 20),
+        "id" => strval($_SESSION["newEmployeeId"]),
         "name" => $newEmployee["name"],
         "lastName" => "",
         "email" => $newEmployee["email"],
