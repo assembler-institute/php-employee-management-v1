@@ -14,7 +14,7 @@ if (isset($_POST["submitEmployee"])) {
   if (isset($_GET["id"])) {
     updateEmployee_on_data_base($_GET["id"]);
   } else {
-    createNewEmployee_on_data_base();
+    createNewEmployee_on_data_base($id = "");
   }
 }
 
@@ -26,29 +26,25 @@ function findUserToUpdate_on_data_base($id)
 
 function updateEmployee_on_data_base($id)
 {
-  $name = $_POST["name"];
-  $email = $_POST["email"];
-  $city = $_POST["city"];
-  $state = $_POST["state"];
-  $postalCode = $_POST["postalCode"];
-  $LastName = $_POST["LastName"];
-  $gender = $_POST["gender"];
-  $streetAddress = $_POST["streetAddress"];
-  $age = $_POST["age"];
-  $phoneNumber = $_POST["phoneNumber"];
-
-  echo $name;
-  // $data = getDataFromForm();
-  // echo $data;
+  $updatedEmployee = getDataFromForm($id);
+	if(updateEmployee($updatedEmployee) == true){
+		header("Location: ../dashboard.php");
+	} else {
+		echo "salió mal";
+	};
 }
 
-function createNewEmployee_on_data_base()
+function createNewEmployee_on_data_base($id)
 {
-  // $data = getDataFromForm();
-  echo "hola";
+  $newEmployeeData = getDataFromForm($id);
+	if(addEmployee($newEmployeeData) == true){
+		header("Location: ../dashboard.php");
+	} else {
+		echo "salió mal";
+	};
 }
 
-function getDataFromForm()
+function getDataFromForm($id)
 {
   $name = $_POST["name"];
   $email = $_POST["email"];
@@ -61,12 +57,12 @@ function getDataFromForm()
   $age = $_POST["age"];
   $phoneNumber = $_POST["phoneNumber"];
 
-  // $newId = getLastIdFromEmployees();
-
-  // return $newId;
+	if ($id == "") {
+		$id = getLastIdFromEmployees();
+	}
 
   $newArray_from_user = [
-    "id" => "",
+    "id" => $id,
     "name" => $name,
     "lastName" => $LastName,
     "email" => $email,
@@ -79,5 +75,5 @@ function getDataFromForm()
     "phoneNumber" => $phoneNumber,
   ];
 
-  // return $newArray_from_user;
+  return $newArray_from_user;
 }
