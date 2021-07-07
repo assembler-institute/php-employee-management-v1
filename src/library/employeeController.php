@@ -31,4 +31,10 @@ if ($method == 'DELETE') {
 }
 
 if ($method == 'PUT') {
+    parse_str(file_get_contents("php://input"), $_PUT);
+    if (updateEmployee($_PUT['id'], $_PUT)) {
+        echo json_encode(["Message" => "Employee updated", "Status" => true]);
+    } else {
+        echo json_encode(["ErrorMessage" => "Error updating employee", "Status" => false]);
+    }
 }

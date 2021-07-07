@@ -33,28 +33,40 @@ function saveDataToJson($data)
 {
     file_put_contents(
 
-        "../../resources/employees.json",
+        "/Applications/MAMP/htdocs/php-employee-management-v1/resources/employees.json",
         json_encode($data, JSON_PRETTY_PRINT)
 
     );
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee($id, $data)
 {
+    $employees = getEmployees();
+    foreach ($employees as $index => $employee) {
+        if ($employee['id'] == $id) {
+            $updatedEmployee = array_merge($employee, $data);
+            $employees[$index] = $updatedEmployee;
+            saveDataToJson($employees);
+            return true;
+        }
+    }
 }
 
 
-function getEmployee(string $id)
+function getEmployeeById($id)
 {
-
-    // TODO implement it
-
+    $employees = getEmployees();
+    foreach ($employees as $employee) {
+        if ($employee['id'] == $id) {
+            return $employee;
+        }
+    }
 }
 
 function getEmployees()
 {
-    $employeesJson = file_get_contents('../../resources/employees.json');
+    $employeesJson = file_get_contents('/Applications/MAMP/htdocs/php-employee-management-v1/resources/employees.json');
     return json_decode($employeesJson, true);
 }
 

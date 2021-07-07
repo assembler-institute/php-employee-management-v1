@@ -1,6 +1,7 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
 require_once('library/loginManager.php');
+require_once('library/employeeManager.php');
 
 session_start();
 
@@ -128,9 +129,18 @@ $authUser = getUserById($userId);
                     width: 50
                 },
                 {
-                    type: "control"
-                }
-            ]
+                    type: "control",
+                    itemTemplate: function(value, item) {
+                        var $result = $([]);
+                        $result = $result.add(this._createDeleteButton(item));
+                        return $result;
+                    },
+                },
+            ],
+
+            rowClick: function(item) {
+                window.location.href = "./employee.php?id=" + item.item.id;
+            },
         });
 
         // $.ajax({
