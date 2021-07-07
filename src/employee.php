@@ -5,6 +5,11 @@ require_once('library/loginManager.php');
 
 session_start();
 
+if (!isset($_SESSION['authUserId'])) {
+    http_response_code(401);
+    header('Location:../index.php');
+}
+
 $userId = $_SESSION['authUserId'];
 $authUser = getUserById($userId);
 ?>
@@ -19,6 +24,7 @@ $authUser = getUserById($userId);
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+
     <title>Employee</title>
 </head>
 
@@ -49,10 +55,12 @@ $authUser = getUserById($userId);
                             Profile
                         </a>
                     </li>
-                    <li><a class="dropdown-item" href="#">
-                            <i class="bi bi-box-arrow-left me-2"></i>
-                            logout
-                        </a>
+                    <li>
+                        <form class="dropdown-item" action="library/loginController.php" method="post">
+                            <input type="hidden" name="action" value="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            <input class="bg-transparent border-0" type="submit" value="logout"></input>
+                        </form>
                     </li>
                 </ul>
             </li>
@@ -61,18 +69,18 @@ $authUser = getUserById($userId);
 
     <section class="form-section">
         <h3>User Detail</h3>
-        <form class="row g-3">
+        <form id="employee-form" class="row g-3">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
-                <input type="email" class="form-control" id="inputName">
+                <input type="text" class="form-control" id="inputName" name="inputName">
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last Name</label>
-                <input type="password" class="form-control" id="inputLastName">
+                <input type="text" class="form-control" id="inputLastName">
             </div>
             <div class="col-6">
                 <label for="inputEmail" class="form-label">Email address</label>
-                <input type="text" class="form-control" id="inputEmial" placeholder="user@mail.com">
+                <input type="email" class="form-control" id="inputEmail" placeholder="user@mail.com">
             </div>
             <div class="col-6">
                 <label for="selectGender" class="form-label">Gender</label>
@@ -95,8 +103,9 @@ $authUser = getUserById($userId);
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
                 <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                    <option value="" selected>Choose...</option>
+                    <option value="CA">CA</option>
+                    <option value="UA">UA</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -115,9 +124,69 @@ $authUser = getUserById($userId);
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
         </form>
+
+        <div class="alert alert-danger side-alert d-none" role="alert" id="danger-alert">
+            Error:...
+        </div>
+        <div class="alert alert-success side-alert d-none" role="alert" id="success-alert">
+            Employee created successfully!
+        </div>
     </section>
+
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $('#employee-form').on('submit', function(e) {
+            e.preventDefault();
+            // let formData = new FormData(document.querySelector('#employee-form'))
+
+            const name = $(this).find('#inputName').val(),
+                lastName = $(this).find('#inputLastName').val(),
+                email = $(this).find('#inputEmail').val(),
+                gender = $(this).find('#SelectGender').val(),
+                age = $(this).find('#inputAge').val(),
+                city = $(this).find('#inputCity').val(),
+                state = $(this).find('#inputState').val(),
+                postalCode = $(this).find('#inputZip').val(),
+                streetAddress = $(this).find('#inputAddress').val(),
+                phoneNumber = $(this).find('#inputPhone').val();
+
+            $.ajax({
+                url: "library/employeeController.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    name,
+                    lastName,
+                    email,
+                    gender,
+                    age,
+                    city,
+                    state,
+                    postalCode,
+                    streetAddress,
+                    phoneNumber,
+                },
+                success: function(data, status) {
+                    $('#employee-form').trigger("reset");
+                    $('#success-alert').removeClass('d-none');
+
+                    window.setTimeout(function() {
+                        $('#success-alert').addClass('d-none');
+                    }, 3000);
+                },
+                error: function(xhr, status, error) {
+                    let err = JSON.parse(xhr.responseText);
+                    $('#danger-alert').removeClass('d-none');
+                    $('#danger-alert').text(err.message);
+
+                    window.setTimeout(function() {
+                        $('#danger-alert').addClass('d-none');
+                    }, 3000);
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>
