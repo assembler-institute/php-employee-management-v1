@@ -6,6 +6,9 @@ $.ajax({
 })
   .done(function (response) {
     renderTable(response);
+    $("#navEmployee")
+      .attr("href", "./employee.php?new=true")
+      .removeClass("disabled");
   })
   .fail(function (response) {})
   .always(function () {});
@@ -38,9 +41,7 @@ function renderTable(employeesJson = {}) {
     autoload: true,
     // filtering: true,
     rowDoubleClick: function (item) {
-      // console.log(item);
       window.location.replace("./employee.php?id=" + item.item.id);
-      //TODO
     },
 
     controller: {

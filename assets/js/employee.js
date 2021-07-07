@@ -59,6 +59,8 @@ function populateEmployeeForm(id) {
       $("#phoneNumber").val(
         typeof employee.phoneNumber !== "undefined" ? employee.phoneNumber : ""
       );
+      $("#navEmployee").removeClass("text-secondary").addClass("text-white");
+      $("#navDashboard").addClass("text-secondary").removeClass("text-white");
     })
     .fail((response) => {
       //   debugger;

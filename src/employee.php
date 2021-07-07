@@ -120,20 +120,16 @@
                 </form>
             </div>
     </div>
-    <!-- Modal -->
     <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content bg-danger">
                 <div class="modal-header border-0">
                     <h3 class="modal-title text-light mx-auto" id="errorModalLabel">Error!</h3>
-                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                 </div>
                 <div class="modal-body text-center text-light h5">
                     This id is not related to any user
                 </div>
                 <div class="modal-footer border-0">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <!-- <button type="button" class="btn btn-primary" href>Go back to dashboard</button> -->
                     <a href="./dashboard.php" class="btn btn-light mx-auto">Go back to dashboard</a>
                 </div>
             </div>
