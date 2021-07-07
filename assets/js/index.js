@@ -47,7 +47,7 @@ function loadEmployeesList() {
         loadData: function () {
           return $.ajax({
             type: "GET",
-            url: `${$BASE_URL}/src/library/employeeController.php`,
+            url: `${$BASE_URL}/src/library/employeeController.php?getAllEmployees`,
           });
         },
       },
