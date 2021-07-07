@@ -1,9 +1,18 @@
 <?php
 
 require './employeeManager.php';
+require './sessionHelper.php';
 
 $employees = getEmployees();
 $method = $_SERVER['REQUEST_METHOD'];
+
+if (session_status() == PHP_SESSION_NONE) session_start();
+
+if (!isset($_SESSION['authUserId'])) {
+    $response = 'sessionTimeOut';
+    echo ($response);
+    exit;
+}
 
 if ($method == 'GET') {
     echo json_encode($employees);
