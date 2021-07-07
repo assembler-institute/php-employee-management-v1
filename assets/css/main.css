@@ -1,4 +1,3 @@
-
 @import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
 
 * {
@@ -6,7 +5,7 @@
   box-sizing: border-box;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 *::-webkit-scrollbar {
@@ -42,6 +41,7 @@ input:focus {
   border-bottom: solid 1px rgb(161, 161, 161);
   z-index: 1000;
   background-color: #0054f6;
+  height: 10vh;
 }
 
 .logo__wrapper {
@@ -54,7 +54,6 @@ input:focus {
   height: 100%;
   object-fit: cover;
   padding-left: 20px;
-
 }
 .logo__app img {
   width: 100%;
@@ -68,5 +67,8 @@ input:focus {
 
 .newUserForm section h5 {
   padding-bottom: 10px;
+}
 
+.main__footer {
+  height: 5vh;
 }

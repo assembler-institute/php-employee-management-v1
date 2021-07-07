@@ -40,7 +40,7 @@ revisar_si_existe_sesion();
 			<div class="d-flex flex-row gap-3 p-2 newUserForm">
 				<section class="d-flex flex-column gap-3 p-2" id="formColumnOne">
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 h-100">
-					<h5>Name</h5>
+						<h5>Name</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-users"></i>
@@ -49,7 +49,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>Email adress</h5>
+						<h5>Email adress</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-envelope"></i>
@@ -58,7 +58,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>city</h5>
+						<h5>city</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-city"></i>
@@ -67,7 +67,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>State</h5>
+						<h5>State</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-flag-usa"></i>
@@ -76,7 +76,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>Postal Code</h5>
+						<h5>Postal Code</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-mail-bulk"></i>
@@ -87,7 +87,7 @@ revisar_si_existe_sesion();
 				</section>
 				<section class="d-flex flex-column gap-3 p-2" id="formColumnTwo">
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>Last Name</h5>
+						<h5>Last Name</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-hand-scissors"></i>
@@ -96,7 +96,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>Gender</h5>
+						<h5>Gender</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-venus-mars"></i>
@@ -105,7 +105,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>Street: Adress</h5>
+						<h5>Street: Adress</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-road"></i>
@@ -114,7 +114,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>Age</h5>
+						<h5>Age</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-baby-carriage"></i>
@@ -123,7 +123,7 @@ revisar_si_existe_sesion();
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
-					<h5>PhoneNumber</h5>
+						<h5>PhoneNumber</h5>
 						<div class="d-flex flex-row gap-3 pt-2 pb-2 h-100 search__component border border-secondary">
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-mobile-alt"></i>
@@ -143,4 +143,5 @@ revisar_si_existe_sesion();
 	</main>
 	<?php include "../assets/html/footer.html"; ?>
 </body>
+
 </html>

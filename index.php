@@ -2,6 +2,8 @@
 <?php
 require_once "./src/library/loginController.php";
 $alert = revisar_si_existe_sesion();
+session_start();
+$_SESSION["BASE_URL"] = getcwd();
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +107,9 @@ $alert = revisar_si_existe_sesion();
 	<?php include "./assets/html/footer.html"; ?>
 	<script src="./assets/js/index.js"></script>
 	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script>switchRegisterForm();</script>
+	<script>
+		switchRegisterForm();
+	</script>
 </body>
 
 </html>
