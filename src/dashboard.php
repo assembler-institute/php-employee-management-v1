@@ -8,7 +8,6 @@ require_once('library/sessionHelper.php');
 if (session_status() == PHP_SESSION_NONE) session_start();
 
 if (!isset($_SESSION['authUserId'])) {
-    http_response_code(401);
     header('Location:../index.php');
 }
 
