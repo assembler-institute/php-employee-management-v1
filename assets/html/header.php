@@ -13,7 +13,7 @@
         <a class="nav-link" href="#">Dashboard</a>
       </li>
       <li id="employeeLink" class="nav-item">
-        <a class="nav-link" href="#">Employee</a>
+        <a class="nav-link" href="./employee.php">Employee</a>
       </li>
     </ul>
   </div>

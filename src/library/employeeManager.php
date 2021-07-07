@@ -20,7 +20,7 @@ function addEmployee(array $newEmployee)
         "name" => $newEmployee["name"],
         "lastName" => "",
         "email" => $newEmployee["email"],
-        "gender" => "?",
+        "gender" => "",
         "city" => $newEmployee["city"],
         "streetAddress" => $newEmployee["streetAddress"],
         "state" => $newEmployee["state"],

@@ -17,7 +17,22 @@ if(isset($_SESSION["employeeToUpdate"])){
     $age=$_SESSION["employeeToUpdate"]["age"];
     $postalCode=$_SESSION["employeeToUpdate"]["postalCode"];
     $phoneNumber=$_SESSION["employeeToUpdate"]["phoneNumber"];
-  
+    
+    // Setting up select echo string
+    $options ="";
+    $genderArray = array("man", "woman", "non-binary", "hermaphrodite", "other");
+    foreach($genderArray as $genderItem){
+        if($gender == $genderItem){
+            $options.="<option selected>".$genderItem."</option>";
+        }else{
+            $options.="<option>".$genderItem."</option>";
+        }
+    }
+
+    // Unsetting employeeToUpdate variable
+    unset($_SESSION["employeeToUpdate"]);
+
+    $formMethod = "PUT";
 }else{
     $name="";
     $lastName="";
@@ -30,6 +45,17 @@ if(isset($_SESSION["employeeToUpdate"])){
     $postalCode="";
     $phoneNumber="";
 
+    $options ="";
+    $genderArray = array("","man", "woman", "non-binary", "hermaphrodite", "other");
+    foreach($genderArray as $genderItem){
+        if($gender == $genderItem){
+            $options.="<option hidden selected>Select</option>";
+        }else{
+            $options.="<option>".$genderItem."</option>";
+        }
+    }
+
+    $formMethod = "POST";
 }
 
 //test
@@ -61,7 +87,7 @@ if(isset($_SESSION["employeeToUpdate"])){
     <?php require("../assets/html/header.php") ?>
     <main class="container-fluid d-flex flex-column justify-content-center">
         <h2>Employee form</h2>
-        <form id="editForm" class="w-50">
+        <form id="editForm" method=<?php echo $formMethod; ?> action="./library/employeeController.php" class="w-50">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newName">Name</label>
@@ -79,12 +105,8 @@ if(isset($_SESSION["employeeToUpdate"])){
                 </div>
                 <div class="form-group col-md-6">
                     <label for="genderSelect">Gender</label>
-                    <select class="form-control" value=<?php echo $gender; ?>  id="genderSelect">
-                        <option>Man</option>
-                        <option>Woman</option>
-                        <option>Non-binary</option>
-                        <option>Hermaphrodite</option>
-                        <option>Other</option>
+                    <select class="form-control" id="genderSelect">
+                        <?php echo $options; ?>
                     </select>
                 </div>
             </div>
