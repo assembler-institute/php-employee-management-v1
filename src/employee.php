@@ -5,6 +5,32 @@ session_start();
 if (!isset($_SESSION["loggedUsername"])) {
     header("Location:../index.php");
 }
+if(isset($_SESSION["employeeToUpdate"])){
+    
+    $name=$_SESSION["employeeToUpdate"]["name"];
+    $lastName=$_SESSION["employeeToUpdate"]["lastName"];
+    $email=$_SESSION["employeeToUpdate"]["email"];
+    $gender=$_SESSION["employeeToUpdate"]["gender"];
+    $city=$_SESSION["employeeToUpdate"]["city"];
+    $streetAddress=$_SESSION["employeeToUpdate"]["streetAddress"];
+    $state=$_SESSION["employeeToUpdate"]["state"];
+    $age=$_SESSION["employeeToUpdate"]["age"];
+    $postalCode=$_SESSION["employeeToUpdate"]["postalCode"];
+    $phoneNumber=$_SESSION["employeeToUpdate"]["phoneNumber"];
+  
+}else{
+    $name="";
+    $lastName="";
+    $email="";
+    $gender="";
+    $city="";
+    $streetAddress="";
+    $state="";
+    $age="";
+    $postalCode="";
+    $phoneNumber="";
+
+}
 
 
 ?>
@@ -39,21 +65,21 @@ if (!isset($_SESSION["loggedUsername"])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newName">Name</label>
-                    <input type="text" class="form-control" id="newName" placeholder="Your name">
+                    <input type="text" class="form-control" id="newName"  value=<?php echo $name; ?> placeholder="Your name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newLastName">Last Name</label>
-                    <input type="text"class="form-control" id="newLastName" placeholder="Your last name">
+                    <input type="text"class="form-control" id="newLastName" value=<?php echo $lastName; ?> placeholder="Your last name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newEmail">Email</label>
-                    <input type="email"  class="form-control" id="newEmail" placeholder="Email">
+                    <input type="email"  class="form-control" id="newEmail" value=<?php echo $email; ?> placeholder="Email">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="genderSelect">Gender</label>
-                    <select class="form-control"  id="genderSelect">
+                    <select class="form-control" value=<?php echo $gender; ?>  id="genderSelect">
                         <option>Man</option>
                         <option>Woman</option>
                         <option>Non-binary</option>
@@ -65,31 +91,31 @@ if (!isset($_SESSION["loggedUsername"])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newCity">City</label>
-                    <input type="text" class="form-control" id="newCity" placeholder="Residency city">
+                    <input type="text" class="form-control" value=<?php echo $city;  ?> id="newCity" placeholder="Residency city">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newStreetAdress">Street Address</label>
-                    <input type="number" class="form-control" id="newStreetAdress" placeholder="Number">
+                    <input type="number" class="form-control" value=<?php echo $streetAddress; ?> id="newStreetAdress" placeholder="Number">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newState">State</label>
-                    <input type="text" class="form-control" id="newState" placeholder="Residency state">
+                    <input type="text" class="form-control" value=<?php echo $state; ?> id="newState" placeholder="Residency state">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newAge">Age</label>
-                    <input type="number" class="form-control" id="newAge" placeholder="Your phone age">
+                    <input type="number" class="form-control" value=<?php echo $age; ?> id="newAge" placeholder="Your phone age">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newPostalCode">Postal Code</label>
-                    <input type="number" class="form-control" id="newPostalCode" placeholder="Your postal code">
+                    <input type="number" class="form-control" value=<?php echo $postalCode; ?> id="newPostalCode" placeholder="Your postal code">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newPhone">Phone</label>
-                    <input type="number" class="form-control" id="newPhone" placeholder="Your phone number">
+                    <input type="number" class="form-control" value=<?php echo $phoneNumber; ?> id="newPhone" placeholder="Your phone number">
                 </div>
             </div>
 
@@ -101,15 +127,15 @@ if (!isset($_SESSION["loggedUsername"])) {
 
     <!-- Javascript -->
     <script>
-     const queryString=window.location.search;
-     const urlParams = new URLSearchParams(queryString);
-     console.log(urlParams);
-     let id=urlParams.get('employeeRowId');
+    //  const queryString=window.location.search;
+    //  const urlParams = new URLSearchParams(queryString);
+    //  console.log(urlParams);
+    //  let id=urlParams.get('employeeRowId');
      //console.log(id);
         $("#editForm").submit((e)=>{
             e.preventDefault();
             const item={
-                "id":id,
+                
                 "name":$("#newName").val(),
                 "lastName":$("#newLastName").val(),
                 "email":$("#newEmail").val(),

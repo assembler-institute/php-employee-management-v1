@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 function getAllEmployees()
 {
@@ -61,17 +61,18 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
+    
     // TODO implement it
     // $_SESSION["employeeID"] = $id;
-    // $jsonPath = file_get_contents("../../resources/employees.json");
-    // $decodedJSON = json_decode($jsonPath, true);
-
-    // $foundEmployee = array_filter($decodedJSON, function ($employee) {
-    //     if ($employee["id"] == $_SESSION["employeeID"]) {
-    //         return $employee;
-    //     }
-    // });
-
+     $jsonPath = file_get_contents("../../resources/employees.json");
+     $decodedJSON = json_decode($jsonPath, true);
+        foreach($decodedJSON as $employee){
+            if($employee["id"]==$id){
+                $_SESSION["employeeToUpdate"]=$employee;
+            }
+        }
+    //  echo $id;
+    
     // $foundEmployeeJSON = json_encode($foundEmployee, true);
     // echo print_r($foundEmployee);
 }
