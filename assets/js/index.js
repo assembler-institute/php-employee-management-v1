@@ -1,4 +1,5 @@
 $('#formLogin').on('submit', login);
+
 function login(e) {
   e.preventDefault();
   var formData = $("#formLogin").serializeArray();
@@ -7,10 +8,11 @@ function login(e) {
     url: "./src/library/loginManager.php",
     cache: false,
     data: formData,
-    success: function (response) {
+    success: function () {
       $('.text-danger').text('');
+      window.location.href = "./src/dashboard.php";
     },
-    error: function (response) {
+    error: function () {
       $('.text-danger').text('Wrong email or password');
     }
   });
