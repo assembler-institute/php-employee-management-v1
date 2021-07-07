@@ -6,29 +6,36 @@
  * @date: 11/06/2020
  */
 
-function getAllEmployees($data) {
-  $data = file_get_contents("../../resources/employees.json");
+function getAllEmployees($path) {
+  $data = file_get_contents($path);
   $data = json_decode($data, true);
   return $data;
 }
 
 function addEmployee(array $newEmployee)
 {
-  $json = file_get_contents("../../resources/employees.json"); 
-  $json = json_decode($json, true);
-  $allEmployes = getAllEmployees($json);
-  $lastId = getNextIdentifier($allEmployes);
+  $path = "../../resources/employees.json";
+  $allEmployees = getAllEmployees($path);
+  $lastId = getNextIdentifier($allEmployees);
   $newEmployee["id"] = $lastId + 1;
-  $json[] = $newEmployee; 
-  file_put_contents("../../resources/employees.json", json_encode($json));
+  $allEmployees[] = $newEmployee; 
+  file_put_contents("../../resources/employees.json", json_encode($allEmployees));
   http_response_code(201);
-  // return $json; //devuelve string;
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
-// TODO implement it
+  $path = "../../resources/employees.json";
+  $allEmployees = getAllEmployees($path);
+  foreach($allEmployees as $key => $value) {
+    if ($value['id'] == $id) {
+      $employeeToDelete = $key;
+    }
+  }
+  unset($allEmployees[$employeeToDelete]);
+  $allEmployees = array_values($allEmployees);
+  file_put_contents("../../resources/employees.json", json_encode($allEmployees));
 }
 
 
