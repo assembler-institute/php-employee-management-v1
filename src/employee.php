@@ -112,7 +112,7 @@
                     </div>
 
                     <div class="text-center pt-4">
-                        <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
                         <a href="./dashboard.php" class="btn btn-secondary">Return</a>
 
                     </div>

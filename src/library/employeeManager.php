@@ -24,16 +24,18 @@ function addEmployee(array $newEmployee)
 function deleteEmployee(string $id)
 {
     $jsonString = file_get_contents("../../resources/employees.json");
-    $employees = json_decode($jsonString);
+    $employees = json_decode($jsonString, true);
     $found = false;
-    foreach ($employees as $key => $value) {
-        if ($value->id == $id) {
+    foreach ($employees as $key => $employee) {
+        if ($employee["id"] == $id) {
             $found = true;
+
             break;
         }
     }
     if ($found) {
         unset($employees[$key]);
+        $employees = array_values($employees);
         file_put_contents("../../resources/employees.json", json_encode($employees));
         http_response_code(200);
         // return "Success";

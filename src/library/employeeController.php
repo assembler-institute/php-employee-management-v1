@@ -13,7 +13,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         }
         break;
     case "POST":
-        return addEmployee($_POST);
+        echo addEmployee($_POST);
         break;
     case "DELETE":
         parse_str(file_get_contents("php://input"), $_DELETE);

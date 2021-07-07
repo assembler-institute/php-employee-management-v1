@@ -14,11 +14,15 @@ $.ajax({
   .always(function () {});
 
 function insertItemHandler(item) {
+  console.log(item);
   return $.ajax({
     type: "POST",
     url: employeeUrl,
     data: item,
-  }).done($("#grid").jsGrid("refresh"));
+  }).done(() => {
+    $("#jsGrid").jsGrid("loadData");
+    debugger;
+  });
 }
 
 function deleteItemHandler(item) {
@@ -52,7 +56,7 @@ function renderTable(employeesJson = {}) {
         });
       },
       insertItem: function (item) {
-        return insertItemHandler(item);
+        insertItemHandler(item);
       },
       deleteItem: function (item) {
         deleteItemHandler(item);

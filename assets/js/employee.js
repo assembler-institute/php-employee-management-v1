@@ -1,29 +1,5 @@
 const employeeUrl = "../../src/library/employeeController.php";
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  "use strict";
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll(".needs-validation");
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
-})();
-
 function populateEmployeeForm(id) {
   $.ajax({
     url: `${employeeUrl}/?id=${id}`,
@@ -74,12 +50,15 @@ function populateEmployeeForm(id) {
 
 function newEmployeeForm() {
   $("#employeeTitle").text("New employee");
-  $("#submitBtn").text("Add employee").on("click", handleNewEmployee);
+  $("#submitBtn").text("Add employee");
+  $("form").on("submit", handleNewEmployee);
   $("#navEmployee").removeClass("text-secondary").addClass("text-white");
   $("#navDashboard").addClass("text-secondary").removeClass("text-white");
 }
 
-function handleNewEmployee() {
+function handleNewEmployee(event) {
+  event.preventDefault();
+  event.stopPropagation();
   const form = document.querySelector(".needs-validation");
 
   if (!form.checkValidity()) {
