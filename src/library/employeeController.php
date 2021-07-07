@@ -1,13 +1,16 @@
 <?php
-require("employeeManager.php");
+require("./employeeManager.php");
 //header("Content-Type: application/json");
-$method = $_SERVER["REQUEST_METHOD"];
-parse_str(file_get_contents("php://input"), $_PUT);
-echo "hola";
 
-switch ($method) {
+//parse_str(file_get_contents("php://input"), $_PUT);
+
+
+
+switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
-        getEmployee();
+        header("Content-Type: application/json");
+        getAllEmployees();
+        //Add if identifier
         break;
     case "PUT":
         parse_str(file_get_contents("php://input"), $_PUT);
