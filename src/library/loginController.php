@@ -22,8 +22,10 @@ if ($action == 'login') {
         $user = loginAuth($email, $pass);
         if (session_status() == PHP_SESSION_NONE) session_start();
         $_SESSION['authUserId'] = $user['userId'];
+        $_SESSION['lastLogin_timeStamp'] = time();
         echo json_encode(['message' => 'correct user']);
         http_response_code(200);
+
         exit;
     } else {
         $failure = [
