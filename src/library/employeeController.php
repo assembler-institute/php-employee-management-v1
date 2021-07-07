@@ -51,7 +51,7 @@ if ($method == 'PUT') {
         exit;
     } else {
         if (addEmployee($_PUT)) {
-            echo json_encode($_PUT);
+            echo json_encode(["Message" => "Employee created"]);
             http_response_code(200);
             exit;
         };

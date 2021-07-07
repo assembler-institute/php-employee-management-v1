@@ -81,7 +81,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
 
     <section class="form-section">
         <h2>User Detail</h2>
-        <form class="row g-3" id="updateForm" enctype="multipart/form-data">
+        <form class="row g-3" id="updateForm">
             <input type="hidden" class="form-control" name="id" id="employeeId" value="<?php echo $employee['id'] ?>">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
@@ -137,8 +137,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 <button type="submit" class="btn btn-primary" name="updateSubmit">Submit</button>
             </div>
         </form>
-        <div class="alert-wrapper">
-        </div>
+        <div class="alert-wrapper side-alert"></div>
     </section>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
@@ -148,23 +147,8 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
         $("#SelectGender").val(gender);
         $("#updateForm").on('submit', function(e) {
             e.preventDefault();
-            let formData = new FormData(this);
-            let data = {};
-            for (var input of formData) {
-                data[input[0]] = input[1];
-            }
-
-            // const id = $(this).find('#employeeId').val(),
-            //     name = $(this).find('#inputName').val(),
-            //     lastName = $(this).find('#inputLastName').val(),
-            //     email = $(this).find('#inputEmail').val(),
-            //     gender = $(this).find('#SelectGender').val(),
-            //     age = $(this).find('#inputAge').val(),
-            //     city = $(this).find('#inputCity').val(),
-            //     state = $(this).find('#inputState').val(),
-            //     postalCode = $(this).find('#inputZip').val(),
-            //     streetAddress = $(this).find('#inputAddress').val(),
-            //     phoneNumber = $(this).find('#inputPhone').val();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
 
             $.ajax({
                 type: "PUT",
@@ -174,30 +158,26 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 cache: false,
                 success: function(data, status) {
                     console.log(data, status);
-                    // if (data.Status) {
-                    //     $(".alert-wrapper").append('<div class="alert alert-success" role="alert ">Employee updated!</div>');
-                    // } else {
-                    //     $(".alert-wrapper").append('<div class="alert alert-danger" role="alert ">Error updating employee</div>');
-                    // }
-                    // $('#employee-form').trigger("reset");
-                    // $('#success-alert').removeClass('d-none');
+                    $(".alert-wrapper").empty();
+                    $(".alert-wrapper")
+                        .append(`<div class="alert alert-success" role="alert">${data.Message}</div>`)
 
-                    // window.setTimeout(function() {
-                    //     $('#success-alert').addClass('d-none');
-                    // }, 3000);
+                    // $('#updateForm').trigger("reset");
+                    window.setTimeout(function() {
+                        $('.alert-success').addClass('d-none');
+                    }, 3000);
                 },
                 error: function(xhr, status, error) {
                     console.log(xhr, status, error);
+                    let err = JSON.parse(xhr.responseText);
+                    $(".alert-wrapper").empty();
+                    $(".alert-wrapper")
+                        .append(`<div class="alert alert-success" role="alert">${data.Message}</div>`)
 
-                    // let err = JSON.parse(xhr.responseText);
-                    // $('#danger-alert').removeClass('d-none');
-                    // $('#danger-alert').text(err.message);
-
-                    // window.setTimeout(function() {
-                    //     $('#danger-alert').addClass('d-none');
-                    // }, 3000);
+                    window.setTimeout(function() {
+                        $('.alert-danger').addClass('d-none');
+                    }, 3000);
                 }
-
             });
         });
     </script>
