@@ -4,7 +4,8 @@ require("employeeManager.php");
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         header("Content-Type: application/json");
-
+        getAllEmployees();
+        //Add if identifier
         break;
     case "PUT":
         // updateEmployee($_POST["updatedEmployee"]);

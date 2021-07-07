@@ -64,11 +64,11 @@ if (!isset($_SESSION["loggedUsername"])) {
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
-                        url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
+                        url: "./library/employeeController.php",
                         type: "GET",
                         data: filter,
-                        dataType: "json",
-                        contentType: "application/json",
+                        // dataType: "json",
+                        // contentType: "application/json",
                         success: function(resp) {
                             console.log("GET: ", resp);
                         }
@@ -77,7 +77,7 @@ if (!isset($_SESSION["loggedUsername"])) {
 
                 insertItem: function(item) {
                     return $.ajax({
-                        url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                        url: "./library/employeeController.php",
                         type: "POST",
                         data: {
                             "newEmployee": item,
@@ -104,7 +104,7 @@ if (!isset($_SESSION["loggedUsername"])) {
                 deleteItem: function(item) {
                     return $.ajax({
                         type: "DELETE",
-                        url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                        url: "./library/employeeController.php",
                         data: {
                             "deletedID": item.id
                         },

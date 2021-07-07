@@ -1,5 +1,13 @@
 <?php
 
+
+function getAllEmployees()
+{
+    $jsonPath = file_get_contents("../../resources/employees.json");
+    $decodedJSON = json_decode($jsonPath, true);
+    echo json_encode($decodedJSON);
+}
+
 function addEmployee(array $newEmployee)
 {
     $jsonPath = file_get_contents("../../resources/employees.json");
