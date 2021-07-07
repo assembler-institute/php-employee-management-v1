@@ -62,5 +62,12 @@ function populateEmployeeForm(id) {
     })
     .fail((response) => {
       //   debugger;
+      const errorModal = new bootstrap.Modal(
+        document.getElementById("errorModal"),
+        {
+          keyboard: false,
+        }
+      );
+      errorModal.show();
     });
 }
