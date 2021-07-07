@@ -31,9 +31,7 @@ function populateEmployeeForm(id) {
   })
     .done((employee) => {
       console.log(employee);
-      $("#firstName").val(
-        typeof employee.name !== "undefined" ? employee.name : ""
-      );
+      $("#name").val(typeof employee.name !== "undefined" ? employee.name : "");
       $("#lastName").val(
         typeof employee.lastName !== "undefined" ? employee.lastName : ""
       );
@@ -72,4 +70,42 @@ function populateEmployeeForm(id) {
       );
       errorModal.show();
     });
+}
+
+function newEmployeeForm() {
+  $("#employeeTitle").text("New employee");
+  $("#submitBtn").text("Add employee").on("click", handleNewEmployee);
+  $("#navEmployee").removeClass("text-secondary").addClass("text-white");
+  $("#navDashboard").addClass("text-secondary").removeClass("text-white");
+}
+
+function handleNewEmployee() {
+  const form = document.querySelector(".needs-validation");
+
+  if (!form.checkValidity()) {
+  } else {
+    let objectToSend = {};
+    let elements = $("form").find("input, select");
+    elements.each((number, element) => {
+      objectToSend[element.id] = element.value;
+    });
+    $.ajax({
+      type: "POST",
+      url: employeeUrl,
+      data: objectToSend,
+    }).done(() => {
+      const successfulAddModalLabel = new bootstrap.Modal(
+        document.getElementById("successfulAddModal"),
+        {
+          keyboard: false,
+        }
+      );
+      successfulAddModalLabel.show();
+      $("#successfulAddModal").on("hide.bs.modal", () => {
+        window.location.replace("./dashboard.php");
+      });
+    });
+  }
+
+  form.classList.add("was-validated");
 }

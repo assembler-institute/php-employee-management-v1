@@ -17,6 +17,7 @@ function addEmployee(array $newEmployee)
     array_push($employees, $newEmployee);
     file_put_contents("../../resources/employees.json", json_encode($employees));
     http_response_code(201);
+    return json_encode($newEmployee);
 }
 
 
