@@ -1,6 +1,5 @@
 <!-- TODO Employee view -->
-<?php
-?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -11,6 +10,10 @@
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/main.css">
     <title>Employee page</title>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
+    <script type="text/javascript" src="../assets/js/employee.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -54,10 +57,10 @@
                             <label for="gender" class="form-label">Gender</label>
                             <select class="form-select" id="gender">
                                 <option value="">Choose...</option>
-                                <option>Female</option>
-                                <option>Male</option>
-                                <option>Other</option>
-                                <option>No answer</option>
+                                <option value="woman">Woman</option>
+                                <option value="man">Man</option>
+                                <option value="other">Other</option>
+                                <option value="no answer">No answer</option>
                             </select>
                             <!-- <div class="invalid-feedback">
                                 Please provide a valid gender.
@@ -108,30 +111,43 @@
                         </div>
                     </div>
 
-
-                    <!-- <hr class="my-4"> -->
                     <div class="text-center pt-4">
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-secondary">Return</button>
 
                     </div>
 
-                    <!-- <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button> -->
                 </form>
             </div>
+    </div>
+    <div class="modal fade" id="errorModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content bg-danger">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title text-light mx-auto" id="errorModalLabel">Error!</h3>
+                </div>
+                <div class="modal-body text-center text-light h5">
+                    This id is not related to any user
+                </div>
+                <div class="modal-footer border-0">
+                    <a href="./dashboard.php" class="btn btn-light mx-auto">Go back to dashboard</a>
+                </div>
+            </div>
+        </div>
     </div>
     </main>
     </div>
 
+    <?php
+
+    if (isset($_GET["id"])) {
+        echo "<script type='text/javascript'>populateEmployeeForm(" . $_GET["id"] . ")</script>";
+    }
+    ?>
 
     <?php
     include "../assets/html/footer.html";
     ?>
 </body>
-
-<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
-<script type="text/javascript" src="../assets/js/employee.js"></script>
 
 </html>
