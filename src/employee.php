@@ -1,4 +1,8 @@
 <!-- TODO Employee view -->
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,60 +20,61 @@
     ?>
   </header>
   <main class="container-xl mx-auto">
-    <form action="" class="container-md">
+    <form action="./library/employeeController.php" method="POST" class="container-md">
       <h3>Employee: </h3>
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName">
+            <input type="text" class="form-control" id="inputName" value="<?php echo $_SESSION["employeeUpdate"]["name"] ?>">
           </div>
           <div class="form-group">
             <label for="inputMail">Email adrress</label>
-            <input type="email" class="form-control" id="inputMail" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="inputMail" aria-describedby="emailHelp" value="<?php echo $_SESSION["employeeUpdate"]["email"] ?>">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" id="inputCity" value="<?php echo $_SESSION["employeeUpdate"]["city"] ?>">
           </div>
           <div class="form-group">
             <label for="inputState">State</label>
-            <input type="text" class="form-control" id="inputState">
+            <input type="text" class="form-control" id="inputState" value="<?php echo $_SESSION["employeeUpdate"]["state"] ?>">
           </div>
           <div class="form-group">
             <label for="inputPostalCode">Postal Code</label>
-            <input type="number" class="form-control" id="inputPostalCode">
+            <input type="number" class="form-control" id="inputPostalCode" value="<?php echo $_SESSION["employeeUpdate"]["postalCode"] ?>">
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="inputLastName">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName">
+            <input type="text" class="form-control" id="inputLastName" value="<?php echo $_SESSION["employeeUpdate"]["lastName"] ?>">
           </div>
           <div class="form-group">
           <label for="inputGender">Example select</label>
           <select class="form-control" id="inputGender">
-            <option>man</option>
-            <option>woman</option>
-            <option>other</option>
+            <option value="defect"></option>
+            <option value="man">man</option>
+            <option value="woman">woman</option>
+            <option value="other">other</option>
           </select>
           </div>
           <div class="form-group">
             <label for="inputStreetAddress">Street Adrress</label>
-            <input type="text" class="form-control" id="inputStreetAddress">
+            <input type="text" class="form-control" id="inputStreetAddress" value="<?php echo $_SESSION["employeeUpdate"]["streetAddress"] ?>">
           </div>
           <div class="form-group">
             <label for="inputAge">Age</label>
-            <input type="number" class="form-control" id="inputAge">
+            <input type="number" class="form-control" id="inputAge" value="<?php echo $_SESSION["employeeUpdate"]["age"] ?>">
           </div>
           <div class="form-group">
             <label for="inputPhoneNumber">Phone Number</label>
-            <input type="number" class="form-control" id="inputPhoneNumber">
+            <input type="number" class="form-control" id="inputPhoneNumber" value="<?php echo $_SESSION["employeeUpdate"]["phoneNumber"] ?>">
           </div>
         </div>
       </div>
-      <button type="btn" class="btn btn-secondary">Back</button>
+      <a type="btn" class="btn btn-secondary" href="dashboard.php">Back</a>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </main>

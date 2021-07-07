@@ -5,6 +5,7 @@
  * @author: Jose Manuel Orts
  * @date: 11/06/2020
  */
+session_start();
 
 function getAllEmployees($path) {
   $data = file_get_contents($path);
@@ -46,7 +47,22 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-// TODO implement it
+
+  $json = file_get_contents("../../resources/employees.json"); 
+  $json = json_decode($json, true);
+  foreach($json as $key => $value) {
+    if ($value['id'] == $id) {
+      if(!isset($value['lastName'])){
+        $value['lastName']="";
+      }
+      if(!isset($value['gender'])){
+        $value['gender']="";
+      }
+      var_dump($value);
+      $_SESSION['employeeUpdate'] = $value;
+      header("Location: ../employee.php");
+    }
+  }
 }
 
 
