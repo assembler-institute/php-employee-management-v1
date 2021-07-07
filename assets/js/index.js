@@ -13,7 +13,7 @@ async function getEmployees(dataPath) {
     pageSize: 10,
     pageButtonCount: 3,
     filtering: true,
-    autoload: false,
+    autoload: true,
     deleteConfirm:
       "This action will delete the employee from the system. Are you sure?",
 
@@ -21,6 +21,13 @@ async function getEmployees(dataPath) {
       insertItem: function (item) {
         return $.ajax({
           type: "POST",
+          url: "./library/employeeController.php",
+          data: item,
+        });
+      },
+      deleteItem: function (item) {
+        return $.ajax({
+          type: "DELETE",
           url: "./library/employeeController.php",
           data: item,
         });
