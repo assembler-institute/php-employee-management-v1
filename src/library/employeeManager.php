@@ -33,13 +33,11 @@ function deleteEmployee(string $id)
     $decodedJSON = json_decode($jsonPath, true);
 
     $updatedArray = array();
-    $index = 0;
-    foreach ($decodedJSON as $employee) {
+    foreach ($decodedJSON as $index => $employee) {
         if ($employee["id"] == $id) {
             unset($decodedJSON[$index]);
         } else {
             array_push($updatedArray, $employee);
-            $index++;
         }
     }
 

@@ -1,11 +1,10 @@
 <?php
 require("employeeManager.php");
-header("Content-Type: application/json");
-$method = $_SERVER["REQUEST_METHOD"];
 
-
-switch ($method) {
+switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
+        header("Content-Type: application/json");
+
         break;
     case "PUT":
         // updateEmployee($_POST["updatedEmployee"]);
