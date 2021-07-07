@@ -84,6 +84,7 @@ if (!isset($_SESSION["loggedUsername"])) {
                         },
                         success: function(resp) {
                             console.log("POST");
+                            $("#jsGrid").jsGrid("loadData");
                         }
                     });
                 },
