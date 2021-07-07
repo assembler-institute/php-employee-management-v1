@@ -13,7 +13,7 @@ async function getEmployees(dataPath) {
     pageSize: 10,
     pageButtonCount: 3,
     filtering: true,
-    autoload: true,
+    autoload: false,
     deleteConfirm:
       "This action will delete the employee from the system. Are you sure?",
 
@@ -29,29 +29,72 @@ async function getEmployees(dataPath) {
 
     data: result,
     fields: [
-      { name: "id", type: "hidden", css: "hide", width: 15 },
-      { name: "name", type: "text", width: 50, validate: "required" },
-      { name: "email", type: "email", width: 100 },
-      { name: "age", type: "number", width: 30 },
-      { name: "streetAddress", type: "text", width: 50 },
-      { name: "city", type: "text", width: 50 },
-      { name: "state", type: "text", width: 40 },
-      { name: "postalCode", type: "number", width: 50 },
-      { name: "phoneNumber", type: "number", width: 50 },
+      { name: "id", type: "hidden", visible: false, width: 15 },
+      {
+        name: "name",
+        title: "Name",
+        type: "text",
+        width: 50,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "email",
+        title: "Email",
+        type: "text",
+        width: 100,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "age",
+        title: "Age",
+        type: "number",
+        width: 30,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "streetAddress",
+        title: "Stree No.",
+        type: "text",
+        width: 50,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "city",
+        title: "City",
+        type: "text",
+        width: 50,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "state",
+        title: "State",
+        type: "text",
+        width: 40,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "postalCode",
+        title: "Postal Code",
+        type: "number",
+        width: 50,
+        align: "center",
+        validate: "required",
+      },
+      {
+        name: "phoneNumber",
+        title: "Phone Number",
+        type: "number",
+        width: 50,
+        align: "center",
+        validate: "required",
+      },
       { type: "control", editButton: false },
-      // {
-      //   type: "control",
-      //   modeSwitchButton: false,
-      //   editButton: true,
-      //   headerTemplate: function () {
-      //     return $("<button>")
-      //       .attr("type", "button")
-      //       .text("Add")
-      //       .on("click", function () {
-      //         showDetailsDialog("Add", {});
-      //       });
-      //   },
-      // },
     ],
   });
 }

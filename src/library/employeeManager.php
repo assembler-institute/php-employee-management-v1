@@ -6,14 +6,23 @@
  * @date: 11/06/2020
  */
 
+function getAllEmployees($data) {
+  $data = file_get_contents("../../resources/employees.json");
+  $data = json_decode($data, true);
+  return $data;
+}
+
 function addEmployee(array $newEmployee)
 {
-  $json = file_get_contents("../../resources/employees.json"); //get the json;
-  $json = json_decode($json, true); //transform the json string into an associative array
-  $json[] = $newEmployee; //add the new employee to the json (as an array)
-  file_put_contents("../../resources/employees.json", json_encode($json)); //save the json an encode it to be a string
-  return $json; //devuelve string;
-  //TODO check the last id, add 1 to the new employee's id, add the empty fields too.
+  $json = file_get_contents("../../resources/employees.json"); 
+  $json = json_decode($json, true);
+  $allEmployes = getAllEmployees($json);
+  $lastId = getNextIdentifier($allEmployes);
+  $newEmployee["id"] = $lastId + 1;
+  $json[] = $newEmployee; 
+  file_put_contents("../../resources/employees.json", json_encode($json));
+  http_response_code(201);
+  // return $json; //devuelve string;
 }
 
 
@@ -46,7 +55,10 @@ function removeAvatar($id)
 // // TODO implement it
 // }
 
-// function getNextIdentifier(array $employeesCollection): int
-// {
-// // TODO implement it
-// }
+function getNextIdentifier(array $employeesCollection) 
+{   
+  $object = array_reduce($employeesCollection, function ($a, $b) {
+    return $a ? ($a["id"] > $b["id"] ? $a : $b) : $b;
+  });
+  return $object["id"];
+}
