@@ -43,15 +43,13 @@ function deleteEmployee(string $id)
         }
     }
 
-    echo json_encode($updatedArray);
-
     file_put_contents("../../resources/employees.json", json_encode($updatedArray));
 }
 
 
-function updateEmployee( $updateEmployee)
+function updateEmployee(array $updateEmployee)
 {
-   echo "this is an echo with the obejct: $updateEmployee";
+    print_r($updateEmployee);
 }
 
 

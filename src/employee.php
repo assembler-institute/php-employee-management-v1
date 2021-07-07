@@ -112,13 +112,13 @@
                 "phoneNumber":$("#newPhone").val()
 
             }
-                
+              
                         $.ajax({
                             type: "PUT",
                             url: "./library/employeeController.php",
-                            data: {
-                                "updatedEmployee": item
-                            },
+                            // data: {
+                            //     "updatedEmployee": item
+                            // },
                             success: function(resp) {
                                 console.log("PUT",resp);
                             }

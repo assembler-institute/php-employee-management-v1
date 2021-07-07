@@ -3,14 +3,15 @@ require("employeeManager.php");
 header("Content-Type: application/json");
 $method = $_SERVER["REQUEST_METHOD"];
 parse_str(file_get_contents("php://input"), $_PUT);
-echo $_PUT["updatedEmployee"];
+echo "hola";
 
 switch ($method) {
     case "GET":
         break;
     case "PUT":
         parse_str(file_get_contents("php://input"), $_PUT);
-        updateEmployee($_PUT["updatedEmployee"]);
+        $modifyItem=json_decode([$_PUT["updatedEmployee"]],true);
+        updateEmployee($modifyItem);
         break;
     case "POST":
         addEmployee($_POST["newEmployee"]);
