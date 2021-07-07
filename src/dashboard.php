@@ -13,6 +13,10 @@ if(isset($_SESSION["login_time"])){
 <html lang="en">
 
 <head>
+    <script lenguage="javascipt" type="text/javascript"> 
+    window.history.forward();
+    window.onunload=function(){null};
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +68,7 @@ if(isset($_SESSION["login_time"])){
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
-                        url: "http://localhost:8888/17.1-Php-Employee-Management/resources/employees.json",
+                        url: "../resources/employees.json",
                         type: "GET",
                         data: filter,
                         dataType: "json",
@@ -77,7 +81,7 @@ if(isset($_SESSION["login_time"])){
 
                 insertItem: function(item) {
                     return $.ajax({
-                        url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                        url: "./library/employeeController.php",
                         type: "POST",
                         data: {
                             "newEmployee": item,
@@ -88,23 +92,12 @@ if(isset($_SESSION["login_time"])){
                     });
                 },
 
-                // updateItem: function(item) {
-                //     return $.ajax({
-                //         type: "PUT",
-                //         url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
-                //         data: {
-                //             "updatedEmployee": item
-                //         },
-                //         success: function(resp) {
-                //             console.log("PUT");
-                //         }
-                //     });
-                // },
+                
 
                 deleteItem: function(item) {
                     return $.ajax({
                         type: "DELETE",
-                        url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
+                        url: "./library/employeeController.php",
                         data: {
                             "deletedID": item.id
                         },

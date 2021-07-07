@@ -25,60 +25,61 @@
     <?php require("../assets/html/header.php") ?>
     <main class="container-fluid d-flex flex-column justify-content-center">
         <h2>Employee form</h2>
-        <form class="w-50">
+        <form id="editForm" class="w-50">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Name</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Your name">
+                    <label for="newName">Name</label>
+                    <input type="text" class="form-control" id="newName" placeholder="Your name">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Last Name</label>
-                    <input type="text" class="form-control" id="inputPassword4" placeholder="Your last name">
+                    <label for="newLastName">Last Name</label>
+                    <input type="text"class="form-control" id="newLastName" placeholder="Your last name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <label for="newEmail">Email</label>
+                    <input type="email"  class="form-control" id="newEmail" placeholder="Email">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="exampleFormControlSelect1">Gender</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <label for="genderSelect">Gender</label>
+                    <select class="form-control"  id="genderSelect">
                         <option>Man</option>
                         <option>Woman</option>
                         <option>Non-binary</option>
+                        <option>Hermaphrodite</option>
                         <option>Other</option>
                     </select>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">City</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Residency city">
+                    <label for="newCity">City</label>
+                    <input type="text" class="form-control" id="newCity" placeholder="Residency city">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Street Address</label>
-                    <input type="number" class="form-control" id="inputPassword4" placeholder="Number">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">State</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Residency state">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Age</label>
-                    <input type="number" class="form-control" id="inputPassword4" placeholder="Your phone age">
+                    <label for="newStreetAdress">Street Address</label>
+                    <input type="number" class="form-control" id="newStreetAdress" placeholder="Number">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail4">Postal Code</label>
-                    <input type="number" class="form-control" id="inputEmail4" placeholder="Your postal code">
+                    <label for="newState">State</label>
+                    <input type="text" class="form-control" id="newState" placeholder="Residency state">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPassword4">Phone</label>
-                    <input type="number" class="form-control" id="inputPassword4" placeholder="Your phone number">
+                    <label for="newAge">Age</label>
+                    <input type="number" class="form-control" id="newAge" placeholder="Your phone age">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="newPostalCode">Postal Code</label>
+                    <input type="number" class="form-control" id="newPostalCode" placeholder="Your postal code">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="newPhone">Phone</label>
+                    <input type="number" class="form-control" id="newPhone" placeholder="Your phone number">
                 </div>
             </div>
 
@@ -90,6 +91,40 @@
 
     <!-- Javascript -->
     <script>
+     const queryString=window.location.search;
+     const urlParams = new URLSearchParams(queryString);
+     console.log(urlParams);
+     let id=urlParams.get('employeeRowId');
+     //console.log(id);
+        $("#editForm").submit((e)=>{
+            e.preventDefault();
+            const item={
+                "id":id,
+                "name":$("#newName").val(),
+                "lastName":$("#newLastName").val(),
+                "email":$("#newEmail").val(),
+                "gender":$("#genderSelect").val(),
+                "city":$("#newCity").val(),
+                "streetAddress":$("#newStreetAdress").val(),
+                "state":$("#newState").val(),
+                "age":$("#newAge").val(),
+                "postalCode":$("#newPostalCode").val(),
+                "phoneNumber":$("#newPhone").val()
+
+            }
+                
+                        $.ajax({
+                            type: "PUT",
+                            url: "./library/employeeController.php",
+                            data: {
+                                "updatedEmployee": item
+                            },
+                            success: function(resp) {
+                                console.log("PUT",resp);
+                            }
+                        });
+                 })
+       
 
     </script>
 </body>

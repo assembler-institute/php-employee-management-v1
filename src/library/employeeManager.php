@@ -49,9 +49,9 @@ function deleteEmployee(string $id)
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee( $updateEmployee)
 {
-    // TODO implement it
+   echo "this is an echo with the obejct: $updateEmployee";
 }
 
 
