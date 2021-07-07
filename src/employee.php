@@ -2,8 +2,9 @@
 
 <?php
 require_once('library/loginManager.php');
+require('./library/sessionHelper.php');
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) session_start();
 
 if (!isset($_SESSION['authUserId'])) {
     http_response_code(401);
