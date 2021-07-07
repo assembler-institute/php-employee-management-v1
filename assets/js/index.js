@@ -23,13 +23,6 @@ $.getJSON(dataPath).done(function (employeesData) {
       "This action will delete the employee from the system. Are you sure?",
 
     controller: {
-      // loadData: function (filter) {
-      //   return $.ajax({
-      //     type: "GET",
-      //     url: "./library/employeeController.php",
-      //     data: filter,
-      //   });
-      // },
       insertItem: function (item) {
         return $.ajax({
           type: "POST",
