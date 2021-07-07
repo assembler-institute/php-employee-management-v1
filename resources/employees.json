@@ -1,5 +1,18 @@
 [
   {
+    "id": "1",
+    "name": "Rack",
+    "lastName": "Lei",
+    "email": "jackon@network.com",
+    "gender": "man",
+    "city": "San Jone",
+    "streetAddress": "126",
+    "state": "CA",
+    "age": "24",
+    "postalCode": "394221",
+    "phoneNumber": "7383627627"
+  },
+  {
     "id": "2",
     "name": "John",
     "lastName": "Doe",
