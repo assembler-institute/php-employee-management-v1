@@ -23,7 +23,6 @@ function addEmployee(array $newEmployee)
   http_response_code(201);
 }
 
-
 function deleteEmployee($id)
 {
   $path = "../../resources/employees.json";

@@ -5,14 +5,20 @@ $method = $_SERVER['REQUEST_METHOD'];
 header("Content-Type: application/json");
 
 switch ($method) {
+  case "GET":
+    $path = "../../resources/employees.json";
+    var_dump(getAllEmployees($path));
+    header("Refresh:2");
+    break;
   case "POST":
-    // var_dump($_POST);
     $newEmployee = $_POST;
-    echo addEmployee($newEmployee);
+    addEmployee($newEmployee);
+    header("Refresh:2");
     break;
   case "DELETE":
     parse_str(file_get_contents("php://input"), $_DELETE);
-    $employeeID = $_DELETE['id']; //This is the id of the employee clicked on.
-    var_dump(deleteEmployee($employeeID));
+    $employeeID = $_DELETE['id'];
+    (deleteEmployee($employeeID));
+    break;
 }
 ?>
