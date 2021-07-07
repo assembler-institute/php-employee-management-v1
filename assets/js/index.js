@@ -14,6 +14,10 @@ async function getEmployees(dataPath) {
     pageButtonCount: 3,
     filtering: true,
     autoload: true,
+    rowClick: function (args) {
+      selectedItem = args.item;
+      window.location = "../src/library/employeeController.php?ID=" + selectedItem.id;
+    },
     deleteConfirm:
       "This action will delete the employee from the system. Are you sure?",
 

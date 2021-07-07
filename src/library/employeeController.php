@@ -10,6 +10,13 @@ switch ($method) {
     $newEmployee = $_POST;
     echo addEmployee($newEmployee);
     break;
+
+   case 'GET':
+    //echo var_dump($_GET);
+    $idEmployee = $_GET['ID'];
+    getEmployee($idEmployee);
+    break;
+    
   case "DELETE":
     parse_str(file_get_contents("php://input"), $_DELETE);
     $employeeID = $_DELETE['id']; //This is the id of the employee clicked on.
