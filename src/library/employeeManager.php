@@ -11,7 +11,6 @@ function addEmployee(array $newEmployee)
 {
     $employees = getEmployees();
     $newEmployee = array_merge($newEmployee, ["id" => generateId($employees)]);
-    // $newEmployee['id'] = generateId($employees);
     $employees[] = $newEmployee;
     saveDataToJson($employees);
     return $newEmployee;

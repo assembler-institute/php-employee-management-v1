@@ -40,14 +40,14 @@ if ($method == 'PUT') {
     parse_str(file_get_contents("php://input"), $_PUT);
 
     if (isset($_PUT['id']) && getEmployeeById($_PUT['id'])) {
-        // if (updateEmployee($_PUT['id'], $_PUT)) {
-        //     echo json_encode(["Message" => "Employee updated"]);
-        //     http_response_code(200);
-        //     exit;
-        // }
+        if (updateEmployee($_PUT['id'], $_PUT)) {
+            echo json_encode(["Message" => "Employee updated"]);
+            http_response_code(200);
+            exit;
+        }
 
-        // echo json_encode(["Message" => "Error updating employee"]);
-        // http_response_code(400);
+        echo json_encode(["Message" => "Error updating employee"]);
+        http_response_code(400);
         exit;
     } else {
         if (addEmployee($_PUT)) {
