@@ -50,24 +50,24 @@ session_start();
             </svg>
             <?php
             switch (true) {
-                case (isset($_SESSION["WEmailPass"])):
+                case (isset($_SESSION["wrongEmailPass"])):
                     echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
-                    echo $_SESSION["WEmailPass"];
+                    echo $_SESSION["wrongEmailPass"];
                     echo "</div>";
                     break;
 
-                case (isset($_SESSION["WName"])):
+                case (isset($_SESSION["wrongName"])):
                     echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
-                    echo $_SESSION["WName"];
+                    echo $_SESSION["wrongName"];
                     echo "</div>";
                     break;
 
-                case (isset($_SESSION["WPass"])):
+                case (isset($_SESSION["wrongPass"])):
                     echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
-                    echo $_SESSION["WPass"];
+                    echo $_SESSION["wrongPass"];
                     echo "</div>";
                     break;
                 case (isset($_SESSION["logout"])):
