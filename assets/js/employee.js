@@ -1,29 +1,5 @@
 const employeeUrl = "../../src/library/employeeController.php";
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  "use strict";
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll(".needs-validation");
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
-})();
-
 function populateEmployeeForm(id) {
   $.ajax({
     url: `${employeeUrl}/?id=${id}`,
@@ -31,9 +7,7 @@ function populateEmployeeForm(id) {
   })
     .done((employee) => {
       console.log(employee);
-      $("#firstName").val(
-        typeof employee.name !== "undefined" ? employee.name : ""
-      );
+      $("#name").val(typeof employee.name !== "undefined" ? employee.name : "");
       $("#lastName").val(
         typeof employee.lastName !== "undefined" ? employee.lastName : ""
       );
@@ -72,4 +46,45 @@ function populateEmployeeForm(id) {
       );
       errorModal.show();
     });
+}
+
+function newEmployeeForm() {
+  $("#employeeTitle").text("New employee");
+  $("#submitBtn").text("Add employee");
+  $("form").on("submit", handleNewEmployee);
+  $("#navEmployee").removeClass("text-secondary").addClass("text-white");
+  $("#navDashboard").addClass("text-secondary").removeClass("text-white");
+}
+
+function handleNewEmployee(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const form = document.querySelector(".needs-validation");
+
+  if (!form.checkValidity()) {
+  } else {
+    let objectToSend = {};
+    let elements = $("form").find("input, select");
+    elements.each((number, element) => {
+      objectToSend[element.id] = element.value;
+    });
+    $.ajax({
+      type: "POST",
+      url: employeeUrl,
+      data: objectToSend,
+    }).done(() => {
+      const successfulAddModalLabel = new bootstrap.Modal(
+        document.getElementById("successfulAddModal"),
+        {
+          keyboard: false,
+        }
+      );
+      successfulAddModalLabel.show();
+      $("#successfulAddModal").on("hide.bs.modal", () => {
+        window.location.replace("./dashboard.php");
+      });
+    });
+  }
+
+  form.classList.add("was-validated");
 }

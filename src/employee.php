@@ -25,14 +25,14 @@
 
         <main class="col-lg-8 col-md-10 p-2 mx-auto gy-2">
             <div class="pb-2">
-                <h2>Employee</h2>
+                <h2 id="employeeTitle">Employee</h2>
             </div>
             <div class="col">
                 <form class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="firstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                            <label for="name" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="name" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -112,8 +112,8 @@
                     </div>
 
                     <div class="text-center pt-4">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="button" class="btn btn-secondary">Return</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                        <a href="./dashboard.php" class="btn btn-secondary">Return</a>
 
                     </div>
 
@@ -135,6 +135,21 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="successfulAddModal" tabindex="-1" aria-labelledby="successfulAddModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title mx-auto" id="successfulAddModalLabel">Success!</h3>
+                </div>
+                <div class="modal-body text-center h5">
+                    The employee has been added to the database
+                </div>
+                <div class="modal-footer border-0">
+                    <a href="./dashboard.php" class="btn btn-primary mx-auto">Go back to dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     </div>
 
@@ -142,6 +157,8 @@
 
     if (isset($_GET["id"])) {
         echo "<script type='text/javascript'>populateEmployeeForm(" . $_GET["id"] . ")</script>";
+    } elseif (isset($_GET["new"]) && $_GET["new"] === "true") {
+        echo "<script type='text/javascript'>newEmployeeForm();</script>";
     }
     ?>
 
