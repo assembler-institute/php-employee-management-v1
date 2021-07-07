@@ -101,8 +101,9 @@ $authUser = getUserById($userId);
                 insertItem: function(item) {
                     return $.ajax({
                         type: "POST",
-                        url: "./library/employeeController.php",
-                        data: item
+                        url: "library/employeeController.php",
+                        data: item,
+                        dataType: "json",
                     });
 
                 },
@@ -111,15 +112,15 @@ $authUser = getUserById($userId);
                         type: "DELETE",
                         url: "./library/employeeController.php",
                         data: item,
-                        dataType: "json",
-                        success: function(data) {
-                            console.log(data);
-                        }
                     });
                 },
 
             },
             fields: [{
+                    name: "id",
+                    type: "text",
+                },
+                {
                     name: "name",
                     type: "text",
                     width: 100,
@@ -180,7 +181,7 @@ $authUser = getUserById($userId);
                     width: '100',
                     validate: {
                         validator: function(value) {
-                            if (value.length == 6) {
+                            if (value.length < 10 && value > 0) {
                                 return true;
                             }
                         },
@@ -206,6 +207,8 @@ $authUser = getUserById($userId);
                 }
             ]
         });
+
+        $("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
 
         // $.ajax({

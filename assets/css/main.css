@@ -1,3 +1,11 @@
 .form-section {
   padding: 0% 25%;
 }
+
+.side-alert {
+  position: fixed;
+  left: 25vw;
+  bottom: 0;
+  width: 50vw;
+  text-align: center;
+}

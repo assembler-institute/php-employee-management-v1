@@ -24,6 +24,7 @@ $authUser = getUserById($userId);
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+
     <title>Employee</title>
 </head>
 
@@ -71,7 +72,7 @@ $authUser = getUserById($userId);
         <form id="employee-form" class="row g-3">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="inputName">
+                <input type="text" class="form-control" id="inputName" name="inputName">
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last Name</label>
@@ -102,8 +103,9 @@ $authUser = getUserById($userId);
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
                 <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                    <option value="" selected>Choose...</option>
+                    <option value="CA">CA</option>
+                    <option value="UA">UA</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -122,49 +124,68 @@ $authUser = getUserById($userId);
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
         </form>
+
+        <div class="alert alert-danger side-alert d-none" role="alert" id="danger-alert">
+            Error:...
+        </div>
+        <div class="alert alert-success side-alert d-none" role="alert" id="success-alert">
+            Employee created successfully!
+        </div>
     </section>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-        <?php if (isset($_GET['id'])) : ?>
-            // Here Update code
-        <?php else : ?>
-            $('#employee-form').on('submit', function(e) {
-                e.preventDefault();
-                let formData = new FormData(document.querySelector('#employee-form'))
-                console.log(formData);
+        $('#employee-form').on('submit', function(e) {
+            e.preventDefault();
+            // let formData = new FormData(document.querySelector('#employee-form'))
 
-                // const name = $(this).find('#inputName'),
-                //     lastName = $(this).find('#inputLastName'),
-                //     email = $(this).find('#inputEmail'),
-                //     gender = $(this).find('#SelectGender'),
-                //     age = $(this).find('#inputAge');
+            const name = $(this).find('#inputName').val(),
+                lastName = $(this).find('#inputLastName').val(),
+                email = $(this).find('#inputEmail').val(),
+                gender = $(this).find('#SelectGender').val(),
+                age = $(this).find('#inputAge').val(),
+                city = $(this).find('#inputCity').val(),
+                state = $(this).find('#inputState').val(),
+                postalCode = $(this).find('#inputZip').val(),
+                streetAddress = $(this).find('#inputAddress').val(),
+                phoneNumber = $(this).find('#inputPhone').val();
 
-                // const city = $(this).find('#inputCity');
-                // const state = $(this).find('#inputState');
-                // const zip = $(this).find('#inputZip');
+            $.ajax({
+                url: "library/employeeController.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    name,
+                    lastName,
+                    email,
+                    gender,
+                    age,
+                    city,
+                    state,
+                    postalCode,
+                    streetAddress,
+                    phoneNumber,
+                },
+                success: function(data, status) {
+                    $('#employee-form').trigger("reset");
+                    $('#success-alert').removeClass('d-none');
 
-                // $.ajax({
-                //     url: "src/library/loginController.php",
-                //     type: "post",
-                //     dataType: "json",
-                //     data: {
-                //         'action': 'login',
-                //         'email': email.val(),
-                //         'password': pass.val(),
-                //     },
-                //     success: function(data, status) {
-                //         window.location.reload();
-                //     },
-                //     error: function(xhr, status, error) {
-                //         let err = JSON.parse(xhr.responseText);
-                //         $('#login-error').addClass('show');
-                //         $('.msg-login').text(err.message);
-                //     }
-                // })
+                    window.setTimeout(function() {
+                        $('#success-alert').addClass('d-none');
+                    }, 3000);
+                },
+                error: function(xhr, status, error) {
+                    let err = JSON.parse(xhr.responseText);
+                    $('#danger-alert').removeClass('d-none');
+                    $('#danger-alert').text(err.message);
+
+                    window.setTimeout(function() {
+                        $('#danger-alert').addClass('d-none');
+                    }, 3000);
+                }
             })
-        <?php endif; ?>
+        });
     </script>
 </body>
 
