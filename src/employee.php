@@ -14,8 +14,16 @@ if (!isset($_SESSION['authUserId'])) {
 $userId = $_SESSION['authUserId'];
 $authUser = getUserById($userId);
 
-$id = $_GET['id'];
-$employee = getEmployeeById($id);
+if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
+    $employee = getEmployeeById($_GET['id']);
+} else {
+    $employee = [
+        'id' => '', 'name' => '', 'lastName' => '',
+        'email' => '', 'gender' => '', 'age' => '',
+        'city' => '', 'state' => '', 'postalCode' => '',
+        'streetAddress' => '', 'phoneNumber' => '',
+    ];
+}
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +81,7 @@ $employee = getEmployeeById($id);
 
     <section class="form-section">
         <h2>User Detail</h2>
-        <form class="row g-3" id="updateForm">
+        <form class="row g-3" id="updateForm" enctype="multipart/form-data">
             <input type="hidden" class="form-control" name="id" id="employeeId" value="<?php echo $employee['id'] ?>">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
@@ -126,7 +134,7 @@ $employee = getEmployeeById($id);
                 <input type="text" class="form-control" name="phoneNumber" id="inputPhone" value="<?php echo $employee['phoneNumber'] ?>">
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary" name="updateSubmit">Update</button>
+                <button type="submit" class="btn btn-primary" name="updateSubmit">Submit</button>
             </div>
         </form>
         <div class="alert-wrapper">
@@ -140,7 +148,11 @@ $employee = getEmployeeById($id);
         $("#SelectGender").val(gender);
         $("#updateForm").on('submit', function(e) {
             e.preventDefault();
-            let formData = new FormData(this)
+            let formData = new FormData(this);
+            let data = {};
+            for (var input of formData) {
+                data[input[0]] = input[1];
+            }
 
             // const id = $(this).find('#employeeId').val(),
             //     name = $(this).find('#inputName').val(),
@@ -156,44 +168,34 @@ $employee = getEmployeeById($id);
 
             $.ajax({
                 type: "PUT",
-                url: "./library/employeeController.php",
+                url: "library/employeeController.php",
                 dataType: "json",
-                data: formData,
-                // data: {
-                //     id,
-                //     name,
-                //     lastName,
-                //     email,
-                //     gender,
-                //     age,
-                //     city,
-                //     state,
-                //     postalCode,
-                //     streetAddress,
-                //     phoneNumber,
-                // },
+                data: data,
+                cache: false,
                 success: function(data, status) {
-                    console.log(data);
-                    if (data.Status) {
-                        $(".alert-wrapper").append('<div class="alert alert-success" role="alert ">Employee updated!</div>');
-                    } else {
-                        $(".alert-wrapper").append('<div class="alert alert-danger" role="alert ">Error updating employee</div>');
-                    }
-                    $('#employee-form').trigger("reset");
-                    $('#success-alert').removeClass('d-none');
+                    console.log(data, status);
+                    // if (data.Status) {
+                    //     $(".alert-wrapper").append('<div class="alert alert-success" role="alert ">Employee updated!</div>');
+                    // } else {
+                    //     $(".alert-wrapper").append('<div class="alert alert-danger" role="alert ">Error updating employee</div>');
+                    // }
+                    // $('#employee-form').trigger("reset");
+                    // $('#success-alert').removeClass('d-none');
 
-                    window.setTimeout(function() {
-                        $('#success-alert').addClass('d-none');
-                    }, 3000);
+                    // window.setTimeout(function() {
+                    //     $('#success-alert').addClass('d-none');
+                    // }, 3000);
                 },
                 error: function(xhr, status, error) {
-                    let err = JSON.parse(xhr.responseText);
-                    $('#danger-alert').removeClass('d-none');
-                    $('#danger-alert').text(err.message);
+                    console.log(xhr, status, error);
 
-                    window.setTimeout(function() {
-                        $('#danger-alert').addClass('d-none');
-                    }, 3000);
+                    // let err = JSON.parse(xhr.responseText);
+                    // $('#danger-alert').removeClass('d-none');
+                    // $('#danger-alert').text(err.message);
+
+                    // window.setTimeout(function() {
+                    //     $('#danger-alert').addClass('d-none');
+                    // }, 3000);
                 }
 
             });

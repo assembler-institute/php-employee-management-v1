@@ -3,14 +3,14 @@
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
+ * @author: 
+ * @date: 07/07/2021
  */
 
 function addEmployee(array $newEmployee)
 {
     $employees = getEmployees();
-    $newEmployee = array_merge(['id' => generateId($employees)], $newEmployee);
+    $newEmployee = array_merge($newEmployee, ["id" => generateId($employees)]);
     // $newEmployee['id'] = generateId($employees);
     $employees[] = $newEmployee;
     saveDataToJson($employees);
@@ -47,6 +47,7 @@ function updateEmployee($id, $data)
         if ($employee['id'] == $id) {
             $updatedEmployee = array_merge($employee, $data);
             $employees[$index] = $updatedEmployee;
+
             saveDataToJson($employees);
             return true;
         }
@@ -56,7 +57,6 @@ function updateEmployee($id, $data)
 
 function getEmployeeById($id)
 {
-    // TODO implement it
     $employees = getEmployees();
     foreach ($employees as $employee) {
         if ($employee['id'] == $id) return $employee;
