@@ -59,9 +59,13 @@ if(isset($_SESSION["login_time"])){
 
             // Redirect to employee's page
             rowClick: function(args) {
+
                 employeeRowId = args.item.id;
                 $("#dashboardLink").toggleClass("active");
                 $("#employeeLink").addClass("active");
+                $.ajax({
+                    url:"./library/"
+                })
                 document.location = `./employee.php?employeeRowId=${employeeRowId}`;
             },
 

@@ -49,7 +49,7 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    print_r($updateEmployee);
+    echo $updateEmployee;
 }
 
 
