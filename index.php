@@ -1,7 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) session_start();
+
 if (isset($_SESSION['authUserId'])) {
-    http_response_code(401);
     header('Location:src/dashboard.php');
 }
 ?>
@@ -28,22 +28,23 @@ if (isset($_SESSION['authUserId'])) {
                 <img src="./assets/img/user-management-2.gif" width="100%" height="60%" />
             </section>
         </section>
+
         <section class="content-center text-center auth-form">
-            <form class="form-signin" method="POST" action="src/library/loginController.php">
+            <form id="login" class="form-signin" method="POST">
                 <img class="mb-4" src="./assets/img/logo.png" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <?php
-                if (isset($loginerror)) {
-                    echo "<div class='alert alert-danger fade show' align='center' vertical-center>";
-                    echo "<span class='align-middle'>$loginerror</span>";
-                    echo "</div>";
-                }
-                ?>
+
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+                <div id="login-error" class='mt-3 alert alert-danger fade' align='center' vertical-center>
+                    <span class='align-middle msg-login'>login error</span>
+                </div>
             </form>
         </section>
     </div>
