@@ -15,19 +15,21 @@ $.getJSON(dataPath).done(function (employeesData) {
     autoload: true,
     rowClick: function (args) {
       selectedItem = args.item;
-      window.location = "../src/library/employeeController.php?ID=" + selectedItem.id;
+      window.location =
+        "../src/library/employeeController.php?ID=" + selectedItem.id;
     },
+
     deleteConfirm:
       "This action will delete the employee from the system. Are you sure?",
 
     controller: {
-      loadData: function (filter) {
-        return $.ajax({
-          type: "GET",
-          url: "./library/employeeController.php",
-          data: filter,
-        });
-      },
+      // loadData: function (filter) {
+      //   return $.ajax({
+      //     type: "GET",
+      //     url: "./library/employeeController.php",
+      //     data: filter,
+      //   });
+      // },
       insertItem: function (item) {
         return $.ajax({
           type: "POST",
@@ -114,4 +116,3 @@ $.getJSON(dataPath).done(function (employeesData) {
     ],
   });
 });
-$("#jsGrid").jsGrid("refresh");
