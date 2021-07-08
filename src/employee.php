@@ -159,7 +159,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
         $("#editForm").submit((e) => {
             e.preventDefault();
             const item = {
-                
+                "id":"",
                 "name": $("#newName").val(),
                 "lastName": $("#newLastName").val(),
                 "email": $("#newEmail").val(),
@@ -171,7 +171,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 "postalCode": $("#newPostalCode").val(),
                 "phoneNumber": $("#newPhone").val()
             }
-            console.log("objecte item",item)
+            
             $.ajax({
                 type: "PUT",
                 url: "./library/employeeController.php",
