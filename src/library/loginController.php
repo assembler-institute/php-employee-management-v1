@@ -17,6 +17,7 @@ $login = validateLoginData(
     $loggedUserPassword
 );
 
+// Setting variables depending on login contexts
 switch ($login) {
     case "Logged":
         $_SESSION["loggedUsername"] = $loggedUserName;
