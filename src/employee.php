@@ -12,6 +12,8 @@ session_start();
   <title>Employee Management</title>
 
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link href="../assets/css/main.css" rel="stylesheet" />
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
   <header class="bg-light mb-4">
@@ -19,7 +21,7 @@ session_start();
       require ("../assets/html/header.html");
     ?>
   </header>
-  <main class="container-xl mx-auto">
+  <main class="container-xl mx-auto pb-90">
     <form action="./library/employeeController.php?update=true" method="POST" class="container-md">
     <?php 
       if(isset($_GET['okUpdate'])){
