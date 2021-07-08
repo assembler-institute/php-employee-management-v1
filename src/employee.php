@@ -30,7 +30,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
     foreach ($genderArray as $genderItem) {
         if ($gender == $genderItem && $gender == "") {
             $options .= "<option hidden selected>Select</option>";
-        } elseif ($gender == $genderItem) {
+        } elseif ($gender == $genderItem && $gender != "") {
             $options .= "<option selected>" . $genderItem . "</option>";
         } else {
             $options .= "<option>" . $genderItem . "</option>";
