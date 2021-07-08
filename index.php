@@ -6,25 +6,14 @@ session_start();
 <html lang="en">
 
 <head>
-    <script lenguage="javascipt" type="text/javascript"> 
-        window.history.forward();
-        window.onunload=function(){null};
-    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <style>
-        form {
-            margin: 100px 25%;
-        }
-
-        .btn {
-            margin-top: 25px;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <script src="./assets/js/index.js"></script>
     <title>Document</title>
 </head>
 
