@@ -1,5 +1,3 @@
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-
 <?php
 require_once('library/loginManager.php');
 require_once('library/employeeManager.php');
@@ -126,6 +124,7 @@ $authUser = getUserById($userId);
             fields: [{
                     name: "id",
                     type: "text",
+                    visible: false,
                 },
                 {
                     name: "name",
@@ -224,8 +223,7 @@ $authUser = getUserById($userId);
             },
         });
 
-        $("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
-
+        //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
         // $.ajax({
         //     type: "DELETE",

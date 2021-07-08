@@ -1,9 +1,9 @@
 <!-- TODO Employee view -->
 
 <?php
-require_once('library/loginManager.php');
-require_once('library/employeeManager.php');
-require_once('library/sessionHelper.php');
+require_once('./library/loginManager.php');
+require_once('./library/employeeManager.php');
+require_once('./library/sessionHelper.php');
 
 if (session_status() == PHP_SESSION_NONE) session_start();
 
@@ -172,7 +172,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                     let err = JSON.parse(xhr.responseText);
                     $(".alert-wrapper").empty();
                     $(".alert-wrapper")
-                        .append(`<div class="alert alert-success" role="alert">${data.Message}</div>`)
+                        .append(`<div class="alert alert-danger" role="alert">${data.Message}</div>`)
 
                     window.setTimeout(function() {
                         $('.alert-danger').addClass('d-none');
