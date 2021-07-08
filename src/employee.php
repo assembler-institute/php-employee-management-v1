@@ -43,6 +43,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
 <body>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 
     <header>
         <?php
@@ -195,6 +196,9 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
         console.log(userName);
         setUserName(userName);
     </script>
+    <?php
+    require_once('../assets/html/footer.html');
+    ?>
 </body>
 
 </html>
