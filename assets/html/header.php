@@ -10,10 +10,10 @@
     <!-- Left buttons -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li id="dashboardLink" class="nav-item active">
+        <li id="dashboardLink" class="nav-item ">
           <a class="nav-link" href="./dashboard.php">Dashboard</a>
         </li>
-        <li id="employeeLink" class="nav-item">
+        <li id="employeeLink" class="nav-item ">
           <a class="nav-link" href="./employee.php">Employee</a>
         </li>
       </ul>
@@ -42,12 +42,4 @@
 
 </header>
 
-<script>
-  $("#dashboardLink").on("click", function() {
-    console.log("Redirecting to dashboard page");
-  });
-
-  $("#employeeLink").on("click", function() {
-    console.log("Redirecting to employee page");
-  });
-</script>
+<script src="../assets/js/headerLink.js"></script>
