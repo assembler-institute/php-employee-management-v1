@@ -76,8 +76,34 @@ function deleteEmployee(string $id)
 
 
 function updateEmployee(array $updateEmployee)
-{
-    echo $updateEmployee;
+{ 
+    $jsonPath=file_get_contents("../../resources/employees.json");
+    $decodedJSON = json_decode($jsonPath, true);
+
+    $id= $_SESSION["employeeId"];
+    //echo print_r($decodedJSON[2]);
+    $updateEmployee["id"]=strval($id);
+    foreach($decodedJSON as $employee){
+        
+        if($employee["id"]==$id){
+          
+          $pos=array_search($employee,$decodedJSON);
+          unset($decodedJSON[$pos]);
+          $decodedJSON[$pos]=$updateEmployee;
+          asort($decodedJSON);
+
+        //   $lastPos=array_search(end($decodedJSON),$decodedJSON);          
+        //   $part1=array_slice($decodedJSON,0,($pos));
+        //   array_push($part1,$updateEmployee);
+        //   $part2=array_slice($decodedJSON,($pos+1),$lastPos);
+        //   $updateDecodedJson=array_merge($part1,$part2);
+        //   array_push($updatedEmployee,$updateDecodedJson);
+       
+        }       
+    }
+     echo print_r($decodedJSON);
+     file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
+
 }
 
 
@@ -91,6 +117,7 @@ function getEmployee(string $id)
     foreach ($decodedJSON as $employee) {
         if ($employee["id"] == $id) {
             $_SESSION["employeeToUpdate"] = $employee;
+            $_SESSION["employeeId"] = $id;
         }
     }
     //  echo $id;

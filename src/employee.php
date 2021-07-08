@@ -157,14 +157,10 @@ if (isset($_SESSION["employeeToUpdate"])) {
 
     <!-- Javascript -->
     <script>
-        //  const queryString=window.location.search;
-        //  const urlParams = new URLSearchParams(queryString);
-        //  console.log(urlParams);
-        //  let id=urlParams.get('employeeRowId');
-        //console.log(id);
         $("#employeeForm").submit((e) => {
             e.preventDefault();
             const item = {
+                "id":"",
                 "name": $("#newName").val(),
                 "lastName": $("#newLastName").val(),
                 "email": $("#newEmail").val(),
@@ -176,6 +172,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 "postalCode": $("#newPostalCode").val(),
                 "phoneNumber": $("#newPhone").val()
             }
+
 
             // Make POST or PUT ajax requests
             if ($("#employeeForm").attr("method") == "POST") {
@@ -206,6 +203,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
                     }
                 });
             }
+
         })
     </script>
 </body>
