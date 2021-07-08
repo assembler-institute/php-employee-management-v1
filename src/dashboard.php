@@ -24,12 +24,12 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 px-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 px-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">Employee Management</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +66,17 @@ $authUser = getUserById($userId);
             </li>
         </div>
     </nav>
+    <div class="toast-container position-absolute top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Required fields</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+
+            </div>
+        </div>
+    </div>
     <div class="px-5">
         <div id="jsGrid"></div>
     </div>
@@ -77,15 +88,16 @@ $authUser = getUserById($userId);
     <script>
         $("#jsGrid").jsGrid({
             width: "100%",
-            height: "75vh",
-            filtering: true,
+            height: "auto",
+
+            filtering: false,
             inserting: true,
             editing: true,
             sorting: true,
             paging: true,
             autoload: true,
-            pageSize: 5,
-            pageButtonCount: 5,
+            pageSize: 10,
+            pageButtonCount: 10,
 
             controller: {
                 loadData: function(filter) {
@@ -124,19 +136,23 @@ $authUser = getUserById($userId);
                     name: "id",
                     type: "text",
                     visible: false,
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: "name",
+                    title: "Name",
                     type: "text",
                     width: 100,
                     validate: "required",
-                    css: 'backgroundRed'
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
                 {
                     name: "email",
+                    title: "Email",
                     type: "text",
-                    width: 100,
-                    css: 'backgroundRed',
+                    width: 150,
                     validate: [
                         "required",
                         {
@@ -145,50 +161,65 @@ $authUser = getUserById($userId);
                                 return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
                             },
                         }
-                    ]
+                    ],
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
 
                 {
                     name: "age",
+                    title: "Age",
                     type: "text",
                     width: 50,
                     css: 'backgroundRed',
                     validate: {
                         validator: function(value) {
-                            if (value > 0 && value < 80) {
+                            if (value >= 18 && value < 80) {
                                 return true;
                             }
                         },
                         message: function(value, item) {
                             return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
                         },
-                        param: [0, 80]
-                    }
+                        param: [18, 80]
+                    },
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
                 {
                     name: 'streetAddress',
+                    title: 'Address',
                     type: 'text',
                     width: '100',
+                    headercss: 'backgroundHeader',
                     validate: 'required',
-                    css: 'backgroundRed'
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'city',
+                    title: 'City',
                     type: 'text',
                     width: '100',
                     validate: 'required',
-                    css: 'backgroundRed'
+                    headercss: 'backgroundHeader',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'state',
+                    title: 'State',
                     type: 'text',
                     width: '50',
+                    headercss: 'backgroundHeader',
                     validate: 'required',
-                    css: 'backgroundRed'
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'postalCode',
+                    title: 'Postal Code',
                     type: 'text',
+                    headercss: 'backgroundHeader',
                     width: '100',
                     validate: {
                         validator: function(value) {
@@ -198,11 +229,13 @@ $authUser = getUserById($userId);
                         },
                         message: "Please enter a valid postal code",
                     },
-                    css: 'backgroundRed'
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'phoneNumber',
+                    title: 'Phone Number',
                     type: 'text',
+                    headercss: 'backgroundHeader',
                     width: '100',
                     validate: {
                         validator: function(value, item) {
@@ -212,8 +245,7 @@ $authUser = getUserById($userId);
                         },
                         message: "Please enter a valid phone number",
                     },
-                    css: 'backgroundRed'
-
+                    css: 'bordersAndBackground',
                 },
                 {
                     type: "control",
@@ -222,14 +254,38 @@ $authUser = getUserById($userId);
                         $result = $result.add(this._createDeleteButton(item));
                         return $result;
                     },
+                    css: "bordersAndBackgroundEdit",
+                    headercss: 'backgroundHeader'
+
                 },
             ],
 
             rowClick: function(item) {
                 window.location.href = "./employee.php?id=" + item.item.id;
             },
-        });
+            onItemInvalid: function(args) {
+                $(".toast-body").empty();
+                // prints [{ field: "Name", message: "Enter client name" }]
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
 
+                $.each(messages, function(index, value) {
+                    $(".toast-body")
+                        .append(`<div class="alert alert-danger p-1" role="alert">*${value}</div>`)
+                });
+                $('.toast').toast('show');
+                $(".toast").toast({
+                    delay: 2000
+                });
+
+            },
+            invalidNotify: function(args) {
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
+            }
+        });
         //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
         // $.ajax({
