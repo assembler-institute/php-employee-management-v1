@@ -1,8 +1,13 @@
 <!-- TODO Employee view -->
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
 require_once "./library/loginController.php";
 revisar_si_existe_sesion();
+
+require_once "./library/employeeController.php";
+if (isset($_GET["id"])) {
+  $clickedUserId = $_GET["id"];
+  $foundEmployee = findUserToUpdate_on_data_base($clickedUserId);
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +41,11 @@ revisar_si_existe_sesion();
 <body class="d-flex min-vh-100 flex-column justify-content-between align-item-between d-inline-block m-0 p-0">
 	<?php include "../assets/html/header.html"; ?>
 	<main class="d-flex w-100 min-vh-50 justify-content-center align-item-center">
-		<form action="./src/library/loginController.php" method="POST" class="d-flex flex-column gap-3 p-2">
+		<form action=<?php if (isset($_GET["id"])) {
+    echo "./library/employeeController.php?id=$clickedUserId";
+  } else {
+    echo "./library/employeeController.php";
+  } ?> method="POST" class="d-flex flex-column gap-3 p-2">
 			<div class="d-flex flex-row gap-3 p-2 newUserForm">
 				<section class="d-flex flex-column gap-3 p-2" id="formColumnOne">
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 h-100">
@@ -45,7 +54,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-users"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="name" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="name" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["name"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["name"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -54,7 +69,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-envelope"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="emailAdress" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="email" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["email"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["email"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -63,7 +84,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-city"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="city" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="city" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["city"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["city"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -72,7 +99,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-flag-usa"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="State" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="state" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["state"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["state"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -81,7 +114,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-mail-bulk"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="PostalCode" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="postalCode" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["postalCode"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["postalCode"];
+       } ?>>
 						</div>
 					</div>
 				</section>
@@ -92,7 +131,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-hand-scissors"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="LastName" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="LastName" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["lastName"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["lastName"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -101,7 +146,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-venus-mars"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="gender" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="gender" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["gender"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["gender"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -110,7 +161,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-road"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="adress" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="streetAddress" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["streetAddress"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["streetAddress"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -119,7 +176,13 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-baby-carriage"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="age" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="age" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["age"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["age"];
+       } ?>>
 						</div>
 					</div>
 					<div class="w-100 d-flex flex-column justify-content-center pt-2 pb-2 h-100">
@@ -128,13 +191,19 @@ revisar_si_existe_sesion();
 							<div class="d-flex justify-content-center align-item-center">
 								<i class="fas fa-mobile-alt"></i>
 							</div>
-							<input class="form-control form-control-dark w-100" name="phoneNumber" type="text" placeholder="" value="">
+							<input class="form-control form-control-dark w-100" name="phoneNumber" type="text" placeholder="" value=<?php if (
+         empty($foundEmployee["phoneNumber"])
+       ) {
+         echo "";
+       } else {
+         echo $foundEmployee["phoneNumber"];
+       } ?>>
 						</div>
 					</div>
 				</section>
 			</div>
 			<div class="px-3">
-				<button type="submit" name="submit" class="btn btn-primary border pt-3 pb-3 text-light">Submit</button>
+				<button type="submit" name="submitEmployee" class="btn btn-primary border pt-3 pb-3 text-light">Submit</button>
 				<a href="./dashboard.php">
 					<button type="button" name="return" class="btn btn-light border pt-3 pb-3 text-dark">Return</button>
 				</a>

@@ -35,7 +35,7 @@ revisar_si_existe_sesion();
 
 	<?php include "../assets/html/header.html"; ?>
 	<main class="min-vh-50 h-100 d-inline-block">
-		<div class="container-fluid">
+		<div class="">
 			<div id="employeesList"></div>
 		</div>
 	</main>
