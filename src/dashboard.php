@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <header class="bg-light mb-4">
+  <header class="bg-light mb-4 ">
     <?php 
       require_once("../assets/html/header.html");
     ?>
