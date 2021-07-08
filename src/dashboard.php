@@ -34,15 +34,22 @@ $authUser = getUserById($userId);
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
     <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+
     <header>
         <?php
         require_once('../assets/html/header.html');
         ?>
     </header>
+
     <div class="px-5">
         <div id="jsGrid"></div>
     </div>
 
+    <footer>
+        <?php
+        require_once('../assets/html/footer.html');
+        ?>
+    </footer>
 
     <script>
         $("#jsGrid").jsGrid({
@@ -245,23 +252,10 @@ $authUser = getUserById($userId);
                 });
             }
         });
-        //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
-        // $.ajax({
-        //     type: "DELETE",
-        //     url: "./library/employeeController.php",
-        //     dataType: "html",
-        //     success: function(data) {
-        //         console.log(data);
-        //     }
-        // });
         const userName = "<?php echo $authUser['name'] ?>";
-        console.log(userName);
         setUserName(userName);
     </script>
-    <?php
-    require_once('../assets/html/footer.html');
-    ?>
 </body>
 
 </html>

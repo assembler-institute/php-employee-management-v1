@@ -126,6 +126,12 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
         <div class="alert-wrapper side-alert"></div>
     </section>
 
+    <footer>
+        <?php
+        require_once('../assets/html/footer.html');
+        ?>
+    </footer>
+
     <script>
         let gender = "<?php echo $employee['gender'] ?>";
         $("#selectGender").val(gender);
@@ -200,13 +206,10 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 });
             }
         });
+
         const userName = "<?php echo $authUser['name'] ?>";
-        console.log(userName);
         setUserName(userName);
     </script>
-    <?php
-    require_once('../assets/html/footer.html');
-    ?>
 </body>
 
 </html>
