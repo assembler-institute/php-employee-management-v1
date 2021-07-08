@@ -2,16 +2,6 @@
 require_once('./library/loginManager.php');
 require_once('./library/employeeManager.php');
 require_once('./library/sessionHelper.php');
-require_once('library/avatarsApi.php');
-require_once('imageGallery.php');
-
-$request = 'https://uifaces.co/api?limit=5';
-$key = 'A5CD0639-1EA74339-838676BE-5B902E21';
-$headers = array(
-    "Cache-Control:no-cache",
-    "Accept:application/json",
-    "X-API-KEY:" . $key,
-);
 
 if (session_status() == PHP_SESSION_NONE) session_start();
 
@@ -49,6 +39,10 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
 </head>
 
 <body>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 px-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">Employee Management</a>
@@ -93,14 +87,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 <h2>Avatars</h2>
                 <div>
                     <?php
-                    if (isset($employee['photo'])) {
-                        $photo = $employee['photo'];
-                        // echo "<img src=\"$photo\" class=\"img-thumbnail sized-image\" alt=\"employeePhoto\">";
-                        renderImages(1, [$photo]);
-                    } else {
-                        // require_once('imageGallery.php');
-                        renderImages(5);
-                    }
+                    require_once('imageGallery.php');
                     ?>
                 </div>
             </section>
@@ -170,10 +157,6 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
 
         <div class="alert-wrapper side-alert"></div>
     </section>
-
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 
     <script>
         let gender = "<?php echo $employee['gender'] ?>";

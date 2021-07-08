@@ -19,8 +19,16 @@ function curlQuery($request, $headers)
     }
 }
 
-function getEmployeePhotos($request, $headers)
+function getEmployeePhotos(int $number)
 {
+    $request = 'https://uifaces.co/api?limit=' . "$number";
+    $key = 'A5CD0639-1EA74339-838676BE-5B902E21';
+    $headers = array(
+        "Cache-Control:no-cache",
+        "Accept:application/json",
+        "X-API-KEY:" . $key,
+    );
+
     $response = curlQuery($request, $headers);
     $images = [];
     foreach ($response  as $value) {

@@ -1,48 +1,38 @@
 <?php
-require_once('library/avatarsApi.php');
+require_once('./library/avatarsApi.php');
 
-$request = 'https://uifaces.co/api?limit=5';
-$key = 'A5CD0639-1EA74339-838676BE-5B902E21';
-$headers = array(
-    "Cache-Control:no-cache",
-    "Accept:application/json",
-    "X-API-KEY:" . $key,
-);
+define('PHOTOS_NUMBER', 6);
+$employeePhotos = getEmployeePhotos(PHOTOS_NUMBER);
+$printedPhotos = 0;
+$hide = '';
 
-// $photos = getEmployeePhotos($request, $headers);
-
-// foreach ($photos as $key => $photo) {
+// Print employee photo 
+if (isset($employee['photo'])) :
+    $photo = $employee['photo'];
+    $printedPhotos = 1;
+    $hide = 'd-none';
 ?>
-<!-- <label>
+    <label class="">
         <input type="radio" name="photo" value="<?= $photo ?>">
-        <img src="<?= $photo ?>" class="img-thumbnail sized-image" alt="employeePhoto<?= $key ?>">
-    </label> -->
+        <img src="<?= $photo ?>" class="img-thumbnail sized-image" alt="employeePhoto">
+    </label>
+    <script>
+        $('[alt="employeePhoto"]').dblclick(function() {
+            $('label.other').each(function() {
+                $(this).toggleClass('d-none');
+            });
+        })
+    </script>
 <?php
-// }
+endif;
 
-function renderImages($imagesNumber, $photos = [])
-{
-    $request = 'https://uifaces.co/api?limit=5';
-    $key = 'A5CD0639-1EA74339-838676BE-5B902E21';
-    $headers = array(
-        "Cache-Control:no-cache",
-        "Accept:application/json",
-        "X-API-KEY:" . $key,
-    );
-
-    if (!count($photos))
-        $photos = getEmployeePhotos($request, $headers);
-
-    if ($imagesNumber > 5) $imagesNumber = 5;
-
-    foreach ($photos as $key => $photo) {
-        if ($key > $imagesNumber) break;
+// Print other photos 
+for ($i = $printedPhotos; $i < PHOTOS_NUMBER; $i++) {
 ?>
-        <label>
-            <input type="radio" name="photo" value="<?= $photo ?>">
-            <img src="<?= $photo ?>" class="img-thumbnail sized-image" alt="employeePhoto<?= $key ?>">
-        </label>
+    <label class="other <?php echo $hide ?>">
+        <input type="radio" name="photo" value="<?= $employeePhotos[$i] ?>">
+        <img src="<?= $employeePhotos[$i]  ?>" class="img-thumbnail sized-image" alt="employeePhoto<?= $i ?>">
+    </label>
 <?php
-    }
 }
 ?>
