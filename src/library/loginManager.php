@@ -1,4 +1,5 @@
 <?php
+
 function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword)
 {
         switch (true) {
@@ -31,6 +32,6 @@ function destroySession()
         setcookie(session_name(), "", time() - 3600);
         session_destroy();
         session_start();
-        $_SESSION['logout'] = " You're being logged out";
+        $_SESSION['logout'] = " You've been logged out";
         header("Location:../../index.php");
 }

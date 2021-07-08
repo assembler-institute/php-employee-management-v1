@@ -6,41 +6,33 @@ session_start();
 <html lang="en">
 
 <head>
-    <script lenguage="javascipt" type="text/javascript"> 
-        window.history.forward();
-        window.onunload=function(){null};
-    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <style>
-        form {
-            margin: 100px 25%;
-        }
-
-        .btn {
-            margin-top: 25px;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <script src="./assets/js/index.js"></script>
     <title>Document</title>
 </head>
 
-<body class="text-center">
-    <main class="form-signin">
+<body class="text-center d-flex flex-column justify-content-center align-items-center bg-light">
+    <main class="form-signin container-fluid mb-4">
         <form method="post" action="./src/library/loginController.php">
-            <img class="mb-4" src="./images/logo.png" alt width="72" height="57">
+            <img class="mb-4" src="./images/user.svg" alt="user icon" width="70" height="70">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-            <div class="form-floating">
-                <input name="user" type="text" class="form-control" id="floatingInput" placeholder="User name" required>
-                <label for="floatingInput">Write your user name</label>
-            </div>
-            <div class="form-floating">
-                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+            <!-- Username -->
+            <div class="mb-3">
+                <label for="floatingInput" class="text-left">Your username</label>
+                <input name="user" type="text" class="form-control" id="floatingInput" placeholder="Username" required>
+            </div class="mb-4">
+            <!-- Password -->
+            <div class="mb-4">
                 <label for="floatingPassword">Password</label>
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
             </div>
+
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
@@ -53,6 +45,7 @@ session_start();
                 </symbol>
             </svg>
             <?php
+            // Login alerts
             switch (true) {
                 case (isset($_SESSION["wrongEmailPass"])):
                     echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
@@ -78,7 +71,7 @@ session_start();
                     unset($_SESSION['wrongPass']);
                     break;
                 case (isset($_SESSION["logout"])):
-                    echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
+                    echo "<div class='alert alert-primary d-flex align-items-center' role='alert'>";
                     echo " <svg class='bi flex-shrink-0 me-2 mr-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
                     echo $_SESSION["logout"];
                     echo "</div>";
@@ -91,11 +84,11 @@ session_start();
                     echo "</div>";
                     unset($_GET['accessDenied']);
                 default:
-                    # code...
+
                     break;
             }
             ?>
-            <button type="submit" class="btn btn-outline-success">submit</button>
+            <button type="submit" class="btn btn-outline-info">Log in</button>
         </form>
 
     </main>
