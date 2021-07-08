@@ -77,9 +77,7 @@ $authUser = getUserById($userId);
     <script>
         $("#jsGrid").jsGrid({
             width: "100%",
-            height: "75vh",
-            filtering: true,
-            filtercss: 'noneOverFlow',
+            height: "auto",
             inserting: true,
             editing: true,
             sorting: true,
@@ -128,13 +126,17 @@ $authUser = getUserById($userId);
                 },
                 {
                     name: "name",
+                    title: "Name",
                     type: "text",
                     width: 100,
                     validate: "required",
                     css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
                 {
                     name: "email",
+                    title: "Email",
                     type: "text",
                     width: 100,
                     validate: [
@@ -146,11 +148,14 @@ $authUser = getUserById($userId);
                             },
                         }
                     ],
-                    css: 'bordersAndBackground'
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
 
                 {
                     name: "age",
+                    title: "Age",
                     type: "text",
                     width: 50,
                     validate: {
@@ -164,32 +169,42 @@ $authUser = getUserById($userId);
                         },
                         param: [0, 80]
                     },
-                    css: 'bordersAndBackground'
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
                 {
                     name: 'streetAddress',
+                    title: 'Address',
                     type: 'text',
                     width: '100',
+                    headercss: 'backgroundHeader',
                     validate: 'required',
                     css: 'bordersAndBackground'
                 },
                 {
                     name: 'city',
+                    title: 'City',
                     type: 'text',
                     width: '100',
                     validate: 'required',
+                    headercss: 'backgroundHeader',
                     css: 'bordersAndBackground'
                 },
                 {
                     name: 'state',
+                    title: 'State',
                     type: 'text',
                     width: '50',
+                    headercss: 'backgroundHeader',
                     validate: 'required',
                     css: 'bordersAndBackground'
                 },
                 {
                     name: 'postalCode',
+                    title: 'Postal Code',
                     type: 'text',
+                    headercss: 'backgroundHeader',
                     width: '100',
                     validate: {
                         validator: function(value) {
@@ -203,7 +218,9 @@ $authUser = getUserById($userId);
                 },
                 {
                     name: 'phoneNumber',
+                    title: 'Phone Number',
                     type: 'text',
+                    headercss: 'backgroundHeader',
                     width: '100',
                     validate: {
                         validator: function(value, item) {
@@ -223,7 +240,7 @@ $authUser = getUserById($userId);
                         return $result;
                     },
                     css: "bordersAndBackgroundEdit",
-
+                    headercss: 'backgroundHeader'
 
                 },
             ],
