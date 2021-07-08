@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 function addEmployee(array $newEmployeeData)
 {
@@ -14,7 +16,23 @@ function addEmployee(array $newEmployeeData)
 
 function deleteEmployee(string $id)
 {
-  // TODO implement it
+  $employees = json_decode(file_get_contents("../../resources/employees.json"), true);
+  $foundEmployee = array_reduce(
+    $employees,
+    function ($found, $employee) use ($id) {
+      return intval($employee["id"]) === intval($id) ? $employee : $found;
+    },
+    []
+  );
+  $otherEmployees = array_filter(
+    $employees,
+    function ($employee) use ($id) {
+      return intval($employee["id"]) !== intval($id);
+    }
+  );
+  $updatedEmployees = array_values($otherEmployees);
+  file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
+  return $foundEmployee;
 }
 
 function updateEmployee(array $updateEmployee)
@@ -55,12 +73,12 @@ function getEmployee(string $id)
 {
   $employeesData = file_get_contents("../resources/employees.json");
   $decodeEmployee = json_decode($employeesData, true);
-  $foundEmployee = array_filter($decodeEmployee, function ($employee) use (
+  $foundEmployee = array_reduce($decodeEmployee, function ($found, $employee) use (
     $id
   ) {
-    return $employee["id"] == $id;
+    return intval($employee["id"]) === intval($id) ? $employee : $found;
   });
-  return $foundEmployee[$id - 1];
+  return $foundEmployee;
 }
 
 function getLastIdFromEmployees()

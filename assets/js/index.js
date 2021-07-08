@@ -50,6 +50,13 @@ function loadEmployeesList() {
             url: `${$BASE_URL}/src/library/employeeController.php?getAllEmployees`,
           });
         },
+        deleteItem: function (item) {
+          return $.ajax({
+            type: "DELETE",
+            url: `${$BASE_URL}/src/library/employeeController.php`,
+            data: item,
+          });
+        },
       },
 
       fields: [

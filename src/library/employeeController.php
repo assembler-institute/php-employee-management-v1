@@ -1,6 +1,8 @@
 <?php
-
 require_once __DIR__ . "/employeeManager.php";
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 switch ($_SERVER["REQUEST_METHOD"]) {
   case "GET":
@@ -8,6 +10,11 @@ switch ($_SERVER["REQUEST_METHOD"]) {
       header("Content-Type: application/json");
       echo json_encode(getEmployees());
     }
+    break;
+  case "DELETE":
+    parse_str(file_get_contents("php://input"), $_DELETE);
+    deleteEmployee($_DELETE["id"]);
+    break;
 }
 
 if (isset($_POST["submitEmployee"])) {
