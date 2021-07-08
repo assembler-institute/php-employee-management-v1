@@ -1,7 +1,7 @@
 <header class="p-3 mb-3 border-bottom bg-dark text-white">
   <div class="d-flex flex-wrap align-items-center justify-content-between">
     <a
-      href="/"
+      href="../index.php"
       class="
         d-flex
         align-items-center
@@ -20,7 +20,7 @@
 
     <ul class="nav col-lg-auto mb-2 justify-content-center mb-md-0">
       <li>
-        <a href="#" class="nav-link text-white">
+        <a href="./dashboard.php" class="nav-link text-white" id="navDashboard">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24">
             <use
               xlink:href="../node_modules/bootstrap-icons/bootstrap-icons.svg#speedometer2"
@@ -30,7 +30,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-secondary disabled">
+        <a href="#" class="nav-link text-secondary disabled" id="navEmployee">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24">
             <use
               xlink:href="../node_modules/bootstrap-icons/bootstrap-icons.svg#person-fill"
@@ -64,9 +64,6 @@
         />
       </a>
       <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser">
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider" /></li>
         <li>
           <a class="dropdown-item text-danger" onclick="logout()">Sign out</a>
         </li>
@@ -77,8 +74,9 @@
     function logout() {
       $.ajax({
         url: "./library/loginController.php",
-        method: "LOGOUT",
-      }).done(function () {
+        method: "LOGOUT"        
+      }).done(function (res) {
+        console.log(res);
         window.location.href = "../index.php";
       });
     }

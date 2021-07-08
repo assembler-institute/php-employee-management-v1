@@ -15,6 +15,7 @@ function logout()
     session_destroy();
     session_unset();
     goLogin();
+    http_response_code(200);
 }
 
 $_SESSION['lifeTime'] = 600;
