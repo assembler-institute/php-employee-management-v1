@@ -11,8 +11,15 @@ switch ($method) {
       $result = addEmployee($newEmployee);
       break;
     }
-    if($_GET["update"] == true){
+    if($_GET["update"] == true && isset($_SESSION['employeeUpdate'])){
       updateEmployee($_SESSION['employeeUpdate'],$_POST);
+      break;
+    }
+    if($_GET["update"] == true && !isset($_SESSION['employeeUpdate'])){
+      $newEmployee = $_POST;
+      $result = addEmployee($newEmployee);
+      $_SESSION['newEmployee'] = $result;
+      header("Location: ../employee.php?okUpdate=true");
       break;
     }
     break;

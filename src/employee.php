@@ -38,6 +38,8 @@ session_start();
             <input name="name" type="text" class="form-control" id="inputName" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["name"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['name'];
             }
             ?>">
           </div>
@@ -46,6 +48,8 @@ session_start();
             <input name="email" type="email" class="form-control" id="inputMail" aria-describedby="emailHelp" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["email"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['email'];
             }
             ?>">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -55,6 +59,8 @@ session_start();
             <input name="city" type="text" class="form-control" id="inputCity" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["city"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['city'];
             }
             ?>">
           </div>
@@ -63,6 +69,8 @@ session_start();
             <input name="state" type="text" class="form-control" id="inputState" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["state"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['state'];
             }
             ?>">
           </div>
@@ -71,6 +79,8 @@ session_start();
             <input name="postalCode" type="number" class="form-control" id="inputPostalCode" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["postalCode"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['postalCode'];
             }
             ?>">
           </div>
@@ -81,22 +91,64 @@ session_start();
             <input name="lastName" type="text" class="form-control" id="inputLastName" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["lastName"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['lastName'];
             }
             ?>">
           </div>
           <div class="form-group">
           <label for="inputGender">Example select</label>
           <select class="form-control" id="inputGender" name="gender[]">
-            <option value="default" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){if($_SESSION["employeeUpdate"]["gender"]=="default"){ echo "selected='selected'";}}?>></option>
-            <option value="man" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
-}if($_SESSION["employeeUpdate"]["gender"]=="man"){ echo "selected='selected'";}if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
-}?>>man</option>
-            <option value="woman" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
-}if($_SESSION["employeeUpdate"]["gender"]=="woman"){ echo "selected='selected'";}if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
-}?>>woman</option>
-            <option value="other" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
-}if($_SESSION["employeeUpdate"]["gender"]=="other"){ echo "selected='selected'";}if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
-}?>>other</option>
+
+            <option value="default" <?php 
+              if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+                if($_SESSION["employeeUpdate"]["gender"]=="default"){ 
+                  echo "selected='selected'";
+                } 
+              } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+                if($_SESSION["newEmployee"]["gender"]=="default"){ 
+                  echo "selected='selected'";
+                } 
+              } 
+              //elseif(!isset($_SESSION["employeeUpdate"])) {}
+
+                ?>>
+            </option>
+
+            <option value="man" <?php 
+              if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+                if($_SESSION["employeeUpdate"]["gender"]=="man"){ 
+                  echo "selected='selected'";
+                }
+              } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+                if($_SESSION["newEmployee"]["gender"]=="man"){ 
+                  echo "selected='selected'";
+                }
+              } 
+            ?>>man</option>
+
+            <option value="woman" <?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              if($_SESSION["employeeUpdate"]["gender"]=="woman"){ 
+              echo "selected='selected'";}
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              if($_SESSION["newEmployee"]["gender"]=="woman"){ 
+                echo "selected='selected'";
+              }
+            } 
+            
+            ?>>woman</option>
+
+            <option value="other" <?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              if($_SESSION["employeeUpdate"]["gender"]=="other"){ 
+                echo "selected='selected'";}
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              if($_SESSION["newEmployee"]["gender"]=="other"){ 
+                echo "selected='selected'";
+              }
+            } 
+            ?>>other</option>
           </select>
           </div>
           <div class="form-group">
@@ -104,6 +156,8 @@ session_start();
             <input name="streetAddress" type="text" class="form-control" id="inputStreetAddress" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["streetAddress"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['streetAddress'];
             }
             ?>">
           </div>
@@ -112,6 +166,8 @@ session_start();
             <input name="age" type="number" class="form-control" id="inputAge" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["age"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['age'];
             }
             ?>">
           </div>
@@ -120,6 +176,8 @@ session_start();
             <input name="phoneNumber" type="number" class="form-control" id="inputPhoneNumber" value="<?php 
             if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
               echo $_SESSION["employeeUpdate"]["phoneNumber"];
+            } elseif(isset($_SESSION['newEmployee']) && !empty($_SESSION['newEmployee'])) {
+              echo $_SESSION['newEmployee']['phoneNumber'];
             }
             ?>">
           </div>

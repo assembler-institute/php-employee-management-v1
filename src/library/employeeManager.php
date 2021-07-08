@@ -19,6 +19,13 @@ function addEmployee(array $newEmployee)
   $allEmployees = getAllEmployees($path);
   $lastId = getNextIdentifier($allEmployees);
   $newEmployee["id"] = $lastId + 1;
+  if (isset($newEmployee["gender"])) {
+    $gender = $newEmployee["gender"];
+    for ($i=0;$i<count($gender);$i++){ 
+      $genderPost = $gender[$i]; 
+    }
+    $newEmployee["gender"] = $genderPost;
+  }
   $allEmployees[] = $newEmployee; 
   file_put_contents("../../resources/employees.json", json_encode($allEmployees));
   return $newEmployee;
@@ -48,7 +55,7 @@ function updateEmployee(array $updateEmployee)
   for ($i=0;$i<count($gender);$i++){ 
     $genderPost = $gender[$i]; 
   } 
-  print_r($genderPost);
+  // print_r($genderPost);
   $employeeUpdate = array(
     'name' => $_POST['name'],
     'lastName' => $_POST['lastName'],
