@@ -1,5 +1,7 @@
 <!-- TODO Employee view -->
 <?php
+require_once('./library/sessionHelper.php');
+checkExpiredSession();
 require_once "./library/loginController.php";
 revisar_si_existe_sesion();
 

@@ -48,6 +48,8 @@ function autentificar_usuario()
 
   if (check_usuario_on_database($username, $pass) == true) {
     $_SESSION["username"] = $username;
+    require_once('sessionHelper.php');
+    initSessionTimeout();
     header("Location: ../dashboard.php");
   } else {
     $_SESSION["ErrorDeAcceso"] = "Username y contraseña incorrectos";
@@ -59,8 +61,9 @@ function autentificar_usuario()
 
 function revisar_si_existe_sesion()
 {
-  session_start();
-
+  if (!isset($_SESSION)) {
+    session_start();
+  }
   // basename() te coge de la URL actual, el ultimo lugar donde te encuentres
   $checkUrl = basename($_SERVER["REQUEST_URI"], "?" . $_SERVER["QUERY_STRING"]);
 
