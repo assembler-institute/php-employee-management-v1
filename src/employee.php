@@ -97,7 +97,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
             </div>
             <div class="col-6">
                 <label for="selectGender" class="form-label">Gender</label>
-                <select class="form-control" name="gender" id="SelectGender">
+                <select class="form-control" name="gender" id="selectGender">
                     <option value="man">Man</option>
                     <option value="woman">Woman</option>
                     <option Value="other">Other</option>
@@ -115,10 +115,16 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select" name="state">
-                    <option value="" selected>Choose...</option>
+                <select id="selectState" class="form-select" name="state">
+                    <option value="">Choose...</option>
                     <option value="CA">CA</option>
                     <option value="UA">UA</option>
+                    <option value="WA">WA</option>
+                    <option value="KNT">KNT</option>
+                    <option value="GEO">GEO</option>
+                    <option value="UT">UT</option>
+                    <option value="TN">TN</option>
+                    <option value="LU">LU</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -144,7 +150,11 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         let gender = "<?php echo $employee['gender'] ?>";
-        $("#SelectGender").val(gender);
+        $("#selectGender").val(gender);
+
+        let state = "<?php echo $employee['state'] ?>";
+        $("#selectState").val(state);
+
         $("#updateForm").on('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
