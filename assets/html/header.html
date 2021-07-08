@@ -68,9 +68,19 @@
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider" /></li>
         <li>
-          <a class="dropdown-item text-danger" href="#">Sign out</a>
+          <a class="dropdown-item text-danger" onclick="logout()">Sign out</a>
         </li>
       </ul>
     </div>
   </div>
+  <script>
+    function logout() {
+      $.ajax({
+        url: "./library/loginController.php",
+        method: "LOGOUT",
+      }).done(function () {
+        window.location.href = "../index.php";
+      });
+    }
+  </script>
 </header>

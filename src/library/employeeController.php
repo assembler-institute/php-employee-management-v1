@@ -15,9 +15,12 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case "POST":
         addEmployee($_POST);
         break;
+    case "UPDATE":
+        parse_str(file_get_contents("php://input"), $_UPDATE);
+        updateEmployee($_UPDATE);
+        break;
     case "DELETE":
         parse_str(file_get_contents("php://input"), $_DELETE);
         deleteEmployee($_DELETE["id"]);
-
         break;
 }

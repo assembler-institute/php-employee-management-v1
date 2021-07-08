@@ -1,37 +1,44 @@
-const employeeUrl = "../../src/library/employeeController.php";
+"use strict";
+const employeeUrl = "./library/employeeController.php";
+let userId;
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  "use strict";
+function setUserId(id) {
+  userId = id;
+}
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll(".needs-validation");
+$(".needs-validation").on("submit", function (event) {
+  event.preventDefault();
+  if (event.target.checkValidity()) {
+    let updatedEmployee = {};
+    let elements = $(event.target).find("input, select");
+        elements.each((number, element) => {
+          updatedEmployee[element.id] = element.value;
+    });
+    updatedEmployee['id'] = userId;
+    event.target.classList.add("was-validated");
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
+    $.ajax({
+        url: employeeUrl,
+        method: "UPDATE",
+        data: {updatedEmployee: updatedEmployee}
+      }).done(_ => {
+        $("#responseMsg").text('Employee Update Success').attr('class', 'text-success');
+      }).fail(_ => {
+        $("#responseMsg").text('Something when wrong').attr('class', 'text-danger');
+    });
+  }
+});
 
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
-})();
 
-function populateEmployeeForm(id) {
+
+function populateEmployeeForm() {
   $.ajax({
-    url: `${employeeUrl}/?id=${id}`,
+    url: `${employeeUrl}/?id=${userId}`,
     method: "GET",
   })
     .done((employee) => {
       console.log(employee);
-      $("#firstName").val(
+      $("#name").val(
         typeof employee.name !== "undefined" ? employee.name : ""
       );
       $("#lastName").val(

@@ -13,7 +13,6 @@
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
-    <script type="text/javascript" src="../assets/js/employee.js"></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -31,8 +30,8 @@
                 <form class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="firstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                            <label for="name" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -118,15 +117,17 @@
                     </div>
 
                 </form>
+                <div id="responseMsg"></div>
             </div>
     </div>
     </main>
     </div>
-
+    <script type="text/javascript" src="../assets/js/employee.js"></script>
     <?php
 
     if (isset($_GET["id"])) {
-        echo "<script type='text/javascript'>populateEmployeeForm(" . $_GET["id"] . ")</script>";
+        echo "<script type='text/javascript'>setUserId(" . $_GET["id"] . ")</script>";
+        echo "<script type='text/javascript'>populateEmployeeForm()</script>";
     }
     ?>
 
