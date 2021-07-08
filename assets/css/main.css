@@ -9,3 +9,18 @@
   width: 50vw;
   text-align: center;
 }
+.bordersAndBackground {
+  background-color: whitesmoke;
+  border-top: 1px solid rgba(0, 153, 255, 0.603) !important;
+  border-left: 1px solid rgba(0, 153, 255, 0.603) !important;
+  border-right: 1px solid rgba(0, 153, 255, 0.603) !important;
+  border-bottom: 1px solid rgba(0, 153, 255, 0.603);
+  overflow: hidden;
+  color: rgba(15, 15, 15, 0.61);
+}
+.bordersAndBackground input {
+  border: 1px solid rgba(0, 153, 255, 0.603) !important;
+}
+.bordersAndBackgroundEdit {
+  border: 0 !important;
+}

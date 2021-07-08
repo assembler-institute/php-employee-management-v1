@@ -24,7 +24,7 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
-
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Dashboard</title>
 </head>
 
@@ -78,8 +78,8 @@ $authUser = getUserById($userId);
         $("#jsGrid").jsGrid({
             width: "100%",
             height: "75vh",
-
             filtering: true,
+            filtercss: 'noneOverFlow',
             inserting: true,
             editing: true,
             sorting: true,
@@ -87,7 +87,6 @@ $authUser = getUserById($userId);
             autoload: true,
             pageSize: 5,
             pageButtonCount: 5,
-
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
@@ -125,12 +124,14 @@ $authUser = getUserById($userId);
                     name: "id",
                     type: "text",
                     visible: false,
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: "name",
                     type: "text",
                     width: 100,
-                    validate: "required"
+                    validate: "required",
+                    css: 'bordersAndBackground',
                 },
                 {
                     name: "email",
@@ -144,7 +145,8 @@ $authUser = getUserById($userId);
                                 return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
                             },
                         }
-                    ]
+                    ],
+                    css: 'bordersAndBackground'
                 },
 
                 {
@@ -161,25 +163,29 @@ $authUser = getUserById($userId);
                             return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
                         },
                         param: [0, 80]
-                    }
+                    },
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'streetAddress',
                     type: 'text',
-                    width: '50',
+                    width: '100',
                     validate: 'required',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'city',
                     type: 'text',
                     width: '100',
                     validate: 'required',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'state',
                     type: 'text',
                     width: '50',
                     validate: 'required',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'postalCode',
@@ -192,7 +198,8 @@ $authUser = getUserById($userId);
                             }
                         },
                         message: "Please enter a valid postal code",
-                    }
+                    },
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'phoneNumber',
@@ -205,8 +212,8 @@ $authUser = getUserById($userId);
                             }
                         },
                         message: "Please enter a valid phone number",
-                    }
-
+                    },
+                    css: 'bordersAndBackground',
                 },
                 {
                     type: "control",
@@ -215,6 +222,9 @@ $authUser = getUserById($userId);
                         $result = $result.add(this._createDeleteButton(item));
                         return $result;
                     },
+                    css: "bordersAndBackgroundEdit",
+
+
                 },
             ],
 
