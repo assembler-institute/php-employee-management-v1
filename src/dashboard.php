@@ -56,7 +56,6 @@ if (!isset($_SESSION["loggedUsername"])) {
 
             // Redirect to employee's page
             rowClick: function(args) {
-
                 employeeRowId = args.item.id;
                 $("#dashboardLink").toggleClass("active");
                 $("#employeeLink").addClass("active");
@@ -71,7 +70,6 @@ if (!isset($_SESSION["loggedUsername"])) {
                         document.location = "./employee.php";
                     }
                 });
-
             },
 
             controller: {
@@ -98,11 +96,11 @@ if (!isset($_SESSION["loggedUsername"])) {
                         success: function(resp) {
                             console.log("POST: ", resp);
                             $("#jsGrid").jsGrid("loadData");
+                            $("#postAlert").toggleClass("show");
+                            setTimeout(() => $("#postAlert").toggleClass("show"), 3000);
                         }
                     });
                 },
-
-
 
                 deleteItem: function(item) {
                     return $.ajax({
@@ -113,6 +111,8 @@ if (!isset($_SESSION["loggedUsername"])) {
                         },
                         success: function(resp) {
                             console.log("DELETE: ", resp);
+                            $("#deleteAlert").toggleClass("show");
+                            setTimeout(() => $("#deleteAlert").toggleClass("show"), 3000);
                         }
                     });
                 },

@@ -145,9 +145,13 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 </div>
             </div>
 
-            <button type="submit" class="form-button btn btn-primary">Submit</button>
+
+            <button id="submitButton" type="submit" class="form-button btn btn-primary">Submit</button>
             <button type="button" class="form-button btn btn-secondary">Back</button>
+
+
         </form>
+
     </main>
     <?php require("../assets/html/footer.html") ?>
 
@@ -183,6 +187,9 @@ if (isset($_SESSION["employeeToUpdate"])) {
                     },
                     success: function(resp) {
                         console.log("Added employee", resp);
+                        $("#submitButton").attr("disabled", true);
+                        $("#postAlert").toggleClass("show");
+                        setTimeout(() => $("#postAlert").toggleClass("show"), 3000);
                     }
                 });
             } else {
@@ -194,6 +201,8 @@ if (isset($_SESSION["employeeToUpdate"])) {
                     },
                     success: function(resp) {
                         console.log("Updated employee", resp);
+                        $("#putAlert").toggleClass("show");
+                        setTimeout(() => $("#putAlert").toggleClass("show"), 3000);
                     }
                 });
             }

@@ -26,6 +26,10 @@ navbar-brand {
   font-weight: bold;
 }
 
+.alert {
+  z-index: 10;
+}
+
 /* Central container */
 main {
   padding-top: 20px;
