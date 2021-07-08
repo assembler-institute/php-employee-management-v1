@@ -46,13 +46,16 @@ $authUser = getUserById($userId);
         $("#jsGrid").jsGrid({
             width: "100%",
             height: "auto",
+
+            filtering: false,
             inserting: true,
             editing: true,
             sorting: true,
             paging: true,
             autoload: true,
-            pageSize: 5,
-            pageButtonCount: 5,
+            pageSize: 10,
+            pageButtonCount: 10,
+
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
@@ -106,7 +109,7 @@ $authUser = getUserById($userId);
                     name: "email",
                     title: "Email",
                     type: "text",
-                    width: 100,
+                    width: 150,
                     validate: [
                         "required",
                         {
@@ -126,16 +129,17 @@ $authUser = getUserById($userId);
                     title: "Age",
                     type: "text",
                     width: 50,
+                    css: 'backgroundRed',
                     validate: {
                         validator: function(value) {
-                            if (value > 0 && value < 80) {
+                            if (value >= 18 && value < 80) {
                                 return true;
                             }
                         },
                         message: function(value, item) {
                             return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
                         },
-                        param: [0, 80]
+                        param: [18, 80]
                     },
                     css: 'bordersAndBackground',
                     headercss: 'backgroundHeader'
@@ -216,8 +220,29 @@ $authUser = getUserById($userId);
             rowClick: function(item) {
                 window.location.href = "./employee.php?id=" + item.item.id;
             },
-        });
+            onItemInvalid: function(args) {
+                $(".toast-body").empty();
+                // prints [{ field: "Name", message: "Enter client name" }]
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
 
+                $.each(messages, function(index, value) {
+                    $(".toast-body")
+                        .append(`<div class="alert alert-danger p-1" role="alert">*${value}</div>`)
+                });
+                $('.toast').toast('show');
+                $(".toast").toast({
+                    delay: 2000
+                });
+
+            },
+            invalidNotify: function(args) {
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
+            }
+        });
         //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
         // $.ajax({

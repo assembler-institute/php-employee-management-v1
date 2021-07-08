@@ -60,7 +60,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" name="lastName" id="inputLastName" value="<?php echo $employee['lastName'] ?>">
+                <input type="text" class="form-control" name="lastName" id="inputLastName" value="<?php echo $employee['lastName'] ?? '' ?>">
             </div>
             <div class="col-6">
                 <label for="inputEmail" class="form-label">Email address</label>
@@ -124,40 +124,72 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
         let state = "<?php echo $employee['state'] ?>";
         $("#selectState").val(state);
 
+        const validation = $("#updateForm").validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 3
+                },
+                age: {
+                    required: true,
+                    number: true,
+                    min: 18
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phoneNumber: {
+                    required: true,
+                    digits: true
+                },
+                postalCode: {
+                    required: true,
+                    digits: true
+                },
+                city: {
+                    required: true,
+                    minlength: true
+                },
+            }
+        });
+
         $("#updateForm").on('submit', function(e) {
             e.preventDefault();
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
 
-            $.ajax({
-                type: "PUT",
-                url: "library/employeeController.php",
-                dataType: "json",
-                data: data,
-                cache: false,
-                success: function(data, status) {
-                    console.log(data, status);
-                    $(".alert-wrapper").empty();
-                    $(".alert-wrapper")
-                        .append(`<div class="alert alert-success" role="alert">${data.Message}</div>`)
+            if (!validation.errorList.length) {
+                $.ajax({
+                    type: "PUT",
+                    url: "library/employeeController.php",
+                    dataType: "json",
+                    data: data,
+                    cache: false,
+                    success: function(data, status) {
+                        console.log(data, status);
+                        $(".alert-wrapper").empty();
+                        $(".alert-wrapper")
+                            .append(`<div class="alert alert-success" role="alert">${data.Message}</div>`)
 
-                    // $('#updateForm').trigger("reset");
-                    window.setTimeout(function() {
-                        $('.alert-success').addClass('d-none');
-                    }, 3000);
-                },
-                error: function(xhr, status, error) {
-                    console.log(xhr, status, error);
-                    let err = JSON.parse(xhr.responseText);
-                    $(".alert-wrapper").empty();
-                    $(".alert-wrapper")
-                        .append(`<div class="alert alert-danger" role="alert">${data.Message}</div>`)
+                        // $('#updateForm').trigger("reset");
+                        window.setTimeout(function() {
+                            $('.alert-success').addClass('d-none');
+                        }, 3000);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr, status, error);
+                        let err = JSON.parse(xhr.responseText);
+                        $(".alert-wrapper").empty();
+                        $(".alert-wrapper")
+                            .append(`<div class="alert alert-danger" role="alert">${data.Message}</div>`)
 
-                    window.setTimeout(function() {
-                        $('.alert-danger').addClass('d-none');
-                    }, 3000);
-                }
-            });
+                        window.setTimeout(function() {
+                            $('.alert-danger').addClass('d-none');
+                        }, 3000);
+                    }
+                });
+            }
         });
         const userName = "<?php echo $authUser['name'] ?>";
         console.log(userName);
