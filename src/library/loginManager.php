@@ -23,7 +23,6 @@ function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassw
 function startSession()
 {
         $_SESSION["login_time"] = time();
-        echo "To dashboard";
         header("Location:../dashboard.php");
 }
 
@@ -32,6 +31,7 @@ function destroySession()
         session_unset();
         setcookie(session_name(), "", time() - 3600);
         session_destroy();
-        echo "To index";
+        session_start();
+        $_SESSION['logout'] = " You're being logged out";
         header("Location:../../index.php");
 }

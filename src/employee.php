@@ -4,7 +4,7 @@ session_start();
 
 // Blocking access
 if (!isset($_SESSION["loggedUsername"])) {
-    header("Location:../index.php");
+    header("Location:../index.php?accessDenied=true");
 }
 
 // Form content (from row click)
