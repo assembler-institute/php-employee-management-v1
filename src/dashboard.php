@@ -160,14 +160,14 @@ $authUser = getUserById($userId);
                     width: 50,
                     validate: {
                         validator: function(value) {
-                            if (value > 0 && value < 80) {
+                            if (value >= 18 && value < 80) {
                                 return true;
                             }
                         },
                         message: function(value, item) {
                             return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
                         },
-                        param: [0, 80]
+                        param: [18, 80]
                     },
                     css: 'bordersAndBackground',
                     headercss: 'backgroundHeader'
