@@ -28,7 +28,7 @@
 <body>
   <header class="bg-light mb-4">
     <?php 
-      require ("../assets/html/header.html");
+      require_once("../assets/html/header.html");
     ?>
   </header>
   <main class="container-xl mx-auto">
