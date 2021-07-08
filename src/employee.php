@@ -62,8 +62,8 @@ if (isset($_SESSION["employeeToUpdate"])) {
     // Method to form
     $formMethod = "POST";
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,7 +91,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
     <?php require("../assets/html/header.php") ?>
     <main class="container-fluid d-flex flex-column justify-content-center">
         <h2>Employee form</h2>
-        <form id="editForm" method="<?php echo $formMethod; ?>" action="./library/employeeController.php" class="w-50">
+        <form id="employeeForm" method="<?php echo $formMethod; ?>" action="./library/employeeController.php" class="w-50">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newName">Name</label>
@@ -131,21 +131,21 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newAge">Age</label>
-                    <input type="number" class="form-control" value="<?php echo $age; ?>" id="newAge" placeholder="Your phone age">
+                    <input type="number" class="form-control" value="<?php echo $age; ?>" id="newAge" placeholder="Your age">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newPostalCode">Postal Code</label>
-                    <input type="number" class="form-control" value=<?php echo $postalCode; ?> id="newPostalCode" placeholder="Your postal code">
+                    <input type="number" class="form-control" value="<?php echo $postalCode; ?>" id="newPostalCode" placeholder="Your postal code">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newPhone">Phone</label>
-                    <input type="number" class="form-control" value=<?php echo $phoneNumber; ?> id="newPhone" placeholder="Your phone number">
+                    <input type="number" class="form-control" value="<?php echo $phoneNumber; ?>" id="newPhone" placeholder="Your phone number">
                 </div>
             </div>
 
-            <button type="submit" class="form-button btn btn-primary">Sign in</button>
+            <button type="submit" class="form-button btn btn-primary">Submit</button>
             <button type="button" class="form-button btn btn-secondary">Back</button>
         </form>
     </main>
@@ -158,10 +158,9 @@ if (isset($_SESSION["employeeToUpdate"])) {
         //  console.log(urlParams);
         //  let id=urlParams.get('employeeRowId');
         //console.log(id);
-        $("#editForm").submit((e) => {
+        $("#employeeForm").submit((e) => {
             e.preventDefault();
             const item = {
-
                 "name": $("#newName").val(),
                 "lastName": $("#newLastName").val(),
                 "email": $("#newEmail").val(),
@@ -174,16 +173,30 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 "phoneNumber": $("#newPhone").val()
             }
 
-            $.ajax({
-                type: "PUT",
-                url: "./library/employeeController.php",
-                data: {
-                    "updatedEmployee": item,
-                },
-                success: function(resp) {
-                    console.log("PUT", resp);
-                }
-            });
+            // Make POST or PUT ajax requests
+            if ($("#employeeForm").attr("method") == "POST") {
+                $.ajax({
+                    type: "POST",
+                    url: "./library/employeeController.php",
+                    data: {
+                        "newEmployee": item,
+                    },
+                    success: function(resp) {
+                        console.log("Added employee", resp);
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: "PUT",
+                    url: "./library/employeeController.php",
+                    data: {
+                        "updatedEmployee": item,
+                    },
+                    success: function(resp) {
+                        console.log("Updated employee", resp);
+                    }
+                });
+            }
         })
     </script>
 </body>
