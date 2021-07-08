@@ -42,7 +42,43 @@ function deleteEmployee($id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+  $json = file_get_contents("../../resources/employees.json"); 
+  $json = json_decode($json, true);
+  $gender=$_POST["gender"];
+  for ($i=0;$i<count($gender);$i++){ 
+    $genderPost = $gender[$i]; 
+  } 
+  print_r($genderPost);
+  $employeeUpdate = array(
+    'name' => $_POST['name'],
+    'lastName' => $_POST['lastName'],
+    'email' => $_POST['email'],
+    'gender' => $genderPost,
+    'city' => $_POST['city'],
+    'streetAddress' =>  $_POST['streetAddress'],
+    'state' => $_POST['state'],
+    'age' => $_POST['age'],
+    'postalCode' => $_POST['postalCode'],
+    'phoneNumber' => $_POST['phoneNumber']
+  );
+  print_r($employeeUpdate);
+  $result = array();
+
+  foreach($json as $key) {
+    if ($key['id'] === $_SESSION['employeeUpdate']['id']) {
+       $employeeUpdate['id'] = $_SESSION['employeeUpdate']['id'];
+       $key = $employeeUpdate;
+       $_SESSION['employeeUpdate'] = $key;
+    }
+    array_push($result, $key);
+  }
+  $fileOpen = fopen("../../resources/employees.json", "w");
+  fwrite($fileOpen, json_encode($result));
+  fclose($fileOpen);
+  //unset($_SESSION['employeeUpdate']);
+  
+  //print_r($_SESSION['employeeUpdate']);
+  header("Location: ../employee.php?okUpdate=true");
 }
 
 
