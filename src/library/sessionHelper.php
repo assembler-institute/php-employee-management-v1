@@ -5,7 +5,7 @@ function goLogin()
 {
     $url = $_SERVER['REQUEST_URI'];
     if (!str_contains($url, 'index.php')) {
-        header('Location: ../index.php');
+        header("Location: /php-employee-management-v1/index.php");
     }
 }
 
@@ -15,6 +15,7 @@ function logout()
     session_destroy();
     session_unset();
     goLogin();
+    http_response_code(200);
 }
 
 $_SESSION['lifeTime'] = 600;

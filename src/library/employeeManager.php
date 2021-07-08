@@ -38,19 +38,22 @@ function deleteEmployee(string $id)
         $employees = array_values($employees);
         file_put_contents("../../resources/employees.json", json_encode($employees));
         http_response_code(200);
-        // return "Success";
     } else {
-        // return "Failed";
         http_response_code(400);
     }
 }
 
 
-// function updateEmployee(array $updateEmployee)
-// {
-// // TODO implement it
-// }
-
+function updateEmployee(array $updateEmployee)
+{
+    $jsonString = file_get_contents("../../resources/employees.json");
+    $employees = json_decode($jsonString, true);
+    $updatedEmployees = array_map(function ($employee) use ($updateEmployee){
+        return $employee['id'] == $updateEmployee['updatedEmployee']['id'] ? $updateEmployee['updatedEmployee'] : $employee;
+    },$employees);
+    file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
+    http_response_code(201);
+}
 
 function getEmployee($id)
 {

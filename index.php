@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include_once('./src/library/sessionHelper.php'); ?>
+<?php require_once('./src/library/sessionHelper.php'); ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

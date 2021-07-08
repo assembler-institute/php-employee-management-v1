@@ -1,12 +1,46 @@
-const employeeUrl = "../../src/library/employeeController.php";
+"use strict";
+const employeeUrl = "./library/employeeController.php";
+let userId;
 
-function populateEmployeeForm(id) {
+function setUserId(id) {
+  userId = id;
+}
+
+$(".needs-validation").on("submit", function (event) {
+  event.preventDefault();
+  if (event.target.checkValidity()) {
+    let updatedEmployee = {};
+    let elements = $(event.target).find("input, select");
+    elements.each((number, element) => {
+      updatedEmployee[element.id] = element.value;
+    });
+    updatedEmployee["id"] = userId;
+    event.target.classList.add("was-validated");
+
+    $.ajax({
+      url: employeeUrl,
+      method: "UPDATE",
+      data: { updatedEmployee: updatedEmployee },
+    })
+      .done((_) => {
+        $("#responseMsg")
+          .text("Employee Update Success")
+          .attr("class", "text-success");
+      })
+      .fail((_) => {
+        $("#responseMsg")
+          .text("Something when wrong")
+          .attr("class", "text-danger");
+      });
+  }
+});
+
+function populateEmployeeForm() {
   $.ajax({
-    url: `${employeeUrl}/?id=${id}`,
+    url: `${employeeUrl}/?id=${userId}`,
     method: "GET",
   })
     .done((employee) => {
-      console.log(employee);
       $("#name").val(typeof employee.name !== "undefined" ? employee.name : "");
       $("#lastName").val(
         typeof employee.lastName !== "undefined" ? employee.lastName : ""
@@ -37,7 +71,6 @@ function populateEmployeeForm(id) {
       $("#navDashboard").addClass("text-secondary").removeClass("text-white");
     })
     .fail((response) => {
-      //   debugger;
       const errorModal = new bootstrap.Modal(
         document.getElementById("errorModal"),
         {
