@@ -3,15 +3,14 @@
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
+ * @author: 
+ * @date: 07/07/2021
  */
 
 function addEmployee(array $newEmployee)
 {
     $employees = getEmployees();
-    $newEmployee = array_merge(['id' => generateId($employees)], $newEmployee);
-    // $newEmployee['id'] = generateId($employees);
+    $newEmployee = array_merge($newEmployee, ["id" => generateId($employees)]);
     $employees[] = $newEmployee;
     saveDataToJson($employees);
     return $newEmployee;
@@ -32,31 +31,42 @@ function deleteEmployee(string $id)
 
 function saveDataToJson($data)
 {
+    $dir = dirname(__DIR__, 2);
     file_put_contents(
-        "../../resources/employees.json",
+        $dir . "/resources/employees.json",
         json_encode($data, JSON_PRETTY_PRINT)
     );
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee($id, $data)
 {
+    $employees = getEmployees();
+    foreach ($employees as $index => $employee) {
+        if ($employee['id'] == $id) {
+            $updatedEmployee = array_merge($employee, $data);
+            $employees[$index] = $updatedEmployee;
+
+            saveDataToJson($employees);
+            return true;
+        }
+    }
 }
 
 
-function getEmployeeById(string $id)
+function getEmployeeById($id)
 {
-    // TODO implement it
     $employees = getEmployees();
     foreach ($employees as $employee) {
-        if ($employees['id'] == $id) return $employee;
+        if ($employee['id'] == $id) return $employee;
     }
     return null;
 }
 
 function getEmployees()
 {
-    $employeesJson = file_get_contents('../../resources/employees.json');
+    $dir = dirname(__DIR__, 2);
+    $employeesJson = file_get_contents($dir . '/resources/employees.json');
     return json_decode($employeesJson, true);
 }
 

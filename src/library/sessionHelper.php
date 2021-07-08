@@ -1,25 +1,16 @@
 <?php
 require_once "loginManager.php";
-session_start();
-//antes de hacer los cálculos, compruebo que el usuario está logueado 
+
+if (session_status() == PHP_SESSION_NONE) session_start();
+
 if (isset($_SESSION['authUserId'])) {
-    //calculamos el tiempo transcurrido 
-    $fechaGuardada = $_SESSION["lastLogin_timeStamp"];
-    $ahora = time();
-    $tiempo_transcurrido = $ahora - $fechaGuardada;
+    $savedTime = $_SESSION["lastLogin_timeStamp"];
+    $now = time();
+    $elapsedTime = $now - $savedTime;
 
-    //comparamos el tiempo transcurrido 
-    if ($tiempo_transcurrido >= 10) {
-        //si pasaron 10 minutos o más 
-        destroySession(); // destruyo la sesión 
-        $indexPath = dirname(__DIR__, 2) . '/index.php';
-
-        // header("Location: $indexPath "); //envío al usuario a la pag. de autenticación 
-        //sino, actualizo la fecha de la sesión 
+    if ($elapsedTime >= 600) {
+        destroySession();
     } else {
-        $_SESSION["lastLogin_timeStamp"] = $ahora;
+        $_SESSION["lastLogin_timeStamp"] = $now;
     }
-} else {
-    //si no está logueado lo envío a la página de autentificación 
-    //     header("Location: $indexPath ");
 }

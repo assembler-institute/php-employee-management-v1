@@ -1,13 +1,11 @@
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-
 <?php
 require_once('library/loginManager.php');
-require('./library/sessionHelper.php');
+require_once('library/employeeManager.php');
+require_once('library/sessionHelper.php');
 
 if (session_status() == PHP_SESSION_NONE) session_start();
 
 if (!isset($_SESSION['authUserId'])) {
-    http_response_code(401);
     header('Location:../index.php');
 }
 
@@ -126,6 +124,7 @@ $authUser = getUserById($userId);
             fields: [{
                     name: "id",
                     type: "text",
+                    visible: false,
                 },
                 {
                     name: "name",
@@ -210,13 +209,21 @@ $authUser = getUserById($userId);
 
                 },
                 {
-                    type: "control"
-                }
-            ]
+                    type: "control",
+                    itemTemplate: function(value, item) {
+                        var $result = $([]);
+                        $result = $result.add(this._createDeleteButton(item));
+                        return $result;
+                    },
+                },
+            ],
+
+            rowClick: function(item) {
+                window.location.href = "./employee.php?id=" + item.item.id;
+            },
         });
 
-        $("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
-
+        //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
         // $.ajax({
         //     type: "DELETE",
