@@ -50,7 +50,6 @@ if (!isset($_SESSION["loggedUsername"])) {
             inserting: true,
             sorting: true,
             paging: true,
-            // editing: true,
             // pageSize: 5,
             // pageIndex: 1,
 
@@ -78,8 +77,6 @@ if (!isset($_SESSION["loggedUsername"])) {
                         url: "./library/employeeController.php",
                         type: "GET",
                         data: filter,
-                        //dataType: "json",
-                        //contentType: "application/json",
                         success: function(resp) {
                             console.log("GET: ", resp);
                         }
