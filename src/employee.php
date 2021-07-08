@@ -12,6 +12,7 @@ session_start();
   <title>Employee Management</title>
 
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
   <header class="bg-light mb-4">
