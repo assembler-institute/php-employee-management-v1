@@ -29,7 +29,7 @@ $authUser = getUserById($userId);
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 px-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 px-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">Employee Management</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +66,17 @@ $authUser = getUserById($userId);
             </li>
         </div>
     </nav>
+    <div class="toast-container position-absolute top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Required fields</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+
+            </div>
+        </div>
+    </div>
     <div class="px-5">
         <div id="jsGrid"></div>
     </div>
@@ -78,13 +89,16 @@ $authUser = getUserById($userId);
         $("#jsGrid").jsGrid({
             width: "100%",
             height: "auto",
+
+            filtering: false,
             inserting: true,
             editing: true,
             sorting: true,
             paging: true,
             autoload: true,
-            pageSize: 5,
-            pageButtonCount: 5,
+            pageSize: 10,
+            pageButtonCount: 10,
+
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
@@ -138,7 +152,7 @@ $authUser = getUserById($userId);
                     name: "email",
                     title: "Email",
                     type: "text",
-                    width: 100,
+                    width: 150,
                     validate: [
                         "required",
                         {
@@ -248,8 +262,29 @@ $authUser = getUserById($userId);
             rowClick: function(item) {
                 window.location.href = "./employee.php?id=" + item.item.id;
             },
-        });
+            onItemInvalid: function(args) {
+                $(".toast-body").empty();
+                // prints [{ field: "Name", message: "Enter client name" }]
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
 
+                $.each(messages, function(index, value) {
+                    $(".toast-body")
+                        .append(`<div class="alert alert-danger p-1" role="alert">*${value}</div>`)
+                });
+                $('.toast').toast('show');
+                $(".toast").toast({
+                    delay: 2000
+                });
+
+            },
+            invalidNotify: function(args) {
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
+            }
+        });
         //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
         // $.ajax({
