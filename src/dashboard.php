@@ -24,7 +24,7 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
-
+    <link rel="stylesheet" href="../assets/css/main.css">
     <title>Dashboard</title>
 </head>
 
@@ -78,7 +78,6 @@ $authUser = getUserById($userId);
         $("#jsGrid").jsGrid({
             width: "100%",
             height: "75vh",
-
             filtering: true,
             inserting: true,
             editing: true,
@@ -130,12 +129,14 @@ $authUser = getUserById($userId);
                     name: "name",
                     type: "text",
                     width: 100,
-                    validate: "required"
+                    validate: "required",
+                    css: 'backgroundRed'
                 },
                 {
                     name: "email",
                     type: "text",
                     width: 100,
+                    css: 'backgroundRed',
                     validate: [
                         "required",
                         {
@@ -151,6 +152,7 @@ $authUser = getUserById($userId);
                     name: "age",
                     type: "text",
                     width: 50,
+                    css: 'backgroundRed',
                     validate: {
                         validator: function(value) {
                             if (value > 0 && value < 80) {
@@ -166,20 +168,23 @@ $authUser = getUserById($userId);
                 {
                     name: 'streetAddress',
                     type: 'text',
-                    width: '50',
+                    width: '100',
                     validate: 'required',
+                    css: 'backgroundRed'
                 },
                 {
                     name: 'city',
                     type: 'text',
                     width: '100',
                     validate: 'required',
+                    css: 'backgroundRed'
                 },
                 {
                     name: 'state',
                     type: 'text',
                     width: '50',
                     validate: 'required',
+                    css: 'backgroundRed'
                 },
                 {
                     name: 'postalCode',
@@ -192,7 +197,8 @@ $authUser = getUserById($userId);
                             }
                         },
                         message: "Please enter a valid postal code",
-                    }
+                    },
+                    css: 'backgroundRed'
                 },
                 {
                     name: 'phoneNumber',
@@ -205,7 +211,8 @@ $authUser = getUserById($userId);
                             }
                         },
                         message: "Please enter a valid phone number",
-                    }
+                    },
+                    css: 'backgroundRed'
 
                 },
                 {

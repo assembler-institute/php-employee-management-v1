@@ -9,3 +9,7 @@
   width: 50vw;
   text-align: center;
 }
+.backgroundRed {
+  background-color: whitesmoke !important;
+  border: 1px solid rgba(0, 162, 255, 0.329);
+}
