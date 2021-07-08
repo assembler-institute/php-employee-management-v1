@@ -24,7 +24,7 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
-
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <title>Dashboard</title>
 </head>
 
@@ -77,9 +77,7 @@ $authUser = getUserById($userId);
     <script>
         $("#jsGrid").jsGrid({
             width: "100%",
-            height: "75vh",
-
-            filtering: true,
+            height: "auto",
             inserting: true,
             editing: true,
             sorting: true,
@@ -87,7 +85,6 @@ $authUser = getUserById($userId);
             autoload: true,
             pageSize: 5,
             pageButtonCount: 5,
-
             controller: {
                 loadData: function(filter) {
                     return $.ajax({
@@ -125,15 +122,21 @@ $authUser = getUserById($userId);
                     name: "id",
                     type: "text",
                     visible: false,
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: "name",
+                    title: "Name",
                     type: "text",
                     width: 100,
-                    validate: "required"
+                    validate: "required",
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
                 {
                     name: "email",
+                    title: "Email",
                     type: "text",
                     width: 100,
                     validate: [
@@ -144,11 +147,15 @@ $authUser = getUserById($userId);
                                 return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
                             },
                         }
-                    ]
+                    ],
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
 
                 {
                     name: "age",
+                    title: "Age",
                     type: "text",
                     width: 50,
                     validate: {
@@ -161,29 +168,43 @@ $authUser = getUserById($userId);
                             return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
                         },
                         param: [18, 80]
-                    }
+                    },
+                    css: 'bordersAndBackground',
+                    headercss: 'backgroundHeader'
+
                 },
                 {
                     name: 'streetAddress',
+                    title: 'Address',
                     type: 'text',
-                    width: '50',
+                    width: '100',
+                    headercss: 'backgroundHeader',
                     validate: 'required',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'city',
+                    title: 'City',
                     type: 'text',
                     width: '100',
                     validate: 'required',
+                    headercss: 'backgroundHeader',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'state',
+                    title: 'State',
                     type: 'text',
                     width: '50',
+                    headercss: 'backgroundHeader',
                     validate: 'required',
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'postalCode',
+                    title: 'Postal Code',
                     type: 'text',
+                    headercss: 'backgroundHeader',
                     width: '100',
                     validate: {
                         validator: function(value) {
@@ -192,11 +213,14 @@ $authUser = getUserById($userId);
                             }
                         },
                         message: "Please enter a valid postal code",
-                    }
+                    },
+                    css: 'bordersAndBackground'
                 },
                 {
                     name: 'phoneNumber',
+                    title: 'Phone Number',
                     type: 'text',
+                    headercss: 'backgroundHeader',
                     width: '100',
                     validate: {
                         validator: function(value, item) {
@@ -205,8 +229,8 @@ $authUser = getUserById($userId);
                             }
                         },
                         message: "Please enter a valid phone number",
-                    }
-
+                    },
+                    css: 'bordersAndBackground',
                 },
                 {
                     type: "control",
@@ -215,6 +239,9 @@ $authUser = getUserById($userId);
                         $result = $result.add(this._createDeleteButton(item));
                         return $result;
                     },
+                    css: "bordersAndBackgroundEdit",
+                    headercss: 'backgroundHeader'
+
                 },
             ],
 
