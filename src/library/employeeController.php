@@ -20,9 +20,11 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         break;
     case "PUT":
         parse_str(file_get_contents("php://input"), $_PUT);
-        $modifyItem=json_encode([$_PUT["updatedEmployee"]],true);
-        echo $modifyItem;
-        //updateEmployee($modifyItem);
+        $updatedItem=$_PUT["updatedEmployee"];
+        
+        // $modifyItem=json_encode([$_PUT["updatedEmployee"]],true);
+        // echo $modifyItem;
+        updateEmployee($updatedItem);
         break;
     case "POST":
         addEmployee($_POST["newEmployee"]);

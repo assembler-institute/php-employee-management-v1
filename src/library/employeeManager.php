@@ -73,8 +73,10 @@ function deleteEmployee(string $id)
 
 
 function updateEmployee(array $updateEmployee)
-{
-    echo $updateEmployee;
+{ 
+    $id= $_SESSION["employeeId"];
+    echo "thta's my id $id";
+    echo print_r($updateEmployee);
 }
 
 
@@ -88,6 +90,7 @@ function getEmployee(string $id)
     foreach ($decodedJSON as $employee) {
         if ($employee["id"] == $id) {
             $_SESSION["employeeToUpdate"] = $employee;
+            $_SESSION["employeeId"] = $id;
         }
     }
     //  echo $id;
