@@ -59,6 +59,7 @@ session_start();
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
                     echo $_SESSION["wrongEmailPass"];
                     echo "</div>";
+                    unset($_SESSION['wrongEmailPass']);
                     break;
 
                 case (isset($_SESSION["wrongName"])):
@@ -66,6 +67,7 @@ session_start();
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
                     echo $_SESSION["wrongName"];
                     echo "</div>";
+                    unset($_SESSION['wrongName']);
                     break;
 
                 case (isset($_SESSION["wrongPass"])):
@@ -73,14 +75,21 @@ session_start();
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
                     echo $_SESSION["wrongPass"];
                     echo "</div>";
+                    unset($_SESSION['wrongPass']);
                     break;
                 case (isset($_SESSION["logout"])):
                     echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
                     echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
                     echo $_SESSION["logout"];
                     echo "</div>";
+                    unset($_SESSION['logout']);
                     break;
-
+                case (isset($_GET['accessDenied'])):
+                    echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
+                    echo " <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>";
+                    echo " Access denied";
+                    echo "</div>";
+                    unset($_GET['accessDenied']);
                 default:
                     # code...
                     break;
