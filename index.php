@@ -29,7 +29,7 @@ if (isset($_SESSION['authUserId'])) {
             </section>
         </section>
         <section class="content-center text-center auth-form">
-            <form class="form-signin" method="POST" action="src/library/loginController.php">
+            <form class="form-signin" method="POST" id="login">
                 <img class="mb-4" src="./assets/img/logo.png" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label for="inputEmail" class="sr-only">Email address</label>
