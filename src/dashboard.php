@@ -135,13 +135,13 @@ if (!isset($_SESSION["loggedUsername"])) {
                 {
                     title: "Age",
                     name: "age",
-                    type: "text",
+                    type: "number",
                     width: 20
                 },
                 {
                     title: "St. Num.",
                     name: "streetAddress",
-                    type: "text",
+                    type: "number",
                     width: 20
                 },
                 {
@@ -159,13 +159,13 @@ if (!isset($_SESSION["loggedUsername"])) {
                 {
                     title: "Postal code",
                     name: "postalCode",
-                    type: "text",
+                    type: "number",
                     width: 30
                 },
                 {
                     title: "Phone",
                     name: "phoneNumber",
-                    type: "text",
+                    type: "number",
                     width: 40
                 },
                 {
