@@ -21,9 +21,8 @@ function addEmployee(array $newEmployee)
   $newEmployee["id"] = $lastId + 1;
   $allEmployees[] = $newEmployee; 
   file_put_contents("../../resources/employees.json", json_encode($allEmployees));
-  http_response_code(201);
+  return $newEmployee;
 }
-
 
 function deleteEmployee($id)
 {
@@ -37,6 +36,7 @@ function deleteEmployee($id)
   unset($allEmployees[$employeeToDelete]);
   $allEmployees = array_values($allEmployees);
   file_put_contents("../../resources/employees.json", json_encode($allEmployees));
+  return $employeeToDelete;
 }
 
 
