@@ -25,6 +25,7 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+
     <title>Dashboard</title>
 </head>
 

@@ -1,9 +1,17 @@
-<!-- TODO Employee view -->
-
 <?php
 require_once('./library/loginManager.php');
 require_once('./library/employeeManager.php');
 require_once('./library/sessionHelper.php');
+require_once('library/avatarsApi.php');
+require_once('imageGallery.php');
+
+$request = 'https://uifaces.co/api?limit=5';
+$key = 'A5CD0639-1EA74339-838676BE-5B902E21';
+$headers = array(
+    "Cache-Control:no-cache",
+    "Accept:application/json",
+    "X-API-KEY:" . $key,
+);
 
 if (session_status() == PHP_SESSION_NONE) session_start();
 
@@ -80,8 +88,24 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
     </nav>
 
     <section class="form-section">
-        <h2>User Detail</h2>
         <form class="row g-3" id="updateForm">
+            <section class="mb-3">
+                <h2>Avatars</h2>
+                <div>
+                    <?php
+                    if (isset($employee['photo'])) {
+                        $photo = $employee['photo'];
+                        // echo "<img src=\"$photo\" class=\"img-thumbnail sized-image\" alt=\"employeePhoto\">";
+                        renderImages(1, [$photo]);
+                    } else {
+                        // require_once('imageGallery.php');
+                        renderImages(5);
+                    }
+                    ?>
+                </div>
+            </section>
+
+            <h2>User Detail</h2>
             <input type="hidden" class="form-control" name="id" id="employeeId" value="<?php echo $employee['id'] ?>">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
@@ -143,6 +167,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 <button type="submit" class="btn btn-primary" name="updateSubmit">Submit</button>
             </div>
         </form>
+
         <div class="alert-wrapper side-alert"></div>
     </section>
 
