@@ -1,7 +1,7 @@
 // Checking remaining time interval
 setInterval(function () {
   $.ajax({
-    url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/sessionHelper.php",
+    url: "./library/sessionHelper.php",
     type: "GET",
     data: {
       timeoutCheck: "true",
@@ -21,7 +21,7 @@ setInterval(function () {
 // Closing the session
 function closeSessionAjax() {
   $.ajax({
-    url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/sessionHelper.php",
+    url: "./library/sessionHelper.php",
     type: "GET",
     data: {
       login: "false",

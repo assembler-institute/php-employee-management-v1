@@ -12,6 +12,7 @@ if (!isset($_SESSION["loggedUsername"])) {
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,20 +56,32 @@ if (!isset($_SESSION["loggedUsername"])) {
 
             // Redirect to employee's page
             rowClick: function(args) {
+
                 employeeRowId = args.item.id;
                 $("#dashboardLink").toggleClass("active");
                 $("#employeeLink").addClass("active");
-                document.location = `./employee.php?employeeRowId=${employeeRowId}`;
+                $.ajax({
+                    url:"./library/employeeController.php",
+                    type:"GET",
+                    data:{
+                        "employeeRowId":employeeRowId
+                    },
+                    success: function(response){
+                        console.log(response);
+                        document.location = "./employee.php";
+                    }
+                });
+                
             },
 
-            controller: {
+            controller:{
                 loadData: function(filter) {
                     return $.ajax({
                         url: "./library/employeeController.php",
                         type: "GET",
                         data: filter,
-                        // dataType: "json",
-                        // contentType: "application/json",
+                        //dataType: "json",
+                        //contentType: "application/json",
                         success: function(resp) {
                             console.log("GET: ", resp);
                         }
@@ -89,18 +102,7 @@ if (!isset($_SESSION["loggedUsername"])) {
                     });
                 },
 
-                // updateItem: function(item) {
-                //     return $.ajax({
-                //         type: "PUT",
-                //         url: "http://localhost:8888/17.1-Php-Employee-Management/src/library/employeeController.php",
-                //         data: {
-                //             "updatedEmployee": item
-                //         },
-                //         success: function(resp) {
-                //             console.log("PUT");
-                //         }
-                //     });
-                // },
+                
 
                 deleteItem: function(item) {
                     return $.ajax({

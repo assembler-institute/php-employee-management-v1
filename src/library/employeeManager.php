@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 function getAllEmployees()
 {
     $jsonPath = file_get_contents("../../resources/employees.json");
@@ -40,7 +39,7 @@ function addEmployee(array $newEmployee)
         "name" => $newEmployee["name"],
         "lastName" => "",
         "email" => $newEmployee["email"],
-        "gender" => "?",
+        "gender" => "",
         "city" => $newEmployee["city"],
         "streetAddress" => $newEmployee["streetAddress"],
         "state" => $newEmployee["state"],
@@ -75,22 +74,23 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    // TODO implement it
+    echo $updateEmployee;
 }
 
 
 function getEmployee(string $id)
 {
+
     // TODO implement it
     // $_SESSION["employeeID"] = $id;
-    // $jsonPath = file_get_contents("../../resources/employees.json");
-    // $decodedJSON = json_decode($jsonPath, true);
-
-    // $foundEmployee = array_filter($decodedJSON, function ($employee) {
-    //     if ($employee["id"] == $_SESSION["employeeID"]) {
-    //         return $employee;
-    //     }
-    // });
+    $jsonPath = file_get_contents("../../resources/employees.json");
+    $decodedJSON = json_decode($jsonPath, true);
+    foreach ($decodedJSON as $employee) {
+        if ($employee["id"] == $id) {
+            $_SESSION["employeeToUpdate"] = $employee;
+        }
+    }
+    //  echo $id;
 
     // $foundEmployeeJSON = json_encode($foundEmployee, true);
     // echo print_r($foundEmployee);
