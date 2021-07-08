@@ -24,12 +24,15 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <title>Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 px-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 px-3">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php">Employee Management</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,6 +69,17 @@ $authUser = getUserById($userId);
             </li>
         </div>
     </nav>
+    <div class="position-fixed p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Required fields</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+
+            </div>
+        </div>
+    </div>
     <div class="px-5">
         <div id="jsGrid"></div>
     </div>
@@ -77,16 +91,16 @@ $authUser = getUserById($userId);
     <script>
         $("#jsGrid").jsGrid({
             width: "100%",
-            height: "75vh",
+            height: "auto",
 
-            filtering: true,
+            filtering: false,
             inserting: true,
             editing: true,
             sorting: true,
             paging: true,
             autoload: true,
-            pageSize: 5,
-            pageButtonCount: 5,
+            pageSize: 10,
+            pageButtonCount: 10,
 
             controller: {
                 loadData: function(filter) {
@@ -135,7 +149,7 @@ $authUser = getUserById($userId);
                 {
                     name: "email",
                     type: "text",
-                    width: 100,
+                    width: 150,
                     validate: [
                         "required",
                         {
@@ -166,7 +180,7 @@ $authUser = getUserById($userId);
                 {
                     name: 'streetAddress',
                     type: 'text',
-                    width: '50',
+                    width: '100',
                     validate: 'required',
                 },
                 {
@@ -221,8 +235,26 @@ $authUser = getUserById($userId);
             rowClick: function(item) {
                 window.location.href = "./employee.php?id=" + item.item.id;
             },
-        });
+            onItemInvalid: function(args) {
+                $(".toast-body").empty();
+                // prints [{ field: "Name", message: "Enter client name" }]
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
 
+                $.each(messages, function(index, value) {
+                    $(".toast-body")
+                        .append(`<div class="alert alert-danger p-1" role="alert">*${value}</div>`)
+                });
+                $('.toast').toast('show');
+
+            },
+            invalidNotify: function(args) {
+                var messages = $.map(args.errors, function(error) {
+                    return error.field.name + ": " + error.message;
+                });
+            }
+        });
         //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
         // $.ajax({

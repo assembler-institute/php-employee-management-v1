@@ -89,7 +89,7 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" name="lastName" id="inputLastName" value="<?php echo $employee['lastName'] ?>">
+                <input type="text" class="form-control" name="lastName" id="inputLastName" value="<?php echo $employee['lastName'] ?? '' ?>">
             </div>
             <div class="col-6">
                 <label for="inputEmail" class="form-label">Email address</label>
