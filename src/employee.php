@@ -43,43 +43,11 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5 px-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">Employee Management</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link " href="dashboard.php">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="employee.php">Employees</a>
-                    </li>
-                </ul>
-            </div>
-            <li class="nav-item d-flex dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?= $authUser['name'] ?>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">
-                            <i class="bi bi-person me-2"></i>
-                            Profile
-                        </a>
-                    </li>
-                    <li>
-                        <form class="dropdown-item" action="library/loginController.php" method="post">
-                            <input type="hidden" name="action" value="logout">
-                            <i class="bi bi-box-arrow-left"></i>
-                            <input class="bg-transparent border-0" type="submit" value="logout"></input>
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </div>
-    </nav>
+    <header>
+        <?php
+        require_once('../assets/html/header.html');
+        ?>
+    </header>
 
     <section class="form-section">
         <form class="row g-3" id="updateForm">
@@ -232,7 +200,13 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 });
             }
         });
+        const userName = "<?php echo $authUser['name'] ?>";
+        console.log(userName);
+        setUserName(userName);
     </script>
+    <?php
+    require_once('../assets/html/footer.html');
+    ?>
 </body>
 
 </html>
