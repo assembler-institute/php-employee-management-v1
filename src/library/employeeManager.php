@@ -32,14 +32,19 @@ function addEmployee(array $newEmployee)
         $_SESSION["newEmployeeId"]++;
     }
 
+    // If user is created from dashboard
+    if (!isset($newEmployee["lastName"])) {
+        $newEmployee += ["lastName" => ""];
+        $newEmployee += ["gender" => ""];
+    }
 
     // Template array
     $newEmployeeArray = array(
         "id" => strval($_SESSION["newEmployeeId"]),
         "name" => $newEmployee["name"],
-        "lastName" => "",
+        "lastName" =>  $newEmployee["lastName"],
         "email" => $newEmployee["email"],
-        "gender" => "",
+        "gender" =>  $newEmployee["gender"],
         "city" => $newEmployee["city"],
         "streetAddress" => $newEmployee["streetAddress"],
         "state" => $newEmployee["state"],

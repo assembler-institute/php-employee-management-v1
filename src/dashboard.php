@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedUsername"])) {
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,20 +61,20 @@ if (!isset($_SESSION["loggedUsername"])) {
                 $("#dashboardLink").toggleClass("active");
                 $("#employeeLink").addClass("active");
                 $.ajax({
-                    url:"./library/employeeController.php",
-                    type:"GET",
-                    data:{
-                        "employeeRowId":employeeRowId
+                    url: "./library/employeeController.php",
+                    type: "GET",
+                    data: {
+                        "employeeRowId": employeeRowId
                     },
-                    success: function(response){
+                    success: function(response) {
                         console.log(response);
                         document.location = "./employee.php";
                     }
                 });
-                
+
             },
 
-            controller:{
+            controller: {
                 loadData: function(filter) {
                     return $.ajax({
                         url: "./library/employeeController.php",
@@ -96,13 +96,13 @@ if (!isset($_SESSION["loggedUsername"])) {
                             "newEmployee": item,
                         },
                         success: function(resp) {
-                            console.log("POST");
+                            console.log("POST: ", resp);
                             $("#jsGrid").jsGrid("loadData");
                         }
                     });
                 },
 
-                
+
 
                 deleteItem: function(item) {
                     return $.ajax({
