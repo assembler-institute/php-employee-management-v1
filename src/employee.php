@@ -20,57 +20,106 @@ session_start();
     ?>
   </header>
   <main class="container-xl mx-auto">
-    <form action="./library/employeeController.php" method="POST" class="container-md">
+    <form action="./library/employeeController.php?update=true" method="POST" class="container-md">
+    <?php 
+      if(isset($_GET['okUpdate'])){
+        if($_GET['okUpdate'] == true){
+          echo "<div class='alert alert-success text-center'> <h5>Employee Successfully Saved!</h5></div>";
+        }
+      } 
+    ?>
       <h3>Employee: </h3>
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" value="<?php echo $_SESSION["employeeUpdate"]["name"] ?>">
+            <input name="name" type="text" class="form-control" id="inputName" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["name"];
+            }
+            ?>">
           </div>
           <div class="form-group">
             <label for="inputMail">Email adrress</label>
-            <input type="email" class="form-control" id="inputMail" aria-describedby="emailHelp" value="<?php echo $_SESSION["employeeUpdate"]["email"] ?>">
+            <input name="email" type="email" class="form-control" id="inputMail" aria-describedby="emailHelp" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["email"];
+            }
+            ?>">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity" value="<?php echo $_SESSION["employeeUpdate"]["city"] ?>">
+            <input name="city" type="text" class="form-control" id="inputCity" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["city"];
+            }
+            ?>">
           </div>
           <div class="form-group">
             <label for="inputState">State</label>
-            <input type="text" class="form-control" id="inputState" value="<?php echo $_SESSION["employeeUpdate"]["state"] ?>">
+            <input name="state" type="text" class="form-control" id="inputState" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["state"];
+            }
+            ?>">
           </div>
           <div class="form-group">
             <label for="inputPostalCode">Postal Code</label>
-            <input type="number" class="form-control" id="inputPostalCode" value="<?php echo $_SESSION["employeeUpdate"]["postalCode"] ?>">
+            <input name="postalCode" type="number" class="form-control" id="inputPostalCode" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["postalCode"];
+            }
+            ?>">
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="inputLastName">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName" value="<?php echo $_SESSION["employeeUpdate"]["lastName"] ?>">
+            <input name="lastName" type="text" class="form-control" id="inputLastName" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["lastName"];
+            }
+            ?>">
           </div>
           <div class="form-group">
           <label for="inputGender">Example select</label>
-          <select class="form-control" id="inputGender">
-            <option value="defect"></option>
-            <option value="man">man</option>
-            <option value="woman">woman</option>
-            <option value="other">other</option>
+          <select class="form-control" id="inputGender" name="gender[]">
+            <option value="default" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){if($_SESSION["employeeUpdate"]["gender"]=="default"){ echo "selected='selected'";}}?>></option>
+            <option value="man" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+}if($_SESSION["employeeUpdate"]["gender"]=="man"){ echo "selected='selected'";}if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+}?>>man</option>
+            <option value="woman" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+}if($_SESSION["employeeUpdate"]["gender"]=="woman"){ echo "selected='selected'";}if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+}?>>woman</option>
+            <option value="other" <?php if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+}if($_SESSION["employeeUpdate"]["gender"]=="other"){ echo "selected='selected'";}if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+}?>>other</option>
           </select>
           </div>
           <div class="form-group">
             <label for="inputStreetAddress">Street Adrress</label>
-            <input type="text" class="form-control" id="inputStreetAddress" value="<?php echo $_SESSION["employeeUpdate"]["streetAddress"] ?>">
+            <input name="streetAddress" type="text" class="form-control" id="inputStreetAddress" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["streetAddress"];
+            }
+            ?>">
           </div>
           <div class="form-group">
             <label for="inputAge">Age</label>
-            <input type="number" class="form-control" id="inputAge" value="<?php echo $_SESSION["employeeUpdate"]["age"] ?>">
+            <input name="age" type="number" class="form-control" id="inputAge" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["age"];
+            }
+            ?>">
           </div>
           <div class="form-group">
             <label for="inputPhoneNumber">Phone Number</label>
-            <input type="number" class="form-control" id="inputPhoneNumber" value="<?php echo $_SESSION["employeeUpdate"]["phoneNumber"] ?>">
+            <input name="phoneNumber" type="number" class="form-control" id="inputPhoneNumber" value="<?php 
+            if(isset($_SESSION["employeeUpdate"]) && !empty($_SESSION["employeeUpdate"])){
+              echo $_SESSION["employeeUpdate"]["phoneNumber"];
+            }
+            ?>">
           </div>
         </div>
       </div>
