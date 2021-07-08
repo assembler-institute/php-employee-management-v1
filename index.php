@@ -6,6 +6,10 @@ session_start();
 <html lang="en">
 
 <head>
+    <script lenguage="javascipt" type="text/javascript"> 
+        window.history.forward();
+        window.onunload=function(){null};
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
