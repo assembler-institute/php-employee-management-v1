@@ -16,11 +16,11 @@ if (isset($_GET["login"])) {
 if (isset($_SESSION["login_time"])) {
     if (isset($_GET["timeoutCheck"])) {
         if (time() - $_SESSION["login_time"] >= 10 * 60) {
-            echo "Logout";
+            echo "Log out";
         } else {
             $remainingTime =  time() - $_SESSION["login_time"];
             echo "$remainingTime is less than 10 minutes: ";
-            echo "not loging out.";
+            echo "Not logging out.";
         }
     }
 }

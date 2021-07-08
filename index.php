@@ -17,10 +17,10 @@ session_start();
     <title>Document</title>
 </head>
 
-<body class="text-center d-flex flex-column justify-content-center align-items-center">
+<body class="text-center d-flex flex-column justify-content-center align-items-center bg-light">
     <main class="form-signin container-fluid mb-4">
         <form method="post" action="./src/library/loginController.php">
-            <img class="mb-4" src="./images/logo.png" alt width="72" height="57">
+            <img class="mb-4" src="./images/user.svg" alt="user icon" width="70" height="70">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <!-- Username -->
             <div class="mb-3">
@@ -28,7 +28,7 @@ session_start();
                 <input name="user" type="text" class="form-control" id="floatingInput" placeholder="Username" required>
             </div class="mb-4">
             <!-- Password -->
-            <div>
+            <div class="mb-4">
                 <label for="floatingPassword">Password</label>
                 <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
             </div>
