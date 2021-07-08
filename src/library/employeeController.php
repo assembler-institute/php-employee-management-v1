@@ -2,28 +2,19 @@
 //session_start();
 require("./employeeManager.php");
 
-//header("Content-Type: application/json");
-
-//parse_str(file_get_contents("php://input"), $_PUT);
-
-
-
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
-        
-        if(isset($_GET["employeeRowId"])){
+
+        if (isset($_GET["employeeRowId"])) {
             getEmployee($_GET["employeeRowId"]);
-        }else{
+        } else {
             header("Content-Type: application/json");
             getAllEmployees();
         }
         break;
     case "PUT":
         parse_str(file_get_contents("php://input"), $_PUT);
-        $updatedItem=$_PUT["updatedEmployee"];
-        
-        // $modifyItem=json_encode([$_PUT["updatedEmployee"]],true);
-        // echo $modifyItem;
+        $updatedItem=$_PUT["updatedEmployee"];               
         updateEmployee($updatedItem);
         break;
     case "POST":

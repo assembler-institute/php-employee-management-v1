@@ -20,9 +20,11 @@ if (isset($_SESSION["employeeToUpdate"])) {
 
     // Setting up select echo string
     $options = "";
-    $genderArray = array("man", "woman", "non-binary", "hermaphrodite", "other");
+    $genderArray = array("", "man", "woman", "non-binary", "hermaphrodite", "other");
     foreach ($genderArray as $genderItem) {
-        if ($gender == $genderItem) {
+        if ($gender == $genderItem && $gender == "") {
+            $options .= "<option hidden selected>Select</option>";
+        } elseif ($gender == $genderItem) {
             $options .= "<option selected>" . $genderItem . "</option>";
         } else {
             $options .= "<option>" . $genderItem . "</option>";
@@ -60,8 +62,8 @@ if (isset($_SESSION["employeeToUpdate"])) {
     // Method to form
     $formMethod = "POST";
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,21 +91,21 @@ if (isset($_SESSION["employeeToUpdate"])) {
     <?php require("../assets/html/header.php") ?>
     <main class="container-fluid d-flex flex-column justify-content-center">
         <h2>Employee form</h2>
-        <form id="editForm" method=<?php echo $formMethod; ?> action="./library/employeeController.php" class="w-50">
+        <form id="employeeForm" method="<?php echo $formMethod; ?>" action="./library/employeeController.php" class="w-50">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newName">Name</label>
-                    <input type="text" class="form-control" id="newName" value=<?php echo $name; ?> placeholder="Your name">
+                    <input type="text" class="form-control" id="newName" value="<?php echo $name; ?>" placeholder="Your name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newLastName">Last Name</label>
-                    <input type="text" class="form-control" id="newLastName" value=<?php echo $lastName; ?> placeholder="Your last name">
+                    <input type="text" class="form-control" id="newLastName" value="<?php echo $lastName; ?>" placeholder="Your last name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newEmail">Email</label>
-                    <input type="email" class="form-control" id="newEmail" value=<?php echo $email; ?> placeholder="Email">
+                    <input type="email" class="form-control" id="newEmail" value="<?php echo $email; ?>" placeholder="Email">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="genderSelect">Gender</label>
@@ -115,48 +117,47 @@ if (isset($_SESSION["employeeToUpdate"])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newCity">City</label>
-                    <input type="text" class="form-control" value=<?php echo $city;  ?> id="newCity" placeholder="Residency city">
+                    <input type="text" class="form-control" value="<?php echo $city;  ?>" id="newCity" placeholder="Residency city">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newStreetAdress">Street Address</label>
-                    <input type="number" class="form-control" value=<?php echo $streetAddress; ?> id="newStreetAdress" placeholder="Number">
+                    <input type="number" class="form-control" value="<?php echo $streetAddress; ?>" id="newStreetAdress" placeholder="Number">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newState">State</label>
-                    <input type="text" class="form-control" value=<?php echo $state; ?> id="newState" placeholder="Residency state">
+                    <input type="text" class="form-control" value="<?php echo $state; ?>" id="newState" placeholder="Residency state">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newAge">Age</label>
-                    <input type="number" class="form-control" value=<?php echo $age; ?> id="newAge" placeholder="Your phone age">
+                    <input type="number" class="form-control" value="<?php echo $age; ?>" id="newAge" placeholder="Your age">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="newPostalCode">Postal Code</label>
-                    <input type="number" class="form-control" value=<?php echo $postalCode; ?> id="newPostalCode" placeholder="Your postal code">
+                    <input type="number" class="form-control" value="<?php echo $postalCode; ?>" id="newPostalCode" placeholder="Your postal code">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="newPhone">Phone</label>
-                    <input type="number" class="form-control" value=<?php echo $phoneNumber; ?> id="newPhone" placeholder="Your phone number">
+                    <input type="number" class="form-control" value="<?php echo $phoneNumber; ?>" id="newPhone" placeholder="Your phone number">
                 </div>
             </div>
 
-            <button type="submit" class="form-button btn btn-primary">Sign in</button>
+
+            <button id="submitButton" type="submit" class="form-button btn btn-primary">Submit</button>
             <button type="button" class="form-button btn btn-secondary">Back</button>
+
+
         </form>
+
     </main>
     <?php require("../assets/html/footer.html") ?>
 
     <!-- Javascript -->
     <script>
-        //  const queryString=window.location.search;
-        //  const urlParams = new URLSearchParams(queryString);
-        //  console.log(urlParams);
-        //  let id=urlParams.get('employeeRowId');
-        // console.log("id",id);
-        $("#editForm").submit((e) => {
+        $("#employeeForm").submit((e) => {
             e.preventDefault();
             const item = {
                 "id":"",
@@ -171,17 +172,38 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 "postalCode": $("#newPostalCode").val(),
                 "phoneNumber": $("#newPhone").val()
             }
-            
-            $.ajax({
-                type: "PUT",
-                url: "./library/employeeController.php",
-                data: {
-                    "updatedEmployee": item,
-                },
-                success: function(resp) {
-                    console.log("PUT Ajax", resp);
-                }
-            });
+
+
+            // Make POST or PUT ajax requests
+            if ($("#employeeForm").attr("method") == "POST") {
+                $.ajax({
+                    type: "POST",
+                    url: "./library/employeeController.php",
+                    data: {
+                        "newEmployee": item,
+                    },
+                    success: function(resp) {
+                        console.log("Added employee", resp);
+                        $("#submitButton").attr("disabled", true);
+                        $("#postAlert").toggleClass("show");
+                        setTimeout(() => $("#postAlert").toggleClass("show"), 3000);
+                    }
+                });
+            } else {
+                $.ajax({
+                    type: "PUT",
+                    url: "./library/employeeController.php",
+                    data: {
+                        "updatedEmployee": item,
+                    },
+                    success: function(resp) {
+                        console.log("Updated employee", resp);
+                        $("#putAlert").toggleClass("show");
+                        setTimeout(() => $("#putAlert").toggleClass("show"), 3000);
+                    }
+                });
+            }
+
         })
     </script>
 </body>

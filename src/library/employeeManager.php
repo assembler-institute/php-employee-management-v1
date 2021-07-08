@@ -24,22 +24,24 @@ function addEmployee(array $newEmployee)
         asort($idArray);
         $maxId = end($idArray);
 
-        echo "This is highest id: " . $maxId;
-
         $_SESSION["newEmployeeId"] = $maxId + 1;
-        echo $_SESSION["newEmployeeId"];
     } else {
         $_SESSION["newEmployeeId"]++;
     }
 
+    // If user is created from dashboard
+    if (!isset($newEmployee["lastName"])) {
+        $newEmployee += ["lastName" => ""];
+        $newEmployee += ["gender" => ""];
+    }
 
     // Template array
     $newEmployeeArray = array(
         "id" => strval($_SESSION["newEmployeeId"]),
         "name" => $newEmployee["name"],
-        "lastName" => "",
+        "lastName" =>  $newEmployee["lastName"],
         "email" => $newEmployee["email"],
-        "gender" => "",
+        "gender" =>  $newEmployee["gender"],
         "city" => $newEmployee["city"],
         "streetAddress" => $newEmployee["streetAddress"],
         "state" => $newEmployee["state"],
@@ -49,6 +51,7 @@ function addEmployee(array $newEmployee)
     );
 
     array_push($decodedJSON, $newEmployeeArray);
+    // echo "This is a new employee " . print_r($newEmployeeArray, true);
 
     file_put_contents("../../resources/employees.json", json_encode($decodedJSON));
 }

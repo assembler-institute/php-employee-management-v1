@@ -12,7 +12,7 @@ if (!isset($_SESSION["loggedUsername"])) {
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,38 +50,33 @@ if (!isset($_SESSION["loggedUsername"])) {
             inserting: true,
             sorting: true,
             paging: true,
-            // editing: true,
             // pageSize: 5,
             // pageIndex: 1,
 
             // Redirect to employee's page
             rowClick: function(args) {
-
                 employeeRowId = args.item.id;
                 $("#dashboardLink").toggleClass("active");
                 $("#employeeLink").addClass("active");
                 $.ajax({
-                    url:"./library/employeeController.php",
-                    type:"GET",
-                    data:{
-                        "employeeRowId":employeeRowId
+                    url: "./library/employeeController.php",
+                    type: "GET",
+                    data: {
+                        "employeeRowId": employeeRowId
                     },
-                    success: function(response){
+                    success: function(response) {
                         console.log(response);
                         document.location = "./employee.php";
                     }
                 });
-                
             },
 
-            controller:{
+            controller: {
                 loadData: function(filter) {
                     return $.ajax({
                         url: "./library/employeeController.php",
                         type: "GET",
                         data: filter,
-                        //dataType: "json",
-                        //contentType: "application/json",
                         success: function(resp) {
                             console.log("GET: ", resp);
                         }
@@ -96,13 +91,13 @@ if (!isset($_SESSION["loggedUsername"])) {
                             "newEmployee": item,
                         },
                         success: function(resp) {
-                            console.log("POST");
+                            console.log("POST: ", resp);
                             $("#jsGrid").jsGrid("loadData");
+                            $("#postAlert").toggleClass("show");
+                            setTimeout(() => $("#postAlert").toggleClass("show"), 3000);
                         }
                     });
                 },
-
-                
 
                 deleteItem: function(item) {
                     return $.ajax({
@@ -113,6 +108,8 @@ if (!isset($_SESSION["loggedUsername"])) {
                         },
                         success: function(resp) {
                             console.log("DELETE: ", resp);
+                            $("#deleteAlert").toggleClass("show");
+                            setTimeout(() => $("#deleteAlert").toggleClass("show"), 3000);
                         }
                     });
                 },
@@ -135,13 +132,13 @@ if (!isset($_SESSION["loggedUsername"])) {
                 {
                     title: "Age",
                     name: "age",
-                    type: "text",
+                    type: "number",
                     width: 20
                 },
                 {
                     title: "St. Num.",
                     name: "streetAddress",
-                    type: "text",
+                    type: "number",
                     width: 20
                 },
                 {
@@ -159,13 +156,13 @@ if (!isset($_SESSION["loggedUsername"])) {
                 {
                     title: "Postal code",
                     name: "postalCode",
-                    type: "text",
+                    type: "number",
                     width: 30
                 },
                 {
                     title: "Phone",
                     name: "phoneNumber",
-                    type: "text",
+                    type: "number",
                     width: 40
                 },
                 {
