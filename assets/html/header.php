@@ -1,12 +1,12 @@
 <header class="p-0 container-fluid d-flex flex-column align-items-center">
   <nav class="
-    navbar navbar-expand-lg navbar-light
-    bg-light
-    container-fluid
-    d-flex
-    justify-content-between
-  ">
-    <a class="navbar-brand font-weight-bold" href="#">Employee Management</a>
+navbar navbar-expand-lg navbar-light
+bg-light
+container-fluid
+d-flex
+justify-content-between
+">
+    <a class="navbar-brand font-weight-bold" href="./dashboard.php">Employee Management</a>
     <!-- Left buttons -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -27,27 +27,17 @@
 
   <div class="container-fluid alerts position-relative mt-2 d-flex justify-content-center">
     <!-- Success on POST -->
-    <div id="postAlert" class="position-absolute alert alert-success alert-dismissible fade" role="alert">
+    <div id="postAlert" class="position-absolute alert alert-success alert-dismissible fade d-none" role="alert">
       Added new employee!
     </div>
     <!-- Success on PUT -->
-    <div id="putAlert" class="position-absolute alert alert-success alert-dismissible fade" role="alert">
+    <div id="putAlert" class="position-absolute alert alert-success alert-dismissible fade d-none" role="alert">
       Updated new employee!
     </div>
     <!-- Deleted employee -->
-    <div id="deleteAlert" class="position-absolute alert alert-danger alert-dismissible fade" role="alert">
+    <div id="deleteAlert" class="position-absolute alert alert-danger alert-dismissible fade d-none" role="alert">
       Deleted employee!
     </div>
   </div>
 
 </header>
-
-<script>
-  $("#dashboardLink").on("click", function() {
-    console.log("Redirecting to dashboard page");
-  });
-
-  $("#employeeLink").on("click", function() {
-    console.log("Redirecting to employee page");
-  });
-</script>

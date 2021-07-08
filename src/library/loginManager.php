@@ -1,4 +1,5 @@
 <?php
+
 function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword)
 {
         switch (true) {

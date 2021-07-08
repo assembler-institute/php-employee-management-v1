@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 form {
   margin: 100px 25%;
 }

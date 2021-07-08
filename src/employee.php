@@ -2,11 +2,17 @@
 <?php
 session_start();
 
+// Blocking access
 if (!isset($_SESSION["loggedUsername"])) {
     header("Location:../index.php");
 }
-if (isset($_SESSION["employeeToUpdate"])) {
 
+// Form content (from row click)
+if (isset($_SESSION["employeeToUpdate"])) {
+    // Update employee
+    $formMethod = "PUT";
+
+    // Get all employee data
     $name = $_SESSION["employeeToUpdate"]["name"];
     $lastName = $_SESSION["employeeToUpdate"]["lastName"];
     $email = $_SESSION["employeeToUpdate"]["email"];
@@ -33,10 +39,14 @@ if (isset($_SESSION["employeeToUpdate"])) {
 
     // Unsetting employeeToUpdate variable
     unset($_SESSION["employeeToUpdate"]);
+}
+// Form content (from header click)
+else {
 
-    // Method to form
-    $formMethod = "PUT";
-} else {
+    // Add new employee
+    $formMethod = "POST";
+
+    // Set empty form to new employee
     $name = "";
     $lastName = "";
     $email = "";
@@ -58,9 +68,6 @@ if (isset($_SESSION["employeeToUpdate"])) {
             $options .= "<option>" . $genderItem . "</option>";
         }
     }
-
-    // Method to form
-    $formMethod = "POST";
 }
 ?>
 
@@ -71,20 +78,17 @@ if (isset($_SESSION["employeeToUpdate"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Assets -->
     <link rel="stylesheet" href="../assets/css/main.css">
     <script src="../assets/js/timeout.js"></script>
-
     <!-- Dependencies -->
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-
     <link rel="stylesheet" href="../node_modules/jsgrid/css/jsgrid.css" />
     <link rel="stylesheet" href="../node_modules/jsgrid/css/theme.css" />
     <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
-
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-
-    <title>Dashboard</title>
+    <title>Employee</title>
 </head>
 
 <body>
@@ -144,68 +148,14 @@ if (isset($_SESSION["employeeToUpdate"])) {
                     <input type="number" class="form-control" value="<?php echo $phoneNumber; ?>" id="newPhone" placeholder="Your phone number">
                 </div>
             </div>
-
-
             <button id="submitButton" type="submit" class="form-button btn btn-primary">Submit</button>
-            <button type="button" class="form-button btn btn-secondary">Back</button>
-
-
+            <button id="backButton" type="button" class="form-button btn btn-secondary">Back</button>
         </form>
 
     </main>
     <?php require("../assets/html/footer.html") ?>
 
-    <!-- Javascript -->
-    <script>
-        $("#employeeForm").submit((e) => {
-            e.preventDefault();
-            const item = {
-                "id":"",
-                "name": $("#newName").val(),
-                "lastName": $("#newLastName").val(),
-                "email": $("#newEmail").val(),
-                "gender": $("#genderSelect").val(),
-                "city": $("#newCity").val(),
-                "streetAddress": $("#newStreetAdress").val(),
-                "state": $("#newState").val(),
-                "age": $("#newAge").val(),
-                "postalCode": $("#newPostalCode").val(),
-                "phoneNumber": $("#newPhone").val()
-            }
-
-
-            // Make POST or PUT ajax requests
-            if ($("#employeeForm").attr("method") == "POST") {
-                $.ajax({
-                    type: "POST",
-                    url: "./library/employeeController.php",
-                    data: {
-                        "newEmployee": item,
-                    },
-                    success: function(resp) {
-                        console.log("Added employee", resp);
-                        $("#submitButton").attr("disabled", true);
-                        $("#postAlert").toggleClass("show");
-                        setTimeout(() => $("#postAlert").toggleClass("show"), 3000);
-                    }
-                });
-            } else {
-                $.ajax({
-                    type: "PUT",
-                    url: "./library/employeeController.php",
-                    data: {
-                        "updatedEmployee": item,
-                    },
-                    success: function(resp) {
-                        console.log("Updated employee", resp);
-                        $("#putAlert").toggleClass("show");
-                        setTimeout(() => $("#putAlert").toggleClass("show"), 3000);
-                    }
-                });
-            }
-
-        })
-    </script>
+    <script src="../assets/js/employee.js"></script>
 </body>
 
 </html>

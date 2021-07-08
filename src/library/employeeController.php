@@ -1,20 +1,20 @@
 <?php
-//session_start();
 require("./employeeManager.php");
 
+// Calling a function depending on the requested method
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
-
         if (isset($_GET["employeeRowId"])) {
             getEmployee($_GET["employeeRowId"]);
+            break;
         } else {
             header("Content-Type: application/json");
             getAllEmployees();
+            break;
         }
-        break;
     case "PUT":
         parse_str(file_get_contents("php://input"), $_PUT);
-        $updatedItem=$_PUT["updatedEmployee"];               
+        $updatedItem = $_PUT["updatedEmployee"];
         updateEmployee($updatedItem);
         break;
     case "POST":
@@ -26,4 +26,5 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         break;
     default:
         echo "Not valid method";
+        break;
 }
