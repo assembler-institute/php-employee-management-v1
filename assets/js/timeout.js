@@ -18,7 +18,7 @@ setInterval(function () {
   });
 }, 10000);
 
-// Closing the session
+// Closing the ses
 function closeSessionAjax() {
   $.ajax({
     url: "./library/sessionHelper.php",

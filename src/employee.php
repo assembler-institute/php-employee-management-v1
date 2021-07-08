@@ -155,11 +155,11 @@ if (isset($_SESSION["employeeToUpdate"])) {
         //  const urlParams = new URLSearchParams(queryString);
         //  console.log(urlParams);
         //  let id=urlParams.get('employeeRowId');
-        //console.log(id);
+        // console.log("id",id);
         $("#editForm").submit((e) => {
             e.preventDefault();
             const item = {
-
+                "id":"",
                 "name": $("#newName").val(),
                 "lastName": $("#newLastName").val(),
                 "email": $("#newEmail").val(),
@@ -171,7 +171,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
                 "postalCode": $("#newPostalCode").val(),
                 "phoneNumber": $("#newPhone").val()
             }
-
+            
             $.ajax({
                 type: "PUT",
                 url: "./library/employeeController.php",
@@ -179,7 +179,7 @@ if (isset($_SESSION["employeeToUpdate"])) {
                     "updatedEmployee": item,
                 },
                 success: function(resp) {
-                    console.log("PUT", resp);
+                    console.log("PUT Ajax", resp);
                 }
             });
         })
