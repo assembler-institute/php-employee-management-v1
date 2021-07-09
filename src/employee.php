@@ -183,6 +183,10 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                     cache: false,
                     success: function(data, status) {
                         console.log(data, status);
+                        if (data == 'sessionTimeOut') {
+                            window.location.reload();
+                        }
+
                         $(".alert-wrapper").empty();
                         $(".alert-wrapper")
                             .append(`<div class="alert alert-success" role="alert">${data.Message}</div>`)
