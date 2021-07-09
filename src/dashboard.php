@@ -80,6 +80,12 @@ $authUser = getUserById($userId);
                         url: "library/employeeController.php",
                         data: item,
                         dataType: "json",
+                        success: function(data) {
+                            console.log(data);
+                            if (data == 'sessionTimeOut') {
+                                window.location.reload();
+                            }
+                        }
                     });
 
                 },
@@ -90,7 +96,7 @@ $authUser = getUserById($userId);
                         data: item,
                         success: function(data) {
                             console.log(data);
-                            if (data = 'sessionTimeOut') {
+                            if (data == 'sessionTimeOut') {
                                 window.location.reload();
                             }
                         }
