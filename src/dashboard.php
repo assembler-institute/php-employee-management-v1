@@ -38,6 +38,17 @@ $authUser = getUserById($userId);
         require_once('../assets/html/header.html');
         ?>
     </header>
+    <div class="position-fixed toast-container position-absolute top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <h4 class="me-auto">Required fields</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+
+            </div>
+        </div>
+    </div>
     <div class="px-5">
         <div id="jsGrid"></div>
     </div>
@@ -222,6 +233,7 @@ $authUser = getUserById($userId);
                 window.location.href = "./employee.php?id=" + item.item.id;
             },
             onItemInvalid: function(args) {
+                console.log("error");
                 $(".toast-body").empty();
                 // prints [{ field: "Name", message: "Enter client name" }]
                 var messages = $.map(args.errors, function(error) {
