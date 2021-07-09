@@ -1,5 +1,4 @@
 <?php
-
 function loginAuth($email, $pass)
 {
     if (session_status() == PHP_SESSION_NONE) session_start();
