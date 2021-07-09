@@ -50,7 +50,7 @@ $authUser = getUserById($userId);
             </div>
         </div>
     </div>
-    <div class="px-5">
+    <div class="flex-grow-1 px-5">
         <div id="jsGrid"></div>
     </div>
 
