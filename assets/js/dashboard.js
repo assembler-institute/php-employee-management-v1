@@ -47,63 +47,106 @@ $("#jsGrid").jsGrid({
     },
   },
 
-  fields: [
-    {
-      title: "Name",
-      name: "name",
-      type: "text",
-      width: 30,
-    },
-    {
-      title: "Email",
-      name: "email",
-      type: "text",
-      width: 60,
-    },
-    {
-      title: "Age",
-      name: "age",
-      type: "number",
-      width: 20,
-    },
-    {
-      title: "St. Num.",
-      name: "streetAddress",
-      type: "number",
-      width: 20,
-    },
-    {
-      title: "City",
-      name: "city",
-      type: "text",
-      width: 35,
-    },
-    {
-      title: "State",
-      name: "state",
-      type: "text",
-      width: 20,
-    },
-    {
-      title: "Postal code",
-      name: "postalCode",
-      type: "number",
-      width: 30,
-    },
-    {
-      title: "Phone",
-      name: "phoneNumber",
-      type: "number",
-      width: 40,
-    },
-    {
-      type: "control",
-      width: 20,
-      editButton: false,
-    },
-  ],
-});
+  fields: [{
+    title: "Name",
+    name: "name",
+    type: "text",
+    width: 30,
+    validate:[
+        "required",
+        {
+        validator:"maxLength",
+        message:function(value,item){
+            return "Name should be les than ten caracters";
+            },
+        param:[10]
+        }]
 
+},
+{
+    title: "Email",
+    name: "email",
+    type: "text",
+    width: 60,
+    validate:[
+        "required",
+        {
+        validator:"pattern",
+        message:function(value,item){
+            return "Write your email correctly, som like: test@gmail.com"
+        },
+        param:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    }]
+  
+
+},
+{
+    title: "Age",
+    name: "age",
+    type: "number",
+    width: 20,
+    validate:[
+        "required",
+        {
+        validator:"range",
+        message:function(value,item){
+            return "Not legal age to work";
+        },
+        param:[18,65]
+    }]
+},
+{
+    title: "St. Num.",
+    name: "streetAddress",
+    type: "number",
+    width: 20,
+    
+},
+{
+    title: "City",
+    name: "city",
+    type: "text",
+    width: 35,
+   
+},
+{
+    title: "State",
+    name: "state",
+    type: "text",
+    width: 20,
+
+},
+{
+    title: "Postal code",
+    name: "postalCode",
+    type: "number",
+    width: 30,
+
+},
+{
+    title: "Phone",
+    name: "phoneNumber",
+    type: "number",
+    width: 40,
+    validate:[
+        "required",
+        {
+        validator:"range",
+        message:function(value,item){
+            return "The phone number have nine caracters and start by 6";
+        },
+        param:[600000000,699999999]
+        
+    }]
+},
+{
+    type: "control",
+    width: 20,
+    editButton: false,
+}
+
+]
+});
 // ----------------
 // JsGrid functions
 // ----------------
