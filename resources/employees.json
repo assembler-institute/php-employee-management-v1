@@ -1,8 +1,8 @@
 [
     {
         "id": "2",
-        "name": "John",
-        "lastName": "Doe",
+        "name": "Johny",
+        "lastName": "Donovan",
         "email": "jhondoe@foo.com",
         "gender": "man",
         "city": "New York",
