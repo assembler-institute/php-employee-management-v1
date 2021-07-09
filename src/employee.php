@@ -1,5 +1,3 @@
-<!-- TODO Employee view -->
-
 <?php
 require_once('./library/loginManager.php');
 require_once('./library/employeeManager.php');
@@ -52,8 +50,17 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
     </header>
 
     <section class="form-section">
-        <h2>User Detail</h2>
         <form class="row g-3" id="updateForm">
+            <section class="mb-3">
+                <h2>Avatars</h2>
+                <div>
+                    <?php
+                    require_once('imageGallery.php');
+                    ?>
+                </div>
+            </section>
+
+            <h2>User Detail</h2>
             <input type="hidden" class="form-control" name="id" id="employeeId" value="<?php echo $employee['id'] ?>">
             <div class="col-md-6">
                 <label for="inputName" class="form-label">Name</label>
@@ -115,8 +122,15 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 <button type="submit" class="btn btn-primary" name="updateSubmit">Submit</button>
             </div>
         </form>
+
         <div class="alert-wrapper side-alert"></div>
     </section>
+
+    <footer>
+        <?php
+        require_once('../assets/html/footer.html');
+        ?>
+    </footer>
 
     <script>
         let gender = "<?php echo $employee['gender'] ?>";
@@ -192,13 +206,10 @@ if (isset($_GET['id']) && getEmployeeById($_GET['id'])) {
                 });
             }
         });
+
         const userName = "<?php echo $authUser['name'] ?>";
-        console.log(userName);
         setUserName(userName);
     </script>
-    <?php
-    require_once('../assets/html/footer.html');
-    ?>
 </body>
 
 </html>
