@@ -18,7 +18,7 @@ function checkExpiredSession(){
 
      if(isset($_SESSION["timeout"])){
           $sessionTimeForAlfonso = time() - $_SESSION["timeout"];
-          if($sessionTimeForAlfonso >10){
+          if($sessionTimeForAlfonso >120){
                logOut();
           }
      }
