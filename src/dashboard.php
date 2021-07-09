@@ -25,6 +25,7 @@ $authUser = getUserById($userId);
     <link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+
     <title>Dashboard</title>
 </head>
 
@@ -33,6 +34,7 @@ $authUser = getUserById($userId);
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
     <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+
     <header>
         <?php
         require_once('../assets/html/header.html');
@@ -53,6 +55,11 @@ $authUser = getUserById($userId);
         <div id="jsGrid"></div>
     </div>
 
+    <footer>
+        <?php
+        require_once('../assets/html/footer.html');
+        ?>
+    </footer>
 
     <script>
         $("#jsGrid").jsGrid({
@@ -83,6 +90,12 @@ $authUser = getUserById($userId);
                         url: "library/employeeController.php",
                         data: item,
                         dataType: "json",
+                        success: function(data) {
+                            console.log(data);
+                            if (data == 'sessionTimeOut') {
+                                window.location.reload();
+                            }
+                        }
                     });
 
                 },
@@ -93,7 +106,7 @@ $authUser = getUserById($userId);
                         data: item,
                         success: function(data) {
                             console.log(data);
-                            if (data = 'sessionTimeOut') {
+                            if (data == 'sessionTimeOut') {
                                 window.location.reload();
                             }
                         }
@@ -256,23 +269,10 @@ $authUser = getUserById($userId);
                 });
             }
         });
-        //$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
-        // $.ajax({
-        //     type: "DELETE",
-        //     url: "./library/employeeController.php",
-        //     dataType: "html",
-        //     success: function(data) {
-        //         console.log(data);
-        //     }
-        // });
         const userName = "<?php echo $authUser['name'] ?>";
-        console.log(userName);
         setUserName(userName);
     </script>
-    <?php
-    require_once('../assets/html/footer.html');
-    ?>
 </body>
 
 </html>
