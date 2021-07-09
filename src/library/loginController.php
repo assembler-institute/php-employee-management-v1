@@ -9,6 +9,6 @@ if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['pwd']) && 
 
 if(isset($_GET['logOut'])){
      session_destroy();
-     header('Location: ../../index.php');
+     header('Location: ../../index.php?logOut=true');
 }
 ?>

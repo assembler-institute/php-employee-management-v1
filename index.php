@@ -51,14 +51,17 @@
         if($_GET['error'] == "invaliduser"){
           echo "<div class='alert alert-danger'> <h3>This user is invalid. <br>Input a valid user please.</h3></div>";
           unset($_GET['error']);
-        }elseif($_GET['error'] == "invalidpwd"){
+        } elseif($_GET['error'] == "invalidpwd"){
           echo "<div class='alert alert-danger'> <h3> Password is not correct . <br>Input the correct password please.</h3></div>";
         }
-      } 
+      }
+      if(isset($_GET['sessionExpired']) && $_GET['sessionExpired'] == true) {
+          echo "<div class='alert alert-danger'> <h3> The session has expired </h3></div>";
+      } elseif(isset($_GET['logOut']) && $_GET['logOut'] == true) {
+          echo "<div class='alert alert-success'> <h3> Log Out succesful</h3></div>";
+          header('Refresh:5, ./index.php');
+      }
     ?>
     </form>
   </body>
-  <script type="text/javascript">
-     history.pushState(null, "", "index.php");
-  </script> 
 </html>

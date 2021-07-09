@@ -11,14 +11,14 @@ if (isset($_GET["destroyUpdate"]) && $_GET["destroyUpdate"] == true){
 
 function destroySessions(){
      session_destroy();
-     header('Location: ../index.php');
+     header('Location: ../index.php?sessionExpired=true');
 }
 
 function checkExpiredSession(){
 
      if(isset($_SESSION["timeout"])){
           $sessionTimeForAlfonso = time() - $_SESSION["timeout"];
-          if($sessionTimeForAlfonso >120){
+          if($sessionTimeForAlfonso >10){
                logOut();
           }
      }
