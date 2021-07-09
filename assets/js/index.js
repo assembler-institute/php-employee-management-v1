@@ -11,14 +11,12 @@ $.getJSON(dataPath).done(function (employeesData) {
     paging: true,
     pageSize: 10,
     pageButtonCount: 3,
-    filtering: true,
+    filtering: false,
     autoload: true,
     rowClick: function (args) {
       selectedItem = args.item;
-      window.location =
-        "../src/library/employeeController.php?ID=" + selectedItem.id;
+      window.location = "../src/library/employeeController.php?ID=" + selectedItem.id;
     },
-
     deleteConfirm:
       "This action will delete the employee from the system. Are you sure?",
 

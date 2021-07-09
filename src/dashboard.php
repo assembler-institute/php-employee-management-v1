@@ -1,4 +1,15 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+  
+
+  session_start();
+  require_once('./library/sessionHelper.php');
+  checkExpiredSession();
+  if(!isset($_SESSION)){
+    header("Location : ../index.php");
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +37,9 @@
 </head>
 
 <body>
-  <header class="bg-light mb-4">
+  <header class="bg-light mb-4 ">
     <?php 
-      require ("../assets/html/header.html");
+      require_once("../assets/html/header.html");
     ?>
   </header>
   <main class="container-xl mx-auto">

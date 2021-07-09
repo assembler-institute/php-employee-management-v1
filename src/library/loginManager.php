@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_SESSION)){
+     session_start();
+}
+require_once('sessionHelper.php');
 function login($a, $b){
      $data = file_get_contents("../../resources/users.json");
      $admin = json_decode($data, true);
@@ -8,13 +11,13 @@ function login($a, $b){
      $adPass = $admin['users'][0]['password'];
 
      if($a === $adEmail){
-          echo "somos el mismo correo<br>";
+          //echo "somos el mismo correo<br>";
           if(password_verify($b, $adPass)){
-               echo "somos la misma pass<br>";
-               session_start();
+               //echo "somos la misma pass<br>";
                $_SESSION["user"] = $admin['users'][0]['name'];
-               header("Location: ../dashboard.php?login=success");
-               exit();
+                         
+               initSessionTime();
+               
           }else{
                header("Location: ../../index.php?error=invalidpwd");
                exit();
@@ -26,5 +29,6 @@ function login($a, $b){
 }
 
 function logOut(){
-     
+     destroySessions();
+     exit();
 }
