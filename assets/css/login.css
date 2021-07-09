@@ -1,0 +1,11 @@
+body {
+  height: 100vh;
+}
+
+form {
+  margin: 100px 25%;
+}
+
+.btn {
+  margin-top: 25px;
+}
