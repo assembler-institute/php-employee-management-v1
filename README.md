@@ -4,7 +4,7 @@
 
 > This current repository contains an employee manager that uses Manager and Controller PHP files to make API requests and load data to a JSGrid and to forms.
 
-> This app also alows to CRUD (Create Re Update Delete) employees both in Dashboard and Employee's page.
+> This app also alows to CRUD (Create Read Update Delete) employees both in Dashboard and Employee's page.
 
 ## Index <!-- omit in toc -->
 
