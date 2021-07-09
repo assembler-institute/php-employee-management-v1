@@ -1,4 +1,7 @@
 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 `#html` `#css` `#js` `#php`  `#basics`  `#master-in-software-engineering`
 
 # PHP Employee Management v1<!-- omit in toc -->
@@ -123,3 +126,23 @@ The employees are stored `resouces/employees.json` file you have to make a CRUD 
 -  [What is a web server?](https://www.youtube.com/watch?v=Yt1nesKi5Ec)
 
 -  [Web server basics](https://www.youtube.com/watch?v=3VqfpVKvlxQ)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/gs89alberto"><img src="https://avatars.githubusercontent.com/u/80328331?v=4?s=100" width="100px;" alt=""/><br /><sub><b>gs89alberto</b></sub></a><br /><a href="https://github.com/mhfortuna/php-employee-management-v1/commits?author=gs89alberto" title="Code">💻</a> <a href="#design-gs89alberto" title="Design">🎨</a> <a href="#ideas-gs89alberto" title="Ideas, Planning, & Feedback">🤔</a> <a href="#projectManagement-gs89alberto" title="Project Management">📆</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
