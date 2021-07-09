@@ -1,4 +1,15 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+  
+
+  session_start();
+  require_once('./library/sessionHelper.php');
+  checkExpiredSession();
+  if(!isset($_SESSION)){
+    header("Location : ../index.php");
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
