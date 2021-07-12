@@ -65,7 +65,7 @@ function getDataFromForm($id)
   $phoneNumber = $_POST["phoneNumber"];
 
 	if ($id == "") {
-		$id = getLastIdFromEmployees();
+		$id = getNextIdentifier();
 	}
 
   $newArray_from_user = [

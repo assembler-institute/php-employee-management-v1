@@ -13,26 +13,15 @@ if (isset($_GET["logoutClicked"])) {
 function check_usuario_on_database($username, $pass)
 {
   $users = getUsers();
-  // $my_data_base_of_users = file_get_contents("../../resources/users.json");
-  // $array_json = json_decode($my_data_base_of_users);
 
   foreach ($users->users as $user) {
     if ($username == $user->name && password_verify($pass, $user->password)) {
       $usernameFalso = $user->name;
       $passwordFalsa = $user->password;
-      // echo $usernameFalso;
-      // echo $passwordFalsa;
     } else {
       echo "no coincide";
     }
   }
-
-  // if ($username == $usernameFalso && password_verify($pass, $passwordFalsa)) {
-  //   return true;
-  // } else {
-  //   echo "esta todo mal";
-  //   return false;
-  // }
 
   return $username == $usernameFalso && password_verify($pass, $passwordFalsa);
 }
@@ -43,8 +32,6 @@ function autentificar_usuario()
 
   $username = $_POST["username"];
   $pass = $_POST["password"];
-
-  // check_usuario_on_database($username, $pass);
 
   if (check_usuario_on_database($username, $pass) == true) {
     $_SESSION["username"] = $username;
@@ -64,7 +51,6 @@ function revisar_si_existe_sesion()
   if (!isset($_SESSION)) {
     session_start();
   }
-  // basename() te coge de la URL actual, el ultimo lugar donde te encuentres
   $checkUrl = basename($_SERVER["REQUEST_URI"], "?" . $_SERVER["QUERY_STRING"]);
 
   if ($checkUrl == "index.php" || $checkUrl == "php-employee-management-v1") {
@@ -99,16 +85,12 @@ function cerrar_sesion()
 
   echo "se ejecuto cerrar_sesion()";
 
-  // borra lo que haya dentro de las variables de session
   unset($_SESSION);
 
-  // destruye la cookie de almacenada en el navegador de session
   destruir_cookie_de_la_sesion();
 
-  // finalmente esto destruye la session y lo redirigimos a donde queramos
   session_destroy();
 
-  // ademas añadimos el parametro logout en true para verificar un condicional
   header("Location: ../../index.php?logout=true");
 }
 
@@ -193,10 +175,7 @@ function create_new_usuario_on_database($new_username, $new_pass)
 
   $users = getUsersArray();
 
-  // $my_data_base_of_users = file_get_contents("../../resources/users.json");
-  // $array_json = json_decode($my_data_base_of_users, true);
   $lastUserId = count($users["users"]);
-  // echo $lastUserId;
   $newArray_from_user = [
     "userId" => $lastUserId + 1,
     "name" => $new_username,
@@ -205,19 +184,12 @@ function create_new_usuario_on_database($new_username, $new_pass)
   ];
 
   newUserToUpdate($users, $newArray_from_user);
-  // array_push($users["users"], $newArray_from_user);
-  // $updatedUsers = json_encode($users);
-  // print_r($final_data);
-
-  // updateUsers($updatedUsers);
-  // file_put_contents("../../resources/users.json", $final_data);
 
   return true;
 }
 
 function handle_new_user()
 {
-  // require_once "../library/loginManager.php";
 
   session_start();
 

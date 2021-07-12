@@ -55,7 +55,6 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployees()
 {
-  // session_start();
   $BASE_URL = $_SESSION["BASE_URL"];
   $employeesData = file_get_contents($BASE_URL . "/resources/employees.json");
   return json_decode($employeesData);
@@ -63,7 +62,6 @@ function getEmployees()
 
 function getEmployeesFromArray()
 {
-  // session_start();
   $BASE_URL = $_SESSION["BASE_URL"];
   $employeesData = file_get_contents($BASE_URL . "/resources/employees.json");
   return json_decode($employeesData, true);
@@ -81,24 +79,6 @@ function getEmployee(string $id)
   return $foundEmployee;
 }
 
-function getLastIdFromEmployees()
-{
-  // session_start();
-  $BASE_URL = $_SESSION["BASE_URL"];
-  $employeesData = file_get_contents($BASE_URL . "/resources/employees.json");
-  $decodeEmployee = json_decode($employeesData, true);
-  return getNextAvailableEmployeeId($decodeEmployee);
-}
-
-function getNextAvailableEmployeeId($employeesData)
-{
-  return max(
-    array_map(function ($employee) {
-      return intval($employee["id"]);
-    }, $employeesData)
-  ) + 1;
-}
-
 function removeAvatar($id)
 {
   // TODO implement it
@@ -109,7 +89,14 @@ function getQueryStringParameters()
   // TODO implement it return array
 }
 
-function getNextIdentifier(array $employeesCollection)
+function getNextIdentifier()
 {
-  // TODO implement it
+
+  $employeesCollection = getEmployeesFromArray();
+
+  return max(
+    array_map(function ($employee) {
+      return intval($employee["id"]);
+    }, $employeesCollection)
+  ) + 1;
 }

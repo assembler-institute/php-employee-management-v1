@@ -38,10 +38,22 @@ if (isset($_GET["id"])) {
 	<link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
 	<script type="text/javascript" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
 
+	<!-- cdn de la libreria OWL, para hacer el carrousel -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 
 <body class="d-flex min-vh-100 flex-column justify-content-between align-item-between d-inline-block m-0 p-0">
 	<?php include "../assets/html/header.html"; ?>
+	<section class="container">
+		<div class="carrousel_fotos" id="carrousel_fotos">
+			<div class="owl-carousel owl-theme" id="owl-carousel">
+			</div>
+		</div>
+	</section>
+
 	<main class="d-flex w-100 min-vh-50 justify-content-center align-item-center">
 		<form action=<?php if (isset($_GET["id"])) {
     echo "./library/employeeController.php?id=$clickedUserId";
@@ -61,7 +73,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["name"];
+				 echo('"'.$foundEmployee["name"].'"');
        } ?>>
 						</div>
 					</div>
@@ -76,7 +88,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["email"];
+				echo('"'.$foundEmployee["email"].'"');
        } ?>>
 						</div>
 					</div>
@@ -91,7 +103,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["city"];
+				echo('"'.$foundEmployee["city"].'"');
        } ?>>
 						</div>
 					</div>
@@ -106,7 +118,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["state"];
+				echo('"'.$foundEmployee["state"].'"');
        } ?>>
 						</div>
 					</div>
@@ -121,7 +133,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["postalCode"];
+				echo('"'.$foundEmployee["postalCode"].'"');
        } ?>>
 						</div>
 					</div>
@@ -138,7 +150,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["lastName"];
+				echo('"'.$foundEmployee["lastName"].'"');
        } ?>>
 						</div>
 					</div>
@@ -153,7 +165,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["gender"];
+				echo('"'.$foundEmployee["gender"].'"');
        } ?>>
 						</div>
 					</div>
@@ -168,7 +180,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["streetAddress"];
+				echo('"'.$foundEmployee["streetAddress"].'"');
        } ?>>
 						</div>
 					</div>
@@ -183,7 +195,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["age"];
+				echo('"'.$foundEmployee["age"].'"');
        } ?>>
 						</div>
 					</div>
@@ -198,7 +210,7 @@ if (isset($_GET["id"])) {
        ) {
          echo "";
        } else {
-         echo $foundEmployee["phoneNumber"];
+				echo('"'.$foundEmployee["phoneNumber"].'"');
        } ?>>
 						</div>
 					</div>
@@ -213,6 +225,11 @@ if (isset($_GET["id"])) {
 		</form>
 	</main>
 	<?php include "../assets/html/footer.html"; ?>
+	<script src="../assets/js/index.js"></script>
+	<script>
+		carrousel_images();
+	</script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

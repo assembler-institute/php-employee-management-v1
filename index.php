@@ -2,7 +2,6 @@
 <?php
 require_once "./src/library/loginController.php";
 $alert = revisar_si_existe_sesion();
-// session_start();
 $_SESSION["BASE_URL"] = getcwd();
 ?>
 

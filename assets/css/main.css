@@ -72,3 +72,17 @@ input:focus {
 .main__footer {
   height: 5vh;
 }
+
+.carrousel_fotos{
+  min-height: 200px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.img_carrousel{
+  max-height: 200px;
+  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}

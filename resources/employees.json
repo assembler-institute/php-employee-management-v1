@@ -102,5 +102,44 @@
     "state": "LU",
     "postalCode": "63281",
     "phoneNumber": "91232876454"
+  },
+  {
+    "id": 9,
+    "name": "Erick Noiztbander",
+    "lastName": "Ure\u00f1a Lino",
+    "email": "aventum2@gmail.com",
+    "gender": "Hombreton",
+    "city": "Barcelona",
+    "streetAddress": "26 Carrer de l'Alguer",
+    "state": "Barcelona",
+    "age": "25",
+    "postalCode": "08032",
+    "phoneNumber": "654788478"
+  },
+  {
+    "id": 10,
+    "name": "Alfonso y Erick",
+    "lastName": "Ure\u00f1a Lino",
+    "email": "erick.noiztbander@gmail.com",
+    "gender": "Hombreton",
+    "city": "Barcelona",
+    "streetAddress": "26 Carrer de l'Alguer",
+    "state": "Barcelona",
+    "age": "25",
+    "postalCode": "08032",
+    "phoneNumber": "654788478"
+  },
+  {
+    "id": 11,
+    "name": "PEPE",
+    "lastName": "Ure\u00f1a Lino",
+    "email": "aventum2@gmail.com",
+    "gender": "Hombreton",
+    "city": "Barcelona",
+    "streetAddress": "26 Carrer de l'Alguer",
+    "state": "Barcelona",
+    "age": "25",
+    "postalCode": "08032",
+    "phoneNumber": "654788478"
   }
 ]
