@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+
+* {
+  /* outline: 1px solid rgb(168, 168, 168); */
+  box-sizing: border-box;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: "Poppins", sans-serif;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(255, 255, 255);
+}
+*::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: rgb(161, 161, 161);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+.main__header {
+  border-bottom: solid 1px rgb(161, 161, 161);
+  z-index: 1000;
+  background-color: #0054f6;
+  height: 10vh;
+}
+
+.logo__wrapper {
+  max-width: 200px;
+  width: 100px;
+  overflow: hidden;
+}
+
+.logo__app {
+  height: 100%;
+  object-fit: cover;
+  padding-left: 20px;
+}
+.logo__app img {
+  width: 100%;
+}
+
+.logout__wrapper {
+  width: fit-content;
+  min-width: 300px;
+  padding-right: 2%;
+}
+
+.newUserForm section h5 {
+  padding-bottom: 10px;
+}
+
+.main__footer {
+  height: 5vh;
+}
+
+.carrousel_fotos{
+  min-height: 200px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.img_carrousel{
+  max-height: 200px;
+  max-width: 200px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}

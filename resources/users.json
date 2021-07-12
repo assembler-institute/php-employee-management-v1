@@ -5,6 +5,30 @@
       "name": "admin",
       "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",
       "email": "admin@assemblerschool.com"
+    },
+    {
+      "userId": 2,
+      "name": "Erick Noiztbander",
+      "password": "$2y$10$0CrU8swERZ.RcIPF5x4QAOtXk6W2W/a9S.z1c6gYZDpk.xpQbvxAi",
+      "email": "no email bitx"
+    },
+    {
+      "userId": 3,
+      "name": "alberto",
+      "password": "$2y$10$HZvQaRNn6yv4tl9OnBray.i2vriDus7Ydzw8TNFF.tHZM8MNCamwC",
+      "email": "no email bitx"
+    },
+    {
+      "userId": 4,
+      "name": "rodrigo",
+      "password": "$2y$10$f/v1W7UcA4R1JoiNfIOSOu1vsv1ZcFlAN.jo5Bv8ptYeRw9zDIOay",
+      "email": "no email bitx"
+    },
+    {
+      "userId": 5,
+      "name": "alberto el del culo abierto",
+      "password": "$2y$10$.69CGQmeClUrRDZNml4DyO9zZpgSWAo9GsLGFi.1XxVSzYlagxzeW",
+      "email": "no email bitx"
     }
   ]
 }

@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins&display=swap);
+
+* {
+  /* outline: 1px solid rgb(168, 168, 168); */
+  box-sizing: border-box;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+*::-webkit-scrollbar{
+	width: 10px;
+	background-color: rgb(122, 122, 122);
+}
+*::-webkit-scrollbar-thumb{
+	width: 10px;
+	background-color: rgb(0, 0, 0);
+	border-radius: 5px;
+}
+
+p, h1, h2, h3, h4, h5, h6{
+	margin: 0 0 0 0 ;
+	padding: 0 0 0 0;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+.logo__wrapper {
+  overflow: hidden;
+  max-height: 300px;
+}
+
+.logo__app {
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo__app img {
+  width: 100%;
+}
+
+.search__component {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  min-width: 500px;
+  padding: 0px 20px;
+}
+.search__component input {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+}
+.search__component input {
+  outline: none;
+}
+.search__component input:focus {
+  outline: none;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.search__component div i {
+  color: rgb(99, 99, 99);
+  cursor: pointer;
+}
+.search__component div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text__password--forgot p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.advise__login{
+	min-height: 50px;
+	margin-bottom: 80px;
+	font-weight: bold;
+}
+
+.emoticon__advise{
+	font-size: 35px;
+}
+
+#register_form{
+  display: none;
+}
+
+.body_bg{
+  background-color: #0054f6;
+}

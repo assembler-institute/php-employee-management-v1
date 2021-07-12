@@ -1,47 +1,102 @@
 <?php
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
 
-function addEmployee(array $newEmployee)
-{
-// TODO implement it
+if (!isset($_SESSION)) {
+  session_start();
 }
 
+function addEmployee(array $newEmployeeData)
+{
+	$BASE_URL = $_SESSION["BASE_URL"];
+	$pastEmployees = getEmployeesFromArray();
+	array_push($pastEmployees, $newEmployeeData);
+	$updatedEmployees = json_encode($pastEmployees);
+	file_put_contents($BASE_URL . "/resources/employees.json", $updatedEmployees);
+	return true;
+}
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+  $employees = json_decode(file_get_contents("../../resources/employees.json"), true);
+  $foundEmployee = array_reduce(
+    $employees,
+    function ($found, $employee) use ($id) {
+      return intval($employee["id"]) === intval($id) ? $employee : $found;
+    },
+    []
+  );
+  $otherEmployees = array_filter(
+    $employees,
+    function ($employee) use ($id) {
+      return intval($employee["id"]) !== intval($id);
+    }
+  );
+  $updatedEmployees = array_values($otherEmployees);
+  file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
+  return $foundEmployee;
 }
-
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+	$BASE_URL = $_SESSION["BASE_URL"];
+	$pastEmployees = getEmployeesFromArray();
+	$updatedArray = [];
+	foreach($pastEmployees as $selected){
+		if ($selected["id"] == $updateEmployee["id"]) {
+			array_push($updatedArray, $updateEmployee);
+		} else{
+			array_push($updatedArray, $selected);
+		};
+	}
+	$updatedEmployees = json_encode($updatedArray);
+	file_put_contents($BASE_URL . "/resources/employees.json", $updatedEmployees);
+	return true;
+
 }
 
+function getEmployees()
+{
+  $BASE_URL = $_SESSION["BASE_URL"];
+  $employeesData = file_get_contents($BASE_URL . "/resources/employees.json");
+  return json_decode($employeesData);
+}
+
+function getEmployeesFromArray()
+{
+  $BASE_URL = $_SESSION["BASE_URL"];
+  $employeesData = file_get_contents($BASE_URL . "/resources/employees.json");
+  return json_decode($employeesData, true);
+}
 
 function getEmployee(string $id)
 {
-// TODO implement it
+  $employeesData = file_get_contents("../resources/employees.json");
+  $decodeEmployee = json_decode($employeesData, true);
+  $foundEmployee = array_reduce($decodeEmployee, function ($found, $employee) use (
+    $id
+  ) {
+    return intval($employee["id"]) === intval($id) ? $employee : $found;
+  });
+  return $foundEmployee;
 }
-
 
 function removeAvatar($id)
 {
-// TODO implement it
+  // TODO implement it
 }
 
-
-function getQueryStringParameters(): array
+function getQueryStringParameters()
 {
-// TODO implement it
+  // TODO implement it return array
 }
 
-function getNextIdentifier(array $employeesCollection): int
+function getNextIdentifier()
 {
-// TODO implement it
+
+  $employeesCollection = getEmployeesFromArray();
+
+  return max(
+    array_map(function ($employee) {
+      return intval($employee["id"]);
+    }, $employeesCollection)
+  ) + 1;
 }
