@@ -1,5 +1,3 @@
-document.querySelector("#prueba").innerHTML = "Sergi es un maquina"
-
 window.db = {};
 
 db.countries = [{
