@@ -1,6 +1,15 @@
 <?php
 require_once("./library/sessionHelper.php");
 checkSession();
+
+function getBaseUrl()
+{
+    $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === 0 ? 'https://' : 'http://';
+    return $protocol . $_SERVER['HTTP_HOST'];
+}
+
+$baseUrl = getBaseUrl();
+echo $baseUrl;
 ?>
 
 <!doctype html>
@@ -12,6 +21,16 @@ checkSession();
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
+
+  <!-- JSGrid -->
+  <link type="text/css" rel="stylesheet" href="../node_modules\jsgrid\dist\jsgrid.min.css" />
+  <link type="text/css" rel="stylesheet" href="../node_modules\jsgrid\dist/jsgrid-theme.min.css" />
+  <script type="text/javascript" src="../node_modules\jsgrid\dist\jsgrid.min.js"></script>
+
+  <!-- JQuery -->
+  <script src="../node_modules\jquery\dist\jquery.min.js"></script>
+
+
   <title>PHP SESSIONS - Login example</title>
 
 
@@ -36,12 +55,12 @@ checkSession();
 
 
   <!-- Custom styles for this template -->
-  <link href="../../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <?= file_get_contents('http://localhost/php-employee-management-v1/assets/html/header.html'); ?>
+  <?= file_get_contents($baseUrl . '/php-employee-management-v1/assets/html/header.html'); ?>
 
   <div class="container-fluid">
     <div class="row">
@@ -136,6 +155,53 @@ checkSession();
           </div>
         </div>
 
+        <div id="jsGrid"></div>
+
+        <script>
+
+        $(function() {
+
+          var clients = [
+              { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
+              { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
+              { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
+              { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
+              { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
+          ];
+      
+          var countries = [
+              { Name: "", Id: 0 },
+              { Name: "United States", Id: 1 },
+              { Name: "Canada", Id: 2 },
+              { Name: "United Kingdom", Id: 3 }
+          ];
+      
+          $("#jsGrid").jsGrid({
+              width: "100%",
+              height: "400px",
+      
+              inserting: true,
+              editing: true,
+              sorting: true,
+              paging: true,
+      
+              data: clients,
+      
+              fields: [
+                  { name: "Name", type: "text", width: 150, validate: "required" },
+                  { name: "Age", type: "number", width: 50 },
+                  { name: "Address", type: "text", width: 200 },
+                  { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
+                  { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                  { type: "control" }
+              ]
+          });
+        })
+        console.log("hola");
+    </script>
+
+
+
         <h2>Section title</h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
@@ -226,13 +292,13 @@ checkSession();
     </div>
   </div>
 
-  <?= file_get_contents('http://localhost/php-employee-management-v1/assets/html/footer.html'); ?>
+  <?= file_get_contents($baseUrl . '/php-employee-management-v1/assets/html/footer.html'); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-  <script src="../../assets/js/index.js"></script>
+  <script src="../assets/js/index.js"></script>
 </body>
 
 </html>
