@@ -18,23 +18,23 @@
         ?>
     </header>
     <main class="container p-5">
-        <form>
+        <form action="./library/employeeController.php" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="First Name">
+                    <input type="text" class="form-control" id="inputName" placeholder="First Name" name="name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="lastName">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="someone@somewhere.com">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="someone@somewhere.com" name="email">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputGender">Gender</label>
-                    <select id="inputGender" class="form-control">
+                    <select id="inputGender" class="form-control" name="gender">
                         <option selected>Choose...</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -42,27 +42,27 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputAge">Age</label>
-                    <input type="number" class="form-control" id="inputAge">
+                    <input type="number" class="form-control" id="inputAge" name="age">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPhone">Phone Number</label>
-                    <input type="text" class="form-control" id="inputPhone">
+                    <input type="text" class="form-control" id="inputPhone" name="phoneNumber">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity" name="city">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputAddress">Street Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Street, Apartment, studio, or floor">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Street, Apartment, studio, or floor" name="streetAddress">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="inputState">
+                    <input type="text" class="form-control" id="inputState" name="state">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Zip Code</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="inputZip" name="zipCode">
                 </div>
 
 

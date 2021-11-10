@@ -22,7 +22,7 @@
 
     <main class="container">
 
-        <form class="form-signin w-25 p-3 center mx-auto text-center" action="./src/library/loginManager.php" method="POST">
+        <form class="form-signin w-25 p-3 center mx-auto text-center" action="./src/library/loginController.php" method="POST">
             <img class=" mb-4" src="./node_modules/bootstrap-icons/icons/box-arrow-in-right.svg" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <div class="form-group">
