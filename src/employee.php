@@ -37,7 +37,7 @@
                     <select id="inputGender" class="form-control">
                         <option selected>Choose...</option>
                         <option>Male</option>
-                        <opttion>Female</opttion>
+                        <option>Female</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
