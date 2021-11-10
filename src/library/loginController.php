@@ -1,0 +1,1 @@
+<!-- Recibimos la petición $_POST y autenticamos los datos con las funciones del Manager -->
