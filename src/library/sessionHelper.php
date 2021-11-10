@@ -1,5 +1,10 @@
 <?php
 
+function startSession()
+{
+	session_start();
+}
+
 function destroySession()
 {
 	if (ini_get("session.use_cookies")) {

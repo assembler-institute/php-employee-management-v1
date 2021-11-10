@@ -1,6 +1,7 @@
 <?php
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,13 @@
 </head>
 
 <body>
-	<?php include("./assets/html/login.html") ?>
+	<?php
+	if (isset($_GET["logged"])) {
+		include("./src/dashboard.php");
+	} else {
+		include("./src/login.php");
+	}
+	?>
 </body>
 
 </html>
