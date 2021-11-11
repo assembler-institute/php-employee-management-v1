@@ -13,6 +13,13 @@ function addEmployee(array $newEmployee)
 // TODO implement it
     $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'),true); //convierte a varible de php (array)
     $newEmployee['id'] = getNextIdentifier($employeesCollection);
+    if(!isset($newEmployee['gender'])){
+        $newEmployee['gender'] = "";
+    } 
+    if(!isset($newEmployee['lastName'])){
+        $newEmployee['lastName'] = "";
+    }
+
     array_push($employeesCollection,$newEmployee);
 
     file_put_contents('../../resources/employees.json',json_encode($employeesCollection));

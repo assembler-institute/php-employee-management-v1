@@ -14,14 +14,14 @@
 })();
  */
 
-function jsonToFormData(item) {
+/* function jsonToFormData(item) {
   var formData = new FormData();
   for (const value in item) {
     formData.append(value, item[value]);
     console.log(item[value]);
   }
   return formData;
-}
+} */
 
 $("#employees").jsGrid({
   width: "80%",
@@ -57,17 +57,14 @@ $("#employees").jsGrid({
       return d.promise();
     },
     insertItem: function (item) {
-      let formData = jsonToFormData(item);
-      
       var d = $.Deferred();
 
       $.ajax({
         type: "POST",
         url: "../src/library/employeeController.php",
-        data: formData,
-        contentType: false, //No send headers
-        processData: false,
+        data: item,
         success: function (data) {
+            console.log('yes');
           d.resolve(data);
         },
         error: function (xhr, exception) {
@@ -86,8 +83,8 @@ $("#employees").jsGrid({
     { name: "streetAddress", type: "number", width: 60, title: "Street No." },
     { name: "city", type: "text", width: 100, title: "City" },
     { name: "state", type: "text", width: 50, title: "State" },
-    { name: "postalCode", type: "text", width: 50, title: "Postal Code" },
-    { name: "phoneNumber", type: "text", width: 65, title: "Phone Number" },
+    { name: "postalCode", type: "number", width: 50, title: "Postal Code" },
+    { name: "phoneNumber", type: "number", width: 65, title: "Phone Number" },
     { type: "control" },
   ],
 });

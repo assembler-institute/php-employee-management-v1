@@ -15,7 +15,7 @@ include_once '../assets/html/header.html';
       New Employee
     </h1>
     <div class="puppy">
-       <img src="../assets/images/employee.png"/>
+      <img src="../assets/images/employee.png" />
     </div>
   </div>
   <div class="right-container">
@@ -30,7 +30,7 @@ include_once '../assets/html/header.html';
           <label for="pets-breed">Last name</label>
           <input id="pets-breed" placeholder="Last Name" type="text"></input>
         </div>
-      <!--   <div class="pets-photo">
+        <!--   <div class="pets-photo">
           <button id="pets-upload">
             <i class="fas fa-camera-retro"></i>
           </button>
@@ -51,10 +51,10 @@ include_once '../assets/html/header.html';
             <label for="pet-gender-male">Man</label>
           </div>
         </div>
-        
+
       </div>
       <div class="set">
-      <div class="pets-breed">
+        <div class="pets-breed">
           <label for="pets-breed">City</label>
           <input id="pets-breed" placeholder="City" type="text"></input>
         </div>
@@ -63,9 +63,9 @@ include_once '../assets/html/header.html';
           <input id="pets-birthday" placeholder="Street Address" type="text"></input>
         </div>
       </div>
-      
+
       <div class="set">
-      <div class="pets-breed">
+        <div class="pets-breed">
           <label for="pets-breed">State</label>
           <input id="pets-breed" placeholder="CA" type="text"></input>
         </div>
@@ -75,7 +75,7 @@ include_once '../assets/html/header.html';
         </div>
       </div>
       <div class="set">
-      <div class="pets-breed">
+        <div class="pets-breed">
           <label for="pets-breed">Postal Code</label>
           <input id="pets-breed" placeholder="03652" type="number"></input>
         </div>
