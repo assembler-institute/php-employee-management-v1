@@ -23,11 +23,19 @@ require(".././assets/html/header.html");
 
 <div id="jsGrid" class="container"></div>
 
+
+
 <?php
 require(".././assets/html/footer.html");
 ?>
+
+
 </body>
 </html>
+
+<script>
+</script>
+
 
 
 

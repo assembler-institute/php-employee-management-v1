@@ -6,7 +6,6 @@ var employees = (function () {
     url: "../src/library/employeeController.php",
     dataType: "json",
     success: function (data) {
-      console.log(data);
       json = data;
     },
   });
@@ -15,7 +14,6 @@ var employees = (function () {
 
 $("#jsGrid").jsGrid({
   width: "80%",
-
   filtering: true,
   editing: false,
   inserting: true,
