@@ -1,6 +1,7 @@
 <?php
+require_once("./src/library/sessionHelper.php");
 
-require_once("./src/library/loginController.php");
+startSession();
 
 ?>
 
@@ -13,26 +14,29 @@ require_once("./src/library/loginController.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Employee Manager</title>
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./node_modules/jsgrid/dist/js/jsgrid.min.css">
+	<link rel="stylesheet" href="./node_modules/jsgrid/dist/js/jsgrid-theme.min.css">
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
+	<script src="./node_modules/jsgrid/dist/js/jsgrid.min.js" type="module"></script>
 </head>
 
 <body>
-	<?php if (getSessionValue("userid")) : ?>
+	<aside class="position-absolute top-0 end-0 m-3">
+		<?php foreach (["success", "danger", "info"] as $type) : ?>
+			<?php if ($messages = popSessionValue($type)) : ?>
+				<?php foreach ($messages as $message) : ?>
+					<div class="alert alert-<?= $type ?> alert-dismissible fade show my-1 mx-1" role="alert">
+						<?= $message ?>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				<?php endforeach ?>
+			<?php endif ?>
+		<?php endforeach ?>
+	</aside>
+	<?php if (getSessionValue("user")) : ?>
 		<?php include("./src/dashboard.php"); ?>
 	<?php else : ?>
-		<main class="min-vh-100 container-sm d-flex flex-column justify-content-center align-items-center gap-3">
-			<h1 class="text-center display-4">Employee Manager</h1>
-			<div class="border py-3 px-5 rounded-2">
-				<h2 class="text-center fs-4 fw-light p-0 mb-4">Login</h2>
-				<form method="POST" action="./src/library/loginController.php?login">
-					<input class="form-control form-control-lg mb-3 bg-light" type="text" name="user" id="user" placeholder="user@domain.com" />
-					<input class="form-control form-control-lg mb-3 bg-light" type="password" name="password" id="password" placeholder="password" />
-					<div class="d-flex justify-content-center gap-3">
-						<!-- <button class="btn btn-primary" style="width: 8rem" type="submit">Login</button> -->
-						<a class="btn btn-primary" href="index.php?logged">Fake login</a>
-					</div>
-				</form>
-			</div>
-		</main>
+		<?php include("./assets/html/login.html"); ?>
 	<?php endif ?>
 </body>
 
