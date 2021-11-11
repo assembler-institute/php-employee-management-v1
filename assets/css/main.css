@@ -1,0 +1,39 @@
+.main-header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header__container > * {
+  padding: 1rem;
+}
+
+.list-container {
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-container li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.nav-link {
+  
+}
+
+.logout-btn {
+  margin-right: 3rem;
+}
+
+/* UTILS */
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-center {
+  justify-content: center;
+  align-items: center;
+}
