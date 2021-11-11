@@ -2,23 +2,18 @@
 <!--This file will be the employee view that will be used as much to view/edit
 an existing one or to create a new one. -->
 <?php
-include "../assets/html/head.html";
-include "../assets/html/header.html";
+include_once "../assets/html/head.html";
+include_once "../assets/html/header.html";
+require_once "./imageGallery.php";
 ?>
 <div class="container">
     <div class="row">
-        <div class="col col-md-2 p-4">
+        <!-- GALLERY -->
+        <div class="col col-md-3 p-4">
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="../assets/img/1.jpg" class="d-block w-100" alt="Photo">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../assets/img/2.jpg" class="d-block w-100" alt="Photo">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../assets/img/3.jpg" class="d-block w-100" alt="Photo">
-                    </div>
+                <div class="carousel-inner ">
+                    <?php imageGallery();
+                    ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,63 +25,64 @@ include "../assets/html/header.html";
                 </button>
             </div>
         </div>
+        <!-- END GALLERY -->
 
-
-        <div class="col col-md-8 p-4">
-            <form>
+        <!-- FORM -->
+        <div class="col col-md-6 p-4">
+            <form id="formEmployee">
                 <div class="form-row row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Name</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Last Name</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Surname">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" id="inputLast" placeholder="Surname">
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6" id="inputGender">
                         <label for="inputState">Gender</label>
-                        <select id="inputState" class="form-control">
-                            <option value="" selected>Choose...</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                            <option value="other">Other</option>
+                        <select id="inputState" class="form-control" id="inputGender2">
+                            <option value="" selected id="inputGenderNone">Choose...</option>
+                            <option value="Female" id="inputGenderFemale">Female</option>
+                            <option value="Male" id="inputGenderMale">Male</option>
+                            <option value="Other" id="inputGenderOther">Other</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">City</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="City">
+                        <label>City</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="City">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">Street Address</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Street Address">
-                    </div>
-                </div>
-                <div class="form-row row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">State</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="State">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Age</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Age">
+                        <label>Street Address</label>
+                        <input type="text" class="form-control" id="inputStreet" placeholder="Street Address">
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Postal code</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Postal code">
+                        <label>State</label>
+                        <input type="text" class="form-control" id="inputState" placeholder="State">
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword4">PhoneNumber</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="PhoneNumber">
+                        <label>Age</label>
+                        <input type="text" class="form-control" id="inputAge" placeholder="Age">
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="form-group col-md-6">
+                        <label>Postal code</label>
+                        <input type="text" class="form-control" id="inputPostal" placeholder="Postal code">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" id="inputPhone" placeholder="PhoneNumber">
                     </div>
                 </div>
                 <div class="m-3">
@@ -95,10 +91,13 @@ include "../assets/html/header.html";
                 </div>
             </form>
         </div>
+        <!-- END FORM -->
 
-        <div class="col col-md-2 p-4">
+        <!-- CHART -->
+        <div class="col col-md-3 p-4">
             <h1>RATIO CHART HERE!</h1>
         </div>
+        <!-- END CHART -->
     </div>
 </div>
 
@@ -106,3 +105,26 @@ include "../assets/html/header.html";
 <?php
 include "../assets/html/footer.html";
 ?>
+<script>
+    //?GENDER  post.gender.value? 
+    //document.getElementById("inputGenderNone").removeAttribute("selected");
+    //document.getElementById(`inputGender${post.gender.value}`).setAttribute("selected", true);
+    console.log(document.getElementById("formEmployee"))
+    document.getElementById("formEmployee"), addEventListener('submit', (e) => {
+        e.preventDefault();
+        let formData = {
+            id: 12345,
+            name: $("#inputName").val(),
+            lastName: $("#inputLast").val(),
+            email: $("#inputEmail").val(),
+            gender: $("#inputGender2").val(), //!ojito
+            city: $("#inputCity").val(),
+            streetAddress: $("#inputStreet").val(),
+            state: $("#inputState").val(),
+            age: $("#inputAge").val(),
+            postalCode: $("#inputPostal").val(),
+            phoneNumber: $("#inputPostal").val()
+        };
+        console.log(formData);
+    })
+</script>
