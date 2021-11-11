@@ -1,6 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION["username"])) {
+    header("Location: ../index.php");
+}
+echo $_SESSION["username"]; ?>
+<?php
 include_once '../assets/html/header.html';
 ?>
+
 <div class="signup-container">
   <div class="left-container">
     <h1>
@@ -86,11 +93,6 @@ include_once '../assets/html/header.html';
     </footer>
   </div>
 </div>
-<?php
-session_start();
-if (!isset($_SESSION["username"])) {
-    header("Location: ../index.php");
-}
-echo $_SESSION["username"]; ?>
+
 
 <?php include_once '../assets/html/footer.html' ?>
