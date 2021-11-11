@@ -4,5 +4,3 @@ function getData(){
     echo $json_data;
 }
 
-// $data = json_decode($json_data, TRUE);
-// print_r($data);
