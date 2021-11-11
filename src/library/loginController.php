@@ -7,10 +7,6 @@ if (isset($_GET["logout"])) {
     destroySession();
 }
 
-if (!isset($_SESSION["username"])) {
-    header("Location: ../../index.php");
-}
-
 
 //Verify user
 function verifyuser()
