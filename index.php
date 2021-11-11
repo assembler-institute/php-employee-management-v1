@@ -1,6 +1,5 @@
 <?php
 require_once("./src/library/sessionHelper.php");
-
 startSession();
 
 if (getSessionValue("user")) {
@@ -8,14 +7,16 @@ if (getSessionValue("user")) {
 
 	switch ($query) {
 		case "employee":
-			include("./src/employee.php");
-			break;
+			header("Location: ./src/employee.php");
+			exit();
 		case "dashboard":
-			include("./src/dashboard.php");
-			break;
+			header("Location: ./src/dashboard.php");
+			exit();
 		default:
-			header("Location: ./index.php?dashboard");
+			header("Location: ./src/dashboard.php");
+			exit();
 	}
 } else {
-	include("./src/login.php");
+	header("Location: ./src/login.php");
+	exit();
 }

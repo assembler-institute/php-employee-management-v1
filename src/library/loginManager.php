@@ -1,5 +1,7 @@
 <?php
 
+require_once("./sessionHelper.php");
+
 function login()
 {
 	startSession();

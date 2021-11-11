@@ -1,7 +1,6 @@
 <?php
 
 require_once("./loginManager.php");
-require_once("./sessionHelper.php");
 
 $query = $_SERVER["QUERY_STRING"];
 

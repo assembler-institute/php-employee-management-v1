@@ -1,9 +1,9 @@
 <?php
 
-function addEmployee(array $newEmployee)
-{
-	startSession();
+require_once("./sessionHelper.php");
 
+function addEmployee(array $newEmployee): bool
+{
 	try {
 		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
 
@@ -11,16 +11,16 @@ function addEmployee(array $newEmployee)
 		array_push($employeesCollection, $newEmployee);
 
 		file_put_contents("./resources/employees.json", json_encode($employeesCollection, JSON_PRETTY_PRINT));
-		setSessionValue("success", "Employee saved successfully.");
+		return true;
+		//return ["success", "Employee saved successfully."];
 	} catch (Throwable $e) {
-		setSessionValue("danger", "Employee could not be saved.");
+		return false;
+		//return ["danger", "Employee could not be saved."];
 	}
 }
 
-function deleteEmployee(string $id)
+function deleteEmployee(string $id): bool
 {
-	startSession();
-
 	try {
 		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
 
@@ -32,16 +32,16 @@ function deleteEmployee(string $id)
 		}
 
 		file_put_contents("./resources/employees.json", json_encode($employeesCollection, JSON_PRETTY_PRINT));
-		setSessionValue("success", "Employee deleted successfully.");
+		return true;
+		//return ["success", "Employee deleted successfully."];
 	} catch (Throwable $e) {
-		setSessionValue("danger", "Employee could not be deleted.");
+		return false;
+		//return ["danger", "Employee could not be deleted."];
 	}
 }
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee(array $updateEmployee): bool
 {
-	startSession();
-
 	try {
 		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
 
@@ -49,9 +49,11 @@ function updateEmployee(array $updateEmployee)
 		array_push($employeesCollection, $updateEmployee);
 
 		file_put_contents("./resources/employees.json", json_encode($employeesCollection, JSON_PRETTY_PRINT));
-		setSessionValue("success", "Employee saved successfully.");
+		return true;
+		//return ["success", "Employee saved successfully."];
 	} catch (Throwable $e) {
-		setSessionValue("danger", "Employee could not be saved.");
+		return false;
+		//return ["danger", "Employee could not be saved."];
 	}
 }
 
@@ -70,17 +72,14 @@ function getEmployee(string $id)
 	}
 }
 
-
 function removeAvatar($id)
 {
 	// TODO implement it
 }
 
-
 function getQueryStringParameters(): array
 {
-	// TODO implement it
-	$employee = [
+	$params = [
 		"name" => 					isset($_POST["name"]) ? 					getSanitizedValue($_POST["name"]) : null,
 		"lastName" => 			isset($_POST["lastName"]) ? 			getSanitizedValue($_POST["lastName"]) : null,
 		"age" => 						isset($_POST["age"]) ? 						getSanitizedValue($_POST["age"]) : null,
@@ -93,7 +92,7 @@ function getQueryStringParameters(): array
 		"state" => 					isset($_POST["state"]) ? 					getSanitizedValue($_POST["state"]) : null,
 	];
 
-	return $employee;
+	return $params;
 }
 
 function getNextIdentifier(array $employeesCollection): int
