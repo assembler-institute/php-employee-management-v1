@@ -13,15 +13,9 @@ function validateLogin($logUser, $logPassword) {
 
   if ($logUser === $userEmail && password_verify($logPassword, $userPassword))  {
     header("Location: ../dashboard.php?login=success");
-    //contador de tiempo de usuario
+    //contador de tiempo del usuario
   }
 }
-
-
-
-
-
-
 
 
 // //close session
