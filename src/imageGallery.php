@@ -1,1 +1,2 @@
 <!-- TODO If you are going to add the extra feature implement here the image selection as a gallery or whatever you like -->
+// This file will contain the code necessary to display the API images. Keep in mind that the API request must be implemented in another specific file for this (“avatarsAPI.php”), which will be detailed in the following points of this documentation. Then the “imageGallery.php” must include and call to the functions of “avatarsAPI.php” file.

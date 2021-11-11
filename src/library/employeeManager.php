@@ -1,4 +1,6 @@
 <?php
+//This file will perform the necessary operations (create, read, update and delete) which will be called later by the "employeeController.php" file.
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
