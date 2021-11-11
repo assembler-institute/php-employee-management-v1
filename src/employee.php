@@ -1,6 +1,10 @@
 <!-- TODO Employee view -->
+
 <?php
 require_once("../assets/html/header.html");
+session_start();
+$_SESSION["loginError"];
+print_r($_SESSION["loginError"]);
 ?>
 <div class="container">
     <form method="POST" action="dashboard.php">
