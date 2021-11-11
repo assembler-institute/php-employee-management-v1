@@ -6,6 +6,8 @@
  * @date: 11/06/2020
  */
 
+ require_once './employeeController.php';
+
 function addEmployee(array $newEmployee)
 {
 // TODO implement it
@@ -39,9 +41,13 @@ function removeAvatar($id)
 function getQueryStringParameters(): array
 {
 // TODO implement it
+
+
+    return [];
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
+     return 1;
 }

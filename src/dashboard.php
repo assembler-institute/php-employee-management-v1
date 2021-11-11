@@ -1,1 +1,7 @@
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+include_once '../assets/html/header.html';
+?>
+<div class="container-table">
+    <div class="table-employees" id="employees"></div>
+</div>
+<?php include_once '../assets/html/footer.html'?>
