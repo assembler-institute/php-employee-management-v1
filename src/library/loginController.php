@@ -8,6 +8,7 @@ if (isset($_GET["logout"])) {
 }
 
 
+
 //Verify user
 function verifyuser()
 {
