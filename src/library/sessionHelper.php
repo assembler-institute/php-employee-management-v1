@@ -4,3 +4,4 @@ you must call the corresponding function of "loginManager.php" to logout the use
 In the event that the user remains more than 10 minutes in the session, the user will have to be logged out. -->
 
 
+

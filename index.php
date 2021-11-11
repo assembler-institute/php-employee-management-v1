@@ -39,9 +39,9 @@
 <body class="text-center">
 
 <main class="form-signin">
-  <form class="container" action="./src/library/loginController.php" method="POST">
+  <form class="" action="./src/library/loginController.php" method="POST">
   <img src="./assets/img/icon employees.png" width="100" height="100" class="me-3" alt="Dani&Marc">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 fw-normal text-left">Sign in to your account</h1>
 
     <div class="form-floating">
       
