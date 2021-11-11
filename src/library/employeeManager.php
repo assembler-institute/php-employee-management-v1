@@ -1,5 +1,4 @@
 <?php
-
 require_once("./sessionHelper.php");
 
 function addEmployee(array $newEmployee): bool
