@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
   // Read JSON by fetch
-  fetch("../../resources/employees.json")
+  fetch("../resources/employees.json")
     .then((res) => res.json())
     .then((data) => setupJsGrid(data));
 });
@@ -14,8 +14,12 @@ function deleteEntry({ item }) {
   makeRequest(item, "delete");
 }
 
+function editEntry({ item }) {
+  window.location.replace(`employee.php?employeeId=${item.id}`);
+}
+
 function makeRequest(item, action) {
-  fetch("../../src/library/employeeController.php", {
+  fetch("../src/library/employeeController.php", {
     method: "post",
     body: JSON.stringify({
       item: item,
@@ -24,7 +28,7 @@ function makeRequest(item, action) {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => cosole.log(res));
+  }).then((res) => console.log(res));
   // Get backend response
 }
 
@@ -40,6 +44,7 @@ function setupJsGrid(data) {
 
     onItemInserted: insertNewEntry,
     onItemDeleted: deleteEntry,
+    rowClick: editEntry,
 
     deleteConfirm: "Do you really want to delete the employee?",
 

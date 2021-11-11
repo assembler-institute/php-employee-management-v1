@@ -1,31 +1,5 @@
 [
     {
-        "id": "2",
-        "name": "John",
-        "lastName": "Doe",
-        "email": "jhondoe@foo.com",
-        "gender": "man",
-        "city": "New York",
-        "streetAddress": "89",
-        "state": "WA",
-        "age": "34",
-        "postalCode": "09889",
-        "phoneNumber": "1283645645"
-    },
-    {
-        "id": "3",
-        "name": "Leila",
-        "lastName": "Mills",
-        "email": "mills@leila.com",
-        "gender": "woman",
-        "city": "San Diego",
-        "streetAddress": "55",
-        "state": "CA",
-        "age": "29",
-        "postalCode": "098765",
-        "phoneNumber": "9983632461"
-    },
-    {
         "id": 4,
         "name": "Richard",
         "lastName": "Desmond",
@@ -89,5 +63,14 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
+    },
+    {
+        "name": "Haroon",
+        "age": "55",
+        "streetAddress": "This",
+        "city": "that",
+        "state": "why",
+        "phoneNumber": "666666",
+        "id": 9
     }
 ]

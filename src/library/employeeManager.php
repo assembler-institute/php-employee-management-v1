@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -6,42 +7,98 @@
  * @date: 11/06/2020
  */
 
+require_once("loginManager.php");
+
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    var_dump($newEmployee);
+    // Verify the file path exist
+    $jsonPath = '../../resources/employees.json';
+    if (!file_exists($jsonPath)) return [false, 'Invalid path'];
+
+    // Get JSON and update it
+    $jsonArray = getJson($jsonPath);
+    $idArray = [];
+    $newJson = [];
+    foreach ($jsonArray as $entry) {
+
+        $newJson[] = $entry;
+        $idArray[] = $entry["id"];
+    }
+
+    //Get max value from the ID Array to add the next ID
+
+    $newId = max($idArray) + 1;
+    $newEmployee["id"] = $newId;
+    $newJson[] = $newEmployee;
+
+    if (!file_put_contents($jsonPath, json_encode($newJson, JSON_PRETTY_PRINT))) {
+
+        return [false, "Failed to save data into json file"];
+    }
+
+    return [true, "Employee Added Successfully"];
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
-// TODO implement it
+
+    // Verify the file path exist
+    $jsonPath = '../../resources/employees.json';
+    if (!file_exists($jsonPath)) return [false, 'Invalid path'];
+
+    // Get JSON and update it
+    $jsonArray = getJson($jsonPath);
+    $newJson = [];
+    foreach ($jsonArray as $entry) {
+        if ($entry['id'] !== $id) {
+            $newJson[] = $entry;
+        }
+    }
+
+    if (!file_put_contents($jsonPath, json_encode($newJson, JSON_PRETTY_PRINT))) {
+
+        return [false, "Failed to save data into json file"];
+    }
+
+    return [true, "Updated succesfully!"];
 }
 
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+
+    $employees = getJson("../resources/employees.json");
+
+
+    foreach ($employees as $employee) {
+
+        if ($employee["id"] === (int)$id) return $employee;
+    }
+
+    return ("Employee not found");
 }
 
 
 function removeAvatar($id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function getQueryStringParameters(): array
 {
-// TODO implement it
+    // TODO implement it
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
-// TODO implement it
+    // TODO implement it
 }

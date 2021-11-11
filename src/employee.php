@@ -1,3 +1,27 @@
+<?php
+
+$id = isset($_GET["employeeId"]) ? $_GET["employeeId"] : null;
+
+if ($id === null) header("Location: ./dashboard.php");
+
+require_once("./library/employeeManager.php");
+
+$employee = getEmployee($_GET["employeeId"]);
+
+$name = isset($employee["name"]) ? $employee["name"] : "";
+$lastName = isset($employee["lastName"]) ? $employee["lastName"] : "";
+$email = isset($employee["email"]) ? $employee["email"] : "";
+$gender = isset($employee["man"]) ? $employee["man"] : "";
+$age = isset($employee["age"]) ? $employee["age"] : "";
+$address = isset($employee["streetAddress"]) ? $employee["streetAddress"] : "";
+$city = isset($employee["city"]) ? $employee["city"] : "";
+$state = isset($employee["state"]) ? $employee["state"] : "";
+$postalCode = isset($employee["postalCode"]) ? $employee["postalCode"] : "";
+$phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
+
+
+?>
+
 <!-- TODO Employee view -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +46,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="First Name" name="name">
+                    <input type="text" class="form-control" id="inputName" placeholder="<?php echo $name ?>" name="name" value="<?php echo $name ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" name="lastName">
+                    <input type="text" class="form-control" id="inputLastName" placeholder="<?php echo $lastName ?>" name="lastName" value="<?php echo $lastName ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail">Email</label>
