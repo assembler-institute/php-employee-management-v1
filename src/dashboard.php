@@ -38,8 +38,8 @@
     </header>
 
     <main>
-
         <div id="jsGrid" class="mt-5 container"></div>
+
     </main>
 
 </body>
