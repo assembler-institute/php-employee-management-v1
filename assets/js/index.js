@@ -80,7 +80,7 @@ $.getJSON(dataPath).done(function (employeesData) {
                     }
                 },
                 message: function (value, item) {
-                    return "The client age should be between 0 and 80. Entered age is \"" + value + "\" is out of specified range.";
+                    return "The client age should be between 18 and 80. Entered age is \"" + value + "\" is out of specified range.";
                 },
                 param: [18, 80]
             },

@@ -1,9 +1,4 @@
 <!-- TODO Application entry point. Login view -->
-<?php
-require_once "src/library/employeeManager.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +58,14 @@ require_once "src/library/employeeManager.php";
             </div>
         </div>
     </div>
+    <?php
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == "invaliAuth") {
+            echo "<div class='alert alert-danger'> <h3> You don't have permission to enter the dashboard. Please Login.</h3></div>";
+            unset($_GET['error']);
+        }
+    }
+    ?>
     <footer class="bg-dark text-center text-white fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
             ©

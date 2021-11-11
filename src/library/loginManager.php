@@ -18,11 +18,8 @@ function login()
         if ($_POST['loginMail'] === $email &&  password_verify($_POST['loginPassword'], $password)) {
             header("Location:../dashboard.php ");
         } else {
-            echo "inside else";
-            $_SESSION["loginError"] = "You don't have permission to enter the dashboard. Please Login.";
-
-            header("Location:../../index.php");
-            // header("Location:../employee.php ");
+            header("Location: ../../index.php?error=invaliAuth");
+            exit();
         }
     }
 }
