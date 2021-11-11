@@ -4,7 +4,8 @@
   "description": "Part of basic web application project for Assembler School students",
   "main": "index.php",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "sass": "sass"
   },
   "author": "Jose Manuel Orts",
   "license": "ISC",
@@ -12,7 +13,8 @@
     "bootstrap": "^4.6.1",
     "bootstrap-icons": "^1.0.0-alpha4",
     "jquery": "^3.6.0",
-    "jsgrid": "^1.5.3"
+    "jsgrid": "^1.5.3",
+    "sass": "^1.43.4"
   },
   "repository": {
     "type": "git",

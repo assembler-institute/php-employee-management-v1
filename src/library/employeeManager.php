@@ -6,11 +6,19 @@
  * @date: 11/06/2020
  */
 
- require_once './employeeController.php';
+ //require_once './employeeController.php';
 
 function addEmployee(array $newEmployee)
 {
 // TODO implement it
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'),true); //convierte a varible de php (array)
+    $newEmployee['id'] = getNextIdentifier($employeesCollection);
+    array_push($employeesCollection,$newEmployee);
+
+    file_put_contents('../../resources/employees.json',json_encode($employeesCollection));
+    return true;
+     
+
 }
 
 
@@ -49,5 +57,5 @@ function getQueryStringParameters(): array
 function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
-     return 1;
+     return count($employeesCollection) + 1;
 }
