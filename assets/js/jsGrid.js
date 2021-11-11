@@ -20,8 +20,18 @@ $("#jsGrid").jsGrid({
       });
     },
     insertItem: function (item) {
+      $("#jsGrid").on("submit", () => {
+        return $.ajax({
+          type: "POST",
+          url: "../resources/employees.json",
+          dataType: "json",
+          data: item,
+        });
+      });
+    },
+    deleteItem: function (item) {
       return $.ajax({
-        type: "POST",
+        type: "DELETE",
         url: "../resources/employees.json",
         dataType: "json",
         data: item,
