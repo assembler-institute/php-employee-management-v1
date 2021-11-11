@@ -30,9 +30,9 @@
       }
     }
   </style>
- 
+
   <!-- Custom styles for this template -->
- <link href="./assets/css/login.css" rel="stylesheet">
+<link href="./assets/css/login.css" rel="stylesheet">
 
 </head>
 

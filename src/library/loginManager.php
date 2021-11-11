@@ -16,3 +16,7 @@ function validateLogin($logUser, $logPassword) {
     //contador de tiempo del usuario
   }
 }
+  
+
+
+?>
