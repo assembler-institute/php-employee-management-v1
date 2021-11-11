@@ -4,7 +4,6 @@ require_once("../assets/html/header.html");
 ?>
 <div id="jsGrid"></div>
 <script>
-  
     window.db = {};
 
     db.countries = [{
