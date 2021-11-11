@@ -3,7 +3,7 @@
 require_once("../assets/html/header.html");
 ?>
 <div class="container">
-    <form>
+    <form method="POST" action="dashboard.php">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">Name</label>
