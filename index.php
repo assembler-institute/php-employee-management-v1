@@ -1,26 +1,22 @@
 <?php
+require_once("./src/library/sessionHelper.php");
+startSession();
 
-?>
+if (getSessionValue("user")) {
+	$query = $_SERVER["QUERY_STRING"];
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Manager</title>
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
-</head>
-
-<body>
-    <?php
-    if (isset($_GET["logged"])) {
-        include("./src/dashboard.php");
-    } else {
-        include("./src/login.php");
-    }
-    ?>
-</body>
-
-</html>
+	switch ($query) {
+		case "employee":
+			header("Location: ./src/employee.php");
+			exit();
+		case "dashboard":
+			header("Location: ./src/dashboard.php");
+			exit();
+		default:
+			header("Location: ./src/dashboard.php");
+			exit();
+	}
+} else {
+	header("Location: ./src/login.php");
+	exit();
+}
