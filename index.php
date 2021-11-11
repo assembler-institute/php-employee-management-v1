@@ -45,6 +45,7 @@
             <?php 
               if (isset($_GET['error'])) {
                 $error = $_GET['error'];
+                
                 ?><div class="alert alert-danger" role="alert"><?php
                 echo "There is an error with your $error";
                 ?></div><?php
