@@ -21,7 +21,6 @@
 require(".././assets/html/header.html");
 ?>
 
-
 <div id="jsGrid" class="container"></div>
 
 <?php

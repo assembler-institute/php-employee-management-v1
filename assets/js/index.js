@@ -1,71 +1,98 @@
-var clients = [
-  {
-    Name: "Otto Clay",
-    Age: 25,
-    Country: 1,
-    Address: "Ap #897-1459 Quam Avenue",
-    Married: false,
-  },
-  {
-    Name: "Connor Johnston",
-    Age: 45,
-    Country: 2,
-    Address: "Ap #370-4647 Dis Av.",
-    Married: true,
-  },
-  {
-    Name: "Lacey Hess",
-    Age: 29,
-    Country: 3,
-    Address: "Ap #365-8835 Integer St.",
-    Married: false,
-  },
-  {
-    Name: "Timothy Henson",
-    Age: 56,
-    Country: 1,
-    Address: "911-5143 Luctus Ave",
-    Married: true,
-  },
-  {
-    Name: "Ramona Benton",
-    Age: 32,
-    Country: 3,
-    Address: "Ap #614-689 Vehicula Street",
-    Married: false,
-  },
-];
-
-var countries = [
-  { Name: "", Id: 0 },
-  { Name: "United States", Id: 1 },
-  { Name: "Canada", Id: 2 },
-  { Name: "United Kingdom", Id: 3 },
-];
+var employees = (function () {
+  var json = null;
+  $.ajax({
+    async: false,
+    type: "GET",
+    url: "../src/library/employeeController.php",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      json = data;
+    },
+  });
+  return json;
+})();
 
 $("#jsGrid").jsGrid({
-  width: "100%",
-  height: "400px",
+  width: "80%",
 
+  filtering: true,
+  editing: false,
   inserting: true,
-  editing: true,
   sorting: true,
   paging: true,
-
-  data: clients,
+  autoload: true,
+  pageSize: 15,
+  pageButtonCount: 5,
+  deleteConfirm: "Do you really want to delete the client?",
+  data: employees,
 
   fields: [
-    { name: "Name", type: "text", width: 150, validate: "required" },
-    { name: "Age", type: "number", width: 50 },
-    { name: "Address", type: "text", width: 200 },
+    { name: "id", type: "hidden", visible: false, width: 15 },
     {
-      name: "Country",
-      type: "select",
-      items: countries,
-      valueField: "Id",
-      textField: "Name",
+      name: "name",
+      title: "Name",
+      type: "text",
+      width: 50,
+      align: "center",
+      validate: "required",
     },
-    { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-    { type: "control" },
+    {
+      name: "email",
+      title: "Email",
+      type: "text",
+      width: 100,
+      align: "center",
+      validate: "required",
+    },
+    {
+      name: "age",
+      title: "Age",
+      type: "number",
+      width: 30,
+      align: "center",
+      validate: "required",
+    },
+    {
+      name: "streetAddress",
+      title: "Stree No.",
+      type: "text",
+      width: 50,
+      align: "center",
+      validate: "required",
+    },
+    {
+      name: "city",
+      title: "City",
+      type: "text",
+      width: 50,
+      align: "center",
+      validate: "required",
+    },
+    {
+      name: "state",
+      title: "State",
+      type: "text",
+      width: 40,
+      align: "center",
+      validate: "required",
+    },
+    {
+      name: "postalCode",
+      title: "Postal Code",
+      type: "number",
+      width: 50,
+      align: "center",
+      validate: "required",
+    },
+    {
+      name: "phoneNumber",
+      title: "Phone Number",
+      type: "number",
+      width: 50,
+      align: "center",
+      validate: "required",
+    },
+    { type: "control", editButton: false },
   ],
 });
