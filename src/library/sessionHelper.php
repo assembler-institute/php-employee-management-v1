@@ -40,10 +40,9 @@ function destroySession()
     // Destroy session cookie
     destroySessionCookie();
 
-
     // Destroy the session
     session_destroy();
-    header("Location:../index.php?logout=true");
+    header("Location:../../index.php?logout=true");
 }
 
 function authUser()

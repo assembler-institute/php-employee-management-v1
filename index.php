@@ -3,16 +3,6 @@ require_once("./src/library/sessionHelper.php");
 
 //Check for session and error / info messages
 $alert = checkSession();
-
-function getBaseUrl()
-{
-    $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === 0 ? 'https://' : 'http://';
-    return $protocol . $_SERVER['HTTP_HOST'];
-}
-
-$baseUrl = getBaseUrl();
-echo $baseUrl;
-
 ?>
 
 <!doctype html>
