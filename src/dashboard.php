@@ -1,7 +1,23 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-include("./assets/html/header.html");
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee Manager - Dashboard</title>
+	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./node_modules/jsgrid/dist/js/jsgrid.min.css">
+	<link rel="stylesheet" href="./node_modules/jsgrid/dist/js/jsgrid-theme.min.css">
+	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
+	<script src="./node_modules/jsgrid/dist/js/jsgrid.min.js" type="module"></script>
+</head>
 
-include("./assets/html/footer.html");
-?>
+<body>
+	<?php include("./src/notifications.php"); ?>
+	<?php include("./assets/html/header.html"); ?>
+	<?php include("./assets/html/footer.html"); ?>
+</body>
+
+</html>
