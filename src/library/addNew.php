@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+session_start();
 
 $employeesJsonFile = "./../../resources/employees.json";
 
@@ -33,6 +35,9 @@ $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
 // Save employees data to "resources/employees.json"
 file_put_contents($employeesJsonFile, $jsonData);
 
-header("Location: ./../dashboard.php?addNew");
+$_SESSION["message"] = "Successfully add new employee";
 
+// header("Location: ./../dashboard.php?addNew");
+header("Location: ./../employee.php");
+exit;
 ?>

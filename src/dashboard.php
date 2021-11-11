@@ -25,8 +25,21 @@
       <div class="col-1">State</div>
       <div class="col-1">Postal Code</div>
       <div class="col-2">Phone Number</div>
-      <div class="col-1"><i class="bi bi-plus-lg"></i></div>
+      <div class="col-1"><button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-plus-lg"></i></button></div>
     </div>
+    <form method="POST" action="./library/addNew.php">
+        <div class="row" id="collapseExample">
+            <div class="col-1"><input type="text" class="form-control" placeholder="name" name="name"></div>
+            <div class="col-2"><input type="email" class="form-control" placeholder="email" name="email"></div>
+            <div class="col-1"><input type="number" class="form-control" placeholder="age" name="age"></div>
+            <div class="col-1"><input type="number" class="form-control" placeholder="street Address" name="streetAddress"></div>
+            <div class="col-2"><input type="text" class="form-control" placeholder="city" name="city"></div>
+            <div class="col-1"><input type="text" class="form-control" placeholder="state" name="state"></div>
+            <div class="col-1"><input type="number" class="form-control" placeholder="postal Code" name="postalCode"></div>
+            <div class="col-2"><input type="phone" class="form-control" placeholder="phone Number" name="phoneNumber"></div>
+            <div class="col-1"><input type="submit" value="submit" class="btn btn-primary"></div>
+        </div>
+    </form>
 </div>
 
 <?php include("./../assets/html/footer.html") ?>

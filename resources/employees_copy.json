@@ -102,31 +102,5 @@
     "state": "LU",
     "postalCode": "63281",
     "phoneNumber": "91232876454"
-  },
-  {
-    "id": 9,
-    "name": "peppa",
-    "lastName": "Tran",
-    "email": "exampleuser@gmail.com",
-    "gender": "Choose...",
-    "city": "zaragoza",
-    "streetAddress": "qqqq",
-    "state": "sdfdsf",
-    "age": "24",
-    "postalCode": "12345",
-    "phoneNumber": "123456789"
-  },
-  {
-    "id": 10,
-    "name": "nam",
-    "lastName": "",
-    "email": "tamtran2885@gmail.com",
-    "gender": "",
-    "city": "barce",
-    "streetAddress": "15",
-    "state": "CA",
-    "age": "40",
-    "postalCode": "50005",
-    "phoneNumber": ""
   }
 ]

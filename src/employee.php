@@ -1,27 +1,29 @@
 <?php
 
-$userId = $_GET["id"];
+session_start();
 
-function getEmployee($id)
-{
-    $employeesJsonFile = "./../resources/employees.json";
-    // TODO implement it
-    if(file_exists($employeesJsonFile)) {
-        // If employees database exist, load all employees
-        $jsonData = file_get_contents($employeesJsonFile);
-        $employeesData = json_decode($jsonData, true);
-    }
+// $userId = $_GET["id"];
 
-    foreach($employeesData as $employee) {
-        if ($employee["id"] === $id) {
-            return $employee;
-        }
-    }
-    return null;
-}
+// function getEmployee($id)
+// {
+//     $employeesJsonFile = "./../resources/employees.json";
+//     // TODO implement it
+//     if(file_exists($employeesJsonFile)) {
+//         // If employees database exist, load all employees
+//         $jsonData = file_get_contents($employeesJsonFile);
+//         $employeesData = json_decode($jsonData, true);
+//     }
 
-$employeeData = getEmployee($userId);
-print_r($employeeData);
+//     foreach($employeesData as $employee) {
+//         if ($employee["id"] === $id) {
+//             return $employee;
+//         }
+//     }
+//     return null;
+// }
+
+// $employeeData = getEmployee($userId);
+// print_r($employeeData);
 
 ?>
 
@@ -42,6 +44,12 @@ print_r($employeeData);
 <?php include("./../assets/html/header.html") ?>
 
 <main class="main container">
+    <?php
+        if (isset($_SESSION["message"]) && $_SESSION["message"] === "Successfully add new employee") {
+            echo "<div class='alert alert-primary mb-3' role='alert'>Add successfully new employee!</div>";
+            unset($_SESSION['message']);
+        }
+    ?>
     <form
         class="row g-3"
         method="POST"
