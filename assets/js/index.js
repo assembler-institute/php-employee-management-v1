@@ -9,68 +9,154 @@ const getJSONData = async () => {
   }
 };
 
-let res = await getJSONData();
+var res = await getJSONData();
 
 $("#jsGrid").jsGrid({
-  height: "90%",
   width: "100%",
-
-  filtering: true,
+  height: "600px",
+  inserting: true,
   editing: true,
   sorting: true,
   paging: true,
   autoload: true,
-
-  data: res,
-  pageSize: 15,
+  pageSize: 10,
   pageButtonCount: 5,
-
-  deleteConfirm: "Do you really want to delete the client?",
-
+  deleteConfirm: "Do you really want to delete data?",
   controller: {
-    loadData: function (item) {
+    loadData: function (filter) {
+      var d = $.Deferred();
       return $.ajax({
+        url: "../resources/employees.json",
         type: "GET",
-        url: `../resources/employees.json`,
-        data: item,
+        dataType: "json",
+        success: function (data) {
+          return d.resolve(data);
+        },
       });
     },
-
     insertItem: function (item) {
+      var d = $.Deferred();
+      console.log(item);
       return $.ajax({
         type: "POST",
-        url: `../resources/employees.json`,
+        url: "../src/library/employeeController.php",
         data: item,
+        success: function (data) {
+          return d.resolve(data);
+        },
+      }).done(function () {
+        console.log("data inserted");
       });
     },
-
     updateItem: function (item) {
+      var d = $.Deferred();
+      console.log(item);
       return $.ajax({
         type: "PUT",
-        url: `../resources/employees.json`,
+        url: "../src/library/employeeController.php",
         data: item,
+        success: function (data) {
+          return d.resolve(data);
+        },
+      }).done(function () {
+        console.log("data updated");
       });
     },
-
     deleteItem: function (item) {
       return $.ajax({
         type: "DELETE",
-        url: `../resources/employees.json`,
+        url: "./library/employeeController.php",
         data: item,
+      }).done(function () {
+        console.log("data deleted");
       });
     },
   },
-
   fields: [
-    { name: "name", type: "text", width: 150 },
-    { name: "email", type: "text", width: 150 },
-    { name: "age", type: "number", width: 50 },
-    { name: "streetAddress", type: "text", width: 200 },
-    { name: "city", type: "text", width: 150 },
-    { name: "state", type: "text", width: 50 },
-    { name: "postalCode", type: "number", width: 150 },
-    { name: "phoneNumber", type: "number", width: 150 },
-
-    { type: "control" },
+    {
+      name: "name",
+      title: "Name",
+      type: "text",
+      width: 50,
+      validate: "required",
+    },
+    {
+      name: "lastName",
+      title: "Last name",
+      type: "text",
+      width: 60,
+      validate: "required",
+    },
+    {
+      name: "email",
+      title: "Email",
+      type: "text",
+      width: 80,
+      validate: "required",
+    },
+    {
+      name: "age",
+      title: "Age",
+      type: "number",
+      width: 40,
+      validate: function (value) {
+        if (value > 0) {
+          return true;
+        }
+      },
+    },
+    {
+      name: "postalCode",
+      title: "Postal code",
+      type: "number",
+      width: 40,
+    },
+    {
+      name: "phoneNumber",
+      title: "Phone number",
+      type: "number",
+      width: 60,
+    },
+    {
+      name: "state",
+      title: "State",
+      type: "text",
+      width: 50,
+    },
+    {
+      name: "gender",
+      title: "Gender",
+      type: "select",
+      items: [
+        { Name: "Man", Id: "man" },
+        { Name: "Woman", Id: "woman" },
+        { Name: "Other", Id: "other" },
+      ],
+      valueField: "Id",
+      textField: "Name",
+      align: "left",
+      width: 40,
+    },
+    {
+      name: "city",
+      title: "City",
+      type: "text",
+      width: 60,
+    },
+    {
+      name: "streetAddress",
+      title: "Street address",
+      type: "text",
+      width: 40,
+    },
+    {
+      type: "control",
+      editButton: true,
+      deleteButton: true,
+      editButtonTooltip: "Edit",
+      deleteButtonTooltip: "Delete",
+      updateButtonTooltip: "Update",
+      cancelEditButtonTooltip: "Cancel edit",
+    },
   ],
 });
