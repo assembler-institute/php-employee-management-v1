@@ -1,1 +1,58 @@
-<form class="" method="POST" action="./src/library/employeeController?edit"></form>
+<main class="container-sm">
+	<form class="d-flex justify-content-center" method="POST" action="./src/library/employeeController?edit">
+		<div class="row w-75 p-5">
+			<div class="col-12">
+				<h1 class="display-6">Employee</h1>
+				<hr />
+			</div>
+			<div class="col-md-6 mb-3">
+				<label for="name" class="form-label">First name</label>
+				<input type="text" class="form-control" name="name" id="name" required />
+			</div>
+			<div class="col-md-6 mb-3">
+				<label for="lastName" class="form-label">Last name</label>
+				<input type="text" class="form-control" name="lastName" id="lastName" required />
+			</div>
+			<div class="col-md-6 mb-3">
+				<label for="gender" class="form-label">Gender</label>
+				<select class="form-select" id="gender" name="gender" required>
+					<option selected value="none">Not specified</option>
+					<option value="M">Male</option>
+					<option value="F">Female</option>
+				</select>
+			</div>
+			<div class="col-md-6 mb-3">
+				<label for="age" class="form-label">Age</label>
+				<input type="number" min="0" class="form-control" name="age" id="age" required />
+			</div>
+			<div class="col-12 mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" class="form-control" name="email" id="email" required />
+			</div>
+			<div class="col-12 mb-3">
+				<label for="phoneNumber" class="form-label">Phone number</label>
+				<input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" required />
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="address" class="form-label">Address</label>
+				<input type="text" class="form-control" name="address" id="address" required />
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="city" class="form-label">City</label>
+				<input type="text" class="form-control" name="city" id="city" required />
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="state" class="form-label">State</label>
+				<select class="form-select" id="state" name="state" required>
+					<option selected disabled value="none">Not specified</option>
+					<option value="CA">California</option>
+					<option value="NY">New York</option>
+				</select>
+			</div>
+			<div class="col-md-3 mb-3">
+				<label for="postalCode" class="form-label">Postal code</label>
+				<input type="text" class="form-control" name="postalCode" id="postalCode" required />
+			</div>
+		</div>
+	</form>
+</main>

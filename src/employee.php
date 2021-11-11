@@ -14,6 +14,7 @@
 <body>
 	<?php include("./src/notifications.php"); ?>
 	<?php include("./assets/html/header.html"); ?>
+	<?php include("./assets/html/form.html"); ?>
 	<?php include("./assets/html/footer.html"); ?>
 </body>
 
