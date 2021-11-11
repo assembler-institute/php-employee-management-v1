@@ -13,11 +13,6 @@ startSession();
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Employee Manager</title>
-	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="./node_modules/jsgrid/dist/js/jsgrid.min.css">
-	<link rel="stylesheet" href="./node_modules/jsgrid/dist/js/jsgrid-theme.min.css">
-	<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
-	<script src="./node_modules/jsgrid/dist/js/jsgrid.min.js" type="module"></script>
 </head>
 
 <body>
@@ -34,9 +29,9 @@ startSession();
 		<?php endforeach ?>
 	</aside>
 	<?php if (getSessionValue("user")) : ?>
-		<?php include("./src/dashboard.php"); ?>
+		<?php header("Location: ./src/dashboard.php"); ?>
 	<?php else : ?>
-		<?php include("./assets/html/login.html"); ?>
+		<?php header("Location: ./src/login.php"); ?>
 	<?php endif ?>
 </body>
 
