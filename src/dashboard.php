@@ -9,7 +9,6 @@ function getBaseUrl()
 }
 
 $baseUrl = getBaseUrl();
-echo $baseUrl;
 ?>
 
 <!doctype html>
@@ -22,17 +21,15 @@ echo $baseUrl;
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
 
+  <!-- JQuery -->
+  <script src="../node_modules\jquery\dist\jquery.min.js"></script>
+
   <!-- JSGrid -->
   <link type="text/css" rel="stylesheet" href="../node_modules\jsgrid\dist\jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="../node_modules\jsgrid\dist/jsgrid-theme.min.css" />
   <script type="text/javascript" src="../node_modules\jsgrid\dist\jsgrid.min.js"></script>
 
-  <!-- JQuery -->
-  <script src="../node_modules\jquery\dist\jquery.min.js"></script>
-
-
   <title>PHP SESSIONS - Login example</title>
-
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -64,7 +61,7 @@ echo $baseUrl;
 
   <div class="container-fluid">
     <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <!-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -138,7 +135,7 @@ echo $baseUrl;
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> -->
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -159,26 +156,23 @@ echo $baseUrl;
 
         <script>
 
-        $(function() {
-
-          var clients = [
-              { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
-              { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
-              { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
-              { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
-              { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
-          ];
-      
-          var countries = [
-              { Name: "", Id: 0 },
-              { Name: "United States", Id: 1 },
-              { Name: "Canada", Id: 2 },
-              { Name: "United Kingdom", Id: 3 }
-          ];
+          var clients = (function() {
+                  var json = null;
+                  $.ajax({
+                      'async': false,
+                      'global': false,
+                      'url': "../resources/employees.json",
+                      'dataType': "json",
+                      'success': function (data) {
+                          json = data;
+                      }
+                  });
+                  return json;
+          })();
       
           $("#jsGrid").jsGrid({
               width: "100%",
-              height: "400px",
+              height: "600px",
       
               inserting: true,
               editing: true,
@@ -188,21 +182,23 @@ echo $baseUrl;
               data: clients,
       
               fields: [
-                  { name: "Name", type: "text", width: 150, validate: "required" },
-                  { name: "Age", type: "number", width: 50 },
-                  { name: "Address", type: "text", width: 200 },
-                  { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-                  { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
+                  { name: "name", type: "text", width: 70, validate: "required" },
+                  { name: "lastName", type: "text", width: 80, validate: "required" },
+                  { name: "email", type: "text", width: 80, validate: "required" },
+                  { name: "age", type: "number", width: 25 },
+                  { name: "postalCode", type: "number", width: 30 },
+                  { name: "phoneNumber", type: "number", width: 40 },
+                  { name: "state", type: "text", width: 50 },
+                  { name: "gender", type: "text", width: 20 },
+                  { name: "city", type: "text", width: 80 },
+                  { name: "streetAddress", type: "text", width: 50 },
                   { type: "control" }
               ]
           });
-        })
-        console.log("hola");
+        
     </script>
 
-
-
-        <h2>Section title</h2>
+        <!-- <h2>Section title</h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
@@ -287,7 +283,7 @@ echo $baseUrl;
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> -->
       </main>
     </div>
   </div>
