@@ -1,4 +1,12 @@
+<?php
+require "./src/library/loginController.php";
+//require "./src/library/loginManager.php";
 
+session_start();
+
+$redirect = $_SESSION['isRedirecting'];
+//$error = ( ($redirect && isset($redirect)) ? checkRedirection() : checkSession());
+?>
 
 <!doctype html>
 <html lang="en">
@@ -7,7 +15,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Employee Management - Login</title>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <!-- Custom styles for this template -->
@@ -18,7 +26,7 @@
   <main class="form-signin">
   <?= ($error) ? "<div class='alert alert-$error[status]'  role='alert'> $error[message] </div>" : "" ?>
 
-    <form action="./modules/login.php" method="post">
+    <form action="./src/library/loginController.php" method="post">
       <img src="./assets/img/assembler.png" class="me-3 img-form" alt="Assembler School">
       <div class="form-floating">
         <input name="email" type="email" class="form-control" id="floatingInput" placeholder="Email address" data-bs-toggle="tooltip" data-bs-html="true" title="imassembler@assemblerschool.com">
