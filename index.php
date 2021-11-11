@@ -17,7 +17,7 @@
     <div class="center" >
         <h1>Account Login</h1>
         <form
-            method="POST"
+            method="post"
         >
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>
