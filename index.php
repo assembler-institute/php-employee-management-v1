@@ -23,7 +23,7 @@
     <main class="container">
 
         <form class="form-signin w-25 p-3 center mx-auto text-center" action="./src/library/loginController.php" method="POST">
-            <img class=" mb-4" src="./node_modules/bootstrap-icons/icons/box-arrow-in-right.svg" alt="" width="72" height="72">
+            <!--<img class=" mb-4" src="./node_modules/bootstrap-icons/icons/box-arrow-in-right.svg" alt="" width="72" height="72">-->
             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
             <div class="form-group">
                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -41,7 +41,16 @@
                     Sign in
                 </button>
             </div>
-
+            <!-- Show an alert if error -->
+            <?php 
+              if (isset($_GET['error'])) {
+                $error = $_GET['error'];
+                ?><div class="alert alert-danger" role="alert"><?php
+                echo "There is an error with your $error";
+                ?></div><?php
+              } 
+            ?>
+            </div>
         </form>
 
     </main>
