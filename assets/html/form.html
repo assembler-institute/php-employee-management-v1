@@ -1,5 +1,5 @@
 <main class="container-sm">
-	<form class="d-flex justify-content-center" method="POST" action="./src/library/employeeController?edit">
+	<form class="d-flex justify-content-center" method="POST" action="./src/library/employeeController">
 		<div class="row w-75 p-5">
 			<div class="col-12">
 				<h1 class="display-6">Employee</h1>
@@ -52,6 +52,9 @@
 			<div class="col-md-3 mb-3">
 				<label for="postalCode" class="form-label">Postal code</label>
 				<input type="text" class="form-control" name="postalCode" id="postalCode" required />
+			</div>
+			<div class="col-12 d-flex justify-content-center">
+				<button type="submit">Submit</button>
 			</div>
 		</div>
 	</form>
