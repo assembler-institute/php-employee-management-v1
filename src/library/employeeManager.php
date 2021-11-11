@@ -26,7 +26,21 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
+    if(file_exists($employeesJsonFile)) {
+        // If employees database exist, load all employees
+        $jsonData = file_get_contents($employeesJsonFile);
+        $employeesData = json_decode($jsonData, true);
+    }
+
+    foreach($employeesData as $employee) {
+        if ($employee["id"] === $id) {
+            return $employee;
+        }
+    }
+
+    return null;
+
 }
 
 
