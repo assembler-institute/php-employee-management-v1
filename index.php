@@ -45,12 +45,12 @@
 
     <div class="form-floating">
       
-      <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="name@example.org" data-bs-toggle="tooltip" data-bs-html="true">
+      <input required type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="name@example.org" data-bs-toggle="tooltip" data-bs-html="true">
       <label for="exampleInputEmail1" >Email address</label>
       
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Contrasenya">
+      <input required type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Contrasenya">
       <label for="exampleInputPassword1">Password</label>
     </div>
     
