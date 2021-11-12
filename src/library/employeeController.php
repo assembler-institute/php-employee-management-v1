@@ -2,37 +2,49 @@
 
 require_once("./employeeManager.php");
 
-$method = $_SERVER["REQUEST_METHOD"];
+header_remove();
+header('Content-Type: application/json; charset=utf-8');
 
 try {
+	$method = $_SERVER["REQUEST_METHOD"];
 	$params = getQueryStringParameters();
+	$data = ["warning" => "Not found"];
 
 	switch ($method) {
 		case "POST":
 			if (addEmployee($params)) {
-				echo json_encode(["data" => ["success", "Employee saved successfully."]]);
+				$data = (["type" => "success", "message" => "Employee added successfully."]);
 			} else {
-				echo json_encode(["danger", "Employee could not be saved."]);
+				$data = (["type" => "danger", "message" => "Employee could not be added."]);
 			}
 			break;
 		case "DELETE":
 			if (deleteEmployee($params["id"])) {
-				echo json_encode(["success", "Employee deleted successfully."]);
+				$data = (["type" => "success", "message" => "Employee deleted successfully."]);
 			} else {
-				echo json_encode(["danger", "Employee could not be deleted."]);
+				$data = (["type" => "danger", "message" => "Employee could not be deleted."]);
 			}
 			break;
 		case "PUT":
 			if (updateEmployee($params)) {
-				echo json_encode(["success", "Employee saved successfully."]);
+				$data = (["type" => "success", "message" => "Employee updated successfully."]);
 			} else {
-				echo json_encode(["danger", "Employee could not be saved."]);
+				$data = (["type" => "danger", "message" => "Employee could not be updated."]);
 			}
 			break;
 		case "GET":
-			getEmployee($params["id"]);
+			$employee = getEmployee($params["id"]);
+
+			if ($employee) {
+				$data = (["type" => "success", "message" => "Employee fetched successfully.", "employee" => $employee]);
+			} else {
+				$data = (["type" => "danger", "message" => "Employee could not be found."]);
+			}
+
 			break;
 	}
+
+	echo json_encode($data);
 } catch (Exception $e) {
-	echo "1";
+	echo json_encode(["type" => "danger", "message" => "Unexpected error"]);
 }

@@ -26,10 +26,12 @@ if (!getSessionValue("user")) {
 	<script src="../assets/js/jsGrid.js" type="module"></script>
 </head>
 
-<body style="min-height: 100vh">
+<body class="min-vh-100">
 	<?php include("../assets/html/header.html"); ?>
-	<?php include("./notifications.php"); ?>
-	<main class="container-sm p-5 d-flex flex-column justify-content-center align-items-center w-100">
+	<main class="position-relative container-sm p-5 w-100">
+		<?php include("./notifications.php"); ?>
+		<h1 class="display-6 m-0">Dashboard</h1>
+		<hr />
 		<div id="jsGrid"></div>
 	</main>
 	<?php include("../assets/html/footer.html"); ?>

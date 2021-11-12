@@ -1,3 +1,5 @@
+import { displayNotification } from "./utils.js";
+
 const controller = {
 	loadData: function (item) {
 		return $.ajax({
@@ -13,38 +15,37 @@ const controller = {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(item, null, 2),
+			body: JSON.stringify(item),
 		})
 			.then((response) => {
-				console.log(response.body);
-				response.text();
+				return response.json();
 			})
-			.then((preview) => {
-				console.log(preview);
+			.then((data) => {
+				displayNotification(data);
 			});
 	},
 	deleteItem: function (item) {
 		fetch("./library/employeeController.php", {
 			method: "DELETE",
-			body: JSON.stringify(item, null, 2),
+			body: JSON.stringify(item),
 		})
 			.then((response) => {
-				response.json();
+				return response.json();
 			})
 			.then((data) => {
-				console.log(data);
+				displayNotification(data);
 			});
 	},
 	updateItem: function (item) {
 		fetch("./library/employeeController.php", {
 			method: "PUT",
-			body: JSON.stringify(item, null, 2),
+			body: JSON.stringify(item),
 		})
 			.then((response) => {
-				response.json();
+				return response.json();
 			})
 			.then((data) => {
-				console.log(data);
+				displayNotification(data);
 			});
 	},
 };

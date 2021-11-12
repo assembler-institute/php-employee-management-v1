@@ -1,13 +1,5 @@
 <?php
 
-require_once("./library/sessionHelper.php");
-startSession();
-
-if (!getSessionValue("user")) {
-	header("Location: ../index.php");
-	exit();
-}
-
 function getEmployee($id)
 {
 	$employeesCollection = json_decode(file_get_contents("../resources/employees.json"), true);
@@ -21,8 +13,26 @@ function getEmployee($id)
 	return null;
 }
 
+require_once("./library/sessionHelper.php");
+startSession();
+
+if (!getSessionValue("user")) {
+	header("Location: ../index.php");
+	exit();
+}
+
 $id = isset($_GET["id"]) ? $_GET["id"] : null;
-$data = getEmployee($id);
+
+if ($id) {
+	$data = getEmployee($id);
+
+	if ($data === null) {
+		setSessionValue("danger", ["Employee #$id does not exist"]);
+		header("Location: ./dashboard.php");
+		exit();
+	}
+}
+
 
 ?>
 
@@ -37,22 +47,22 @@ $data = getEmployee($id);
 	<link type="text/css" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
 	<script src="../assets/js/employee.js" type="module"></script>
-
 </head>
 
-<body style="min-height: 100vh">
-	<?php include("./notifications.php"); ?>
+<body class="min-vh-100">
 	<?php include("../assets/html/header.html"); ?>
-	<main class="container-sm">
+	<main class="container-sm position-relative p-5 w-75">
+		<?php include("./notifications.php"); ?>
+		<div class="d-flex justify-content-between align-items-end">
+			<h1 class="display-6 m-0">Employee</h1>
+			<span class="fw-light text-secondary"><?php echo ($id) ? "Employee #$id" : "New employee" ?></span>
+		</div>
+		<hr />
 		<form id="employee-form" class="d-flex justify-content-center" method="<?= $method ?>" action="./library/employeeController.php">
 			<?php if ($id) : ?>
 				<input type="hidden" name="id" value="<?= $id ?>" />
 			<?php endif ?>
-			<div class="row w-75 p-5">
-				<div class="col-12">
-					<h1 class="display-6">Employee</h1>
-					<hr />
-				</div>
+			<div class="row">
 				<div class="col-md-6 mb-3">
 					<label for="name" class="form-label">First name</label>
 					<input type="text" class="form-control" name="name" id="name" required value="<?= (isset($data["name"])) ? $data["name"] : null ?>" />
@@ -101,11 +111,13 @@ $data = getEmployee($id);
 					<label for="postalCode" class="form-label">Postal code</label>
 					<input type="text" class="form-control" name="postalCode" id="postalCode" required value="<?= (isset($data["postalCode"])) ? $data["postalCode"] : null ?>" />
 				</div>
-				<div class="col-12 d-flex justify-content-center">
+				<div class="col-12 d-flex justify-content-center gap-3">
 					<button class="btn btn-primary" type="submit">Submit</button>
+					<a class="btn btn-outline-primary" href="./dashboard.php">Go back</a>
 				</div>
 			</div>
 		</form>
+
 	</main>
 	<?php include("../assets/html/footer.html"); ?>
 </body>
