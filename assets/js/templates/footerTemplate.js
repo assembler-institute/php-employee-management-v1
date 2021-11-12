@@ -12,6 +12,7 @@ const FOOTER = `
 `;
 
 const insertFooter = () => {
+	//get the body element
 	document.lastElementChild.lastElementChild.insertAdjacentHTML(
 		"beforeend",
 		FOOTER

@@ -8,9 +8,13 @@ require_once "loginManager.php";
 session_start();
 
 //if log in
+if($_GET["logout"]){
 
-authUser();
+  destroySession();
+  die();
+  unset($_GET["logout"]);
+}
 
-//if logout
-//destroySession();
+if ($_POST["email"]) authUser();
+
 

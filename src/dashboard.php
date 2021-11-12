@@ -5,7 +5,11 @@
 
  <script src="../assets/js/templates/headTemplate.js" ></script>
 
- <?php echo "Im the dashboard"; ?>
+ <?php echo '<a class="nav-link" href="./library/loginController.php?logout=true"> Sign out</a>';
+
+        echo "Im the DASHHHBOAAARD";
+
+ ?>
 
  <script src="../assets/js/templates/footerTemplate.js" ></script>
 

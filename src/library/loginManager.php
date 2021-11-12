@@ -19,7 +19,7 @@ function checkSession() {
   # check where we are in base of the URI
     $urlFile = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 
-      if ($urlFile === "index.php" || $urlFile === "demo" ) {
+      if ($urlFile === "index.php") {
 
           if (isset($_SESSION["email"])) {
             header("Location: ../dashboard.php");
@@ -93,6 +93,8 @@ function checkUser(string $email, string $pass)
  */
 function destroySession()
 {
+
+
   /**
    * Destroy session
    */
@@ -102,7 +104,8 @@ function destroySession()
   destroySessionCookie();
   session_destroy();
 
-  header("Location:../index.php?logout=true");
+
+  header("Location:../../index.php?logout=true");
 
 
 }
@@ -149,7 +152,7 @@ function checkLoginDashboard($urlFile){
     $_SESSION["errorMessage"] = ["status" => "warning", "message" =>"You don't have permission to enter the dashboard. Please Login."];
     $_SESSION['isRedirecting']= true ;
     $_SESSION['prevPage'] = $urlFile;
-    header("Location:./index.php");
+    header("Location:../index.php");
   }
 }
 
