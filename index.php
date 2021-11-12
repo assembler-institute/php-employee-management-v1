@@ -1,14 +1,13 @@
 <?php
-require "./src/library/loginController.php";
-//require "./src/library/loginManager.php";
+require_once("./src/library/loginManager.php");
 
 session_start();
 
 $redirect = $_SESSION['isRedirecting'];
-//$error = ( ($redirect && isset($redirect)) ? checkRedirection() : checkSession());
+$error = ( ($redirect && isset($redirect)) ? checkRedirection() : checkSession());
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,12 +20,11 @@ $redirect = $_SESSION['isRedirecting'];
   <!-- Custom styles for this template -->
   <link href="./assets/css/signin.css" rel="stylesheet">
 </head>
-
 <body class="text-center">
   <main class="form-signin">
-  <?= ($error) ? "<div class='alert alert-$error[status]'  role='alert'> $error[message] </div>" : "" ?>
+  <?=($error) ? "<div class='alert alert-$error[status]'  role='alert'> $error[message] </div>" : "" ?>
 
-    <form action="./src/library/loginController.php" method="post">
+    <form action="src/library/loginController.php" method="post">
       <img src="./assets/img/assembler.png" class="me-3 img-form" alt="Assembler School">
       <div class="form-floating">
         <input name="email" type="email" class="form-control" id="floatingInput" placeholder="Email address" data-bs-toggle="tooltip" data-bs-html="true" title="imassembler@assemblerschool.com">

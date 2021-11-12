@@ -3,13 +3,13 @@
 
 //gets things from view
 
-//require_once "loginManager.php";
+require_once "loginManager.php";
 
-//session_start();
+session_start();
 
 //if log in
 
-//authUser();
+authUser();
 
 //if logout
 //destroySession();

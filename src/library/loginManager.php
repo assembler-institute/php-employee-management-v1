@@ -14,6 +14,7 @@
  * it must redirect us to the index and show an error
  */
 
+
 function checkSession() {
   # check where we are in base of the URI
     $urlFile = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
