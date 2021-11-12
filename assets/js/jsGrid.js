@@ -1,60 +1,58 @@
 $("#jsGrid").jsGrid({
-  width: "100%",
-  height: "600px",
+	width: "100%",
+	height: "600px",
 
-  inserting: true,
-  filtering: true,
-  editing: true,
-  sorting: true,
-  paging: true,
+	inserting: true,
+	filtering: true,
+	editing: true,
+	sorting: true,
+	paging: true,
 
-  autoload: true,
+	autoload: true,
 
-  controller: {
-    loadData: function (item) {
-      return $.ajax({
-        type: "GET",
-        url: "../resources/employees.json",
-        dataType: "json",
-        data: item,
-      });
-    },
-    insertItem: function (item) {
-      $("#jsGrid").on("submit", () => {
-        return $.ajax({
-          type: "POST",
-          url: "../resources/employees.json",
-          dataType: "json",
-          data: item,
-        });
-      });
-    },
-    deleteItem: function (item) {
-      return $.ajax({
-        type: "DELETE",
-        url: "../resources/employees.json",
-        dataType: "json",
-        data: item,
-      });
-    },
-  },
+	controller: {
+		loadData: function (item) {
+			return $.ajax({
+				type: "GET",
+				url: "../resources/employees.json",
+				dataType: "json",
+				data: JSON.stringify(item),
+			});
+		},
+		insertItem: function (item) {
+			$.ajax({
+				type: "POST",
+				url: "./library/employeeController.php",
+				dataType: "json",
+				data: JSON.stringify(item),
+			});
+		},
+		deleteItem: function (item) {
+			$.ajax({
+				type: "DELETE",
+				url: "./library/employeeController.php",
+				dataType: "json",
+				data: JSON.stringify(item),
+			});
+		},
+		updateItem: function (item) {
+			$.ajax({
+				type: "PUT",
+				url: "./library/employeeController.php",
+				dataType: "json",
+				data: JSON.stringify(item),
+			});
+		},
+	},
 
-  //   data: json,
-
-  fields: [
-    { name: "id", type: "number", width: 20, align: "center" },
-    { name: "name", type: "text", width: 50, align: "center" },
-    { name: "lastName", type: "text", width: 50, align: "center" },
-    { name: "email", type: "text", width: 50, align: "center" },
-    { name: "city", type: "text", width: 50, align: "center" },
-    { name: "streetAddress", type: "text", width: 50, align: "center" },
-    { name: "state", type: "text", width: 20, align: "center" },
-    { name: "age", type: "number", width: 20, align: "center" },
-    { name: "postalCode", type: "number", width: 30, align: "center" },
-    { name: "phoneNumber", type: "number", width: 50, align: "center" },
-
-    { type: "control" },
-  ],
+	fields: [
+		{ title: "ID", name: "id", type: "number", width: 20, align: "center", readOnly: true },
+		{ title: "Name", name: "name", type: "text", width: 50, align: "center" },
+		{ title: "Last name", name: "lastName", type: "text", width: 50, align: "center" },
+		{ title: "Email", name: "email", type: "text", width: 50, align: "center" },
+		{ title: "Phone", name: "phoneNumber", type: "number", width: 50, align: "center" },
+		{ type: "control" },
+	],
 });
 
 console.log("GRID");

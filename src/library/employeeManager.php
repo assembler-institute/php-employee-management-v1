@@ -4,62 +4,68 @@ require_once("./sessionHelper.php");
 function addEmployee(array $newEmployee): bool
 {
 	try {
-		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
+		$json_url = "../../resources/employees.json";
+		$employeesCollection = json_decode(file_get_contents($json_url), true);
 
 		$newEmployee["id"] = getNextIdentifier($employeesCollection);
 		array_push($employeesCollection, $newEmployee);
 
-		file_put_contents("./resources/employees.json", json_encode($employeesCollection, JSON_PRETTY_PRINT));
+		var_dump($employeesCollection);
+		file_put_contents($json_url, json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
 		return true;
-		//return ["success", "Employee saved successfully."];
 	} catch (Throwable $e) {
 		return false;
-		//return ["danger", "Employee could not be saved."];
 	}
 }
 
-function deleteEmployee(string $id): bool
+//return ["success", "Employee saved successfully."];
+//return ["danger", "Employee could not be saved."];
+
+function deleteEmployee(int $id)
 {
 	try {
-		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
-
-		foreach ($employeesCollection as $employee) {
+		$employeesCollection = json_decode(file_get_contents("../../resources/employees.json"), true);
+		foreach ($employeesCollection as $index => $employee) {
+			echo $index;
 			if ($employee["id"] === $id) {
-				unset($employee);
-				break;
+				unset($employeesCollection[$index]);
+				file_put_contents("../../resources/employees.json", json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
+				return true;
 			}
 		}
 
-		file_put_contents("./resources/employees.json", json_encode($employeesCollection, JSON_PRETTY_PRINT));
-		return true;
-		//return ["success", "Employee deleted successfully."];
+		return false;
 	} catch (Throwable $e) {
 		return false;
-		//return ["danger", "Employee could not be deleted."];
 	}
 }
+
+//return ["success", "Employee deleted successfully."];
+//return ["danger", "Employee could not be deleted."];
 
 function updateEmployee(array $updateEmployee): bool
 {
 	try {
-		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
+		$employeesCollection = json_decode(file_get_contents("../../resources/employees.json"), true);
 
-		deleteEmployee($updateEmployee["id"]);
+		if (!deleteEmployee($updateEmployee["id"])) return false;
+
 		array_push($employeesCollection, $updateEmployee);
 
-		file_put_contents("./resources/employees.json", json_encode($employeesCollection, JSON_PRETTY_PRINT));
+		file_put_contents("../../resources/employees.json", json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
 		return true;
-		//return ["success", "Employee saved successfully."];
 	} catch (Throwable $e) {
 		return false;
-		//return ["danger", "Employee could not be saved."];
 	}
 }
 
-function getEmployee(string $id)
+//return ["success", "Employee saved successfully."];
+//return ["danger", "Employee could not be saved."];
+
+function getEmployee(int $id)
 {
 	try {
-		$employeesCollection = json_decode(file_get_contents("./resources/employees.json"));
+		$employeesCollection = json_decode(file_get_contents("../../resources/employees.json"), true);
 
 		foreach ($employeesCollection as $employee) {
 			if ($employee["id"] === $id) {
@@ -71,25 +77,10 @@ function getEmployee(string $id)
 	}
 }
 
-function removeAvatar($id)
+function getQueryStringParameters()
 {
-	// TODO implement it
-}
-
-function getQueryStringParameters(): array
-{
-	$params = [
-		"name" => 					isset($_POST["name"]) ? 					getSanitizedValue($_POST["name"]) : null,
-		"lastName" => 			isset($_POST["lastName"]) ? 			getSanitizedValue($_POST["lastName"]) : null,
-		"age" => 						isset($_POST["age"]) ? 						getSanitizedValue($_POST["age"]) : null,
-		"gender" => 				isset($_POST["gender"]) ? 				getSanitizedValue($_POST["gender"]) : null,
-		"email" => 					isset($_POST["email"]) ? 					getSanitizedValue($_POST["email"]) : null,
-		"phoneNumber" => 		isset($_POST["phoneNumber"]) ? 		getSanitizedValue($_POST["phoneNumber"]) : null,
-		"streetAddress" =>	isset($_POST["streetAddress"]) ?	getSanitizedValue($_POST["streetAddress"]) : null,
-		"city" => 					isset($_POST["city"]) ? 					getSanitizedValue($_POST["city"]) : null,
-		"postalCode" => 		isset($_POST["postalCode"]) ? 		getSanitizedValue($_POST["postalCode"]) : null,
-		"state" => 					isset($_POST["state"]) ? 					getSanitizedValue($_POST["state"]) : null,
-	];
+	var_dump(file_get_contents('php://input'));
+	$params = json_decode(file_get_contents('php://input'), true);
 
 	return $params;
 }
@@ -99,7 +90,7 @@ function getNextIdentifier(array $employeesCollection): int
 	return intval(end($employeesCollection)["id"]) + 1;
 }
 
-function getSanitizedValue($value)
+function removeAvatar($id)
 {
-	return htmlspecialchars(trim($value));
+	// TODO implement it
 }
