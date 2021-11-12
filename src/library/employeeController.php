@@ -9,13 +9,25 @@ try {
 
 	switch ($method) {
 		case "POST":
-			addEmployee($params);
+			if (addEmployee($params)) {
+				echo json_encode(["data" => ["success", "Employee saved successfully."]]);
+			} else {
+				echo json_encode(["danger", "Employee could not be saved."]);
+			}
 			break;
 		case "DELETE":
-			deleteEmployee($params["id"]);
+			if (deleteEmployee($params["id"])) {
+				echo json_encode(["success", "Employee deleted successfully."]);
+			} else {
+				echo json_encode(["danger", "Employee could not be deleted."]);
+			}
 			break;
 		case "PUT":
-			updateEmployee($params);
+			if (updateEmployee($params)) {
+				echo json_encode(["success", "Employee saved successfully."]);
+			} else {
+				echo json_encode(["danger", "Employee could not be saved."]);
+			}
 			break;
 		case "GET":
 			getEmployee($params["id"]);

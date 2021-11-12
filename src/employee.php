@@ -34,13 +34,13 @@ $data = getEmployee($id);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Employee Manager - Form</title>
-	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
 	<script src="../assets/js/employee.js" type="module"></script>
 
 </head>
 
-<body>
+<body style="min-height: 100vh">
 	<?php include("./notifications.php"); ?>
 	<?php include("../assets/html/header.html"); ?>
 	<main class="container-sm">
@@ -82,8 +82,8 @@ $data = getEmployee($id);
 					<input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" required value="<?= (isset($data["phoneNumber"])) ? $data["phoneNumber"] : null ?>" />
 				</div>
 				<div class="col-md-3 mb-3">
-					<label for="address" class="form-label">Address</label>
-					<input type="text" class="form-control" name="address" id="address" required value="<?= (isset($data["address"])) ? $data["address"] : null ?>" />
+					<label for="streetAddress" class="form-label">Address</label>
+					<input type="text" class="form-control" name="streetAddress" id="streetAddress" required value="<?= (isset($data["streetAddress"])) ? $data["streetAddress"] : null ?>" />
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="city" class="form-label">City</label>

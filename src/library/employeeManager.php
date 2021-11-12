@@ -5,6 +5,7 @@ function addEmployee(array $newEmployee): bool
 {
 	try {
 		$json_url = "../../resources/employees.json";
+
 		$employeesCollection = json_decode(file_get_contents($json_url), true);
 
 		$newEmployee["id"] = getNextIdentifier($employeesCollection);
@@ -12,16 +13,11 @@ function addEmployee(array $newEmployee): bool
 
 		file_put_contents($json_url, json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
 
-		echo "Added";
 		return true;
 	} catch (Throwable $e) {
-		echo "Not added";
 		return false;
 	}
 }
-
-//return ["success", "Employee saved successfully."];
-//return ["danger", "Employee could not be saved."];
 
 function deleteEmployee(int $id)
 {
@@ -42,9 +38,6 @@ function deleteEmployee(int $id)
 	}
 }
 
-//return ["success", "Employee deleted successfully."];
-//return ["danger", "Employee could not be deleted."];
-
 function updateEmployee(array $updateEmployee): bool
 {
 	try {
@@ -58,16 +51,11 @@ function updateEmployee(array $updateEmployee): bool
 			}
 		}
 
-		echo "Updated";
 		return true;
 	} catch (Throwable $e) {
-		echo "Not Updated";
 		return false;
 	}
 }
-
-//return ["success", "Employee saved successfully."];
-//return ["danger", "Employee could not be saved."];
 
 function getEmployee(int $id)
 {
