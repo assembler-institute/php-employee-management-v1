@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!-- TODO Application entry point. Login view -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +19,12 @@
 
 <body>
 <?php include("./../assets/html/header.html") ?>
+<?php
+        if (isset($_SESSION["message"]) && $_SESSION["message"] === "Successfully add new employee") {
+            echo "<div class='alert alert-primary mb-3' role='alert'>Add successfully new employee!</div>";
+            unset($_SESSION['message']);
+        }
+    ?>
 <div class="container" id="container-table">
     <div class="row row-header">
       <div class="col-1">Name</div>
@@ -29,15 +39,15 @@
     </div>
     <form method="POST" action="./library/addNew.php">
         <div class="row" id="collapseExample">
-            <div class="col-1"><input type="text" class="form-control" placeholder="name" name="name"></div>
-            <div class="col-2"><input type="email" class="form-control" placeholder="email" name="email"></div>
-            <div class="col-1"><input type="number" class="form-control" placeholder="age" name="age"></div>
-            <div class="col-1"><input type="number" class="form-control" placeholder="street Address" name="streetAddress"></div>
-            <div class="col-2"><input type="text" class="form-control" placeholder="city" name="city"></div>
-            <div class="col-1"><input type="text" class="form-control" placeholder="state" name="state"></div>
-            <div class="col-1"><input type="number" class="form-control" placeholder="postal Code" name="postalCode"></div>
-            <div class="col-2"><input type="phone" class="form-control" placeholder="phone Number" name="phoneNumber"></div>
-            <div class="col-1"><input type="submit" value="submit" class="btn btn-primary"></div>
+            <div class="col-1"><input required type="text" class="form-control" placeholder="name" name="name"></div>
+            <div class="col-2"><input required type="email" class="form-control" placeholder="email" name="email"></div>
+            <div class="col-1"><input required type="text" class="form-control" placeholder="age" name="age"></div>
+            <div class="col-1"><input required type="text" class="form-control" placeholder="street Address" name="streetAddress"></div>
+            <div class="col-2"><input required type="text" class="form-control" placeholder="city" name="city"></div>
+            <div class="col-1"><input required type="text" class="form-control" placeholder="state" name="state"></div>
+            <div class="col-1"><input required type="text" class="form-control" placeholder="postal Code" name="postalCode"></div>
+            <div class="col-2"><input required type="tel" class="form-control" placeholder="phone Number" name="phone"></div>
+            <div class="col-1"><input required type="submit" value="submit" class="btn btn-primary"></div>
         </div>
     </form>
 </div>
@@ -58,7 +68,7 @@
                 employee_data += "<div class='col-1'>" + value.state + "</div>";
                 employee_data += "<div class='col-1'>" + value.postalCode + "</div>";
                 employee_data += "<div class='col-2'>" + value.phoneNumber + "</div>";
-                employee_data += "<div class='col-1'><a href=''><i class='bi bi-pencil'></i></a><form method='DELETE' action='./library/deleteData.php'><input type='hidden' name='id' value='" + value.id + "'><button type='submit'><i class='bi bi-trash'></i></button></form></div>";
+                employee_data += "<div class='col-1 flex-row'><form method='DELETE' action='./library/deleteData.php'><input type='hidden' name='id' value='" + value.id + "'><button type='submit'><i class='bi bi-trash'></i></button></form><button class='btn-edit'><i class='bi bi-pencil'></i></button></div>";
                 employee_data += "</div>";
             });
             $("#container-table").append(employee_data);

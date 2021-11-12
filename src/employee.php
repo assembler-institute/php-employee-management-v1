@@ -1,29 +1,56 @@
 <?php
-
 session_start();
 
-// $userId = $_GET["id"];
+if (isset($_GET["id"])) {
+    $userId = $_GET["id"];
+    $employeeData = getEmployee($userId);
+}
 
-// function getEmployee($id)
-// {
-//     $employeesJsonFile = "./../resources/employees.json";
-//     // TODO implement it
-//     if(file_exists($employeesJsonFile)) {
-//         // If employees database exist, load all employees
-//         $jsonData = file_get_contents($employeesJsonFile);
-//         $employeesData = json_decode($jsonData, true);
-//     }
+function getEmployee(string $id)
+{
+    $employeesJsonFile = "./../resources/employees.json";
+    if(file_exists($employeesJsonFile)) {
+        // If employees database exist, load all employees
+        $jsonData = file_get_contents($employeesJsonFile);
+        $employeesData = json_decode($jsonData, true);
+    }
 
-//     foreach($employeesData as $employee) {
-//         if ($employee["id"] === $id) {
-//             return $employee;
-//         }
-//     }
-//     return null;
-// }
+    foreach($employeesData as $employee) {
+        if ($employee["id"] === $id) {
+            return $employee;
+        }
+    }
+    return null;
+}
 
-// $employeeData = getEmployee($userId);
-// print_r($employeeData);
+function updateEmployee($data, $id) {
+    $employeesJsonFile = "./../resources/employees.json";
+    if(file_exists($employeesJsonFile)) {
+        // If employees database exist, load all employees
+        $jsonData = file_get_contents($employeesJsonFile);
+        $employeesData = json_decode($jsonData, true);
+    }
+
+    foreach ($employeesData as $index => $employee) {
+        if ($employee["id"] === $id) {
+            $employeesData[$index] = array_merge($employee, $data);
+        }
+    }
+
+    // Convert employees data to Json
+    $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
+
+    // Save employees data to "resources/employees.json"
+    file_put_contents($employeesJsonFile, $jsonData);
+
+    header("Location: ./dashboard.php?update");
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    updateEmployee($_POST, $userId);
+}
+
 
 ?>
 
@@ -50,14 +77,28 @@ session_start();
             unset($_SESSION['message']);
         }
     ?>
-    <form
-        class="row g-3"
-        method="POST"
-        action="./library/addNew.php"
-    >
+
+    
+    <?php
+        if(!isset($_GET['id'])) {
+            echo "<form
+                    class='row g-3'
+                    method='POST'
+                    action='./library/addNew.php'
+            >";
+        } else {
+            echo "<form
+                    class='row g-3'
+                    method='POST'
+            >";
+        }
+        
+    ?>
+
         <div class="col-md-6">
             <label for="name" class="form-label">Name</label>
             <input
+                required
                 type="text"
                 class="form-control"
                 id="name"
@@ -72,18 +113,19 @@ session_start();
                 class="form-control"
                 id="lastName"
                 name="lastName"
-                value="<?php if(isset($employeeData['lastName'])) echo $employeeData['lastName']; ?>"
+                value="<?php if(isset($employeeData['lastName']) && $employeeData['lastName']) echo $employeeData['lastName']; ?>"
             >
         </div>
 
         <div class="col-md-6">
             <label for="email" class="form-label">Email Address</label>
-            <input 
-                type="email" 
-                class="form-control" 
-                id="email" 
+            <input
+                required
+                type="email"
+                class="form-control"
+                id="email"
                 name="email"
-                value="<?php if(isset($employeeData['email'])) echo $employeeData['email']; ?>"
+                value="<?php if(isset($employeeData['email']) && $employeeData['email']) echo $employeeData['email']; ?>"
             >
         </div>
         <div class="col-md-6">
@@ -97,34 +139,34 @@ session_start();
 
         <div class="col-md-6">
             <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" id="city" name="city" value="<?php if(isset($employeeData['city'])) echo $employeeData['city']; ?>">
+            <input required type="text" class="form-control" id="city" name="city" value="<?php if(isset($employeeData['city']) && $employeeData['city']) echo $employeeData['email']; ?>">
         </div>
         <div class="col-md-6">
             <label for="streetAddress" class="form-label">Street Address</label>
-            <input type="text" class="form-control" id="streetAddress" name="streetAddress" value="<?php if(isset($employeeData['streetAddress'])) echo $employeeData['streetAddress']; ?>">
+            <input required type="text" class="form-control" id="streetAddress" name="streetAddress" value="<?php if(isset($employeeData['streetAddress']) && $employeeData['streetAddress']) echo $employeeData['streetAddress']; ?>">
         </div>
 
         <div class="col-md-6">
             <label for="state" class="form-label">Sate</label>
-            <input type="text" class="form-control" id="state" name="state" value="<?php if(isset($employeeData['state'])) echo $employeeData['state']; ?>">
+            <input required type="text" class="form-control" id="state" name="state" value="<?php if(isset($employeeData['state']) && $employeeData['state']) echo $employeeData['state']; ?>">
         </div>
         <div class="col-md-6">
             <label for="age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="age" name="age" value="<?php if(isset($employeeData['age'])) echo $employeeData['age']; ?>">
+            <input required type="number" class="form-control" id="age" name="age" value="<?php if(isset($employeeData['age']) && $employeeData['age']) echo $employeeData['age']; ?>">
         </div>
 
         <div class="col-md-6">
             <label for="postalCode" class="form-label">Postal Code</label>
-            <input type="number" class="form-control" id="postalCode" name="postalCode" value="<?php if(isset($employeeData['postalCode'])) echo $employeeData['postalCode']; ?>">
+            <input required type="number" class="form-control" id="postalCode" name="postalCode" value="<?php if(isset($employeeData['postalCode']) && $employeeData['postalCode']) echo $employeeData['postalCode']; ?>">
         </div>
         <div class="col-md-6">
             <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" name="phone" value="<?php if(isset($employeeData['phoneNumber'])) echo $employeeData['phoneNumber']; ?>">
+            <input required type="tel" class="form-control" id="phone" name="phone" value="<?php if(isset($employeeData['phoneNumber']) && $employeeData['phoneNumber']) echo $employeeData['phoneNumber']; ?>">
         </div>
 
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            <button type="submit" class="btn btn-secondary">Return</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-secondary"><a href="./dashboard.php">Return</a></button>
         </div>
     </form>
 </main>

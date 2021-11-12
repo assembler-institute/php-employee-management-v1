@@ -52,3 +52,11 @@ body {
   padding: 10px;
   border-collapse: collapse;
 }
+
+.flex-row {
+  display: flex;
+}
+
+.btn-edit {
+  margin-left: 10px;
+}

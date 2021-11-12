@@ -5,10 +5,8 @@ session_start();
 $employeesJsonFile = "./../../resources/employees.json";
 
 if(file_exists($employeesJsonFile)) {
-    // echo "file exist";
     // If employees database exist, load all employees
     $jsonData = file_get_contents($employeesJsonFile);
-
     $employeesData = json_decode($jsonData, true);
 } else {
     $employeesData = [];
@@ -16,7 +14,7 @@ if(file_exists($employeesJsonFile)) {
 
 // Add new employee data to array
 $employeesData[] = [
-    "id" => count($employeesData) + 1,
+    "id" => (string)(count($employeesData) + 1),
     "name" => isset($_POST["name"]) ? $_POST["name"] : "",
     "lastName" => isset($_POST["lastName"]) ? $_POST["lastName"] : "",
     "email" => isset($_POST["email"]) ? $_POST["email"] : "",
@@ -37,7 +35,7 @@ file_put_contents($employeesJsonFile, $jsonData);
 
 $_SESSION["message"] = "Successfully add new employee";
 
-// header("Location: ./../dashboard.php?addNew");
-header("Location: ./../employee.php");
+header("Location: ./../dashboard.php?addNew");
+// header("Location: ./../employee.php");
 exit;
 ?>

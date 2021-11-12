@@ -2,13 +2,10 @@
 
 $employeesJsonFile = "./../../resources/employees.json";
 $id = $_GET["id"];
-echo $id;
 
 // read and decode json file
 if(file_exists($employeesJsonFile)) {
-    // If employees database exist, load all employees
     $jsonData = file_get_contents($employeesJsonFile);
-
     $employeesData = json_decode($jsonData, true);
 }
 
@@ -35,3 +32,4 @@ $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
 file_put_contents($employeesJsonFile, $jsonData);
 
 header("Location: ./../dashboard.php?delete");
+exit();
