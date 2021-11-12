@@ -48,13 +48,6 @@ function deleteEmployee(string $id)
     }
 }
 
-deleteEmployee('1');
-
-
-
-
-
-
 function updateEmployee(array $updateEmployee)
 {
     // TODO implement it
@@ -71,7 +64,7 @@ function updateEmployee(array $updateEmployee)
     //hasta aqui funciona
 }
 
-updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
+// updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
 
 
 function getEmployee(string $id)

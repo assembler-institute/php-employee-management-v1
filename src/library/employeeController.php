@@ -14,13 +14,17 @@ if ($method === 'POST') {
 
 
 
+
+if ($method === 'GET') {
+    if (deleteEmployee($_GET['id'])) {
+        echo json_encode("employee created succesfully");
+    } else {
+        echo json_encode("error ");
+    }
+}
 // if ($method == 'PATCH') {
 // };
 
-// if ($method === 'GET') {
-//     print_r($_GET['id']);
-//     // deleteEmployee($_GET['id']);
-// }
 // if ($method == 'GET') {
 //     updateEmployee($_PUT['data']);
 // };
