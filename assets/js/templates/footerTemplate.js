@@ -12,7 +12,6 @@ const FOOTER = `
 `;
 
 const insertFooter = () => {
-	console.log(document.lastElementChild.lastElementChild);
 	document.lastElementChild.lastElementChild.insertAdjacentHTML(
 		"beforeend",
 		FOOTER
