@@ -1,3 +1,8 @@
 <?php
 require_once("./sessionHelper.php");
-authUser();
+
+if (isset($_GET['logout']) && $_GET['logout']) {
+  destroySession();
+} else {
+  authUser();
+}
