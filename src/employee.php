@@ -31,6 +31,7 @@ require_once "./imageGallery.php";
         <div class="col col-md-6 p-4">
             <form id="formEmployee">
                 <div class="form-row row">
+                    <input type="hidden" class="form-control" id="inputId" value="X">
                     <div class="form-group col-md-6">
                         <label>Name</label>
                         <input type="text" class="form-control" id="inputName" placeholder="Name">
@@ -109,22 +110,29 @@ include "../assets/html/footer.html";
     //?GENDER  post.gender.value? 
     //document.getElementById("inputGenderNone").removeAttribute("selected");
     //document.getElementById(`inputGender${post.gender.value}`).setAttribute("selected", true);
-    console.log(document.getElementById("formEmployee"))
+    document.getElementById("inputGender").addEventListener('change', (e) => {
+        $gender = e.target.value;
+        document.getElementById("inputGender").setAttribute('data-key', $gender)
+
+    })
+
     document.getElementById("formEmployee"), addEventListener('submit', (e) => {
         e.preventDefault();
         let formData = {
-            id: 12345,
+            id: $("#inputId").val(),
             name: $("#inputName").val(),
             lastName: $("#inputLast").val(),
             email: $("#inputEmail").val(),
-            gender: $("#inputGender2").val(), //!ojito
+            gender: document.getElementById("inputGender").dataset.key,
             city: $("#inputCity").val(),
             streetAddress: $("#inputStreet").val(),
             state: $("#inputState").val(),
             age: $("#inputAge").val(),
             postalCode: $("#inputPostal").val(),
-            phoneNumber: $("#inputPostal").val()
+            phoneNumber: $("#inputPostal").val(),
+            photo: document.querySelectorAll(".active")[1].firstElementChild.getAttribute("src")
         };
         console.log(formData);
     })
+    /* cosas */
 </script>
