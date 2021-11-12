@@ -6,12 +6,11 @@
 
 function addEmployee(array $newEmployee)
 {
-  $item = $_POST;
   $storagePath = "../../resources/employees.json";
 
   $employeesCollection = json_decode(file_get_contents($storagePath, true));
-  $item['id'] = getNextIdentifier($employeesCollection);
-  array_push($employeesCollection, $item);
+  $newEmployee['id'] = getNextIdentifier($employeesCollection);
+  array_push($employeesCollection, $newEmployee);
 
   $jsonData = json_encode($employeesCollection);
   file_put_contents($storagePath, $jsonData);
