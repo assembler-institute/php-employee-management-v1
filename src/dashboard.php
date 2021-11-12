@@ -3,9 +3,10 @@
  -->
 
 
- <script src="../assets/js/templates/headerTemplate.js" ></script>
+ <script src="../assets/js/templates/headTemplate.js" ></script>
+
+ <?php echo "Im the dashboard"; ?>
+
+ <script src="../assets/js/templates/footerTemplate.js" ></script>
 
 
-<?php
-
-echo "Im the dashboard";
