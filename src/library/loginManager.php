@@ -22,7 +22,7 @@ function checkSession() {
       if ($urlFile === "index.php") {
 
           if (isset($_SESSION["email"])) {
-            header("Location: ../dashboard.php");
+            header("Location: ./src/dashboard.php");
         } else {
             // Check for session error
             if ($alert = checkLoginError()) return $alert;
