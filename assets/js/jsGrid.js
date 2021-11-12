@@ -1,12 +1,24 @@
 $("#jsGrid").jsGrid({
 	width: "100%",
-	height: "600px",
 
+	heading: true,
 	inserting: true,
 	editing: true,
 	sorting: true,
 	paging: true,
 	autoload: true,
+	noDataContent: "Not found",
+
+	pageIndex: 1,
+	pageSize: 10,
+	pageButtonCount: 15,
+	pagerFormat: "Pages: {first} {prev} {pages} {next} {last}    {pageIndex} of {pageCount}",
+	pagePrevText: "Prev",
+	pageNextText: "Next",
+	pageFirstText: "First",
+	pageLastText: "Last",
+	pageNavigatorNextText: "...",
+	pageNavigatorPrevText: "...",
 
 	controller: {
 		loadData: function (item) {
@@ -48,11 +60,11 @@ $("#jsGrid").jsGrid({
 	},
 
 	fields: [
-		{ name: "id", type: "number", visible: "false" },
+		{ name: "id", type: "number", visible: false },
 		{ title: "Name", name: "name", type: "text", width: 50, align: "center" },
 		{ title: "Last name", name: "lastName", type: "text", width: 50, align: "center" },
-		{ title: "Email", name: "email", type: "email", width: 50, align: "center" },
-		{ title: "Phone", name: "phoneNumber", type: "phone", width: 50, align: "center" },
+		{ title: "Email", name: "email", type: "text", width: 50, align: "center" },
+		{ title: "Phone", name: "phoneNumber", type: "text", width: 50, align: "center" },
 		{ type: "control" },
 	],
 });

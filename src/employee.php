@@ -34,13 +34,13 @@ $data = getEmployee($id);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Employee Manager - Form</title>
-	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
 	<script src="../assets/js/employee.js" type="module"></script>
 
 </head>
 
-<body>
+<body style="min-height: 100vh">
 	<?php include("./notifications.php"); ?>
 	<?php include("../assets/html/header.html"); ?>
 	<main class="container-sm">
