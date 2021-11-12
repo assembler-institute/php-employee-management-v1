@@ -11,7 +11,7 @@ $employee = getEmployee($_GET["employeeId"]);
 $name = isset($employee["name"]) ? $employee["name"] : "";
 $lastName = isset($employee["lastName"]) ? $employee["lastName"] : "";
 $email = isset($employee["email"]) ? $employee["email"] : "";
-$gender = isset($employee["man"]) ? $employee["man"] : "";
+$gender = isset($employee["gender"]) ? $employee["gender"] : "";
 $age = isset($employee["age"]) ? $employee["age"] : "";
 $address = isset($employee["streetAddress"]) ? $employee["streetAddress"] : "";
 $city = isset($employee["city"]) ? $employee["city"] : "";
@@ -24,14 +24,15 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
 
 <!-- TODO Employee view -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <?php
+    require_once("../assets/html/head.html")
+    ?>
     <title>Employee Data</title>
 </head>
 
@@ -42,7 +43,7 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
         ?>
     </header>
     <main class="container p-5">
-        <form action="./library/employeeController.php" method="POST">
+        <form id="employeeDetailForm" action="">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Name</label>
@@ -54,39 +55,39 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="someone@somewhere.com" name="email">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="<?php echo $email ?>" name="email" value="<?php echo $email ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputGender">Gender</label>
                     <select id="inputGender" class="form-control" name="gender">
-                        <option selected>Choose...</option>
+                        <option selected><?php echo $gender ?></option>
                         <option>Male</option>
                         <option>Female</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputAge">Age</label>
-                    <input type="number" class="form-control" id="inputAge" name="age">
+                    <input type="number" class="form-control" id="inputAge" name="age" value="<?php echo $age ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPhone">Phone Number</label>
-                    <input type="text" class="form-control" id="inputPhone" name="phoneNumber">
+                    <input type="text" class="form-control" id="inputPhone" name="phoneNumber" value="<?php echo $phoneNumber ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" name="city">
+                    <input type="text" class="form-control" id="inputCity" name="city" value="<?php echo $city ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputAddress">Street Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Street, Apartment, studio, or floor" name="streetAddress">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="<?php echo $address ?>" name="streetAddress" value="<?php echo $address ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="inputState" name="state">
+                    <input type="text" class="form-control" id="inputState" name="state" value="<?php echo $state ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Zip Code</label>
-                    <input type="text" class="form-control" id="inputZip" name="zipCode">
+                    <input type="text" class="form-control" id="inputZip" name="zipCode" value="<?php echo $postalCode ?>">
                 </div>
 
 
@@ -94,8 +95,9 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
 
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-secondary">Return</button>
+            <input type="submit" class="btn btn-primary" value="Submit" id="submitButton"></input>
+            <button type="button" class="btn btn-secondary"><a href="dashboard.php" class=" btn-secondary"> Return </a></button>
+
         </form>
     </main>
 </body>

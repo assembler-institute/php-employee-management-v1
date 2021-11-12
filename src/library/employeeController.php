@@ -16,28 +16,21 @@ if (isset($_POST['action']) && isset($_POST['item'])) {
       break;
 
     case 'create':
-      $respone = addEmployee($_POST['item']);
+      $response = addEmployee($_POST['item']);
 
       echo json_encode($response[1]);
 
+
+      break;
+
+    case 'update':
+
+      $response = updateEmployee($_POST["item"]);
+
+      echo $response;
 
       break;
   }
 
   //echo json_encode('Data recibida');
 }
-
-
-
-/*
-$name = $_POST["name"];
-$lastName = $_POST["lastName"];
-$email = $_POST["email"];
-$gender = $_POST["gender"];
-$age = $_POST["age"];
-$phone = $_POST["phoneNumber"];
-$city = $_POST["city"];
-$street = $_POST["streetAddress"];
-$state = $_POST["state"];
-$zipCode = $_POST["zipCode"];
-*/

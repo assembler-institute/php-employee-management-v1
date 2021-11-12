@@ -1,18 +1,5 @@
 [
     {
-        "id": 4,
-        "name": "Richard",
-        "lastName": "Desmond",
-        "email": "dismond@foo.com",
-        "gender": "man",
-        "age": 30,
-        "streetAddress": "90",
-        "city": "Salt lake city",
-        "state": "UT",
-        "postalCode": "457320",
-        "phoneNumber": "90876987654"
-    },
-    {
         "id": 5,
         "name": "Susan",
         "lastName": "Smith",
@@ -72,5 +59,14 @@
         "state": "why",
         "phoneNumber": "666666",
         "id": 9
+    },
+    {
+        "name": "Haroob",
+        "age": "69",
+        "streetAddress": "Jijiji",
+        "city": "lololol",
+        "state": "Mimimi",
+        "phoneNumber": "4454545",
+        "id": 10
     }
 ]

@@ -5,6 +5,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
     .then((data) => setupJsGrid(data));
 });
 
+if (document.getElementById("employeeDetailForm") !== null) {
+  document
+    .getElementById("employeeDetailForm")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let item = {
+        name: document.querySelector("[name = 'name']").value,
+        lastName: document.querySelector("[name = 'lastName]").value,
+        email: document.querySelector("[name = 'email]").value,
+        gender: document.querySelector("[name = 'gender]").value,
+        age: document.querySelector("[name = 'age']").value,
+        phoneNumber: document.querySelector("[name = 'phoneNumber]").value,
+        city: document.querySelector("[name = 'city']").value,
+        streedAddress: document.querySelector("[name = 'streetAddress']").value,
+        state: document.querySelector("[name = 'state']").value,
+        postalCode: document.querySelector("[name = 'zipCode']").value,
+      };
+
+      console.log(item);
+
+      //makeRequest(item, "update");
+    });
+}
+
 // Create & Delete for AJAX
 function insertNewEntry({ item }) {
   makeRequest(item, "create");

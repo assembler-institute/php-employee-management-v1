@@ -66,9 +66,9 @@ function deleteEmployee($id)
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee($updateEmployee)
 {
-    // TODO implement it
+    return $updateEmployee;
 }
 
 
