@@ -27,8 +27,11 @@ $.getJSON(dataPath).done(function (employeesData) {
                 return $.ajax({
                     type: "POST",
                     url: "./library/employeeController.php",
-                    data: item,
-                });
+                    data: JSON.stringify({ 'data': item }),
+                    success: function (data) {
+                        console.log(data)
+                    }
+                })
             },
 
             deleteItem: function (item) {
