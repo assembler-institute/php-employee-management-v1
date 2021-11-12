@@ -1,6 +1,5 @@
 <?php
 //crear las funciones, start session and validate
-
 if(!isset($_SESSION)){
   session_start();
 }
@@ -16,7 +15,30 @@ function validateLogin($logUser, $logPassword) {
     //contador de tiempo del usuario
   }
 }
-  
 
+function destroySession()
+{
+    session_start();
+    unset($_SESSION);
+    destroySessionCookie();
+    session_destroy();
+    header("Location:../../index.php?logOut=true");
 
+}
+
+function destroySessionCookie()
+{
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
+        );
+    }
+}
 ?>
