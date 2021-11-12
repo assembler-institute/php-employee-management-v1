@@ -1,16 +1,16 @@
 [
     {
-        "id": 5,
         "name": "Susan",
         "lastName": "Smith",
         "email": "susanmith@baz.com",
         "gender": "woman",
-        "age": 28,
-        "streetAddress": "43",
+        "age": "34",
+        "phoneNumber": "224355488976",
         "city": "Louisville",
+        "streetAddress": "43",
         "state": "KNT",
-        "postalCode": "445321",
-        "phoneNumber": "224355488976"
+        "zipCode": "",
+        "id": "5"
     },
     {
         "id": 6,
@@ -68,5 +68,18 @@
         "state": "Mimimi",
         "phoneNumber": "4454545",
         "id": 10
+    },
+    {
+        "name": "Chris",
+        "lastName": "",
+        "email": "",
+        "gender": "Female",
+        "age": "21",
+        "phoneNumber": "6546546456",
+        "city": "dsadas",
+        "streetAddress": "dasdas",
+        "state": "dsada",
+        "zipCode": "",
+        "id": "11"
     }
 ]

@@ -3,31 +3,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
   fetch("../resources/employees.json")
     .then((res) => res.json())
     .then((data) => setupJsGrid(data));
+
+  // Event listener to employee.php
+  if (document.getElementById("employeeDetailForm") !== null) {
+    document
+      .getElementById("employeeDetailForm")
+      .addEventListener("submit", processEditEmployee);
+  }
 });
 
-if (document.getElementById("employeeDetailForm") !== null) {
-  document
-    .getElementById("employeeDetailForm")
-    .addEventListener("submit", (e) => {
-      e.preventDefault();
+function processEditEmployee(e) {
 
-      let item = {
-        name: document.querySelector("[name = 'name']").value,
-        lastName: document.querySelector("[name = 'lastName]").value,
-        email: document.querySelector("[name = 'email]").value,
-        gender: document.querySelector("[name = 'gender]").value,
-        age: document.querySelector("[name = 'age']").value,
-        phoneNumber: document.querySelector("[name = 'phoneNumber]").value,
-        city: document.querySelector("[name = 'city']").value,
-        streedAddress: document.querySelector("[name = 'streetAddress']").value,
-        state: document.querySelector("[name = 'state']").value,
-        postalCode: document.querySelector("[name = 'zipCode']").value,
-      };
+  e.preventDefault();
+  let formData = new FormData(e.target);
+  // Display the key/value pairs
+  let item = {}
+  for(var entry of formData.entries()) {
+    let key = entry[0]
+    let value = entry[1]
+    item[key] = value
+  }
 
-      console.log(item);
-
-      //makeRequest(item, "update");
-    });
+  makeRequest(item, "update");
 }
 
 // Create & Delete for AJAX
@@ -53,8 +50,10 @@ function makeRequest(item, action) {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => console.log(res));
-  // Get backend response
+  }).then((res) => res.json())
+  .then(msg => {
+    if (action === 'update') window.location.replace(`dashboard.php`);
+  })
 }
 
 function setupJsGrid(data) {

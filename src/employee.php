@@ -43,7 +43,7 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
         ?>
     </header>
     <main class="container p-5">
-        <form id="employeeDetailForm" action="">
+        <form id="employeeDetailForm">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">Name</label>
@@ -89,13 +89,12 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
                     <label for="inputZip">Zip Code</label>
                     <input type="text" class="form-control" id="inputZip" name="zipCode" value="<?php echo $postalCode ?>">
                 </div>
-
-
             </div>
 
 
 
             <input type="submit" class="btn btn-primary" value="Submit" id="submitButton"></input>
+            <input type="hidden" name="id" value="<?php echo $id ?>" ></input>
             <button type="button" class="btn btn-secondary"><a href="dashboard.php" class=" btn-secondary"> Return </a></button>
 
         </form>

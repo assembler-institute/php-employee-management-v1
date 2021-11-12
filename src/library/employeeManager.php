@@ -11,10 +11,9 @@ require_once("loginManager.php");
 
 function addEmployee(array $newEmployee)
 {
-    var_dump($newEmployee);
     // Verify the file path exist
     $jsonPath = '../../resources/employees.json';
-    if (!file_exists($jsonPath)) return [false, 'Invalid path'];
+    if (!file_exists($jsonPath)) return 'Invalid path';
 
     // Get JSON and update it
     $jsonArray = getJson($jsonPath);
@@ -34,10 +33,10 @@ function addEmployee(array $newEmployee)
 
     if (!file_put_contents($jsonPath, json_encode($newJson, JSON_PRETTY_PRINT))) {
 
-        return [false, "Failed to save data into json file"];
+        return "Failed to save data into json file";
     }
 
-    return [true, "Employee Added Successfully"];
+    return "Employee Added Successfully";
 }
 
 
@@ -46,7 +45,7 @@ function deleteEmployee($id)
 
     // Verify the file path exist
     $jsonPath = '../../resources/employees.json';
-    if (!file_exists($jsonPath)) return [false, 'Invalid path'];
+    if (!file_exists($jsonPath)) return 'Invalid path';
 
     // Get JSON and update it
     $jsonArray = getJson($jsonPath);
@@ -59,16 +58,34 @@ function deleteEmployee($id)
 
     if (!file_put_contents($jsonPath, json_encode($newJson, JSON_PRETTY_PRINT))) {
 
-        return [false, "Failed to save data into json file"];
+        return "Failed to save data into json file";
     }
 
-    return [true, "Updated succesfully!"];
+    return "Updated succesfully!";
 }
 
 
-function updateEmployee($updateEmployee)
+function updateEmployee($newDataEmployee)
 {
-    return $updateEmployee;
+  $jsonPath = "../../resources/employees.json";
+  $employees = getJson($jsonPath);
+  $updatedEmployees = [];
+
+  if (!file_exists($jsonPath)) return 'Invalid path';
+
+  foreach ($employees as $employee) {
+    if ((int)$employee['id'] === (int)$newDataEmployee['id']) {
+      $updatedEmployees[] = $newDataEmployee;
+    } else {
+      $updatedEmployees[] = $employee;
+    }
+  }
+
+  if (!file_put_contents($jsonPath, json_encode($updatedEmployees, JSON_PRETTY_PRINT))) {
+    return "Failed to save data into json file";
+  }
+
+  return 'Employee updated succesfully';
 }
 
 
@@ -77,10 +94,9 @@ function getEmployee(string $id)
 
     $employees = getJson("../resources/employees.json");
 
-
     foreach ($employees as $employee) {
 
-        if ($employee["id"] === (int)$id) return $employee;
+        if ((int)$employee["id"] === (int)$id) return $employee;
     }
 
     return ("Employee not found");
