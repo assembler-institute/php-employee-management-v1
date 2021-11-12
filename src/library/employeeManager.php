@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -8,32 +9,32 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    // TODO implement it
 
 }
 
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function removeAvatar($id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
