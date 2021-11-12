@@ -30,8 +30,24 @@ $.getJSON(dataPath).done(function (employeesData) {
                     data: item,
                 });
             },
-        },
 
+            deleteItem: function (item) {
+
+                return $.ajax({
+                    type: "GET",
+                    url: "./library/employeeController.php",
+                    data: item,
+                });
+            },
+
+            updateItem: function (item) {
+                return $.ajax({
+                    type: "PUT",
+                    url: "./library/employeeController.php",
+                    data: item,
+                });
+            }
+        },
         fields: [{
             name: "id",
             type: "text",

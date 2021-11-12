@@ -4,7 +4,6 @@ require("./employeeManager.php");
 function getData()
 {
     $json_data = file_get_contents('../../resources/employees.json');
-    print_r($json_data);
 }
 
 // $data = json_decode($json_data, TRUE);
@@ -55,5 +54,11 @@ if ($method == 'POST') {
 // if ($method == 'PATCH') {
 // };
 
-// if ($method == 'DELETE') {
-// };
+if ($method === 'GET') {
+    $json_data = file_get_contents('../../resources/employees.json');
+    $data = json_decode($json_data, true);
+    $a = array_filter($data, function ($employee) {
+        return $employee->id == $_GET['id'];
+    });
+    file_put_contents('../../resources/employees.json', json_encode($a));
+}
