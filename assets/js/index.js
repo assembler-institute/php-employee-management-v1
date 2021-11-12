@@ -1,4 +1,4 @@
-jsonLength = () => {
+jsonLength = async () => {
   let json = null;
   $.ajax({
     'async': false,
@@ -9,7 +9,7 @@ jsonLength = () => {
       json = data;
     }
   });
-  return json.length;
+  return await json.length;
 };
 
 $("#jsGrid").jsGrid({
@@ -42,10 +42,10 @@ $("#jsGrid").jsGrid({
         console.log("data loaded");
       });
     },
-    insertItem: function (item) {
+    insertItem: async function (item) {
       var d = $.Deferred();
 
-      item['id'] = jsonLength() + 1;
+      item['id'] = await jsonLength() + 1;
 
       return $.ajax({
         type: "POST",
