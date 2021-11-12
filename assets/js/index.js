@@ -15,7 +15,7 @@ var employees = (function () {
 $("#jsGrid").jsGrid({
   width: "80%",
   filtering: true,
-  editing: false,
+  editing: true,
   inserting: true,
   sorting: true,
   paging: true,
