@@ -10,7 +10,6 @@ function addEmployee(array $newEmployee): bool
 		$newEmployee["id"] = getNextIdentifier($employeesCollection);
 		array_push($employeesCollection, $newEmployee);
 
-		var_dump($employeesCollection);
 		file_put_contents($json_url, json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
 		return true;
 	} catch (Throwable $e) {

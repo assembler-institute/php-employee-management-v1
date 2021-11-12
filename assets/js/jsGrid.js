@@ -1,9 +1,10 @@
+import * as $ from "../../node_modules/jquery/dist/jquery.min.js";
+
 $("#jsGrid").jsGrid({
 	width: "100%",
 	height: "600px",
 
 	inserting: true,
-	filtering: true,
 	editing: true,
 	sorting: true,
 	paging: true,
@@ -45,6 +46,11 @@ $("#jsGrid").jsGrid({
 		},
 	},
 
+	rowClick: function ({ item }) {
+		//console.log(item.id);
+		window.location.href = `./employee.php?id=${item.id}`;
+	},
+
 	fields: [
 		{ title: "ID", name: "id", type: "number", width: 20, align: "center", readOnly: true },
 		{ title: "Name", name: "name", type: "text", width: 50, align: "center" },
@@ -54,5 +60,3 @@ $("#jsGrid").jsGrid({
 		{ type: "control" },
 	],
 });
-
-console.log("GRID");
