@@ -19,8 +19,7 @@ $.getJSON(dataPath).done(function (employeesData) {
             selectedItem = args.item;
             window.location = "../src/library/employeeController.php?ID=" + selectedItem.id;
         },
-        deleteConfirm:
-            "This action will delete the employee from the system. Are you sure?",
+        // deleteConfirm:"This action will delete the employee from the system. Are you sure?",
 
         controller: {
             insertItem: function (item) {
@@ -45,7 +44,7 @@ $.getJSON(dataPath).done(function (employeesData) {
 
             updateItem: function (item) {
                 return $.ajax({
-                    type: "PUT",
+                    type: "GET",
                     url: "./library/employeeController.php",
                     data: item,
                 });

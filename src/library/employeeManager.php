@@ -34,18 +34,21 @@ function deleteEmployee(string $id)
 
     foreach ($data as $key => $value) {
         if ($value['id'] == $id) {
-            unset($data[$key]);
+            // unset($data[$key]);
+            array_splice($data, $key, 1);
         }
     };
     #falta que lo devuelva en formato json
     $encodedData = json_encode($data, true);
-
-       if (file_put_contents('../../resources/employees.json', $encodedData)) {
+    print_r($encodedData);
+    if (file_put_contents('../../resources/employees.json', $encodedData)) {
         return true;
     } else {
         return false;
     }
 }
+
+deleteEmployee('1');
 
 
 
@@ -55,7 +58,20 @@ function deleteEmployee(string $id)
 function updateEmployee(array $updateEmployee)
 {
     // TODO implement it
+    $json_data = file_get_contents('../../resources/employees.json');
+    $data = json_decode($json_data, true);
+    foreach ($data as $key => $value) {
+        if ($value['id'] == $updateEmployee['id']) {
+            $data[$key] = $updateEmployee;
+        }
+    };
+    $encodedData = json_encode($data, true);
+    print_r($encodedData);
+
+    //hasta aqui funciona
 }
+
+updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
 
 
 function getEmployee(string $id)

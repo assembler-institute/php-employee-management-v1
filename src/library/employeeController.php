@@ -12,13 +12,15 @@ if ($method === 'POST') {
     }
 };
 
-// if ($method == 'PUT') {
-// };
+
 
 // if ($method == 'PATCH') {
 // };
 
-if ($method === 'GET') {
-    print_r($_GET['id']);
-    // deleteEmployee($_GET['id']);
-}
+// if ($method === 'GET') {
+//     print_r($_GET['id']);
+//     // deleteEmployee($_GET['id']);
+// }
+// if ($method == 'GET') {
+//     updateEmployee($_PUT['data']);
+// };
