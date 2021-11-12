@@ -1,46 +1,82 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
  */
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+  $item = $_POST;
+  $storagePath = "../../resources/employees.json";
+
+  $employeesCollection = json_decode(file_get_contents($storagePath, true));
+  $item['id'] = count($employeesCollection) + 1;
+  array_push($employeesCollection, $item);
+
+  $jsonData = json_encode($employeesCollection);
+  file_put_contents($storagePath, $jsonData);
+
+  return true;
 }
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+  $storagePath = "../../resources/employees.json";
+  $employeesCollection = json_decode(file_get_contents($storagePath, true));
+
+  foreach ($employeesCollection as $index => $employee) {
+    if ($employee->id == $id) {
+      unset($employeesCollection[$index]);
+      break;
+    }
+  }
+
+  $jsonData = json_encode($employeesCollection);
+  file_put_contents($storagePath, $jsonData);
+
+  return true;
 }
 
-
-function updateEmployee(array $updateEmployee)
+function updateEmployee(array $updatedEmployee)
 {
-// TODO implement it
-}
+  $storagePath = "../../resources/employees.json";
+  $employeesCollection = json_decode(file_get_contents($storagePath, true));
 
+  foreach ($employeesCollection as $index => $employee) {
+    if ($employee->id == $updatedEmployee['id']) {
+      $employeesCollection[$index] = $updatedEmployee;
+      break;
+    }
+  }
+
+  $jsonData = json_encode($employeesCollection);
+  file_put_contents($storagePath, $jsonData);
+
+  return true;
+}
 
 function getEmployee(string $id)
 {
-// TODO implement it
+  $storagePath = "../../resources/employees.json";
+  $employeesCollection = json_decode(file_get_contents($storagePath, true));
+
+  return $employeesCollection;
 }
 
 
 function removeAvatar($id)
 {
-// TODO implement it
+  $storagePath = "../../resources/employees.json";
+  $employeesCollection = json_decode(file_get_contents($storagePath, true));
 }
 
 
 function getQueryStringParameters(): array
 {
-// TODO implement it
+  // TODO implement it
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
-// TODO implement it
+  // TODO implement it
 }
