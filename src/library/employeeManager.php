@@ -12,12 +12,12 @@ function addEmployee(array $data)
 {
     // TODO implement it
     $json_data = file_get_contents('../../resources/employees.json');
+    print_r($json_data);
     $decodedData = json_decode($json_data, true);
-    var_dump($json_data, $decodedData);
+    $data['id'] = getNextIdentifier();
     array_push($decodedData, $data);
     $encodedData = json_encode($decodedData);
-    # falta añadir el $id=encode_data 
-    // $encodecData['id'] = getMeNyNEwID();
+
     if (file_put_contents('../../resources/employees.json', $encodedData)) {
         return true;
     } else {
@@ -55,8 +55,12 @@ function removeAvatar($id)
 // // TODO implement it
 // }
 
-// function getNextIdentifier(array $employeesCollection): int
-// {
-// // TODO implement it
-
-// }
+function getNextIdentifier(): int
+{
+    $json_data = file_get_contents('../../resources/employees.json');
+    $data = json_decode($json_data, true);
+    $lastId = end($data);
+    $lastId = $lastId['id'];
+    $lastId++;
+    return $lastId;
+}
