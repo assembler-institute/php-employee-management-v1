@@ -1,1 +1,11 @@
-// This file will handle the HTTP requests that will be made to create, read, update and delete the employees and for this it must include the  “employeeManager.php” file and call the corresponding functions of it that will be in charge of performing the operations.
+
+<?php
+include_once "./employeeManager.php";
+echo "emplyeeController";
+if (!empty($_POST)) {
+    $newEmployye = $_POST['newEmployee'];
+    addEmployee($newEmployee);
+    echo $response = true;
+} else {
+    echo $response = false;
+}

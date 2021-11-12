@@ -9,7 +9,7 @@
 
         // Configurar URL y otras opciones apropiadas
         curl_setopt($curl, CURLOPT_URL, "https://uifaces.co/api");
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); //? true => returns type array object
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             'Cache-Control: no-cache',
             'Accept: application/json',
@@ -25,4 +25,6 @@
         curl_close($curl);
         return $result;
     }
+
+
     ?>

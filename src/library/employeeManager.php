@@ -10,40 +10,56 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    echo "addEmployee";
+    $jsonBdd = "../../resources/employees.json";
+    $fh = fopen($jsonBdd, 'w') or die("can't open file");
+    $stringData = json_encode($newEmployee);
+    fwrite($fh, $stringData);
+    fclose($fh);
 }
 
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
+    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
+
+    foreach ($jsonEmployee as $employee) {
+        if ($employee['id'] === $id || $employee['id'] === intval($id)) {
+            return  $employee;
+        }
+    }
 }
 
 
 function removeAvatar($id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
-function getQueryStringParameters(): array
+//function getQueryStringParameters(): array
 {
-// TODO implement it
+    // TODO implement it
 }
 
-function getNextIdentifier(array $employeesCollection): int
+function getNextIdentifier($employeesCollection = "") //! input type string?
 {
-// TODO implement it
+    $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
+    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
+    $nextId = $jsonEmployee[count($jsonEmployee) - 1]['id'] + 1;
+    return $nextId;
+    /* <!--  <a href="../../resources/employees.json"></a>--> */
 }

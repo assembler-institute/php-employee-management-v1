@@ -31,7 +31,7 @@ require_once "./imageGallery.php";
         <div class="col col-md-6 p-4">
             <form id="formEmployee">
                 <div class="form-row row">
-                    <input type="hidden" class="form-control" id="inputId" value="X">
+                    <input type="hidden" class="form-control" id="inputId" value="new">
                     <div class="form-group col-md-6">
                         <label>Name</label>
                         <input type="text" class="form-control" id="inputName" placeholder="Name">
@@ -46,7 +46,7 @@ require_once "./imageGallery.php";
                         <label>Email</label>
                         <input type="email" class="form-control" id="inputEmail" placeholder="Email">
                     </div>
-                    <div class="form-group col-md-6" id="inputGender">
+                    <div class="form-group col-md-6" id="inputGender" data-key="NoN">
                         <label for="inputState">Gender</label>
                         <select id="inputState" class="form-control" id="inputGender2">
                             <option value="" selected id="inputGenderNone">Choose...</option>
@@ -102,10 +102,7 @@ require_once "./imageGallery.php";
     </div>
 </div>
 
-
-<?php
-include "../assets/html/footer.html";
-?>
+<!-- <a href="../assets/js/ajax/newEmployee.js"></a> -->
 <script>
     //?GENDER  post.gender.value? 
     //document.getElementById("inputGenderNone").removeAttribute("selected");
@@ -119,20 +116,25 @@ include "../assets/html/footer.html";
     document.getElementById("formEmployee"), addEventListener('submit', (e) => {
         e.preventDefault();
         let formData = {
-            id: $("#inputId").val(),
-            name: $("#inputName").val(),
-            lastName: $("#inputLast").val(),
-            email: $("#inputEmail").val(),
-            gender: document.getElementById("inputGender").dataset.key,
-            city: $("#inputCity").val(),
-            streetAddress: $("#inputStreet").val(),
-            state: $("#inputState").val(),
-            age: $("#inputAge").val(),
-            postalCode: $("#inputPostal").val(),
-            phoneNumber: $("#inputPostal").val(),
+            id: document.getElementById("inputId").value,
+            name: document.getElementById("inputName").value,
+            lastName: document.getElementById("inputLast").value,
+            email: document.getElementById("inputEmail").value,
+            gender: document.getElementById("inputGender").dataset.key.value,
+            city: document.getElementById("inputCity").value,
+            streetAddress: document.getElementById("inputStreet").value,
+            state: document.getElementById("inputState").value,
+            age: document.getElementById("inputAge").value,
+            postalCode: document.getElementById("inputPostal").value,
+            phoneNumber: document.getElementById("inputPostal").value,
             photo: document.querySelectorAll(".active")[1].firstElementChild.getAttribute("src")
         };
-        console.log(formData);
+        ajaxCreateEmployee(formData);
     })
-    /* cosas */
+
+    /* fin */
 </script>
+
+<?php
+include "../assets/html/footer.html";
+?>
