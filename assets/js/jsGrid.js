@@ -1,12 +1,24 @@
 $("#jsGrid").jsGrid({
   width: "100%",
-  height: "600px",
 
   inserting: true,
   editing: true,
   sorting: true,
   paging: true,
   autoload: true,
+
+  pagerContainer: null,
+  pageIndex: 1,
+  pageSize: 10,
+  pageButtonCount: 15,
+  pagerFormat:
+    "Pages: {first} {prev} {pages} {next} {last}    {pageIndex} of {pageCount}",
+  pagePrevText: "Prev",
+  pageNextText: "Next",
+  pageFirstText: "First",
+  pageLastText: "Last",
+  pageNavigatorNextText: "...",
+  pageNavigatorPrevText: "...",
 
   controller: {
     loadData: function (item) {
