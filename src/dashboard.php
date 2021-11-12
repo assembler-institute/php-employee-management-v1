@@ -1,28 +1,15 @@
 <?php
 
-session_start();
-require_once("../assets/html/header.html");
+    session_start();
 
+    require_once("../assets/html/header.html");
 
-$name = $_SESSION['username'];
+    $name = $_SESSION['username'];
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    chmod('../resources/employees.json', 0777);
 
-//     if (file_exists('../../resources/employees.json')) {
-//         $jsonData = file_get_contents('../../resources/employees.json');
-//         $usersData = json_decode($jsonData, true);
-//     } else {
-//         $usersData = [];
-//     }
-//     $usersData[] = [$_POST];
-//     $jsonData = json_encode($usersData, JSON_PRETTY_PRINT);
-
-//     file_put_contents($usersJsonFile, $jsonData);
-// };
-
-chmod('../resources/employees.json', 0777);
 ?>
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,8 +32,8 @@ chmod('../resources/employees.json', 0777);
 </body>
 
 <?php
-if (isset($_SESSION["prueba"])) echo $_SESSION["prueba"];
-require_once("../assets/html/footer.html");
+
+    require_once("../assets/html/footer.html");
 
 ?>
 

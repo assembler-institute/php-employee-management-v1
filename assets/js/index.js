@@ -71,8 +71,9 @@ $("#jsGrid").jsGrid({
   fields: [
     {
       name: "id",
-      title: "id",
+      title: "ID",
       type: "hidden",
+      css: "hide"
     },
     {
       name: "name",
@@ -161,3 +162,5 @@ $("#jsGrid").jsGrid({
     },
   ],
 });
+
+$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
