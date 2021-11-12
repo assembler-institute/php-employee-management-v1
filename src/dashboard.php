@@ -4,13 +4,12 @@
 
 
  <script src="../assets/js/templates/headTemplate.js" ></script>
+ <script src="../assets/js/templates/navTemplate.js" ></script>
 
  <?php
     session_start();
     require_once ("./library/loginManager.php");
     checkSession();
-
-    echo '<a class="nav-link" href="./library/loginController.php?logout=true"> Sign out</a>';
 
     echo "Im the DASHHHBOAAARD";
 
