@@ -59,7 +59,7 @@ $data = getEmployee($id);
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="lastName" class="form-label">Last name</label>
-					<input type="text" class="form-control" name="lastName" id="lastName" required value="<?= (isset($data["lastName"])) ? $data["lastName"] : null ?>" />
+					<input type="text" class="form-control" name="lastName" id="lastName" value="<?= (isset($data["lastName"])) ? $data["lastName"] : null ?>" />
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="gender" class="form-label">Gender</label>
@@ -71,7 +71,7 @@ $data = getEmployee($id);
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="age" class="form-label">Age</label>
-					<input type="number" min="0" class="form-control" name="age" id="age" value="<?= (isset($data["age"])) ? $data["age"] : null ?>" />
+					<input type="number" min="0" class="form-control" name="age" id="age" required value="<?= (isset($data["age"])) ? $data["age"] : null ?>" />
 				</div>
 				<div class="col-12 mb-3">
 					<label for="email" class="form-label">Email</label>
@@ -83,15 +83,15 @@ $data = getEmployee($id);
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="address" class="form-label">Address</label>
-					<input type="text" class="form-control" name="address" id="address" value="<?= (isset($data["address"])) ? $data["address"] : null ?>" />
+					<input type="text" class="form-control" name="address" id="address" required value="<?= (isset($data["address"])) ? $data["address"] : null ?>" />
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="city" class="form-label">City</label>
-					<input type="text" class="form-control" name="city" id="city" value="<?= (isset($data["city"])) ? $data["city"] : null ?>" />
+					<input type="text" class="form-control" name="city" id="city" required value="<?= (isset($data["city"])) ? $data["city"] : null ?>" />
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="state" class="form-label">State</label>
-					<select class="form-select" id="state" name="state" value="<?= (isset($data["state"])) ? $data["state"] : null ?>">
+					<select class="form-select" id="state" name="state" required value="<?= (isset($data["state"])) ? $data["state"] : null ?>">
 						<option selected disabled value="none">Not specified</option>
 						<option value="CA">California</option>
 						<option value="NY">New York</option>
@@ -99,7 +99,7 @@ $data = getEmployee($id);
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="postalCode" class="form-label">Postal code</label>
-					<input type="text" class="form-control" name="postalCode" id="postalCode" value="<?= (isset($data["postalCode"])) ? $data["postalCode"] : null ?>" />
+					<input type="text" class="form-control" name="postalCode" id="postalCode" required value="<?= (isset($data["postalCode"])) ? $data["postalCode"] : null ?>" />
 				</div>
 				<div class="col-12 d-flex justify-content-center">
 					<button class="btn btn-primary" type="submit">Submit</button>
