@@ -28,8 +28,28 @@ function addEmployee(array $data)
 
 function deleteEmployee(string $id)
 {
-    // TODO implement it
+    $json_data = file_get_contents('../../resources/employees.json');
+    $data = json_decode($json_data, true);
+
+
+    foreach ($data as $key => $value) {
+        if ($value['id'] == $id) {
+            unset($data[$key]);
+        }
+    };
+    #falta que lo devuelva en formato json
+    $encodedData = json_encode($data, true);
+
+       if (file_put_contents('../../resources/employees.json', $encodedData)) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
+
+
+
 
 
 function updateEmployee(array $updateEmployee)

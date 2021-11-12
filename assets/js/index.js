@@ -29,7 +29,7 @@ $.getJSON(dataPath).done(function (employeesData) {
                     url: "./library/employeeController.php",
                     data: JSON.stringify({ 'data': item }),
                     success: function (data) {
-                        console.log(data)
+                        autoload();
                     }
                 })
             },
