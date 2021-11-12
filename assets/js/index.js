@@ -83,13 +83,6 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
-      name: "lastName",
-      title: "Last name",
-      type: "text",
-      width: 60,
-      validate: "required",
-    },
-    {
       name: "email",
       title: "Email",
       type: "text",
@@ -126,20 +119,6 @@ $("#jsGrid").jsGrid({
       width: 50,
     },
     {
-      name: "gender",
-      title: "Gender",
-      type: "select",
-      items: [
-        { Name: "Man", Id: "man" },
-        { Name: "Woman", Id: "woman" },
-        { Name: "Other", Id: "other" },
-      ],
-      valueField: "Id",
-      textField: "Name",
-      align: "left",
-      width: 40,
-    },
-    {
       name: "city",
       title: "City",
       type: "text",
@@ -164,3 +143,10 @@ $("#jsGrid").jsGrid({
 });
 
 $("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
+
+let toast = document.getElementById("toast")
+if(toast) {
+  setTimeout(() => {
+    toast.remove()
+  }, 3000);
+}
