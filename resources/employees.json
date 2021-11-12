@@ -102,17 +102,5 @@
     "state": "LU",
     "postalCode": "63281",
     "phoneNumber": "91232876454"
-  },
-  {
-    "name": "Juan",
-    "lastName": "Dom\u00ednguez",
-    "email": "juan@juan.org",
-    "age": "89",
-    "postalCode": "676",
-    "phoneNumber": "89087097809",
-    "state": "CA",
-    "gender": "other",
-    "city": "Tijuana",
-    "streetAddress": "7896"
   }
 ]
