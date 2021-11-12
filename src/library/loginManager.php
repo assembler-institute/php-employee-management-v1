@@ -152,7 +152,7 @@ function checkLoginDashboard($urlFile){
     $_SESSION["errorMessage"] = ["status" => "warning", "message" =>"You don't have permission to enter the dashboard. Please Login."];
     $_SESSION['isRedirecting']= true ;
     $_SESSION['prevPage'] = $urlFile;
-    header("Location:../index.php");
+    header("Location: ../index.php");
   }
 }
 
@@ -192,8 +192,3 @@ function validateEmail($email) {
   }
 }
 
-//*TODO
-function encryptPass(string $pass){
-
-
-}

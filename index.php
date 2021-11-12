@@ -2,9 +2,8 @@
 require_once("./src/library/loginManager.php");
 
 session_start();
-
-$redirect = $_SESSION['isRedirecting'];
-$error = ( ($redirect && isset($redirect)) ? checkRedirection() : checkSession());
+// re order logic
+$error = ( ( isset($_SESSION['isRedirecting']) && $_SESSION['isRedirecting'] ) ? checkRedirection() : checkSession());
 ?>
 
 <!DOCTYPE html>
