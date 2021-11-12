@@ -9,8 +9,6 @@ const getJSONData = async () => {
   }
 };
 
-var res = await getJSONData();
-
 $("#jsGrid").jsGrid({
   width: "100%",
   height: "600px",
@@ -34,9 +32,11 @@ $("#jsGrid").jsGrid({
         },
       });
     },
-    insertItem: function (item) {
+    insertItem: async function (item) {
       var d = $.Deferred();
       console.log(item);
+      let res = await getJSONData();
+      item["id"] = res.length + 1;
       return $.ajax({
         type: "POST",
         url: "../src/library/employeeController.php",
@@ -44,8 +44,6 @@ $("#jsGrid").jsGrid({
         success: function (data) {
           return d.resolve(data);
         },
-      }).done(function () {
-        console.log("data inserted");
       });
     },
     updateItem: function (item) {
@@ -58,8 +56,6 @@ $("#jsGrid").jsGrid({
         success: function (data) {
           return d.resolve(data);
         },
-      }).done(function () {
-        console.log("data updated");
       });
     },
     deleteItem: function (item) {
@@ -73,6 +69,11 @@ $("#jsGrid").jsGrid({
     },
   },
   fields: [
+    {
+      name: "id",
+      title: "id",
+      type: "hidden",
+    },
     {
       name: "name",
       title: "Name",

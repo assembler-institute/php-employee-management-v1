@@ -9,13 +9,11 @@
 
 function addEmployee(array $newEmployee)
 {
-    if (file_exists('../../resources/employees.json')) {
-        $jsonData = file_get_contents('../../resources/employees.json');
-        $usersData = json_decode($jsonData, true);
-    } else {
-        $usersData = [];
-    }
-    $usersData[] = $newEmployee;
+    $jsonData = file_get_contents('../../resources/employees.json');
+    $usersData = json_decode($jsonData, true);
+
+    $newEmployeeWithId = strToNumber($newEmployee);
+    $usersData[] = $newEmployeeWithId;
     $jsonData = json_encode($usersData, JSON_PRETTY_PRINT);
 
     file_put_contents('../../resources/employees.json', $jsonData);
@@ -24,13 +22,34 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-    // TODO implement it
+    if (file_exists('../../resources/employees.json')) {
+        $jsonData = file_get_contents('../../resources/employees.json');
+        $usersData = json_decode($jsonData, true);
+    } else {
+        $usersData = [];
+    }
+    foreach ($usersData as $user) {
+        if ($user["id"] == $id) {
+            array_splice($usersData, array_search($user, $usersData), 1);
+        }
+    }
+    $jsonData = json_encode($usersData, JSON_PRETTY_PRINT);
+    file_put_contents('../../resources/employees.json', $jsonData);
 }
 
 
 function updateEmployee(array $updateEmployee)
 {
-    // TODO implement it
+    $jsonData = file_get_contents('../../resources/employees.json');
+    $usersData = json_decode($jsonData, true);
+    foreach ($usersData as $user) {
+        if ($user["id"] == $updateEmployee["id"]) {
+            $updateEmployee = strToNumber($updateEmployee);
+            array_splice($usersData, array_search($user, $usersData), 1, [$updateEmployee]);
+        }
+    }
+    $jsonData = json_encode($usersData, JSON_PRETTY_PRINT);
+    file_put_contents('../../resources/employees.json', $jsonData);
 }
 
 
@@ -54,4 +73,15 @@ function getQueryStringParameters(): array
 function getNextIdentifier(array $employeesCollection): int
 {
     // TODO implement it
+}
+
+function strToNumber(array $employee)
+{
+    $employee["id"] = intval($employee["id"]);
+    $employee["age"] = intval($employee["age"]);
+    $employee["streetAddress"] = intval($employee["streetAddress"]);
+    $employee["postalCode"] = intval($employee["postalCode"]);
+    $employee["phoneNumber"] = intval($employee["phoneNumber"]);
+
+    return $employee;
 }

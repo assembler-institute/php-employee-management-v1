@@ -45,7 +45,7 @@ chmod('../resources/employees.json', 0777);
 </body>
 
 <?php
-
+if (isset($_SESSION["prueba"])) echo $_SESSION["prueba"];
 require_once("../assets/html/footer.html");
 
 ?>
