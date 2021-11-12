@@ -37,12 +37,8 @@ include_once '../assets/html/header.html';
           autoload: true,
           pageSize: 10,
           pageButtonCount: 5,
-          // deleteConfirm: "Do you really want to delete data?",
           deleteConfirm: function(item) {
             return "The client \"" + item.name + " " + item.lastName + "\" will be removed. Are you sure?";
-          },
-          rowClick: function(args) {
-            showDetailsDialog("Edit", args.item);
           },
 
           controller: {
