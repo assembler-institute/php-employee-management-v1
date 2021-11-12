@@ -18,6 +18,7 @@
 </head>
 <body>
 <?php
+// require("../src/library/sessionHelper.php");
 require(".././assets/html/header.html");
 ?>
 

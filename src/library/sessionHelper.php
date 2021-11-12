@@ -5,4 +5,16 @@ In the event that the user remains more than 10 minutes in the session, the user
 
 <?php
 
-?>
+session_start();
+
+// To check if session is started.
+if(isset($_SESSION))
+{
+    if(time()-$_SESSION["login_time_stamp"] > 5) 
+    {
+        session_unset();
+        session_destroy();
+        header("Location:index.php");
+    }
+}
+
