@@ -1,4 +1,5 @@
 <?php
+
 require_once("./library/sessionHelper.php");
 startSession();
 
@@ -7,21 +8,21 @@ if (!getSessionValue("user")) {
 	exit();
 }
 
-$data = [];
-$method = "POST";
-
-if (isset($_GET["id"]) && $_GET["id"]) {
-	$id = $_GET["id"];
+function getEmployee($id)
+{
 	$employeesCollection = json_decode(file_get_contents("../resources/employees.json"), true);
 
 	foreach ($employeesCollection as $employee) {
 		if ($employee["id"] == $id) {
-			$data = $employee;
-			$method = "PUT";
-			break;
+			return $employee;
 		}
 	}
+
+	return null;
 }
+
+$id = isset($_GET["id"]) ? $_GET["id"] : null;
+$data = getEmployee($id);
 
 ?>
 
@@ -44,6 +45,9 @@ if (isset($_GET["id"]) && $_GET["id"]) {
 	<?php include("../assets/html/header.html"); ?>
 	<main class="container-sm">
 		<form id="employee-form" class="d-flex justify-content-center" method="<?= $method ?>" action="./library/employeeController.php">
+			<?php if ($id) : ?>
+				<input type="hidden" name="id" value="<?= $id ?>" />
+			<?php endif ?>
 			<div class="row w-75 p-5">
 				<div class="col-12">
 					<h1 class="display-6">Employee</h1>
@@ -107,3 +111,5 @@ if (isset($_GET["id"]) && $_GET["id"]) {
 </body>
 
 </html>
+
+<?php

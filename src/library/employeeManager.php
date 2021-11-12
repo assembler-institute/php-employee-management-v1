@@ -11,8 +11,11 @@ function addEmployee(array $newEmployee): bool
 		array_push($employeesCollection, $newEmployee);
 
 		file_put_contents($json_url, json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
+
+		echo "Added";
 		return true;
 	} catch (Throwable $e) {
+		echo "Not added";
 		return false;
 	}
 }
@@ -24,9 +27,9 @@ function deleteEmployee(int $id)
 {
 	try {
 		$employeesCollection = json_decode(file_get_contents("../../resources/employees.json"), true);
+
 		foreach ($employeesCollection as $index => $employee) {
-			echo $index;
-			if ($employee["id"] === $id) {
+			if ($employee["id"] == $id) {
 				unset($employeesCollection[$index]);
 				file_put_contents("../../resources/employees.json", json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
 				return true;
@@ -47,13 +50,18 @@ function updateEmployee(array $updateEmployee): bool
 	try {
 		$employeesCollection = json_decode(file_get_contents("../../resources/employees.json"), true);
 
-		if (!deleteEmployee($updateEmployee["id"])) return false;
+		foreach ($employeesCollection as $index => $employee) {
+			if ($employee["id"] == $updateEmployee["id"]) {
+				$employeesCollection[$index] = $updateEmployee;
+				file_put_contents("../../resources/employees.json", json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
+				return true;
+			}
+		}
 
-		array_push($employeesCollection, $updateEmployee);
-
-		file_put_contents("../../resources/employees.json", json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
+		echo "Updated";
 		return true;
 	} catch (Throwable $e) {
+		echo "Not Updated";
 		return false;
 	}
 }
@@ -78,7 +86,6 @@ function getEmployee(int $id)
 
 function getQueryStringParameters()
 {
-	var_dump(file_get_contents('php://input'));
 	$params = json_decode(file_get_contents('php://input'), true);
 
 	return $params;
