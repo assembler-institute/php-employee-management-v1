@@ -25,7 +25,7 @@ function deleteEmployee(string $id)
 
   foreach ($employeesCollection as $index => $employee) {
     if ($employee->id == $id) {
-      unset($employeesCollection[$index]);
+      array_splice($employeesCollection, $index, 1);
       break;
     }
   }
