@@ -10,7 +10,7 @@ function addEmployee(array $newEmployee)
   $storagePath = "../../resources/employees.json";
 
   $employeesCollection = json_decode(file_get_contents($storagePath, true));
-  $item['id'] = count($employeesCollection) + 1;
+  $item['id'] = getNextIdentifier($employeesCollection);
   array_push($employeesCollection, $item);
 
   $jsonData = json_encode($employeesCollection);
@@ -78,5 +78,5 @@ function getQueryStringParameters(): array
 
 function getNextIdentifier(array $employeesCollection): int
 {
-  // TODO implement it
+  return intval(count($employeesCollection) + 1);
 }
