@@ -6,63 +6,69 @@
  * @date: 11/06/2020
  */
 
- //require_once './employeeController.php';
-
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
-    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'),true); //convierte a varible de php (array)
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
     $newEmployee['id'] = getNextIdentifier($employeesCollection);
-    if(!isset($newEmployee['gender'])){
+    if (!isset($newEmployee['gender'])) {
         $newEmployee['gender'] = "";
-    } 
-    if(!isset($newEmployee['lastName'])){
+    }
+    if (!isset($newEmployee['lastName'])) {
         $newEmployee['lastName'] = "";
     }
 
-    array_push($employeesCollection,$newEmployee);
+    array_push($employeesCollection, $newEmployee);
 
-    file_put_contents('../../resources/employees.json',json_encode($employeesCollection));
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection));
     return true;
-     
 
 }
-
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
-}
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+    foreach ($employeesCollection as $index => $employee) {
+        if ($employee['id'] == $id) {
+            unset($employeesCollection[$index]);
+        }
+    }
 
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection));
+    return true;
+}
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
-}
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+    
+    foreach ($employeesCollection as $index => $employee) {
+        if ($employee['id'] == $updateEmployee['id']) {
+            $employeesCollection[$index] = $updateEmployee;
+        }
+    }
 
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection));
+    return true;
+}
 
 function getEmployee(string $id)
 {
 // TODO implement it
 }
 
-
 function removeAvatar($id)
 {
 // TODO implement it
 }
 
-
 function getQueryStringParameters(): array
 {
 // TODO implement it
-
 
     return [];
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
-// TODO implement it
-     return count($employeesCollection) + 1;
+    return count($employeesCollection) + 1;
 }

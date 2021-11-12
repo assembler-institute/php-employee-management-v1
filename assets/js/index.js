@@ -14,20 +14,20 @@
 })();
  */
 
-/* function jsonToFormData(item) {
+function jsonToFormData(item) {
   var formData = new FormData();
   for (const value in item) {
     formData.append(value, item[value]);
     console.log(item[value]);
   }
   return formData;
-} */
+}
 
 $("#employees").jsGrid({
   width: "80%",
 
-  filtering: true,
-  editing: false,
+  //filtering: true,
+  editing: true,
   inserting: true,
   sorting: true,
   paging: true,
@@ -47,6 +47,7 @@ $("#employees").jsGrid({
         url: "../resources/employees.json",
         dataType: "json",
         success: function (data) {
+          console.log(data);
           d.resolve(data);
         },
         error: function (xhr, exception) {
@@ -64,7 +65,60 @@ $("#employees").jsGrid({
         url: "../src/library/employeeController.php",
         data: item,
         success: function (data) {
-            console.log('yes');
+          console.log("yes");
+          d.resolve(data);
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
+      });
+
+      return d.promise();
+    },
+    deleteItem: function (item) {
+      var d = $.Deferred();
+
+      $.ajax({
+        type: "DELETE",
+        url: "../src/library/employeeController.php",
+        data: { id: item.id },
+        success: function (data) {
+          console.log("yes");
+          d.resolve(data);
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
+      });
+
+      return d.promise();
+    },
+    updateItem: function (item) {
+      var d = $.Deferred();
+      $.ajax({
+        type: "PUT",
+        url: "../src/library/employeeController.php",
+        data: item,
+        success: function (data) {
+          console.log("yes");
+          d.resolve(data);
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
+      });
+
+      return d.promise();
+    },
+    editItem: function (item) {
+      
+      var d = $.Deferred();
+      $.ajax({
+        type: "PUT",
+        url: "../src/library/employeeController.php",
+        data: item,
+        success: function (data) {
+          console.log("yes");
           d.resolve(data);
         },
         error: function (xhr, exception) {
@@ -77,14 +131,36 @@ $("#employees").jsGrid({
   },
 
   fields: [
-    { name: "name", type: "text", width: 100, title: "Name" },
-    { name: "email", type: "text", width: 150, title: "Email" },
-    { name: "age", type: "text", width: 30, title: "Age" },
-    { name: "streetAddress", type: "number", width: 60, title: "Street No." },
-    { name: "city", type: "text", width: 100, title: "City" },
-    { name: "state", type: "text", width: 50, title: "State" },
-    { name: "postalCode", type: "number", width: 50, title: "Postal Code" },
-    { name: "phoneNumber", type: "number", width: 65, title: "Phone Number" },
+    { name: "name", type: "text", width: 100, title: "Name", validate: "required" },
+    {
+      name: "email",
+      type: "text",
+      width: 150,
+      title: "Email",
+      validate: {
+        validator: "pattern",
+        message: "Invalid Email",
+        param: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+      },
+    },
+    {
+      name: "age",
+      type: "number",
+      width: 50,
+      title: "Age",
+      validate: {
+        validator: "range",
+        message: function (value, item) {
+          return 'The client age should be between 18 and 99. Entered age is "' + value + '" is out of specified range.';
+        },
+        param: [18, 99],
+      },
+    },
+    { name: "streetAddress", type: "number", width: 60, title: "Street No.", validate: "required" },
+    { name: "city", type: "text", width: 100, title: "City", validate: "required" },
+    { name: "state", type: "text", width: 50, title: "State", validate: "required" },
+    { name: "postalCode", type: "number", width: 50, title: "Postal Code", validate: "required" },
+    { name: "phoneNumber", type: "number", width: 65, title: "Phone Number", validate: "required" },
     { type: "control" },
   ],
 });
