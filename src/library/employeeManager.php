@@ -142,3 +142,4 @@ function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
 }
+
