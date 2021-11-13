@@ -18,7 +18,7 @@
         <h1>Account Login</h1>
         <form
             method="POST"
-            action="./src/library/login.php"
+            action="./src/library/loginController.php"
         >
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>
