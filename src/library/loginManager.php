@@ -4,6 +4,7 @@ function login() {
     session_start();
 
     if(empty($_POST["username"]) || empty($_POST["password"])) {
+        $_SESSION["error"] = "NoData";
         header("Location: ./../../index.php?notLogin");
         exit;
     } else {
@@ -25,7 +26,7 @@ function login() {
                 header("Location: ./../dashboard.php?loginSuccess");
                 exit;
             } else {
-                echo "false";
+                $_SESSION["error"] = "NotMatch";
                 header("Location: ./../../index.php?incorrectpass");
                 exit;
             }

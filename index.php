@@ -1,4 +1,7 @@
 <!-- TODO Application entry point. Login view -->
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +31,16 @@
                 <label for="password" class="form-label">Password:</label>
                 <input type="password" class="form-control" id="password"  name="password" autocomplete="current-password">
             </div>
-            <!-- <div class="alert alert-primary mb-3" role="alert"></div> -->
+            <?php
+                if (isset($_SESSION["error"]) && $_SESSION["error"] === "NoData") {
+                    echo "<div class='alert alert-primary mb-3' role='alert'>You need to enter password/username</div>";
+                    unset($_SESSION['error']);
+                }
+                if (isset($_SESSION["error"]) && $_SESSION["error"] === "NotMatch") {
+                    echo "<div class='alert alert-primary mb-3' role='alert'>Wrong password/username</div>";
+                    unset($_SESSION['error']);
+                }
+            ?>
             <button type="submit" class="btn-login" value="Submit">Submit</button>
         </form>
     </div>
