@@ -38,7 +38,7 @@ if (!isset($_SESSION["name"])) {
         width: "100%",
         height: "400px",
 
-        filtering: false,
+        filtering: true,
         inserting: true,
         editing: true,
         sorting: false,
@@ -48,14 +48,20 @@ if (!isset($_SESSION["name"])) {
         pageSize: 10,
         pageButtonCount: 5,
 
+        confirmDeleting: true,
         deleteConfirm: "Do you really want to delete data?",
 
-        fields: [
-            {
-                name: "id",
-                type: "hidden",
-                css: "hide"
+        controller: {
+            loadData: function(filter) {
+                return $.ajax(
+                    type: "GET",
+                    url: "./library/fetch_data.php",
+                    data: filter
+                );
             },
+        },
+
+        fields: [
             {
                 name: "name",
                 type: "text",
@@ -63,19 +69,55 @@ if (!isset($_SESSION["name"])) {
                 validate: "required"
             },
             {
-                name: "lastName",
-                type: "text",
-                width: "10%"
-            },
-            {
                 name: "email",
                 type: "text",
                 width: "15%",
                 validate: "required"
             },
+            {
+                name: "age",
+                type: "number",
+                width: "5%",
+                validate: "required"
+            },
+            {
+                name: "streetAddress",
+                type: "text",
+                width: "10%",
+                validate: "required"
+            },
+            {
+                name: "city",
+                type: "text",
+                width: "10%",
+                validate: "required"
+            },
+            {
+                name: "state",
+                type: "text",
+                width: "5%",
+                validate: "required"
+            },
+            {
+                name: "postalCode",
+                type: "text",
+                width: "10%",
+                validate: "required"
+            },
+            {
+                name: "phoneNumber",
+                type: "text",
+                width: "10%",
+                validate: "required"
+            },
+            { 
+                type: "control", 
+                modeSwitchButton: false, 
+                editButton: false,
+                width: "10%",
+            }
+        ],
 
-
-        ]
     });
 </script>
 </body>
