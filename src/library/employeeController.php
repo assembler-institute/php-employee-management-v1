@@ -1,9 +1,9 @@
 <?php
-
 require("./employeeManager.php");
-$_POST = json_decode(file_get_contents('php://input', true), true);
+// $_POST = json_decode(file_get_contents('php://input', true), true);
 
 $method = $_SERVER['REQUEST_METHOD'];
+
 if ($method === 'POST') {
     if (addEmployee($_POST['data'])) {
         echo json_encode("employee created succesfully");
@@ -19,6 +19,9 @@ if ($method === 'GET') {
         echo json_encode("error ");
     }
 }
+
+
+
 // if ($method == 'PATCH') {
 // };
 

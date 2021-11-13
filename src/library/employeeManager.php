@@ -70,6 +70,8 @@ function updateEmployee(array $updateEmployee)
 function getEmployee(string $id)
 {
     // TODO implement it
+    if (isset($_POST['id'])) {
+    }
 }
 
 
@@ -90,6 +92,6 @@ function getNextIdentifier(): int
     $data = json_decode($json_data, true);
     $lastId = end($data);
     $lastId = $lastId['id'];
-    $lastId+1;
+    $lastId + 1;
     return $lastId;
 }
