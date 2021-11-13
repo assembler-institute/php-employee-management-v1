@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION["name"])) {
+    header("Location: ./../index.php");
+    exit;
+}
+
 if (isset($_GET["id"])) {
     $userId = $_GET["id"];
     $employeeData = getEmployee($userId);

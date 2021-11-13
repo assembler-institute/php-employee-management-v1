@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION["name"])) {
+    header("Location: ./../index.php");
+    exit;
+}
+
 ?>
 <!-- TODO Application entry point. Login view -->
 <!DOCTYPE html>

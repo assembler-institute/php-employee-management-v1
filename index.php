@@ -17,18 +17,19 @@
     <div class="center" >
         <h1>Account Login</h1>
         <form
-            method="post"
+            method="POST"
+            action="./src/library/login.php"
         >
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>
-                <input type="text" class="form-control" id="username"  name="username" value="" >
+                <input type="text" class="form-control" id="username"  name="username"  autocomplete="current-name">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="password" value="" name="password" >
+                <input type="password" class="form-control" id="password"  name="password" autocomplete="current-password">
             </div>
             <!-- <div class="alert alert-primary mb-3" role="alert"></div> -->
-            <input type="submit" class="btn-login" value="Submit">
+            <button type="submit" class="btn-login" value="Submit">Submit</button>
         </form>
     </div>
 </body>

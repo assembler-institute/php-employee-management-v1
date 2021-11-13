@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "name": "Rack",
+        "name": "Racka",
         "lastName": "Leila",
         "email": "jackon@network.com",
         "gender": "Choose...",
@@ -15,7 +15,7 @@
     },
     {
         "id": "2",
-        "name": "Johnaaa",
+        "name": "John",
         "lastName": "Doe",
         "email": "jhondoe@foo.com",
         "gender": "Choose...",
@@ -42,7 +42,7 @@
     },
     {
         "id": "4",
-        "name": "Richard",
+        "name": "Richardoaaa",
         "lastName": "Desmond",
         "email": "dismond@foo.com",
         "gender": "Choose...",
@@ -53,31 +53,5 @@
         "postalCode": "457320",
         "phoneNumber": "90876987654",
         "phone": "90876987654"
-    },
-    {
-        "id": "5",
-        "name": "pooh",
-        "lastName": "tran",
-        "email": "cjochoac@yahoo.es",
-        "gender": "Choose...",
-        "city": "Zaragoza",
-        "streetAddress": "123",
-        "state": "CA",
-        "age": "24",
-        "postalCode": "12345",
-        "phoneNumber": "123456789"
-    },
-    {
-        "id": "6",
-        "name": "nam",
-        "lastName": "",
-        "email": "cjochoac@yahoo.es",
-        "gender": "",
-        "city": "Zaragoza",
-        "streetAddress": "123",
-        "state": "CA",
-        "age": "23",
-        "postalCode": "12345",
-        "phoneNumber": "123456789"
     }
 ]
