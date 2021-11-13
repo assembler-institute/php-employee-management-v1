@@ -65,6 +65,12 @@
             unset($_GET['error']);
         }
     }
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == "autoLogout") {
+            echo "<div class='alert alert-danger'> <h3> The session has expired due to user inactivity.</h3></div>";
+            unset($_GET['error']);
+        }
+    }
     ?>
     <footer class="bg-dark text-center text-white fixed-bottom">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">

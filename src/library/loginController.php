@@ -5,3 +5,5 @@
 require_once("./loginManager.php");
 
 login();
+
+autoLogout();

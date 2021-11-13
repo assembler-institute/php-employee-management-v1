@@ -12,9 +12,6 @@ if ($method === 'POST') {
     }
 };
 
-
-
-
 if ($method === 'GET') {
     if (deleteEmployee($_GET['id'])) {
         echo json_encode("employee created succesfully");

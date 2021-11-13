@@ -90,6 +90,6 @@ function getNextIdentifier(): int
     $data = json_decode($json_data, true);
     $lastId = end($data);
     $lastId = $lastId['id'];
-    $lastId++;
+    $lastId+1;
     return $lastId;
 }
