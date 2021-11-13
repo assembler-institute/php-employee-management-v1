@@ -1,4 +1,5 @@
 <?php
+require_once("./library/employeeManager.php");
 session_start();
 
 if (!isset($_SESSION["name"])) {
@@ -11,51 +12,9 @@ if (isset($_GET["id"])) {
     $employeeData = getEmployee($userId);
 }
 
-function getEmployee(string $id)
-{
-    $employeesJsonFile = "./../resources/employees.json";
-    if(file_exists($employeesJsonFile)) {
-        // If employees database exist, load all employees
-        $jsonData = file_get_contents($employeesJsonFile);
-        $employeesData = json_decode($jsonData, true);
-    }
-
-    foreach($employeesData as $employee) {
-        if ($employee["id"] === $id) {
-            return $employee;
-        }
-    }
-    return null;
-}
-
-function updateEmployee($data, $id) {
-    $employeesJsonFile = "./../resources/employees.json";
-    if(file_exists($employeesJsonFile)) {
-        // If employees database exist, load all employees
-        $jsonData = file_get_contents($employeesJsonFile);
-        $employeesData = json_decode($jsonData, true);
-    }
-
-    foreach ($employeesData as $index => $employee) {
-        if ($employee["id"] === $id) {
-            $employeesData[$index] = array_merge($employee, $data);
-        }
-    }
-
-    // Convert employees data to Json
-    $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
-
-    // Save employees data to "resources/employees.json"
-    file_put_contents($employeesJsonFile, $jsonData);
-
-    header("Location: ./dashboard.php?update");
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     updateEmployee($_POST, $userId);
 }
-
 
 ?>
 

@@ -6,7 +6,7 @@
  * @date: 11/06/2020
  */
 
-function addEmployee(array $newEmployee)
+function addEmployee()
 {
     session_start();
 
@@ -22,7 +22,7 @@ function addEmployee(array $newEmployee)
 
     // Add new employee data to array
     $employeesData[] = [
-        "id" => (string)(count($employeesData) + 1),
+        "id" => count($employeesData) + 1,
         "name" => isset($_POST["name"]) ? $_POST["name"] : "",
         "lastName" => isset($_POST["lastName"]) ? $_POST["lastName"] : "",
         "email" => isset($_POST["email"]) ? $_POST["email"] : "",
@@ -41,20 +41,20 @@ function addEmployee(array $newEmployee)
     // Save employees data to "resources/employees.json"
     file_put_contents($employeesJsonFile, $jsonData);
 
-    $_SESSION["message"] = "Successfully add new employee";
+    $_SESSION["message"] = "AddNewEmployee";
 
-    // header("Location: ./../dashboard.php?addNew");
-    header("Location: ./../employee.php");
+    header("Location: ./../dashboard.php?addNew");
+    // header("Location: ./../employee.php");
     exit;
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
-    $employeesJsonFile = "./../../resources/employees.json";
-    $id = $_GET["id"];
+    session_start();
 
-    // read and decode json file
+    $employeesJsonFile = "./../../resources/employees.json";
+
     if(file_exists($employeesJsonFile)) {
         $jsonData = file_get_contents($employeesJsonFile);
         $employeesData = json_decode($jsonData, true);
@@ -63,7 +63,7 @@ function deleteEmployee(string $id)
     // get array index to delete
     $array_index = array();
     foreach ($employeesData as $key => $value) {
-        if ($value["id"] == $_GET["id"]) {
+        if ($value["id"] == $id) {
             $array_index[] = $key;
         }
     }
@@ -76,29 +76,45 @@ function deleteEmployee(string $id)
     // rebase array
     $employeesData = array_values($employeesData);
 
-    // Convert employees data to Json
     $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
-
-    // Save employees data to "resources/employees.json"
     file_put_contents($employeesJsonFile, $jsonData);
+
+    $_SESSION["message"] = "DeleteEmployee";
 
     header("Location: ./../dashboard.php?delete");
     exit();
 }
 
 
-function updateEmployee(array $updateEmployee)
-{
-// TODO implement it
-}
-
-
-function getEmployee(string $id)
-{
+function updateEmployee($data,int $id) {
+    $employeesJsonFile = "./../resources/employees.json";
     if(file_exists($employeesJsonFile)) {
         $jsonData = file_get_contents($employeesJsonFile);
         $employeesData = json_decode($jsonData, true);
     }
+
+    foreach ($employeesData as $index => $employee) {
+        if ($employee["id"] === $id) {
+            $employeesData[$index] = array_merge($employee, $data);
+        }
+    }
+
+    $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
+    file_put_contents($employeesJsonFile, $jsonData);
+
+    header("Location: ./dashboard.php?update");
+    exit();
+}
+
+
+function getEmployee(int $id)
+{
+    $employeesJsonFile = "./../resources/employees.json";
+    if(file_exists($employeesJsonFile)) {
+        $jsonData = file_get_contents($employeesJsonFile);
+        $employeesData = json_decode($jsonData, true);
+    }
+
     foreach($employeesData as $employee) {
         if ($employee["id"] === $id) {
             return $employee;

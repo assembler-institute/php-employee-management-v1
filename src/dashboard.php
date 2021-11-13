@@ -25,8 +25,12 @@ if (!isset($_SESSION["name"])) {
 <body>
 <?php include("./../assets/html/header.html") ?>
 <?php
-        if (isset($_SESSION["message"]) && $_SESSION["message"] === "Successfully add new employee") {
+        if (isset($_SESSION["message"]) && $_SESSION["message"] === "AddNewEmployee") {
             echo "<div class='alert alert-primary mb-3' role='alert'>Add successfully new employee!</div>";
+            unset($_SESSION['message']);
+        }
+        if (isset($_SESSION["message"]) && $_SESSION["message"] === "DeleteEmployee") {
+            echo "<div class='alert alert-primary mb-3' role='alert'>Remove successfully employee!</div>";
             unset($_SESSION['message']);
         }
     ?>
@@ -42,7 +46,7 @@ if (!isset($_SESSION["name"])) {
       <div class="col-2">Phone Number</div>
       <div class="col-1"><button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-plus-lg"></i></button></div>
     </div>
-    <form method="POST" action="./library/addNew.php">
+    <form method="POST" action="./library/employeeController.php">
         <div class="row" id="collapseExample">
             <div class="col-1"><input required type="text" class="form-control" placeholder="name" name="name"></div>
             <div class="col-2"><input required type="email" class="form-control" placeholder="email" name="email"></div>
@@ -73,7 +77,7 @@ if (!isset($_SESSION["name"])) {
                 employee_data += "<div class='col-1'>" + value.state + "</div>";
                 employee_data += "<div class='col-1'>" + value.postalCode + "</div>";
                 employee_data += "<div class='col-2'>" + value.phoneNumber + "</div>";
-                employee_data += "<div class='col-1 flex-row'><form method='DELETE' action='./library/deleteData.php'><input type='hidden' name='id' value='" + value.id + "'><button type='submit'><i class='bi bi-trash'></i></button></form><button class='btn-edit'><i class='bi bi-pencil'></i></button></div>";
+                employee_data += "<div class='col-1 flex-row'><form method='DELETE' action='./library/employeeController.php'><input type='hidden' name='id' value='" + value.id + "'><button type='submit'><i class='bi bi-trash'></i></button></form><button class='btn-edit'><i class='bi bi-pencil'></i></button></div>";
                 employee_data += "</div>";
             });
             $("#container-table").append(employee_data);

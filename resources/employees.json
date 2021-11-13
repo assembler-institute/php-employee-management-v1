@@ -1,8 +1,8 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "name": "Racka",
-        "lastName": "Leila",
+        "lastName": "Lei",
         "email": "jackon@network.com",
         "gender": "Choose...",
         "city": "jackon@network.com",
@@ -14,7 +14,7 @@
         "phone": "7383627627"
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "John",
         "lastName": "Doe",
         "email": "jhondoe@foo.com",
@@ -28,30 +28,30 @@
         "phone": "1283645645"
     },
     {
-        "id": "3",
+        "id": 3,
         "name": "Leila",
         "lastName": "Mills",
         "email": "mills@leila.com",
-        "gender": "woman",
-        "city": "San Diego",
+        "gender": "Choose...",
+        "city": "mills@leila.com",
         "streetAddress": "55",
         "state": "CA",
         "age": "29",
         "postalCode": "098765",
-        "phoneNumber": "9983632461"
+        "phoneNumber": "9983632461",
+        "phone": "9983632461"
     },
     {
-        "id": "4",
-        "name": "Richardoaaa",
-        "lastName": "Desmond",
-        "email": "dismond@foo.com",
-        "gender": "Choose...",
-        "city": "dismond@foo.com",
-        "streetAddress": "90",
-        "state": "UT",
-        "age": "30",
-        "postalCode": "457320",
-        "phoneNumber": "90876987654",
-        "phone": "90876987654"
+        "id": 5,
+        "name": "peppa",
+        "lastName": "",
+        "email": "cjochoac@yahoo.es",
+        "gender": "",
+        "city": "Zaragoza",
+        "streetAddress": "156",
+        "state": "CA",
+        "age": "24",
+        "postalCode": "50002",
+        "phoneNumber": "123456789"
     }
 ]
