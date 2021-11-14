@@ -7,6 +7,8 @@
  * @date: 11/06/2020
  */
 
+
+#·······································add session ·········································
 function addEmployee(array $newEmployee)
 {
     $jsonString = file_get_contents("../../resources/employees.json");
@@ -35,6 +37,7 @@ function addEmployee(array $newEmployee)
 //     }
 // }
 
+#·······································Delete session ·········································
 
 function deleteEmployee(string $id)
 {
@@ -55,40 +58,29 @@ function deleteEmployee(string $id)
         return false;
     }
 }
+
+#·······································Update session ·········································
+
 $updateEmployee = ['id' => '12', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345'];
 
 function updateEmployee(array $updateEmployee)
 {
-    $jsonString = file_get_contents("../../resources/employees.json");
-    $employees = json_decode($jsonString, true);
-    $updatedEmployees = array_map(function ($employee) use ($updateEmployee) {
-        $employee['id'] == $updateEmployee['updatedEmployee']['id'] ? $updateEmployee['updatedEmployee'] : $employee;
-    }, $employees);
-    file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
-    http_response_code(201);
-    print_r($updatedEmployees);
+    // TODO implement it
+    $json_data = file_get_contents('../../resources/employees.json');
+    $data = json_decode($json_data, true);
+    foreach ($data as $key => $value) {
+        if ($value['id'] == $updateEmployee['id']) {
+            $data[$key] = $updateEmployee;
+        }
+    };
+    $encodedData = json_encode($data, true);
+    file_put_contents('../../resources/employees.json', $encodedData);
+    print_r($encodedData);
 }
-updateEmployee($updateEmployee);
 
-// function updateEmployee(array $updateEmployee)
-// {
-//     // TODO implement it
-//     $json_data = file_get_contents('../../resources/employees.json');
-//     $data = json_decode($json_data, true);
-//     foreach ($data as $key => $value) {
-//         if ($value['id'] == $updateEmployee['id']) {
-//             $data[$key] = $updateEmployee;
-//         }
-//     };
-//     $encodedData = json_encode($data, true);
-//     file_put_contents('../../resources/employees.json', $encodedData);
-//     // file_put_contents("../../resources/employees.json", $encodedData);
-//     // http_response_code(201);
-//     print_r($encodedData);
-// }
+updateEmployee($updatedEmployee);
 
-// updateEmployee($updatedEmployees);
-
+#·······································Auxiliar session ·········································
 
 function getEmployee(string $id)
 {
