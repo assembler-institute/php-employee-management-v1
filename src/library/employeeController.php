@@ -1,6 +1,9 @@
 <?php
 require("./employeeManager.php");
-// $_POST = json_decode(file_get_contents('php://input', true), true);
+
+if (json_decode(file_get_contents('php://input', true), true)) {
+    $_POST = json_decode(file_get_contents('php://input', true), true);
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
 
