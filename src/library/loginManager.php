@@ -23,6 +23,7 @@ function login() {
         foreach ($users as $user) {
             if ($user['name'] === $username && password_verify($password, $user['password'])) {
                 $_SESSION["name"] = $username;
+                $_SESSION["login_time_stamp"] = time(); 
                 header("Location: ./../dashboard.php?loginSuccess");
                 exit;
             } else {

@@ -1,11 +1,6 @@
 <?php
 require_once("./library/employeeManager.php");
-session_start();
-
-if (!isset($_SESSION["name"])) {
-    header("Location: ./../index.php");
-    exit;
-}
+include "./library/sessionHelper.php";
 
 if (isset($_GET["id"])) {
     $userId = $_GET["id"];

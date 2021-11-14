@@ -1,10 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION["name"])) {
-    header("Location: ./../index.php");
-    exit;
-}
+include "./library/sessionHelper.php";
 
 ?>
 <!-- TODO Application entry point. Login view -->
@@ -34,7 +29,8 @@ if (!isset($_SESSION["name"])) {
             unset($_SESSION['message']);
         }
     ?>
-<div class="container" id="container-table">
+<div class="container">
+    <div id="container-table">
     <div class="row row-header">
       <div class="col-1">Name</div>
       <div class="col-2">Email</div>
@@ -59,6 +55,7 @@ if (!isset($_SESSION["name"])) {
             <div class="col-1"><input required type="submit" value="submit" class="btn btn-primary"></div>
         </div>
     </form>
+    </div>
 </div>
 
 <?php include("./../assets/html/footer.html") ?>
