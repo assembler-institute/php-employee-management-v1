@@ -1,10 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION["name"])) {
-    header("Location: ./../index.php");
-    exit;
-}
+include "./library/sessionHelper.php";
 
 ?>
 <!-- TODO Application entry point. Login view -->
@@ -19,7 +14,7 @@ if (!isset($_SESSION["name"])) {
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
     <style>
         <?php include("./../assets/css/main.css"); ?>
     </style>
@@ -28,7 +23,7 @@ if (!isset($_SESSION["name"])) {
 <body>
 <?php include("./../assets/html/header.html") ?>
 <div class="container" id="container-table">
-    <div id="grid_table"></div>
+    <div id="grid_table">czxcxc</div>
 
 </div>
 
@@ -38,7 +33,7 @@ if (!isset($_SESSION["name"])) {
         width: "100%",
         height: "400px",
 
-        filtering: true,
+        filtering: false,
         inserting: true,
         editing: true,
         sorting: false,
@@ -51,15 +46,15 @@ if (!isset($_SESSION["name"])) {
         confirmDeleting: true,
         deleteConfirm: "Do you really want to delete data?",
 
-        controller: {
-            loadData: function(filter) {
-                return $.ajax(
-                    type: "GET",
-                    url: "./library/fetch_data.php",
-                    data: filter
-                );
-            },
-        },
+        // controller: {
+        //     loadData: function(filter) {
+        //         return $.ajax(
+        //             type: "GET",
+        //             url: "./library/fetch_data.php",
+        //             data: filter
+        //         );
+        //     },
+        // },
 
         fields: [
             {

@@ -74,12 +74,19 @@ include "./library/sessionHelper.php";
                 employee_data += "<div class='col-1'>" + value.state + "</div>";
                 employee_data += "<div class='col-1'>" + value.postalCode + "</div>";
                 employee_data += "<div class='col-2'>" + value.phoneNumber + "</div>";
-                employee_data += "<div class='col-1 flex-row'><form method='DELETE' action='./library/employeeController.php'><input type='hidden' name='id' value='" + value.id + "'><button type='submit'><i class='bi bi-trash'></i></button></form><button class='btn-edit'><i class='bi bi-pencil'></i></button></div>";
+                employee_data += "<div class='col-1 flex-row'><form method='DELETE' action='./library/employeeController.php' onsubmit='return confirmDelete()'><input type='hidden' name='id' value='" + value.id + "'><button type='submit'><i class='bi bi-trash'></i></button></form><button class='btn-edit'><i class='bi bi-pencil'></i></button></div>";
                 employee_data += "</div>";
             });
             $("#container-table").append(employee_data);
         });
     });
+
+    function confirmDelete() {
+        if(confirm("Are you sure you want to delete ?"))
+            return true;
+        
+        return false;
+    }
 </script>
 </body>
 </html><!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
