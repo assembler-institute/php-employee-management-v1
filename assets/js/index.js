@@ -1,7 +1,6 @@
 
 
 const dataPath = "../resources/employees.json";
-
 $.getJSON(dataPath).done(function (employeesData) {
     $("#jsGrid").jsGrid({
         data: employeesData,
@@ -22,7 +21,7 @@ $.getJSON(dataPath).done(function (employeesData) {
         // deleteConfirm:"This action will delete the employee from the system. Are you sure?",
 
         controller: {
-            insertItem: function charginData(item) {
+            insertItem: function (item) {
                 return $.ajax({
                     type: "POST",
                     url: "./library/employeeController.php",
@@ -38,7 +37,7 @@ $.getJSON(dataPath).done(function (employeesData) {
                 type: "DELETE",
                 url: "./library/employeeController.php",
                 data: item,
-                // data: JSON.stringify({ 'data': item }),
+                data: JSON.stringify({ 'data': item }),
             }),
 
             updateItem: (item) => $.ajax({
