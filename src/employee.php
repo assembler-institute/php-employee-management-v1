@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             echo "<form
                     class='row g-3'
                     method='POST'
-                    action='./library/addNew.php'
+                    action='./library/employeeController.php'
             >";
         } else {
             echo "<form
