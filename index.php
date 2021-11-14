@@ -59,6 +59,7 @@
         </div>
     </div>
     <?php
+
     if (isset($_GET['error'])) {
         if ($_GET['error'] == "invaliAuth") {
             echo "<div class='alert alert-danger'> <h3> You don't have permission to enter the dashboard. Please Login.</h3></div>";

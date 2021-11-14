@@ -1,7 +1,7 @@
 <!-- This file will contain the necessary functions so that the user can log in, save their session data and log out. -->
 
 <?php
-
+include("./sessionHelper.php");
 
 function login()
 {
@@ -32,14 +32,8 @@ function logout()
 function autoLogout()
 {
     session_start();
-    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 60)) {
-        session_unset();
-        session_destroy();
-        header("Location:../../index.php?error=autoLogout");
-        exit();
-    }
+    session_unset();
+    session_destroy();
+    header("Location:../../index.php?error=autoLogout");
     $_SESSION['last_activity'] = time();
 }
-session_start();
-echo "session just started";
-autoLogout();

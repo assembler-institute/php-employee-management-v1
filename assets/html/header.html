@@ -1,55 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script type="text/javascript " src="../assets/js/index.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"
+    ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <script type="text/javascript " src="../assets/js/index.js" defer></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-  <link type="text/css" rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>Document</title>
+  </head>
 
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="#">
+            <img
+              src=""
+              width="30"
+              height="30"
+              class="d-inline-block align-top"
+              alt=""
+            />Assembler</a
+          >
+        </nav>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-  <title>Document</title>
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          <img src="" width="30" height="30" class="d-inline-block align-top" alt="" />Assembler</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="./dashboard.php"
+                >Dashboard<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./employee.php"
+                >Employee<span class="sr-only">(current)</span></a
+              >
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" method="POST" action="../src/library/loginController.php">
+            <input name="logout" id="logout" value="true" hidden>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              <a href="#"></a>
+                Log Out</a
+              >
+            </button>
+          </form>
+        </div>
       </nav>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    </header>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="./dashboard.php">Dashboard<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./employee.php">Employee<span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-success my-2 my-sm-0">
-            <a href="">Log Out</a>
-          </button>
-        </form>
-      </div>
-    </nav>
-  </header>
-
-  <body></body>
-</body>
-
+    <body></body>
+  </body>
 </html>

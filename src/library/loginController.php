@@ -4,6 +4,4 @@
 // therefore, it must call the functions of the "loginManager.php" once the request has been received to carry out the action.
 require_once("./loginManager.php");
 
-login();
-
-autoLogout();
+$_POST['logout'] === "true" ? logout() : login();
