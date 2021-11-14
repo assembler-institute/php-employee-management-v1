@@ -9,7 +9,7 @@ $.getJSON(dataPath).done(function (employeesData) {
         width: "100%",
         height: "auto",
         inserting: true,
-        editing: false,
+        editing: true,
         sorting: true,
         paging: true,
         pageSize: 10,
@@ -23,33 +23,34 @@ $.getJSON(dataPath).done(function (employeesData) {
         // deleteConfirm:"This action will delete the employee from the system. Are you sure?",
 
         controller: {
-            insertItem: function (item) {
+            insertItem: function charginData(item) {
                 return $.ajax({
                     type: "POST",
                     url: controllerEmpl,
                     // data: JSON.stringify({ 'data': item }),
                     success: function (data) {
-                        console.log(data)
+                        console.log(data);
                     }
                 })
-            },
-
-            deleteItem: function (item) {
-
-                return $.ajax({
-                    type: "GET",
-                    url: controllerEmpl,
-                    data: item,
-                });
-            },
-
-            updateItem: function (item) {
-                return $.ajax({
-                    type: "GET",
-                    url: controllerEmpl,
-                    data: item,
-                });
             }
+            ,
+
+            deleteItem: (item) => $.ajax({
+                type: "DELETE",
+                url: "./library/employeeController.php",
+                data: item,
+                // data: JSON.stringify({ 'data': item }),
+            }),
+
+            updateItem: (item) => $.ajax({
+                type: "UPDATE",
+                url: "./library/employeeController.php",
+                data: JSON.stringify({ 'data': item }),
+                success: function (data) {
+                    console.log(data);
+                }
+            }),
+
         },
         fields: [{
             name: "id",
@@ -140,14 +141,14 @@ $.getJSON(dataPath).done(function (employeesData) {
             type: 'text',
             headercss: 'backgroundHeader',
             width: '100',
-            //     validate: {
-            //         validator: function (value) {
-            //             if (value.length < 10 && value > 0) {
-            //                 return true;
-            //             }
-            //         },
-            //         message: "Please enter a valid postal code",
+            // validate: {
+            //     validator: function (value) {
+            //         if (value.length < 10 && value > 0) {
+            //             return true;
+            //         }
             //     },
+            //     message: "Please enter a valid postal code",
+            // },
             css: 'bordersAndBackground'
         },
         {
@@ -168,6 +169,7 @@ $.getJSON(dataPath).done(function (employeesData) {
         },
         {
             type: "control",
+            editButton: true,
         },
         ],
 

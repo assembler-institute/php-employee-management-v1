@@ -1,8 +1,8 @@
 <?php
- require("./src/library/loginController.php");
+require("./src/library/loginController.php");
 session_start();
 $alert = $_SESSION['loginError'];
-
+$autoLogout = $_SESSION['autoLogout'];
 ?>
 
 <!DOCTYPE html>

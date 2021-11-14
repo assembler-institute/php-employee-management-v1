@@ -3,10 +3,9 @@
 <?php
 
 
-//Start session
 function login()
 {
-    $alert = "";
+    //Start session
     session_start();
     $json_data = file_get_contents('../../resources/users.json');
     $data = json_decode($json_data, TRUE);
@@ -24,9 +23,23 @@ function login()
     }
 }
 
-
-
 function logout()
 {
     session_destroy();
+    header("Location:../../index.php");
 }
+
+function autoLogout()
+{
+    session_start();
+    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 60)) {
+        session_unset();
+        session_destroy();
+        header("Location:../../index.php?error=autoLogout");
+        exit();
+    }
+    $_SESSION['last_activity'] = time();
+}
+session_start();
+echo "session just started";
+autoLogout();
