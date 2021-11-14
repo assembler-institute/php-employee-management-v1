@@ -55,18 +55,21 @@ function deleteEmployee(string $id)
         return false;
     }
 }
+$updateEmployee = ['id' => '12', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345'];
 
 function updateEmployee(array $updateEmployee)
 {
     $jsonString = file_get_contents("../../resources/employees.json");
     $employees = json_decode($jsonString, true);
-    print_r($employees);
-    // $updatedEmployees = array_map(function ($employee) use ($updateEmployee) {
-    //     return $employee['id'] == $updateEmployee['updatedEmployee']['id'] ? $updateEmployee['updatedEmployee'] : $employee;
-    // }, $employees);
-    // file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
-    // http_response_code(201);
+    $updatedEmployees = array_map(function ($employee) use ($updateEmployee) {
+        $employee['id'] == $updateEmployee['updatedEmployee']['id'] ? $updateEmployee['updatedEmployee'] : $employee;
+    }, $employees);
+    file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
+    http_response_code(201);
+    print_r($updatedEmployees);
 }
+updateEmployee($updateEmployee);
+
 // function updateEmployee(array $updateEmployee)
 // {
 //     // TODO implement it
@@ -78,11 +81,13 @@ function updateEmployee(array $updateEmployee)
 //         }
 //     };
 //     $encodedData = json_encode($data, true);
-//     file_put_contents("../../resources/employees.json", $encodedData);
-//     http_response_code(201);
+//     file_put_contents('../../resources/employees.json', $encodedData);
+//     // file_put_contents("../../resources/employees.json", $encodedData);
+//     // http_response_code(201);
+//     print_r($encodedData);
 // }
 
-// updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
+// updateEmployee($updatedEmployees);
 
 
 function getEmployee(string $id)
