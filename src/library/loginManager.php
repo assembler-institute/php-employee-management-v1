@@ -16,7 +16,10 @@ function validateLogin( $logUser, $logPassword) {
     $_SESSION["userId"] = $userId;
     header("Location: ../dashboard.php?login=success");
     //contador de tiempo del usuario
-  }
+  }else{
+  header("Location: ../../index.php?invalidData");
+  exit();
+}
 }
 
 function destroySession()

@@ -55,6 +55,17 @@
     </div>
     
     <button type="submit" class="w-100 btn login-btn">Sign in</button>
+    <?php 
+      if(isset($_GET['invalidData'])){
+          echo "<div class='alert alert-danger'> <h5>Invalid password or email, please try again. </h5></div>";
+          unset($_GET['invalidData']);
+        }
+  
+      if(isset($_GET['logOut'])) {
+          echo "<div class='alert alert-success'> <h5>you have been successfully logged out.</h5></div>";
+          header('Refresh:2, ./index.php');
+      }
+    ?>
   </form>
 </main>
 

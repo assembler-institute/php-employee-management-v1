@@ -1,5 +1,7 @@
 <?php
+require("./employeeManager.php");
 $method = $_SERVER['REQUEST_METHOD'];
+
 switch ($method) {
   case 'GET':
     $jsonEmployees = file_get_contents("../../resources/employees.json");
@@ -7,18 +9,17 @@ switch ($method) {
     break;
 
   case 'PUT':
-    $jsonEmployees = file_get_contents("../../resources/employees.json");
-    echo $jsonEmployees;
+    // body
     break;
 
   case 'POST':
-    $jsonEmployees = file_get_contents("../../resources/employees.json");
-    echo $jsonEmployees;
+    // body
     break;
 
   case 'DELETE':
-    $jsonEmployees = file_get_contents("../../resources/employees.json");
-    echo $jsonEmployees;
+    parse_str(file_get_contents("php://input"), $_DELETE);
+    $employeeID = $_DELETE['id'];
+    $result = deleteEmployee($employeeID);
     break;
 
   default:

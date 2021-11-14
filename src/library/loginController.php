@@ -8,6 +8,9 @@ if (isset($_POST['email']) && isset($_POST['password'])){
     
     validateLogin( $logUser, $logPassword);
 }
+else{
+    
+}
 
 if(isset($_GET['logOut'])){
     header('Location: ../../index.php?logOut=true');
