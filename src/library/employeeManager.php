@@ -7,23 +7,33 @@
  * @date: 11/06/2020
  */
 
-function addEmployee(array $data)
-
+function addEmployee(array $newEmployee)
 {
-    // TODO implement it
-    $json_data = file_get_contents('../../resources/employees.json');
-    print_r($json_data);
-    $decodedData = json_decode($json_data, true);
-    $data['id'] = getNextIdentifier();
-    array_push($decodedData, $data);
-    $encodedData = json_encode($decodedData);
-
-    if (file_put_contents('../../resources/employees.json', $encodedData)) {
-        return true;
-    } else {
-        return false;
-    }
+    $jsonString = file_get_contents("../../resources/employees.json");
+    $employees = json_decode($jsonString, true);
+    $newId =  1 + getNextIdentifier();
+    $newEmployee["id"] = $newId;
+    array_push($employees, $newEmployee);
+    file_put_contents("../../resources/employees.json", json_encode($employees));
+    http_response_code(201);
+    return json_encode($newEmployee);
 }
+// function addEmployee(array $data)
+
+// {
+//     // TODO implement it
+//     $json_data = file_get_contents('../../resources/employees.json');
+//     $decodedData = json_decode($json_data, true);
+//     $data['id'] = 1 + getNextIdentifier();
+//     array_push($decodedData, $data);
+//     $encodedData = json_encode($decodedData);
+
+//     if (file_put_contents('../../resources/employees.json', $encodedData)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 
 function deleteEmployee(string $id)
@@ -34,11 +44,9 @@ function deleteEmployee(string $id)
 
     foreach ($data as $key => $value) {
         if ($value['id'] == $id) {
-            // unset($data[$key]);
             array_splice($data, $key, 1);
         }
     };
-    #falta que lo devuelva en formato json
     $encodedData = json_encode($data, true);
     print_r($encodedData);
     if (file_put_contents('../../resources/employees.json', $encodedData)) {
@@ -50,19 +58,29 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-    // TODO implement it
-    $json_data = file_get_contents('../../resources/employees.json');
-    $data = json_decode($json_data, true);
-    foreach ($data as $key => $value) {
-        if ($value['id'] == $updateEmployee['id']) {
-            $data[$key] = $updateEmployee;
-        }
-    };
-    $encodedData = json_encode($data, true);
-    print_r($encodedData);
-
-    //hasta aqui funciona
+    $jsonString = file_get_contents("../../resources/employees.json");
+    $employees = json_decode($jsonString, true);
+    print_r($employees);
+    // $updatedEmployees = array_map(function ($employee) use ($updateEmployee) {
+    //     return $employee['id'] == $updateEmployee['updatedEmployee']['id'] ? $updateEmployee['updatedEmployee'] : $employee;
+    // }, $employees);
+    // file_put_contents("../../resources/employees.json", json_encode($updatedEmployees));
+    // http_response_code(201);
 }
+// function updateEmployee(array $updateEmployee)
+// {
+//     // TODO implement it
+//     $json_data = file_get_contents('../../resources/employees.json');
+//     $data = json_decode($json_data, true);
+//     foreach ($data as $key => $value) {
+//         if ($value['id'] == $updateEmployee['id']) {
+//             $data[$key] = $updateEmployee;
+//         }
+//     };
+//     $encodedData = json_encode($data, true);
+//     file_put_contents("../../resources/employees.json", $encodedData);
+//     http_response_code(201);
+// }
 
 // updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
 
@@ -92,6 +110,5 @@ function getNextIdentifier(): int
     $data = json_decode($json_data, true);
     $lastId = end($data);
     $lastId = $lastId['id'];
-    $lastId + 1;
     return $lastId;
 }
