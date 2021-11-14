@@ -1,6 +1,7 @@
 
 
 const dataPath = "../resources/employees.json";
+const controllerEmpl = "./library/employeeController.php";
 
 $.getJSON(dataPath).done(function (employeesData) {
     $("#jsGrid").jsGrid({
@@ -15,20 +16,20 @@ $.getJSON(dataPath).done(function (employeesData) {
         pageButtonCount: 3,
         filtering: false,
         autoload: true,
-        rowClick: function (args) {
-            selectedItem = args.item;
-            window.location = "../src/library/employeeController.php?ID=" + selectedItem.id;
-        },
+        // rowClick: function (args) {
+        //     selectedItem = args.item;
+        //     window.location = "../src/library/employeeController.php?ID=" + selectedItem.id;
+        // },
         // deleteConfirm:"This action will delete the employee from the system. Are you sure?",
 
         controller: {
             insertItem: function (item) {
                 return $.ajax({
                     type: "POST",
-                    url: "./library/employeeController.php",
-                    data: JSON.stringify({ 'data': item }),
+                    url: controllerEmpl,
+                    // data: JSON.stringify({ 'data': item }),
                     success: function (data) {
-                        autoload();
+                        console.log(data)
                     }
                 })
             },
@@ -37,7 +38,7 @@ $.getJSON(dataPath).done(function (employeesData) {
 
                 return $.ajax({
                     type: "GET",
-                    url: "./library/employeeController.php",
+                    url: controllerEmpl,
                     data: item,
                 });
             },
@@ -45,7 +46,7 @@ $.getJSON(dataPath).done(function (employeesData) {
             updateItem: function (item) {
                 return $.ajax({
                     type: "GET",
-                    url: "./library/employeeController.php",
+                    url: controllerEmpl,
                     data: item,
                 });
             }
@@ -71,15 +72,15 @@ $.getJSON(dataPath).done(function (employeesData) {
             title: "Email",
             type: "text",
             width: 150,
-            validate: [
-                "required",
-                {
-                    message: "Please put a valid email address",
-                    validator: function (value, item) {
-                        return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
-                    },
-                }
-            ],
+            // validate: [
+            //     "required",
+            //     {
+            //         message: "Please put a valid email address",
+            //         validator: function (value, item) {
+            //             return /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(value);
+            //         },
+            //     }
+            // ],
             css: 'bordersAndBackground',
             headercss: 'backgroundHeader'
 
@@ -91,17 +92,17 @@ $.getJSON(dataPath).done(function (employeesData) {
             type: "text",
             width: 50,
             css: 'backgroundRed',
-            validate: {
-                validator: function (value) {
-                    if (value >= 18 && value < 80) {
-                        return true;
-                    }
-                },
-                message: function (value, item) {
-                    return "The client age should be between 18 and 80. Entered age is \"" + value + "\" is out of specified range.";
-                },
-                param: [18, 80]
-            },
+            // validate: {
+            //     validator: function (value) {
+            //         if (value >= 18 && value < 80) {
+            //             return true;
+            //         }
+            //     },
+            //     message: function (value, item) {
+            //         return "The client age should be between 18 and 80. Entered age is \"" + value + "\" is out of specified range.";
+            //     },
+            //     param: [18, 80]
+            // },
             css: 'bordersAndBackground',
             headercss: 'backgroundHeader'
 
@@ -139,14 +140,14 @@ $.getJSON(dataPath).done(function (employeesData) {
             type: 'text',
             headercss: 'backgroundHeader',
             width: '100',
-            validate: {
-                validator: function (value) {
-                    if (value.length < 10 && value > 0) {
-                        return true;
-                    }
-                },
-                message: "Please enter a valid postal code",
-            },
+            //     validate: {
+            //         validator: function (value) {
+            //             if (value.length < 10 && value > 0) {
+            //                 return true;
+            //             }
+            //         },
+            //         message: "Please enter a valid postal code",
+            //     },
             css: 'bordersAndBackground'
         },
         {
@@ -155,14 +156,14 @@ $.getJSON(dataPath).done(function (employeesData) {
             type: 'text',
             headercss: 'backgroundHeader',
             width: '100',
-            validate: {
-                validator: function (value, item) {
-                    if (value.length < 20) {
-                        return true;
-                    }
-                },
-                message: "Please enter a valid phone number",
-            },
+            // validate: {
+            //     validator: function (value, item) {
+            //         if (value.length < 20) {
+            //             return true;
+            //         }
+            //     },
+            //     message: "Please enter a valid phone number",
+            // },
             css: 'bordersAndBackground',
         },
         {
