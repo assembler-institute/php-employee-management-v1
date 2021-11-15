@@ -22,7 +22,7 @@ function getInitialTime() {
 	request.onload = () => {
 		if (request.readyState == 4 && request.status == "200") {
 			console.log("succes");
-			localStorage.setItem("initialTime", request.responseText);
+			sessionStorage.setItem("initialTime", request.responseText);
 			let serverResponseParsed = JSON.parse(request.response);
 			console.log(serverResponseParsed);
 		} else {
