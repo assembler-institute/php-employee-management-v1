@@ -12,9 +12,12 @@ switch ($method) {
     // body
     break;
 
-  case 'POST':
-    // body
-    break;
+  case "POST":
+    if (!isset($_GET['update'])) {
+      $newEmployee = $_POST;
+      $result = addEmployee($newEmployee);
+      break;
+    }
 
   case 'DELETE':
     parse_str(file_get_contents("php://input"), $_DELETE);

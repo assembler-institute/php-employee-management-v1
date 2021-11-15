@@ -89,5 +89,27 @@
     "state": "LU",
     "postalCode": "63281",
     "phoneNumber": "91232876454"
+  },
+  {
+    "name": "Daniella",
+    "email": "dalamov0@gmail.com",
+    "age": "18",
+    "streetAddress": "123456",
+    "city": "barcelona",
+    "state": "barcelona",
+    "postalCode": "1234",
+    "phoneNumber": "234567",
+    "id": 9
+  },
+  {
+    "name": "marc",
+    "email": "marc@gmail.com",
+    "age": "23",
+    "streetAddress": "123456",
+    "city": "barcelona",
+    "state": "barcelona",
+    "postalCode": "12345",
+    "phoneNumber": "2345678",
+    "id": 10
   }
 ]

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -7,23 +8,28 @@
  */
 session_start();
 
-function getAllEmployees() {
+function getAllEmployees()
+{
   $data = file_get_contents("../../resources/employees.json");
   $data = json_decode($data, true);
   return $data;
 }
 
 
-function addEmployee(array $newEmployee)
+function addEmployee($newEmployee)
 {
-// TODO implement it
+  $employees = getAllEmployees();
+  $newId = 1 + getNextIdentifier($employees);
+  $newEmployee["id"] = $newId;
+  array_push($employees, $newEmployee);
+  file_put_contents("../../resources/employees.json", json_encode($employees));
 }
 
 
 function deleteEmployee($id)
 {
   $allEmployees = getAllEmployees();
-  foreach($allEmployees as $key => $value) {
+  foreach ($allEmployees as $key => $value) {
     if ($value['id'] == $id) {
       $employeeToDelete = $key;
     }
@@ -37,28 +43,35 @@ function deleteEmployee($id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+  // TODO implement it
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+  // TODO implement it
 }
 
 
-function removeAvatar($id)
-{
-// TODO implement it
+
+function getNextIdentifier($employeesCollection) 
+{   
+  $object = array_reduce($employeesCollection, function ($a, $b) {
+    return $a ? ($a["id"] > $b["id"] ? $a : $b) : $b;
+  });
+  return $object["id"];
 }
 
 
-function getQueryStringParameters(): array
-{
-// TODO implement it
-}
+// function removeAvatar($id)
+// {
+//   // TODO implement it
+// }
 
-function getNextIdentifier(array $employeesCollection): int
-{
-// TODO implement it
-}
+
+// function getQueryStringParameters(): array
+// {
+//   // TODO implement it
+// }
+
+  

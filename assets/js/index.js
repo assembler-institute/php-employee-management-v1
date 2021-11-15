@@ -23,7 +23,13 @@ $("#jsGrid").jsGrid({
       });
     },
 
-    insertItem: $.noop,
+    insertItem: function(item){
+      return $.ajax({
+        type: "POST",
+        url:"./library/employeeController.php",
+        data: item,
+      })
+    },
 
     updateItem: $.noop,
 
