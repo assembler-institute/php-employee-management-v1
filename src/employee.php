@@ -14,7 +14,7 @@ include_once '../assets/html/header.html'
     </div>
     <div class="col-sm-6 form-floating mt-3">
       <label for="floatingLastName">Last name</label>
-      <input name="lastname" type="text" class="form-control" id="floatingLastName" placeholder="Doe" title="">
+      <input name="lastName" type="text" class="form-control" id="floatingLastName" placeholder="Doe" title="">
     </div>
     <div class="col-sm-6 form-floating mt-3">
       <label for="floatingEmail">Email address</label>
@@ -34,7 +34,7 @@ include_once '../assets/html/header.html'
     </div>
     <div class="col-sm-6 form-floating mt-3">
       <label for="floatingStreetAddress">Street address</label>
-      <input name="email" type="text" class="form-control" id="floatingStreetAddress" placeholder="324" data-bs-toggle="tooltip" data-bs-html="true" title="">
+      <input name="streetAddress" type="text" class="form-control" id="floatingStreetAddress" placeholder="324" data-bs-toggle="tooltip" data-bs-html="true" title="">
     </div>
     <div class="col-sm-6 form-floating mt-3">
       <label for="floatingState">State</label>
