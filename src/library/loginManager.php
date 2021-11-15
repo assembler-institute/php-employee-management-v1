@@ -14,7 +14,11 @@
  * it must redirect us to the index and show an error
  */
 
-
+/**
+ * Checks state of session
+ * @return alert if session has ended || redirects in case its needed.
+ *
+ */
 function checkSession() {
   # check where we are in base of the URI
     $urlFile = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
@@ -72,6 +76,7 @@ function authUser()
 /**
  * This function must emulate a database user search and return
  * true in case email and password matches
+ * @param
  */
 function checkUser(string $email, string $pass)
 
