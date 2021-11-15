@@ -2,6 +2,15 @@
 
 function startSession()
 {
+
+	$params = session_get_cookie_params();
+	session_set_cookie_params(
+		$params["lifetime"] + 300,
+		$params["path"],
+		$params["domain"],
+		$params["secure"],
+		$params["httponly"],
+	);
 	session_start();
 }
 
