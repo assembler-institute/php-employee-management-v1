@@ -1,5 +1,3 @@
-<!-- Recibimos la petición $_POST y autenticamos los datos con las funciones del Manager -->
-
 <?php
 
 # Post request verification
@@ -8,6 +6,7 @@ if (!isset($_POST["email"]) || !isset($_POST["password"])) {
 }
 
 require_once('./loginManager.php');
+require_once('./sessionHelper.php');
 
 # Get form vars and sanitize it
 $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
@@ -28,5 +27,9 @@ if ($user['email'] !== $email) {
   exit();
 }
 
+# Create session
+startSession($email);
+
+# Redirect
 header("Location: ../dashboard.php");
 exit();

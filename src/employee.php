@@ -1,5 +1,10 @@
 <?php
 
+# Verify if user is logged in 
+require_once('./library/sessionHelper.php');
+verifyLogin();
+
+
 $id = isset($_GET["employeeId"]) ? $_GET["employeeId"] : null;
 
 if ($id === null) header("Location: ./dashboard.php");

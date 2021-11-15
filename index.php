@@ -1,4 +1,12 @@
-<!-- TODO Application entry point. Login view -->
+<?php 
+  $logout = isset($_GET['logout']) ? true : false;
+
+  if ($logout) {
+    require_once('./src/library/sessionHelper.php');
+    destroySession();
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
