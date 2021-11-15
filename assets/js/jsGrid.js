@@ -99,6 +99,6 @@ $("#jsGrid").jsGrid({
 			align: "center",
 			validate: "required",
 		},
-		{ type: "control", width: 20 },
+		{ type: "control", width: 50 },
 	],
 });
