@@ -20,8 +20,6 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee($id)
 {
-
-
     $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
     $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
 
@@ -35,18 +33,19 @@ function deleteEmployee($id)
 }
 
 function updateEmployee(array $updateEmployee)
-{ {
-        $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
-        $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
-        $id =  $updateEmployee[0]->id;
-        for ($i = 0; $i < count($jsonEmployee); $i++) {
-            if ($jsonEmployee[$i]['id'] === $id || $jsonEmployee[$i]['id'] === intval($id)) {
-                array_replace($jsonEmployee, array($i => $jsonEmployee[$i]));
-            }
+{
+    $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
+    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
+    $id =  $updateEmployee[0]->id;
+    print_r($updateEmployee[0]);
+    for ($i = 0; $i < count($jsonEmployee); $i++) {
+        if ($jsonEmployee[$i]['id'] === $id || $jsonEmployee[$i]['id'] === intval($id)) {
+            print_r($jsonEmployee);
+            array_splice($jsonEmployee, $i, 0, $updateEmployee[0]);
         }
-        $jsonData = json_encode($jsonEmployee);
-        file_put_contents('../../resources/employees.json', $jsonData);
     }
+    $jsonData = json_encode($jsonEmployee);
+    file_put_contents('../../resources/employees.json', $jsonData);
 }
 
 

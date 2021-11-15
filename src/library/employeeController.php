@@ -2,19 +2,18 @@
 <?php
 include_once "./employeeManager.php";
 
-
+//!switch case
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     echo json_encode(getEmployee($id));
 } else if (isset($_POST['newEmployee'])) {
     setNewEmployee($_POST['newEmployee']);
 } else if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-
-    $updateEmployee = json_decode($_REQUEST["updateEmployee"]);
+    parse_str(file_get_contents("php://input"), $sent_vars);
+    $updateEmployee = ($sent_vars['updateEmployee']);
+    // $updateEmployee = json_decode($_REQUEST["updateEmployee"]);
     setUpdateEmployee($updateEmployee);
-    echo $updateEmployee;
 } else if ($_SERVER['REQUEST_METHOD'] === "DELETE") {
-    getQueryStringParameters();
     $employeeId = $_GET['delete'];
     deleteEmployee($employeeId);
 } else {
@@ -32,8 +31,8 @@ function setNewEmployee($newEmployee)
 
 function setUpdateEmployee($updateEmployee)
 {
-    $newEmployee = json_decode($updateEmployee);
-    $newEmployee = array($newEmployee);
-    updateEmployee($newEmployee);
+    $employee = json_decode($updateEmployee);
+    $employee = array($employee);
+    updateEmployee($employee);
     echo $response = true;
 }
