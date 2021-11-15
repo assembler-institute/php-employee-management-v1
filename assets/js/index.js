@@ -1,3 +1,5 @@
+//TODO Cuidado con eliminar varios elementos sin recargar!
+
 const getJSONData = async () => {
   const url = `../resources/employees.json`;
   try {
@@ -78,6 +80,8 @@ $("#jsGrid").jsGrid({
       name: "name",
       title: "Name",
       type: "text",
+      headercss: "table__header",
+      css: "table__row",
       width: 50,
       validate: "required",
     },
@@ -85,6 +89,8 @@ $("#jsGrid").jsGrid({
       name: "lastName",
       title: "Last name",
       type: "text",
+      headercss: "table__header",
+      css: "table__row",
       width: 60,
       validate: "required",
     },
@@ -92,6 +98,8 @@ $("#jsGrid").jsGrid({
       name: "email",
       title: "Email",
       type: "text",
+      headercss: "table__header",
+      css: "table__row",
       width: 80,
       validate: "required",
     },
@@ -99,6 +107,8 @@ $("#jsGrid").jsGrid({
       name: "age",
       title: "Age",
       type: "number",
+      headercss: "table__header",
+      css: "table__row",
       width: 40,
       validate: function (value) {
         if (value > 0) {
@@ -110,24 +120,32 @@ $("#jsGrid").jsGrid({
       name: "postalCode",
       title: "Postal code",
       type: "number",
+      headercss: "table__header",
+      css: "table__row",
       width: 40,
     },
     {
       name: "phoneNumber",
       title: "Phone number",
       type: "number",
+      headercss: "table__header",
+      css: "table__row",
       width: 60,
     },
     {
       name: "state",
       title: "State",
       type: "text",
+      headercss: "table__header",
+      css: "table__row",
       width: 50,
     },
     {
       name: "gender",
       title: "Gender",
       type: "select",
+      headercss: "table__header",
+      css: "table__row",
       items: [
         { Name: "Man", Id: "man" },
         { Name: "Woman", Id: "woman" },
@@ -142,16 +160,22 @@ $("#jsGrid").jsGrid({
       name: "city",
       title: "City",
       type: "text",
+      headercss: "table__header",
+      css: "table__row",
       width: 60,
     },
     {
       name: "streetAddress",
       title: "Street address",
       type: "text",
+      headercss: "table__header",
+      css: "table__row",
       width: 40,
     },
     {
       type: "control",
+      headercss: "table__header",
+      css: "table__row",
       editButton: true,
       deleteButton: true,
       editButtonTooltip: "Edit",
