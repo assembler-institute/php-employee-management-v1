@@ -1,14 +1,18 @@
 <?php
 
+require_once("./sessionHelper.php");
 require_once("./employeeManager.php");
 
-header_remove();
-header('Content-Type: application/json; charset=utf-8');
+session_start();
+
+if (!getSessionValue("user")) {
+	echo json_encode(["type" => "warning", "message" => "Session has expired. Login again required."]);
+	exit();
+}
 
 try {
 	$method = $_SERVER["REQUEST_METHOD"];
 	$params = getQueryStringParameters();
-	$data = ["warning" => "Not found"];
 
 	switch ($method) {
 		case "POST":
@@ -17,6 +21,7 @@ try {
 			} else {
 				$data = (["type" => "danger", "message" => "Employee could not be added."]);
 			}
+
 			break;
 		case "DELETE":
 			if (deleteEmployee($params["id"])) {
@@ -24,6 +29,7 @@ try {
 			} else {
 				$data = (["type" => "danger", "message" => "Employee could not be deleted."]);
 			}
+
 			break;
 		case "PUT":
 			if (updateEmployee($params)) {
@@ -31,6 +37,7 @@ try {
 			} else {
 				$data = (["type" => "danger", "message" => "Employee could not be updated."]);
 			}
+
 			break;
 		case "GET":
 			$employee = getEmployee($params["id"]);
@@ -42,6 +49,8 @@ try {
 			}
 
 			break;
+		default:
+			$data = ["warning" => "Not found"];
 	}
 
 	echo json_encode($data);

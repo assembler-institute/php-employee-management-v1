@@ -1,5 +1,5 @@
 <?php
-//BASE URL -> FOR LINK CSS
+
 $uri = $_SERVER['REQUEST_URI'];
 
 if (isset($uri) && $uri !== null) {

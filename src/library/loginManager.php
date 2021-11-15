@@ -12,19 +12,19 @@ function login()
 	$password = $_POST["password"];
 	$userId = getUserId($username, $password);
 
-	if ($userId === -1) return setSessionValue("danger", ["Wrong credentials."]);
+	if ($userId === -1) return setSessionValue("danger", ["Invalid credentials."]);
 
 	setSessionValue("user", ["userId" => $userId, "username" => $username]);
 	setSessionValue("success", ["Logged in successfully."]);
 }
 
-function logout()
+function logout(bool $sessionHasExpired = false)
 {
 	startSession();
 
 	if (getSessionValue("user")) {
-		destroySession();
-		setSessionValue("success", ["Logged out successfully."]);
+		popSessionValue("user");
+		$sessionHasExpired ? setSessionValue("info", ["Session has expired."]) : setSessionValue("success", ["Logged out successfully."]);
 	} else {
 		setSessionValue("info", ["User has not already logged in."]);
 	}

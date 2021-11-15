@@ -33,7 +33,6 @@ if ($id) {
 	}
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +44,7 @@ if ($id) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Employee Manager - Form</title>
 	<link type="text/css" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="../assets/css/avatar.css" />
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
 	<script src="../assets/js/employee.js" type="module"></script>
 </head>
@@ -63,6 +63,9 @@ if ($id) {
 				<input type="hidden" name="id" value="<?= $id ?>" />
 			<?php endif ?>
 			<div class="row">
+				<?php
+				include "./imageGallery.php";
+				?>
 				<div class="col-md-6 mb-3">
 					<label for="name" class="form-label">First name</label>
 					<input type="text" class="form-control" name="name" id="name" required value="<?= (isset($data["name"])) ? $data["name"] : null ?>" />
