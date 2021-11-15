@@ -9,7 +9,7 @@ require_once "./imageGallery.php";
 ?>
 <div class="container">
     <div class="row">
-        <div class="col col-md-3 p-4">
+        <div class="col col-md-4 p-4">
             <!-- GALLERY -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
                 <div class="carousel-inner ">
@@ -46,7 +46,7 @@ require_once "./imageGallery.php";
 
 
         <!-- FORM -->
-        <div class="col col-md-6 p-4">
+        <div class="col col-md-8 p-4">
             <form id="formEmployee">
                 <div class="form-row row">
                     <input type="hidden" class="form-control" id="inputId" value="new">
@@ -113,16 +113,11 @@ require_once "./imageGallery.php";
 
         </div>
         <!-- END FORM -->
-
-        <!-- CHART -->
-        <div class="col col-md-3 p-4">
-            <h1>RATIO CHART HERE!</h1>
-        </div>
-        <!-- END CHART -->
     </div>
 </div>
 
-<!-- <a href="../assets/js/ajax/newEmployee.js"></a> -->
+<script src="../assets/js/takeFormData.js"></script>
+<!-- LISTENERS -->
 <script>
     document.getElementById("updateBtn").addEventListener('click', (e) => {
         e.preventDefault();
@@ -154,37 +149,11 @@ require_once "./imageGallery.php";
 
     document.getElementById("formEmployee"), addEventListener('submit', (e) => {
         e.preventDefault();
-
-
         ajaxCreateEmployee(takeFormData());
     })
-
-
-
-    function takeFormData() {
-        let formData = {
-            id: document.getElementById("inputId").value,
-            name: document.getElementById("inputName").value,
-            lastName: document.getElementById("inputLast").value,
-            email: document.getElementById("inputEmail").value,
-            gender: document
-                .getElementById("inputGenderSelect")[
-                    document.getElementById("inputGenderSelect").options.selectedIndex
-                ].value,
-            city: document.getElementById("inputCity").value,
-            streetAddress: document.getElementById("inputStreet").value,
-            state: document.getElementById("inputState").value,
-            age: document.getElementById("inputAge").value,
-            postalCode: document.getElementById("inputPostal").value,
-            phoneNumber: document.getElementById("inputPostal").value,
-            photo: document.querySelectorAll(".active")[1].firstElementChild.getAttribute("src")
-        };
-        return formData
-    }
-
-    /* fin */
+    //
 </script>
-
+<!-- END LISTENERS -->
 <?php
 include "../assets/html/footer.html";
 ?>
