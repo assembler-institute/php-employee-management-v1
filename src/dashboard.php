@@ -19,10 +19,16 @@
 <?php
 
     session_start();
-
+    
+    require_once("./library/sessionHelper.php");
+    
+    checkSession(); // We check if the user has active login
+    checkSessionExpired(); // We check if the user session is still active
+    
     require_once("../assets/html/header.html");
-
-    $name = $_SESSION['username'];
+    
+    // NOT IN USE:
+    // $name = $_SESSION['username'];
 
     chmod('../resources/employees.json', 0777);
 
