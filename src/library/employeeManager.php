@@ -60,11 +60,12 @@ function updateEmployee(array $updateEmployee)
     };
     $encodedData = json_encode($data, true);
     print_r($encodedData);
-
+    file_put_contents('../../resources/employees.json', $encodedData);
+    header('Location: ../dashboard.php');
     //hasta aqui funciona
 }
 
-// updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
+updateEmployee(['id' => '1', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345']);
 
 
 function getEmployee(string $id)

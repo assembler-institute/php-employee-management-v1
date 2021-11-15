@@ -2,10 +2,7 @@
 
 <?php
 require_once("../assets/html/header.html");
-require_once("../src/library/employeeManager.php");
 session_start();
-// $_SESSION["loginError"];
-// print_r($_SESSION["loginError"]);
 ?>
 <div class="container">
     <form method="POST" action="../src/library/employeeController.php">
