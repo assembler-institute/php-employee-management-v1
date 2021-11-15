@@ -31,30 +31,30 @@ include "./library/sessionHelper.php";
     ?>
 <div class="container">
     <div id="container-table">
-    <div class="row row-header">
-      <div class="col-1">Name</div>
-      <div class="col-2">Email</div>
-      <div class="col-1">Age</div>
-      <div class="col-1">Str.No</div>
-      <div class="col-2">City</div>
-      <div class="col-1">State</div>
-      <div class="col-1">Postal Code</div>
-      <div class="col-2">Phone Number</div>
-      <div class="col-1"><button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-plus-lg"></i></button></div>
-    </div>
-    <form method="POST" action="./library/employeeController.php">
-        <div class="row" id="collapseExample">
-            <div class="col-1"><input required type="text" class="form-control" placeholder="name" name="name"></div>
-            <div class="col-2"><input required type="email" class="form-control" placeholder="email" name="email"></div>
-            <div class="col-1"><input required type="text" class="form-control" placeholder="age" name="age"></div>
-            <div class="col-1"><input required type="text" class="form-control" placeholder="street Address" name="streetAddress"></div>
-            <div class="col-2"><input required type="text" class="form-control" placeholder="city" name="city"></div>
-            <div class="col-1"><input required type="text" class="form-control" placeholder="state" name="state"></div>
-            <div class="col-1"><input required type="text" class="form-control" placeholder="postal Code" name="postalCode"></div>
-            <div class="col-2"><input required type="tel" class="form-control" placeholder="phone Number" name="phone"></div>
-            <div class="col-1"><input required type="submit" value="submit" class="btn btn-primary"></div>
+        <div class="row row-header">
+        <div class="col-1">Name</div>
+        <div class="col-2">Email</div>
+        <div class="col-1">Age</div>
+        <div class="col-1">Str.No</div>
+        <div class="col-2">City</div>
+        <div class="col-1">State</div>
+        <div class="col-1">Postal Code</div>
+        <div class="col-2">Phone Number</div>
+        <div class="col-1"><button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-plus-lg"></i></button></div>
         </div>
-    </form>
+        <form method="POST" action="./library/employeeController.php">
+            <div class="row" id="collapseExample">
+                <div class="col-1"><input required type="text" class="form-control" placeholder="name" name="name"></div>
+                <div class="col-2"><input required type="email" class="form-control" placeholder="email" name="email"></div>
+                <div class="col-1"><input required type="text" class="form-control" placeholder="age" name="age"></div>
+                <div class="col-1"><input required type="text" class="form-control" placeholder="street Address" name="streetAddress"></div>
+                <div class="col-2"><input required type="text" class="form-control" placeholder="city" name="city"></div>
+                <div class="col-1"><input required type="text" class="form-control" placeholder="state" name="state"></div>
+                <div class="col-1"><input required type="text" class="form-control" placeholder="postal Code" name="postalCode"></div>
+                <div class="col-2"><input required type="tel" class="form-control" placeholder="phone Number" name="phone"></div>
+                <div class="col-1"><input required type="submit" value="submit" class="btn btn-primary"></div>
+            </div>
+        </form>
     </div>
 </div>
 

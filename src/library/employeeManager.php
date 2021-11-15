@@ -44,7 +44,6 @@ function addEmployee()
     $_SESSION["message"] = "AddNewEmployee";
 
     header("Location: ./../dashboard.php?addNew");
-    // header("Location: ./../employee.php");
     exit;
 }
 
@@ -53,7 +52,7 @@ function deleteEmployee($id)
 {
     session_start();
 
-    $employeesJsonFile = "./../../resources/employees.json";   
+    $employeesJsonFile = "./../../resources/employees.json";
     $employeesData = checkFileExists($employeesJsonFile);
 
     // get array index to delete
