@@ -53,12 +53,8 @@ function deleteEmployee($id)
 {
     session_start();
 
-    $employeesJsonFile = "./../../resources/employees.json";
-
-    if(file_exists($employeesJsonFile)) {
-        $jsonData = file_get_contents($employeesJsonFile);
-        $employeesData = json_decode($jsonData, true);
-    }
+    $employeesJsonFile = "./../../resources/employees.json";   
+    $employeesData = checkFileExists($employeesJsonFile);
 
     // get array index to delete
     $array_index = array();
@@ -88,10 +84,7 @@ function deleteEmployee($id)
 
 function updateEmployee($data,int $id) {
     $employeesJsonFile = "./../resources/employees.json";
-    if(file_exists($employeesJsonFile)) {
-        $jsonData = file_get_contents($employeesJsonFile);
-        $employeesData = json_decode($jsonData, true);
-    }
+    $employeesData = checkFileExists($employeesJsonFile);
 
     foreach ($employeesData as $index => $employee) {
         if ($employee["id"] === $id) {
@@ -110,10 +103,7 @@ function updateEmployee($data,int $id) {
 function getEmployee(int $id)
 {
     $employeesJsonFile = "./../resources/employees.json";
-    if(file_exists($employeesJsonFile)) {
-        $jsonData = file_get_contents($employeesJsonFile);
-        $employeesData = json_decode($jsonData, true);
-    }
+    $employeesData = checkFileExists($employeesJsonFile);
 
     foreach($employeesData as $employee) {
         if ($employee["id"] === $id) {
@@ -143,3 +133,10 @@ function getNextIdentifier(array $employeesCollection): int
 // TODO implement it
 }
 
+function checkFileExists($path) {
+    if(file_exists($path)) {
+        $jsonData = file_get_contents($path);
+        $employeesData = json_decode($jsonData, true);
+    }
+    return $employeesData;
+}
