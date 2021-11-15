@@ -1,5 +1,7 @@
 <?php
-require_once("./library/sessionHelper.php");
+require_once("./library/loginManager.php");
+require_once './library/sessionHelper.php';
+
 checkSession();
 
 include_once '../assets/html/header.html'
@@ -20,7 +22,7 @@ include_once '../assets/html/header.html'
       <label for="floatingEmail">Email address</label>
     </div>
     <div class="col-sm-6 form-floating">
-      <select name="gender" class="form-control" id="floatingGender" data-bs-toggle="tooltip" data-bs-html="true" >
+      <select name="gender" class="form-control" id="floatingGender" data-bs-toggle="tooltip" data-bs-html="true">
         <option value="man">Man</option>
         <option value="woman">Woman</option>
         <option value="other">Other</option>

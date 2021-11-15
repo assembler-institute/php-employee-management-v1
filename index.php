@@ -1,5 +1,5 @@
 <?php
-require_once("./src/library/sessionHelper.php");
+require_once("./src/library/loginManager.php");
 
 //Check for session and error / info messages
 $alert = checkSession();

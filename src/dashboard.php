@@ -1,5 +1,7 @@
 <?php
-require_once './library/sessionHelper.php';
+require_once './library/loginManager.php';
+// require_once './library/sessionHelper.php';
+
 checkSession();
 
 include_once '../assets/html/header.html';
