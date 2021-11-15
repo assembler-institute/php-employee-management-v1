@@ -36,25 +36,24 @@ function resetTimer() {
 	starts();
 }
 
+/**
+ * This functions starts the timer for
+ * session expiration
+ * @param {int} END_SESSION_TIME expiration time, setted to 10 secs
+ * @returns the timeout ID
+ */
 function starts(END_SESSION_TIME = 10000) {
 	sessionStorage.setItem("reset", false);
 	// sets in Session storage initialTime
-	sessionStorage.setItem("timer", 0);
-
-	// sets the timeout
-
+	if (sessionStorage.getItem("timer") != 0) sessionStorage.setItem("timer", 0);
 	let timer = JSON.parse(sessionStorage.getItem("timer"));
-	//let reset = JSON.parse(sessionStorage.getItem("reset"));
 
-	//while (timer < (END_SESSION_TIME / 1000) && !reset) {
-	// interval every second to increment the timer counter
 	let interval = setInterval(() => {
 		timer++;
 		sessionStorage.setItem("timer", timer);
 	}, 1000);
 
-	let timeOut = timerClock(END_SESSION_TIME, interval);
-	return [timeOut];
+	timerClock(END_SESSION_TIME, interval);
 }
 
 /**
@@ -65,16 +64,14 @@ function timerClock(time, interval) {
 	let timer = setTimeout(() => {
 		clearInterval(interval);
 		endSessionPopUp();
-		clearTimeout(timer);
 	}, time);
-
-	return timer;
+	clearTimeout(timer);
 }
 
 /**
  * Pops up a warning for ending the session,
  * if client needs more time the session starts over
- * if not the session ends
+ * if not the session ends. Uses https://sweetalert2.github.io/
  */
 function endSessionPopUp() {
 	// pop up
@@ -101,7 +98,6 @@ function endSessionPopUp() {
 /**
  * endSession() : if the time run out
  * Tell the server to end the sesssion through AJAX
- *
  */
 function endSession() {
 	// send reset request to php session Helper
@@ -127,6 +123,9 @@ function endSession() {
 	window.location.reload();
 }
 
+/**
+ * Initialize de timer when the window loads
+ */
 function initializate() {
 	getInitialTime();
 	starts();
@@ -136,6 +135,6 @@ function initializate() {
 window.addEventListener("load", initializate);
 
 // reset the timer
-/* window.addEventListener("keypress", resetTimer);
+window.addEventListener("keypress", resetTimer);
 window.addEventListener("mousemove", resetTimer);
-window.addEventListener("click", resetTimer); */
+window.addEventListener("click", resetTimer);
