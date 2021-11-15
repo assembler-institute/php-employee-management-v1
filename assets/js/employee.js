@@ -27,3 +27,17 @@ import { displayNotification } from "./utils.js";
 			});
 	});
 })();
+
+(function setAvatarUpdate() {
+	document.addEventListener("click", function (event) {
+		const userAvatar = document.querySelector("#user-avatar");
+		const inputAvatar = document.querySelector("#avatar");
+
+		if (event.target.matches(".avatar-btn")) {
+			const newAvatar = event.target.children[0];
+
+			userAvatar.src = newAvatar.src;
+			inputAvatar.value = newAvatar.src;
+		}
+	});
+})();

@@ -63,9 +63,25 @@ if ($id) {
 				<input type="hidden" name="id" value="<?= $id ?>" />
 			<?php endif ?>
 			<div class="row">
-				<?php
-				include "./imageGallery.php";
-				?>
+				<div class="col-12 mb-3">
+					<span class="form-label d-block">Avatar</span>
+					<input type="hidden" id="avatar" name="avatar" value="<?= (isset($data["avatar"])) ? $data["avatar"] : null ?>" />
+					<button class="avatar-btn" type="button" data-bs-toggle="collapse" href="#avatar-list" role="button" aria-expanded="false" aria-controls="avatar-list">
+						<img id="user-avatar" class="avatar-img" src="<?= (isset($data["avatar"]) && $data["avatar"]) ? $data["avatar"] : "../assets/images/user.svg" ?>" alt="avatar" />
+					</button>
+				</div>
+				<div id="avatar-list" class="col-12 collapse gap-2 justify-content-center py-2">
+					<hr>
+					<?php if (isset($data["avatar"]) && $data["avatar"]) : ?>
+						<button class="avatar-btn" type="button" data-bs-toggle="collapse" href="#avatar-list" role="button" aria-expanded="false" aria-controls="avatar-list">
+							<img class="avatar-img" src="<?= $data["avatar"] ?>" />
+						</button>
+					<?php endif ?>
+					<?php
+					include "./imageGallery.php";
+					?>
+					<hr>
+				</div>
 				<div class="col-md-6 mb-3">
 					<label for="name" class="form-label">First name</label>
 					<input type="text" class="form-control" name="name" id="name" required value="<?= (isset($data["name"])) ? $data["name"] : null ?>" />
@@ -76,11 +92,7 @@ if ($id) {
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="gender" class="form-label">Gender</label>
-					<select class="form-select" id="gender" name="gender" value="<?= (isset($data["gender"])) ? $data["gender"] : null ?>">
-						<option selected value="none">Not specified</option>
-						<option value="M">Male</option>
-						<option value="F">Female</option>
-					</select>
+					<input type="text" class=" form-control" id="gender" name="gender" value="<?= (isset($data["gender"])) ? $data["gender"] : null ?>" />
 				</div>
 				<div class="col-md-6 mb-3">
 					<label for="age" class="form-label">Age</label>
@@ -88,7 +100,7 @@ if ($id) {
 				</div>
 				<div class="col-12 mb-3">
 					<label for="email" class="form-label">Email</label>
-					<input type="email" class="form-control" name="email" id="email" required value="<?= (isset($data["email"])) ? $data["email"] : null ?>" />
+					<input type="text" class="form-control" name="email" id="email" required value="<?= (isset($data["email"])) ? $data["email"] : null ?>" />
 				</div>
 				<div class="col-12 mb-3">
 					<label for="phoneNumber" class="form-label">Phone number</label>
@@ -104,11 +116,7 @@ if ($id) {
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="state" class="form-label">State</label>
-					<select class="form-select" id="state" name="state" required value="<?= (isset($data["state"])) ? $data["state"] : null ?>">
-						<option selected disabled value="none">Not specified</option>
-						<option value="CA">California</option>
-						<option value="NY">New York</option>
-					</select>
+					<input type="text" class="form-control" name="state" id="state" required value="<?= (isset($data["state"])) ? $data["state"] : null ?>" />
 				</div>
 				<div class="col-md-3 mb-3">
 					<label for="postalCode" class="form-label">Postal code</label>

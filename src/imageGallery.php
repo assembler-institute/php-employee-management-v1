@@ -3,12 +3,11 @@ require_once "./library/avatarsApi.php";
 ?>
 
 <?php if ($avatars = getAvatars()) : ?>
-	<div class="d-flex gap-2 flex-wrap w-100 justify-content-center p-2">
-		<?php foreach ($avatars as $key => $avatar) : ?>
-			<label for="avatar-<?= $key ?>" class="avatar-wrapper position-relative">
-				<input type="radio" id="avatar-<?= $key ?>" name="avatar" value="<?= $avatar["photo"] ?>" class="position-absolute visually-hidden" />
+	<?php foreach ($avatars as $key => $avatar) : ?>
+		<?php if (!str_contains($avatar["photo"], "https://uifaces.co/images/cooldown-avatar.png")) : ?>
+			<button class="avatar-btn" type="button" data-bs-toggle="collapse" href="#avatar-list" role="button" aria-expanded="false" aria-controls="avatar-list">
 				<img class="avatar-img" src="<?= $avatar["photo"] ?>" />
-			</label>
-		<?php endforeach ?>
-	</div>
+			</button>
+		<?php endif ?>
+	<?php endforeach ?>
 <?php endif ?>
