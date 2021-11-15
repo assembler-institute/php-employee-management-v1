@@ -1,3 +1,18 @@
+<!-- expiring session feature -->
+<?php
+// require("../src/library/sessionHelper.php");
+
+// Session starts
+session_start();
+
+if(isset($_SESSION)) {
+    // Login time is stored in a session variable
+    $_SESSION["login_time_stamp"] = time(); 
+}
+?>
+
+
+
 <!-- TODO Application entry point. Login view -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +30,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  <style>
+  <!-- <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -29,7 +44,7 @@
         font-size: 3.5rem;
       }
     }
-  </style>
+  </style> -->
 
   <!-- Custom styles for this template -->
 <link href="./assets/css/login.css" rel="stylesheet">

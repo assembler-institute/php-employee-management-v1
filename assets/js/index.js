@@ -1,13 +1,16 @@
 $("#jsGrid").jsGrid({
   width: "80%",
+
   filtering: true,
   editing: true,
   inserting: true,
   sorting: true,
   paging: true,
   autoload: true,
+
   pageSize: 15,
   pageButtonCount: 5,
+
   deleteConfirm: "Do you really want to delete the client?",
 
   controller: {
