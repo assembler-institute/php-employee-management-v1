@@ -44,7 +44,6 @@ require_once "./imageGallery.php";
             <!--END SELECT EMPLOYEE -->
         </div>
 
-
         <!-- FORM -->
         <div class="col col-md-8 p-4">
             <form id="formEmployee">

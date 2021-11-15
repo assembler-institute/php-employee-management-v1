@@ -86,7 +86,10 @@ function updateEmployee(array $updateEmployee)
 /**
  * * Get one employe from employees.json
  *
- * @param String   $id updated employee data from GET case statement of employeeController.php.
+ * @param String  $id updated employee data from GET case statement of employeeController.php.
+ * 
+ * @return String   $employee employe data 
+ * 
  */
 function getEmployee(string $id)
 {
