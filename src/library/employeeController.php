@@ -31,8 +31,8 @@ function setNewEmployee($newEmployee)
 
 function setUpdateEmployee($updateEmployee)
 {
-    $employee = json_decode($updateEmployee);
-    $employee = array($employee);
+
+    $employee = array($updateEmployee);
     updateEmployee($employee);
     echo $response = true;
 }

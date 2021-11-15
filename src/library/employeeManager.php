@@ -10,51 +10,48 @@
 
 function addEmployee(array $newEmployee)
 {
-    $inp = file_get_contents('../../resources/employees.json');
-    $tempArray = json_decode($inp);
-    array_push($tempArray, $newEmployee[0]);
-    $jsonData = json_encode($tempArray);
+    $jsonEmployees = getQueryStringParameters();
+    array_push($jsonEmployees, $newEmployee[0]);
+    $jsonData = json_encode($jsonEmployees);
     file_put_contents('../../resources/employees.json', $jsonData);
 }
 
 
 function deleteEmployee($id)
 {
-    $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
-    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
+    $jsonEmployees = getQueryStringParameters();
 
-    for ($i = 0; $i < count($jsonEmployee); $i++) {
-        if ($jsonEmployee[$i]['id'] === $id || $jsonEmployee[$i]['id'] === intval($id)) {
-            array_splice($jsonEmployee, $i, 1);
+    for ($i = 0; $i < count($jsonEmployees); $i++) {
+        if ($jsonEmployees[$i]['id'] === $id || $jsonEmployees[$i]['id'] === intval($id)) {
+            array_splice($jsonEmployees, $i, 1);
         }
     }
-    $jsonData = json_encode($jsonEmployee);
+    $jsonData = json_encode($jsonEmployees);
     file_put_contents('../../resources/employees.json', $jsonData);
 }
 
+
 function updateEmployee(array $updateEmployee)
 {
-    $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
-    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
-    $id =  $updateEmployee[0]->id;
-    print_r($updateEmployee[0]);
-    for ($i = 0; $i < count($jsonEmployee); $i++) {
-        if ($jsonEmployee[$i]['id'] === $id || $jsonEmployee[$i]['id'] === intval($id)) {
-            print_r($jsonEmployee);
-            array_splice($jsonEmployee, $i, 0, $updateEmployee[0]);
+    $jsonEmployees  = getQueryStringParameters();
+    $updateEmployee = json_decode($updateEmployee[0], true);
+    $id =  $updateEmployee['id'];
+
+    for ($i = 0; $i < count($jsonEmployees); $i++) {
+        if ($jsonEmployees[$i]['id'] === $id || $jsonEmployees[$i]['id'] === intval($id)) {
+            $jsonEmployees[$i] = $updateEmployee;
         }
     }
-    $jsonData = json_encode($jsonEmployee);
+    $jsonData = json_encode($jsonEmployees);
     file_put_contents('../../resources/employees.json', $jsonData);
 }
 
 
 function getEmployee(string $id)
 {
-    $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
-    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
+    $jsonEmployees  = getQueryStringParameters();
 
-    foreach ($jsonEmployee as $employee) {
+    foreach ($jsonEmployees as $employee) {
         if ($employee['id'] === $id || $employee['id'] === intval($id)) {
             return  $employee;
         }
@@ -70,9 +67,9 @@ function removeAvatar($id)
 
 function getQueryStringParameters() //array
 {
-    $url = "../src/library/employeeController.php";
-    $queryString = parse_url($url, PHP_URL_QUERY);
-    var_dump($queryString);
+    $jsonEmployees = file_get_contents('../../resources/employees.json'); //?get JSON content
+    $jsonEmployees  = json_decode(($jsonEmployees), true); //? decode the JSON into an associative array
+    return $jsonEmployees;
 }
 
 function getNextIdentifier($employeesCollection = "") //! input type string?
