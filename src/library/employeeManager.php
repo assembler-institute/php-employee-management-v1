@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -9,7 +10,7 @@
 function addEmployee(array $newEmployee)
 {
     $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
-    $newEmployee['id'] = intval($newEmployee['id']);
+    $newEmployee['id'] = getNextIdentifier($employeesCollection);
     $newEmployee['age'] = intval($newEmployee['age']);
 
     if (!isset($newEmployee['gender'])) {
@@ -26,33 +27,26 @@ function addEmployee(array $newEmployee)
     if (isset($_POST['lastname'])) {
         header('Location: ../dashboard.php');
     } else {
-        return true;
+        return $newEmployee['id'];
     }
-
 }
 
 function deleteEmployee(string $id)
 {
-    $ids = 1;
     $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+    // var_dump($employeesCollection);
 
-    foreach ($employeesCollection as $index => $employee) {
-        
-        if ($employee['id'] == $id) {
-            array_splice($employeesCollection,$index,1);
-            //var_dump($employee['id'],$id);
-         }  else {
-            $employee['id'] = $ids;
-            $backup = $employee;
-            array_splice($employeesCollection,$index,1);
-            $employeesCollection[$index] = $backup;
-            $ids++;
-        } 
-        
+
+    for ($i = 0; $i < count($employeesCollection); $i++) {
+        if ($employeesCollection[$i]['id'] == $id) {
+            // echo $i;
+            array_splice($employeesCollection, $i, 1);
+        } else {
+            echo "not";
+        }
     }
-    $array = array_values($employeesCollection);
-     
-    file_put_contents('../../resources/employees.json', json_encode($array, JSON_PRETTY_PRINT));
+
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
     return true;
 }
 
@@ -64,7 +58,6 @@ function updateEmployee(array $updateEmployee)
 
         if ($employee['id'] == $updateEmployee['id']) {
             $employeesCollection[$index] = $updateEmployee;
-
         }
     }
     //die();
@@ -75,22 +68,29 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 function removeAvatar($id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 function getQueryStringParameters(): array
 {
-// TODO implement it
+    // TODO implement it
 
     return [];
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
-    return count($employeesCollection) + 1;
+    $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+
+    $lastId = [];
+    for ($i = 0; $i < count($employeesCollection); $i++) {
+        array_push($lastId, $employeesCollection[$i]['id']);
+    }
+
+    return max($lastId) + 1;
 }
