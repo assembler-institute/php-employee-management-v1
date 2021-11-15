@@ -2,11 +2,18 @@
 include_once 'employeeManager.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
+$addEmployee = $_GET['addEmployee'];
 
-if ($method == "POST") {
+if ($method == "POST" && !$_GET['addEmployee']) {
   $created = addEmployee($_POST);
 
   return true;
+}
+
+if ($method == "POST" && $_GET['addEmployee']) {
+  $created = addEmployee($_POST);
+
+  return header("Location:../dashboard.php");
 }
 
 if ($method == "PUT") {
