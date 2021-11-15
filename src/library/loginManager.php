@@ -58,6 +58,10 @@ function authUser()
 
     if (checkUser($email, $pass)) {
 
+      // registers the initial time when the session was created
+      $_SESSION['startTime'] = $_SERVER['REQUEST_TIME'];
+
+      // keeps a record of the data email of the client and sends to dashboard
       $_SESSION["email"] = $email;
       header("Location: ../dashboard.php");
 

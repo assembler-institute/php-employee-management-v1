@@ -37,7 +37,8 @@
     require_once ("./library/loginManager.php");
     checkSession();?>
 
-   <script src="../assets/js/templates/navTemplate.js" ></script>
+   <script src="../assets/js/templates/navTemplate.js"></script>
+   <script src="../assets/js/templates/sessionTimeout.js" ></script>
    <script src="../assets/js/templates/gridJS.js"></script>
    <script src="../assets/js/templates/footerTemplate.js"></script>
 

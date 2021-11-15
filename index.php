@@ -23,3 +23,4 @@ $error = ( ( isset($_SESSION['isRedirecting']) && $_SESSION['isRedirecting'] ) ?
     </body>
 </html>
  <script src="./assets/js/templates/loginFormTemplate.js" ></script>
+
