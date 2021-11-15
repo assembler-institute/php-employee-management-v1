@@ -6,7 +6,8 @@
  * @author: Jose Manuel Orts
  * @date: 11/06/2020
  */
-
+// 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
+// https://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@github.com/sergi92/php-employee-management-v1.git
 
 #·······································add session ·········································
 function addEmployee(array $newEmployee)
