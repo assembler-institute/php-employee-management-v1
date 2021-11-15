@@ -1,23 +1,29 @@
-const form = document.querySelector("#employee-form");
+import { displayNotification } from "./utils.js";
 
-form.addEventListener("submit", function (event) {
-	event.preventDefault();
+(function setSubmitEvent() {
+	const form = document.querySelector("#employee-form");
 
-	const data = Object.fromEntries(new FormData(event.target));
-	const method = data.id ? "PUT" : "POST";
-	console.log(data, method);
+	form.addEventListener("submit", function (event) {
+		event.preventDefault();
 
-	fetch("./library/employeeController.php", {
-		method,
-		body: JSON.stringify(data, null, 2),
-	})
-		.then((response) => {
-			response.text();
+		const form = event.target;
+		const data = Object.fromEntries(new FormData(form));
+		const method = data.id ? "PUT" : "POST";
+		console.log(data, method);
+
+		fetch("./library/employeeController.php", {
+			method,
+			body: JSON.stringify(data, null, 2),
 		})
-		.then((data) => {
-			console.log(data);
-		})
-		.catch((error) => {
-			console.log(error);
-		});
-});
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				displayNotification(data);
+				form.reset();
+			})
+			.catch((error) => {
+				displayNotification(error);
+			});
+	});
+})();

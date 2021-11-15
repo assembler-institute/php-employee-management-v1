@@ -58,7 +58,7 @@ if ($id) {
 			<span class="fw-light text-secondary"><?php echo ($id) ? "Employee #$id" : "New employee" ?></span>
 		</div>
 		<hr />
-		<form id="employee-form" class="d-flex justify-content-center" method="<?= $method ?>" action="./library/employeeController.php">
+		<form id="employee-form" class="d-flex justify-content-center">
 			<?php if ($id) : ?>
 				<input type="hidden" name="id" value="<?= $id ?>" />
 			<?php endif ?>
