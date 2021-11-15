@@ -24,7 +24,7 @@ function addEmployee(array $newEmployee)
 
     file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
 
-    if (isset($_POST['lastname'])) {
+    if (isset($_POST['lastName'])) {
         header('Location: ../dashboard.php');
     } else {
         return $newEmployee['id'];
@@ -60,9 +60,10 @@ function updateEmployee(array $updateEmployee)
             $employeesCollection[$index] = $updateEmployee;
         }
     }
-    //die();
-
     file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+    if (isset($_GET["form"])) {
+        header('Location: ../dashboard.php');
+    }
     return true;
 }
 

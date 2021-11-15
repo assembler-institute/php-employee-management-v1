@@ -43,7 +43,7 @@ include_once '../assets/html/header.html';
             </div>
             <div class="pets-breed">
               <label for="lastname">Last name</label>
-              <input id="lastname" name="lastname" placeholder="Last Name" type="text"></input>
+              <input id="lastname" name="lastName" placeholder="Last Name" type="text" required></input>
             </div>
             <!--   <div class="pets-photo">
             <button id="pets-upload">
@@ -75,7 +75,7 @@ include_once '../assets/html/header.html';
             </div>
             <div class="pets-birthday">
               <label for="street">Street Address</label>
-              <input id="street" name="street" placeholder="Street Address" type="number"></input>
+              <input id="street" name="streetAddress" placeholder="Street Address" type="number"></input>
             </div>
           </div>
 
@@ -92,11 +92,11 @@ include_once '../assets/html/header.html';
           <div class="set">
             <div class="pets-breed">
               <label for="cp">Postal Code</label>
-              <input id="cp" name="cp" placeholder="03652" type="number"></input>
+              <input id="cp" name="postalCode" placeholder="03652" type="number"></input>
             </div>
             <div class="pets-birthday">
               <label for="phone">Phone number</label>
-              <input id="phone" name="phone" placeholder="632589674" type="number"></input>
+              <input id="phone" name="phoneNumber" placeholder="632589674" type="number"></input>
             </div>
           </div>
         </header>

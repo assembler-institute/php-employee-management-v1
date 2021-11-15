@@ -35,9 +35,9 @@ if ($method == 'PUT') {
         }
     }
     $edit = updateEmployee($employeeFix);
-    if (isset($_GET["form"])) {
-        header('Location: ../dashboard.php');
-    }
+    // if (isset($_GET["form"])) {
+    //     header('Location: ../dashboard.php');
+    // }
 }
 
 
