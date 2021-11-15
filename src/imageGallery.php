@@ -23,4 +23,14 @@ function imageGallery()
 <?PHP
     }
 };
+
+function selectEmployee()
+{
+    $jsonEmployee = file_get_contents('../resources/employees.json'); //?get JSON content
+    $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
+
+    foreach ($jsonEmployee as $employee) {
+        echo "<option value='$employee[id]' id='$employee[id]'>$employee[id] - $employee[name]</option>";
+    }
+}
 ?>
