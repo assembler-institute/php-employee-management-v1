@@ -9,7 +9,7 @@ require_once "./imageGallery.php";
 ?>
 <div class="container">
     <div class="row">
-        <div class="col col-md-3 p-4">
+        <div class="col col-md-4 p-4">
             <!-- GALLERY -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
                 <div class="carousel-inner ">
@@ -44,29 +44,28 @@ require_once "./imageGallery.php";
             <!--END SELECT EMPLOYEE -->
         </div>
 
-
         <!-- FORM -->
-        <div class="col col-md-6 p-4">
+        <div class="col col-md-8 p-4">
             <form id="formEmployee">
                 <div class="form-row row">
                     <input type="hidden" class="form-control" id="inputId" value="new">
                     <div class="form-group col-md-6">
                         <label>Name</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" id="inputLast" placeholder="Surname">
+                        <input type="text" class="form-control" id="inputLast" placeholder="Surname" required>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
                     </div>
                     <div class="form-group col-md-6" id="inputGender" data-key="NoN">
                         <label for="inputGender">Gender</label>
-                        <select id="inputGenderSelect" class="form-control" id="inputGender2">
+                        <select id="inputGenderSelect" class="form-control" id="inputGender2" required>
                             <option value="" selected id="inputGenderNone">Choose...</option>
                             <option value="woman" id="woman">Female</option>
                             <option value="man" id="man">Male</option>
@@ -77,31 +76,31 @@ require_once "./imageGallery.php";
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>City</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        <input type="text" class="form-control" id="inputCity" placeholder="City" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Street Address</label>
-                        <input type="text" class="form-control" id="inputStreet" placeholder="Street Address">
+                        <input type="text" class="form-control" id="inputStreet" placeholder="Street Address" required>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>State</label>
-                        <input type="text" class="form-control" id="inputState" placeholder="State">
+                        <input type="text" class="form-control" id="inputState" placeholder="State" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Age</label>
-                        <input type="text" class="form-control" id="inputAge" placeholder="Age">
+                        <input type="text" class="form-control" id="inputAge" placeholder="Age" required>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>Postal code</label>
-                        <input type="text" class="form-control" id="inputPostal" placeholder="Postal code">
+                        <input type="text" class="form-control" id="inputPostal" placeholder="Postal code" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Phone Number</label>
-                        <input type="text" class="form-control" id="inputPhone" placeholder="PhoneNumber">
+                        <input type="text" class="form-control" id="inputPhone" placeholder="PhoneNumber" required>
                     </div>
                 </div>
                 <div class="m-3">
@@ -113,78 +112,15 @@ require_once "./imageGallery.php";
 
         </div>
         <!-- END FORM -->
-
-        <!-- CHART -->
-        <div class="col col-md-3 p-4">
-            <h1>RATIO CHART HERE!</h1>
-        </div>
-        <!-- END CHART -->
     </div>
 </div>
 
-<!-- <a href="../assets/js/ajax/newEmployee.js"></a> -->
-<script>
-    document.getElementById("updateBtn").addEventListener('click', (e) => {
-        e.preventDefault();
-        ajaxUpdateEmployee(takeFormData());
-    })
 
-    document.getElementById("inputEmployee").addEventListener('change', (e) => {
-        $employeeSelected = e.target.value;
-        ajaxGetEmployee($employeeSelected);
-    })
-
-
-    document.getElementById("inputGender").addEventListener('change', (e) => {
-        $gender = e.target.value;
-        document.getElementById("inputGender").setAttribute('data-key', $gender)
-
-    })
-    document.getElementById("newBtn").addEventListener('click', () => {
-        location.reload();
-
-    })
-
-    document.getElementById("deleteBtn").addEventListener('click', () => {
-
-        $id = document.getElementById("inputId").value;
-        ajaxDeleteEmployee($id);
-
-    })
-
-    document.getElementById("formEmployee"), addEventListener('submit', (e) => {
-        e.preventDefault();
-
-
-        ajaxCreateEmployee(takeFormData());
-    })
-
-
-
-    function takeFormData() {
-        let formData = {
-            id: document.getElementById("inputId").value,
-            name: document.getElementById("inputName").value,
-            lastName: document.getElementById("inputLast").value,
-            email: document.getElementById("inputEmail").value,
-            gender: document
-                .getElementById("inputGenderSelect")[
-                    document.getElementById("inputGenderSelect").options.selectedIndex
-                ].value,
-            city: document.getElementById("inputCity").value,
-            streetAddress: document.getElementById("inputStreet").value,
-            state: document.getElementById("inputState").value,
-            age: document.getElementById("inputAge").value,
-            postalCode: document.getElementById("inputPostal").value,
-            phoneNumber: document.getElementById("inputPostal").value,
-            photo: document.querySelectorAll(".active")[1].firstElementChild.getAttribute("src")
-        };
-        return formData
-    }
-
-    /* fin */
-</script>
-
+<!-- SCRIPTS -->
+<script src="../assets/js/addEventListeners.js"></script>
+<script src="../assets/js/takeFormData.js"></script>
+<script src="../assets/js/setFormData.js"></script>
+<!-- END SCRIPTS -->
 <?php
 include "../assets/html/footer.html";
 ?>

@@ -1,16 +1,32 @@
+/**
+ * send new employe data to employeeController.php for update
+ * @param  {object} updateEmployee  updated employee data
+ */
 function ajaxUpdateEmployee(updateEmployee) {
+  //? init. XMLHttpRequest
   var request = new XMLHttpRequest();
+
+  //? set request props
   request.open("PUT", "../src/library/employeeController.php");
-  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //("Content-type", "application/json");
+
+  //? config header options
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  //? set request succes/error statements
   request.onreadystatechange = () => {
-    console.log(this.responseText);
     if (request.readyState == 4 && request.status == "200") {
-      let response = this.responseText;
-      console.log(response);
-      console.log("succes");
+      Swal.fire({
+        icon: "success",
+        title: "Employee updated",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      location.reload();
     } else {
       console.log("error");
     }
   };
+
+  //? send request
   request.send("updateEmployee=" + JSON.stringify(updateEmployee));
 }

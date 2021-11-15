@@ -1,25 +1,47 @@
 
 <?php
 include_once "./employeeManager.php";
+/**
+ **Controller of employee.php view and employeeManager.php.
+ *
+ ** This file will contain the necessary functions to interact between view and "manager".
+ *
+ * $_SERVER['REQUEST_METHOD'] info -> https://phppot.com/php/php-request-methods/
+ */
 
-//!switch case
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    echo json_encode(getEmployee($id));
-} else if (isset($_POST['newEmployee'])) {
-    setNewEmployee($_POST['newEmployee']);
-} else if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    parse_str(file_get_contents("php://input"), $sent_vars);
-    $updateEmployee = ($sent_vars['updateEmployee']);
-    // $updateEmployee = json_decode($_REQUEST["updateEmployee"]);
-    setUpdateEmployee($updateEmployee);
-} else if ($_SERVER['REQUEST_METHOD'] === "DELETE") {
-    $employeeId = $_GET['delete'];
-    deleteEmployee($employeeId);
-} else {
-    print_r($_REQUEST);
+switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        $id = $_GET['id'];
+        echo json_encode(getEmployee($id));
+        break;
+
+    case 'POST':
+        setNewEmployee($_POST['newEmployee']);
+        break;
+
+    case 'PUT':
+        parse_str(file_get_contents("php://input"), $sent_vars);
+        $updateEmployee = ($sent_vars['updateEmployee']);
+        setUpdateEmployee($updateEmployee);
+        break;
+
+    case 'DELETE':
+        $employeeId = $_GET['delete'];
+        deleteEmployee($employeeId);
+        break;
+
+
+    default:
+        print_r($_REQUEST);
+        break;
 }
 
+
+/**
+ ** prepare data for the addEmployee function of employeeManager.php
+ *
+ * @param String JSON  $newEmployee data from employe.php form.
+ */
 function setNewEmployee($newEmployee)
 {
     $newEmployee = json_decode($newEmployee);
@@ -29,10 +51,15 @@ function setNewEmployee($newEmployee)
     echo $response = true;
 }
 
+/**
+ ** prepare data for the updateEmployee function of employeeManager.php
+ *
+ * @param String JSON  $updateEmployee updated data from employe.php form.
+ */
 function setUpdateEmployee($updateEmployee)
 {
-    $employee = json_decode($updateEmployee);
-    $employee = array($employee);
+
+    $employee = array($updateEmployee);
     updateEmployee($employee);
     echo $response = true;
 }
