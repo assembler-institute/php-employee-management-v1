@@ -3,13 +3,16 @@
 <?php
 require_once("../assets/html/header.html");
 session_start();
+var_dump($_GET['employeeId']);
+// if (($_GET['employeeId'])) {}
+
 ?>
 <div class="container">
     <form method="POST" action="../src/library/employeeController.php">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="firstName" name="data[name]" placeholder="Input Name" />
+                <input type="text" class="form-control" id="firstName" name="data[name]" placeholder="Input Name" value="<?= $employeeName ? $employeeName : "" ?>" />
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
@@ -64,7 +67,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         <button class="btn btn-secondary">Return</button>
     </form>
 </div>

@@ -6,7 +6,7 @@ if (json_decode(file_get_contents('php://input', true), true)) {
 }
 
 $_PATCH = json_decode(file_get_contents('php://input', true), true);
-var_dump($_PATCH);
+// var_dump($_PATCH);
 
 
 switch ($_SERVER["REQUEST_METHOD"]) {
@@ -34,3 +34,4 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 
         break;
 }
+header("location: ../../src/dashboard.php");

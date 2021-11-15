@@ -1,7 +1,7 @@
 const dataPath = "../resources/employees.json";
 const controllerEmpl = "./library/employeeController.php";
 function changePage({ item }) {
-    window.location.replace(`employee.php?employyeId=${item.id}`)
+    window.location.replace(`employee.php?employeeId=${item.id}`)
     console.log(item);
 }
 
