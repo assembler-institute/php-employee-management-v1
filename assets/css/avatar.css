@@ -1,0 +1,14 @@
+.avatar-img {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 0.25rem;
+	pointer-events: none;
+}
+
+.avatar-btn {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0;
+}

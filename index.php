@@ -1,9 +1,10 @@
 <?php
 
 require_once("./config/constants.php");
-require_once("./src/library/sessionHelper.php");
+require_once(LIBRARY . "/sessionHelper.php");
 
 startSession();
+checkSession();
 
 if (getSessionValue("user")) {
 	$query = $_SERVER["QUERY_STRING"];
@@ -19,11 +20,7 @@ if (getSessionValue("user")) {
 			header("Location: " . BASE_URL . "/src/dashboard.php");
 			exit();
 	}
-} else {
-	header("Location: ./src/login.php");
-	exit();
 }
-
 ?>
 
 <!DOCTYPE html>

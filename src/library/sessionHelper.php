@@ -5,6 +5,21 @@ function startSession()
 	session_start();
 }
 
+function checkSession()
+{
+	$user = 			getSessionValue("user");
+	$expiration = getSessionValue("expiration");
+
+	if ($user) {
+		if ($expiration < time()) {
+			popSessionValue("user");
+			setSessionValue("info", ["Session has expired."]);
+		} else {
+			setSessionValue("expiration", time() + 20);
+		}
+	}
+}
+
 function destroySession()
 {
 	if (ini_get("session.use_cookies")) {

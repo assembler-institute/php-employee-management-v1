@@ -1,18 +1,61 @@
 <?php
 
-require_once("./employeeManager.php");
+require_once("../../config/constants.php");
+require_once(LIBRARY . "/sessionHelper.php");
+require_once(LIBRARY . "/employeeManager.php");
 
-$method = $_SERVER["REQUEST_METHOD"];
+startSession();
+checkSession();
 
-switch ($method) {
-	case 'POST':
-		var_dump(addEmployee([]));
-		break;
-	case 'DELETE':
-		var_dump(deleteEmployee(0));
-		break;
-	case "PUT":
-		var_dump(updateEmployee([]));
-	case "GET":
-		getEmployee(0);
+if (!getSessionValue("user")) {
+	echo json_encode(["type" => "warning", "message" => "Session has expired. Login again required."]);
+	exit();
+}
+
+try {
+	$method = $_SERVER["REQUEST_METHOD"];
+	$params = getQueryStringParameters();
+
+	switch ($method) {
+		case "POST":
+			if (addEmployee($params)) {
+				$data = (["type" => "success", "message" => "Employee added successfully."]);
+			} else {
+				$data = (["type" => "danger", "message" => "Employee could not be added."]);
+			}
+
+			break;
+		case "DELETE":
+			if (deleteEmployee($params["id"])) {
+				$data = (["type" => "success", "message" => "Employee deleted successfully."]);
+			} else {
+				$data = (["type" => "danger", "message" => "Employee could not be deleted."]);
+			}
+
+			break;
+		case "PUT":
+			if (updateEmployee($params)) {
+				$data = (["type" => "success", "message" => "Employee updated successfully."]);
+			} else {
+				$data = (["type" => "danger", "message" => "Employee could not be updated."]);
+			}
+
+			break;
+		case "GET":
+			$employee = getEmployee($params["id"]);
+
+			if ($employee) {
+				$data = (["type" => "success", "message" => "Employee fetched successfully.", "employee" => $employee]);
+			} else {
+				$data = (["type" => "danger", "message" => "Employee could not be found."]);
+			}
+
+			break;
+		default:
+			$data = ["warning" => "Not found"];
+	}
+
+	echo json_encode($data);
+} catch (Exception $e) {
+	echo json_encode(["type" => "danger", "message" => "Unexpected error"]);
 }

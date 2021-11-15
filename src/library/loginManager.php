@@ -1,29 +1,26 @@
 <?php
 
-require_once("./sessionHelper.php");
+require_once(LIBRARY . "/sessionHelper.php");
 
 function login()
 {
-	startSession();
-
 	if (!validateLoginParams()) return setSessionValue("danger", ["Username and password cannot be blank."]);
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$userId = getUserId($username, $password);
 
-	if ($userId === -1) return setSessionValue("danger", ["Wrong credentials."]);
+	if ($userId === -1) return setSessionValue("danger", ["Invalid credentials."]);
 
 	setSessionValue("user", ["userId" => $userId, "username" => $username]);
 	setSessionValue("success", ["Logged in successfully."]);
+	setSessionValue("expiration", time() + 100);
 }
 
 function logout()
 {
-	startSession();
-
 	if (getSessionValue("user")) {
-		destroySession();
+		popSessionValue("user");
 		setSessionValue("success", ["Logged out successfully."]);
 	} else {
 		setSessionValue("info", ["User has not already logged in."]);
@@ -41,7 +38,7 @@ function validateLoginParams(): bool
 function getUserId(string $username, string $password): int
 {
 	try {
-		$users = json_decode(file_get_contents("../../resources/users.json"), true)["users"];
+		$users = json_decode(file_get_contents(RESOURCES . "/users.json"), true)["users"];
 
 		foreach ($users as $user) {
 			if ($username === $user["name"] && password_verify($password, $user["password"])) return $user["userId"];

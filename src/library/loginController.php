@@ -1,6 +1,10 @@
 <?php
 
-require_once("./loginManager.php");
+require_once("../../config/constants.php");
+require_once(LIBRARY . "/loginManager.php");
+require_once(LIBRARY . "/sessionHelper.php");
+
+startSession();
 
 $query = $_SERVER["QUERY_STRING"];
 
@@ -13,4 +17,4 @@ switch ($query) {
 		break;
 }
 
-header("Location: ../../index.php");
+header("Location: " . BASE_URL);
