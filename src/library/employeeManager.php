@@ -56,23 +56,26 @@ function updateEmployee(array $updateEmployee)
     };
     $encodedData = json_encode($data, true);
     file_put_contents('../../resources/employees.json', $encodedData);
-    print_r($encodedData);
     file_put_contents('../../resources/employees.json', $encodedData);
     header('Location: ../dashboard.php');
 }
 
 
 #·······································Auxiliar session ·········································
-
+// $id = $_GET['employeeId'];
 function getEmployee(string $id)
 {
-
     $json_data = file_get_contents('../../resources/employees.json');
+    echo "<pre>";
+    var_dump($json_data);
+    echo "</pre>";
+
+
     $data = json_decode($json_data, true);
     foreach ($data as $key => $value) {
         if ($value['id'] == $id) {
             // return $value;
-            print_r($value);
+            // print_r($value);
             $_GET['name'] = $value['name'];
         }
     };
@@ -81,8 +84,10 @@ function getEmployee(string $id)
     //     var_dump($_POST['id']);
     // }
 }
-$id = "4";
-getEmployee($id);
+
+// getEmployee("2");
+
+
 
 
 // function removeAvatar($id)

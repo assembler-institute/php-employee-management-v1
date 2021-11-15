@@ -11,7 +11,7 @@ $.getJSON(dataPath).done(function (employeesData) {
         width: "100%",
         height: "auto",
         inserting: true,
-        editing: false,
+        editing: true,
         sorting: true,
         paging: true,
         pageSize: 10,
