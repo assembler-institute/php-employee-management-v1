@@ -5,6 +5,8 @@ if (json_decode(file_get_contents('php://input', true), true)) {
     $_POST = json_decode(file_get_contents('php://input', true), true);
 }
 
+$_PATCH = json_decode(file_get_contents('php://input', true), true);
+var_dump($_PATCH);
 
 
 switch ($_SERVER["REQUEST_METHOD"]) {
@@ -23,13 +25,12 @@ switch ($_SERVER["REQUEST_METHOD"]) {
             echo json_encode("error ");
         }
         break;
-    case "UPDATE":
-        parse_str(file_get_contents("php://input"), $UPDATE);
-        if (updateEmployee($UPDATE['id'])) {
-            echo json_encode("employee Update succesfully");
-        } else {
-            echo json_encode("error ");
-        }
+
+    case "PATCH":
+        // json_encode(updateEmployee($_PATCH['data']));
+        // parse_str(file_get_contents("php://input"), $_PATCH);
+        updateEmployee($_PATCH['data']);
+
+
         break;
 }
-

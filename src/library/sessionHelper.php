@@ -9,7 +9,7 @@ you must include this files into the corresponding controllers.-->
 
 require_once 'loginManager.php';
 session_start();
-if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 600)) {
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 60)) {
     autoLogout();
 }
 $_SESSION['last_activity'] = time();

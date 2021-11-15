@@ -40,6 +40,7 @@ function addEmployee(array $newEmployee)
 
 #·······································Delete session ·········································
 
+// $id = "12";
 function deleteEmployee(string $id)
 {
     $json_data = file_get_contents('../../resources/employees.json');
@@ -52,17 +53,17 @@ function deleteEmployee(string $id)
         }
     };
     $encodedData = json_encode($data, true);
-    // print_r($encodedData);
+    print_r($encodedData);
     if (file_put_contents('../../resources/employees.json', $encodedData)) {
         return true;
     } else {
         return false;
     }
 }
-
+// deleteEmployee($id);
 #·······································Update session ·········································
 
-$updateEmployee = ['id' => '12', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345'];
+// $updateEmployee = ['id' => '12', 'name' => 'Jose', 'lastName' => 'arboleda', 'email' => 'andres@gmail.com', 'gender' => 'male', 'city' => 'sevilla', 'streetAddress' => '12455', 'state' => 'catalonia', 'age' => '31', 'postalCode' => '08700', 'phoneNumber' => '12345'];
 
 function updateEmployee(array $updateEmployee)
 {
@@ -86,18 +87,18 @@ function updateEmployee(array $updateEmployee)
 
 #·······································Auxiliar session ·········································
 
-function getEmployee(string $id)
-{
-    // TODO implement it
-    if (isset($_POST['id'])) {
-    }
-}
+// function getEmployee(string $id)
+// {
+//     // TODO implement it
+//     if (isset($_POST['id'])) {
+//     }
+// }
 
 
-function removeAvatar($id)
-{
-    // TODO implement it
-}
+// function removeAvatar($id)
+// {
+//     // TODO implement it
+// }
 
 
 // function getQueryStringParameters(): array
