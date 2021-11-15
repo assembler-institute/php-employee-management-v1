@@ -3,6 +3,11 @@
 include_once 'employeeManager.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
+if (isset($_GET["form"])) {
+    $method = "PUT";
+}
+
+
 
 /**
  * Create a New Employee
@@ -30,11 +35,19 @@ if ($method == 'PUT') {
         }
     }
     $edit = updateEmployee($employeeFix);
+    if (isset($_GET["form"])) {
+        header('Location: ../dashboard.php');
+    }
 }
 
 
 
 if ($method == 'PATCH') {
+}
+
+if ($method == 'GET') {
+    $getEmployee = getEmployee($_GET['id']);
+    //header('Location: ../employee.php?id='.$_GET['id']); 
 }
 
 

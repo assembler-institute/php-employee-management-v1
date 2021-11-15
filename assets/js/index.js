@@ -19,6 +19,15 @@ $("#employees").jsGrid({
   pageButtonCount: 5,
 
   deleteConfirm: "Do you really want to delete the client?",
+  rowClick: function ({ item, itemIndex, event }) {
+    let id = "";
+
+    this.data.forEach((element) => {
+      if (item.id == element.id) id = item.id;
+    });
+
+    window.location = "../src/employee.php?id=" + id;
+  },
 
   controller: {
     loadData: function () {
