@@ -2,9 +2,15 @@
 
 # Verify if user is logged in 
 require_once('./library/sessionHelper.php');
-verifyLogin();
+
+$logged = verifyLogin();
+if (!$logged) {
+  header('Location: ../index.php');
+  exit();
+}
 
 
+# Get employee profile by ID
 $id = isset($_GET["employeeId"]) ? $_GET["employeeId"] : null;
 
 if ($id === null) header("Location: ./dashboard.php");
@@ -44,7 +50,7 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
 <body>
     <header>
         <?php
-        require_once("../assets/html/header.html")
+        require_once("../assets/html/header.php")
         ?>
     </header>
     <main class="container p-5">

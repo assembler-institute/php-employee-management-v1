@@ -1,10 +1,22 @@
 <?php 
+  require_once('./src/library/sessionHelper.php');
+  # LogOut user by inactivity
   $logout = isset($_GET['logout']) ? true : false;
 
   if ($logout) {
-    require_once('./src/library/sessionHelper.php');
     destroySession();
+  } else {
+    # Redirect logged User
+    $logged = verifyLogin();
+    if ($logged) {
+      header('Location: ./src/dashboard.php');
+      exit();
+    }
   }
+
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -42,9 +54,6 @@
                 <input name="password" type="password" id="inputPassword" class="form-control mt-3" placeholder="Password" required="">
             </div>
             <div class="checkbox mb-3 mt-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in
                 </button>
