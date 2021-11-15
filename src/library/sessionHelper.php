@@ -17,10 +17,7 @@ function verifyLogin()
 
   $logged = isset($_SESSION) && isset($_SESSION['user_email']) ? true : false;
 
-  if (!$logged) {
-    header('Location: ../index.php');
-    exit();
-  }
+  return $logged;
 }
 
 # Destroy user Session

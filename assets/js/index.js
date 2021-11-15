@@ -36,7 +36,7 @@ function deleteEntry({ item }) {
 }
 
 function editEntry({ item }) {
-  window.location.replace(`employee.php?employeeId=${item.id}`);
+  window.location.href = `employee.php?employeeId=${item.id}`;
 }
 
 function makeRequest(item, action) {
@@ -49,6 +49,9 @@ function makeRequest(item, action) {
     headers: {
       "Content-Type": "application/json",
     },
+  }).then((res) => res.json())
+  .then(msg => {
+    if (action === 'update') window.location.href = `dashboard.php`;
   })
     .then((res) => res.json())
     .then((msg) => {
@@ -59,12 +62,13 @@ function makeRequest(item, action) {
 function setupJsGrid(data) {
   $("#jsGrid").jsGrid({
     width: "100%",
-    height: "400px",
+    height: "25rem",
 
     inserting: true,
     editing: true,
     sorting: true,
     paging: true,
+    
 
     onItemInserted: insertNewEntry,
     onItemDeleted: deleteEntry,
@@ -107,10 +111,10 @@ function setupJsGrid(data) {
         name: "phoneNumber",
         type: "text",
         validate: "required",
-        title: "Phone number",
+        title: "Phone number"
       },
       {
-        type: "control",
+        type: "control", editButton: false,
       },
     ],
   });
@@ -127,20 +131,16 @@ function activityWatcher() {
 
   //Setup the setInterval method to run
   //every second. 1000 milliseconds = 1 second.
-  setInterval(function () {
-    secondsSinceLastActivity++;
-    console.log(
-      secondsSinceLastActivity + " seconds since the user was last active"
-    );
-    //if the user has been inactive or idle for longer
-    //then the seconds specified in maxInactivity
-    if (secondsSinceLastActivity > maxInactivity) {
-      console.log(
-        "User has been inactive for more than " + maxInactivity + " seconds"
-      );
-      //Redirect them to your logout.php page.
-      window.location.replace(`../index.php?logout=timeout`);
-    }
+  setInterval(function(){
+      secondsSinceLastActivity++;
+      //console.log(secondsSinceLastActivity + ' seconds since the user was last active');
+      //if the user has been inactive or idle for longer
+      //then the seconds specified in maxInactivity
+      if(secondsSinceLastActivity > maxInactivity){
+          //console.log('User has been inactive for more than ' + maxInactivity + ' seconds');
+          //Redirect them to your logout.php page.
+          window.location.href = `../index.php?logout=timeout`;
+      }
   }, 1000);
 
   //The function that will be called whenever a user is active

@@ -1,7 +1,11 @@
 <?php 
   # Verify if user is logged in
   require_once('./library/sessionHelper.php');
-  verifyLogin();
+  $logged = verifyLogin();
+  if (!$logged) {
+    header('Location: ../index.php');
+    exit();
+  }
 ?>
 
 <!DOCTYPE html>
@@ -22,15 +26,13 @@
 <body>
     <header>
         <?php
-        require_once("../assets/html/header.html")
+        require_once("../assets/html/header.php")
         ?>
     </header>
 
     <main>
         <div id="jsGrid" class="mt-5 container"></div>
-
     </main>
-
 </body>
 
 </html>
