@@ -52,21 +52,21 @@ require_once "./imageGallery.php";
                     <input type="hidden" class="form-control" id="inputId" value="new">
                     <div class="form-group col-md-6">
                         <label>Name</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" id="inputLast" placeholder="Surname">
+                        <input type="text" class="form-control" id="inputLast" placeholder="Surname" required>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
                     </div>
                     <div class="form-group col-md-6" id="inputGender" data-key="NoN">
                         <label for="inputGender">Gender</label>
-                        <select id="inputGenderSelect" class="form-control" id="inputGender2">
+                        <select id="inputGenderSelect" class="form-control" id="inputGender2" required>
                             <option value="" selected id="inputGenderNone">Choose...</option>
                             <option value="woman" id="woman">Female</option>
                             <option value="man" id="man">Male</option>
@@ -77,31 +77,31 @@ require_once "./imageGallery.php";
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>City</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        <input type="text" class="form-control" id="inputCity" placeholder="City" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Street Address</label>
-                        <input type="text" class="form-control" id="inputStreet" placeholder="Street Address">
+                        <input type="text" class="form-control" id="inputStreet" placeholder="Street Address" required>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>State</label>
-                        <input type="text" class="form-control" id="inputState" placeholder="State">
+                        <input type="text" class="form-control" id="inputState" placeholder="State" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Age</label>
-                        <input type="text" class="form-control" id="inputAge" placeholder="Age">
+                        <input type="text" class="form-control" id="inputAge" placeholder="Age" required>
                     </div>
                 </div>
                 <div class="form-row row">
                     <div class="form-group col-md-6">
                         <label>Postal code</label>
-                        <input type="text" class="form-control" id="inputPostal" placeholder="Postal code">
+                        <input type="text" class="form-control" id="inputPostal" placeholder="Postal code" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Phone Number</label>
-                        <input type="text" class="form-control" id="inputPhone" placeholder="PhoneNumber">
+                        <input type="text" class="form-control" id="inputPhone" placeholder="PhoneNumber" required>
                     </div>
                 </div>
                 <div class="m-3">
