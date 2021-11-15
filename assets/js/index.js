@@ -33,10 +33,11 @@ $("#jsGrid").jsGrid({
       });
     },
     insertItem: async function (item) {
-      var d = $.Deferred();
-      console.log(item);
+      let d = $.Deferred();
       let res = await getJSONData();
-      item["id"] = res.length + 1;
+      let newID = res[res.length - 1].id + 1;
+      console.log(newID);
+      item["id"] = newID;
       return $.ajax({
         type: "POST",
         url: "../src/library/employeeController.php",
@@ -73,7 +74,7 @@ $("#jsGrid").jsGrid({
       name: "id",
       title: "ID",
       type: "hidden",
-      css: "hide"
+      css: "hide",
     },
     {
       name: "name",
@@ -140,13 +141,26 @@ $("#jsGrid").jsGrid({
       cancelEditButtonTooltip: "Cancel edit",
     },
   ],
+  rowClick: function (args) {
+    location.href =
+      "http://localhost/Employee_Management.01/php-employee-management-v1/src/employee.php?employee=" +
+      args.item.id;
+  },
+  onItemUpdated: function () {
+    location.href =
+      "http://localhost/Employee_Management.01/php-employee-management-v1/src/dashboard.php?action=updated";
+  },
+  onItemDeleted: function () {
+    location.href =
+      "http://localhost/Employee_Management.01/php-employee-management-v1/src/dashboard.php?action=deleted";
+  },
 });
 
 $("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
 
-let toast = document.getElementById("toast")
-if(toast) {
+let toast = document.getElementById("toast");
+if (toast) {
   setTimeout(() => {
-    toast.remove()
+    toast.remove();
   }, 3000);
 }
