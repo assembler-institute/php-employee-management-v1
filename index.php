@@ -38,7 +38,7 @@ if (isset($_SESSION["username"])) {
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script src="app.js"></script>
+	<script src="./assets/js/login.js"></script>
 </body>
 
 </html>

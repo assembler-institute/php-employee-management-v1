@@ -3,11 +3,19 @@ session_start();
 if (!isset($_SESSION["username"])) {
     header("Location: ../index.php");
 }
-echo $_SESSION["username"];?>
-<?php
+/* echo $_SESSION["username"]; */
 include_once '../assets/html/header.html';
 ?>
-
+<script>
+  if(document.querySelector('#back')){
+    document.querySelector('#back').addEventListener('click',back);
+  }
+  
+  function back(e) {
+    e.preventDefault();
+    window.location.href = "./dashboard.php";
+  }
+</script>
 <div class="signup-container">
   <div class="left-container">
     <h1>
@@ -21,6 +29,7 @@ include_once '../assets/html/header.html';
   <div class="right-container">
     <form action="../src/library/employeeController.php" method="POST">
       <header>
+        <input type="hidden" name="id" id="id-user">
         <h1>Create a New Employee </h1>
         <div class="set">
           <div class="pets-name">
@@ -61,7 +70,7 @@ include_once '../assets/html/header.html';
           </div>
           <div class="pets-birthday">
             <label for="street">Street Address</label>
-            <input id="street" name="street" placeholder="Street Address" type="text"></input>
+            <input id="street" name="street" placeholder="Street Address" type="number"></input>
           </div>
         </div>
 
@@ -86,13 +95,14 @@ include_once '../assets/html/header.html';
           </div>
         </div>
       </header>
-    </form>
-    <footer>
+      <div class="footer">
       <div class="set">
-        <button id="back" >Back</button>
-        <button id="next" type="submit">Submit</button>
+        <button id="back" onclick="history.back()">Back</button>
+        <button id="send" type="submit" >Submit</button>
       </div>
-    </footer>
+    </div>
+    </form>
+
   </div>
 </div>
 

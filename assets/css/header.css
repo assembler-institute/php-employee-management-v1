@@ -19,8 +19,11 @@ html {
 }
 
 nav {
+  position: fixed;
   width: 100%;
-  background: #1c1d22;
+  background: #191A19;
+  top: 0;
+  z-index: 100;
 }
 
 .menu {

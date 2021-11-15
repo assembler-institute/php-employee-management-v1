@@ -1,6 +1,11 @@
-.container-table{
-    height: 100vh;
+.table-employees {
+  margin: auto;
 }
-.table-employees{
-    margin: auto;
+table tr th {
+  background-color: #1e5128 !important;
+  color: white !important;
+}
+.container-table {
+  min-height: 700px;
+  margin-top: 77px;
 }
