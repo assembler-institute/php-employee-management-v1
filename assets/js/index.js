@@ -13,15 +13,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 function processEditEmployee(e) {
-
   e.preventDefault();
   let formData = new FormData(e.target);
   // Display the key/value pairs
-  let item = {}
-  for(var entry of formData.entries()) {
-    let key = entry[0]
-    let value = entry[1]
-    item[key] = value
+  let item = {};
+  for (var entry of formData.entries()) {
+    let key = entry[0];
+    let value = entry[1];
+    item[key] = value;
   }
 
   makeRequest(item, "update");
@@ -50,10 +49,11 @@ function makeRequest(item, action) {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json())
-  .then(msg => {
-    if (action === 'update') window.location.replace(`dashboard.php`);
   })
+    .then((res) => res.json())
+    .then((msg) => {
+      if (action === "update") window.location.replace(`dashboard.php`);
+    });
 }
 
 function setupJsGrid(data) {
@@ -62,13 +62,14 @@ function setupJsGrid(data) {
     height: "400px",
 
     inserting: true,
-    editing: false,
+    editing: true,
     sorting: true,
     paging: true,
 
     onItemInserted: insertNewEntry,
     onItemDeleted: deleteEntry,
     rowClick: editEntry,
+    onItemEditing: editEntry,
 
     deleteConfirm: "Do you really want to delete the employee?",
 
@@ -116,50 +117,55 @@ function setupJsGrid(data) {
 }
 
 // Timer for inactivity
-function activityWatcher(){
-
+function activityWatcher() {
   //The number of seconds that have passed
   //since the user was active.
   var secondsSinceLastActivity = 0;
 
   //Five minutes. 60 x 5 = 300 seconds.
-  var maxInactivity = (60 * 10);
+  var maxInactivity = 60 * 10;
 
   //Setup the setInterval method to run
   //every second. 1000 milliseconds = 1 second.
-  setInterval(function(){
-      secondsSinceLastActivity++;
-      console.log(secondsSinceLastActivity + ' seconds since the user was last active');
-      //if the user has been inactive or idle for longer
-      //then the seconds specified in maxInactivity
-      if(secondsSinceLastActivity > maxInactivity){
-          console.log('User has been inactive for more than ' + maxInactivity + ' seconds');
-          //Redirect them to your logout.php page.
-          window.location.replace(`../index.php?logout=timeout`);
-      }
+  setInterval(function () {
+    secondsSinceLastActivity++;
+    console.log(
+      secondsSinceLastActivity + " seconds since the user was last active"
+    );
+    //if the user has been inactive or idle for longer
+    //then the seconds specified in maxInactivity
+    if (secondsSinceLastActivity > maxInactivity) {
+      console.log(
+        "User has been inactive for more than " + maxInactivity + " seconds"
+      );
+      //Redirect them to your logout.php page.
+      window.location.replace(`../index.php?logout=timeout`);
+    }
   }, 1000);
 
   //The function that will be called whenever a user is active
-  function activity(){
-      //reset the secondsSinceLastActivity variable
-      //back to 0
-      secondsSinceLastActivity = 0;
+  function activity() {
+    //reset the secondsSinceLastActivity variable
+    //back to 0
+    secondsSinceLastActivity = 0;
   }
 
   //An array of DOM events that should be interpreted as
   //user activity.
   var activityEvents = [
-      'mousedown', 'mousemove', 'keydown',
-      'scroll', 'touchstart', 'click'
+    "mousedown",
+    "mousemove",
+    "keydown",
+    "scroll",
+    "touchstart",
+    "click",
   ];
 
   //add these events to the document.
   //register the activity function as the listener parameter.
-  activityEvents.forEach(function(eventName) {
-      document.addEventListener(eventName, activity, true);
+  activityEvents.forEach(function (eventName) {
+    document.addEventListener(eventName, activity, true);
   });
-
-
 }
 
 activityWatcher();
