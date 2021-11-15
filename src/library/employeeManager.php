@@ -41,21 +41,35 @@ function deleteEmployee($id)
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee($updateEmployee)
+
 {
-  // TODO implement it
+  $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+  foreach ($employeesCollection as $index => $employee) {
+    if ($employee['id'] == $updateEmployee['id']) {
+      $employeesCollection[$index] = $updateEmployee;
+    }
+  }
+  file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+  return true;
 }
 
 
-function getEmployee(string $id)
+function getEmployee( $id)
 {
-  // TODO implement it
+  // $allEmployees = getAllEmployees();
+  //   foreach ($allEmployees as $employee) {
+  //       if ($employee["id"] == $id) {
+  //           $_SESSION["employeeToUpdate"] = $employee;
+  //           $_SESSION["employeeId"] = $id;
+  //       }
+  //   }
 }
 
 
 
-function getNextIdentifier($employeesCollection) 
-{   
+function getNextIdentifier($employeesCollection)
+{
   $object = array_reduce($employeesCollection, function ($a, $b) {
     return $a ? ($a["id"] > $b["id"] ? $a : $b) : $b;
   });
@@ -73,5 +87,3 @@ function getNextIdentifier($employeesCollection)
 // {
 //   // TODO implement it
 // }
-
-  

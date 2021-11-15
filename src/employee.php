@@ -29,26 +29,26 @@
             <br>
             <h2>Employee Details</h2>
             <br>
-            <form>
-            <input type="hidden" class="form-control" name="id" id="employeeId" value="">
+            <form action="/library/employeeController.php?update=true" method="POST">
+            <input  type="hidden" class="form-control" name="id" id="employeeId" value="">
             <div class="row justify-content-center">
             <div class="col-sm-4">
                 <label for="inputName" class="form-label font-weight-bold">Name</label>
-                <input type="text" class="form-control" name="name" id="inputName" value="">
+                <input required type="text" class="form-control" name="name" id="inputName" value="">
             </div>
             <div class="col-sm-4">
                 <label for="inputLastName" class="form-label font-weight-bold">Last Name</label>
-                <input type="text" class="form-control" name="lastName" id="inputLastName" value="">
+                <input required type="text" class="form-control" name="lastName" id="inputLastName" value="">
             </div>
             </div><br>
             <div class="row justify-content-center">
             <div class="col-sm-4">
                 <label for="inputEmail" class="form-label font-weight-bold">Email address</label>
-                <input type="email" class="form-control" name="email" id="inputEmail" placeholder="user@email.com" value="">
+                <input required type="email" class="form-control" name="email" id="inputEmail" placeholder="user@email.com" value="">
             </div>
             <div class="col-sm-4">
                 <label for="selectGender" class="form-label font-weight-bold">Gender</label>
-                <select class="form-control" name="gender" id="selectGender">
+                <select required class="form-control" name="gender" id="selectGender">
                     <option value="man">Man</option>
                     <option value="woman">Woman</option>
                     <option Value="other">Other</option>
@@ -83,22 +83,22 @@
             </div>
             <div class="col-sm-4">
                 <label for="inputZip" class="form-label font-weight-bold">Zip</label>
-                <input type="text" class="form-control" name="postalCode" id="inputZip" value="">
+                <input required type="text" class="form-control" name="postalCode" id="inputZip" value="">
             </div>
             </div><br>
             <div class="row justify-content-center">
             <div class="col-sm-4">
                 <label for="inputAddress" class="form-label font-weight-bold">Street Address</label>
-                <input type="text" class="form-control" name="streetAddress" id="inputAddress" value="">
+                <input required type="text" class="form-control" name="streetAddress" id="inputAddress" value="">
             </div>
             <div class="col-sm-4">
                 <label for="inputPhone" class="form-label font-weight-bold">Phone number</label>
-                <input type="text" class="form-control" name="phoneNumber" id="inputPhone" value="">
+                <input required type="text" class="form-control" name="phoneNumber" id="inputPhone" value="">
             </div>
             </div><br>
             <div class="row justify-content-center">
             <div class="col-sm-8">
-                <button type="submit" class="btn btn-primary" name="updateSubmit">Submit</button>
+                <button type="submit" class="btn btn-primary" name="updateSubmit">Add new employee</button>
                 <a href="../src/dashboard.php">
                 <button type="button" class="btn btn-secondary" name="return">Return</button>
                 </a>

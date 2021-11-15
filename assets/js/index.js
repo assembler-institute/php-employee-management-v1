@@ -7,12 +7,10 @@ $("#jsGrid").jsGrid({
   sorting: true,
   paging: true,
   autoload: true,
-
   pageSize: 15,
   pageButtonCount: 5,
-
   deleteConfirm: "Do you really want to delete the client?",
-
+  
   controller: {
     loadData: function (response) {
       return $.ajax({
@@ -23,15 +21,21 @@ $("#jsGrid").jsGrid({
       });
     },
 
-    insertItem: function(item){
+    insertItem: function (item) {
       return $.ajax({
         type: "POST",
-        url:"./library/employeeController.php",
+        url: "./library/employeeController.php",
         data: item,
-      })
+      });
     },
 
-    updateItem: $.noop,
+    updateItem: function (item) {
+      return $.ajax({
+        type: "PUT",
+        url: "./library/employeeController.php",
+        data: item,
+      });
+    },
 
     deleteItem: function (item) {
       return $.ajax({
@@ -108,6 +112,6 @@ $("#jsGrid").jsGrid({
       align: "center",
       validate: "required",
     },
-    { type: "control", editButton: false },
+    { type: "control", editButton: true},
   ],
 });

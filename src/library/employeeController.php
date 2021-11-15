@@ -1,7 +1,6 @@
 <?php
 require("./employeeManager.php");
 $method = $_SERVER['REQUEST_METHOD'];
-
 switch ($method) {
   case 'GET':
     $jsonEmployees = file_get_contents("../../resources/employees.json");
@@ -9,7 +8,18 @@ switch ($method) {
     break;
 
   case 'PUT':
-    // body
+    $employeeFix = [];
+    $array_employee = file_get_contents('php://input');
+    $array_employee = explode('&', $array_employee);
+    foreach ($array_employee as $index => $item) {
+      $fixDate = explode('=', urldecode($item));
+      if ($fixDate[0] == 'id') {
+        $employeeFix[$fixDate[0]] = intval($fixDate[1]);
+      } else {
+        $employeeFix[$fixDate[0]] = $fixDate[1];
+      }
+    }
+    $edit = updateEmployee($employeeFix);
     break;
 
   case "POST":
