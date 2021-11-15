@@ -59,5 +59,5 @@ if($start === true) {
 
 
 //if logout
-if($_GET["logout"]) destroySession();
+//if($_GET["logout"]) destroySession();
 

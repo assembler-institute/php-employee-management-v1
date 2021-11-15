@@ -68,6 +68,7 @@ function resetsTimer() {
 //need the counter from php or that to be an ajax for put
 //
 window.addEventListener("load", getInitialTime);
-/* window.addEventListener("keypress", resetsTimer);
+
+window.addEventListener("keypress", resetsTimer);
 window.addEventListener("mousemove", resetsTimer);
-window.addEventListener("click", resetsTimer); */
+window.addEventListener("click", resetsTimer);
