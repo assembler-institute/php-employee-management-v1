@@ -1,6 +1,5 @@
 <?php
 require_once './library/loginManager.php';
-// require_once './library/sessionHelper.php';
 
 checkSession();
 
