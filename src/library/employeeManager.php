@@ -18,8 +18,10 @@ function addEmployee(array $newEmployee)
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
+
+
     $jsonEmployee = file_get_contents('../../resources/employees.json'); //?get JSON content
     $jsonEmployee  = json_decode($jsonEmployee, true); //? decode the JSON into an associative array
 
@@ -69,8 +71,9 @@ function removeAvatar($id)
 
 function getQueryStringParameters() //array
 {
-    print_r($_REQUEST);
-    // TODO implement it
+    $url = "../src/library/employeeController.php";
+    $queryString = parse_url($url, PHP_URL_QUERY);
+    var_dump($queryString);
 }
 
 function getNextIdentifier($employeesCollection = "") //! input type string?

@@ -8,19 +8,17 @@ if (isset($_GET['id'])) {
     echo json_encode(getEmployee($id));
 } else if (isset($_POST['newEmployee'])) {
     setNewEmployee($_POST['newEmployee']);
-}
-if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+} else if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
 
     $updateEmployee = json_decode($_REQUEST["updateEmployee"]);
     setUpdateEmployee($updateEmployee);
     echo $updateEmployee;
-}
-if ($_SERVER['REQUEST_METHOD'] === "DELETE") {
-    echo $_REQUEST["Id"];
-    $employeeId = json_decode($_REQUEST["Id"]);
+} else if ($_SERVER['REQUEST_METHOD'] === "DELETE") {
+    getQueryStringParameters();
+    $employeeId = $_GET['delete'];
     deleteEmployee($employeeId);
 } else {
-    echo $response = false;
+    print_r($_REQUEST);
 }
 
 function setNewEmployee($newEmployee)
