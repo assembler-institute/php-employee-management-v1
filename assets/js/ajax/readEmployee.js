@@ -1,3 +1,8 @@
+/**
+ * send employee Id to employeeController.php to get selected employe data from employees.json
+ * @param  {object} employeeId  selected employee Id
+ */
+
 function ajaxGetEmployee(employeeId) {
   //? init. XMLHttpRequest
   let xhttp = new XMLHttpRequest();

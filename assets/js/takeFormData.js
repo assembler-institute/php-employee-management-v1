@@ -1,3 +1,7 @@
+/**
+ * take form inputs value
+ * @return {object} formData   indexed form imput values
+ */
 function takeFormData() {
   let formData = {
     id: document.getElementById("inputId").value,

@@ -1,3 +1,7 @@
+/**
+ * send new employe data to employeeController.php for update
+ * @param  {object} updateEmployee  updated employee data
+ */
 function ajaxUpdateEmployee(updateEmployee) {
   //? init. XMLHttpRequest
   var request = new XMLHttpRequest();
@@ -11,8 +15,13 @@ function ajaxUpdateEmployee(updateEmployee) {
   //? set request succes/error statements
   request.onreadystatechange = () => {
     if (request.readyState == 4 && request.status == "200") {
-      console.log(response);
-      console.log("succes");
+      Swal.fire({
+        icon: "success",
+        title: "Employee updated",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      location.reload();
     } else {
       console.log("error");
     }

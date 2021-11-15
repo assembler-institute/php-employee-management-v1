@@ -1,3 +1,8 @@
+/**
+ * fills form inputs
+ * @param  {object} employeeData selected employee data from employees.json
+ */
+
 function setFormData(employeeData) {
   document.getElementById("inputId").value = employeeData.id;
   document.getElementById("inputName").value = employeeData.name;

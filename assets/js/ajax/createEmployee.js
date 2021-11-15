@@ -1,3 +1,7 @@
+/**
+ * Send new employe data to employeController.php in JSON format
+ * @param  {object} newEmployee  employee data from employee form
+ */
 function ajaxCreateEmployee(newEmployee) {
   //? init. XMLHttpRequest
   var request = new XMLHttpRequest();

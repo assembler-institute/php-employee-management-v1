@@ -7,6 +7,13 @@ Keep in mind that the API request must be implemented in another specific file f
 Then the “imageGallery.php” must include and call to the functions of “avatarsAPI.php” file.-->
 
 <?php
+/**
+ * *Implement here the image gallery
+ *
+ * *This file will contain the code necessary to display the API images.
+ *
+ * Inset html code generated in php
+ */
 
 require_once "./library/avatarsApi.php";
 function imageGallery()

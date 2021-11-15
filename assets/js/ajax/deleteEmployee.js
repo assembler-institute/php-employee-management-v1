@@ -1,3 +1,8 @@
+/**
+ * Send employe id to employeController.php
+ * @param  {object} employeeId  selected employee Id
+ */
+
 function ajaxDeleteEmployee(employeeId) {
   //? init. XMLHttpRequest
   var request = new XMLHttpRequest();
