@@ -14,8 +14,6 @@
  * it must redirect us to the index and show an error
  */
 
- require_once ("sessionHelper.php");
-
 /**
  * Checks state of session
  * @return alert if session has ended || redirects in case its needed.
@@ -62,7 +60,6 @@ function authUser()
 
       // registers the initial time when the session was created
       $_SESSION['startTime'] = $_SERVER['REQUEST_TIME'];
-      initializeTimer();
 
       // keeps a record of the data email of the client and sends to dashboard
       $_SESSION["email"] = $email;
@@ -105,19 +102,29 @@ function checkUser(string $email, string $pass)
  */
 function destroySession()
 {
-
-
+  session_start();
   /**
    * Destroy session
    */
-  session_start();
-  session_unset();
+   $notMessage=false;
 
-  destroySessionCookie();
-  session_destroy();
+   if($_SESSION['expired']) {
+      $notMessage = true;
+    };
 
 
-  header("Location:../../index.php?logout=true");
+    session_unset();
+
+    destroySessionCookie();
+    session_destroy();
+
+    if($notMessage) {
+
+    header("Location:../../index.php?expired=true");
+
+    } else {
+
+    header("Location:../../index.php?logout=true");}
 
 
 }
@@ -161,8 +168,14 @@ function checkLoginError()
 function checkLoginDashboard($urlFile){
 
   if (!isset($_SESSION["email"])) {
-    $_SESSION["errorMessage"] = ["status" => "warning", "message" =>"You don't have permission to enter the dashboard. Please Login."];
-    $_SESSION['isRedirecting']= true ;
+
+    if(isset($_GET["expired"])){
+      $_SESSION["errorMessage"]=["status" => "warning", "message" => "Your session have ended"];
+    }
+    else{
+      $_SESSION["errorMessage"] = ["status" => "warning", "message" =>"You don't have permission to enter the dashboard. Please Login."];
+    }
+    $_SESSION['isRedirecting'] = true ;
     $_SESSION['prevPage'] = $urlFile;
     header("Location: ../index.php");
   }
@@ -184,10 +197,18 @@ function checkRedirection(){
 
 function checkLogout()
 {
-  if (isset($_GET["logout"]) && !isset($_SESSION["email"]))
+  if(!isset($_SESSION["email"])) {
 
-  return ["status" => "success", "message" => "You have logged out correctly"];
+    if (isset($_GET["logout"])  ){
+
+      return ["status" => "success", "message" => "You have logged out correctly"];
+
+    } elseif (isset($_GET["expired"])){
+
+      return ["status" => "success", "message" => "Your session have ended"];}
+  }
 }
+
 
 function getUserFromEmail($email){
 
