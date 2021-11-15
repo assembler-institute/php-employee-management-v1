@@ -7,8 +7,6 @@ const FOOTER = `
     </div>
     <!-- Copyright -->
 </footer>
-</body>
-</html>
 `;
 
 const insertFooter = () => {

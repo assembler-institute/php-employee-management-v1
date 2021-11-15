@@ -2,10 +2,11 @@ const NAV = `<nav><a class="nav-link" href="./library/loginController.php?logout
 
 const insertNav = () => {
 	//get BODY element right at the start
-	document.firstElementChild.lastElementChild.insertAdjacentHTML(
-		"afterend",
-		NAV
-	);
+
+	console.log(document.getElementById("mainContainer"));
+	document
+		.getElementById("mainContainer")
+		.insertAdjacentHTML("beforeBegin", NAV);
 };
 
 insertNav();
