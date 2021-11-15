@@ -20,6 +20,12 @@
 
 session_start();
 
+
+require_once("./library/sessionHelper.php");
+
+checkSession(); // We check if the user has active login
+checkSessionExpired(); // We check if the user session is still active
+
 require_once("../assets/html/header.html");
 
 ?>
@@ -121,14 +127,3 @@ require_once("../assets/html/header.html");
 require_once("../assets/html/footer.html");
 
 ?>
-
-<!-- <script>
-  let windowLocation = window.location.href
-  let windowLocationSplitted = windowLocation.split("/")
-  let toastTrigger = windowLocationSplitted[windowLocationSplitted.length-1]
-  let toastLiveExample = document.getElementById('liveToast')
-  if (toastTrigger === "employee.php?info=success") {
-      let toast = new bootstrap.Toast(toastLiveExample)
-      toast.show()
-  }
-</script> -->
