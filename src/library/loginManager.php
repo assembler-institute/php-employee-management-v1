@@ -85,7 +85,8 @@ function authUser()
 function checkUser(string $email, string $pass)
 
 {
-    //traer de JSON
+    //*TODO traer de JSON
+
     $emailDb = "admin@assemblerschool.com";
     $passDb = "123456";
 

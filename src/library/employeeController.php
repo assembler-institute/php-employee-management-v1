@@ -58,7 +58,6 @@ function setNewEmployee($newEmployee)
  */
 function setUpdateEmployee($updateEmployee)
 {
-
     $employee = array($updateEmployee);
     updateEmployee($employee);
     echo $response = true;
