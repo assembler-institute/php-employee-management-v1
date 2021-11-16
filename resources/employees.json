@@ -1,55 +1,16 @@
 [
     {
-        "name": "Susan",
-        "lastName": "Smith",
-        "email": "susanmith@baz.com",
-        "gender": "woman",
-        "age": "34",
-        "phoneNumber": "224355488976",
-        "city": "Louisville",
-        "streetAddress": "43",
-        "state": "KNT",
-        "zipCode": "",
-        "id": "5"
-    },
-    {
-        "id": 6,
-        "name": "Brad",
-        "lastName": "Simpson",
-        "email": "brad@foo.com",
-        "gender": "man",
-        "age": 40,
-        "streetAddress": "128",
-        "city": "Atlanta",
-        "state": "GEO",
-        "postalCode": "394221",
-        "phoneNumber": "6854634522"
-    },
-    {
-        "id": 7,
-        "name": "Neil",
-        "lastName": "Walker",
-        "email": "walkerneil@baz.com",
-        "gender": "man",
-        "age": 42,
-        "streetAddress": "1",
-        "city": "Nashville",
-        "state": "TN",
-        "postalCode": "90143",
-        "phoneNumber": "45372788192"
-    },
-    {
-        "id": 8,
         "name": "Robert",
         "lastName": "Thomson",
         "email": "jackon@network.com",
         "gender": "man",
-        "age": 24,
-        "streetAddress": "126",
+        "age": "24",
+        "phoneNumber": "91232876454",
         "city": "New Orleans",
+        "streetAddress": "126",
         "state": "LU",
         "postalCode": "63281",
-        "phoneNumber": "91232876454"
+        "id": "8"
     },
     {
         "name": "Haroon",
@@ -61,13 +22,17 @@
         "id": 9
     },
     {
-        "name": "Haroob",
+        "name": "Haroon Ahmed",
+        "lastName": "asd",
+        "email": "mulol@ml.com",
+        "gender": "Male",
         "age": "69",
-        "streetAddress": "Jijiji",
-        "city": "lololol",
-        "state": "Mimimi",
         "phoneNumber": "4454545",
-        "id": 10
+        "city": "Tarragona",
+        "streetAddress": "Carrer de Pere Martell, 43",
+        "state": "Tarragona",
+        "postalCode": "6666",
+        "id": "10"
     },
     {
         "name": "Chris",
@@ -83,12 +48,88 @@
         "id": "11"
     },
     {
-        "name": "Pepito",
-        "age": "22",
-        "streetAddress": "Franz kafka",
-        "city": "M\u00e1laga",
-        "state": "Miami",
-        "phoneNumber": "331233213",
-        "id": 12
+        "name": "Brimstone",
+        "age": 65,
+        "streetAddress": "Ascent",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 99669966,
+        "id": 14
+    },
+    {
+        "name": "Jett",
+        "lastName": "",
+        "email": "",
+        "gender": "Female",
+        "age": "24",
+        "phoneNumber": "88888888",
+        "city": "Valorant",
+        "streetAddress": "Split",
+        "state": "Riot",
+        "postalCode": "",
+        "id": "15"
+    },
+    {
+        "name": "Cypher",
+        "age": 35,
+        "streetAddress": "bind",
+        "city": "valorant",
+        "state": "Riot",
+        "phoneNumber": 88999988,
+        "id": 16
+    },
+    {
+        "name": "Viper",
+        "age": 28,
+        "streetAddress": "Split",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 789456,
+        "id": 17
+    },
+    {
+        "name": "Killjoy",
+        "age": 22,
+        "streetAddress": "Ice Box",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 6143478,
+        "id": 18
+    },
+    {
+        "name": "Reyna",
+        "age": 39,
+        "streetAddress": "Mexico",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 5555555,
+        "id": 19
+    },
+    {
+        "name": "Omen",
+        "age": 55,
+        "streetAddress": "Valorant",
+        "city": "Riot",
+        "state": "Universe",
+        "phoneNumber": 888888888,
+        "id": 20
+    },
+    {
+        "name": "Phoenix",
+        "age": 30,
+        "streetAddress": "IceBox",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 1235655,
+        "id": 21
+    },
+    {
+        "name": "Yoru",
+        "age": 19,
+        "streetAddress": "Fracture",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 55555555,
+        "id": 22
     }
 ]

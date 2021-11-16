@@ -1,18 +1,18 @@
-<?php 
-  require_once('./src/library/sessionHelper.php');
-  # LogOut user by inactivity
-  $logout = isset($_GET['logout']) ? true : false;
+<?php
+require_once('./src/library/sessionHelper.php');
+# LogOut user by inactivity
+$logout = isset($_GET['logout']) ? true : false;
 
-  if ($logout) {
+if ($logout) {
     destroySession();
-  } else {
+} else {
     # Redirect logged User
     $logged = verifyLogin();
     if ($logged) {
-      header('Location: ./src/dashboard.php');
-      exit();
+        header('Location: ./src/dashboard.php');
+        exit();
     }
-  }
+}
 
 
 
@@ -59,17 +59,34 @@
                 </button>
             </div>
             <!-- Show an alert if error -->
-            <?php 
-              if (isset($_GET['error'])) {
+            <?php
+            if (isset($_GET['error'])) {
                 $error = $_GET['error'];
-                
-                ?><div class="alert alert-danger" role="alert"><?php
-                echo "There is an error with your $error";
-                ?></div><?php
-              } 
-            ?>
+
+            ?><div class="alert alert-danger" role="alert"><?php
+                                                            echo "There is an error with your $error";
+                                                            ?></div><?php
+                                                                }
+                                                                    ?>
             </div>
         </form>
+
+
+        <?php
+
+        $logoutMessage = isset($_GET["logout"]) ? $_GET["logout"] : "";
+
+        if ($logoutMessage === "timeout") {
+            echo "<div class='alert alert-danger bottom-right' role='alert'>
+                          <strong>  Session Timed out, Please Log in Again! </strong>
+                       </div>";
+        } elseif ($logoutMessage === "user") {
+            echo "<div class='alert alert-success bottom-right' role='alert'>
+                         <strong>   Logged out. Hope to see you again Soon! </strong>
+                       </div>";
+        }
+
+        ?>
 
     </main>
 

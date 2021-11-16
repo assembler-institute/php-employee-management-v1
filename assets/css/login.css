@@ -4,3 +4,11 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}

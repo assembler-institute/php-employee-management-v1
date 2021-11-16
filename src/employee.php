@@ -5,8 +5,8 @@ require_once('./library/sessionHelper.php');
 
 $logged = verifyLogin();
 if (!$logged) {
-  header('Location: ../index.php');
-  exit();
+    header('Location: ../index.php');
+    exit();
 }
 
 
@@ -18,6 +18,8 @@ if ($id === null) header("Location: ./dashboard.php");
 require_once("./library/employeeManager.php");
 
 $employee = getEmployee($_GET["employeeId"]);
+
+if ($employee === "Employee not found") header('Location: ./dashboard.php?notfound');
 
 $name = isset($employee["name"]) ? $employee["name"] : "";
 $lastName = isset($employee["lastName"]) ? $employee["lastName"] : "";
@@ -35,7 +37,7 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
 
 <!-- TODO Employee view -->
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -98,15 +100,15 @@ $phoneNumber = isset($employee["phoneNumber"]) ? $employee["phoneNumber"] : "";
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Zip Code</label>
-                    <input type="text" class="form-control" id="inputZip" name="zipCode" value="<?php echo $postalCode ?>">
+                    <input type="text" class="form-control" id="inputZip" name="postalCode" value="<?php echo $postalCode ?>">
                 </div>
             </div>
 
 
 
             <input type="submit" class="btn btn-primary" value="Submit" id="submitButton"></input>
-            <input type="hidden" name="id" value="<?php echo $id ?>" ></input>
-            <button type="button" class="btn btn-secondary"><a href="dashboard.php" class=" btn-secondary"> Return </a></button>
+            <input type="hidden" name="id" value="<?php echo $id ?>"></input>
+            <button type="button" class="btn btn-secondary"><a href="dashboard.php" class="text-decoration-none btn-secondary">Return </a></button>
 
         </form>
     </main>

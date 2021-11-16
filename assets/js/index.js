@@ -26,6 +26,19 @@ function processEditEmployee(e) {
   makeRequest(item, "update");
 }
 
+function addEmployeeAlert(param) {
+  let alertHtml = `<div class='alert alert-success alert-dismissible fade show bottom-right' role='alert'>
+                  <strong> Employee Added Successfully!</strong>
+                  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                  </button>
+          </div>`;
+
+  document.querySelector("body").insertAdjacentHTML("beforeend", alertHtml);
+
+  console.log(param);
+}
+
 // Create & Delete for AJAX
 function insertNewEntry({ item }) {
   makeRequest(item, "create");
@@ -49,13 +62,13 @@ function makeRequest(item, action) {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json())
-  .then(msg => {
-    if (action === 'update') window.location.href = `dashboard.php`;
   })
     .then((res) => res.json())
     .then((msg) => {
-      if (action === "update") window.location.replace(`dashboard.php`);
+      if (action === "update") {
+        window.location.href = `dashboard.php?updated=success`;
+        return msg;
+      }
     });
 }
 
@@ -68,12 +81,12 @@ function setupJsGrid(data) {
     editing: true,
     sorting: true,
     paging: true,
-    
 
     onItemInserted: insertNewEntry,
     onItemDeleted: deleteEntry,
     rowClick: editEntry,
     onItemEditing: editEntry,
+    finishInsert: addEmployeeAlert,
 
     deleteConfirm: "Do you really want to delete the employee?",
 
@@ -84,37 +97,43 @@ function setupJsGrid(data) {
         name: "name",
         type: "text",
         validate: "required",
+        title: "Name",
       },
       {
         name: "age",
-        type: "text",
+        type: "number",
         validate: "required",
+        title: "Age",
       },
       {
         name: "streetAddress",
         type: "text",
         validate: "required",
+        title: "Street Address",
       },
       {
         name: "city",
         type: "text",
         validate: "required",
         textField: "Name",
+        title: "City",
       },
       {
         name: "state",
         type: "text",
         validate: "required",
         textField: "Name",
+        title: "State",
       },
       {
         name: "phoneNumber",
-        type: "text",
+        type: "number",
         validate: "required",
-        title: "Phone number"
+        title: "Phone number",
       },
       {
-        type: "control", editButton: false,
+        type: "control",
+        editButton: false,
       },
     ],
   });
@@ -131,16 +150,16 @@ function activityWatcher() {
 
   //Setup the setInterval method to run
   //every second. 1000 milliseconds = 1 second.
-  setInterval(function(){
-      secondsSinceLastActivity++;
-      //console.log(secondsSinceLastActivity + ' seconds since the user was last active');
-      //if the user has been inactive or idle for longer
-      //then the seconds specified in maxInactivity
-      if(secondsSinceLastActivity > maxInactivity){
-          //console.log('User has been inactive for more than ' + maxInactivity + ' seconds');
-          //Redirect them to your logout.php page.
-          window.location.href = `../index.php?logout=timeout`;
-      }
+  setInterval(function () {
+    secondsSinceLastActivity++;
+    //console.log(secondsSinceLastActivity + ' seconds since the user was last active');
+    //if the user has been inactive or idle for longer
+    //then the seconds specified in maxInactivity
+    if (secondsSinceLastActivity > maxInactivity) {
+      //console.log('User has been inactive for more than ' + maxInactivity + ' seconds');
+      //Redirect them to your logout.php page.
+      window.location.href = `../index.php?logout=timeout`;
+    }
   }, 1000);
 
   //The function that will be called whenever a user is active
