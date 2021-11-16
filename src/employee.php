@@ -14,12 +14,12 @@
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
   <script type="module" src="../assets/js/index.js" defer></script>
+  <script type="module" src="../assets/js/gallery.js" defer></script>
 </head>
 
 <?php
 
 session_start();
-
 
 require_once("./library/sessionHelper.php");
 
@@ -30,7 +30,6 @@ require_once("../assets/html/header.html");
 
 ?>
 
-<!-- FIXME: OJO, SI LLEGAN DATOS TENDRÍA QUE SER PUT? -->
 <div class="d-flex flex-column justify-content-center align-items-center">
 
   <?php
@@ -60,13 +59,35 @@ require_once("../assets/html/header.html");
         $currentEmployee = $user;
       }
     }
+
+    if (isset($currentEmployee['avatar-field'])) {
+      $seed = $currentEmployee['avatar-field'];
+      echo "
+      <figure>
+        <img class='user-avatar' src='https://avatars.dicebear.com/api/bottts/$seed.svg' alt='User avatar'/>
+        <figcaption class='text-center'>Current avatar</figcaption>
+      </figure>";
+    }
   }
 
   ?>
 
+  <div id="avatarCarousel" class="h-25">
+    <p class="text-center">If you want to change your avatar, select one of the following and press Edit</p>
+    <div id="avatarContainer" class="d-flex justify-content-center align-items-center">
+      <img id="avatarOption1" alt="Avatar option 1" class='avatar-option' data-avatar>
+      <img id="avatarOption2" alt="Avatar option 2" class='avatar-option' data-avatar>
+      <img id="avatarOption3" alt="Avatar option 3" class='avatar-option' data-avatar>
+      <img id="avatarOption4" alt="Avatar option 4" class='avatar-option' data-avatar>
+      <img id="avatarOption5" alt="Avatar option 5" class='avatar-option' data-avatar>
+    </div>
+    <button id="refresh-button" class="btn btn-primary refresh-button">Refresh avatars</button>
+  </div>
+
   <form method="POST" action="./library/employeeController.php" class="employee-form">
 
     <input type="hidden" name="id" id="id" class="d-none" value=<?= isset($_GET['employee']) ? $currentEmployee["id"] : $nextId ?>>
+    <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
 
     <label for="name">Name
       <input type="text" name="name" id="name" required value=<?= isset($_GET['employee']) ? $currentEmployee["name"] : "" ?>>

@@ -143,7 +143,7 @@ $("#jsGrid").jsGrid({
   ],
   rowClick: function (args) {
     location.href =
-      "http://localhost/Employee_Management.01/php-employee-management-v1/src/employee.php?employee=" +
+      "./employee.php?employee=" +
       args.item.id;
   },
   onItemUpdated: function () {

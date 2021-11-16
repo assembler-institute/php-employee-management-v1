@@ -22,6 +22,20 @@
 
 /* EMPLOYEE */
 
+.user-avatar {
+  width: 15rem;
+}
+
+.avatar-option {
+  width: 8rem;
+  cursor: pointer;
+}
+
+.refresh-button {
+  margin-left: 40%;
+  margin-bottom: 2rem;
+}
+
 .employee-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
