@@ -79,6 +79,7 @@
     },
     {
         "id": 9,
+        "avatar-field": "",
         "name": "Britney",
         "lastName": "asdfasdf",
         "email": "brit@espiars.com",
@@ -96,7 +97,7 @@
         "lastName": "Pantoja",
         "email": "asdf@asdf.com",
         "gender": "Man",
-        "city": "Marbella",
+        "city": "Marbella city house",
         "streetAddress": 234,
         "state": "asdf",
         "age": 234,
@@ -113,17 +114,6 @@
         "city": "Alhaurin de la Torre",
         "streetAddress": 1,
         "id": 11
-    },
-    {
-        "name": "Eric",
-        "email": "eric@badass.org",
-        "age": 99,
-        "postalCode": 899,
-        "phoneNumber": 7676969689,
-        "state": "NY",
-        "city": "NY",
-        "streetAddress": 0,
-        "id": 12
     },
     {
         "id": 13,
@@ -152,19 +142,5 @@
         "age": 123,
         "postalCode": 123,
         "phoneNumber": 132
-    },
-    {
-        "id": 15,
-        "avatar-field": "36Mqq",
-        "name": "asdf",
-        "lastName": "asdf",
-        "email": "asdf@asdf.com",
-        "gender": "Man",
-        "city": "asdf",
-        "streetAddress": 123,
-        "state": "asdf",
-        "age": 13,
-        "postalCode": 321,
-        "phoneNumber": 321
     }
 ]

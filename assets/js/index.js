@@ -148,11 +148,11 @@ $("#jsGrid").jsGrid({
   },
   onItemUpdated: function () {
     location.href =
-      "http://localhost/Employee_Management.01/php-employee-management-v1/src/dashboard.php?action=updated";
+      "./dashboard.php?action=updated";
   },
   onItemDeleted: function () {
     location.href =
-      "http://localhost/Employee_Management.01/php-employee-management-v1/src/dashboard.php?action=deleted";
+      "./dashboard.php?action=deleted";
   },
 });
 
