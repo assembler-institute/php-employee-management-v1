@@ -26,22 +26,22 @@ if (isset($_GET['employeeId'])) {
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="firstName" name="data[name]" placeholder="Input Name" value="<?= isset($employeeName) ? $employeeName : "" ?>" />
+                <input type="text" class="form-control" id="firstName" name="data[name]" placeholder="Input Name" value="<?= isset($employeeName) ? $employeeName : "" ?>" required />
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="data[lastName]" placeholder="Input Last Name" value="<?= isset($lastName) ? $lastName : "" ?>" />
+                <input type="text" class="form-control" id="lastName" name="data[lastName]" placeholder="Input Last Name" value="<?= isset($lastName) ? $lastName : "" ?>" required />
             </div>
         </div>
         <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" class="form-control" id="email" name="data[email]" placeholder="Input Email" value="<?= isset($email) ? $email : "" ?>" />
+            <input type="email" class="form-control" id="email" name="data[email]" placeholder="Input Email" value="<?= isset($email) ? $email : "" ?>" required />
         </div>
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <select class="form-control" id="gender" name="data[gender]" value="<?= isset($gender) ? $gender : "" ?>">
-                <option value="choose">Choose...</option>
+            <select class="form-control" id="gender" name="data[gender]" value="<?= isset($gender) ? $gender : "" ?>" required>
+                <option value="">Choose...</option>
                 <option value="man">Male</option>
                 <option value="woman">Female</option>
                 <option value="other">Other</option>
@@ -50,34 +50,34 @@ if (isset($_GET['employeeId'])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" name="data[city]" placeholder="Input City" value="<?= isset($city) ? $city : "" ?>" />
+                    <input type="text" class="form-control" id="city" name="data[city]" placeholder="Input City" value="<?= isset($city) ? $city : "" ?>" required />
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="street">Street Address</label>
-                    <input type="text" class="form-control" id="street" name="data[streetAddress]" placeholder="Input City" value="<?= isset($streetAddress) ? $streetAddress : "" ?>" />
+                    <input type="text" class="form-control" id="street" name="data[streetAddress]" placeholder="Input City" value="<?= isset($streetAddress) ? $streetAddress : "" ?>" required />
                 </div>
 
                 <div class="form-group col-md-2">
                     <label for="state">State</label>
-                    <input type="text" class="form-control" id="state" name="data[state]" placeholder="Input State" value="<?= isset($state) ? $state : "" ?>" />
+                    <input type="text" class="form-control" id="state" name="data[state]" placeholder="Input State" value="<?= isset($state) ? $state : "" ?>" required />
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="age">Age</label>
-                    <input type="text" class="form-control" name="data[age]" id="age" placeholder="Input your age" value="<?= isset($age) ? $age : "" ?>" />
+                    <input type="text" class="form-control" name="data[age]" id="age" placeholder="Input your age" value="<?= isset($age) ? $age : "" ?>" required />
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="zipCode">Postal Code</label>
-                    <input type="text" class="form-control" name="data[postalCode]" id="zipCode" placeholder="Input Zipcode" value="<?= isset($postalCode) ? $postalCode : "" ?>" />
+                    <input type="text" class="form-control" name="data[postalCode]" id="zipCode" placeholder="Input Zipcode" value="<?= isset($postalCode) ? $postalCode : "" ?>" required />
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="inputZip">Phone Number</label>
-                    <input type="text" class="form-control" name="data[phoneNumber]" id="phone" placeholder="Input Phone Number" value="<?= isset($phoneNumber) ? $phoneNumber : "" ?>" />
+                    <input type="text" class="form-control" name="data[phoneNumber]" id="phone" placeholder="Input Phone Number" value="<?= isset($phoneNumber) ? $phoneNumber : "" ?>" required />
                 </div>
             </div>
         </div>

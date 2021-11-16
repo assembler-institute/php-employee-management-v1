@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#">
-                    <img src="../img/gatito3.svg" width="30" height="30" class="d-inline-block align-top" alt="" />To do Logo
+                    <img src="assets/img/assembler_logo.jfif" width="30" height="30" class="d-inline-block align-top" alt="" />To do Logo
                 </a>
             </nav>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

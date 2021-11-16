@@ -27,8 +27,8 @@ $.getJSON(dataPath).done(function (employeesData) {
                     type: "POST",
                     url: controllerEmpl,
                     data: JSON.stringify({ 'data': item }),
-                    success: function (data) {
-                        console.log(data);
+                    success: function () {
+                        document.location.reload(true);
                     }
                 })
             },
@@ -37,8 +37,8 @@ $.getJSON(dataPath).done(function (employeesData) {
                 type: "DELETE",
                 url: "./library/employeeController.php",
                 data: item,
-                success: function (data) {
-                    console.log(data);
+                success: function () {
+                    document.location.reload(true);
                 }
             }),
 
@@ -46,8 +46,9 @@ $.getJSON(dataPath).done(function (employeesData) {
                 type: "PATCH",
                 url: controllerEmpl,
                 data: JSON.stringify({ 'data': item }),
-                success: function (data) {
-                    console.log(data);
+                success: function () {
+                    document.location.reload(true);
+
                 }
             }),
 
