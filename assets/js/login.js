@@ -17,7 +17,9 @@ $("#formlogin").submit(function (e) {
       case "User not found":
         $("#login-error").html("User not found");
         break;
-
+      case "hola":
+        $("#login-error").html("hola");
+        break;
       default:
         $("#login-error").html("Please, Login");
         break;

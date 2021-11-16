@@ -1,10 +1,17 @@
 <?php
+
+require_once './library/loginController.php';
+
 session_start();
 if (!isset($_SESSION["username"])) {
   header("Location: ../index.php");
 }
 /* echo $_SESSION["username"]; */
 include_once '../assets/html/header.html';
+
+if(time() > $_SESSION['timeout'] + 10 ){
+  destroySession();
+}
 ?>
 <script>
   if (document.querySelector('#back')) {

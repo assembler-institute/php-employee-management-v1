@@ -14,7 +14,8 @@
     "bootstrap-icons": "^1.0.0-alpha4",
     "jquery": "^3.6.0",
     "jsgrid": "^1.5.3",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "toastify-js": "^1.11.2"
   },
   "repository": {
     "type": "git",

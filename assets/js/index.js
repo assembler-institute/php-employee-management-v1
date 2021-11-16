@@ -28,6 +28,48 @@ $("#employees").jsGrid({
 
     window.location = "../src/employee.php?id=" + id;
   },
+  onItemDeleted: () => {
+    Toastify({
+      text: "Deleted Succesful!",
+      close: true,
+      style: {
+        background: "#1E5128",
+        color: "white"
+      },
+      offset: {
+        x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
+  },
+  onItemInserted: () => {
+    Toastify({
+      text: "Insert Succesful!",
+      close: true,
+      style: {
+        background: "#1E5128",
+        color: "white"
+      },
+      offset: {
+        x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
+  },
+   onItemUpdated: () => {
+    Toastify({
+      text: "Updated Succesful!",
+      close: true,
+      style: {
+        background: "#1E5128",
+        color: "white"
+      },
+      offset: {
+        x: 50, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        y: 10, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+      },
+    }).showToast();
+  }, 
 
   controller: {
     loadData: function () {
@@ -56,13 +98,14 @@ $("#employees").jsGrid({
         data: item,
         success: function (data) {
           d.resolve(data);
-          // item["id"] = data;
         },
         error: function (xhr, exception) {
           alert("Error: " + xhr + " " + exception);
         },
       });
+
       $("#employees").jsGrid("render");
+
       return d.promise();
     },
 
@@ -79,6 +122,7 @@ $("#employees").jsGrid({
           alert("Error: " + xhr + " " + exception);
         },
       });
+
       return d.promise();
     },
     updateItem: function (item) {
@@ -88,13 +132,12 @@ $("#employees").jsGrid({
         url: "../src/library/employeeController.php",
         data: item,
         success: function (data) {
-          console.log(data);
           d.resolve(data);
         },
         error: function (xhr, exception) {
           alert("Error: " + xhr + " " + exception);
         },
-      });
+      });    
       return d.promise();
     },
   },
@@ -116,8 +159,7 @@ $("#employees").jsGrid({
       validate: {
         validator: "pattern",
         message: "Invalid Email",
-        param:
-          "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$",
+        param: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$",
       },
     },
     {
@@ -128,11 +170,7 @@ $("#employees").jsGrid({
       validate: {
         validator: "range",
         message: function (value, item) {
-          return (
-            'The client age should be between 18 and 99. Entered age is "' +
-            value +
-            '" is out of specified range.'
-          );
+          return 'The client age should be between 18 and 99. Entered age is "' + value + '" is out of specified range.';
         },
         param: [18, 99],
       },

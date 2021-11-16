@@ -25,6 +25,9 @@ function addEmployee(array $newEmployee)
     file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
 
     if (isset($_POST['lastName'])) {
+
+        session_start();
+        $_SESSION['notification'] = "Inserted Succesful!";
         header('Location: ../dashboard.php');
     } else {
         return $newEmployee['id'];
@@ -35,7 +38,6 @@ function deleteEmployee(string $id)
 {
     $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
     // var_dump($employeesCollection);
-
 
     for ($i = 0; $i < count($employeesCollection); $i++) {
         if ($employeesCollection[$i]['id'] == $id) {
