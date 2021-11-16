@@ -6,13 +6,7 @@
          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
          <title>Employee Management</title>
          <link rel="stylesheet" href="../assets/css/main.css" />
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-         <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-            crossorigin="anonymous"
-         />
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
          <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
          <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
          <link
@@ -25,19 +19,20 @@
          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
       </head>
+
+
       <body>
          <main id="mainContainer">
             <div id="jsGrid"></div>
          </main>
       </body>
-   </html>
 
- <body>
-    <main id="mainContainer">
-       <div id="jsGrid"></div>
-    </main>
- </body>
+ <?php
+    session_start();
+    require_once ("./library/loginManager.php");
+    checkSession();
 
+    ?>
 
 
    <script src="../assets/js/templates/navTemplate.js"></script>
