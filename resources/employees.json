@@ -91,19 +91,6 @@
         "lastName": ""
     },
     {
-        "id": 9,
-        "name": "dasfasdf",
-        "lastName": "dfsaf",
-        "email": "badyalberto@gmail.com",
-        "gender": "male",
-        "city": "Matar\u00f3",
-        "streetAddress": "43",
-        "state": "Barcelona",
-        "age": 33,
-        "postalCode": "08303",
-        "phoneNumber": "618583641"
-    },
-    {
         "id": 10,
         "name": "Alberto Chica Santillana",
         "lastName": "saDAS",

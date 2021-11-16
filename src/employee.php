@@ -7,11 +7,13 @@ if (!isset($_SESSION["username"])) {
   header("Location: ../index.php");
 }
 /* echo $_SESSION["username"]; */
-include_once '../assets/html/header.html';
+
 
 if(time() > $_SESSION['timeout'] + 600 ){
   destroySession();
 }
+
+include_once '../assets/html/header.html';
 ?>
 <script>
   if (document.querySelector('#back')) {
