@@ -65,7 +65,7 @@ function updateEmployee(array $updateEmployee)
 // $id = $_GET['employeeId'];
 function getEmployee(string $id)
 {
-    $json_data = file_get_contents('../../resources/employees.json');
+    $json_data = json_decode(file_get_contents('../../resources/employees.json'), true);
     echo "<pre>";
     var_dump($json_data);
     echo "</pre>";

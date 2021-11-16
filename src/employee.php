@@ -5,7 +5,7 @@ require_once("../src/library/employeeManager.php");
 require_once("../assets/html/header.html");
 session_start();
 var_dump($_GET['employeeId']);
-// if (($_GET['employeeId'])) {}
+
 if (isset($_GET['employeeId'])) {
     getEmployee($_GET['employeeId']);
 };
