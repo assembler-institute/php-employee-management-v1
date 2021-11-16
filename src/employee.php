@@ -91,8 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             <label for="gender" class="form-label">Gender</label>
             <select id="gender" class="form-select" name="gender">
                 <option selected>Choose...</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="male" <?php if(isset($employeeData['gender']) && $employeeData['gender'] == 'male') echo 'selected'; ?>>Male</option>
+                <option value="female" <?php if(isset($employeeData['gender']) && $employeeData['gender'] == 'female') echo 'selected'; ?>>Female</option>
             </select>
         </div>
 

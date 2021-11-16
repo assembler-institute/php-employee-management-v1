@@ -35,10 +35,8 @@ function addEmployee()
         "phoneNumber" => isset($_POST["phone"]) ? $_POST["phone"] : "",
     ];
 
-    // Convert employees data to Json
+    // Convert employees data to Json and save data to "resources/employees.json"
     $jsonData = json_encode($employeesData, JSON_PRETTY_PRINT);
-
-    // Save employees data to "resources/employees.json"
     file_put_contents($employeesJsonFile, $jsonData);
 
     $_SESSION["message"] = "AddNewEmployee";
@@ -139,3 +137,4 @@ function checkFileExists($path) {
     }
     return $employeesData;
 }
+
