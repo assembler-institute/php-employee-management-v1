@@ -9,7 +9,7 @@ if (!isset($_SESSION["username"])) {
 /* echo $_SESSION["username"]; */
 
 
-if(time() > $_SESSION['timeout'] + 600 ){
+if (time() > $_SESSION['timeout'] + 600) {
   destroySession();
 }
 
@@ -48,7 +48,7 @@ include_once '../assets/html/header.html';
           <div class="set">
             <div class="pets-name">
               <label for="name">Name</label>
-              <input id="name" name="name" placeholder="Name" type="text"></input>
+              <input id="name" name="name" placeholder="Name" type="text" required></input>
             </div>
             <div class="pets-breed">
               <label for="lastname">Last name</label>
@@ -64,7 +64,7 @@ include_once '../assets/html/header.html';
           <div class="set">
             <div class="pets-breed">
               <label for="email">Email</label>
-              <input id="email" name="email" placeholder="Email" type="email"></input>
+              <input id="email" name="email" placeholder="Email" type="email" required></input>
             </div>
             <div class="pets-gender">
               <label for="gender-female">Gender</label>
@@ -80,32 +80,32 @@ include_once '../assets/html/header.html';
           <div class="set">
             <div class="pets-breed">
               <label for="city">City</label>
-              <input id="city" name="city" placeholder="City" type="text"></input>
+              <input id="city" name="city" placeholder="City" type="text" required></input>
             </div>
             <div class="pets-birthday">
               <label for="street">Street Address</label>
-              <input id="street" name="streetAddress" placeholder="Street Address" type="number"></input>
+              <input id="street" name="streetAddress" placeholder="Street Address" type="number" required></input>
             </div>
           </div>
 
           <div class="set">
             <div class="pets-breed">
               <label for="state">State</label>
-              <input id="state" name="state" placeholder="CA" type="text"></input>
+              <input id="state" name="state" placeholder="CA" type="text" required></input>
             </div>
             <div class="pets-birthday">
               <label for="age">Age</label>
-              <input id="age" name="age" placeholder="24" type="number"></input>
+              <input id="age" name="age" placeholder="24" type="number" required></input>
             </div>
           </div>
           <div class="set">
             <div class="pets-breed">
               <label for="cp">Postal Code</label>
-              <input id="cp" name="postalCode" placeholder="03652" type="number"></input>
+              <input id="cp" name="postalCode" placeholder="03652" type="number" required></input>
             </div>
             <div class="pets-birthday">
               <label for="phone">Phone number</label>
-              <input id="phone" name="phoneNumber" placeholder="632589674" type="number"></input>
+              <input id="phone" name="phoneNumber" placeholder="632589674" type="number" required></input>
             </div>
           </div>
         </header>
