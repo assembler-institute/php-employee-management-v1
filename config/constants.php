@@ -7,3 +7,4 @@ define("ASSETS", ROOT . "/assets");
 define("RESOURCES", ROOT . "/resources");
 define("SRC", ROOT . "/src");
 define("LIBRARY", SRC . "/library");
+define("LIFETIME", 600);

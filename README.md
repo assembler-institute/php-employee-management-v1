@@ -1,22 +1,31 @@
-`#html` `#css` `#php` `#bootstrap` `#javascript` `#jquery` `#jsgrid` 
-
+`#html` `#css` `#php` `#bootstrap` `#javascript` `#jquery` `#jsgrid`
 
 # Employee Management
 
-This project is based on a employee manager, which allows users to perform CRUD
-operations over a database of employees, saved in a json file. 
-The application makes use of user sessions, encrypted passwords and the use 
-of external web servers to get employees avatars.
+This project is based on a employee manager, which allows users to perform CRUD operations over a database of employees, saved in a json file. The application makes use of user sessions, encrypted passwords and the use of external web servers to get employees avatars.
+
 ## Installation
 
 Clone the repository.
- ```http
-  git clone https://github.com/sanadriu/php-employee-management-v1.git
+
+```http
+ git clone https://github.com/sanadriu/php-employee-management-v1.git
 ```
+
 Install dependencies.
- ```http
-  npm install
+
+```http
+ npm install
 ```
+
+Do not use XAMPP. Run the next command to serve the PHP application
+
+```http
+  php -S localhost:3000
+```
+
+In order to use fetch avatars, you will have to uncomment **extension=curl** in **php.ini** file. Otherwise, PHP will fail.
+
 ## Technologies used
 
 - HTML
@@ -27,8 +36,8 @@ Install dependencies.
 - jsGrid
 - Bootstrap
 
-  
 # Project goal
+
 - Improve knowledge of session variables in PHP.
 
 - Learn to create a login page.
@@ -44,6 +53,7 @@ Install dependencies.
 - Improve knowledge of AJAX.
 
 - Learn to work with a predefined structure.
+
 ## API Reference
 
 #### Get all items
@@ -57,5 +67,6 @@ Install dependencies.
 | `api_key` | `string` | **Required**. Your API key |
 
 ## 🔗 Authors
+
 - [@Adrián](https://github.com/sanadriu)
 - [@Antonio](https://github.com/AntonioCopete)

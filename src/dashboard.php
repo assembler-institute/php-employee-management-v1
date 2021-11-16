@@ -10,6 +10,7 @@ if (!getSessionValue("user")) {
 	header("Location: " . BASE_URL);
 	exit();
 }
+
 ?>
 
 <!DOCTYPE html>

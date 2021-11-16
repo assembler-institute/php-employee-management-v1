@@ -1,6 +1,12 @@
 <?php
 
-require_once("../config/api.php");
+// Create api.php file and declare the AVATARS_API constant
+define("AVATARS_API", "api-key");
+
+// require_once("../config/api.php");
+
+// Uncomment the "extension=curl" in php.ini
+// This is required to use curl functions.
 
 function getAvatars()
 {
@@ -14,9 +20,9 @@ function getAvatars()
 	$response = curl_exec($curlHandler);
 	curl_close($curlHandler);
 
-	if ($response === false && session_status() === PHP_SESSION_ACTIVE) {
-		setSessionValue("danger", 'Curl error: ' . curl_error($curlHandler));
-		exit();
+	if ($response === false) {
+		if (session_status() === PHP_SESSION_ACTIVE) setSessionValue("danger", 'Curl error: ' . curl_error($curlHandler));
+		return null;
 	}
 
 	return json_decode($response, true);

@@ -14,7 +14,7 @@ function login()
 
 	setSessionValue("user", ["userId" => $userId, "username" => $username]);
 	setSessionValue("success", ["Logged in successfully."]);
-	setSessionValue("expiration", time() + 100);
+	setSessionValue("expiration", time() + LIFETIME);
 }
 
 function logout()

@@ -15,7 +15,7 @@ function checkSession()
 			popSessionValue("user");
 			setSessionValue("info", ["Session has expired."]);
 		} else {
-			setSessionValue("expiration", time() + 20);
+			setSessionValue("expiration", time() + LIFETIME);
 		}
 	}
 }
