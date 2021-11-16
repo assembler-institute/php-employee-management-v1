@@ -38,17 +38,10 @@
     </main>
  </body>
 
-    ?>
+
 
    <script src="../assets/js/templates/navTemplate.js"></script>
    <script src="../assets/js/ajax/sessionTimeout.js" ></script>
    <script src="../assets/js/templates/gridJS.js"></script>
    <script src="../assets/js/templates/footerTemplate.js"></script>
 
-
-   ?>
-
- <script src="../assets/js/templates/navTemplate.js"></script>
- <script src="../assets/js/ajax/sessionTimeout.js"></script>
- <script src="../assets/js/templates/gridJS.js"></script>
- <script src="../assets/js/templates/footerTemplate.js"></script>
