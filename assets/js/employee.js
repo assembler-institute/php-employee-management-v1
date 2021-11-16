@@ -1,4 +1,4 @@
-import { displayNotification } from "./utils.js";
+import { displayNotification } from "./notification.js";
 
 (function setSubmitEvent() {
   const form = document.querySelector("#employee-form");
