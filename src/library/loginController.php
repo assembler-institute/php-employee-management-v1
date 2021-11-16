@@ -15,3 +15,7 @@ function authUserCall() {
 }
 
 authUserCall();
+
+require_once("./sessionHelper.php");
+
+if(isset($_GET['status']) && $_GET['status'] === "logout") logOut("logOutBtn");

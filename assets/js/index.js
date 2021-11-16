@@ -35,10 +35,11 @@ $("#jsGrid").jsGrid({
       });
     },
     insertItem: async function (item) {
-      var d = $.Deferred();
-      console.log(item);
+      let d = $.Deferred();
       let res = await getJSONData();
-      item["id"] = res.length + 1;
+      let newID = res[res.length - 1].id + 1;
+      console.log(newID);
+      item["id"] = newID;
       return $.ajax({
         type: "POST",
         url: "../src/library/employeeController.php",
@@ -73,8 +74,9 @@ $("#jsGrid").jsGrid({
   fields: [
     {
       name: "id",
-      title: "id",
+      title: "ID",
       type: "hidden",
+      css: "hide",
     },
     {
       name: "name",
@@ -86,6 +88,7 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
+<<<<<<< HEAD
       name: "lastName",
       title: "Last name",
       type: "text",
@@ -95,6 +98,8 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
+=======
+>>>>>>> master
       name: "email",
       title: "Email",
       type: "text",
@@ -141,6 +146,7 @@ $("#jsGrid").jsGrid({
       width: 50,
     },
     {
+<<<<<<< HEAD
       name: "gender",
       title: "Gender",
       type: "select",
@@ -157,6 +163,8 @@ $("#jsGrid").jsGrid({
       width: 40,
     },
     {
+=======
+>>>>>>> master
       name: "city",
       title: "City",
       type: "text",
@@ -184,4 +192,26 @@ $("#jsGrid").jsGrid({
       cancelEditButtonTooltip: "Cancel edit",
     },
   ],
+  rowClick: function (args) {
+    location.href =
+      "./employee.php?employee=" +
+      args.item.id;
+  },
+  onItemUpdated: function () {
+    location.href =
+      "./dashboard.php?action=updated";
+  },
+  onItemDeleted: function () {
+    location.href =
+      "./dashboard.php?action=deleted";
+  },
 });
+
+$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
+
+let toast = document.getElementById("toast");
+if (toast) {
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}

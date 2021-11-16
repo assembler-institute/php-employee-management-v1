@@ -21,6 +21,8 @@ function authUser($userData) {
       header("Location: ../../index.php?error=password");
   } elseif ($result) {
       $_SESSION["username"] = $currentUser['name'];
+      $_SESSION["duration"] = 600; // Time in seconds to session timeout; 600 = 10 minutes
+      $_SESSION["initTime"] = time();
       header("Location: ../dashboard.php");
   } elseif (!$result) {
       header("Location: ../../index.php?error=unregistered");

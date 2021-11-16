@@ -12,8 +12,19 @@ function addEmployee(array $newEmployee)
     $jsonData = file_get_contents('../../resources/employees.json');
     $usersData = json_decode($jsonData, true);
 
-    $newEmployeeWithId = strToNumber($newEmployee);
-    $usersData[] = $newEmployeeWithId;
+    $newEmployeeWithNumbers = strToNumber($newEmployee);
+
+    $foundEmployee = false;
+    foreach ($usersData as $user) {
+        if ($user["id"] == $newEmployeeWithNumbers["id"]) {
+            $foundEmployee = true;
+            array_splice($usersData, array_search($user, $usersData), 1, [$newEmployeeWithNumbers]);
+        }
+    }
+    if ($foundEmployee === false) {
+        $usersData[] = $newEmployeeWithNumbers;
+    }
+
     $jsonData = json_encode($usersData, JSON_PRETTY_PRINT);
 
     file_put_contents('../../resources/employees.json', $jsonData);
@@ -55,7 +66,18 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-    // TODO implement it
+    $jsonData = file_get_contents('../../resources/employees.json');
+    $usersData = json_decode($jsonData, true);
+
+    $found = false;
+
+    foreach ($usersData as $user) {
+        if ($user["id"] == $id) {
+            $found = true;
+        }
+    }
+
+    return $found;
 }
 
 
