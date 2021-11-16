@@ -1,4 +1,11 @@
-<!-- TODO Employee view -->
+<?php
+session_start();
+require_once('./library/sessionHelper.php');
+if (!isset($_SESSION)) {
+    header("Location : ../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,113 +13,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <title>Employee Management</title>
 
-    <title>Employee</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="../assets/css/main.css" rel="stylesheet" />
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-
-    <header>
+    <header class="bg-light mb-4">
         <?php
-        require_once('../assets/html/header.html');
+        require("../assets/html/header.html");
         ?>
     </header>
+    <main class="container-xl mx-auto pb-90">
+        <form action="./library/employeeController.php?update=true" method="POST" class="container-md">
+            <?php
+            if (isset($_GET['okUpdate'])) {
+                echo "<div class='alert alert-success text-center'> <h5>Employee Successfully Saved!</h5></div>";
+            }
+            ?>
+            <h3>Employee: </h3>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input name="name" type="text" class="form-control" id="inputName" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMail">Email adress</label>
+                        <input required name="email" type="email" class="form-control" id="inputMail" aria-describedby="emailHelp" value="">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity">City</label>
+                        <input required name="city" type="text" class="form-control" id="inputCity" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputState">State</label>
+                        <input required name="state" type="text" class="form-control" id="inputState" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPostalCode">Postal Code</label>
+                        <input required name="postalCode" type="number" class="form-control" id="inputPostalCode" value="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="inputLastName">Last Name</label>
+                        <input required name="lastName" type="text" class="form-control" id="inputLastName" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputGender">Gender</label>
+                        <select required class="form-control" id="inputGender" name="gender[]">
+                            <option value="man">man</option>
+                            <option value="woman">woman</option>
+                            <option value="other">other</option>
+                        </select>
+                    </div>
 
-        
-        <main class= "container">
-            <br>
-            <h2>Employee Details</h2>
-            <br>
-            <form action="/library/employeeController.php?update=true" method="POST">
-            <input  type="hidden" class="form-control" name="id" id="employeeId" value="">
-            <div class="row justify-content-center">
-            <div class="col-sm-4">
-                <label for="inputName" class="form-label font-weight-bold">Name</label>
-                <input required type="text" class="form-control" name="name" id="inputName" value="">
-            </div>
-            <div class="col-sm-4">
-                <label for="inputLastName" class="form-label font-weight-bold">Last Name</label>
-                <input required type="text" class="form-control" name="lastName" id="inputLastName" value="">
-            </div>
-            </div><br>
-            <div class="row justify-content-center">
-            <div class="col-sm-4">
-                <label for="inputEmail" class="form-label font-weight-bold">Email address</label>
-                <input required type="email" class="form-control" name="email" id="inputEmail" placeholder="user@email.com" value="">
-            </div>
-            <div class="col-sm-4">
-                <label for="selectGender" class="form-label font-weight-bold">Gender</label>
-                <select required class="form-control" name="gender" id="selectGender">
-                    <option value="man">Man</option>
-                    <option value="woman">Woman</option>
-                    <option Value="other">Other</option>
-                </select>
-            </div>
-            </div><br>
-            <div class="row justify-content-center">
-            <div class="col-sm-4">
-                    <label for="inputAge" class="form-label font-weight-bold">Age</label>
-                    <input type="text" class="form-control" name="age" id="inputAge" value="">
-            </div>
-            <div class="col-sm-4">
-                <label for="inputCity" class="form-label font-weight-bold">City</label>
-                <input type="text" class="form-control" name="city" id="inputCity" value="">
-            </div>
-            </div><br>
-            <div class="row justify-content-center">
-            <div class="col-sm-4">
-                <label for="inputState" class="form-label font-weight-bold">State</label>
-                <br>
-                <select id="selectState" class="form-select" name="state">
-                    <option value="">Choose...</option>
-                    <option value="CA">CA</option>
-                    <option value="UA">UA</option>
-                    <option value="WA">WA</option>
-                    <option value="KNT">KNT</option>
-                    <option value="GEO">GEO</option>
-                    <option value="UT">UT</option>
-                    <option value="TN">TN</option>
-                    <option value="LU">LU</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <label for="inputZip" class="form-label font-weight-bold">Zip</label>
-                <input required type="text" class="form-control" name="postalCode" id="inputZip" value="">
-            </div>
-            </div><br>
-            <div class="row justify-content-center">
-            <div class="col-sm-4">
-                <label for="inputAddress" class="form-label font-weight-bold">Street Address</label>
-                <input required type="text" class="form-control" name="streetAddress" id="inputAddress" value="">
-            </div>
-            <div class="col-sm-4">
-                <label for="inputPhone" class="form-label font-weight-bold">Phone number</label>
-                <input required type="text" class="form-control" name="phoneNumber" id="inputPhone" value="">
-            </div>
-            </div><br>
-            <div class="row justify-content-center">
-            <div class="col-sm-8">
-                <button type="submit" class="btn btn-primary" name="updateSubmit">Add new employee</button>
-                <a href="../src/dashboard.php">
-                <button type="button" class="btn btn-secondary" name="return">Return</button>
-                </a>
-            </div>
-            </div>
-            </form>
-        </main>
+                    <div class="form-group">
+                        <label for="inputStreetAddress">Street Adrress</label>
+                        <input required name="streetAddress" type="text" class="form-control" id="inputStreetAddress" value="">
+                    </div>
 
-    <footer>
+                    <div class="form-group">
+                        <label for="inputAge">Age</label>
+                        <input required name="age" type="number" class="form-control" id="inputAge" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPhoneNumber">Phone Number</label>
+                        <input required name="phoneNumber" type="number" class="form-control" id="inputPhoneNumber" value="">
+                    </div>
+                </div>
+            </div>
+            <a type="btn" class="btn btn-secondary" href="dashboard.php">Back</a>
+            <button type="submit" class="btn btn-primary">Submit New Employee</button>
+        </form>
+    </main>
+    <footer class="fixed-bottom">
         <?php
-        require_once('../assets/html/footer.html');
+        require("../assets/html/footer.html");
         ?>
     </footer>
-
+    <!-- <script src="../assets/js/index.js"></script> -->
 </body>
 
 </html>

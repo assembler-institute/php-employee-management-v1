@@ -44,26 +44,14 @@ function deleteEmployee($id)
 function updateEmployee($updateEmployee)
 
 {
-  $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
-  foreach ($employeesCollection as $index => $employee) {
+  $employees = getAllEmployees(); //convierte a varible de php (array)
+  foreach ($employees as $index => $employee) {
     if ($employee['id'] == $updateEmployee['id']) {
-      $employeesCollection[$index] = $updateEmployee;
+      $employees[$index] = $updateEmployee;
     }
   }
-  file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+  file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
   return true;
-}
-
-
-function getEmployee( $id)
-{
-  // $allEmployees = getAllEmployees();
-  //   foreach ($allEmployees as $employee) {
-  //       if ($employee["id"] == $id) {
-  //           $_SESSION["employeeToUpdate"] = $employee;
-  //           $_SESSION["employeeId"] = $id;
-  //       }
-  //   }
 }
 
 

@@ -8,18 +8,18 @@ switch ($method) {
     break;
 
   case 'PUT':
-    $employeeFix = [];
+    $employeeEdit = [];
     $array_employee = file_get_contents('php://input');
     $array_employee = explode('&', $array_employee);
     foreach ($array_employee as $index => $item) {
-      $fixDate = explode('=', urldecode($item));
-      if ($fixDate[0] == 'id') {
-        $employeeFix[$fixDate[0]] = intval($fixDate[1]);
+      $EditDate = explode('=', urldecode($item));
+      if ($EditDate[0] == 'id') {
+        $employeeEdit[$EditDate[0]] = intval($EditDate[1]);
       } else {
-        $employeeFix[$fixDate[0]] = $fixDate[1];
+        $employeeEdit[$EditDate[0]] = $EditDate[1];
       }
     }
-    $edit = updateEmployee($employeeFix);
+    updateEmployee($employeeEdit);
     break;
 
   case "POST":
@@ -28,6 +28,18 @@ switch ($method) {
       $result = addEmployee($newEmployee);
       break;
     }
+    if ($_GET["update"] == true && isset($_SESSION['employeeUpdate'])) {
+      updateEmployee($_SESSION['employeeUpdate'], $_POST);
+      break;
+    }
+    if ($_GET["update"] == true) {
+      $newEmployee = $_POST;
+      $result = addEmployee($newEmployee);
+      $_SESSION['newEmployee'] = $result;
+      header("Location: ../employee.php?okUpdate");
+      break;
+    }
+
 
   case 'DELETE':
     parse_str(file_get_contents("php://input"), $_DELETE);
@@ -36,6 +48,6 @@ switch ($method) {
     break;
 
   default:
-    echo ("error");
+    echo "error";
     break;
 }

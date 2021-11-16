@@ -1,0 +1,4 @@
+.jsgrid-grid-header,
+.jsgrid-grid-body{
+  overflow: auto;
+}
