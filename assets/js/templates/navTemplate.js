@@ -23,7 +23,7 @@ const NAV = `
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="employee.php"
+          <a class="nav-link" href="./employee.php"
             ><span class="fas fa-user"></span> Employee</a
           >
         </li>

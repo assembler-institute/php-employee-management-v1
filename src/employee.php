@@ -120,6 +120,7 @@ require_once "./imageGallery.php";
 
 
 <!-- SCRIPTS -->
+<script src="../assets/js/templates/footerTemplate.js"></script>
 <script src="../assets/js/addEventListeners.js"></script>
 <script src="../assets/js/takeFormData.js"></script>
 <script src="../assets/js/setFormData.js"></script>
@@ -128,6 +129,3 @@ require_once "./imageGallery.php";
 <script src="../assets/js/ajax/updateEmployee.js"></script>
 <script src="../assets/js/ajax/deleteEmployee.js"></script>
 <!-- END SCRIPTS -->
-<?php
-include "../assets/html/footer.html";
-?>
