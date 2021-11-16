@@ -2,16 +2,9 @@
 
 
 <?php
-// This file will contain the necessary functions so that the user can log in, save their session data and log out.
-
 /**
- * This function must first check where are we
- *
- * If we are on index and we are already logged it must redirect
- * to the dashboard, if not it must check for login errors, login info or logouts
- *
- * If we are on dashboard it must check that we are already logged, if not
- * it must redirect us to the index and show an error
+ * This file Manager has all the
+ * FUnctions to manage Session and log propeerly
  */
 
 /**
@@ -76,24 +69,48 @@ function authUser()
   }
 
 }
+/**
+ * Returns and Array with users
+ */
+function checkUsersDB(){
+
+      // Read the JSON file
+      $json = file_get_contents('../../resources/users.json');
+
+      // Decode the JSON file
+      $json_data = json_decode($json,true);
+
+      return $json_data;
+}
+
 
 /**
- * This function must emulate a database user search and return
- * true in case email and password matches
- * @param
+ * @param email string : email from user loggin
+ * @param pass string : pass from user login
+ * @return boolean depending on user found and pass match
  */
 function checkUser(string $email, string $pass)
-
 {
-    //*TODO traer de JSON
+    $users=checkUsersDB()["users"];
+    $emails=[];
 
-    $emailDb = "admin@assemblerschool.com";
-    $passDb = "123456";
+    foreach ($users as $key => $value) {
+      // value is each array of each user,
+      // $value["email"] is every emial from user
+     array_push($emails,$value["email"]);
+    };
 
-    $passDbEnc = password_hash($passDb, PASSWORD_DEFAULT); //traer de JSON
+    $userKeyMatch=array_search($email, $emails, true);
 
-    if ($email === $emailDb && password_verify($pass, $passDbEnc)) return true;
+    if(isset($userKeyMatch)) $userFound=$users[$userKeyMatch];
 
+    $passDbEncrypted=$userFound["password"];
+
+    // verifyes for correct password
+    //*password_hash($passDb, PASSWORD_DEFAULT) its used for encrypt in JSON
+    $passMatch=password_verify($pass, $passDbEncrypted);
+
+    if (isset($userKeyMatch) && isset($passMatch)) return true;
     else return false;
 }
 
@@ -107,7 +124,7 @@ function destroySession()
   /**
    * Destroy session
    */$expired=false;
-  if(isset($_SESSION['expired'])) $expired=true;
+    if(isset($_SESSION['expired'])) $expired=true;
 
     session_unset();
 
@@ -156,6 +173,9 @@ function checkLoginError()
 
 }
 
+/**
+ * This function check in dhashboard if we are logged
+ */
 function checkLoginDashboard($urlFile){
 
   if (!isset($_SESSION["email"])) {
@@ -172,6 +192,7 @@ function checkLoginDashboard($urlFile){
   }
 }
 
+
 function checkRedirection(){
 
   unset($_SESSION['isRedirecting']);
@@ -179,8 +200,6 @@ function checkRedirection(){
 
   $error= $_SESSION["errorMessage"];
   unset($_SESSION["errorMessage"]);
-
-
   return $error;
 
 }
@@ -207,6 +226,10 @@ function getUserFromEmail($email){
 
 }
 
+/**
+ * @param email (string) validates a email format from string
+ * @return boolean
+ */
 function validateEmail($email) {
 
   if(filter_var($email, FILTER_VALIDATE_EMAIL)) {

@@ -2,10 +2,7 @@
 <?php
 
 session_start();
-/*
-* If a key its pressed or mouse moved then it puts to cero a count down, like a set timeout. We can do it in jvs.
-* if the timer gets to 10 mins triggers and AJAX that ejectures a php file that ends session and redirects to index.
-*/
+
 require_once ("loginManager.php");
 /**
 * This functions calculates Session Time
@@ -38,7 +35,7 @@ if(filter_input(INPUT_POST,'json_getTime')){
 
 }
 
-// if event on client timer to zero
+// if event on client timer to zero or its ok session to end
 if (filter_input(INPUT_POST,'json_endSession')){
 
   $jsonEnd = filter_input(INPUT_POST,'json_endSession');
@@ -51,8 +48,10 @@ if (filter_input(INPUT_POST,'json_endSession')){
   }
 }
 
-//if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
-
+// uncomment if you dont want to logout by AJAX
+/*
+*if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
+*/
 
 
 

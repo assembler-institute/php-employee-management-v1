@@ -5,7 +5,7 @@ require_once "./library/avatarsApi.php";
  *
  * *This file will contain the code necessary to display the API images.
  *
- * Inset html code generated in php
+ * *Insert html code generated in php
  */
 
 
