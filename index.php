@@ -29,7 +29,8 @@ if(isset($_SESSION)) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+  <link rel="stylesheet" type="text/css" href="../php-employee-management-v1/node_modules/toastify-js/src/toastify.css">
+  <script type="text/javascript" src="../php-employee-management-v1/node_modules/toastify-js/src//toastify.js" defer></script>
   <!-- <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -68,8 +69,6 @@ if(isset($_SESSION)) {
       <input required type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Contrasenya">
       <label for="exampleInputPassword1">Password</label>
     </div>
-    
-    <button type="submit" class="w-100 btn login-btn">Sign in</button>
     <?php 
       if(isset($_GET['invalidData'])){
           echo "<div class='alert alert-danger'> <h5>Invalid password or email, please try again. </h5></div>";
@@ -77,10 +76,12 @@ if(isset($_SESSION)) {
         }
   
       if(isset($_GET['logOut'])) {
-          echo "<div class='alert alert-success'> <h5>you have been successfully logged out.</h5></div>";
+          echo "<div class='alert alert-success'> <h5>You have been successfully logged out.</h5></div>";
           header('Refresh:2, ./index.php');
       }
     ?>
+    <button type="submit" class="w-100 btn login-btn">Sign in</button>
+    
   </form>
 </main>
 

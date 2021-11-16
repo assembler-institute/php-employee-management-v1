@@ -37,6 +37,7 @@ function deleteEmployee($id)
   unset($allEmployees[$employeeToDelete]);
   $allEmployees = array_values($allEmployees);
   file_put_contents("../../resources/employees.json", json_encode($allEmployees));
+  // header("Location: ../dashboard.php?deletedItem");
   return $employeeToDelete;
 }
 
