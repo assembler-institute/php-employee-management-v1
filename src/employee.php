@@ -67,17 +67,17 @@ if (isset($_GET['employeeId'])) {
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="age">Age</label>
-                    <input type="text" class="form-control" name="data[age]" id="age" placeholder="Input your age" value="<?= isset($age) ? $age : "" ?>" required />
+                    <input type="number" class="form-control" name="data[age]" id="age" placeholder="Input your age" value="<?= isset($age) ? $age : "" ?>" min="18" max="79" required />
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="zipCode">Postal Code</label>
-                    <input type="text" class="form-control" name="data[postalCode]" id="zipCode" placeholder="Input Zipcode" value="<?= isset($postalCode) ? $postalCode : "" ?>" required />
+                    <input type="text" class="form-control" name="data[postalCode]" id="zipCode" placeholder="Input Zipcode" value="<?= isset($postalCode) ? $postalCode : "" ?>" maxlength="10" required />
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="inputZip">Phone Number</label>
-                    <input type="text" class="form-control" name="data[phoneNumber]" id="phone" placeholder="Input Phone Number" value="<?= isset($phoneNumber) ? $phoneNumber : "" ?>" required />
+                    <input type="text" class="form-control" name="data[phoneNumber]" id="phone" placeholder="Input Phone Number" value="<?= isset($phoneNumber) ? $phoneNumber : "" ?>" maxlength="19" required />
                 </div>
             </div>
         </div>
