@@ -1,5 +1,31 @@
 # PHP BASIC APPLICATION TO MANAGE AN EMPLOYEES LIST
 
+# Employee management V1
+
+This project is about creating an employee management application using 
+the languages we have learned since the moment HTML, CSS, JS and PHP.
+
+The application has three pages Login Page, Dashboard Page and Employee Page.
+
+## Lessons Learned
+
+We have used AJAX to retrive and manipulate the data from JSON files where we have 
+the users details and another one with the employees data.
+
+We also haves used jsGrid as was a requirement for this project. jsGrid is a 
+lightweight client-side data grid control based on jQuery. Although jsGrid allows 
+us to do the CRUD very easly in the fron-end we need to use AJAX to modify the JSON 
+when we CRUD.
+
+Additonally we have used a library called toastfy-js to show alerts and messages. 
+This way was much easier to customize and make alerts UI friendly than do the same 
+with PHP or JS with less lines of code.
+
+## Authors
+
+- [@Dalamov](https://github.com/Dalamov)
+- [@CYBER-MARCUSSEN](https://github.com/CYBER-MARCUSSEN)
+
 ## Application main points
 
 1. Login and logout with a json file as user storage
