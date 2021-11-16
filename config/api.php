@@ -1,5 +1,3 @@
 <?php
 
 define("AVATARS_API", "C3F161D8-3A6E4EAE-9868F0BC-4174EAEF");
-
-$lol;
