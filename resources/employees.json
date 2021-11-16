@@ -103,16 +103,5 @@
         "state": "MS",
         "postalCode": "423424",
         "id": 11
-    },
-    {
-        "name": "Peter",
-        "age": "12",
-        "email": "s",
-        "phoneNumber": "a",
-        "streetAddress": "b",
-        "postalCode": "e",
-        "city": "s",
-        "state": "l",
-        "id": 12
     }
 ]

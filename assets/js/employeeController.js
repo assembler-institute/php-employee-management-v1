@@ -1,5 +1,28 @@
 import { displayNotification } from "./notification.js";
 
+function getControllerQuery(method, item) {
+	const METHODS = ["GET", "PUT", "POST", "DELETE"];
+
+	if (!METHODS.includes(method)) {
+		displayNotification({ type: "danger", message: "Wrong HTTP method." });
+	}
+
+	return fetch("./library/employeeController.php", {
+		method,
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(item),
+	})
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			displayNotification(data);
+			if (data.type !== "success") return Promise.reject();
+		});
+}
+
 const controller = {
 	loadData: function (item) {
 		return $.ajax({
@@ -10,46 +33,13 @@ const controller = {
 		});
 	},
 	insertItem: function (item) {
-		return fetch("./library/employeeController.php", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(item),
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				displayNotification(data);
-				if (data.type !== "success") return Promise.reject();
-			});
+		return getControllerQuery("POST", item);
 	},
 	deleteItem: function (item) {
-		return fetch("./library/employeeController.php", {
-			method: "DELETE",
-			body: JSON.stringify(item),
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				displayNotification(data);
-				if (data.type !== "success") return Promise.reject();
-			});
+		return getControllerQuery("DELETE", item);
 	},
 	updateItem: function (item) {
-		return fetch("./library/employeeController.php", {
-			method: "PUT",
-			body: JSON.stringify(item),
-		})
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				displayNotification(data);
-				if (data.type !== "success") return Promise.reject();
-			});
+		return getControllerQuery("PUT", item);
 	},
 };
 
