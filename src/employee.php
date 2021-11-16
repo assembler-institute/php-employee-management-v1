@@ -6,23 +6,27 @@ require_once("../assets/html/header.html");
 session_start();
 
 
+
 if (isset($_GET['employeeId'])) {
     $data = getEmployee($_GET['employeeId']);
+
     $employeeName = $data['name'];
-    $lastName = $data['lastName'];
+    isset($data['lastName']) &&  strlen($data['lastName']) > 1 ? $lastName = $data['lastName'] : $lastName = "";
+    // $lastName = $data['lastName'];
     $email = $data['email'];
-    $gender = $data['gender'];
+    isset($data['gender']) &&  strlen($data['gender']) > 1 ? $gender = $data['gender'] : $gender = "";
+    // $gender = $data['gender'];
     $city = $data['city'];
     $streetAddress = $data['streetAddress'];
     $state = $data['state'];
     $age = $data['age'];
     $postalCode = $data['postalCode'];
     $phoneNumber = $data['phoneNumber'];
-};
-
+    $id = $data['id'];
+}
 ?>
 <div class="container">
-    <form method="POST" action="../src/library/employeeController.php">
+    <form method="PATCH" action="../src/library/employeeController.php">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">Name</label>
@@ -30,7 +34,7 @@ if (isset($_GET['employeeId'])) {
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="data[lastName]" placeholder="Input Last Name" value="<?= isset($lastName) ? $lastName : "" ?>" required />
+                <input type="text" class="form-control" id="lastName" name="data[lastName]" placeholder="Input Last Name" value="<?= isset($lastName) &&  strlen($lastName) > 1 ? $lastName : "" ?>" required />
             </div>
         </div>
         <div class="form-group">
@@ -78,11 +82,13 @@ if (isset($_GET['employeeId'])) {
                 <div class="form-group col-md-6">
                     <label for="inputZip">Phone Number</label>
                     <input type="text" class="form-control" name="data[phoneNumber]" id="phone" placeholder="Input Phone Number" value="<?= isset($phoneNumber) ? $phoneNumber : "" ?>" maxlength="19" required />
+                    <input name="data[id]" id="id" value="<?= isset($_GET['employeeId']) ? $_GET['employeeId'] : "" ?>" hidden>
                 </div>
+
             </div>
         </div>
         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        <button class="btn btn-secondary">Return</button>
+        <button class="btn btn-secondary" href="./dashboard.php">Return</button>
     </form>
 </div>
 

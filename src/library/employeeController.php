@@ -9,6 +9,20 @@ $_PATCH = json_decode(file_get_contents('php://input', true), true);
 // var_dump($_PATCH);
 
 
+
+var_dump($_SERVER["REQUEST_METHOD"]);
+
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    $newData = $_GET["data"];
+    $_SERVER["REQUEST_METHOD"] = "PATCH";
+}
+
+// print_r($newData);
+
+var_dump($_SERVER["REQUEST_METHOD"]);
+
+
+
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "POST":
         if (addEmployee($_POST['data'])) {
@@ -29,7 +43,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case "PATCH":
         // json_encode(updateEmployee($_PATCH['data']));
         // parse_str(file_get_contents("php://input"), $_PATCH);
-        updateEmployee($_PATCH['data']);
+        $newData ? updateEmployee($newData) : updateEmployee($_PATCH['data']);
+        // updateEmployee($_PATCH['data']);
+        // updateEmployee($newData);
 
 
         break;

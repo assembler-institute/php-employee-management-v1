@@ -56,7 +56,8 @@ function updateEmployee(array $updateEmployee)
     };
     $encodedData = json_encode($data, true);
     file_put_contents('../../resources/employees.json', $encodedData);
-    file_put_contents('../../resources/employees.json', $encodedData);
+    echo "<pre>";
+    var_dump($encodedData);
     header('Location: ../dashboard.php');
 }
 
