@@ -9,7 +9,7 @@ if (!isset($_SESSION["username"])) {
 /* echo $_SESSION["username"]; */
 include_once '../assets/html/header.html';
 
-if(time() > $_SESSION['timeout'] + 10 ){
+if(time() > $_SESSION['timeout'] + 600 ){
     destroySession();
 }
 
