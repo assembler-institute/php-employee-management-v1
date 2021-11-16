@@ -58,8 +58,6 @@ function starts(END_SESSION_TIME = 10000) {
 	if (!sessionStorage.getItem("timeouts"))
 		sessionStorage.setItem("timeouts", 0);
 
-	//let timer = JSON.parse(sessionStorage.getItem("timer"));
-
 	let contador = 0;
 	while (contador < 10) {
 		console.log(contador);
