@@ -14,12 +14,6 @@ include_once '../assets/html/header.html';
         <h1 class="h2">
           Welcome <span class="text-primary"><?= strstr($_SESSION['email'], '@', true) ?></span>
         </h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-        </div>
       </div>
 
       <div id="jsGrid"></div>
