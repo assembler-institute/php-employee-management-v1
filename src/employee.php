@@ -31,6 +31,7 @@ if (!isset($_SESSION)) {
             <?php
             if (isset($_GET['okUpdate'])) {
                 echo "<div class='alert alert-success text-center'> <h5>Employee Successfully Saved!</h5></div>";
+                header('Refresh:2, ./dashboard.php');
             }
             ?>
             <h3>Employee: </h3>

@@ -37,6 +37,7 @@ switch ($method) {
       $result = addEmployee($newEmployee);
       $_SESSION['newEmployee'] = $result;
       header("Location: ../employee.php?okUpdate");
+      header("Location: ../employee.php?okUpdate");
       break;
     }
 
