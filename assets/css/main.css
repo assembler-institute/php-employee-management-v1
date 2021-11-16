@@ -1,3 +1,8 @@
+:root {
+  --primary: #fcde67;
+  --secondary: #5bccf6;
+}
+
 body {
   margin: 0;
 }
@@ -14,9 +19,6 @@ body {
   margin-right: 2rem;
 }
 
-<<<<<<< HEAD
-=======
-
 /* EMPLOYEE */
 
 .user-avatar {
@@ -31,29 +33,29 @@ body {
 .refresh-button {
   margin-left: 40%;
   margin-bottom: 2rem;
-}
-
-.employee-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
->>>>>>> master
-.logout-btn {
-  cursor: pointer;
-  margin-right: 3rem;
-  color: #0005db;
+  color: black;
   text-decoration: none;
   padding: 0.5rem;
-  background-color: #db5716;
+  background-color: var(--primary);
   border-radius: 0.3rem;
-  border: 1px solid #0005db;
+  border: 1px solid var(--secondary);
+}
+
+.logout-btn {
+  color: black;
+  cursor: pointer;
+  margin-right: 3rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
 }
 
 .logout-btn:hover {
-  background-color: #0005db;
+  color: black;
+  background-color: var(--secondary);
   border: 1px solid white;
-  color: #db5716;
 }
 
 /* UTILS */
@@ -73,7 +75,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5rem;
-  background-color: #0005db;
+  background-color: var(--secondary);
 }
 
 .main-header__container > * {
@@ -84,23 +86,23 @@ body {
 .main-header__logo {
   margin-left: 2rem;
   padding: 0.5rem;
-  background-color: #db5716;
+  background-color: var(--primary);
   border-radius: 0.3rem;
 }
 
 .nav-link a {
-  color: #0005db;
+  color: black;
   text-decoration: none;
   padding: 0.5rem;
-  background-color: #db5716;
+  background-color: var(--primary);
   border-radius: 0.3rem;
-  border: 1px solid #0005db;
+  border: 1px solid var(--secondary);
 }
 
 .nav-link a:hover {
-  background-color: #0005db;
+  color: black;
+  background-color: var(--secondary);
   border: 1px solid white;
-  color: #db5716;
 }
 
 .main-header__title {
@@ -111,10 +113,69 @@ body {
 
 .table__header {
   padding: 0.5rem;
-  background-color: #db5716 !important;
-  border: 1px solid #db5716 !important;
+  height: 3rem;
+  background-color: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
 }
 
 .table__row {
   border: 1px solid black !important;
+}
+
+/*--------------------------------------------- EMPLOYEE FORM -----------------------------------*/
+
+.employee-form {
+  width: 30%;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.form__input {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  width: 15rem;
+}
+
+.form__row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-container {
+  margin: 2rem auto;
+}
+
+.btn-submit {
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
+}
+
+.refresh-button:hover,
+.btn-submit:hover {
+  color: black;
+  background-color: var(--secondary);
+  border: 1px solid white;
+}
+
+.btn-return {
+  color: black;
+  text-decoration: none;
+  padding: 0.6rem;
+  background-color: var(--secondary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--primary);
+}
+
+.btn-return:hover {
+  color: black;
+  background-color: var(--primary);
+  border: 1px solid white;
 }

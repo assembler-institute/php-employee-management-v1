@@ -72,7 +72,7 @@ require_once("../assets/html/header.html");
 
   ?>
 
-  <div id="avatarCarousel" class="h-25">
+  <div id="avatarCarousel" class="h-25 gap-3">
     <p class="text-center">If you want to change your avatar, select one of the following and press Edit</p>
     <div id="avatarContainer" class="d-flex justify-content-center align-items-center">
       <img id="avatarOption1" alt="Avatar option 1" class='avatar-option' data-avatar>
@@ -81,64 +81,72 @@ require_once("../assets/html/header.html");
       <img id="avatarOption4" alt="Avatar option 4" class='avatar-option' data-avatar>
       <img id="avatarOption5" alt="Avatar option 5" class='avatar-option' data-avatar>
     </div>
-    <button id="refresh-button" class="btn btn-primary refresh-button">Refresh avatars</button>
+    <button id="refresh-button" class="refresh-button">Refresh avatars</button>
   </div>
 
   <form method="POST" action="./library/employeeController.php" class="employee-form">
-
-    <input type="hidden" name="id" id="id" class="d-none" value=<?= isset($_GET['employee']) ? $currentEmployee["id"] : $nextId ?>>
-    <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
-
-    <label for="name">Name
-      <input type="text" name="name" id="name" required value=<?= isset($_GET['employee']) ? $currentEmployee["name"] : "" ?>>
-    </label>
-
-
-    <label for="last-name">Last Name
-      <input type="text" name="lastName" id="lastName" required value=<?= isset($_GET['employee']) ? $currentEmployee["lastName"] : "" ?>>
-    </label>
-
-    <label for="email-address">Email address
-      <input type="email" name="email" id="email" required value=<?= isset($_GET['employee']) ? $currentEmployee["email"] : "" ?>>
-    </label>
-
-    <label for="gender">Gender
-      <select name="gender" id="gender">
-        <option>Man</option>
-        <option>Woman</option>
-        <option>Other</option>
-      </select>
-    </label>
-
-    <label for="city">City
-      <input type="text" name="city" id="city" required value=<?= isset($_GET['employee']) ? $currentEmployee["city"] : "" ?>>
-    </label>
-
-    <label for="street-address">Street Address
-      <input type="number" name="streetAddress" id="streetAddress" required value=<?= isset($_GET['employee']) ? $currentEmployee["streetAddress"] : "" ?>>
-    </label>
-
-    <label for="state">State
-      <input type="text" name="state" id="state" required value=<?= isset($_GET['employee']) ? $currentEmployee["state"] : "" ?>>
-    </label>
-
-    <label for="age">Age
-      <input type="number" name="age" id="age" required value=<?= isset($_GET['employee']) ? $currentEmployee["age"] : "" ?>>
-    </label>
-
-    <label for="postal-code">Postal Code
-      <input type="number" name="postalCode" id="postalCode" required value=<?= isset($_GET['employee']) ? $currentEmployee["postalCode"] : "" ?>>
-    </label>
-
-    <label for="phone-number">Phone Number
-      <input type="number" name="phoneNumber" id="phoneNumber" required value=<?= isset($_GET['employee']) ? $currentEmployee["phoneNumber"] : "" ?>>
-    </label>
-
-    <div>
-      <button type="submit" class="btn btn-primary"><?= isset($_GET['employee']) ? "Edit" : "Submit" ?></button>
-      <button class="btn btn-secondary">Return</button>
+    <div class="form__row">
+      <input type="hidden" name="id" id="id" class="d-none" value=<?= isset($_GET['employee']) ? $currentEmployee["id"] : $nextId ?>>
+      <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
+      <div>
+        <label for="name">Name</label>
+        <input class="form__input" type="text" name="name" id="name" required value=<?= isset($_GET['employee']) ? $currentEmployee["name"] : "" ?>>
+      </div>
+      <div>
+        <label for="last-name">Last Name</label>
+        <input class="form__input" type="text" name="lastName" id="lastName" required value=<?= isset($_GET['employee']) ? $currentEmployee["lastName"] : "" ?>>
+      </div>
     </div>
-  </form>
+    <div class="form__row">
+      <div>
+        <label for="email-address">Email address</label>
+        <input class="form__input" type="email" name="email" id="email" required value=<?= isset($_GET['employee']) ? $currentEmployee["email"] : "" ?>>
+      </div>
+      <div>
+        <label for="gender">Gender</label>
+        <select class="form__input" name="gender" id="gender">
+          <option>Man</option>
+          <option>Woman</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form__row">
+      <div>
+        <label for="city">City</label>
+        <input class="form__input" type="text" name="city" id="city" required value=<?= isset($_GET['employee']) ? $currentEmployee["city"] : "" ?>>
+      </div>
+      <div>
+        <label for="street-address">Street Address</label>
+        <input class="form__input" type="number" name="streetAddress" id="streetAddress" required value=<?= isset($_GET['employee']) ? $currentEmployee["streetAddress"] : "" ?>>
+      </div>
+    </div>
+    <div class="form__row">
+      <div>
+        <label for="state">State</label>
+        <input class="form__input" type="text" name="state" id="state" required value=<?= isset($_GET['employee']) ? $currentEmployee["state"] : "" ?>>
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input class="form__input" type="number" name="age" id="age" required value=<?= isset($_GET['employee']) ? $currentEmployee["age"] : "" ?>>
+      </div>
+    </div>
+    <div class="form__row">
+      <div>
+        <label for="postal-code">Postal Code</label>
+        <input class="form__input" type="number" name="postalCode" id="postalCode" required value=<?= isset($_GET['employee']) ? $currentEmployee["postalCode"] : "" ?>>
+      </div>
+      <div>
+        <label for="phone-number">Phone Number</label>
+        <input class="form__input" type="number" name="phoneNumber" id="phoneNumber" required value=<?= isset($_GET['employee']) ? $currentEmployee["phoneNumber"] : "" ?>>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button type="submit" class="btn-submit"><?= isset($_GET['employee']) ? "Edit" : "Submit" ?></button>
+      <a href="./dashboard.php" class="btn-return">Return</a>
+    </div>
+</div>
+</form>
 </div>
 
 

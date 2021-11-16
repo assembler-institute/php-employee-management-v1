@@ -88,18 +88,6 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
-<<<<<<< HEAD
-      name: "lastName",
-      title: "Last name",
-      type: "text",
-      headercss: "table__header",
-      css: "table__row",
-      width: 60,
-      validate: "required",
-    },
-    {
-=======
->>>>>>> master
       name: "email",
       title: "Email",
       type: "text",
@@ -146,25 +134,6 @@ $("#jsGrid").jsGrid({
       width: 50,
     },
     {
-<<<<<<< HEAD
-      name: "gender",
-      title: "Gender",
-      type: "select",
-      headercss: "table__header",
-      css: "table__row",
-      items: [
-        { Name: "Man", Id: "man" },
-        { Name: "Woman", Id: "woman" },
-        { Name: "Other", Id: "other" },
-      ],
-      valueField: "Id",
-      textField: "Name",
-      align: "left",
-      width: 40,
-    },
-    {
-=======
->>>>>>> master
       name: "city",
       title: "City",
       type: "text",
@@ -193,17 +162,13 @@ $("#jsGrid").jsGrid({
     },
   ],
   rowClick: function (args) {
-    location.href =
-      "./employee.php?employee=" +
-      args.item.id;
+    location.href = "./employee.php?employee=" + args.item.id;
   },
   onItemUpdated: function () {
-    location.href =
-      "./dashboard.php?action=updated";
+    location.href = "./dashboard.php?action=updated";
   },
   onItemDeleted: function () {
-    location.href =
-      "./dashboard.php?action=deleted";
+    location.href = "./dashboard.php?action=deleted";
   },
 });
 
