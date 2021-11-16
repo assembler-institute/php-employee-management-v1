@@ -261,10 +261,3 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
-
-
-
-
-
-
-///

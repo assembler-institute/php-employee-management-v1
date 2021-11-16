@@ -1,4 +1,3 @@
-const NAV = `
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="container">
     <a class="navbar-brand" href="#">
@@ -36,15 +35,3 @@ const NAV = `
     </div>
   </div>
 </nav>
-`;
-
-const insertNav = () => {
-  //get BODY element right at the start
-
-  console.log(document.getElementById("mainContainer"));
-  document
-    .getElementById("mainContainer")
-    .insertAdjacentHTML("beforeBegin", NAV);
-};
-
-insertNav();

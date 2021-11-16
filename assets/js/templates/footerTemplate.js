@@ -7,16 +7,18 @@ const FOOTER = `
     </div>
     <!-- Copyright -->
 </footer>
-</body>
-</html>
+<script src="../assets/js/ajax/createEmployee.js"></script>
+<script src="../assets/js/ajax/readEmployee.js"></script>
+<script src="../assets/js/ajax/updateEmployee.js"></script>
+<script src="../assets/js/ajax/deleteEmployee.js"></script>
 `;
 
 const insertFooter = () => {
-	//get the body element
-	document.lastElementChild.lastElementChild.insertAdjacentHTML(
-		"beforeend",
-		FOOTER
-	);
+  //get the body element
+  document.lastElementChild.lastElementChild.insertAdjacentHTML(
+    "beforeend",
+    FOOTER
+  );
 };
 
 insertFooter();
