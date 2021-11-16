@@ -12,6 +12,7 @@ if (!isset($_SESSION["username"])) {
 if(time() > $_SESSION['timeout'] + 600 ){
     destroySession();
 }
+
 include_once '../assets/html/header.html';
 ?>
 

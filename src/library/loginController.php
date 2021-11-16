@@ -46,14 +46,14 @@ function destroySession()
     unset($_SESSION);
 
     // Destroy session cookie
-    destroySessionCookie();
+    //destroySessionCookie();
 
 
     // Destroy the session
     session_destroy();
     
     if (!headers_sent()) {
-        header("Location: ../index.php");
+        header("Location: ../../index.php");
         exit;
     }
     
