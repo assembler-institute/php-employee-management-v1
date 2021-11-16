@@ -104,6 +104,7 @@ $("#employees").jsGrid({
         },
       });
 
+      $("#employees").jsGrid("refresh");
       $("#employees").jsGrid("render");
 
       return d.promise();
