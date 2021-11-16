@@ -51,7 +51,7 @@ if (filter_input(INPUT_POST,'json_endSession')){
   }
 }
 
-if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
+//if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
 
 
 

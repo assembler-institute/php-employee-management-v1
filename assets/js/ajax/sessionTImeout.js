@@ -148,8 +148,7 @@ function endSession() {
 	// sends by GET the expired session and reload the server
 
 	window.location.search = "expired=true";
-
-	window.location.reload;
+	window.location.reload();
 }
 
 /**
