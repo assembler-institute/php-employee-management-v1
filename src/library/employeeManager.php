@@ -7,7 +7,6 @@ function addEmployee(array $newEmployee): bool
 	try {
 		$employeesCollection = json_decode(file_get_contents(EMPLOYEES_JSON), true);
 
-		$newEmployee["id"] = getNextIdentifier($employeesCollection);
 		array_push($employeesCollection, $newEmployee);
 
 		file_put_contents(EMPLOYEES_JSON, json_encode(array_values($employeesCollection), JSON_PRETTY_PRINT));
@@ -78,8 +77,10 @@ function getQueryStringParameters()
 	return $params;
 }
 
-function getNextIdentifier(array $employeesCollection): int
+function getNextIdentifier(): int
 {
+	$employeesCollection = json_decode(file_get_contents(EMPLOYEES_JSON), true);
+
 	return intval(end($employeesCollection)["id"]) + 1;
 }
 

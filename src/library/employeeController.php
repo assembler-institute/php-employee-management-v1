@@ -18,15 +18,19 @@ try {
 
 	switch ($method) {
 		case "POST":
+			$params["id"] = getNextIdentifier();
+
 			if (addEmployee($params)) {
-				$data = (["type" => "success", "message" => "Employee added successfully."]);
+				$data = (["type" => "success", "message" => "Employee added successfully.", "id" => $params["id"]]);
 			} else {
 				$data = (["type" => "danger", "message" => "Employee could not be added."]);
 			}
 
 			break;
 		case "DELETE":
-			if (deleteEmployee($params["id"])) {
+			$id = intval($params["id"]);
+
+			if (deleteEmployee($id)) {
 				$data = (["type" => "success", "message" => "Employee deleted successfully."]);
 			} else {
 				$data = (["type" => "danger", "message" => "Employee could not be deleted."]);
@@ -42,7 +46,8 @@ try {
 
 			break;
 		case "GET":
-			$employee = getEmployee($params["id"]);
+			$id = intval($params["id"]);
+			$employee = getEmployee($id);
 
 			if ($employee) {
 				$data = (["type" => "success", "message" => "Employee fetched successfully.", "employee" => $employee]);

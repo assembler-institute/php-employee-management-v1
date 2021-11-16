@@ -1,4 +1,4 @@
-import { controller } from "./employeeController.js";
+import { controller } from "./gridController.js";
 
 (function setGrid() {
 	jsGrid.setDefaults("text", {

@@ -19,7 +19,12 @@ function getControllerQuery(method, item) {
 		})
 		.then((data) => {
 			displayNotification(data);
+			console.log(data);
 			if (data.type !== "success") return Promise.reject();
+
+			if (method === "POST") {
+				return Promise.resolve({ ...item, id: data.id });
+			}
 		});
 }
 
