@@ -106,7 +106,10 @@ require_once "./imageGallery.php";
                 <div class="m-3">
                     <button type="submit" class="btn btn-success" id="formSubmit">Submit</button>
                     <button type="button" class="btn btn-success d-none" id="updateBtn">Update</button>
-                    <button type="submit" class="btn btn-secondary" id="return">Return</button>
+                    <a href="dashboard.php" class="item">
+                        <button type="button" class="btn btn-secondary" id="return">Return</button>
+                    </a>
+
                 </div>
             </form>
 
