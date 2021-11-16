@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-  // Read JSON by fetch
-  fetch("../resources/employees.json")
-    .then((res) => res.json())
-    .then((data) => setupJsGrid(data));
+  initJsGrid();
 
   // Event listener to employee.php
   if (document.getElementById("employeeDetailForm") !== null) {
@@ -11,6 +8,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       .addEventListener("submit", processEditEmployee);
   }
 });
+
+function initJsGrid() {
+  // Read JSON by fetch
+  fetch("../resources/employees.json")
+    .then((res) => res.json())
+    .then((data) => setupJsGrid(data));
+}
 
 function processEditEmployee(e) {
   e.preventDefault();
@@ -26,7 +30,7 @@ function processEditEmployee(e) {
   makeRequest(item, "update");
 }
 
-function addEmployeeAlert(param) {
+function addEmployeeAlert() {
   let alertHtml = `<div class='alert alert-success alert-dismissible fade show bottom-right' role='alert'>
                   <strong> Employee Added Successfully!</strong>
                   <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -35,24 +39,38 @@ function addEmployeeAlert(param) {
           </div>`;
 
   document.querySelector("body").insertAdjacentHTML("beforeend", alertHtml);
-
-  console.log(param);
 }
 
 // Create & Delete for AJAX
-function insertNewEntry({ item }) {
-  makeRequest(item, "create");
+
+function editEntry({ item }) {
+  window.location.href = `employee.php?employeeId=${item.id}`;
 }
 
 function deleteEntry({ item }) {
   makeRequest(item, "delete");
 }
 
-function editEntry({ item }) {
-  window.location.href = `employee.php?employeeId=${item.id}`;
+// Adding New Entry: Waiting for makeRequest function to finish before getting the json again and updating the grid
+
+function insertNewEntry({ item }) {
+  let promise = new Promise((resolve, reject) => {
+    return makeRequest(item, "create", resolve, reject);
+  });
+
+  promise.then((resolve, reject) => {
+    if (reject?.status === "rejected") {
+      new Error("Failed to Add/Update Employee");
+    }
+
+    if (resolve?.status === "resolved") {
+      addEmployeeAlert();
+      initJsGrid();
+    }
+  });
 }
 
-function makeRequest(item, action) {
+function makeRequest(item, action, resolve = null, reject = null) {
   fetch("../src/library/employeeController.php", {
     method: "post",
     body: JSON.stringify({
@@ -65,10 +83,13 @@ function makeRequest(item, action) {
   })
     .then((res) => res.json())
     .then((msg) => {
-      if (action === "update") {
+      if (action === "update")
         window.location.href = `dashboard.php?updated=success`;
-        return msg;
-      }
+      if (typeof resolve == "function")
+        return resolve({ message: msg, status: "resolved" });
+    })
+    .catch((err) => {
+      if (typeof reject == "function") reject({ err: err, status: "rejected" });
     });
 }
 
@@ -86,7 +107,6 @@ function setupJsGrid(data) {
     onItemDeleted: deleteEntry,
     rowClick: editEntry,
     onItemEditing: editEntry,
-    finishInsert: addEmployeeAlert,
 
     deleteConfirm: "Do you really want to delete the employee?",
 

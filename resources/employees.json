@@ -1,60 +1,16 @@
 [
     {
-        "name": "Robert",
-        "lastName": "Thomson",
-        "email": "jackon@network.com",
-        "gender": "man",
-        "age": "24",
-        "phoneNumber": "91232876454",
-        "city": "New Orleans",
-        "streetAddress": "126",
-        "state": "LU",
-        "postalCode": "63281",
-        "id": "8"
-    },
-    {
-        "name": "Haroon",
-        "age": "55",
-        "streetAddress": "This",
-        "city": "that",
-        "state": "why",
-        "phoneNumber": "666666",
-        "id": 9
-    },
-    {
-        "name": "Haroon Ahmed",
-        "lastName": "asd",
-        "email": "mulol@ml.com",
-        "gender": "Male",
-        "age": "69",
-        "phoneNumber": "4454545",
-        "city": "Tarragona",
-        "streetAddress": "Carrer de Pere Martell, 43",
-        "state": "Tarragona",
-        "postalCode": "6666",
-        "id": "10"
-    },
-    {
-        "name": "Chris",
-        "lastName": "",
-        "email": "",
-        "gender": "Female",
-        "age": "21",
-        "phoneNumber": "6546546456",
-        "city": "dsadas",
-        "streetAddress": "dasdas",
-        "state": "dsada",
-        "zipCode": "",
-        "id": "11"
-    },
-    {
         "name": "Brimstone",
-        "age": 65,
-        "streetAddress": "Ascent",
+        "lastName": "Brimstone",
+        "email": "",
+        "gender": "",
+        "age": "65",
+        "phoneNumber": "99669966",
         "city": "Valorant",
+        "streetAddress": "Ascent",
         "state": "Riot",
-        "phoneNumber": 99669966,
-        "id": 14
+        "postalCode": "",
+        "id": "14"
     },
     {
         "name": "Jett",
@@ -106,15 +62,6 @@
         "id": 19
     },
     {
-        "name": "Omen",
-        "age": 55,
-        "streetAddress": "Valorant",
-        "city": "Riot",
-        "state": "Universe",
-        "phoneNumber": 888888888,
-        "id": 20
-    },
-    {
         "name": "Phoenix",
         "age": 30,
         "streetAddress": "IceBox",
@@ -131,5 +78,45 @@
         "state": "Riot",
         "phoneNumber": 55555555,
         "id": 22
+    },
+    {
+        "name": "Wat",
+        "age": 55,
+        "streetAddress": "asdasd",
+        "city": "This",
+        "state": "that",
+        "phoneNumber": 696599,
+        "id": 23
+    },
+    {
+        "name": "Lilly",
+        "age": 20,
+        "streetAddress": "billy",
+        "city": "NY",
+        "state": "NY",
+        "phoneNumber": 555555,
+        "id": 24
+    },
+    {
+        "name": "Chamber",
+        "age": 38,
+        "streetAddress": "France",
+        "city": "Valorant",
+        "state": "Riot",
+        "phoneNumber": 884656532,
+        "id": 25
+    },
+    {
+        "name": "Omen",
+        "lastName": "",
+        "email": "",
+        "gender": "",
+        "age": "12",
+        "phoneNumber": "55555",
+        "city": "Ciry",
+        "streetAddress": "Kiddy",
+        "state": "Willy",
+        "postalCode": "",
+        "id": "26"
     }
 ]
