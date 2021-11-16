@@ -107,25 +107,13 @@ function destroySession()
   /**
    * Destroy session
    */
-   $notMessage=false;
-
-   if($_SESSION['expired']) {
-      $notMessage = true;
-    };
-
 
     session_unset();
 
     destroySessionCookie();
     session_destroy();
 
-    if($notMessage) {
-
-    header("Location:../../index.php?expired=true");
-
-    } else {
-
-    header("Location:../../index.php?logout=true");}
+    header("Location:../../index.php?logout=true");
 
 
 }
