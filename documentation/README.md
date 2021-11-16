@@ -133,17 +133,17 @@ All them must be installed with the npm here you have a package.json take a look
 
 As we explained in the pdf document of this project we will use [this images api](https://uifaces.co/)
 
-This web service in the version free that is which we are going to use has limitations. Five request per minute or thirty in an hour.  
+This web service in the version free that is which we are going to use has limitations. Five request per minute or thirty in an hour.
 So if you want to develop this extra feature it would be cool to have a mocked response to develop at ease. So for this purpose we left in `resources/` folder a file called images_mock which can be used to the implementation of the extra feature once you have your code running well you need to remove this mock and to connect directly with the web service.
 
 [Read the doc!](https://uifaces.co/api-docs)
 
 ## Curl
 
-In php we interact with HTTP web services through cUrl or client URL.  
+In php we interact with HTTP web services through cUrl or client URL.
 This is also a command in Unix systems. We are going to give you an over view in order to familiarise with it and then use it in the application for the extra feature.
 
-To play a little with it, You can create a script in the root folder of your web server and with these request we have here to try make GET, POST. PUT and DELETE request against this super cool service which ables to developer to post and get data from what we call a request bin.  
+To play a little with it, You can create a script in the root folder of your web server and with these request we have here to try make GET, POST. PUT and DELETE request against this super cool service which ables to developer to post and get data from what we call a request bin.
 [ReqBin ](https://reqbin.com/curl)
 
 #### Basic knowledge
@@ -261,3 +261,10 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
+
+
+
+
+
+
+///
