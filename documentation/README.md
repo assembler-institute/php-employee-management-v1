@@ -3,7 +3,7 @@
 ## Application main points
 
 1. Login and logout with a json file as user storage
-2. Controlled user session set to 10 minutes
+2. Controlled user session set to 5 minutes or for inactivitie
 3. Show data from a JSON in a JS Grid
 4. Pagination of the data configured by the grid
 5. Employees CRUD Create Read Delete and Update with a json file as employees storage
@@ -261,3 +261,6 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
+#### Js Template implementatios
+
+a = get
