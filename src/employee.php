@@ -38,6 +38,7 @@ if ($id) {
 	<link type="text/css" rel="stylesheet" href="<?= BASE_URL . "/assets/css/avatar.css" ?>" />
 	<script src="<?= BASE_URL . "/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" ?>" type="module"></script>
 	<script src="<?= BASE_URL . "/assets/js/employee.js" ?>" type="module"></script>
+	<script src="<?= BASE_URL . "/assets/js/header.js" ?>" type="module"></script>
 </head>
 
 <body class="min-vh-100 position-relative pb-5">

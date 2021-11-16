@@ -29,6 +29,7 @@ if (!getSessionValue("user")) {
 	<script src="<?= BASE_URL . "/node_modules/jquery/dist/jquery.min.js" ?>" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="<?= BASE_URL . "/node_modules/jsgrid/dist/jsgrid.min.js" ?>"></script>
 	<script src="<?= BASE_URL . "/assets/js/grid.js" ?>" type="module"></script>
+	<script src="<?= BASE_URL . "/assets/js/header.js" ?>" type="module"></script>
 </head>
 
 <body class="min-vh-100 position-relative pb-5">

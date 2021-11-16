@@ -1,18 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Rack",
-        "lastName": "Lei",
-        "email": "jackon@network.com",
-        "gender": "man",
-        "city": "San Jone",
-        "streetAddress": "126",
-        "state": "CA",
-        "age": "24",
-        "postalCode": "394221",
-        "phoneNumber": "7383627627"
-    },
-    {
         "id": 3,
         "name": "Leila",
         "lastName": "Mills",
@@ -89,16 +76,5 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
-    },
-    {
-        "name": "Haroon",
-        "age": "43 ",
-        "email": "2",
-        "phoneNumber": "22",
-        "streetAddress": "2",
-        "postalCode": "2",
-        "city": "2",
-        "state": "2",
-        "id": 9
     }
 ]
