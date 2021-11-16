@@ -149,7 +149,10 @@ function endSession() {
 
 	window.location.search = "expired=true";
 
-	window.location.reload;
+	/* let reload = setTimeout(() => {
+		window.location.reload();
+		clearTimeout(reload);
+	}, 1000); */
 }
 
 /**

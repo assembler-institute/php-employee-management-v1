@@ -46,13 +46,13 @@ if (filter_input(INPUT_POST,'json_endSession')){
   $end_session = $decoded_jsonEnd->end_session;
 
   if($end_session) {
-    $_GET['expired'] = true;
+    $_SESSION['expired'] = true;
     destroySession();
   }
 }
 
 
-if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
+//if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
 
 
 

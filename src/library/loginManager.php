@@ -106,13 +106,15 @@ function destroySession()
   session_start();
   /**
    * Destroy session
-   */
+   */$expired=false;
+  if(isset($_SESSION['expired'])) $expired=true;
 
     session_unset();
 
     destroySessionCookie();
     session_destroy();
 
+    if($expired)  header("Location:../../index.php?expired=true");
     header("Location:../../index.php?logout=true");
 
 
