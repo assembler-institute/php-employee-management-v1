@@ -8,19 +8,19 @@ This project is based on a employee manager, which allows users to perform CRUD 
 
 Clone the repository.
 
-```http
+```
  git clone https://github.com/sanadriu/php-employee-management-v1.git
 ```
 
 Install dependencies.
 
-```http
+```
  npm install
 ```
 
 If you are not going to use XAMPP, ensure that **PROJECT_FOLDER** constant is **null** and run the next command to serve the PHP application:
 
-```http
+```
   php -S localhost:3000
 ```
 
