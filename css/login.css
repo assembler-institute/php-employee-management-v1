@@ -1,0 +1,7 @@
+.alert__msg{
+    position: relative;
+    background-color: rgb(219, 246, 255);
+    padding: 4vh;
+    border: 1px solid lightgray;
+    border-radius: 5%;
+}
