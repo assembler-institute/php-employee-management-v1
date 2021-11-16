@@ -4,10 +4,20 @@
 require_once("../src/library/employeeManager.php");
 require_once("../assets/html/header.html");
 session_start();
-var_dump($_GET['employeeId']);
+
 
 if (isset($_GET['employeeId'])) {
-    getEmployee($_GET['employeeId']);
+    $data = getEmployee($_GET['employeeId']);
+    $employeeName = $data['name'];
+    $lastName = $data['lastName'];
+    $email = $data['email'];
+    $gender = $data['gender'];
+    $city = $data['city'];
+    $streetAddress = $data['streetAddress'];
+    $state = $data['state'];
+    $age = $data['age'];
+    $postalCode = $data['postalCode'];
+    $phoneNumber = $data['phoneNumber'];
 };
 
 ?>
@@ -16,11 +26,11 @@ if (isset($_GET['employeeId'])) {
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="firstName" name="data[name]" placeholder="Input Name" value="<?= $employeeName ? $employeeName : "" ?>" />
+                <input type="text" class="form-control" id="firstName" name="data[name]" placeholder="Input Name" value="<?= isset($employeeName) ? $employeeName : "" ?>" />
             </div>
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="data[lastName]" placeholder="Input Last Name" />
+                <input type="text" class="form-control" id="lastName" name="data[lastName]" placeholder="Input Last Name" value="<?= $lastName ? $lastName : "" ?>" />
             </div>
         </div>
         <div class="form-group">

@@ -65,26 +65,15 @@ function updateEmployee(array $updateEmployee)
 // $id = $_GET['employeeId'];
 function getEmployee(string $id)
 {
-    $json_data = json_decode(file_get_contents('../../resources/employees.json'), true);
-    echo "<pre>";
-    var_dump($json_data);
-    echo "</pre>";
 
-
+    $json_data = file_get_contents('../resources/employees.json');
     $data = json_decode($json_data, true);
     foreach ($data as $key => $value) {
         if ($value['id'] == $id) {
-            // return $value;
-            // print_r($value);
-            $_GET['name'] = $value['name'];
+            return $value;
         }
     };
-    // // TODO implement it
-    // if (isset($_POST['id'])) {
-    //     var_dump($_POST['id']);
-    // }
 }
-
 // getEmployee("2");
 
 
