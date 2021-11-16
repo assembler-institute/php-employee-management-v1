@@ -7,12 +7,12 @@ if (!isset($_SESSION["username"])) {
 }
 
 /* echo $_SESSION["username"]; */
-include_once '../assets/html/header.html';
+
 
 if(time() > $_SESSION['timeout'] + 600 ){
     destroySession();
 }
-
+include_once '../assets/html/header.html';
 ?>
 
 <div class="container-table">

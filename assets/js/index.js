@@ -143,7 +143,6 @@ $("#employees").jsGrid({
   },
 
   fields: [
-    { name: "id", title: "id" },
     {
       name: "name",
       type: "text",
