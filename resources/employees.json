@@ -14,30 +14,32 @@
         "postalCode": "098765"
     },
     {
-        "id": 5,
-        "name": "Susan",
+        "id": "5",
+        "avatar": "https:\/\/images.generated.photos\/shqlKW3Y7CX-zdExFA5HivILPY9JRvfVjeYt7WmZ85A\/rs:fit:512:512\/czM6Ly9pY29uczgu\/Z3Bob3Rvcy1wcm9k\/LnBob3Rvcy92M18w\/NjI2NjY4LmpwZw.jpg",
+        "name": "Susana",
         "lastName": "Smith",
-        "email": "susanmith@baz.com",
         "gender": "woman",
-        "age": 28,
+        "age": "28",
+        "email": "susanmith@baz.com",
+        "phoneNumber": "224355488976",
         "streetAddress": "43",
         "city": "Louisville",
         "state": "KNT",
-        "postalCode": "445321",
-        "phoneNumber": "224355488976"
+        "postalCode": "445321"
     },
     {
-        "id": 6,
+        "id": "6",
+        "avatar": "https:\/\/uifaces.co\/our-content\/donated\/_NMJN_7F.jpg",
         "name": "Brad",
         "lastName": "Simpson",
-        "email": "brad@foo.com",
         "gender": "man",
-        "age": 40,
+        "age": "40",
+        "email": "brad@foo.com",
+        "phoneNumber": "6854634522",
         "streetAddress": "128",
         "city": "Atlanta",
         "state": "GEO",
-        "postalCode": "394221",
-        "phoneNumber": "6854634522"
+        "postalCode": "394221"
     },
     {
         "id": 7,
@@ -64,20 +66,6 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
-    },
-    {
-        "avatar": "",
-        "name": "Adriansito",
-        "lastName": "De Mel\u00f3n",
-        "gender": "Apache AH64 Boeing",
-        "age": "76",
-        "email": "nada",
-        "phoneNumber": "123456789",
-        "streetAddress": "123",
-        "city": "Barcelona",
-        "state": "sity",
-        "postalCode": "09090",
-        "id": 9
     },
     {
         "name": "Peter",
