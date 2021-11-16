@@ -1,26 +1,29 @@
 <?php
 
-function checkSession() {
+function checkSession()
+{
   // We check if user has no session, and if so, we redirect to index
-  if(!isset($_SESSION['username'])) {
+  if (!isset($_SESSION['username'])) {
     header("Location: ../index.php");
   }
 }
 
-function checkSessionToDashboard() {
+function checkSessionToDashboard()
+{
   // We check if user already is logged, and if so, we redirect to dashboard
   session_start();
-  if(isset($_SESSION['username'])) {
+  if (isset($_SESSION['username'])) {
     header("Location: ./src/dashboard.php");
   }
 }
 
-function logOut($caller) {
+function logOut($caller)
+{
   session_start();
 
   unset($_SESSION);
 
-  if(ini_get("session.use_cookies")) {
+  if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(
       session_name(),
@@ -42,21 +45,15 @@ function logOut($caller) {
   }
 }
 
-function checkSessionExpired() {
-  if(isset($_SESSION)) {
+function checkSessionExpired()
+{
+  if (isset($_SESSION)) {
     $initTime = $_SESSION['initTime']; // What time did we started the session
     $duration = $_SESSION['duration']; // How much time do we want our session to stay active
     $currentTime = time();
 
-    // var_dump($initTime);
-    // var_dump($duration);
-    // var_dump($currentTime);
-    // echo $currentTime - $initTime;
-    // die();
-
-    if(isset($_SESSION) && (($currentTime - $initTime) > $duration)) {
+    if (isset($_SESSION) && (($currentTime - $initTime) > $duration)) {
       logOut("sessionTimeOut");
     }
-
   }
 }

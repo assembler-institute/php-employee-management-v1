@@ -1,5 +1,3 @@
-//TODO Cuidado con eliminar varios elementos sin recargar!
-
 const getJSONData = async () => {
   const url = `../resources/employees.json`;
   try {
@@ -23,7 +21,7 @@ $("#jsGrid").jsGrid({
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
   controller: {
-    loadData: function (filter) {
+    loadData: function () {
       var d = $.Deferred();
       return $.ajax({
         url: "../resources/employees.json",
@@ -165,10 +163,18 @@ $("#jsGrid").jsGrid({
     location.href = "./employee.php?employee=" + args.item.id;
   },
   onItemUpdated: function () {
-    location.href = "./dashboard.php?action=updated";
+    let toast = document.getElementById("update-toast");
+    toast.classList.remove("toast");
+    setTimeout(() => {
+      toast.classList.add("toast");
+    }, 2000);
   },
   onItemDeleted: function () {
-    location.href = "./dashboard.php?action=deleted";
+    let toast = document.getElementById("delete-toast");
+    toast.classList.remove("toast");
+    setTimeout(() => {
+      toast.classList.add("toast");
+    }, 2000);
   },
 });
 

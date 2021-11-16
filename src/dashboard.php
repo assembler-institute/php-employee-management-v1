@@ -16,7 +16,6 @@
     <script type="module" src="../assets/js/index.js" defer></script>
 </head>
 
-
 <body>
     <?php
 
@@ -29,39 +28,22 @@
 
     require_once("../assets/html/header.html");
 
-    if (isset($_GET["action"]) && $_GET["action"] === "deleted") {
-        echo "
-                <div class='align-items-center text-white bg-primary border-0 w-25 mx-auto' role='alert' aria-live='assertive' aria-atomic='true'>
-                    <div class='d-flex'>
-                        <div class='toast-body'>
-                            <span id='employee-deleted'>Employee successfully deleted.</span> 
-                        </div>
-                        <button type='button' class='btn-close btn-close-white me-2 m-auto' data-bs-dismiss='toast' aria-label='Close'></button>
-                    </div>
-                </div>";
-    }
-
-    if (isset($_GET["action"]) && $_GET["action"] === "updated") {
-        echo "
-                <div class='align-items-center text-center text-white bg-primary border-0 w-25 mx-auto' role='alert' aria-live='assertive' aria-atomic='true'>
-                    <div class='d-flex text-center'>
-                        <div class='toast-body'>
-                            <span class='text-center'>Employee successfully updated.</span> 
-                        </div>
-                        <button type='button' class='btn-close btn-close-white me-2 m-auto' data-bs-dismiss='toast' aria-label='Close'></button>
-                    </div>
-                </div>";
-    }
-
     ?>
-
+    <div id="update-toast" class='update-toast toast align-items-center text-white bg-primary border-0 w-25 mx-auto my-5' role='alert' aria-live='assertive' aria-atomic='true'>
+        <div class='d-flex'>
+            <div class='toast-body'>
+                <span class='text-center'>Employee successfully updated.</span>
+            </div>
+        </div>
+    </div>
+    <div id="delete-toast" class='delete-toast toast align-items-center text-white bg-primary border-0 w-25 mx-auto my-5' role='alert' aria-live='assertive' aria-atomic='true'>
+        <div class='d-flex'>
+            <div class='toast-body'>
+                <span id='employee-deleted'>Employee successfully deleted.</span>
+            </div>
+        </div>
+    </div>
     <div id="jsGrid"></div>
 </body>
-
-<?php
-
-require_once("../assets/html/footer.html");
-
-?>
 
 </html>

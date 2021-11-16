@@ -66,18 +66,6 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-    $jsonData = file_get_contents('../../resources/employees.json');
-    $usersData = json_decode($jsonData, true);
-
-    $found = false;
-
-    foreach ($usersData as $user) {
-        if ($user["id"] == $id) {
-            $found = true;
-        }
-    }
-
-    return $found;
 }
 
 

@@ -36,12 +36,11 @@ require_once("../assets/html/header.html");
 
   if (isset($_GET['info']) && $_GET['info'] == "success") {
     echo "
-      <div class='align-items-center text-white bg-primary border-0 w-25' id='toast'>
+      <div class='align-items-center text-white bg-primary border-0 w-25 my-5' id='toast'>
         <div class='d-flex'>
           <div class='toast-body'>
-            Hello, world! This is a toast message.
+            Employee successfully updated!
           </div>
-          <button type='button' class='btn-close btn-close-white me-2 m-auto' data-bs-dismiss='toast' aria-label='Close'></button>
         </div>
       </div>";
   }
@@ -149,10 +148,4 @@ require_once("../assets/html/header.html");
 </form>
 </div>
 
-
-
-<?php
-
-require_once("../assets/html/footer.html");
-
-?>
+</html>

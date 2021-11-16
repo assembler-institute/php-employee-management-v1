@@ -1,0 +1,48 @@
+/*--------------------------------------------- LOGIN -----------------------------------*/
+
+:root {
+  --primary: #fcde67;
+  --secondary: #5bccf6;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 20rem;
+}
+
+.login__input {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  width: 15rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--primary);
+}
+
+.login__input:focus {
+  outline: none;
+  border: 1px solid var(--secondary);
+}
+
+.login__label {
+  font-size: 1.2rem;
+}
+
+.login__btn {
+  width: 15rem;
+  color: black;
+  cursor: pointer;
+  margin-right: 3rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
+}
+
+.login__btn:hover {
+  color: black;
+  background-color: var(--secondary);
+  border: 1px solid white;
+}
