@@ -19,45 +19,43 @@ function timer(int $intialTime){
     return $sessionTimer;
   };
 
-
-
 /**
 * This functions sets a timeout that if achieved sends a form to the client
 * @param initialTime (int )time when the session was initialized
 * @return sessionTimer (int) - returns time of the session in ms
 **/
 function initializeTimer(){
-
   // time when session was created
-  return $_SESSION['startTime'];
+  return date('Y-m-d H:i:s', $_SESSION['startTime']);
 };
 
-/* function initializeTimer($string = ""){
+// send initial session time
+if(filter_input(INPUT_POST,'json_getTime')){
 
-  // in case we need to reset
-  if($string && $string === "reset") $_SESSION['startTime'] = $_SERVER['REQUEST_TIME'];
+  $json = filter_input(INPUT_POST,'json_getTime');
+  $decoded_json = json_decode($json);
+  $start = $decoded_json->start;
 
-  $initialTime = $_SESSION['startTime'];
-  // set timer
-  $_SESSION['timer'] = timer($initialTime);
+  if($start) echo json_encode(initializeTimer());
 
-  return $_SESSION['timer'];
-};
- */
-// poner contador a cero. si el js por evento recibe un movimiento
-// la session debería vovler a cero
+}
 
 // if event on client timer to zero
+if (filter_input(INPUT_POST,'json_endSession')){
 
-$json = filter_input(INPUT_POST,'json_getTime');
-$decoded_json = json_decode($json);
-$start = $decoded_json->start;
+  $jsonEnd = filter_input(INPUT_POST,'json_endSession');
+  $decoded_jsonEnd = json_decode($jsonEnd);
+  $end_session = $decoded_jsonEnd->end_session;
 
-if($start === true) {
-  echo json_encode(initializeTimer());
-};
+  if($end_session) {
+    $_SESSION['expired'] = true;
+    destroySession();
+  }
+}
 
 
-//if logout
-//if($_GET["logout"]) destroySession();
+if(isset($_GET["expired"]) && $_GET["expired"]) destroySession();
+
+
+
 
