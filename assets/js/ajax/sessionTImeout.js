@@ -33,7 +33,16 @@ function resetTimer() {
 	if (sessionStorage.getItem("timer")) sessionStorage.setItem("timer", 0);
 	if (sessionStorage.getItem("reset")) sessionStorage.setItem("reset", true);
 
-	starts();
+	//borrar todos los timeouts
+	if (sessionStorage.getItem("timeouts")) {
+		let timeouts = JSON.parse(sessionStorage.getItem("timeouts"));
+
+		timeouts.forEach((element) => {
+			clearTimeout(element);
+		});
+	}
+
+	starts(10000);
 }
 
 /**
@@ -42,30 +51,50 @@ function resetTimer() {
  * @param {int} END_SESSION_TIME expiration time, setted to 10 secs
  * @returns the timeout ID
  */
+
 function starts(END_SESSION_TIME = 10000) {
 	sessionStorage.setItem("reset", false);
-	// sets in Session storage initialTime
 	if (sessionStorage.getItem("timer") != 0) sessionStorage.setItem("timer", 0);
-	let timer = JSON.parse(sessionStorage.getItem("timer"));
+	if (!sessionStorage.getItem("timeouts"))
+		sessionStorage.setItem("timeouts", 0);
 
-	let interval = setInterval(() => {
-		timer++;
-		sessionStorage.setItem("timer", timer);
-	}, 1000);
+	//let timer = JSON.parse(sessionStorage.getItem("timer"));
 
-	timerClock(END_SESSION_TIME, interval);
+	let contador = 0;
+	while (contador < 10) {
+		console.log(contador);
+		setTimeout(ticktok, 1000);
+		contador++;
+	}
+
+	function ticktok() {
+		sessionStorage.setItem("timer", JSON.stringify(contador));
+	}
+
+	timerClock(END_SESSION_TIME);
 }
 
 /**
  * Sets the timeout for the session to end.
  * @param {int} time : session duration in ms
  */
-function timerClock(time, interval) {
+function timerClock(time) {
 	let timer = setTimeout(() => {
-		clearInterval(interval);
 		endSessionPopUp();
+		clearTimeout(timer);
 	}, time);
-	clearTimeout(timer);
+
+	let timeOutsArray = [];
+	let timeOuts = sessionStorage.getItem("timeouts");
+	if (timeOuts == 0) {
+		console.log("entro aca");
+		timeOutsArray.push(timer);
+	} else {
+		timeOutsArray = JSON.parse(timeOuts);
+		timeOutsArray.push(timer);
+	}
+
+	sessionStorage.setItem("timeouts", JSON.stringify(timeOutsArray));
 }
 
 /**
@@ -135,6 +164,4 @@ function initializate() {
 window.addEventListener("load", initializate);
 
 // reset the timer
-window.addEventListener("keypress", resetTimer);
 window.addEventListener("mousemove", resetTimer);
-window.addEventListener("click", resetTimer);
