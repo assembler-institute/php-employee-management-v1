@@ -18,11 +18,13 @@ Install dependencies.
  npm install
 ```
 
-Do not use XAMPP. Run the next command to serve the PHP application
+If you are not going to use XAMPP, ensure that **PROJECT_FOLDER** constant is **null** and run the next command to serve the PHP application:
 
 ```http
   php -S localhost:3000
 ```
+
+Otherwise, if you are going to introduce the project in **htdocs** folder, specify the name of the folder for **PROJECT_FOLDER** constant.
 
 In order to use fetch avatars, you will have to uncomment **extension=curl** in **php.ini** file. Otherwise, PHP will fail.
 
