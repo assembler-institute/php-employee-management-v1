@@ -85,7 +85,8 @@ function authUser()
 function checkUser(string $email, string $pass)
 
 {
-    //traer de JSON
+    //*TODO traer de JSON
+
     $emailDb = "admin@assemblerschool.com";
     $passDb = "123456";
 
@@ -108,10 +109,12 @@ function destroySession()
    */
    $notMessage=false;
 
-   if($_SESSION['expired']) {
+   if($_SESSION['expired']||$_GET['expired']) {
       $notMessage = true;
     };
 
+    destroySessionCookie();
+    session_destroy();
 
     session_unset();
 
@@ -199,7 +202,7 @@ function checkLogout()
 {
   if(!isset($_SESSION["email"])) {
 
-    if (isset($_GET["logout"])  ){
+    if (isset($_GET["logout"]) ){
 
       return ["status" => "success", "message" => "You have logged out correctly"];
 

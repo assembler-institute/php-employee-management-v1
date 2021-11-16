@@ -39,12 +39,12 @@ const NAV = `
 `;
 
 const insertNav = () => {
-  //get BODY element right at the start
+	//get BODY element right at the start
 
-  console.log(document.getElementById("mainContainer"));
-  document
-    .getElementById("mainContainer")
-    .insertAdjacentHTML("beforeBegin", NAV);
+	console.log(document.getElementById("mainContainer"));
+	document
+		.getElementById("mainContainer")
+		.insertAdjacentHTML("beforeBegin", NAV);
 };
 
 insertNav();
