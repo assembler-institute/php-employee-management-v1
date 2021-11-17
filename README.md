@@ -1,5 +1,7 @@
 # PHP BASIC APPLICATION TO MANAGE AN EMPLOYEES LIST
 
+## Jose and Yaiser´s solution: you can find it by the following link https://github.com/YaiGenes/php-employee-management-db.git
+
 ## Application main points
 
 1. Login and logout with a json file as user storage
