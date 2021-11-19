@@ -34,7 +34,7 @@ if (!isset($_SESSION)) {
                 header('Refresh:2, ./dashboard.php');
             }
             ?>
-            <h3>Employee: </h3>
+            <h3>Add new employee: </h3>
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -67,9 +67,9 @@ if (!isset($_SESSION)) {
                     <div class="form-group">
                         <label for="inputGender">Gender</label>
                         <select required class="form-control" id="inputGender" name="gender[]">
-                            <option value="man">man</option>
-                            <option value="woman">woman</option>
-                            <option value="other">other</option>
+                            <option value="man">Male</option>
+                            <option value="woman">Female</option>
+                            <option value="other">Trans</option>
                         </select>
                     </div>
 

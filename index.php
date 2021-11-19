@@ -29,8 +29,8 @@ if(isset($_SESSION)) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="../php-employee-management-v1/node_modules/toastify-js/src/toastify.css">
-  <script type="text/javascript" src="../php-employee-management-v1/node_modules/toastify-js/src//toastify.js" defer></script>
+  <!-- <link rel="stylesheet" type="text/css" href="../php-employee-management-v1/node_modules/toastify-js/src/toastify.css">
+  <script type="text/javascript" src="../php-employee-management-v1/node_modules/toastify-js/src//toastify.js" defer></script> -->
   <!-- <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
