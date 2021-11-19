@@ -1,6 +1,7 @@
 <aside id="notification-box" style="z-index: 1" class="position-absolute top-0 end-0 m-3">
 	<?php foreach (["success", "danger", "info"] as $type) : ?>
 		<?php if ($messages = popSessionValue($type)) : ?>
+			<?php var_dump($messages); ?>
 			<?php foreach ($messages as $message) : ?>
 				<div class="alert alert-<?= $type ?> alert-dismissible fade show my-1 mx-1" role="alert">
 					<?= $message ?>

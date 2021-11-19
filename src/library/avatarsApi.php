@@ -21,7 +21,6 @@ function getAvatars()
 	curl_close($curlHandler);
 
 	if ($response === false) {
-		if (session_status() === PHP_SESSION_ACTIVE) setSessionValue("danger", 'Curl error: ' . curl_error($curlHandler));
 		return null;
 	}
 
