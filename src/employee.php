@@ -1,23 +1,14 @@
 <?php
 
-function getEmployee($id)
-{
-	$employeesCollection = json_decode(file_get_contents("../resources/employees.json"), true);
+require_once("../config/constants.php");
+require_once(LIBRARY . "/employeeManager.php");
+require_once(LIBRARY . "/sessionHelper.php");
 
-	foreach ($employeesCollection as $employee) {
-		if ($employee["id"] == $id) {
-			return $employee;
-		}
-	}
-
-	return null;
-}
-
-require_once("./library/sessionHelper.php");
 startSession();
+checkSession();
 
 if (!getSessionValue("user")) {
-	header("Location: ../index.php");
+	header("Location:" . BASE_URL);
 	exit();
 }
 
@@ -28,7 +19,7 @@ if ($id) {
 
 	if ($data === null) {
 		setSessionValue("danger", ["Employee #$id does not exist"]);
-		header("Location: ./dashboard.php");
+		header("Location: " . BASE_URL . "/src/dashboard.php");
 		exit();
 	}
 }
@@ -43,19 +34,20 @@ if ($id) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Employee Manager - Form</title>
-	<link type="text/css" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="../assets/css/avatar.css" />
-	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" type="module"></script>
-	<script src="../assets/js/employee.js" type="module"></script>
+	<link type="text/css" rel="stylesheet" href="<?= BASE_URL . "/node_modules/bootstrap/dist/css/bootstrap.min.css" ?>" />
+	<link type="text/css" rel="stylesheet" href="<?= BASE_URL . "/assets/css/avatar.css" ?>" />
+	<script src="<?= BASE_URL . "/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" ?>" type="module"></script>
+	<script src="<?= BASE_URL . "/assets/js/employee.js" ?>" type="module"></script>
+	<script src="<?= BASE_URL . "/assets/js/header.js" ?>" type="module"></script>
 </head>
 
-<body class="min-vh-100">
-	<?php include("../assets/html/header.html"); ?>
+<body class="min-vh-100 position-relative pb-5">
+	<?php include(ASSETS . "/html/header.html"); ?>
 	<main class="container-sm position-relative p-5 w-75">
-		<?php include("./notifications.php"); ?>
+		<?php include(SRC . "/notifications.php"); ?>
 		<div class="d-flex justify-content-between align-items-end">
 			<h1 class="display-6 m-0">Employee</h1>
-			<span class="fw-light text-secondary"><?php echo ($id) ? "Employee #$id" : "New employee" ?></span>
+			<span class="fw-light text-secondary"><?= ($id) ? "Employee #$id" : "New employee" ?></span>
 		</div>
 		<hr />
 		<form id="employee-form" class="d-flex justify-content-center">
@@ -78,7 +70,7 @@ if ($id) {
 						</button>
 					<?php endif ?>
 					<?php
-					include "./imageGallery.php";
+					include(SRC . "/imageGallery.php");
 					?>
 					<hr>
 				</div>
@@ -124,13 +116,13 @@ if ($id) {
 				</div>
 				<div class="col-12 d-flex justify-content-center gap-3">
 					<button class="btn btn-primary" type="submit">Submit</button>
-					<a class="btn btn-outline-primary" href="./dashboard.php">Go back</a>
+					<a class="btn btn-outline-primary" href="<?= BASE_URL . "/src/dashboard.php" ?>">Go back</a>
 				</div>
 			</div>
 		</form>
 
 	</main>
-	<?php include("../assets/html/footer.html"); ?>
+	<?php include(ASSETS . "/html/footer.html"); ?>
 </body>
 
 </html>

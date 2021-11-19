@@ -2,15 +2,22 @@
 
 function startSession()
 {
-	$params = session_get_cookie_params();
-	session_set_cookie_params(
-		$params["lifetime"] + 300,
-		$params["path"],
-		$params["domain"],
-		$params["secure"],
-		$params["httponly"],
-	);
 	session_start();
+}
+
+function checkSession()
+{
+	$user = 			getSessionValue("user");
+	$expiration = getSessionValue("expiration");
+
+	if ($user) {
+		if ($expiration < time()) {
+			popSessionValue("user");
+			setSessionValue("info", ["Session has expired."]);
+		} else {
+			setSessionValue("expiration", time() + LIFETIME);
+		}
+	}
 }
 
 function destroySession()
