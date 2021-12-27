@@ -11,7 +11,7 @@
 
 <body class="text-center">
     <main class="form-signin">
-        <form>
+        <form action="./src/library/loginManager.php" method="POST">
             <h3 class="mb-3">PLEASE LOGIN</h3>
 
             <div class="form-floating mb-3">
