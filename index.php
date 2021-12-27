@@ -28,7 +28,7 @@
                 if (isset($_GET["error"])) {
                     echo "<p class='alert alert-danger'>Password or Username is incorrect<p>";
                 } else if (isset($_GET["notLogged"])){
-                    echo "<p class='alert alert-danger'>Access denied<p>";
+                    echo "<p class='alert alert-danger'>Access denied. Please log in.<p>";
                 }
                 indexLogCheck();
                 ?>
