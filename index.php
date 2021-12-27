@@ -22,11 +22,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="pass" class="form-label">Password</label>
-                    <input type="text" id="pass" name="pass">
+                    <input type="password" id="pass" name="pass">
                 </div>
                 <?php require_once "./src/library/sessionHelper.php";
                 if (isset($_GET["error"])) {
-                    echo "<p class='alert alert-danger'>Password or Username is incorrect<p>";
+                    echo "<p class='alert alert-danger'>Password or Username is incorrect.<p>";
                 } else if (isset($_GET["notLogged"])){
                     echo "<p class='alert alert-danger'>Access denied. Please log in.<p>";
                 }
