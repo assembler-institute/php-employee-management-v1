@@ -1,0 +1,15 @@
+.head {
+    width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.log {
+display: flex;
+justify-content: center;
+}
+
+.sub {
+    display: flex;
+    justify-content: center;
+}
