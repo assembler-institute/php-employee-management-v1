@@ -15,7 +15,7 @@
             <h1>Log in</h1>
         </div>
         <div class="log">
-            <form action="./modules/loging.php" method="POST">
+            <form action="./src/library/loginManager.php" method="POST">
                 <div class="mb-3">
                     <label for="log" class="form-label">Username</label>
                     <input type="text" id="log" name="log">
@@ -24,6 +24,12 @@
                     <label for="pass" class="form-label">Password</label>
                     <input type="text" id="pass" name="pass">
                 </div>
+                <?php require_once "./src/library/sessionHelper.php";
+                if (isset($_GET["error"])) {
+                    echo "<p class='alert alert-danger'>Password or Username is incorrect<p>";
+                }
+                indexLogCheck();
+                ?>
                 <div class="sub">
                     <button type="submit" class="btn btn-primary">Log in</button>
                 </div>
