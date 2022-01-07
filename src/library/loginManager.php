@@ -30,10 +30,10 @@ function validation()
     if ($_POST["email"] === "assembler@school.com" && $_POST["pass"] === "123456") {
         $_SESSION["email"] = $_POST["email"];
         $_SESSION["pass"] = $_POST["pass"];
-        header("location:./../src/dashboard.php");
+        header("location:./../dashboard.php");
     } else {
         $_SESSION["loginerror"] = "You are not registered in this website";
-        header("location:./../index.php");
+        header("location:./../index.php?pruba=hola");
     }
 }
 
