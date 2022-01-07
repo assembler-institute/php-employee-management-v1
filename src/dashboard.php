@@ -17,9 +17,7 @@
         require_once "./library/sessionHelper.php";
         sessionCheck();
         ?>
-</nav>
     <main>
-    </div>
     </main>
 </body>
 
