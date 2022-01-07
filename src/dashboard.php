@@ -1,4 +1,7 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +27,7 @@
 <body>
     <!-- get header.html content -->
     <?php echo file_get_contents("./../assets/html/header.html", true);
+    print_r( $_SESSION['user']);
     ?>
     <div id="jsGrid">
 
