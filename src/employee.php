@@ -20,23 +20,23 @@
         <form class="employeeForm" action="./library/employeeController.php" method="POST">
             <div class="formFlex">
                 <div class="flexMember">
-            <label for="employee-name">Name</label><br>
-            <input type="text" id="employee-name" name="employee-name" value="">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" value="">
             </div>
             <div class="flexMember">
-            <label for="employee-lastName">Last name</label><br>
-            <input type="text" id="employee-lastName" name="employee-lastName" value="">
+            <label for="lastName">Last name</label><br>
+            <input type="text" id="lastName" name="lastName" value="">
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
-            <label for="employee-mail">Email</label><br>
-            <input type="email" id="employee-mail" name="employee-mail" value="">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" value="">
             <p>We will sell this data to some weird databank</p>
             </div>
             <div class="flexMember">
-            <label for="employee-gender">Gender</label><br>
-            <select id="employee-gender" name="employee-gender">
+            <label for="gender">Gender</label><br>
+            <select id="gender" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
@@ -45,37 +45,37 @@
             </div>
             <div class="formFlex">
                 <div class="flexMember">
-            <label for="employee-city">City</label><br>
-            <input type="text" id="employee-city" name="employee-city" value="">
+            <label for="city">City</label><br>
+            <input type="text" id="city" name="city" value="">
             </div>
             <div class="flexMember">
-            <label for="employee-street">Stree number</label><br>
-            <input type="text" id="employee-street" name="employee-street" value="">
+            <label for="streetAdress">Stree number</label><br>
+            <input type="number" id="streetAdress" name="streetAdress" value="">
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
-            <label for="employee-state">State</label><br>
-            <input type="text" id="employee-state" name="employee-state" value="">
+            <label for="state">State</label><br>
+            <input type="text" id="state" name="state" value="">
             </div>
             <div class="flexMember">
-            <label for="employee-age">Age</label><br>
-            <input type="number" id="employee-age" name="employee-age" value="">
+            <label for="age">Age</label><br>
+            <input type="number" id="age" name="age" value="">
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="employee-postalCode">Postal code</label><br>
-            <input type="number" id="employee-postalCode" name="employee-postalCode" value="">
+            <input type="number" id="postalCode" name="postalCode" value="">
             </div>
             <div class="flexMember">
-            <label for="employee-phone">Phone number</label><br>
-            <input type="number" id="employee-phone" name="employee-phone" value="">
+            <label for="phoneNumber">Phone number</label><br>
+            <input type="number" id="phoneNumber" name="phoneNumber" value="">
             </div>
             </div>
             <div class="formFlex">
             <div class="flexButtons">
-                <button type="submit" name="addEmployeePHP"  class="btn btn-primary">submit</button>
+                <button type="submit" class="btn btn-primary">submit</button>
             <a href="dashboard.php"><button type="button" class="btn btn-secondary">Return</button></a>
             </div>
             </div>
@@ -83,7 +83,6 @@
     </main>
     <?php 
     require_once "../assets/html/footer.html";
-    
     ?>
 </body>
 </html>

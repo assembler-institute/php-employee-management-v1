@@ -19,7 +19,21 @@ function getEmployeers(): array {
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+
+$oldEmployee = getEmployeers();
+$arrayKey = count($oldEmployee);
+$newId = $arrayKey+ 1;
+print_r($newEmployee);
+$id = array ("id" => $newId);
+array_push($oldEmployee, $newEmployee);
+array_push($oldEmployee["$arrayKey"], $id["id"]);
+
+$oldEmployee["$arrayKey"]["id"] = $oldEmployee["$arrayKey"][0];
+unset($oldEmployee["$arrayKey"][0]);
+echo "<br>";
+print_r($oldEmployee);
+
+
 }
 
 
