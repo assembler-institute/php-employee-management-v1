@@ -6,30 +6,32 @@ var clients = [
     { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
 ];
 
-var countries = [
-    { Name: "", Id: 0 },
-    { Name: "United States", Id: 1 },
-    { Name: "Canada", Id: 2 },
-    { Name: "United Kingdom", Id: 3 }
-];
+fetch("../resources/employees.json")
+.then(res => res.json())
+.then(data => jsGridFun(data))
 
-$("#jsGrid").jsGrid({
-    width: "100%",
-    height: "400px",
-
-    inserting: true,
-    editing: true,
-    sorting: true,
-    paging: true,
-
-    data: clients,
-
-    fields: [
-        { name: "Name", type: "text", width: 150, validate: "required" },
-        { name: "Age", type: "number", width: 50 },
-        { name: "Address", type: "text", width: 200 },
-        { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-        { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-        { type: "control" }
-    ]
-});
+function jsGridFun(data){
+    $("#jsGrid").jsGrid({
+        width: "100%",
+        //height: "400px",
+    
+        inserting: true,
+        editing: true,
+        sorting: true,
+        paging: true,
+    
+        data: data,
+    
+        fields: [
+            { name: "name", type: "text", width: 150, validate: "required" },
+            { name: "email", type: "text", width: 150, validate: "required" },
+            { name: "age", type: "number", width: 50 },
+            { name: "streetAddress", type: "number", width: 50 },
+            { name: "city", type: "text", width: 100 },
+            { name: "state", type: "text", width: 50 },
+            { name: "postalCode", type: "number", width: 50 },
+            { name: "phoneNumber", type: "number", width: 200 },
+            { type: "control" }
+        ]
+    });
+}
