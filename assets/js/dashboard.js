@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", async() => {
     let employeers = await getEmployeers();
-    console.log(employeers);
     displayTypeTasks(employeers);
 });
 
@@ -35,17 +34,24 @@ function displayTypeTasks(employeers) {
             { name: "state", type: "text", title: "State" },
             { name: "postalCode", type: "number", title: "Postal Code" },
             { name: "phoneNumber", type: "number", title: "Phone Number" },
-            { type: "control", modeSwitchButton: true, editButton: false}
+            { type: "control", modeSwitchButton: true, editButton: true}
         ],
 
-        // controller: {
-        //     insertItem: function name(item) {
-        //         return $.ajax({
-        //             type: "POST",
-        //             url: "./library/employeeController.php?addEmployee",
-        //             data: item
-        //         })
-        //     }
-        // }
+        controller: {
+            // insertItem: function name(item) {
+            //     return $.ajax({
+            //         type: "POST",
+            //         url: "./library/employeeController.php?addEmployee",
+            //         data: item
+            //     })
+            // },
+            // updateItem: function name(item) {
+            //     return $.ajax({
+            //         type: "PUT",
+            //         url: "./library/employeeController.php?modifyEmployee",
+            //         data: item
+            //     })
+            // }
+        }
     });
 }
