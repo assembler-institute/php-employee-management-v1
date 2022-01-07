@@ -23,7 +23,7 @@ function addEmployee(array $newEmployee)
 $oldEmployee = getEmployeers();
 $arrayKey = count($oldEmployee);
 $newId = $arrayKey+ 1;
-print_r($newEmployee);
+//print_r($newEmployee);
 $id = array ("id" => $newId);
 array_push($oldEmployee, $newEmployee);
 array_push($oldEmployee["$arrayKey"], $id["id"]);
@@ -31,16 +31,14 @@ array_push($oldEmployee["$arrayKey"], $id["id"]);
 $oldEmployee["$arrayKey"]["id"] = $oldEmployee["$arrayKey"][0];
 unset($oldEmployee["$arrayKey"][0]);
 echo "<br>";
-print_r($oldEmployee);
+//print_r($oldEmployee);
 
 
 $fileName = ".././../resources/employees.json";
 
 if(file_exists($fileName)){
     file_put_contents($fileName, json_encode($oldEmployee));
-}
-else{
-    echo "Buhoo";
+    header("Location: ../employee.php?newEmployeeAdded");
 }
 }
 
