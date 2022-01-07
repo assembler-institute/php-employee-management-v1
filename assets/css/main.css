@@ -10,3 +10,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.employeeForm {
+    margin-top: 5%;
+}
+
+.flexButtons {
+    margin-top: 2%;
+}

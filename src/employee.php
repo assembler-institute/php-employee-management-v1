@@ -18,7 +18,7 @@
     sessionCheck();
     ?>
     <main>
-        <form>
+        <form class="employeeForm">
             <div class="formFlex">
                 <div class="flexMember">
             <label for="employee-name">Name</label><br>
@@ -72,6 +72,12 @@
             <div class="flexMember">
             <label for="employee-phone">Phone number</label><br>
             <input type="number" id="employee-phone" name="employee-phone" value="">
+            </div>
+            </div>
+            <div class="formFlex">
+            <div class="flexButtons">
+                <button type="submit"  class="btn btn-primary">submit</button>
+            <a href="dashboard.php"><button type="button" class="btn btn-secondary">Return</button></a>
             </div>
             </div>
         </form>
