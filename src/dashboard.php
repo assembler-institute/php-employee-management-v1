@@ -4,15 +4,13 @@
 </style>
 
 <!-- jQuery -->
-<script type="module" src="../node_modules/jquery/src/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- jsGrid -->
-<link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/css/jsgrid.css" />
-<link type="text/css" rel="stylesheet" href="../node_modules/jsgrid/css/theme.css" />
-<script type="module" src="../node_modules/jsgrid/dist/jsgrid.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
 
 <!-- JS -->
-<script type="module" src="../assets/js/index.js" defer></script>
+<script src="../assets/js/index.js" defer></script>
 
 <!-- Header -->
 <?php require("../assets/html/header.html"); ?>

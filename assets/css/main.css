@@ -10,6 +10,7 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
+/* HEADER */
 header{
     width: 100%;
     height: var(--height);
@@ -48,6 +49,7 @@ header > a{
     color: var(--font-color-grey);
 }
 
+/* FOOTER */
 footer{
     width: 100%;
     height: var(--height);
