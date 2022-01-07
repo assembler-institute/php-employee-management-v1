@@ -1,3 +1,10 @@
+<?php
+
+require_once("./library/sessionHelper.php");
+checkSession();
+
+?>
+
 <!-- CSS -->
 <style>
 <?php require("../assets/css/main.css"); ?>
@@ -20,8 +27,3 @@
 
 <!-- Footer -->
 <?php include("../assets/html/footer.html"); ?>
-
-
-
-
-

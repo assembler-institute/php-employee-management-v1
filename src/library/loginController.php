@@ -1,6 +1,7 @@
 <?php
 
+require_once("./loginManager.php");
 
-// header("Location: ../dashboard.php");
+readAllUsers($_POST["email"], $_POST["password"]);
 
 ?>
