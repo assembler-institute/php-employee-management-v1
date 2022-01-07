@@ -1,5 +1,5 @@
 # PHP BASIC APPLICATION TO MANAGE AN EMPLOYEES LIST
-<a href="#instruction">Go to proyect instruction</a>
+<a href="#instructions">Go to proyect instruction</a>
 ## Application main points
 
 1. Login and logout with a json file as user storage
@@ -169,5 +169,5 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
-#### Instruction
+#### <h1 id="instructions"> Project Instructions</h1>
 
