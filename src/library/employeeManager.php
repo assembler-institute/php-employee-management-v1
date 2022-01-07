@@ -34,6 +34,14 @@ echo "<br>";
 print_r($oldEmployee);
 
 
+$fileName = ".././../resources/employees.json";
+
+if(file_exists($fileName)){
+    file_put_contents($fileName, json_encode($oldEmployee));
+}
+else{
+    echo "Buhoo";
+}
 }
 
 
