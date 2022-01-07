@@ -1,7 +1,7 @@
 <?php
 include "../assets/html/header.html"
     ?>
-
+<!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
   <a class="navbar-brand" href="#">
@@ -23,6 +23,9 @@ include "../assets/html/header.html"
     </div>
   </div>
 </nav>
+
+
+<div id="jsGrid"></div>
 
 <?php
 include "../assets/html/footer.html"
