@@ -23,12 +23,12 @@
         <h3>LOGO GC-CC</h3>
       </div>
       <div class="card-body mt-3">
-        <form name="login" action="" method="post">
+        <form name="login" action="./src/library/loginController.php" method="POST">
           <div class="input-group form-group mt-3">
-            <input type="text" class="form-control text-center p-3" placeholder="Email address" name="username">
+            <input type="text" class="form-control text-center p-3" placeholder="Email address" name="email">
           </div>
           <div class="input-group form-group mt-3">
-            <input type="password" class="form-control text-center p-3" placeholder="Password" name="password">
+            <input type="password" class="form-control text-center p-3" placeholder="Password" name="pass">
           </div>
           <div class="text-center">
             <input type="submit" value="Sign in" class="btn btn-primary mt-3 w-100 p-2" name="login-btn">
