@@ -15,11 +15,11 @@
             <h3 class="mb-3">PLEASE LOGIN</h3>
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="login-name">
+                <input type="text" class="form-control" id="login-name" name="login-name">
                 <label for="login-name">Email address or username</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="login-pass">
+                <input type="password" class="form-control" id="login-pass" name="login-pass">
                 <label for="login-pass">Password</label>
             </div>
 

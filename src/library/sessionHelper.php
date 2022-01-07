@@ -5,8 +5,8 @@ $json = json_decode($userObject, true);
 $sUser = $json["users"]["0"]["name"];
 $sPass = $json["users"]["0"]["password"];
 $sEmail = $json["users"]["0"]["email"];
-$user = $_POST["log"];
-$pass = $_POST["pass"];
+$user = $_POST["login-name"];
+$pass = $_POST["login-pass"];
 $check = password_verify($pass, $sPass);
 
 
