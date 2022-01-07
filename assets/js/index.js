@@ -6,16 +6,22 @@ async function createTable() {
     await getEmployees();
     $("#jsGrid").jsGrid({
         width: "100%",
-        height: "100%",
+        height: "70vh",
 
         inserting: true,
-        editing: true,
+        editing: false,
         sorting: true,
-        paging: false,
+        paging: true,
 
         data: employees,
 
         fields: [{
+                name: "id",
+                type: "text",
+                width: 40,
+                validate: "required"
+            },
+            {
                 name: "name",
                 type: "text",
                 width: 150,
@@ -24,7 +30,8 @@ async function createTable() {
             {
                 name: "email",
                 type: "text",
-                width: 200
+                width: 200,
+                validate: "required"
             },
             {
                 name: "age",
@@ -41,13 +48,14 @@ async function createTable() {
                 name: "city",
                 type: "text",
                 width: 100,
+                validate: "required"
             },
             {
                 type: "control"
             }
         ]
     });
-
+    exampleListener();
 }
 async function getEmployees() {
     await fetch("./../resources/employees.json")
@@ -58,4 +66,16 @@ async function getEmployees() {
             })
         })
 }
+
+function exampleListener() {
+    $("tr").on("click", changePage)
+}
+
+function changePage(e) {
+    console.log();
+    const userName = $(e.target).parent().children()[0].textContent;
+    window.location = "employee.php?userId=" + userName
+
+}
+
 window.onload = createTable();

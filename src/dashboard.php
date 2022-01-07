@@ -1,6 +1,9 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
 session_start();
+if(!isset($_SESSION["user"])){
+    header("location:./../index.php?notlogged=1");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,15 @@ session_start();
 <body>
     <!-- get header.html content -->
     <?php echo file_get_contents("./../assets/html/header.html", true);
-    print_r( $_SESSION['user']);
+    //get the username of session
+    echo '      <p id="nameLogged">'.$_SESSION["user"].'</p>
+                </div>
+
+                <button class="btn btn-outline-warning">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>';
     ?>
     <div id="jsGrid">
 
