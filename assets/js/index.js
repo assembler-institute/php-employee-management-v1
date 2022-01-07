@@ -65,12 +65,6 @@ $('#grid_table').jsGrid({
       validate: "required"
     },
     {
-      name: "lastName",
-      type: "text",
-      width: 150,
-      validate: "required"
-    },
-    {
       name: "age",
       type: "text",
       width: 50,
@@ -80,6 +74,37 @@ $('#grid_table').jsGrid({
         }
       }
     },
+    {
+      name: "streetAddress",
+      type: "text",
+      width: 70,
+      validate: "required"
+    },
+    {
+      name: "city",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+    {
+      name: "state",
+      type: "text",
+      width: 80,
+      validate: "required"
+    },
+    {
+      name: "postalCode",
+      type: "text",
+      width: 70,
+      validate: "required"
+    },
+    {
+      name: "phoneNumber",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+
     // {
     //   name: "gender",
     //   type: "select",
