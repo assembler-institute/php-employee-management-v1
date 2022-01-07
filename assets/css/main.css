@@ -18,3 +18,12 @@
 .flexButtons {
     margin-top: 2%;
 }
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.61);
+}
