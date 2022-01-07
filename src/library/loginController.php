@@ -1,4 +1,6 @@
 <?php
+require_once "./loginManager.php";
+
 $file="../../resources/users.json";
 $Allusers= file_get_contents($file);
 $usersAll= json_decode($Allusers);
@@ -25,4 +27,8 @@ if (($_POST)){
             }
         }
     }
+}
+
+if(isset($_POST["logout"])){
+    sessionlogout();
 }
