@@ -37,7 +37,7 @@
             </div>
             <div class="flexMember">
             <label for="employee-gender">Gender</label><br>
-            <select type="email" id="employee-gender" name="employee-gender">
+            <select id="employee-gender" name="employee-gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
