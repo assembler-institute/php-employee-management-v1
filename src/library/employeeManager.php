@@ -46,9 +46,9 @@ function getNextIdentifier(array $employeesCollection): int
 // TODO implement it
 }
 
-function getAllEmployees()
+function getEmployees()
  {
-    $json = file_get_contents('../resources/employees.json');
+    $json = file_get_contents('../../resources/employees.json');
     $json_data = json_decode($json,true);
     return $json_data;
  }
