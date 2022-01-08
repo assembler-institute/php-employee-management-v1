@@ -1,5 +1,9 @@
 <?php
-include "../assets/html/header.html"
+
+include "../assets/html/header.html";
+
+require "./library/employeeManager.php";
+$employees = getEmployees();
     ?>
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,8 +28,36 @@ include "../assets/html/header.html"
   </div>
 </nav>
 
+<!-- Read JSON file, convert it into PHP array and then iterate over the array in order to create a table-->
 
-<div id="jsGrid"></div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Street No.</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal Code</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($employees as $employee) : ?>
+      <tr>
+        <td><?= $employee["name"] ?></td>
+        <td><?= $employee["email"] ?></td>
+        <td><?= $employee["age"] ?></td>
+        <td><?= $employee["streetAddress"] ?></td>
+        <td><?= $employee["city"] ?></td>
+        <td><?= $employee["state"] ?></td>
+        <td><?= $employee["postalCode"] ?></td>
+        <td><?= $employee["phoneNumber"] ?></td>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
 
 <?php
 include "../assets/html/footer.html"
