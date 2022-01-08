@@ -29,35 +29,42 @@ $employees = getEmployees();
 </nav>
 
 <!-- Read JSON file, convert it into PHP array and then iterate over the array in order to create a table-->
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Age</th>
-      <th>Street No.</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Postal Code</th>
-      <th>Phone Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($employees as $employee) : ?>
+<div class="container">
+  <table class="table">
+    <thead>
       <tr>
-        <td><?= $employee["name"] ?></td>
-        <td><?= $employee["email"] ?></td>
-        <td><?= $employee["age"] ?></td>
-        <td><?= $employee["streetAddress"] ?></td>
-        <td><?= $employee["city"] ?></td>
-        <td><?= $employee["state"] ?></td>
-        <td><?= $employee["postalCode"] ?></td>
-        <td><?= $employee["phoneNumber"] ?></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Str No.</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Phone Number</th>
+        <th>Actions</th>
       </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <?php foreach ($employees as $employee) : ?>
+        <tr>
+          <td><?= $employee["name"] ?></td>
+          <td><?= $employee["email"] ?></td>
+          <td><?= $employee["age"] ?></td>
+          <td><?= $employee["streetAddress"] ?></td>
+          <td><?= $employee["city"] ?></td>
+          <td><?= $employee["state"] ?></td>
+          <td><?= $employee["postalCode"] ?></td>
+          <td><?= $employee["phoneNumber"] ?></td>
+          <td>
+            <a href="./employee.php?v=view&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
+            <a href="./employee.php?v=update&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></a>
+            <a href="" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
 
 <?php
 include "../assets/html/footer.html"

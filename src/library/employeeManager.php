@@ -1,10 +1,4 @@
 <?php
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
 
 // Reads the JSON file and returns and array
 function getEmployees() {
@@ -35,7 +29,13 @@ function updateEmployee(array $updateEmployee, string $id)
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    $employees = getEmployees();
+    foreach ($employees as $employee) {
+        if ($employee["id"] == $id) {
+            return $employee;
+        }
+    }
+    return null;
 }
 
 
