@@ -2,9 +2,9 @@
 <?php
 include_once "./../assets/html/header.html" 
 ?>
-     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <title>login</title>
-</head> 
+</head>
 <body>
     <!-- <form action="./../assets/html/header.html" method="post"></form> -->
 <div class="wrapper rounded bg-white">

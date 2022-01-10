@@ -1,7 +1,7 @@
 
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
-    require_once '../assets/html/header.html';
+    require '../assets/html/header.html';
 ?>
 <body>
     <div class="row">
@@ -11,7 +11,8 @@
             <button type="submit" name="logout">Log out </button>
         </form>
     </div>
-    <div id="jsGrid">        </div>
+
+    <div id="jsGrid" >        </div>
     </body>
 
 </html>
