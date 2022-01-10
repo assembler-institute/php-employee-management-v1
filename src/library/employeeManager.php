@@ -14,7 +14,32 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    $json = file_get_contents('../../resources/employees.json');
+    $data = json_decode($json, true);
+    unset($json); //prevent memory leaks for large json
+
+    $deleted = false;
+        for ($i=0; $i < count($data); $i++) { 
+
+            if(intval($id) == $data[$i]["id"] ){
+                unset($data[$i]);
+                $deleted = true;
+                break;
+            }
+            
+        }
+
+    if($deleted){
+    //save the file
+    file_put_contents('../../resources/employees.json',json_encode($data, JSON_PRETTY_PRINT));
+    unset($data);//release memory
+    }
+    else{
+    unset($data);//release memory
+    throw new Exception("Not found");
+    }
+
+    
 }
 
 
@@ -49,6 +74,6 @@ function getNextIdentifier(array $employeesCollection): int
 function getEmployees()
  {
     $json = file_get_contents('../../resources/employees.json');
-    $json_data = json_decode($json,true);
-    return $json_data;
+    $data = json_decode($json,true);
+    return $data;
  }

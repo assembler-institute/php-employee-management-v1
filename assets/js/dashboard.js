@@ -35,7 +35,18 @@ function loadEmployeeTable(employees) {
       { name: "state", type: "text", width: 50, title: "State" },
       { name: "postalCode", type: "number", title: "Postal Code" },
       { name: "phoneNumber", type: "number", title: "Phone Number" },
-      { type: "control", editButton: false },
+      {
+        type: "control",
+        editButton: false,
+        delOptions: { url: "/controller/deleteRecordAction" },
+      },
     ],
+    deleteItem: function (item) {
+      return $.ajax({
+        type: "DELETE",
+        url: "./library/employeeController.php?deleteEmployee",
+        data: item,
+      });
+    },
   });
 }
