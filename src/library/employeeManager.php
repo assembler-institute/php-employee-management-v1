@@ -61,7 +61,19 @@ file_put_contents($fileName, json_encode($newArray));
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    $oldArray = getEmployeers();
+    $id = $updateEmployee["id"];
+    $key = array_search($id, array_column($oldArray, 'id'));
+    $oldArray[$key] = $updateEmployee;
+
+    $newArray = array();
+$newArray = array_merge($oldArray, $newArray);
+
+
+
+$fileName = ".././../resources/employees.json";
+file_put_contents($fileName, json_encode($newArray));
+
 }
 
 

@@ -13,17 +13,24 @@ if(isset($_POST["formEmployee"])) {
 addEmployee($data);
 }
 
-if(isset($_POST["modifyEmployee"])) {
+if(isset($_GET["modifyEmployee"])) {
+   $data =   $_POST["data"];
+   print_r($data);
+updateEmployee($data);
 }
 
 if(isset($_POST["addEmployee"])) {
     $data = $_REQUEST;
     unset($data["submit"]);
 addEmployee($data);
-header("Location: ../employee.php?newEmployeeAdded");
+unset($_POST["addEmployee"]);
 }
 
-if(isset($_GET["id"])) {
-$id = $_GET["id"];
+if(isset($_GET["delete"])) {
+$id = $_GET["delete"];
 deleteEmployee($id);
+}
+
+if(isset($_GET["editEmployee"])){
+    header("Location: ../employee.php?editEmployee");
 }
