@@ -63,7 +63,7 @@ async function createTable() {
         ]
     });
     //add listener to changePage between dashboard and employees.php
-    $("tr").on("click", changePage)
+    $(".jsgrid-grid-body tr").on("click", changePage)
 }
 async function getEmployees() {
     await fetch("./../resources/employees.json")
