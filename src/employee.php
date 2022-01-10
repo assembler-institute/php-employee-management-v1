@@ -18,7 +18,7 @@ if(!isset($_SESSION["user"])){
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/63f29c9463.js" crossorigin="anonymous"></script>
     <!-- My styles/Scripts -->
-    <link rel="stylesheet" href="./../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <?php echo file_get_contents("./../assets/html/header.html", true);
@@ -30,7 +30,22 @@ if(!isset($_SESSION["user"])){
                     </form>
                 </div>
             </div>
-        </nav>';
+        </nav>
+
+        <section class="m-0 vh-100 row justify-content-center align-items-center">
+            <form class="col-auto p-5 text-center bg-light">
+            <div class="mb-3">
+                <label>Name</label>
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" name="usermail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            </div>
+            </form>
+        </section>
 
 </body>
 </html>

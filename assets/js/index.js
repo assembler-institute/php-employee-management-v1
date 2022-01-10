@@ -68,7 +68,7 @@ async function getEmployees() {
 }
 
 function exampleListener() {
-    $("tr").on("click", changePage)
+    $(".jsgrid-grid-body tr").on("click", changePage)
 }
 
 function changePage(e) {
