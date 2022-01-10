@@ -9,12 +9,25 @@
 function addEmployee(array $newEmployee)
 {
 // TODO implement it
+$newCollections = json_decode(file_get_contents('../../resources/employees.json'), true);
+$newEmployee['id'] = getNextIdentifier($newCollections);
+$newEmployee['age'] = intval($newEmployee['age']);
+
+if (!isset($newEmployee['gender'])) {
+  $newEmployee['gender'] = "";
+}
+if (!isset($newEmployee['lastName'])) {
+  $newEmployee['lastName'] = "";
+}
+array_push($newCollections, $newEmployee);
+file_put_contents('../../resources/employees.json', json_encode($newCollections, JSON_PRETTY_PRINT));
 }
 
 
 function deleteEmployee(string $id)
 {
 // TODO implement it
+
 }
 
 
@@ -44,4 +57,9 @@ function getQueryStringParameters(): array
 function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
+// $lastId = [];
+for ($i=0; $i <= count($employeesCollection); $i++){
+  $lastId = $i;
+};
+return $lastId + 1;
 }

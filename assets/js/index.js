@@ -28,7 +28,7 @@ $('#grid_table').jsGrid({
     insertItem: function(item) {
       return $.ajax({
         type: "POST",
-        url: "./../resources/employees.json",
+        url: "../src/library/employeeController.php",
         data: item
       });
     },
