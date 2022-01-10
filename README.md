@@ -169,5 +169,33 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
-#### <h1 id="instructions"> Project Instructions</h1>
+## <h1 id="instructions"> Project Instructions</h1>
+
+#### Installed frameworks:
+<ul>
+    <li>Jquery -> part of the code is wrote in jquery, because jsgrid conditions.</li>
+    <li>Bootstrap -> The styles in this project are done by using bootstrap framework.</li>
+    <li>JsGrid -> The purpose of this project is: work with the employees.json (update, delete, etc). To do the html structure we use the jsgrid.</li>
+    <li>json-server -> To do fetchs and all this things to update, display, create, delete. We use the json-server to start a server and work with the jsons.  </li>
+</ul>
+<cite>I recommend you to check the paths in html to ensure all is ok</cite>
+
+#### How project works:
+
+Index.php : Here is the login page. To access, you have to introduce the following values (without quotes) :
+    email-> "admin@assemblerschool.com" 
+    password ->"123456"
+The session will have a duration of 10 minutes.
+
+header.html -> We did a template of the header, and imported to the rest of the php files, like dashboard and employees.
+
+Dashboard.php -> The main page, you can work with the employees in this page, if you click one of the employees, the page will redirect you to employees.php, the rest you can do it in the page without refreshing (we've done it with fetchs in js).
+
+Employees.php -> Information of the user, you can edit the information if you want.
+
+
+
+
+
+
 

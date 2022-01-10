@@ -23,8 +23,8 @@ if(!isset($_SESSION["user"])){
 <body>
 <?php echo file_get_contents("./../assets/html/header.html", true);
 ?>
-<p id="nameLogged"><?php $_SESSION["user"] ?></p>
-                        </div>
+    <p id="nameLogged"><?php $_SESSION["user"] ?></p>
+</div>
 
                         <button class="btn btn-outline-warning">Logout</button>
                     </form>
