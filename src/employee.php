@@ -19,18 +19,18 @@ if(!isset($_SESSION["user"])){
     <script src="https://kit.fontawesome.com/63f29c9463.js" crossorigin="anonymous"></script>
     <!-- My styles/Scripts -->
     <link rel="stylesheet" href="./../assets/css/main.css">
+    <script src="./../assets/js/index.js" defer></script>
 </head>
 <body>
-<?php echo file_get_contents("./../assets/html/header.html", true);
-?>
-    <p id="nameLogged"><?php $_SESSION["user"] ?></p>
-</div>
-
-                        <button class="btn btn-outline-warning">Logout</button>
-                    </form>
-                </div>
-            </div>
-        </nav>';
+    <?php echo file_get_contents("./../assets/html/header.html", true);
+    ?>
+            <p id="nameLogged"><?php $_SESSION["user"] ?></p>
+        </div>
+                <button class="btn btn-outline-warning">Logout</button>
+            </form>
+         </div>
+        </div>
+    </nav>
 
 </body>
 </html>
