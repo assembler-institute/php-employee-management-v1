@@ -37,7 +37,7 @@ echo "<br>";
 $fileName = ".././../resources/employees.json";
 
 if(file_exists($fileName)){
-    file_put_contents($fileName, json_encode($oldEmployee));
+    file_put_contents($fileName, json_encode($oldEmployee, JSON_PRETTY_PRINT));
     header("Location: ../employee.php?newEmployeeAdded");
 }
 }
@@ -45,7 +45,17 @@ if(file_exists($fileName)){
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+$oldArray = getEmployeers();
+$key = array_search($id, array_column($oldArray, 'id'));
+print_r($key);
+unset($oldArray[$key]);
+$newArray = array();
+$newArray = array_merge($oldArray, $newArray);
+
+
+
+$fileName = ".././../resources/employees.json";
+file_put_contents($fileName, json_encode($newArray));
 }
 
 

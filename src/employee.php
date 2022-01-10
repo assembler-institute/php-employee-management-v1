@@ -71,6 +71,7 @@
             <div class="flexMember">
             <label for="phoneNumber">Phone number</label><br>
             <input type="number" id="phoneNumber" name="phoneNumber" value="">
+            <input type="hidden" name="formEmployee" id="formEmployee">
             </div>
             </div>
             <div class="formFlex">

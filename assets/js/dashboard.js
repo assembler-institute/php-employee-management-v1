@@ -26,6 +26,7 @@ function displayTypeTasks(employeers) {
         data: employeers,
 
         fields: [
+            { name: "id", css: "hide", width: 0},
             { name: "name", type: "text", title: "Name"},
             { name: "email", type: "text", title: "Email"},
             { name: "age", type: "number", title: "Age"},
@@ -46,8 +47,20 @@ function displayTypeTasks(employeers) {
                  }) .done(async function(response){
                     let employeers = await getEmployeers();
                     displayTypeTasks(employeers);
-                });
-             }
+                })
+             },
+             deleteItem: function name(item) {
+                return $.ajax({
+                     type: "GET",
+                    url: `./library/employeeController.php?id=${item.id}`,
+                  }) .done(async function(response){
+                      console.log(response)
+                     let employeers = await getEmployeers();
+                     displayTypeTasks(employeers);
+                 });
+                }
+
+
             // updateItem: function name(item) {
             //     return $.ajax({
             //         type: "PUT",
