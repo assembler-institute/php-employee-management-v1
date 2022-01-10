@@ -52,12 +52,31 @@ async function createTable() {
                 validate: "required"
             },
             {
-                type: "control"
+                type: "control",
+                width: 100,
+                editButton: false,
+                deleteButton: false,
+                itemTemplate: function (value, item) {
+                    var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+                    //edit btn
+                    var $customEditButton = $("<button>").attr({
+                            class: "customGridEditbutton jsgrid-button jsgrid-edit-button"
+                        })
+                        .on("click", changePage);
+                    //custom delete button
+                    var $customDeleteButton = $("<button>").attr({
+                            class: "customGridDeletebutton jsgrid-button jsgrid-delete-button"
+                        })
+                        .on("click", () => {
+                            console.log("nope");
+                        });
+                    //spawn the buttons
+                    return $("<div>").append($customEditButton).append($customDeleteButton);
+                }
             }
         ]
+
     });
-    //add listener to changePage between dashboard and employees.php
-    $(".jsgrid-grid-body tr").on("click", changePage)
 }
 async function displayEmployees() {
     await fetch("./library/employeeController.php?display=true")
@@ -70,8 +89,9 @@ async function displayEmployees() {
 }
 
 function changePage(e) {
-    console.log();
-    const userName = $(e.target).parent().children()[0].textContent;
+    const userName = $(e.target).parent().parent().parent().children()[0].textContent;
+    console.log(userName);
+    e.stopPropagation();
     window.location = "employee.php?userId=" + userName
 
 }
