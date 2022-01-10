@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="text" name="phoneNumber" value="<?= $employee["phoneNumber"]?>" class="form-control">
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-secondary mx-2">Cancel</button>
+                        <a href="./dashboard.php" class="btn btn-secondary mx-2">Cancel</a>
                         <button class="btn btn-success">Update</button>
                     </div>
                 </div>
