@@ -20,8 +20,9 @@ session_start();
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="form-floating">
-                        <label for="floatingInput">Write your user name</label>
+                <label for="floatingInput">Write your user name</label>
                         <input name="user" type="text" class="form-control" id="floatingInput" placeholder="User name" required>
+                        
                     </div>
                     <div class="form-floating">
                     <label for="floatingPassword" >Password</label>   

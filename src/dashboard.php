@@ -2,9 +2,6 @@
 <?php 
 session_start();
 
-if (!isset($_SESSION["logedUsername"])) {
-    header("Location:../index.php?accessDenied=true");
-}
 require_once("./library/employeeManager.php")
 ?>
 <!DOCTYPE html>
