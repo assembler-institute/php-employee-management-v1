@@ -16,6 +16,11 @@ if (!$employee) {
     echo "Employee not found";
     exit;
 }
+// Update information
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    updateEmployee($_POST, $employeeId);
+    // header("Location: ./dashboard.php");
+}
 
     ?>
 <!-- NAV -->
@@ -90,15 +95,68 @@ if (!$employee) {
     </div>
 
 <!-- UPDATE MODE  -->
-    <div class="col-8 mx-auto">
-        <form action="" method="post" enctype="multipart/form">
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" name="name" value=<?= $employee["name"]?> class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" name="name" value=<?= $employee["lastName"]?> class="form-control">
+    <div class="container" style="display:<?php if($_GET["v"] == "update") { echo "block"; } else{ echo "none"; }?>">
+        <form action="" method="POST" enctype="multipart/form">
+            <div class="d-flex justify-content-center">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" value="<?= $employee["name"]?>" class="form-control">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" value="<?= $employee["email"]?>" class="form-control">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" value="<?= $employee["city"]?>" class="form-control">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" name="state" value="<?= $employee["state"]?>" class="form-control">
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" name="postalCode" value="<?= $employee["postalCode"]?>" class="form-control">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" value="<?= $employee["lastName"]?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select name="gender" value="<?= $employee["gender"]?>" class="form-control">
+                            <option value="male">man</option>
+                            <option value="male">woman</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Street Address</label>
+                        <input type="text" name="streetAddress" value="<?= $employee["streetAddress"]?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="text" name="age" value="<?= $employee["age"]?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" name="phoneNumber" value="<?= $employee["phoneNumber"]?>" class="form-control">
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-secondary mx-2">Cancel</button>
+                        <button class="btn btn-success">Update</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

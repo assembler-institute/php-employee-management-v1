@@ -2,7 +2,7 @@
 
 // Reads the JSON file and returns and array
 function getEmployees() {
-    return json_decode(file_get_contents('../resources/employees.json'), true); // returns an associative array
+    return json_decode(file_get_contents('./../resources/employees.json'), true); // returns an associative array
 }
 
 function createEmployee(array $data) {
@@ -23,7 +23,13 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee, string $id)
 {
-// TODO implement it
+    $employees = getEmployees();
+    foreach ($employees as $i => $employee) {
+        if ($employee["id"] == $id) {
+            $employees[$i] = array_merge($employee, $updateEmployee);
+        }
+    }
+    file_put_contents('./../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
 }
 
 
