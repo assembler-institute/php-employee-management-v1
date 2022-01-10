@@ -30,6 +30,9 @@ function deleteEmployee(string $id)
         }
 
     if($deleted){
+    //This avoids a weird bug when deleting something from the middle of the array.
+    $newArray =array();
+    $newArray = array_merge($data,$newArray);
     //save the file
     file_put_contents('../../resources/employees.json',json_encode($data, JSON_PRETTY_PRINT));
     unset($data);//release memory
