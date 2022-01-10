@@ -19,7 +19,7 @@ if (!$employee) {
 // Update information
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     updateEmployee($_POST, $employeeId);
-    // header("Location: ./dashboard.php");
+    header("Location: ./dashboard.php");
 }
 
     ?>
