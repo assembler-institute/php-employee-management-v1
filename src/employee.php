@@ -1,13 +1,14 @@
-<!-- TODO Employee view -->
+<!-- Imports -->
 <?php
-
 require_once("./library/sessionHelper.php");
 checkSession();
-
 ?>
 
-<?php require("../assets/html/header.html"); ?>
+<!-- Change Header -->
+<script>
+    $(".employee").removeClass("a-non-active");
+    $(".dashboard").addClass("a-non-active");
+</script>
+
+<!-- Footer -->
 <?php include("../assets/html/footer.html"); ?>
-<style>
-<?php require("../assets/css/main.css"); ?>
-</style>
