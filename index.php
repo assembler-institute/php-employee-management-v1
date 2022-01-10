@@ -28,7 +28,7 @@ session_start();
                     <label for="floatingPassword" >Password</label>   
                         <input name="password"  type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                         
-                    </div>
+                    </div><br>
                     <?php
                     switch (true) {
                         case (isset($_SESSION["WEmailPass"])):
