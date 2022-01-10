@@ -8,5 +8,6 @@ if($method == 'POST'){
   addEmployee($_REQUEST);
 };
 if($method == 'DELETE'){
-  deleteEmployee($_REQUEST);
+  $_delete = file_get_contents('php://input');
+  deleteEmployee(substr($_delete, 3));
 }
