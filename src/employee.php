@@ -10,6 +10,8 @@ if(!isset($_SESSION["user"])){
 <head>
     <?php require_once("./../assets/html/header.html"); ?>
     <title>Employee</title>
+    <!-- my scripts -->
+    <script src="./../assets/js/employee.js" defer></script>
 </head>
 <body>
 
