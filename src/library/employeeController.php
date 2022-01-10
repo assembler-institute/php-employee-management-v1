@@ -12,8 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     
     try {
         deleteEmployee($delete_vars['id']);
-        header("Content-Type: application/json");
-        echo json_encode("{}");
+        http_response_code(202);
     } catch (Throwable $th) {
         http_response_code(404);
     }

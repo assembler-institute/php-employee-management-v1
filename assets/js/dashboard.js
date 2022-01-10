@@ -41,12 +41,14 @@ function loadEmployeeTable(employees) {
         delOptions: { url: "/controller/deleteRecordAction" },
       },
     ],
-    deleteItem: function (item) {
-      return $.ajax({
-        type: "DELETE",
-        url: "./library/employeeController.php?deleteEmployee",
-        data: item,
-      });
+    controller: {
+      deleteItem: function (item) {
+        return $.ajax({
+          type: "DELETE",
+          url: "./library/employeeController.php?deleteEmployee",
+          data: item,
+        });
+      },
     },
   });
 }
