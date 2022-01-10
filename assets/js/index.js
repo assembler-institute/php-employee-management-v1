@@ -85,11 +85,4 @@ function changePage(e) {
 
 window.onload = function () {
     createTable();
-    logout();
 };
-
-//listener for logout
-
-function logout() {
-
-}

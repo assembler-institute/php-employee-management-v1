@@ -15,7 +15,7 @@
 <body>
 
     <section class="m-0 vh-100 row justify-content-center align-items-center">
-        <form method="post" action="./src/library/loginManager.php" class="col-auto p-5 text-center bg-light">
+        <form method="post" action="./src/library/loginController.php" class="col-auto p-5 text-center bg-light">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" name="usermail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
