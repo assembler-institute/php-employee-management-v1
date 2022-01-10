@@ -26,5 +26,8 @@
       <div id="grid_table"></div>
     </div>
   </div>
+  <?php
+  require ("./../assets/html/footer.html");
+  ?>
 </body>
 </html>
