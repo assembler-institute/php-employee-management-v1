@@ -3,20 +3,21 @@ session_start();
 
 require("./loginController.php");
 
-$userJson = file_get_contents("../../resources/users.json");
-$users = json_decode($userJson,true);
+$userJson=file_get_contents("../../resources/users.json");
+$users=json_decode($userJson,true); 
 $logedUserName = $users["users"][0]["name"];
 $logedUserPassword = $users["users"][0]["password"];
 $recivedUserName=$_POST["user"];
 $recivedUserPassword=$_POST["password"];
 
-$login = validateLoginData(
-    $recivedUserName,
+
+$login=validateLoginData(
+    $recivedUserName, 
     $recivedUserPassword,
     $logedUserName,
     $logedUserPassword
 );
-
+echo($login);
 switch ($login) {
     case "Loged":
         $_SESSION["loged"]=$logedUserName;
@@ -33,32 +34,12 @@ switch ($login) {
     case "Wrong password":
         $_SESSION["WPass"]="Wrong password";
         header("Location:../../index.php");
-        break;
+        break;    
     default:
          echo"something wrong";
+        
         break;
 }
-
-
-/*function validation()
-{
-    {
-        $json = file_get_contents('../resources/users.json');
-        $json_data = json_decode($json,true);
-        return $json_data;
-     }
-
-
-
-    if ($_POST["email"] === "assembler@school.com" && $_POST["pass"] === "123456") {
-        $_SESSION["email"] = $_POST["email"];
-        $_SESSION["pass"] = $_POST["pass"];
-        header("location:./../dashboard.php");
-    } else {
-        $_SESSION["loginerror"] = "You are not registered in this website";
-        header("location:./../index.php?pruba=hola");
-    }
-}*/
 
 function deleteSession()
 {
