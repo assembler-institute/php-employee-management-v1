@@ -15,3 +15,9 @@ addEmployee($data);
 
 if(isset($_POST["modifyEmployee"])) {
 }
+
+if(isset($_POST["addEmployee"])) {
+    $data = $_REQUEST;
+    unset($data["submit"]);
+addEmployee($data);
+}

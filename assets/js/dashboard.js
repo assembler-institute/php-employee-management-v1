@@ -38,13 +38,16 @@ function displayTypeTasks(employeers) {
         ],
 
         controller: {
-            // insertItem: function name(item) {
-            //     return $.ajax({
-            //         type: "POST",
-            //         url: "./library/employeeController.php?addEmployee",
-            //         data: item
-            //     })
-            // },
+             insertItem: function name(item) {
+               return $.ajax({
+                    type: "POST",
+                   url: "./library/employeeController.php?addEmployee",
+                     data: item
+                 }) .done(async function(response){
+                    let employeers = await getEmployeers();
+                    displayTypeTasks(employeers);
+                });
+             }
             // updateItem: function name(item) {
             //     return $.ajax({
             //         type: "PUT",
