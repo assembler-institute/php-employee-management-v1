@@ -1,12 +1,5 @@
 <?php
 
-// session_start();
-//! Make the logout of the session
-
-// if(isset($_POST["logout"])){
-//     sessionlogout();
-// }
-
 
 //! Functions
 
