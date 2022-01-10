@@ -1,7 +1,10 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php 
-//require_once("./library/loginManager.php");
-//checkSession();
+session_start();
+
+if (!isset($_SESSION["logedUsername"])) {
+    header("Location:../index.php?accessDenied=true");
+}
 require_once("./library/employeeManager.php")
 ?>
 <!DOCTYPE html>
@@ -41,7 +44,7 @@ require_once("./library/employeeManager.php")
     </div>
   </nav>
 </header>
-
+<h1>Welcome <?php echo $_SESSION["loged"];?><h1>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
   <div class="container">
