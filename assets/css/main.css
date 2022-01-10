@@ -37,16 +37,16 @@ header :last-child{
 }
 
 a{
-    text-decoration: none;
-    color: black;
+    text-decoration: none !important;
+    color: black !important;
 }
 
 header > a{
-    color: blue;
+    color: blue !important;
 }
 
 .a-non-active{
-    color: var(--font-color-grey);
+    color: var(--font-color-grey) !important;
 }
 
 /* FOOTER */
@@ -59,4 +59,57 @@ footer{
     background-color: var(--background-grey);
     color: var(--font-color-grey);
     margin-top: var(--margin);
+}
+
+
+
+.card {
+    padding: 30px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+
+.row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+label{
+    font-weight: bold;
+}
+
+input,
+textarea,
+button {
+    padding: 8px 15px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 18px !important;
+    font-weight: 300
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;
+    font-weight: 400
+}
+
+.btn-block {
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:focus {
+    box-shadow: none !important;
+    outline-width: 0
 }

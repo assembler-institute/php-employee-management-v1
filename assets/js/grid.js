@@ -1,7 +1,6 @@
 function fillJsGrid(employee){
 
     $("#grid").jsGrid({
-
         width: "100%",
         height: "auto",
         sorting: true,
@@ -22,10 +21,14 @@ function fillJsGrid(employee){
         ],
     
         rowClick: function(args) {
-            console.log(args.item);
-            var getData = args.item;
-            var keys = Object.keys(getData);
-            var text = [];
+            // Get employee data
+            const userData = args.item;
+            const jsonData = JSON.stringify(userData);
+
+            // Send employee to employee.php
+            $(function() {
+                $("<form action='employee.php' method='post'><input type='hidden' name='data' value='" + jsonData  + "'></input></form>").appendTo("body").submit().remove();
+            });
         }
     });
     

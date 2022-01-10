@@ -1,7 +1,7 @@
 <!-- Imports -->
 <?php
-require_once("./library/sessionHelper.php");
-checkSession();
+    require_once("./library/sessionHelper.php");
+    checkSession();
 ?>
 
 <!-- jsGrid -->
@@ -21,16 +21,16 @@ checkSession();
 <!-- Grid -->
 <div id="grid"></div>
 
+<!-- Get data from JSON -->
 <?php 
-
-$decode_json = json_decode(file_get_contents("../resources/employees.json"));
-$employees_array = [];
-foreach($decode_json as $user){
-    array_push($employees_array, json_decode(json_encode($user), true));
-};
-
+    $decode_json = json_decode(file_get_contents("../resources/employees.json"));
+    $employees_array = [];
+    foreach($decode_json as $user){
+        array_push($employees_array, json_decode(json_encode($user), true));
+    };
 ?>
 
+<!-- Fill table -->
 <script>
     fillJsGrid(<?= json_encode($employees_array); ?>);
 </script>
