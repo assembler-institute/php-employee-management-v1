@@ -60,7 +60,7 @@ async function createTable() {
     $(".jsgrid-grid-body tr").on("click", changePage)
 }
 async function displayEmployees() {
-    await fetch("./../resources/employees.json")
+    await fetch("./library/employeeController.php?display=true")
         .then(response => response.json())
         .then(data => {
             console.log(data);
