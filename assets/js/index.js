@@ -18,12 +18,12 @@ async function callGrid(){
     console.log('asdfakfgljabn');
     $("#jsGrid").jsGrid({
         width: "100%",
-        height: "400px",
+        height: "900px",
 
         filtering: true,
         editing: true,
         sorting: true,
-        paging: true,
+        paging: false,
         pageSize: 10,
         pageButtonCount: 5,
         deleteConfirm: 'Do you really Want DELETE THIS DATA? ',
@@ -33,8 +33,7 @@ async function callGrid(){
         fields: [
             { name: "name", type: "text", },
             { name: "lastName", type: "text", },
-            { name: "email", type: "text", },
-            { name: "gender", type: "text", },
+            { name: "email", type: "text", },   
             { name: "city", type: "text", },
             { name: "streetAddress", type: "number", },
             { name: "state", type: "text", },
@@ -46,6 +45,8 @@ async function callGrid(){
                 type: "control",
                 modeSwitchButton: false,
                 editButton: true,
+                rowClick:true,
+                rowDoubleClick:true,
             },
             
             // {
@@ -56,14 +57,39 @@ async function callGrid(){
             // },
         ],
         // onItemEditing: function(args) {
-        //     $p=args["item"]
-        //     $proba= $p.id
-        //     // console.log($proba)
-        //     ($proba).on("dblclick" , () => {
-        //         console.log("entra con doble click")
+        //     // $(this).on("click", ()=>{
+        //     //     console.log("jaksbkdn")
+        //     console.log(args["item"].id)
+        //     // })
+        //     addEventListener("dblclick", ()=>{
+        //         $pr= args["item"].id
+        //         // console.log("he hecho doble click")
         //     })
+            // console.log(args["item"])
+
+            // $pepe= args["item"]
+            // $(`#${$pepe}`).on("click" ,()=>{
+            //     console.log("nasd")
+            // })
+           
+            // $p=args["item"]
+            // $proba= $p.id
+            // // console.log($proba)
+            // ($proba).on("dblclick" , () => {
+            //     console.log("entra con doble click")
+            // })
             
-            
+        // },
+        rowClick: function(args) {
+
+        },
+        rowDoubleClick: function(args) {
+            $idget= args["item"].id
+            window.location.assign(`./../src/employee.php?id=${$idget}`)
+            // console.log(args["item"].id)
+        }
+        
+        
         //     // console.log(args["item"])
         //     // cancel editing of the row of item with field 'ID' = 0
         //     // if(args.item.ID === 1) {
@@ -72,16 +98,13 @@ async function callGrid(){
         // }
         // rowclick: function(args){
         //     console.log(args)
-        // },
-        // rowDoubleClick: function(args) {
-        //     console.log(args["item"])
-        //     // console.log(item)
-        // },
-        editItem:function (item){
-            // editButton: true
-            console.log(item)
+        // },.,
+        
+        // editItem:function (item){
+        //     // editButton: true
+        //     console.log(item)
             
-        },
+        // },
         // deleteItem: function(item){
         //     // console.log(item)
         // }
@@ -95,7 +118,7 @@ async function calltable() {
     showContacts(data);
 }
 
-//callGrid();
+callGrid();
 
 
 
