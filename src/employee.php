@@ -49,8 +49,8 @@
             <input type="text" id="city" name="city" value="">
             </div>
             <div class="flexMember">
-            <label for="streetAdress">Stree number</label><br>
-            <input type="number" id="streetAdress" name="streetAdress" value="">
+            <label for="streetAddress">Stree number</label><br>
+            <input type="number" id="streetAddress" name="streetAddress" value="">
             </div>
             </div>
             <div class="formFlex">
