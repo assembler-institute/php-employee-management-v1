@@ -7,7 +7,7 @@ async function callDataEmploee() {
                 $dataEmployee = data;
             }
         })
-        console.log(result)
+        //console.log(result)
         return result;
     } catch (error) {
         console.error("Don't load the Data");
@@ -47,4 +47,41 @@ async function callGrid(){
 
 };
 
-callGrid();
+async function calltable() {
+    var data = await  callDataEmploee();
+    console.log(data);
+    showContacts(data);
+}
+
+//callGrid();
+
+
+
+function newTd(newContent) {
+    var result = document.createElement('td');
+    result.innerHTML = newContent;
+    return result;
+};
+
+var listContactsTable = document.getElementById('jsGridBody');
+function showContacts(contacts) {
+    listContactsTable.innerHTML = "";
+    //console.log(contacts);
+
+    contacts.forEach(contact => {
+        const tr = document.createElement('tr');
+        tr.appendChild(newTd(contact.name));
+        tr.appendChild(newTd(contact.email));
+        tr.appendChild(newTd(contact.city));
+        tr.appendChild(newTd(contact.streetAddress));
+        tr.appendChild(newTd(contact.state));
+        tr.appendChild(newTd(contact.age));
+        tr.appendChild(newTd(contact.postalCode));
+        tr.appendChild(newTd(contact.phoneNumber));
+        tr.appendChild(newTd(
+            `<button id="delButton" onclick="removeContact('${contact.firstName + contact.surName + contact.phone + contact.address}')">Delete</button>`
+        ));
+
+        listContactsTable.appendChild(tr)
+    });
+};

@@ -6,10 +6,31 @@
  * @date: 11/06/2020
  */
 
-function addEmployee(array $newEmployee)
+function addEmployee()
 {
-// TODO implement it
-}
+// TODO implement it (array $newEmployee)
+    $file = "./../resources/employees.json";
+    $Allusers = file_get_contents($file);
+    $usersAll = json_decode($Allusers);
+    $myJson = array(
+        'name          '   =>   $_POST['name'],
+        'lastName      '   =>  $_POST['lastName'],
+        '$email        '   =>  $_POST['email'],
+        '$gender       '   =>   $_POST['gender'],
+        '$age          '   =>  $_POST['age'],
+        '$streetAddress'   =>   $_POST['streetAddress'],
+        '$city         '   =>  $_POST['city'],
+        '$state        '   =>  $_POST['state'],
+        '$postalCode   '   =>   $_POST['postalCode'],
+        '$phoneNumber  '   =>  $_POST['phoneNumber']
+    );
+
+
+    array_push($usersAll, $myJson);
+    $otra = json_encode($usersAll);
+    file_put_contents($file, $otra);
+
+};
 
 
 function deleteEmployee(string $id)

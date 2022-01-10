@@ -102,5 +102,17 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
+    },
+    {
+        "name          ": "Jefferson",
+        "lastName      ": "Bertinoti",
+        "$email        ": "jeffersonbertinoti@gmail.com",
+        "$gender       ": "Male",
+        "$age          ": "34",
+        "$streetAddress": "3",
+        "$city         ": "Sant Feliu de LLobregat",
+        "$state        ": "Barcelona",
+        "$postalCode   ": "08980",
+        "$phoneNumber  ": "+34679717429"
     }
 ]
