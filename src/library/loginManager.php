@@ -39,6 +39,4 @@ function cerrarSesion(){
     }
     session_destroy();
 }
-
-
 ?>

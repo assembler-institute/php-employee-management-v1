@@ -1,35 +1,30 @@
-var Grid = document.getElementById("Grid");
 
+
+var tabla = document.getElementById("Grid");
+var newData
 async function rellenar(){
-    await fetch("")
+    await fetch("../resources/employees.json")
       .then(response => response.json())
       .then(data =>{
         console.log(data);
-        data.forEach(dat => {
-            
-        });
+        newData=data
       });
 }
+var but=document.createElement("button");
+but.innerText="e";
+var del=document.createElement("button");
+del.innerText="d";
+
+new gridjs.Grid({
+    columns: ["Id","Name","Last Name", "Email","Gender","City","Street Address","State","Age","Postal Code" ,"Phone Number","edit","delete"],
+    server: {
+        url: "../resources/employees.json",
+        then: data => data.map(card => [card.id, card.name, card.lastName,card.email,card.gender,card.city,card.streetAddress,card.state,card.age,card.postalCode,card.phoneNumber,but,del])
+      } 
+}).render(tabla)
 
 
-// function BuildRow([a,b,c,d,e,f,g,h,i]){
-//     let row=document.createElement("div").classList.add("row")
-//     let id=document.createElement("div").classList.add("col-sm")
-//     let name=document.createElement("div").classList.add("col-sm")
-//     let email=document.createElement("div").classList.add("col-sm")
-//     let age=document.createElement("div").classList.add("col-sm")
-//     let street=document.createElement("div").classList.add("col-sm")
-//     let city=document.createElement("div").classList.add("col-sm")
-//     let state=document.createElement("div").classList.add("col-sm")
-//     let phone=document.createElement("div").classList.add("col-sm")
-//     let postalcode=document.createElement("div").classList.add("col-sm")
-//     id.innerText=a
-//     name.innerText=b
-//     email.innerText=c
-//     age.innerText=d
-//     street.innerText=e
-//     city.innerText=f
-//     state.innerText=g
-//     phone.innerText=h
-//     postalcode.innerText=i
-// }
+
+
+
+
