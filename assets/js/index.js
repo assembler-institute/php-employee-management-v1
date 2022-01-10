@@ -19,7 +19,7 @@ async function createTable() {
         fields: [{
                 name: "id",
                 type: "text",
-                visible: false,
+                css: "d-none",
                 width: 0,
             },
             {
