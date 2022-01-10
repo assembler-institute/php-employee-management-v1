@@ -19,8 +19,8 @@ async function createTable() {
         fields: [{
                 name: "id",
                 type: "text",
-                width: 40,
-                validate: "required"
+                visible: false,
+                width: 0,
             },
             {
                 name: "name",
