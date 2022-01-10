@@ -2,14 +2,8 @@
 var employees = [];
 //create table of employees
 async function createTable() {
-    const loc = location.pathname
-    //get the last name of the full path
-    const dashboardPath = loc.substring(loc.length, loc.lastIndexOf("/"));
-    if (dashboardPath !== "/dashboard.php") {
-        return;
-    }
     //get number of employees
-    await getEmployees();
+    await displayEmployees();
     //jsgrid structure
     $("#jsGrid").jsGrid({
         width: "100%",
@@ -65,7 +59,7 @@ async function createTable() {
     //add listener to changePage between dashboard and employees.php
     $(".jsgrid-grid-body tr").on("click", changePage)
 }
-async function getEmployees() {
+async function displayEmployees() {
     await fetch("./../resources/employees.json")
         .then(response => response.json())
         .then(data => {
@@ -83,6 +77,4 @@ function changePage(e) {
 
 }
 
-window.onload = function () {
-    createTable();
-};
+window.onload = createTable();

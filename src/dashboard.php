@@ -14,8 +14,11 @@ if(!isset($_SESSION)){
     <script type="text/javascript" src="./../node_modules/jsgrid/dist/jsgrid.min.js" defer></script>
     <link type="text/css" rel="stylesheet" href="./../node_modules/jsgrid/dist/jsgrid.min.css"/>
     <link type="text/css" rel="stylesheet" href="./../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
+    <!-- My styles -->
+    <script src="./../assets/js/index.js" defer></script>
 </head>
 <body>
+    
     <div id="jsGrid">
 
     </div>
