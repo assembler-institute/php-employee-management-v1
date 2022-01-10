@@ -33,16 +33,33 @@ if(!isset($_SESSION["user"])){
         </nav>
 
         <section class="m-0 vh-100 row justify-content-center align-items-center">
-            <form class="col-auto p-5 text-center bg-light">
-            <div class="mb-3">
-                <label>Name</label>
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="usermail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <form class="col-6 p-5 text-center bg-light">
+                <h2>Employee Name</h2>
+            <div class="row">
+                <div class="col ">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="inputName" name="name">
+                <label for="inputEmail1" class="form-label">Email address</label>
+                <input type="email" name="usermail" class="form-control" id="inputEmail">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity" name="city">
+                <label for="inputState" class="form-label">State</label>
+                <input type="text" class="form-control" id="inputState" name="state">
+                <label for="inputPostalCode" class="form-label">PostalCode</label>
+                <input type="number" class="form-control" id="inputPostalCode" name="postalCode">
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            <div class="col">
+                <label for="inputLastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="inputLastName" name="lastName">
+                <label for="inputGender" class="form-label">Gender</label>
+                <input type="text" class="form-control" id="inputGender" name="gender">
+                <label for="inputStreetAddress" class="form-label">Street Address</label>
+                <input type="text" class="form-control" id="inputStreetAddress" name="streetAddress">
+                <label for="inputAge" class="form-label">Age</label>
+                <input type="number" class="form-control" id="inputAge" name="age">
+                <label for="inputPhoneNumber" class="form-label">PhoneNumber</label>
+                <input type="tel" class="form-control" id="inputPhoneNumber" name="phoneNumber">
+            </div>
             </div>
             </form>
         </section>
