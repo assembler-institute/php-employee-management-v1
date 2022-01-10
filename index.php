@@ -1,4 +1,7 @@
 <!-- TODO Application entry point. Login viewsss -->
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,12 +16,44 @@
 
 <body>
     <div class="login-clean">
-    <form action="./src/library/loginController.php" method="POST">
+    <form action="./src/library/loginManager.php" method="POST">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="pass" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="#" class="forgot">Forgot your email or password?</a></form>
+            <div class="form-floating">
+                        <label for="floatingInput">Write your user name</label>
+                        <input name="user" type="text" class="form-control" id="floatingInput" placeholder="User name" required>
+                    </div>
+                    <div class="form-floating">
+                    <label for="floatingPassword" >Password</label>   
+                        <input name="password"  type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                        
+                    </div>
+                    <?php
+                    switch (true) {
+                        case (isset($_SESSION["WEmailPass"])):
+                            echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
+                            echo $_SESSION["WEmailPass"];
+                            echo "</div>";
+                            break;
+
+                        case (isset($_SESSION["WName"])):
+                            echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
+                            echo $_SESSION["WName"];
+                            echo "</div>";
+                            break;
+
+                        case (isset($_SESSION["WPass"])):
+                            echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
+                            echo $_SESSION["WPass"];
+                            echo "</div>";
+                            break;
+
+                        default:
+                            break;
+                    }
+                    ?>
+            <button type="submit" class="btn btn-outline-info">Submit</button>
+    </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
