@@ -12,16 +12,6 @@ if(!isset($_SESSION["user"])){
     <title>Employee</title>
 </head>
 <body>
-<?php echo file_get_contents("./../assets/html/header.html", true);
-?>
-    <p id="nameLogged"><?php $_SESSION["user"] ?></p>
-</div>
-
-                        <button class="btn btn-outline-warning">Logout</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
 
         <section class="m-0 vh-100 row justify-content-center align-items-center">
             <form class="col-6 p-5 text-center bg-light">
@@ -51,6 +41,10 @@ if(!isset($_SESSION["user"])){
                 <label for="inputPhoneNumber" class="form-label">PhoneNumber</label>
                 <input type="tel" class="form-control" id="inputPhoneNumber" name="phoneNumber">
             </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+        <button class="btn btn-warning col-4">Upload Changes</button>
+        <button class="btn btn-warning col-4">Cancel</button>
             </div>
             </form>
         </section>

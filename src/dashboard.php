@@ -18,7 +18,7 @@ if(!isset($_SESSION)){
     <script src="./../assets/js/index.js" defer></script>
 </head>
 <body>
-    
+
     <div id="jsGrid">
 
     </div>
