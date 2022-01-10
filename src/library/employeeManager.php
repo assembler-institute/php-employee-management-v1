@@ -29,6 +29,10 @@ function getEmployee(string $id)
 // TODO implement it
 }
 
+function displayEmployee(){
+  $employees = file_get_contents("./../../resources/employees.json",true);
+    return print_r($employees);
+}
 
 function removeAvatar($id)
 {
