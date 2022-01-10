@@ -41,7 +41,7 @@ require_once("./library/employeeManager.php")
     </div>
   </nav>
 </header>
-<h1>Welcome <?php echo $_SESSION["loged"];?><h1>
+<h1>Welcome <?php echo $_SESSION["loged"];?></h1>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
   <div class="container">
