@@ -12,16 +12,14 @@ $passwordLogin = $_POST["namePassword"];
 
 $passwordHashed = password_hash($passwordLogin, PASSWORD_DEFAULT);
 
-echo ($passwordHashed); echo ('<br>');
-echo ($passwordSaved); echo ('<br>');
-echo ($passwordLogin); echo ('<br>');
-
-if (password_verify($passwordSaved, $passwordHashed)) {
+if (password_verify($passwordLogin, $passwordSaved)) {
     session_start();
     $_SESSION["userLogin"] = $userLogin;
+    $_SESSION['login_time'] = time();
     header("location: ../employee.php");
 } else {
-    echo "El usuario o la contraseña son incorrectos";
+    echo "<h1>El usuario o la contraseña son incorrectos<h1><br>
+            <a href='../../index.php' >Pulsa para volver al log in</a>";
 }
 
 
