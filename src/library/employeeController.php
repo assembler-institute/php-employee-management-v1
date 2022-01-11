@@ -14,7 +14,7 @@ addEmployee($data);
 }
 
 if(isset($_GET["modifyEmployee"])) {
-   $data =   $_POST["data"];
+   $data = $_POST["data"];
    print_r($data);
 updateEmployee($data);
 }

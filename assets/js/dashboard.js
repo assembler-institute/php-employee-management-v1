@@ -6,9 +6,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function getEmployeers() {
-  const response = await fetch(
-    `./library/employeeController.php?getEmployeers`
-  );
+  const response = await fetch(`./library/employeeController.php?getEmployeers`);
   const data = await response.json();
   return data;
 }
@@ -64,6 +62,7 @@ function displayTypeTasks(employeers) {
         });
       },
 
+<<<<<<< HEAD
       rowClick: function(item) {
         console.log("halo")
         return $.ajax({
@@ -73,8 +72,9 @@ function displayTypeTasks(employeers) {
           });
     },
 
+=======
+>>>>>>> 3559a0f7a25be7d70c8ec55eab97c255611eff6a
       updateItem: function name(item) {
-           item;
         return $.ajax({
           type: "POST",
           url: "./library/employeeController.php?modifyEmployee",
@@ -88,5 +88,10 @@ function displayTypeTasks(employeers) {
         ;
       },
     },
+
+    rowClick: function(args) {
+      console.log(args.item);
+      location.assign(`./employee.php?editEmployee=${args.item}`);
+    }
   });
 }
