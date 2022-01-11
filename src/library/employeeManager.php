@@ -131,7 +131,12 @@ function removeAvatar($id)
 // TODO implement it
 }
 
-
+function jsonEncode(){
+    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+    $Allusers = file_get_contents($file);
+    $usersAll = json_decode($Allusers);
+    return $usersAll;
+}
 // function getQueryStringParameters(): array
 // {
 // // TODO implement it
