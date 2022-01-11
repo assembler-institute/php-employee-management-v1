@@ -6,19 +6,42 @@
  * @date: 11/06/2020
  */
 
+ //get the json content function
+ function invokeEmployees(){
+    //get json
+    $employees = file_get_contents("./../../resources/employees.json",true);
+    //decode employees json
+    return json_decode($employees,true); 
+ }
+
 function addEmployee(array $newEmployee)
 {
 // TODO implement it
+  $employees = invokeEmployees();
+  $newId=getNextIdentifier($employees);
+  //we push into the employees array
+  $newEmployee["id"]=$newId;
+  //fill the empty values
+  //if(count($newEmployee)==6){
+    //$newEmployee["lastname"]="";
+    //$newEmployee["gender"]="";
+    //$newEmployee["state"]="";
+    //$newEmployee["postalCode"]="";
+    //$newEmployee["phoneNumber"]="";
+  //}
+  array_push($employees,$newEmployee);
+ //encode the json again
+  $employees=json_encode($employees);
+  //overwrite the changes
+  file_put_contents("./../../resources/employees.json",$employees,FILE_USE_INCLUDE_PATH);
+
 }
 
 
 function deleteEmployee(string $id)
 {
 // TODO implement it
-//get json
-  $employees = file_get_contents("./../../resources/employees.json",true);
-  //decode employees json
-  $employees=json_decode($employees,true);
+  $employees = invokeEmployees();
   //we search the key of the employee will be deleted by the id introduced
   $key=array_search($id,array_column($employees,"id"));
   //delete the key from the array
@@ -37,10 +60,7 @@ function deleteEmployee(string $id)
 function updateEmployee(array $updateEmployee)
 {
 // TODO implement it
-  $employees = file_get_contents("./../../resources/employees.json",true);
-  //decode employees json
-  $employees=json_decode($employees,true);
-  print_r($updateEmployee);
+  $employees = invokeEmployees();
   //we search the key of the employee will be deleted by the id introduced
   $key=array_search($updateEmployee["id"],array_column($employees,"id"));
   //we replace the employee
@@ -83,4 +103,13 @@ function getQueryStringParameters()
 function getNextIdentifier(array $employeesCollection)
 {
 // TODO implement it
+//lets see what is the last employee in array
+  $lastEmployee=end($employeesCollection);
+  //extract the id to integer and sum 1
+  $newId=intval($lastEmployee["id"],10)+1;
+  //the result of the sum will be the id of the last employee introduced
+  return $newId;
+
+
+
 }

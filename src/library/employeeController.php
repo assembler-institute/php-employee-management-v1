@@ -13,8 +13,14 @@ if($method=='GET' && isset($_GET['userId']))
     echo json_encode($employeeObj);
 }
 if($method == "PUT" && isset($_GET["update"])){
+    //expand of the PUT content sended by fetch
     $employeUpdated=json_decode(file_get_contents("php://input"),true);
     updateEmployee($employeUpdated);
+}
+
+if($method == "POST"){
+    $newEmployee=json_decode(file_get_contents("php://input"),true);
+    addEmployee($newEmployee);
 }
 
 if ($method === 'DELETE'){

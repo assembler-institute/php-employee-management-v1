@@ -23,15 +23,19 @@ async function createTable() {
 
         controller: {
             insertItem: async function (item) {
-
+                console.log(item);
+                await fetch("./library/employeeController.php", {
+                        method: "POST",
+                        body: JSON.stringify(item)
+                    })
+                    .then(response => console.log(response.text()))
             },
             updateItem: async function (item) {
-                console.log(item);
                 await fetch("./library/employeeController.php?update=" + item.id, {
                         method: "PUT",
                         body: JSON.stringify(item)
                     })
-                    .then(response => console.log(response.text()))
+                    .then(response => response)
             }
         },
 
@@ -78,19 +82,7 @@ async function createTable() {
                 editButton: false,
                 deleteButton: false,
                 //insertButton
-                headerTemplate: function () {
-                    var grid = this._grid;
-                    var isInserting = grid.inserting;
 
-                    var $button = $("<input>").attr("type", "button")
-                        .addClass([this.buttonClass, this.modeButtonClass, this.insertModeButtonClass])
-                        .on("click", function () {
-                            isInserting = !isInserting;
-                            grid.option("inserting", isInserting);
-                        });
-
-                    return $button;
-                },
                 //edit and delete btns
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
