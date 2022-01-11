@@ -6,7 +6,7 @@ require '../assets/html/header.html';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<body >
+<body onload=" callGrid(); ">
     <div class="row">
         <h5 id="loggedUser">
         </h5>
@@ -16,7 +16,7 @@ require '../assets/html/header.html';
     </div>
 
     <div id="jsGrid">
-        <table class="table table-bordered">
+        <!-- <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Name </th>
@@ -34,7 +34,7 @@ require '../assets/html/header.html';
             <tbody id="jsGridBody">
 
             </tbody>
-        </table>
+        </table> -->
     </div>
 </body>
 

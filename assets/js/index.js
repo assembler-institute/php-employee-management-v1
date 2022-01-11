@@ -34,7 +34,6 @@ async function callGrid(){
 
         fields: [
             { name: "name", type: "text", validate: { validator: "required", message: "Name required" } },
-            { name: "lastName", type: "text", validate: { validator: "required", message: "last name required" } },
             { name: "email", type: "text", width: 150, validate: { validator: "required", message: "Email required" } },   
             { name: "city", type: "text", validate: { validator: "required", message: "City" }},
             { name: "streetAddress", type: "number", validate: { validator: "required", message: "Street Adress required" }},
@@ -84,6 +83,17 @@ async function callGrid(){
             $idget= args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
+        onItemInserted: function(args) {
+            console.log(args.item);
+            $.ajax({
+                type:"POST",
+                url: ".././src/library/employeeController.php?addEmployee",
+                data: args.item,
+                success: function (data){
+                    callGrid();
+                }
+            })
+        },
     });
 
 };
@@ -94,7 +104,7 @@ async function calltable() {
     showContacts(data);
 }
 
-callGrid();
+//callGrid();
 
 
 

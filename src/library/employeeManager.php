@@ -10,22 +10,33 @@ function addEmployee()
 {
 
 // TODO implement it (array $newEmployee)
-    $file = "./../resources/employees.json";
+    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
     $Allusers = file_get_contents($file);
     $usersAll = json_decode($Allusers);
     foreach ($usersAll as $user ) {
         $arraya[] =$user -> id;
     }
     $newid= max($arraya) + 1;
-    
+    if($_POST['radio'] ==  null){
+        $radiocheck = ' ';
+    }else{
+        $radiocheck = $_POST['radio'];
+    }
+
+    if($_POST['lastName'] == null){
+        $lastName = ' ';
+    }else{
+        $lastName = $_POST['lastName'];
+    };
+
 
     $myJson = array(
         'id'   =>   $newid,
         'name'   =>   $_POST['name'],
-        'lastName'   =>  $_POST['lastName'],
+        'lastName'   =>  $lastName,
         'email'   =>  $_POST['email'],
-        'gender'   =>   $_POST['radio'],
-        'age'   =>  $_POST['age'],
+        'gender'   =>   $radiocheck,
+        'age'   =>  intval ($_POST['age']),
         'streetAddress'   =>   $_POST['streetAddress'],
         'city'   =>  $_POST['city'],
         'state'   =>  $_POST['state'],

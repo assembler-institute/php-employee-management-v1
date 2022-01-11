@@ -8,5 +8,11 @@ if(isset($_GET["modifyEmployee"])){
    updateEmployee($_POST);
 }
 
+if(isset($_GET['addEmployee'])){
+    echo "estamos aqui ";
+    //print_r($_POST['name']);
+    addEmployee();
+
+}
 ?>
 

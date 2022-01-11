@@ -31,7 +31,9 @@ if (isset($_GET['id'])) {
                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man' checked required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>" ;
                            }else if(gender == "woman"){
                             echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' checked required>Female <span class='checkmark'></span> </label> </div>" ;
-                           }
+                           }else{
+                            echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>";
+                           };
                        } else{
                         echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>" ;
                        }
