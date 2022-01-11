@@ -11,7 +11,7 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-warning">LogOut</button>
+          <button type="button" class="btn btn-warning"><a href="./library/loginController.php?Logout">LogOut</a></button>
         </div>
       </div>
     </div>

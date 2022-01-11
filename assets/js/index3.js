@@ -2,8 +2,6 @@
 
 var tabla = document.getElementById("Grid");
 
-
-
 new gridjs.Grid({
     columns: [
         'Id',

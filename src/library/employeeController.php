@@ -6,6 +6,7 @@ require_once("./employeeManager.php");
  }
  if(isset($_GET["delete"])){
  }
- if(isset($_GET["post"])){
+ if(isset($_GET["add"])){
+    
 }
 ?>

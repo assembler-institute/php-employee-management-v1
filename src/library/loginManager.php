@@ -16,11 +16,12 @@ function comprovacion(){
                     // return password_verify( $postPassword,$user->password);
                     if(password_verify( $postPassword,$user->password)){
                         return $user->email;
-                        
                     }
+                    else return false;
                 }
             }
         }
+        return false;
     }
 }
 function iniciarSesion($postEmail){

@@ -25,15 +25,27 @@ fields: [
     { name: "state", type: "text", title: "State" },
     { name: "postalCode", type: "number", title: "Postal Code" },
     { name: "phoneNumber", type: "number", title: "Phone Number" },
-    { type: "control", modeSwitchButton: true, editButton: true },
+    { type: "control",rowClick:true, modeSwitchButton: true, editButton: true },
   ],
+
+  rowClick: function name(item) {
+    window.location.assign("./employee.php?id="+item.item.id)
+   },
+   onItemDeleted: function name(){
+     
+   },
+
 controller: {
-    insertItem:  function name(item) {
-      
+    insertItem: async function name(item) {
+      const response = await fetch('./library/employeeController.php?add',
+      { method: 'POST', body : JSON.stringify(item),
+       headers: {'Content-Type': 'application/json'}});
+            const data =  await response.json();
+            return data;
     },
-
+    
     deleteItem: function name(item) {
-
+      console.log(item.item.id);
     },
 
     updateItem: function name(item) {

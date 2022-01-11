@@ -1,4 +1,12 @@
 <!-- TODO Application entry point. Login view -->
+<?php
+session_start();
+if(isset($_SESSION["email"])){
+    header("Location: ./src/dashboard.php") ;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +33,17 @@
 					<div class="row">
 						<form control="" class="form-group" action="./src/library/loginController.php" method="POST">
 							<div class="row">
+								<div><?php
+								 if(isset($_GET["error"])){
+									echo "invalid user/pasword";
+								 }
+								?></div>
+							</div>
+							<div class="row">
 								<input type="text" name="username" id="username" class="form__input" placeholder="Username">
 							</div>
 							<div class="row">
-								<!-- <span class="fa fa-lock"></span> -->
+								<span class="fa fa-lock"></span>
 								<input type="password" name="password" id="password" class="form__input" placeholder="Password">
 							</div>
 							<div class="row">

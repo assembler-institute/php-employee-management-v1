@@ -48,8 +48,8 @@
                     <label for="inputGender">Gender</label>
                     <select id="inputGender" name="inputGender" class="form-control">
                         <option>Choose...</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option  <?php if($users->gender=="Male"){echo "selected";}?> value="Male">Male</option>
+                        <option  <?php if($users->gender=="Famel"){echo "selected";}?> value="Female">Female</option>
                     </select>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <input type="text" class="form-control" id="inputCity" placeholder="City" value=<?= $users->city ?> >
                 </div>
                 <div class="form-group col">
-                    <label for="inputStreetAddress">Street Address</label>
+                    <label for= "inputStreetAddress">Street Address</label>
                     <input type="text" class="form-control" id="inputStreetAddress" placeholder="1234 Main St" value=<?= $users->streetAddress ?>>
                 </div>
             </div>
