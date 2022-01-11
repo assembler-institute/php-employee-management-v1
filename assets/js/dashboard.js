@@ -22,14 +22,15 @@ async function createTable() {
         confirmDeleting: false,
 
         controller: {
+            //the event when you click in the + button
             insertItem: async function (item) {
-                console.log(item);
                 await fetch("./library/employeeController.php", {
                         method: "POST",
                         body: JSON.stringify(item)
                     })
                     .then(response => console.log(response.text()))
             },
+            //event when update an item and confirm
             updateItem: async function (item) {
                 await fetch("./library/employeeController.php?update=" + item.id, {
                         method: "PUT",
