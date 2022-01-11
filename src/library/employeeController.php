@@ -8,6 +8,10 @@ function before ($xid, $inthat){
 
 $method = $_SERVER['REQUEST_METHOD'];
 
+if($method == 'GET'){
+  echo file_get_contents('../../resources/employees.json');
+}
+
 if($method == 'POST'){
   addEmployee($_REQUEST);
 };
