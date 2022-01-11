@@ -37,6 +37,19 @@ function deleteEmployee(string $id)
 function updateEmployee(array $updateEmployee)
 {
 // TODO implement it
+  $employees = file_get_contents("./../../resources/employees.json",true);
+  //decode employees json
+  $employees=json_decode($employees,true);
+  print_r($updateEmployee);
+  //we search the key of the employee will be deleted by the id introduced
+  $key=array_search($updateEmployee["id"],array_column($employees,"id"));
+  //we replace the employee
+  $employees[$key]=$updateEmployee;
+  //encode the json again
+  $employees=json_encode($employees);
+  //overwrite the changes
+  file_put_contents("./../../resources/employees.json",$employees,FILE_USE_INCLUDE_PATH);
+  
 }
 
 

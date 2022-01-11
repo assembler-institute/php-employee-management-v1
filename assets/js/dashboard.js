@@ -20,6 +20,21 @@ async function createTable() {
         sorting: true,
         paging: true,
         confirmDeleting: false,
+
+        controller: {
+            insertItem: async function (item) {
+
+            },
+            updateItem: async function (item) {
+                console.log(item);
+                await fetch("./library/employeeController.php?update=" + item.id, {
+                        method: "PUT",
+                        body: JSON.stringify(item)
+                    })
+                    .then(response => console.log(response.text()))
+            }
+        },
+
         data: employees,
         //what data will be displayed
         fields: [{
@@ -62,6 +77,21 @@ async function createTable() {
                 width: 100,
                 editButton: false,
                 deleteButton: false,
+                //insertButton
+                headerTemplate: function () {
+                    var grid = this._grid;
+                    var isInserting = grid.inserting;
+
+                    var $button = $("<input>").attr("type", "button")
+                        .addClass([this.buttonClass, this.modeButtonClass, this.insertModeButtonClass])
+                        .on("click", function () {
+                            isInserting = !isInserting;
+                            grid.option("inserting", isInserting);
+                        });
+
+                    return $button;
+                },
+                //edit and delete btns
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
                     //edit btn
@@ -70,7 +100,7 @@ async function createTable() {
                             "data-id": item.id
                         })
                         .on("click", changePage);
-                    //custom delete button
+                    //delete button
                     var $customDeleteButton = $("<button>").attr({
                             class: "customGridDeletebutton jsgrid-button jsgrid-delete-button",
                             "data-bs-toggle": "modal",
@@ -89,6 +119,10 @@ async function createTable() {
                             })
                             e.stopPropagation()
                         });
+                    //add button
+                    var $customAddButton = $("<button>").attr({
+                        class: "customGridAddbutton jsgrid-button jsgrid-add-button"
+                    })
                     //spawn the buttons
                     return $("<div>").append($customEditButton).append($customDeleteButton);
                 }
@@ -112,12 +146,12 @@ async function changePage(e) {
     const userName = $(e.target).data("id");
     e.stopPropagation();
     await fetch("../src/library/employeeController.php?userId=" + userName, {
-        method: 'GET'
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-    });
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+        });
     window.location = "employee.php?userId=" + userName;
 
 
