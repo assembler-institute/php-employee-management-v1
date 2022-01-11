@@ -1,5 +1,3 @@
-//const { data } = require("jquery");
-
 window.addEventListener("DOMContentLoaded", async () => {
   let employeers = await getEmployeers();
   displayTypeTasks(employeers);
@@ -45,7 +43,7 @@ function displayTypeTasks(employeers) {
         return $.ajax({
           type: "POST",
           url: "./library/employeeController.php?addEmployee",
-          data: {newEmployee: item},
+          data: item,
         }).done(async function (response) {
           let employeers = await getEmployeers();
           displayTypeTasks(employeers);

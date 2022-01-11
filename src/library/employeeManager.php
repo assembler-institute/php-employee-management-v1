@@ -6,6 +6,7 @@
  * @date: 11/06/2020
  */
 
+//Get all employeers on file employees.json
 function getEmployeers(){
     try {
         $fileName = ".././../resources/employees.json";
@@ -17,79 +18,70 @@ function getEmployeers(){
     }
 }
 
-function addEmployee(array $newEmployee)
-{
+//Add a new employeer on file employees.json
+function addEmployee(array $newEmployee) {
+    $oldEmployee = getEmployeers();
+    $arrayKey = count($oldEmployee);
+    $newId = $arrayKey+ 1;
+    $newEmployee["id"] = $newId;
+    array_push($oldEmployee, $newEmployee);
 
-$oldEmployee = getEmployeers();
-$arrayKey = count($oldEmployee);
-$newId = $arrayKey+ 1;
-$newEmployee["id"] = $newId;
-array_push($oldEmployee, $newEmployee);
+    $fileName = ".././../resources/employees.json";
 
-$fileName = ".././../resources/employees.json";
-
-if(file_exists($fileName)){
-    file_put_contents($fileName, json_encode($oldEmployee, JSON_PRETTY_PRINT));
-    header("Location: ../employee.php?newEmployeeAdded");
-}
-}
-
-
-function deleteEmployee(string $id)
-{
-$oldArray = getEmployeers();
-$key = array_search($id, array_column($oldArray, 'id'));
-print_r($key);
-unset($oldArray[$key]);
-$newArray = array();
-$newArray = array_merge($oldArray, $newArray);
-
-
-
-$fileName = ".././../resources/employees.json";
-file_put_contents($fileName, json_encode($newArray));
+    if(file_exists($fileName)){
+        file_put_contents($fileName, json_encode($oldEmployee, JSON_PRETTY_PRINT));
+        header("Location: ../employee.php?newEmployeeAdded");
+    }
 }
 
+//delete a one employeer on file employees.json
+function deleteEmployee(string $id) {
+    if(empty($id)) return;
+    $oldArray = getEmployeers();
+    $key = array_search($id, array_column($oldArray, 'id'));
+    unset($oldArray[$key]);
+    $newArray = array_merge($oldArray, array());
 
-function updateEmployee(array $updateEmployee)
-{
+    $fileName = ".././../resources/employees.json";
+
+    if(file_exists($fileName)){
+        file_put_contents($fileName, json_encode($newArray, JSON_PRETTY_PRINT));
+        header("Location: ../employee.php?newEmployeeAdded");
+    }
+}
+
+//update a one employeer on file employees.json
+function updateEmployee(array $updateEmployee) {
     $oldArray = getEmployeers();
     $id = $updateEmployee["id"];
     $key = array_search($id, array_column($oldArray, 'id'));
     $oldArray[$key] = $updateEmployee;
+    $newArray = array_merge($oldArray, array());
 
-    $newArray = array();
-$newArray = array_merge($oldArray, $newArray);
+    $fileName = ".././../resources/employees.json";
 
+    if(file_exists($fileName)){
+        file_put_contents($fileName, json_encode($newArray, JSON_PRETTY_PRINT));
+    }
+}
 
+//get a one employeer on file employees.json
+function getEmployee(string $id) {
+    $content = file_get_contents("../resources/employees.json");
+    $employees = json_decode($content);
+    $key = array_search($id, array_column($employees, "id"));
+    return $employees[$key];
+}
 
-$fileName = ".././../resources/employees.json";
-file_put_contents($fileName, json_encode($newArray));
+function removeAvatar($id) {
 
 }
 
 
-function getEmployee(string $id)
-{
-// TODO implement it
-    $oldArray = getEmployeers();
-    return $oldArray;
-    // $key = array_search((int)$id, array_column($oldArray, 'id'));
+function getQueryStringParameters(): array {
+
 }
 
+function getNextIdentifier(array $employeesCollection): int {
 
-function removeAvatar($id)
-{
-// TODO implement it
-}
-
-
-function getQueryStringParameters(): array
-{
-// TODO implement it
-}
-
-function getNextIdentifier(array $employeesCollection): int
-{
-// TODO implement it
 }

@@ -22,20 +22,17 @@
 
 <body>
     <?php
-    require_once "../assets/html/header.html";
+        require_once "../assets/html/header.html";
         require_once "./library/sessionHelper.php";
         sessionCheck();
         outOfTime();
-        ?>
-</nav>
-<div id="dashboard"></div>
+    ?>
+
     <main>
+        <div id="dashboard"></div>
     </main>
 
-    <?php 
-    require_once "../assets/html/footer.html";
-    
-    ?>
+    <?php require_once "../assets/html/footer.html"; ?>
 </body>
 
 </html>
