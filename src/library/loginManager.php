@@ -2,8 +2,7 @@
 
 
 function logIn(){
-    //acces to JSON users.json
-    $dataUser = file_get_contents('./../../resources/users.json');
+    $dataUser = file_get_contents('./../../resources/users.json');//acces to JSON users.json
     $usermail = $_POST['usermail'];
     $password = $_POST['password'];
     $data = json_decode($dataUser, true); //recoger array de users.json
@@ -28,7 +27,7 @@ function logIn(){
                 $params["path"], $params["domain"],
                 $params["secure"], $params["httponly"]
             );
-         }
+        }
     session_destroy();
     header("location: ./../../index.php");
     }
