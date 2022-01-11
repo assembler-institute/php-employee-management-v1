@@ -19,13 +19,14 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-    echo $id;
     $employees = getEmployees();
-    print_r($employees);
-    print_r($employees[$id-1]);
-    unset($employees[$id-1]);
+    foreach ($employees as $i => $employee){
+        if ($employee["id"] == $id){
+            unset($employees[$i]);
+            $employees = array_values($employees);
+        }
+    }
     file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
-    header("Location:../dashboard.php");
 }
 
 

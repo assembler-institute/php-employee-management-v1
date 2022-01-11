@@ -60,7 +60,7 @@ $employees = getEmployees();
           <td>
             <a href="./library/employeeController.php?v=view&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
             <a href="./library/employeeController.php?v=update&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></a>
-            <a href="./library/employeeController.php?d=true&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+            <button data-delete = '<?= $employee["id"]?>' class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>
           </td>
         </tr>
       <?php endforeach; ?>

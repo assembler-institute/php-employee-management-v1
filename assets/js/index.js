@@ -1,4 +1,5 @@
-
+var url = "../src/library/employeeController.php";
+deleteEmployee();
 const addNewEmployee = document.querySelector("#btn-add-employee");
 const employeeTable = document.querySelector("#employees-table");
 addNewEmployee.addEventListener("click", createRow);
@@ -34,7 +35,6 @@ function addEmployeeFetch(e){
   object[key] = value;
   });
   var addEmployeeJSON = JSON.stringify(object);
-  var url = "../src/library/employeeController.php";
       fetch(url, {
         body: addEmployeeJSON,
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -62,4 +62,24 @@ function displayNewEmployee(employee){
   `
   employeeTable.appendChild(row)
   document.querySelector("#inputFormContainer").remove();
+  deleteEmployee()
+}
+
+function deleteEmployee(){
+const deleteButtons = document.querySelectorAll("button[data-delete]");
+
+deleteButtons.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const employeeId = btn.getAttribute("data-delete");
+    console.log(employeeId);
+  fetch(url,{method:"POST", body:employeeId})
+  .then(response => response.text())
+  .then(data => removeDeletedEmployee(employeeId))
+  })
+})
+}
+
+function removeDeletedEmployee(id){
+var row = document.querySelector(`button[data-delete="${id}"]`)
+row.parentElement.parentElement.remove();
 }
