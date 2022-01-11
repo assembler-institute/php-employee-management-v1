@@ -9,3 +9,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $employee = array_merge($lastId,$newEmployee);
   addEmployee($employee);
 }
+
+if (isset($_GET["d"])) {
+  $id = $_GET["id"];
+  deleteEmployee($id);
+}
+if (isset($_GET["v"])) {
+  if( $_GET["v"]=="update"){
+    $id = $_GET["id"];
+    header("Location:../employee.php?v=update&id=$id");
+  }
+}
+if (isset($_GET["v"])) {
+  if( $_GET["v"]=="view"){
+    $id = $_GET["id"];
+    header("Location:../employee.php?v=view&id=$id");
+  }
+}
+
+

@@ -23,7 +23,13 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    echo $id;
+    $employees = getEmployees2();
+    print_r($employees);
+    print_r($employees[$id-1]);
+    unset($employees[$id-1]);
+    file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
+    header("Location:../dashboard.php");
 }
 
 

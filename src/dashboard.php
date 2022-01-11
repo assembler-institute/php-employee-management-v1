@@ -57,9 +57,9 @@ $employees = getEmployees();
           <td><?= $employee["postalCode"] ?></td>
           <td><?= $employee["phoneNumber"] ?></td>
           <td>
-            <a href="./employee.php?v=view&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
-            <a href="./employee.php?v=update&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></a>
-            <a href="" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+            <a href="./library/employeeController.php?v=view&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
+            <a href="./library/employeeController.php?v=update&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></a>
+            <a href="./library/employeeController.php?d=true&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>
