@@ -102,5 +102,21 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
+<<<<<<< HEAD
+    },
+    {
+        "id": 9,
+        "name": "gonzalo",
+        "email": "caxonpok9@gmail.com",
+        "age": 23,
+        "streetAddress": "123",
+        "city": "mdrid",
+        "state": "ES",
+        "postalCode": "28015",
+        "phoneNumber": "669979797",
+        "gender": "",
+        "lastName": ""
+=======
+>>>>>>> 47f796df889562195590977502e96cbcea8793b8
     }
 ]

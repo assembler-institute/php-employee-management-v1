@@ -14,6 +14,13 @@ $('#grid_table').jsGrid({
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete the Client?",
 
+  rowClick: function(args){
+    console.log(args);
+    $idValue = args["item"].id;
+    console.log($idValue);
+    window.location.assign("./../src/employee.php?id=" + $idValue);
+  },
+
   controller: {
     loadData: function(filter) {
       return $.ajax({
