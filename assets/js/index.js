@@ -18,8 +18,9 @@ $('#grid_table').jsGrid({
     loadData: function(filter) {
       return $.ajax({
         type: "GET",
-        url: "./../resources/employees.json",
-        data: filter
+        url: "../src/library/employeeController.php",
+        data: filter,
+        dataType: "JSON"
         // success: function(response){
         //   console.log("GET: ", response);
         // }
