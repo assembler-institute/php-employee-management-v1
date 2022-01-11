@@ -102,18 +102,5 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
-    },
-    {
-        "id": 9,
-        "name": "carla",
-        "email": "cc@gmail.com",
-        "age": "11",
-        "streetAddress": "111",
-        "city": "La lAGUNA",
-        "state": "ES ",
-        "postalCode": "11111",
-        "phoneNumber": "111111",
-        "gender": "",
-        "lastName": ""
     }
 ]
