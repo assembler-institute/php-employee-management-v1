@@ -14,7 +14,6 @@ function createEmployee(array $data) {
 
 function addEmployee(array $newEmployee)
 {
-    echo "hola";
     $employees = getEmployees2();
     array_push($employees,$newEmployee);
     file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
@@ -65,5 +64,7 @@ function getQueryStringParameters()
 
 function getNextIdentifier(array $employeesCollection)
 {
-// TODO implement it
+    $lastId = end($employeesCollection)["id"];
+    $lastIdplus1 = intval($lastId)+1;
+    return $lastIdplus1;
 }
