@@ -1,8 +1,9 @@
 <?php 
 function leerUsers(){
-    $file="./json/users.json";
+    $file="../../resources/users.json";
     $Allusers= file_get_contents($file);
-    return json_decode($Allusers);
+    $usersAll=json_decode($Allusers)->user;
+    return $usersAll;
 }
 function comprovacion(){
     if (($_POST)){

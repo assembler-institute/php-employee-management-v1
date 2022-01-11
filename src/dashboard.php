@@ -9,10 +9,12 @@
     <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet"/>
     <!-- <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js" defer></script> -->
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"  defer></script>
-    <script src="../assets/js/index.js" defer></script>
+    <script src="../assets/js/index.js" type="module" defer></script>
     <title>Document</title>
 </head>
 <body>
+    <?php require("../assets/html/header.html")
+    ?>
     <div id="Grid"></div>
 </body>
 </html>
