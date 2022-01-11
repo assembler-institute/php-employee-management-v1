@@ -6,9 +6,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function getEmployeers() {
-  const response = await fetch(
-    `./library/employeeController.php?getEmployeers`
-  );
+  const response = await fetch(`./library/employeeController.php?getEmployeers`);
   const data = await response.json();
   return data;
 }
@@ -64,16 +62,7 @@ function displayTypeTasks(employeers) {
         });
       },
 
-      rowClick: function(item) {
-        return $.ajax({
-            type: "GET",
-            url: "./library/employeeController.php?editEmployee",
-            data: item,
-          });
-    },
-
       updateItem: function name(item) {
-           item;
         return $.ajax({
           type: "POST",
           url: "./library/employeeController.php?modifyEmployee",
@@ -87,5 +76,10 @@ function displayTypeTasks(employeers) {
         ;
       },
     },
+
+    rowClick: function(args) {
+      console.log(args.item);
+      location.assign(`./employee.php?editEmployee=${args.item}`);
+    }
   });
 }
