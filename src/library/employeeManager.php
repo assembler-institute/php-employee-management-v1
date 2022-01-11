@@ -17,19 +17,20 @@ function addEmployee()
         $arraya[] =$user -> id;
     }
     $newid= max($arraya) + 1;
+    
 
     $myJson = array(
-        'id          '   =>   $newid,
-        'name          '   =>   $_POST['name'],
-        'lastName      '   =>  $_POST['lastName'],
-        '$email        '   =>  $_POST['email'],
-        '$gender       '   =>   $_POST['radio'],
-        '$age          '   =>  $_POST['age'],
-        '$streetAddress'   =>   $_POST['streetAddress'],
-        '$city         '   =>  $_POST['city'],
-        '$state        '   =>  $_POST['state'],
-        '$postalCode   '   =>   $_POST['postalCode'],
-        '$phoneNumber  '   =>  $_POST['phoneNumber']
+        'id'   =>   $newid,
+        'name'   =>   $_POST['name'],
+        'lastName'   =>  $_POST['lastName'],
+        'email'   =>  $_POST['email'],
+        'gender'   =>   $_POST['radio'],
+        'age'   =>  $_POST['age'],
+        'streetAddress'   =>   $_POST['streetAddress'],
+        'city'   =>  $_POST['city'],
+        'state'   =>  $_POST['state'],
+        'postalCode'   =>   $_POST['postalCode'],
+        'phoneNumber'   =>  $_POST['phoneNumber']
     );
 
 
@@ -49,6 +50,36 @@ function deleteEmployee(string $id)
 function updateEmployee(array $updateEmployee)
 {
 // TODO implement it
+// echo "pepe";
+// print_r($updateEmployee);
+// if()
+// echo($updateEmployee["id"]);
+$file="../../resources/employees.json";
+
+$Allusers= file_get_contents($file);
+$usersAll1= json_decode($Allusers);
+// print_r($usersAll1[0]);
+// print_r(array("1",$usersAll1));
+
+foreach ($usersAll1 as $user ) {
+    if($user -> id == $updateEmployee["id"]){
+        $user= $updateEmployee;
+        // $user -> name = $updateEmployee["name"];
+        // print_r($updateEmployee["name"]);
+        // echo $updateEmployee["name"];
+        // echo $user -> name ;
+        // print_r($user);
+        // print_r($updateEmployee);
+        // $user = $updateEmployee;
+        // print_r($user);
+    }
+    $customers[] = $user;
+    // print_r($user);
+}
+$newinfo= json_encode($customers);
+file_put_contents($file, $newinfo);
+// print_r($customers);
+// print_r($usersAll1);
 }
 
 
@@ -100,17 +131,3 @@ function removeAvatar($id)
 // // TODO implement it
 // }
 
-// if($_POST["data"]) {
-//     echo "es verdad";
-// }
-$user = $_POST['user'];
-$points = $_POST['points'];
-echo $user;
-// $payload = file_get_contents('php://input');
-// var_dump($payload);
-// json_decode($payload);
-// var_dump($payload);
-// $payload = file_get_contents('php://input');
-// var_dump($payload);
-// json_decode($payload);
-// var_dump($payload);

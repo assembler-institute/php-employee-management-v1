@@ -62,33 +62,15 @@ async function callGrid(){
         
         ],
         onItemUpdated: function(args){
+            // console.log(args)
             console.log(args.item);
+            // console.log("pepe")
             $.ajax({
-                url: ".././resources/employees.json",
+                type:"POST",
+                url: ".././src/library/employeeController.php?modifyEmployee",
+                data: args.item,
                 success: function (data) {
-                   data.filter( element =>{
-                       if(element.id == args.item["id"]){
-                           console.log(element)
-                           element.name = args.item["name"]
-                           console.log(element)
-        
-                       }
-                    //    console.log(element.id)
-                   })
-                    // console.log(data)
-                    // data.forEach(element => {
-                    //     if(args.item["id"] == element.id){
-                    //         element.name = args.item["name"]
-                    //         console.log("entra")
-                    //         console.log(element.name)
-                    //         // JSON.stringify(element)
-                    //         // console.log(JSON.stringify(data))
-                    //         // JSON.stringify(element)
-                    //         // return;
-                    //     }
-                    //     // console.log(element.id)
-                    // });
-                    // $dataEmployee = data;
+                    console.log(data)
                 }
             })
         },
@@ -96,7 +78,7 @@ async function callGrid(){
             console.log(args)
         },
         rowClick: function(args) {
-
+            // console.log(args.item["lastName"])
         },
         rowDoubleClick: function(args) {
             $idget= args["item"].id
