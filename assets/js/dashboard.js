@@ -1,5 +1,10 @@
 //global var of the employees
 var employees = [];
+//listeners always working
+$("#deleteModal").on("hidden.bs.modal", function () {
+    $("#acceptDelete").off();
+    $("#cancelDelete").off();
+})
 //create table of employees
 async function createTable() {
     //get number of employees
@@ -13,7 +18,7 @@ async function createTable() {
         editing: true,
         sorting: true,
         paging: true,
-        deleteConfirm: "Do you really want to delete this employee?",
+        confirmDeleting: false,
         data: employees,
         //what data will be displayed
         fields: [{
@@ -52,12 +57,44 @@ async function createTable() {
                 validate: "required"
             },
             {
-                type: "control"
+                type: "control",
+                width: 100,
+                editButton: false,
+                deleteButton: false,
+                itemTemplate: function (value, item) {
+                    var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+                    //edit btn
+                    var $customEditButton = $("<button>").attr({
+                            class: "customGridEditbutton jsgrid-button jsgrid-edit-button",
+                            "data-id": item.id
+                        })
+                        .on("click", changePage);
+                    //custom delete button
+                    var $customDeleteButton = $("<button>").attr({
+                            class: "customGridDeletebutton jsgrid-button jsgrid-delete-button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#deleteModal",
+                            "data-id": item.id
+
+                        })
+
+                        .on("click", (e) => {
+                            $("#acceptDelete").one("click", () => {
+                                $("#jsGrid").jsGrid("deleteItem", item);
+                                deleteEmployee(item.id);
+                            })
+                            $("#cancelDelete").one("click", function () {
+                                $("#acceptDelete").off("click", deleteEmployee)
+                            })
+                            e.stopPropagation()
+                        });
+                    //spawn the buttons
+                    return $("<div>").append($customEditButton).append($customDeleteButton);
+                }
             }
         ]
+
     });
-    //add listener to changePage between dashboard and employees.php
-    $(".jsgrid-grid-body tr").on("click", changePage)
 }
 async function displayEmployees() {
     await fetch("./library/employeeController.php?display=true")
@@ -71,17 +108,25 @@ async function displayEmployees() {
 
 async function changePage(e) {
     console.log();
-    const userName = $(e.target).parent().children()[0].textContent;
-    //window.location = "library/employeeController.php?userId=" + userName;
+    const userName = $(e.target).data("id");
+    e.stopPropagation();
     await fetch("../src/library/employeeController.php?userId=" + userName, {
         method: 'GET'
-      })
+    })
     .then((response) => response.json())
     .then((data) => {
         console.log(data)
-        //getEmployee();
     });
+    window.location = "employee.php?userId=" + userName;
 
+
+}
+
+async function deleteEmployee(item) {
+    await fetch("./library/employeeController.php?delete=" + item, {
+            method: "delete"
+        })
+        .then(response => response)
 }
 
 window.onload = createTable();

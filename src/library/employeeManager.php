@@ -15,6 +15,22 @@ function addEmployee(array $newEmployee)
 function deleteEmployee(string $id)
 {
 // TODO implement it
+//get json
+  $employees = file_get_contents("./../../resources/employees.json",true);
+  //decode employees json
+  $employees=json_decode($employees,true);
+  //we search the id of the employee will be deleted
+  $key=array_search($id,array_column($employees,"id"));
+  //delete the key from the array
+  if($key!==false){
+    unset($employees[$key]);
+  }
+  //re-order:
+  $employees = array_values($employees);
+  //encode the json again
+  $employees=json_encode($employees);
+  //overwrite the changes
+  file_put_contents("./../../resources/employees.json",$employees,FILE_USE_INCLUDE_PATH);
 }
 
 
