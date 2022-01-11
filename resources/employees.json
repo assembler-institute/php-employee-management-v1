@@ -115,31 +115,5 @@
         "phoneNumber": "111111",
         "gender": "",
         "lastName": ""
-    },
-    {
-        "id": 10,
-        "name": "Gonzalo",
-        "email": "gc@gmail.com",
-        "age": 11,
-        "streetAddress": "111",
-        "city": "Madrid",
-        "state": "ES",
-        "postalCode": "1111",
-        "phoneNumber": "112121221",
-        "gender": "",
-        "lastName": ""
-    },
-    {
-        "id": 11,
-        "name": "kory",
-        "email": "kw@gmail.com",
-        "age": 11,
-        "streetAddress": "111",
-        "city": "LalLAGUN",
-        "state": "es",
-        "postalCode": "112",
-        "phoneNumber": "121243343",
-        "gender": "",
-        "lastName": ""
     }
 ]

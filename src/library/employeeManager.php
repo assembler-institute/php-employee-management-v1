@@ -27,20 +27,25 @@ file_put_contents('../../resources/employees.json', json_encode($newCollections,
 function deleteEmployee(string $id)
 {
 // TODO implement it
+echo "$id";
 $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+intval($id);
+array_splice($employeesCollection, $id, 1);
+// print_r ($employeesCollection);
+file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+// return true;
 
-for ($i = 0; $i < count($employeesCollection); $i++) {
-  print_r ($i);
-if ($employeesCollection[$i]['id'] == $id) {
-//             array_splice($employeesCollection, $i, 1);
-//         } else {
-//             echo "not";
-//         }
-}
+// for ($i = 0; $i < count($employeesCollection); $i++) {
+//   print_r ($i);
+// if ($employeesCollection[$i]['id'] == $id) {
+// //             array_splice($employeesCollection, $i, 1);
+// //         } else {
+// //             echo "not";
+// //         }
+// }
 
-//     file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
-//     return true;
-}
+
+// }
 }
 
 
