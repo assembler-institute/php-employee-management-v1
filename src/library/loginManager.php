@@ -16,11 +16,15 @@ if (password_verify($passwordLogin, $passwordSaved)) {
     session_start();
     $_SESSION["userLogin"] = $userLogin;
     $_SESSION['login_time'] = time();
-    header("location: ../employee.php");
+    header("location: ../dashboard.php");
 } else {
     echo "<h1>El usuario o la contraseña son incorrectos<h1><br>
             <a href='../../index.php' >Pulsa para volver al log in</a>";
 }
-
-
+**
+function endSesion() {
+    session_start();
+    unset ($_SESSION["userLogin"]);
+    header("location: ../index.php");
+}
 ?>

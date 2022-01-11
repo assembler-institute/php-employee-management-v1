@@ -16,6 +16,7 @@ function success(json) {
     let td9= document.createElement("td");
     let td10= document.createElement("td");
     let img=document.createElement("img");
+    img.className='binImg'
     tr.setAttribute("id",json[i].id);
        th.innerHTML=json[i].id;
        td1.innerHTML=json[i].name;
