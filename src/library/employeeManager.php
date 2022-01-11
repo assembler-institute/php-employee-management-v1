@@ -25,7 +25,7 @@ function updateEmployee(array $updateEmployee)
 
 
 function getEmployee(string $id){
-  $dataEmployee=  file_get_contents("./../resources/employees.json"); //obtiene el contenido del employee.json
+  $dataEmployee=  file_get_contents("./../../resources/employees.json"); //obtiene el contenido del employee.json
   $arrayObj = json_decode($dataEmployee, true); //guarda en arrayObj el codificado en forma de array asociativo con objetos
   foreach ($arrayObj as $key => $value) {
       $employeeObj=$value; // obtiene un solo objeto del array actual
@@ -46,12 +46,12 @@ function removeAvatar($id)
 }
 
 
-function getQueryStringParameters(): array
+function getQueryStringParameters()
 {
 // TODO implement it
 }
 
-function getNextIdentifier(array $employeesCollection): int
+function getNextIdentifier(array $employeesCollection)
 {
 // TODO implement it
 }
