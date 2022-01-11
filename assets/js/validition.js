@@ -14,6 +14,10 @@ document.getElementById("phoneNumber").addEventListener("blur", (e)=> {
 validatePhone(e.target);
 })
 
+document.getElementById("postalCode").addEventListener("blur", (e)=> {
+    validatePostalCode(e.target);
+    })
+
 function validateSurName(inputValidation) {
     let valueInput = inputValidation.value.trim();
     return (valueInput.length < 20 && valueInput.length > 3) ? true : false;
@@ -32,9 +36,12 @@ function validateIsAge(inputValidation) {
 
 function validatePhone(inputValidation){
 let phoneInput = inputValidation.value.trim();
-if (phoneInput.length > 9 || phoneInput.length < 9) {
-    return false
-} else {
-    return true
+return (phoneInput.length === 9) ? true : false
+
 }
+
+function  validatePostalCode(inputValidation){
+let postalCodeInput = inputValidation.value.trim();
+return (postalCodeInput.length === 5) ? true : false
+
 }
