@@ -29,13 +29,4 @@ case "POST":
     break;
     }
 
-    
-    if ($_GET["update"] == true) {
-    $newEmployee = $_POST;
-    $result = addEmployee($newEmployee);
-    $_SESSION['newEmployee'] = $result;
-    header("Location: ../employee.php?okUpdate");
-    header("Location: ../employee.php?okUpdate");
-    break;
-    }
 }

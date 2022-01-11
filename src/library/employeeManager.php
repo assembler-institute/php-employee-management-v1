@@ -13,7 +13,6 @@ function addEmployee(array $newEmployee)
         $newId = 1 + getNextIdentifier($employees);
         $newEmployee["id"] = $newId;
         array_push($employees, $newEmployee);
-        print_r($employees);
         file_put_contents("../../resources/employees.json", json_encode($employees, JSON_PRETTY_PRINT));
 }
 
