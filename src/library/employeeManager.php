@@ -19,7 +19,7 @@ function deleteEmployee(string $id)
   $employees = file_get_contents("./../../resources/employees.json",true);
   //decode employees json
   $employees=json_decode($employees,true);
-  //we search the id of the employee will be deleted
+  //we search the key of the employee will be deleted by the id introduced
   $key=array_search($id,array_column($employees,"id"));
   //delete the key from the array
   if($key!==false){

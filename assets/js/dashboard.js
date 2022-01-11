@@ -1,6 +1,7 @@
 //global var of the employees
 var employees = [];
-//listeners always working
+//listeners
+//this listener is for when you hide the delete modal, it turns off the accept and cancel
 $("#deleteModal").on("hidden.bs.modal", function () {
     $("#acceptDelete").off();
     $("#cancelDelete").off();
@@ -114,6 +115,7 @@ function changePage(e) {
 }
 
 async function deleteEmployee(item) {
+    //i pass delete key in get with the item value (ID)
     await fetch("./library/employeeController.php?delete=" + item, {
             method: "delete"
         })
