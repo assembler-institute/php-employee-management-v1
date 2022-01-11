@@ -6,11 +6,11 @@
  * @date: 11/06/2020
  */
 // zz
-function addEmployee()
+function addEmployee($path)
 {
 
 // TODO implement it (array $newEmployee)
-    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+    $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll = json_decode($Allusers);
     foreach ($usersAll as $user ) {
@@ -75,22 +75,12 @@ $usersAll1= json_decode($Allusers);
 foreach ($usersAll1 as $user ) {
     if($user -> id == $updateEmployee["id"]){
         $user= $updateEmployee;
-        // $user -> name = $updateEmployee["name"];
-        // print_r($updateEmployee["name"]);
-        // echo $updateEmployee["name"];
-        // echo $user -> name ;
-        // print_r($user);
-        // print_r($updateEmployee);
-        // $user = $updateEmployee;
-        // print_r($user);
     }
     $customers[] = $user;
-    // print_r($user);
 }
 $newinfo= json_encode($customers);
 file_put_contents($file, $newinfo);
-// print_r($customers);
-// print_r($usersAll1);
+
 }
 
 
@@ -104,9 +94,7 @@ $usersAll1= json_decode($Allusers);
 // print_r($usersAll1[0]);
 // print_r(max(array($usersAll1)));
 foreach ($usersAll1 as $user ) {
-    // echo $user -> id;
-    // $arraya[] =$user -> id;
-    // print_r($array);
+
     if( $id == $user -> id){
         // echo $user -> id;
         define("name",$user -> name );

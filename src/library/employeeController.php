@@ -11,8 +11,9 @@ if(isset($_GET["modifyEmployee"])){
 if(isset($_GET['addEmployee'])){
     echo "estamos aqui ";
     //print_r($_POST['name']);
-    addEmployee();
+    addEmployee("../../resources/employees.json");
 
 }
 ?>
 
+<!-- <form action="../../resources/employees.json" method="post"></form> -->
