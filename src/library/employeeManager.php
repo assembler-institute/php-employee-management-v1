@@ -6,7 +6,7 @@
  * @date: 11/06/2020
  */
 
-function getEmployeers(): array {
+function getEmployeers(){
     try {
         $fileName = ".././../resources/employees.json";
         if (!file_exists($fileName)) throw new Exception('File open failed');
@@ -23,16 +23,8 @@ function addEmployee(array $newEmployee)
 $oldEmployee = getEmployeers();
 $arrayKey = count($oldEmployee);
 $newId = $arrayKey+ 1;
-//print_r($newEmployee);
-$id = array ("id" => $newId);
+$newEmployee["id"] = $newId;
 array_push($oldEmployee, $newEmployee);
-array_push($oldEmployee["$arrayKey"], $id["id"]);
-
-$oldEmployee["$arrayKey"]["id"] = $oldEmployee["$arrayKey"][0];
-unset($oldEmployee["$arrayKey"][0]);
-echo "<br>";
-//print_r($oldEmployee);
-
 
 $fileName = ".././../resources/employees.json";
 
@@ -80,6 +72,9 @@ file_put_contents($fileName, json_encode($newArray));
 function getEmployee(string $id)
 {
 // TODO implement it
+    $oldArray = getEmployeers();
+    return $oldArray;
+    // $key = array_search((int)$id, array_column($oldArray, 'id'));
 }
 
 

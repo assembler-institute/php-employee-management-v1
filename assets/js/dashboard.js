@@ -45,7 +45,7 @@ function displayTypeTasks(employeers) {
         return $.ajax({
           type: "POST",
           url: "./library/employeeController.php?addEmployee",
-          data: item,
+          data: {newEmployee: item},
         }).done(async function (response) {
           let employeers = await getEmployeers();
           displayTypeTasks(employeers);
@@ -77,8 +77,8 @@ function displayTypeTasks(employeers) {
     },
 
     rowClick: function(args) {
-      console.log(args.item);
-      location.assign(`./employee.php?editEmployee=${args.item}`);
+      let id = args["item"].id;
+      location.assign(`./employee.php?editEmployee=${id}`);
     }
   });
 }
