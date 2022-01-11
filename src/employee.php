@@ -16,28 +16,38 @@
     <?php
     include("../assets/html/header.php")
     ?>
+    <?php
+    if(isset($_GET["id"])){
+    $file = "../resources/employees.json";
+    $Allusers = file_get_contents($file);
+    $userAll = json_decode($Allusers);
+    foreach ($userAll as $users) {
+        // foreach($users as $user){
+        if ($users->id == $_GET["id"]) {
+
+            ?>
 
     <div class="container mt-5">
         <form role="form" action="library/employeeController.php" method="post">
             <div class="row">
                 <div class="form-group col">
                     <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name" value=<?= $users->name ?>>
                 </div>
                 <div class="form-group col">
                     <label for="inputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" value=<?= $users->lastName ?>>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputEmail">Email Address</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" value=<?= $users->email ?>>
                 </div>
                 <div class="form-group col">
                     <label for="inputGender">Gender</label>
                     <select id="inputGender" name="inputGender" class="form-control">
-                        <option selected>Choose...</option>
+                        <option>Choose...</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -46,31 +56,31 @@
             <div class="row">
                 <div class="form-group col">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    <input type="text" class="form-control" id="inputCity" placeholder="City" value=<?= $users->city ?> >
                 </div>
                 <div class="form-group col">
                     <label for="inputStreetAddress">Street Address</label>
-                    <input type="text" class="form-control" id="inputStreetAddress" placeholder="1234 Main St">
+                    <input type="text" class="form-control" id="inputStreetAddress" placeholder="1234 Main St" value=<?= $users->streetAddress ?>>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="inputState" placeholder="State">
+                    <input type="text" class="form-control" id="inputState" placeholder="State" value=<?= $users->state ?> >
                 </div>
                 <div class="form-group col">
                     <label for="inputAge">Age</label>
-                    <input type="text" class="form-control" id="inputAge" placeholder="Age">
+                    <input type="text" class="form-control" id="inputAge" placeholder="Age" value=<?= $users->age ?> >
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputPostalCode">Postal Code</label>
-                    <input type="text" class="form-control" id="inputPostalCode" placeholder="PostalCode">
+                    <input type="text" class="form-control" id="inputPostalCode" placeholder="PostalCode" value=<?= $users->postalCode ?> >
                 </div>
                 <div class="form-group col">
                     <label for="inputNumber">Phone Number</label>
-                    <input type="number" class="form-control" id="inputNumber" placeholder="Phone Number">
+                    <input type="number" class="form-control" id="inputNumber" placeholder="Phone Number" value=<?= $users->phoneNumber ?> >
                 </div>
             </div>
             <div class="form-group mt-4">
@@ -81,44 +91,14 @@
     </div>
 
     <?php
+}
+}
+}
     include("../assets/html/footer.php")
     ?>
 
     <!-- TODO Employee view -->
-    <?php
-    $file = "../resources/employees.json";
-    $Allusers = file_get_contents($file);
-    $userAll = json_decode($Allusers);
-    // print_r($userAll);
-    foreach ($userAll as $users) {
-        // foreach($users as $user){
-        if ($users->id == $_GET["id"]) {
-            echo $users->id;
-            echo "</br>";
-            echo $users->name;
-            echo "</br>";
-            echo $users->lastName;
-            echo "</br>";
-            echo $users->email;
-            echo "</br>";
-            echo $users->gender;
-            echo "</br>";
-            echo $users->city;
-            echo "</br>";
-            echo $users->streetAddress;
-            echo "</br>";
-            echo $users->state;
-            echo "</br>";
-            echo $users->age;
-            echo "</br>";
-            echo $users->postalCode;
-            echo "</br>";
-            echo $users->phoneNumber;
-            echo "</br>";
-        }
-        //    }
-    }
-    ?>
+    
 </body>
 
 </html>
