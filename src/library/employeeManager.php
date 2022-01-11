@@ -34,7 +34,7 @@ function deleteEmployee(string $id)
     $newArray =array();
     $newArray = array_merge($data,$newArray);
     //save the file
-    file_put_contents('../../resources/employees.json',json_encode($data, JSON_PRETTY_PRINT));
+    file_put_contents('../../resources/employees.json',json_encode($newArray, JSON_PRETTY_PRINT));
     unset($data);//release memory
     }
     else{
