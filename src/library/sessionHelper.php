@@ -10,8 +10,7 @@ function passCheck(){
     $pass = $_POST["login-pass"];
     $check = password_verify($pass, $sPass);
 
-
-    if ($user === $sUser or $user === $sEmail && $check === true) {
+    if (($user === $sUser or $user === $sEmail) && $check === true) {
         $inactive = 600;
         ini_set('session.gc_maxlifetime', $inactive); // set the session max lifetime to 10m
         session_start();
