@@ -4,6 +4,9 @@
 function getEmployees() {
     return json_decode(file_get_contents('./../resources/employees.json'), true); // returns an associative array
 }
+function getEmployees2() {
+    return json_decode(file_get_contents('../../resources/employees.json'), true); // returns an associative array
+}
 
 function createEmployee(array $data) {
 
@@ -11,7 +14,11 @@ function createEmployee(array $data) {
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    echo "hola";
+    $employees = getEmployees2();
+    array_push($employees,$newEmployee);
+    file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
+    header("Location:../dashboard.php");
 }
 
 

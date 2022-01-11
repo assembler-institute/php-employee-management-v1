@@ -1,9 +1,10 @@
 <?php
-
 include "../assets/html/header.html";
 
-require "./library/employeeManager.php";
+require_once "./library/employeeManager.php";
 $employees = getEmployees();
+
+
     ?>
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,10 +42,10 @@ $employees = getEmployees();
         <th>State</th>
         <th>Postal Code</th>
         <th>Phone Number</th>
-        <th><a id="btn-add-employee"class="btn btn-success" href=""><i class="fas fa-plus"></i></a></th>
+        <th><a id="btn-add-employee"class="btn btn-success" href="#"><i class="fas fa-plus"></i></a></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="employees-table">
       <?php foreach ($employees as $employee) : ?>
         <tr>
           <td><?= $employee["name"] ?></td>
@@ -69,18 +70,3 @@ $employees = getEmployees();
 <?php
 include "../assets/html/footer.html"
     ?>
-
-
-
-        <td><input type="text" name="name" placeholder = "name"></td>
-        <td><input type="text" name="email" placeholder = "email"></td>
-        <td><input type="number" name="age" placeholder = "age"></td>
-        <td><input type="number" name="streetNumber" placeholder = "Street Number"></td>
-        <td><input type="text" name="city" placeholder = "City"></td>
-        <td><input type="text" name="state" placeholder = "State"></td>
-        <td><input type="number" name="postalCode" placeholder = "Postal Code"></td>
-        <td><input type="number" name="postalCode" placeholder = "Postal Code"></td>
-        <td class="d-flex justify-content">
-          <a id="btn-cancel"class="btn btn-seccondary" href=""><i class="fas fa-window-close"></i></a>
-          <a id="btn-success"class="btn btn-success" href=""><i class="fas fa-check"></i></a>
-        </td>
