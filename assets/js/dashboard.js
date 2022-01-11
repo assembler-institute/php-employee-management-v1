@@ -107,10 +107,19 @@ async function displayEmployees() {
         })
 }
 
-function changePage(e) {
+async function changePage(e) {
+    console.log();
     const userName = $(e.target).data("id");
     e.stopPropagation();
-    window.location = "employee.php?userId=" + userName
+    await fetch("../src/library/employeeController.php?userId=" + userName, {
+        method: 'GET'
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+    });
+    window.location = "employee.php?userId=" + userName;
+
 
 }
 

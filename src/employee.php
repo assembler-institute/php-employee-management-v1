@@ -13,7 +13,6 @@ if (!isset($_SESSION["user"])) {
 <head>
     <?php
         require_once("./../assets/html/header.html");
-        include_once("./library/employeeManager.php");
     ?>
     <title>Employee</title>
     <!-- my scripts -->
@@ -21,9 +20,6 @@ if (!isset($_SESSION["user"])) {
 </head>
 
 <body>
-            <?php
-            $employeeObj =getEmployee($_GET['userId']);
-            ?>
 
     <section class="m-0 vh-100 row justify-content-center align-items-center">
         <form class="col-6 p-5 text-center bg-light">
@@ -31,7 +27,7 @@ if (!isset($_SESSION["user"])) {
             <div class="row">
                 <div class="col ">
                     <label for="inputName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="inputName" name="name" value=<?php echo $employeeObj['name'];?>>
+                    <input type="text" class="form-control" id="inputName" name="name" >
                     <label for="inputEmail1" class="form-label">Email address</label>
                     <input type="email" name="usermail" class="form-control" id="inputEmail" value=<?php echo $employeeObj['email'];?>>
                     <label for="inputCity" class="form-label">City</label>
