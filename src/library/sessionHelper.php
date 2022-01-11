@@ -13,6 +13,7 @@
 <?php require("../assets/html/header.html");
 
 function checkSession(){  
+    session_set_cookie_params(600);
     session_start();
     if(!isset($_SESSION["login"]) || $_SESSION["login"] === "failed"){
         header("Location: ../index.php");
