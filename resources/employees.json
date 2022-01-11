@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Rack 43",
+        "name": "Rack",
         "lastName": "Lei",
         "email": "jackon@network.com",
         "gender": "male",
@@ -95,12 +95,26 @@
         "name": "Robert",
         "lastName": "Thomson",
         "email": "jackon@network.com",
-        "gender": "man",
-        "age": 24,
+        "gender": "male",
+        "age": "24",
         "streetAddress": "126",
         "city": "New Orleans",
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
+    },
+    {
+        "id": 9,
+        "streetAddress": "43y",
+        "phoneNumber": "4",
+        "gender": "male",
+        "lastName": "34y",
+        "name": "dfgj",
+        "email": "gfj",
+        "age": "4",
+        "streetNumber": "3",
+        "city": "er",
+        "state": "re",
+        "postalCode": "3"
     }
 ]

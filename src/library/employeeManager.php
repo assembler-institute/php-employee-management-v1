@@ -2,10 +2,7 @@
 
 // Reads the JSON file and returns and array
 function getEmployees() {
-    return json_decode(file_get_contents('./../resources/employees.json'), true); // returns an associative array
-}
-function getEmployees2() {
-    return json_decode(file_get_contents('../../resources/employees.json'), true); // returns an associative array
+    return json_decode(file_get_contents('http://localhost/Assembler/php-employee-management-v1/resources/employees.json'), true); // returns an associative array
 }
 
 function createEmployee(array $data) {
@@ -14,17 +11,16 @@ function createEmployee(array $data) {
 
 function addEmployee(array $newEmployee)
 {
-    $employees = getEmployees2();
+    $employees = getEmployees();
     array_push($employees,$newEmployee);
     file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
-    header("Location:../dashboard.php");
 }
 
 
 function deleteEmployee(string $id)
 {
     echo $id;
-    $employees = getEmployees2();
+    $employees = getEmployees();
     print_r($employees);
     print_r($employees[$id-1]);
     unset($employees[$id-1]);
