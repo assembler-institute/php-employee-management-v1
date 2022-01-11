@@ -1,6 +1,7 @@
 //global var of the employees
 var employees = [];
-//listeners always working
+//listeners
+//this listener is for when you hide the delete modal, it turns off the accept and cancel
 $("#deleteModal").on("hidden.bs.modal", function () {
     $("#acceptDelete").off();
     $("#cancelDelete").off();
@@ -19,6 +20,26 @@ async function createTable() {
         sorting: true,
         paging: true,
         confirmDeleting: false,
+
+        controller: {
+            //the event when you click in the + button
+            insertItem: async function (item) {
+                await fetch("./library/employeeController.php", {
+                        method: "POST",
+                        body: JSON.stringify(item)
+                    })
+                    .then(response => console.log(response.text()))
+            },
+            //event when update an item and confirm
+            updateItem: async function (item) {
+                await fetch("./library/employeeController.php?update=" + item.id, {
+                        method: "PUT",
+                        body: JSON.stringify(item)
+                    })
+                    .then(response => response)
+            }
+        },
+
         data: employees,
         //what data will be displayed
         fields: [{
@@ -61,6 +82,9 @@ async function createTable() {
                 width: 100,
                 editButton: false,
                 deleteButton: false,
+                //insertButton
+
+                //edit and delete btns
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
                     //edit btn
@@ -69,7 +93,7 @@ async function createTable() {
                             "data-id": item.id
                         })
                         .on("click", changePage);
-                    //custom delete button
+                    //delete button
                     var $customDeleteButton = $("<button>").attr({
                             class: "customGridDeletebutton jsgrid-button jsgrid-delete-button",
                             "data-bs-toggle": "modal",
@@ -88,6 +112,10 @@ async function createTable() {
                             })
                             e.stopPropagation()
                         });
+                    //add button
+                    var $customAddButton = $("<button>").attr({
+                        class: "customGridAddbutton jsgrid-button jsgrid-add-button"
+                    })
                     //spawn the buttons
                     return $("<div>").append($customEditButton).append($customDeleteButton);
                 }
@@ -114,6 +142,7 @@ async function changePage(e) {
 }
 
 async function deleteEmployee(item) {
+    //i pass delete key in get with the item value (ID)
     await fetch("./library/employeeController.php?delete=" + item, {
             method: "delete"
         })

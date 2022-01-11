@@ -1,3 +1,4 @@
+//visual functionality to see where you are everymoment
 function checkPath() {
     const fullpath = location.pathname;
     const loc = fullpath.substring(fullpath.length, fullpath.lastIndexOf("/"));
