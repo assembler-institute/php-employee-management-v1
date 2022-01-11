@@ -46,7 +46,8 @@ function getEmployee(string $id){
   foreach ($arrayObj as $key => $value) {
       $employeeObj=$value; // obtiene un solo objeto del array actual
       if($employeeObj["id"]==$id){
-          return $employeeObj;
+        $employeeObj=json_encode($employeeObj); //convierte el objeto en un json
+          return print_r($employeeObj);
       }
   }
 }

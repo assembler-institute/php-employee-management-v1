@@ -107,18 +107,9 @@ async function displayEmployees() {
 }
 
 async function changePage(e) {
-    console.log();
     const userName = $(e.target).data("id");
     e.stopPropagation();
-    await fetch("../src/library/employeeController.php?userId=" + userName, {
-        method: 'GET'
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-    });
     window.location = "employee.php?userId=" + userName;
-
 
 }
 
