@@ -23,7 +23,6 @@
         $employee = getEmployee($_GET["editEmployee"]);
         var_dump($employee);
     }
-    sessionCheck();
     ?>
     <main>
         <form class="employeeForm" action="./library/employeeController.php" method="POST">
