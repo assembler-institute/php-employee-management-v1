@@ -61,19 +61,6 @@ function displayTypeTasks(employeers) {
           displayTypeTasks(employeers);
         });
       },
-
-<<<<<<< HEAD
-      rowClick: function(item) {
-        console.log("halo")
-        return $.ajax({
-            type: "GET",
-            url: "./library/employeeController.php?editEmployee",
-            data: item,
-          });
-    },
-
-=======
->>>>>>> 3559a0f7a25be7d70c8ec55eab97c255611eff6a
       updateItem: function name(item) {
         return $.ajax({
           type: "POST",

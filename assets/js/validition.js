@@ -10,6 +10,10 @@ document.getElementById("email").addEventListener("blur", (e) => {
     validateEmail(e.target);
 });
 
+document.getElementById("phoneNumber").addEventListener("blur", (e)=> {
+validatePhone(e.target);
+})
+
 function validateSurName(inputValidation) {
     let valueInput = inputValidation.value.trim();
     return (valueInput.length < 20 && valueInput.length > 3) ? true : false;
@@ -24,4 +28,13 @@ function validateEmail(inputValidation) {
 function validateIsAge(inputValidation) {
     var ageValue = inputValidation.trim();
     return (!isNaN(age)) ? true : false;
+}
+
+function validatePhone(inputValidation){
+let phoneInput = inputValidation.value.trim();
+if (phoneInput.length > 9 || phoneInput.length < 9) {
+    return false
+} else {
+    return true
+}
 }

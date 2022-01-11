@@ -8,11 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="styleSheet" href="../assets/css/main.css">
-<<<<<<< HEAD
-    <script src="../assets/js/validations.js" defer></script>
-=======
     <script defer src="../assets/js/validition.js"></script>
->>>>>>> 3559a0f7a25be7d70c8ec55eab97c255611eff6a
 </head>
 
 <body>
@@ -20,6 +16,7 @@
     require_once "../assets/html/header.html";
     require_once "./library/sessionHelper.php";
     sessionCheck();
+    outOfTime();
 
     if(isset($_GET["editEmployee"])) {
         $result = json_decode($_GET["editEmployee"]);
@@ -31,17 +28,17 @@
             <div class="formFlex">
                 <div class="flexMember">
             <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" value="">
+            <input type="text" id="name" name="name" value="" required>
             </div>
             <div class="flexMember">
             <label for="lastName">Last name</label><br>
-            <input type="text" id="lastName" name="lastName" value="">
+            <input type="text" id="lastName" name="lastName" value="" required>
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" value="">
+            <input type="email" id="email" name="email" value="" required>
             <p>We will sell this data to some weird databank</p>
             </div>
             <div class="flexMember">
@@ -56,31 +53,31 @@
             <div class="formFlex">
                 <div class="flexMember">
             <label for="city">City</label><br>
-            <input type="text" id="city" name="city" value="">
+            <input type="text" id="city" name="city" value="" required> 
             </div>
             <div class="flexMember">
             <label for="streetAddress">Stree number</label><br>
-            <input type="number" id="streetAddress" name="streetAddress" value="">
+            <input type="number" id="streetAddress" name="streetAddress" value="" required>
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="state">State</label><br>
-            <input type="text" id="state" name="state" value="">
+            <input type="text" id="state" name="state" value="" required>
             </div>
             <div class="flexMember">
             <label for="age">Age</label><br>
-            <input type="number" id="age" name="age" value="">
+            <input type="number" id="age" name="age" value="" required>
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="employee-postalCode">Postal code</label><br>
-            <input type="number" id="postalCode" name="postalCode" value="">
+            <input type="number" id="postalCode" name="postalCode" value="" required>
             </div>
             <div class="flexMember">
             <label for="phoneNumber">Phone number</label><br>
-            <input type="number" id="phoneNumber" name="phoneNumber" value="">
+            <input type="number" id="phoneNumber" name="phoneNumber" value="" required>
             <input type="hidden" name="formEmployee" id="formEmployee">
             </div>
             </div>

@@ -25,6 +25,7 @@
     require_once "../assets/html/header.html";
         require_once "./library/sessionHelper.php";
         sessionCheck();
+        outOfTime();
         ?>
 </nav>
 <div id="dashboard"></div>
