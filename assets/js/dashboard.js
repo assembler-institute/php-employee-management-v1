@@ -12,7 +12,7 @@ async function getEmployees() {
 function loadEmployeeTable(employees) {
   $("#jsGrid").jsGrid({
     width: "100%",
-    height: "400px",
+    height: "400px", //800max 
 
     inserting: true,
     sorting: true,
@@ -46,6 +46,14 @@ function loadEmployeeTable(employees) {
         return $.ajax({
           type: "DELETE",
           url: "./library/employeeController.php?deleteEmployee",
+          data: item,
+        });
+      },
+
+      insertItem: function (item) {
+        return $.ajax({
+          type: "POST",
+          url: "./library/employeeController.php",
           data: item,
         });
       },

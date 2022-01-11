@@ -17,3 +17,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         http_response_code(404);
     }
 }
+
+
+$method = $_SERVER['REQUEST_METHOD'];
+switch ($method) {
+
+case "POST":
+    if (!isset($_GET['update'])) {
+    $newEmployee = $_POST;
+    $result = addEmployee($newEmployee);
+    break;
+    }
+
+    
+    if ($_GET["update"] == true) {
+    $newEmployee = $_POST;
+    $result = addEmployee($newEmployee);
+    $_SESSION['newEmployee'] = $result;
+    header("Location: ../employee.php?okUpdate");
+    header("Location: ../employee.php?okUpdate");
+    break;
+    }
+}
