@@ -65,6 +65,7 @@ function displayTypeTasks(employeers) {
       },
 
       rowClick: function(item) {
+        console.log("halo")
         return $.ajax({
             type: "GET",
             url: "./library/employeeController.php?editEmployee",
