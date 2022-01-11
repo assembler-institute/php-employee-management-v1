@@ -4,4 +4,8 @@ require_once("./employeeManager.php");
     $empleados=leerempleados();
     echo json_encode($empleados);
  }
+ if(isset($_GET["delete"])){
+ }
+ if(isset($_GET["post"])){
+}
 ?>

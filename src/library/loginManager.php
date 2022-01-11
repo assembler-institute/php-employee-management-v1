@@ -2,7 +2,7 @@
 function leerUsers(){
     $file="../../resources/users.json";
     $Allusers= file_get_contents($file);
-    $usersAll=json_decode($Allusers)->user;
+    $usersAll=json_decode($Allusers);
     return $usersAll;
 }
 function comprovacion(){
@@ -10,10 +10,14 @@ function comprovacion(){
         $postUser= $_POST["username"];
         $postPassword= $_POST["password"];
         $usersAll=leerUsers();
-        foreach ($usersAll as $user ) {
-            if($postUser == $user->name){
-                if(password_verify($user->password, $postPassword)){
-                    return $user->email;
+        foreach ($usersAll as $users ) {
+            foreach($users as $user){
+                if($postUser == $user->name){
+                    // return password_verify( $postPassword,$user->password);
+                    if(password_verify( $postPassword,$user->password)){
+                        return $user->email;
+                        
+                    }
                 }
             }
         }

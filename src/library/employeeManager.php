@@ -8,6 +8,9 @@
 
 function addEmployee(array $newEmployee)
 {
+    $file=".././../resources/employees.json";
+    $usersAll=json_encode($newEmployee);
+    file_get_contents($file);
 // TODO implement it
 }
 
@@ -26,6 +29,10 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
+    $file=".././../resources/employees.json";
+    $Allusers= file_get_contents($file);
+    $usersAll=json_decode($Allusers);
+    return $usersAll;
 // TODO implement it
 }
 
@@ -51,3 +58,4 @@ function leerempleados(){
     $usersAll=json_decode($Allusers);
     return $usersAll;
 }
+

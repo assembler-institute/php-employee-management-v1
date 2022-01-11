@@ -1,4 +1,4 @@
 <?php
     require_once("./loginManager.php");
-    comprovacion() ;
+    echo (comprovacion() ) ;
 ?>
