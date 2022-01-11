@@ -33,3 +33,20 @@ function fillJsGrid(employee){
     });
     
 }
+
+/*
+F - log out (destroy session)
+M - eliminar jsgrid
+M - añadir jsgrid
+M - editar employee.php
+M - crear employee.php
+D - controlar ir a employee.php directamente
+F - employee.php -> return //header
+
+
+When you do any of the actions of the employees, you must show an alert on the screen indicating if the action was successful or there was an error.
+You must use PHP server variables related to the HTTP verbs in order to know what kind of request is coming from (POST, DELETE, …).
+
+When the user has exceeded 10 min logged in or has previously logged out, the session for that user must be destroyed and redirected to the login page (index.php).
+
+*/
