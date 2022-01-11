@@ -71,7 +71,7 @@
                         <div class="form-group col-sm-6 flex-column d-flex"> <label>Phone Number</label> <input type="tel" id="phone" name="phone" value="<?=$userData->phoneNumber;?>"> </div>
                     </div>
                     <div class="row justify-content-end">
-                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-secundary">Return</button> </div>
+                        <div class="form-group col-sm-6"> <button onclick="location.href='dashboard.php'" class="btn-block btn-secundary">Return</button> </div>
                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Submit</button> </div>
                     </div>
                 </form>
