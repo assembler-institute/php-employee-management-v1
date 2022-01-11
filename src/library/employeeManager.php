@@ -9,6 +9,11 @@
 function addEmployee(array $newEmployee)
 {
 // TODO implement it
+        $employees = getEmployees();
+        $newId = 1 + getNextIdentifier($employees);
+        $newEmployee["id"] = $newId;
+        array_push($employees, $newEmployee);
+        file_put_contents("../../resources/employees.json", json_encode($employees));
 }
 
 
@@ -69,6 +74,10 @@ function getQueryStringParameters(): array
 function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
+$object = array_reduce($employeesCollection, function ($x, $y) {
+    return $x ? ($x["id"] > $y["id"] ? $x : $y) : $y;
+  });
+  return $object["id"];
 }
 
 function getEmployees()
