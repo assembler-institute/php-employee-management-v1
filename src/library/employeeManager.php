@@ -34,7 +34,7 @@ function removeAvatar($id)
 {
 // TODO implement it
 }
-
+/*
 
 function getQueryStringParameters(): array
 {
@@ -45,3 +45,4 @@ function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
 }
+*/
