@@ -16,7 +16,7 @@ if (!isset($_SESSION)) {
     <link type="text/css" rel="stylesheet" href="./../node_modules/jsgrid/dist/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="./../node_modules/jsgrid/dist/jsgrid-theme.min.css" />
     <!-- My styles -->
-    <script src="./../assets/js/index.js" defer></script>
+    <script src="./../assets/js/dashboard.js" defer></script>
 </head>
 
 <body>

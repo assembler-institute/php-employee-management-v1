@@ -16,6 +16,8 @@ if (!isset($_SESSION["user"])) {
         include_once("./library/employeeManager.php");
     ?>
     <title>Employee</title>
+    <!-- my scripts -->
+    <script src="./../assets/js/employee.js" defer></script>
 </head>
 
 <body>
