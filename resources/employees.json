@@ -102,6 +102,7 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
+<<<<<<< HEAD
     },
     {
         "id": 9,
@@ -115,5 +116,7 @@
         "phoneNumber": "669979797",
         "gender": "",
         "lastName": ""
+=======
+>>>>>>> 47f796df889562195590977502e96cbcea8793b8
     }
 ]
