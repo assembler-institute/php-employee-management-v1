@@ -14,7 +14,7 @@
 <body>
     <!-- Login -->
     <div id="logreg-forms">
-        <form class="form-signin" method="POST" action="./src/library/loginController.php">
+        <form class="form-signin" method="POST" action="./src/library/loginController.php?login=true">
             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
