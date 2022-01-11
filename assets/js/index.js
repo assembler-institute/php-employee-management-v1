@@ -20,9 +20,11 @@ async function callGrid(){
         width: "100%",
         height: "900px",
 
-        filtering: true,
+        // filtering: true,
+        inserting: true,
         editing: true,
         sorting: true,
+        autoload: true,
         paging: false,
         pageSize: 10,
         pageButtonCount: 5,
@@ -31,15 +33,16 @@ async function callGrid(){
         data: await callDataEmploee(),
 
         fields: [
-            { name: "name", type: "text", },
-            { name: "lastName", type: "text", },
-            { name: "email", type: "text", },   
-            { name: "city", type: "text", },
-            { name: "streetAddress", type: "number", },
-            { name: "state", type: "text", },
-            { name: "age", type: "number", },
-            { name: "postalCode", type: "number", },
-            { name: "phoneNumber", type: "number", },
+            { name: "name", type: "text", validate: { validator: "required", message: "Name required" } },
+            { name: "lastName", type: "text", validate: { validator: "required", message: "last name required" } },
+            { name: "email", type: "text", width: 150, validate: { validator: "required", message: "Email required" } },   
+            { name: "city", type: "text", validate: { validator: "required", message: "City" }},
+            { name: "streetAddress", type: "number", validate: { validator: "required", message: "Street Adress required" }},
+            { name: "state", type: "text", validate: { validator: "required", message: "State required" }},
+            { name: "age", type: "number", validate: { validator: "range", param: [18, 80] } },
+            { name: "postalCode", type: "number", validate: { validator: "required", message: "Postal code required" }},
+            { name: "phoneNumber", type: "number",  validate: { validator: "required", message: "phone Number required" }},
+            
             // { type: "control", },
             {
                 type: "control",
@@ -47,67 +50,58 @@ async function callGrid(){
                 editButton: true,
                 rowClick:true,
                 rowDoubleClick:true,
+                
+                headerTemplate: function() {
+                    return $("<button>").attr("type", "button").text("Add")
+                            .on("click", function () {
+                                window.location.assign(`./../src/employee.php`)
+                            });
+                }
+            
             },
-            
-            // {
-            //     type: "control",
-            //     modeSwitchButton: true,
-            //     editButton: true,
-            //     updateItem   :true,
-            // },
+        
         ],
-        // onItemEditing: function(args) {
-        //     // $(this).on("click", ()=>{
-        //     //     console.log("jaksbkdn")
-        //     console.log(args["item"].id)
-        //     // })
-        //     addEventListener("dblclick", ()=>{
-        //         $pr= args["item"].id
-        //         // console.log("he hecho doble click")
-        //     })
-            // console.log(args["item"])
-
-            // $pepe= args["item"]
-            // $(`#${$pepe}`).on("click" ,()=>{
-            //     console.log("nasd")
-            // })
-           
-            // $p=args["item"]
-            // $proba= $p.id
-            // // console.log($proba)
-            // ($proba).on("dblclick" , () => {
-            //     console.log("entra con doble click")
-            // })
-            
-        // },
+        onItemUpdated: function(args){
+            console.log(args.item);
+            $.ajax({
+                url: ".././resources/employees.json",
+                success: function (data) {
+                   data.filter( element =>{
+                       if(element.id == args.item["id"]){
+                           console.log(element)
+                           element.name = args.item["name"]
+                           console.log(element)
+        
+                       }
+                    //    console.log(element.id)
+                   })
+                    // console.log(data)
+                    // data.forEach(element => {
+                    //     if(args.item["id"] == element.id){
+                    //         element.name = args.item["name"]
+                    //         console.log("entra")
+                    //         console.log(element.name)
+                    //         // JSON.stringify(element)
+                    //         // console.log(JSON.stringify(data))
+                    //         // JSON.stringify(element)
+                    //         // return;
+                    //     }
+                    //     // console.log(element.id)
+                    // });
+                    // $dataEmployee = data;
+                }
+            })
+        },
+        onItemDeleted: function(args) {
+            console.log(args)
+        },
         rowClick: function(args) {
 
         },
         rowDoubleClick: function(args) {
             $idget= args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
-            // console.log(args["item"].id)
-        }
-        
-        
-        //     // console.log(args["item"])
-        //     // cancel editing of the row of item with field 'ID' = 0
-        //     // if(args.item.ID === 1) {
-        //     //     args.cancel = true;
-        //     // }
-        // }
-        // rowclick: function(args){
-        //     console.log(args)
-        // },.,
-        
-        // editItem:function (item){
-        //     // editButton: true
-        //     console.log(item)
-            
-        // },
-        // deleteItem: function(item){
-        //     // console.log(item)
-        // }
+        },
     });
 
 };
@@ -150,3 +144,5 @@ function showContacts(contacts) {
         listContactsTable.appendChild(tr)
     });
 };
+
+

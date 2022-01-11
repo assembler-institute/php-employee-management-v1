@@ -3,25 +3,9 @@
 include_once "./../assets/html/header.html";
 if (isset($_GET['id'])) {
     $idfin= $_GET['id'];
-    $file="./../resources/employees.json";
-$Allusers= file_get_contents($file);
-$usersAll1= json_decode($Allusers);
-
-foreach ($usersAll1 as $user ) {
-    if( $idfin == $user -> id){
-        // echo $user -> id;
-        define("name",$user -> name );
-        define("nmeLast",$user -> lastName);
-        define("email",$user -> email);
-        define("gender",$user -> gender);
-        define("streetAdress",$user -> streetAddress);
-        define("city",$user -> city);
-        define("postalCode",$user -> postalCode);
-        define("phoneNumber",$user -> phoneNumber);
-        define("age",$user -> age);
-        define("state",$user -> state);
-    }
-}}
+    require './library/employeeManager.php';
+    getEmployee($idfin);
+}
 ?>
      <link rel="stylesheet" href="../assets/css/main.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,14 +24,19 @@ foreach ($usersAll1 as $user ) {
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3"> <label>Email</label> <input type="email" class="form-control" name="email"  required value=<?= isset($_GET["id"]) ?  email : "" ?>> </div>
-                    <div class="col-md-6 mt-md-0 mt-3"> <select  name="gender" class="form-select" aria-label="Default select example">
-                    <input type="radio" name="radio" value="yes" class="radio" /> Yes
-                    <input type="radio" name="radio" value="no" class="radio" />
-                            <!-- <option selected>Open this select menu</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option> -->
-                        <!-- </select> -->
-                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3"> <label>Gender</label>
+                    <?php 
+                       if (isset($_GET['id']) ) {
+                           if (gender == "man"){
+                               echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man' checked required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>" ;
+                           }else if(gender == "woman"){
+                            echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' checked required>Female <span class='checkmark'></span> </label> </div>" ;
+                           }
+                       } else{
+                        echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>" ;
+                       }
+                    ?>
+         
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3"> <label>City</label> <input type="text" class="form-control" name="city"  required value=<?= isset($_GET["id"]) ?  city : "" ?>> </div>
@@ -69,37 +58,14 @@ foreach ($usersAll1 as $user ) {
     </div>
     <?php
     if (isset($_POST['submitForm'])) {
-        require './library/employeeManager.php';
-        addEmployee();
+        // echo $_POST['radio'];
+        if (isset($_GET['id'])){
+            echo "Esta cuenta ya esta creada";
+        }else{
+            require './library/employeeManager.php';
+            addEmployee();
+        }
     }
-    // if (isset($_GET['id'])) {
-       
-    //     $idfin= $_GET['id'];
-    //     $file="./../resources/employees.json";
-    // $Allusers= file_get_contents($file);
-    // $usersAll1= json_decode($Allusers);
-
-    // foreach ($usersAll1 as $user ) {
-    //     if( $idfin == $user -> id){
-    //         // echo $user -> id;
-    //         define("pepe",$user -> name );
-    //         // echo pepe;
-    //         $pepe= $user -> name;
-    //         // $print_r($user -> id);
-    //     }
-    // }
-    // foreach ($usersAll as $user ) {
-    // print_r( $user -> id);
-    // if($user -> id == $idfin ){
-    //     echo "asd";
-    //     // printf($user -> id);
-    //     // $print_r($user -> id);
-    // }
-    // }
-        // echo "pepe";
-    // print_r($user -> id);
- 
-
 
     ?>
 </body>
