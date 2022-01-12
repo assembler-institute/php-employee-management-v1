@@ -17,7 +17,8 @@
         require_once "./library/sessionHelper.php";
         sessionCheck();
         outOfTime();
-
+        require_once "./library/avatarsApi.php";
+        getAvatarsAPI();
         require_once "./library/employeeManager.php";
         if(isset($_GET["editEmployee"])) {
             $id = $_GET["editEmployee"];
@@ -28,18 +29,21 @@
         <form class="employeeForm" action="./library/employeeController.php" method="POST" id="formulary">
             <div class="formFlex">
                 <div class="flexMember">
+                <?php if(isset($_GET["editEmployee"])) { ?>
+                <input type="hidden" id="id" name="id" required value=<?= isset($employee->id) ? $employee->id : "" ?>>
+            <?php } ?>
             <label for="name">Name</label><br>
-            <input type="text" id="name" name="name" value=<?= isset($_GET["editEmployee"]) ? $employee->name : "" ?> required>
+            <input type="text" id="name" name="name" required value=<?= isset($employee->name) ? $employee->name : "" ?>>
             </div>
             <div class="flexMember">
             <label for="lastName">Last name</label><br>
-            <input type="text" id="lastName" name="lastName" value=<?= isset($_GET["editEmployee"]) ? $employee->lastName : "" ?> required>
+            <input type="text" id="lastName" name="lastName" required value=<?= isset($employee->lastName) ? $employee->lastName : "" ?>>
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" value=<?= isset($_GET["editEmployee"]) ? $employee->email : "" ?> required>
+            <input type="email" id="email" name="email" required value=<?= isset($employee->email) ? $employee->email : "" ?>>
             <p>We will sell this data to some weird databank</p>
             </div>
             <div class="flexMember">
@@ -54,31 +58,31 @@
             <div class="formFlex">
                 <div class="flexMember">
             <label for="city">City</label><br>
-            <input type="text" id="city" name="city" value=<?= isset($_GET["editEmployee"]) ? $employee->city : "" ?> required>
+            <input type="text" id="city" name="city" required value=<?= isset($employee->city) ? $employee->city : "" ?>>
             </div>
             <div class="flexMember">
             <label for="streetAddress">Stree number</label><br>
-            <input type="number" id="streetAddress" name="streetAddress" value=<?= isset($_GET["editEmployee"]) ? $employee->streetAddress : "" ?> required>
+            <input type="number" id="streetAddress" name="streetAddress"  required value=<?= isset($employee->streetAddress) ? $employee->streetAddress : "" ?>>
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="state">State</label><br>
-            <input type="text" id="state" name="state"  value=<?= isset($_GET["editEmployee"]) ? $employee->state : "" ?> required>
+            <input type="text" id="state" name="state"  required value=<?= isset($employee->state) ? $employee->state : "" ?>>
             </div>
             <div class="flexMember">
             <label for="age">Age</label><br>
-            <input type="number" id="age" name="age"  value=<?= isset($_GET["editEmployee"]) ? $employee->age : "" ?> required>
+            <input type="number" id="age" name="age"  value=<?= isset($employee->age) ? $employee->age : "" ?> required>
             </div>
             </div>
             <div class="formFlex">
             <div class="flexMember">
             <label for="employee-postalCode">Postal code</label><br>
-            <input type="number" id="postalCode" name="postalCode"  value=<?= isset($_GET["editEmployee"]) ? $employee->postalCode : "" ?> required>
+            <input type="number" id="postalCode" name="postalCode"   required value=<?= isset( $employee->postalCode) ? $employee->postalCode : "" ?>>
             </div>
             <div class="flexMember">
             <label for="phoneNumber">Phone number</label><br>
-            <input type="number" id="phoneNumber" name="phoneNumber"  value=<?= isset($_GET["editEmployee"]) ? $employee->phoneNumber : "" ?>>
+            <input type="number" id="phoneNumber" name="phoneNumber"  value=<?= isset($employee->phoneNumber) ? $employee->phoneNumber : "" ?>>
             </div>
             </div>
             <div class="formFlex">

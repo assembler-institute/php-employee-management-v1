@@ -55,7 +55,14 @@ function updateEmployee(array $updateEmployee) {
     $oldArray = getEmployeers();
     $id = $updateEmployee["id"];
     $key = array_search($id, array_column($oldArray, 'id'));
-    $oldArray[$key] = $updateEmployee;
+    if(isset($_POST["id"])) {
+        $oldArray[$key] = $updateEmployee;
+    }
+    if(isset($_GET["modifyEmployee"])) {
+        $updateEmployee = updateGridEmployee($oldArray[$key], $updateEmployee);
+        $oldArray[$key] = $updateEmployee;
+    }
+
     $newArray = array_merge($oldArray, array());
 
     $fileName = ".././../resources/employees.json";
@@ -63,6 +70,19 @@ function updateEmployee(array $updateEmployee) {
     if(file_exists($fileName)){
         file_put_contents($fileName, json_encode($newArray, JSON_PRETTY_PRINT));
     }
+}
+
+//update a one employeer on file employees.json
+function updateGridEmployee(array $oldEmployee, array $updateEmployee) {
+    $oldEmployee["name"] = $updateEmployee["name"];
+    $oldEmployee["email"] = $updateEmployee["email"];
+    $oldEmployee["age"] = $updateEmployee["age"];
+    $oldEmployee["streetAddress"] =  $updateEmployee["streetAddress"];
+    $oldEmployee["city"] =  $updateEmployee["city"];
+    $oldEmployee["state"] =  $updateEmployee["state"];
+    $oldEmployee["postalCode"] =  $updateEmployee["postalCode"];
+    $oldEmployee["phoneNumber"] =  $updateEmployee["phoneNumber"];
+    return $oldEmployee;
 }
 
 //get a one employeer on file employees.json

@@ -10,7 +10,7 @@ if(isset($_GET["getEmployeers"])) {
 
 //Controller add employee with request JS
 if(isset($_GET["addEmployee"])) {
-    $data = $_POST["newEmployee"];
+    $data = $_POST;
     addEmployee($data);
 }
 
@@ -32,7 +32,7 @@ if(isset($_POST["modifyEmployee"])) {
     unset($_POST["modifyEmployee"]);
     $data = $_POST;
     updateEmployee($data);
-    header("Location: ../dashboard.php");
+    //header("Location: ../dashboard.php");
 }
 
 //Controller delete employee
