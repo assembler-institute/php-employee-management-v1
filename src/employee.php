@@ -25,30 +25,7 @@ if (!isset($_SESSION)) {
 <body class="d-flex flex-column h-100" data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
 
     
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
-    <a class="navbar-brand" href="#">Employees Management</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="./dashboard.php">Dashboard <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item <?= $_SERVER['SCRIPT_NAME']=="/PHP-EMPLOYEE-MANAGEMENT-V1/src/employee.php" ? "active": $_SERVER['SCRIPT_NAME'] ?>">
-          <a class="nav-link" href="#">Employee</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-            <a class="nav-link" href="../src/library/loginManager.php?logOut">Log out</a>
-        </li>
-        </ul>
-    </div>
-  </nav>
-</header>
+<?php require_once "../assets/html/header.php" ?>
 <h1>Welcome <?php echo $_SESSION["loged"];?></h1>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
