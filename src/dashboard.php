@@ -28,7 +28,9 @@ else header("Location: ../index.php") ;
     <title>Document</title>
 </head>
 <body>
-    <?php require("../assets/html/header.php")
+    <?php 
+    require("../assets/html/header.php");
+    echo  time()-$_SESSION['LAST_ACTIVITY'] ;
     ?>
     <div id="Grid"></div>
 </body>

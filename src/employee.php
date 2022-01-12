@@ -1,4 +1,12 @@
 <!-- TODO Employee view -->
+<?php
+session_start();
+if($_SESSION["email"]){
+    $userName=$_SESSION["email"];
+}
+else header("Location: ../index.php") ;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -21,8 +21,26 @@ function deleteEmployee(string $id)
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee($updateEmployee)
 {
+    $empleados=leerempleados();
+    foreach($empleados as $empleado){
+        if($empleado->id == $updateEmployee){
+            $empleado->id = $_POST["id"];
+            $empleado->name = $_POST["name"];
+            $empleado->gender = $_POST["gender"];
+            $empleado->lastName = $_POST['lastName'];
+            $empleado->email = $_POST['email'];
+            $empleado->age = $_POST['age'];
+            $empleado->city = $_POST['city'];
+            $empleado->state = $_POST['state'];
+            $empleado->streetAddress = $_POST['streetAddress'];
+            $empleado->phoneNumber = $_POST['phoneNumber'];
+            $empleado->postalCode = $_POST['postalCode'];
+        }
+    }
+    enviarempleados($empleados);
+
 // TODO implement it
 }
 
@@ -59,3 +77,8 @@ function leerempleados(){
     return $usersAll;
 }
 
+function enviarempleados($content){
+    $file=".././../resources/employees.json";
+    $usersAll=json_encode($content);
+    $Allusers= file_put_contents($file,$usersAll);
+}

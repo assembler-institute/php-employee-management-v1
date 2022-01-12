@@ -9,4 +9,7 @@ require_once("./employeeManager.php");
  if(isset($_GET["add"])){
     
 }
+if(isset($_GET["edit"])){
+   updateEmployee($_GET["edit"]);
+}
 ?>

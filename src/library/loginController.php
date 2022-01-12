@@ -1,8 +1,8 @@
 <?php
     require_once("./loginManager.php");
     if(isset($_POST["username"])){
-        session_start();
         if(comprovacion()){
+        session_start();
         iniciarSesion(comprovacion());
         header("location: ../dashboard.php");
         }else{

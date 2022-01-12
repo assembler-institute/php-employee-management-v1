@@ -48,7 +48,21 @@ controller: {
       console.log(item.item.id);
     },
 
-    updateItem: function name(item) {
+    updateItem: async function name(item) {
+      var formData = new FormData();
+      formData.append('id', item.id);
+      formData.append('name', item.name);
+      formData.append('lastName', item.lastName);
+      formData.append('email', item.email);
+      formData.append('age', item.age);
+      formData.append('gender', item.gender);
+      formData.append('city', item.city);
+      formData.append('state', item.state);
+      formData.append('streetAddress', item.streetAddress);
+      formData.append('phoneNumber', item.phoneNumber);
+      formData.append('postalCode', item.postalCode);
+      const response = await fetch('./library/employeeController.php?edit='+item.id,
+      { method: 'POST', body :formData});
     },
 
   },
@@ -86,3 +100,11 @@ async function eliminarEmpleados(conte){
   const data = await response.json()
   return data
 }
+
+
+// setInterval(async () => {
+//     const response = await fetch("./library/sessionHelper.php")
+//     // const data = await response.json()
+//     console.log(response)
+//     // return data
+// }, 1000);
