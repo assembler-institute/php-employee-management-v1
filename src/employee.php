@@ -7,6 +7,10 @@ if(isset($_GET["id"])) {
     $id = $_GET["id"];
     $employee = getEmployee($id);
 }
+require_once('./library/sessionHelper.php');
+if (!isset($_SESSION)) {
+    header("Location : ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +43,7 @@ if(isset($_GET["id"])) {
       </ul>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Log out</a>
+            <a class="nav-link" href="../src/library/loginManager.php?logOut">Log out</a>
         </li>
         </ul>
     </div>
