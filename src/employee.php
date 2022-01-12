@@ -30,10 +30,10 @@ if(isset($_GET["id"])) {
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link" href="./dashboard.php">Dashboard <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item <?= $_SERVER['SCRIPT_NAME']=="/PHP-EMPLOYEE-MANAGEMENT-V1/src/employee.php" ? "active": $_SERVER['SCRIPT_NAME'] ?>">
           <a class="nav-link" href="#">Employee</a>
         </li>
       </ul>
