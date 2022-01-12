@@ -54,7 +54,12 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    $employees = getEmployees();
+    $employeeKey = array_search($updateEmployee["id"], array_column($employees, "id"));
+    $employees[$employeeKey] = $updateEmployee;
+    $employees = array_merge($employees, array());
+    file_put_contents("../../resources/employees.json", json_encode($employees, JSON_PRETTY_PRINT));
+    return $updateEmployee;
 }
 
 

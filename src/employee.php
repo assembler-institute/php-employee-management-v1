@@ -39,7 +39,17 @@ if (!isset($_SESSION)) {
       </div>';
     }
     ?>
-  <form class="w-50 mx-auto" method="POST" action=<?= isset($_GET["id"]) ? "./library/employeeController.php?editEmployee ": "./library/employeeController.php?addEmployee_Form" ?>>
+    <?php 
+    if(isset($_GET["updated"])){
+        echo '<div class="alert alert-warning alert-dismissible fade show w-75 mx-auto" role="alert">
+        Employee <strong>'.$employee["name"].'</strong> has been updated in the database.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>';
+    }
+    ?>
+  <form class="w-50 mx-auto" method="POST" action=<?= isset($_GET["id"]) ? "./library/employeeController.php?editEmployee_Form ": "./library/employeeController.php?addEmployee_Form" ?>>
       <div class="form-row">
           <div class="form-group col-md-6">
               <label for="inputName">Name</label>
@@ -96,6 +106,7 @@ if (!isset($_SESSION)) {
               <input type="text" class="form-control" name="phoneNumber" id="inputPhoneNumber" value=<?= isset($_GET["id"]) ? $employee["phoneNumber"] : "" ?>>
           </div>
       </div>
+      <input hidden type="text" name="id" value=<?= isset($_GET["id"]) ? $employee["id"] : "" ?>>
       <button type="submit" class="btn btn-primary"><?= isset($_GET["id"]) ? "Edit" : "Create" ?></button>
       <a class="btn btn-secondary" href="./dashboard.php" role="button">Return</a>
   </form>
