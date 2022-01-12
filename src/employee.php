@@ -4,7 +4,6 @@
 
 <head>
     <?php
-        require_once("./library/sessionHelper.php");
         require_once("./../assets/html/header.html");
     ?>
     <title>Employee</title>
