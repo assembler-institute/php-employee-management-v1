@@ -26,7 +26,7 @@ if (isset($_GET['addEmployee'])) {
 
 if(isset($_GET['delEmployee'])){
     $idEmployee =  $_POST['id'];
-    deleteEmployee($idEmployee);
+    deleteEmployee($idEmployee, "../../resources/employees.json");
 }
 ?>
 <!-- <form action="./." method="post"></form> -->

@@ -1,9 +1,10 @@
 <!-- TODO Employee view -->
 <?php
 include_once "./../assets/html/header.html";
+require './library/employeeManager.php';
 if (isset($_GET['id'])) {
     $idfin = $_GET['id'];
-    require './library/employeeManager.php';
+
     getEmployee($idfin, "./../resources/employees.json");
 }
 ?>
@@ -59,8 +60,8 @@ if (isset($_GET['id'])) {
     </div>
     <?php
         // require './library/employeeManager.php';
-    if (isset($_POST['submitForm'])) {
-        $seemail= recorrer("../resources/employees.json",$_POST['email']);
+        if (isset($_POST['submitForm'])) {
+        $seemail= recorrer("../resources/employees.json", $_POST['email']);
         // echo $prueba;
         if (isset($_GET['id']) || $seemail ) {
             if($_POST["lastName"] != " " && $_POST["radio"] != " "){
@@ -69,8 +70,9 @@ if (isset($_GET['id'])) {
             print_r($_POST);
             // echo "This email is already used";
         } else{
-            echo "entro aqui";
-            // addEmployee("../resources/employees.json");
+            
+            addEmployee("../resources/employees.json");
+            header("Location:./dashboard.php");
         }
     }
 

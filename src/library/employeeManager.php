@@ -53,10 +53,10 @@ function addEmployee($path)
 };
 
 
-function deleteEmployee($id)
+function deleteEmployee($id, $path)
 {
     // TODO implement it
-    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+    $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll = json_decode($Allusers);
 
@@ -143,8 +143,6 @@ function recorrer($path,$post){
     foreach ($usersAll as $user) {
         if($user -> email == $post){
            return true;
-        }else{
-            return false;
         }
         // $arraya[] = $user->id;
     }
