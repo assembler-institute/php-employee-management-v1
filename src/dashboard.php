@@ -1,15 +1,12 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-<?php
-session_start();
-if (!isset($_SESSION)) {
-    header("location:./../index.php?notlogged=1");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <?php require_once("./../assets/html/header.html"); ?>
+    <?php 
+    //check log in
+        require_once("./library/sessionHelper.php");
+        require_once("./../assets/html/header.html"); 
+    ?>
     <title>Employee management</title>
     <!-- jsGrid -->
     <script type="text/javascript" src="./../node_modules/jsgrid/dist/jsgrid.min.js" defer></script>

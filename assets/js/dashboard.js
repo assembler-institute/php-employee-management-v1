@@ -59,6 +59,7 @@ async function createTable() {
             },
             {
                 name: "name",
+                title: "Name",
                 type: "text",
                 width: 150,
                 validate: {
@@ -71,6 +72,7 @@ async function createTable() {
             },
             {
                 name: "email",
+                title: "Email",
                 type: "text",
                 width: 200,
                 validate: {
@@ -83,6 +85,7 @@ async function createTable() {
             },
             {
                 name: "age",
+                title: "Age",
                 type: "number",
                 width: 70,
                 validate: {
@@ -102,6 +105,7 @@ async function createTable() {
             },
             {
                 name: "city",
+                title: "City",
                 type: "text",
                 width: 100,
                 validate: "required"
@@ -113,6 +117,7 @@ async function createTable() {
             },
             {
                 name: "postalCode",
+                title: "Postal Code",
                 type: "number",
                 width: 90,
                 validate: {

@@ -11,10 +11,11 @@ function logIn(){
         echo 'tiene acceso';
         session_start();
         $_SESSION['user'] = $admin['name'];
-            header("location: ../dashboard.php");
-        } else {
+        $_SESSION["login_time"] = time(); 
+        header("location: ../dashboard.php");
+    } else {
             header("location: ./../../index.php?fail=1");
-        }
+    }
 
 }
 

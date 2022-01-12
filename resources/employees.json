@@ -95,10 +95,13 @@
     "postalCode": "63281",
     "phoneNumber": "91232876454"
 }, {
-    "id": "9",
-    "name": "Hola",
-    "email": "qwueqwlee@ledasldas.com",
-    "age": "123",
-    "streetAddress": "dasdl",
-    "city": "dasdasdasdasd"
+    "id": 9,
+    "name": "Luis",
+    "email": "jackon@network.com",
+    "age": 18,
+    "streetAddress": 213,
+    "city": "ciudad real",
+    "state": "DS",
+    "postalCode": 12345,
+    "phoneNumber": 1322333213
 }]
