@@ -1,6 +1,12 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
 require '../assets/html/header.html';
+require "././library/loginManager.php";
+
+if(isset($_POST)){
+    
+    // sessionlogout("Location:../index.php");
+}
 
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,5 +24,5 @@ require '../assets/html/header.html';
 
     <div id="jsGrid"> </div>
 </body>
-
+<!-- <form action="../index.php" method="post"></form> -->
 </html>

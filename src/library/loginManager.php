@@ -3,8 +3,10 @@
 
 //! Functions
 
-function sessionlogout()
+
+function sessionlogout($path)
 {
+    session_start();
     unset($_SESSION);
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
@@ -19,5 +21,5 @@ function sessionlogout()
         );
     }
     session_destroy();
-    header("Location:../../index.php");
+    header($path);
 }

@@ -14,10 +14,14 @@ if (($_POST)) {
             echo "he entrado 1";
             $compare = $user->password;
             if (password_verify($postPassword, $user->password)) {
-                echo "He entrado 2";
+                // echo "He entrado 2";
+                // ini_set("session.gc_maxlifetime", "1000");
                 session_start();
+                $_SESSION['LAST_ACTIVITY'] = time();
                 $_SESSION["email"] = $postEmail;
                 $_SESSION["password"] = $postPassword;
+                // time() - 10000000
+                // session_set_cookie_params(10);
                 header("Location:../dashboard.php");
             }
         }
@@ -25,6 +29,6 @@ if (($_POST)) {
 }
 
 if (isset($_POST["logout"])) {
-    sessionlogout();
+    sessionlogout("Location:../../index.php");
 }
 ?>
