@@ -96,38 +96,14 @@
     "phoneNumber": "630401004"
 }, {
     "id": 9,
-    "name": "JEFF",
-    "lastName": "BERTINOTI",
-    "email": "jeffersonbertinoti@gmail.com",
-    "gender": "man",
-    "age": 32,
-    "streetAddress": "234",
-    "city": "Barcelona",
-    "state": "BCN",
-    "postalCode": "23445",
-    "phoneNumber": "3456789078"
-}, {
-    "id": 10,
-    "name": "pepe",
+    "name": "erick.ayala.3a@gmail.com",
     "lastName": " ",
-    "email": "erick.ayala.3a@gmail.com",
+    "email": "assa@gmail.com",
     "gender": " ",
-    "age": 21,
-    "streetAddress": "12",
-    "city": "erick.ayala.3a@gmail.com",
-    "state": "CS",
-    "postalCode": "1212",
-    "phoneNumber": "12121212"
-}, {
-    "id": 11,
-    "name": "as",
-    "lastName": "asasa",
-    "email": "as@gmail.com",
-    "gender": "man",
-    "age": 22,
-    "streetAddress": "C\/felip 2",
-    "city": "La Sagrera",
-    "state": "Barcelona",
-    "postalCode": "08027",
-    "phoneNumber": "630401004"
+    "age": 23,
+    "streetAddress": "630401004",
+    "city": "AS",
+    "state": "ASSA",
+    "postalCode": "2342",
+    "phoneNumber": "5234532"
 }]
