@@ -93,7 +93,7 @@ function updateEmployee(array $updateEmployee, $path)
             $user->age = $updateEmployee["age"];
             $user->state = $updateEmployee["state"];
             $user->city = $updateEmployee["city"];
-
+            header("Location: ./dashboard.php");
         }else if($updateEmployee["id"] ){
             if($user->id == $updateEmployee["id"]){
                 $user = $updateEmployee;
