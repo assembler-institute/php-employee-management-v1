@@ -23,6 +23,7 @@ if (!isset($_SESSION)) {
     <div id="jsGrid">
 
     </div>
+    <!-- MODAL DELETE -->
     <article class="modal fade" id="deleteModal" aria-hidden="true" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modalDelete">
                 <div class="modal-content">
@@ -56,6 +57,7 @@ if (!isset($_SESSION)) {
                 </div>
             </div>
         </article>
+        <!-- ERROR MODAL -->
 </body>
 
 </html>

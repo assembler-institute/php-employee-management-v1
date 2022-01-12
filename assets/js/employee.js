@@ -1,19 +1,18 @@
 console.log('employee.js')
-var userId=$('#userId').val();
+var userId = $('#userId').val();
 chargeData(userId);
 
-
-async function chargeData(userId){
+async function chargeData(userId) {
     await fetch("../src/library/employeeController.php?userId=" + userId, {
-        method: 'GET'
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        writeInput(data);
-    });
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            writeInput(data);
+        });
 }
 
-function writeInput(obj){
+function writeInput(obj) {
     console.log(obj)
     $('#inputName').val(obj.name);
     $('#inputEmail').val(obj.email);
