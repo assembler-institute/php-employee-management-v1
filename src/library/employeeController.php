@@ -21,3 +21,7 @@ if($method == 'DELETE'){
   $delete = substr($delete, 3);
   deleteEmployee($delete);
 }
+if($method == 'PUT'){
+  parse_str(file_get_contents("php://input"), $put_vars);
+  updateEmployee($put_vars);
+}
