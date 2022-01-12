@@ -14,7 +14,17 @@ if (isset($_GET['addEmployee'])) {
     
     addEmployee("../../resources/employees.json");
 
+    updateEmployee($_POST, "../../resources/employees.json");
+}
+
+if (isset($_GET['addEmployee'])) {
+    addEmployee("../../resources/employees.json");
+}
+
+
+if(isset($_GET['delEmployee'])){
+    $idEmployee =  $_POST['id'];
+    deleteEmployee($idEmployee);
 }
 ?>
-
-<!-- <form action="../../resources/employees.json" method="post"></form> -->
+<!-- <form action="./." method="post"></form> -->

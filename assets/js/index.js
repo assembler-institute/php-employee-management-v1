@@ -17,7 +17,6 @@ async function callDataEmploee() {
 };
 
 async function callGrid() {
-    console.log('asdfakfgljabn');
     $("#jsGrid").jsGrid({
         width: "100%",
         height: "900px",
@@ -61,15 +60,25 @@ async function callGrid() {
 
         ],
         onItemUpdated: function (args) {
-            console.log(args.item);
+            //console.log(args.item);
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
             })
         },
-        onItemDeleted: function (args) {
-            console.log(args)
+
+        onItemDeleted: function(args) {
+            //console.log(args.item);
+            $.ajax({
+                type: "POST",
+                url: ".././src/library/employeeController.php?delEmployee",
+                data: args.item,
+                success: function (data) {
+                    console.log(data);
+                   // callGrid();
+                }
+            });
         },
         rowClick: function (args) {
 
