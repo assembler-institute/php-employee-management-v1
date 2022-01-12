@@ -7,7 +7,8 @@ if (isset($_GET["modifyEmployee"])) {
 }
 
 if (isset($_GET['addEmployee'])) {
-    addEmployee();
+    $path = './../resources/employees.json';
+    addEmployee($path);
 }
 
 if(isset($_GET['delEmployee'])){
