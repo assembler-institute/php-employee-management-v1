@@ -34,6 +34,8 @@
         $lastName = $newCollections[$i]['lastName'];
         $email = $newCollections[$i]['email'];
         $gender = $newCollections[$i]['gender'];
+        // ? (document.querySelector("#gender-male").checked = true);
+        // : (document.querySelector("#gender-female").checked = true);
         $age = $newCollections[$i]['age'];
         $streetA = $newCollections[$i]['streetAddress'];
         $city = $newCollections[$i]['city'];

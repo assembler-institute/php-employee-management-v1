@@ -1,3 +1,17 @@
+let url = window.location.href;
+
+const tabs = ["dashboard", "employee"];
+
+tabs.forEach(e => {
+  if url.indexOf(e + ".php") !== -1) {
+    setActive("tab-" + e);
+  }
+});
+
+function setActive(id){
+  document.getElementById(id).setAttribute("class", "nav-item active");
+}
+
 // var resp = await getJSONData();
 
 $('#grid_table').jsGrid({
