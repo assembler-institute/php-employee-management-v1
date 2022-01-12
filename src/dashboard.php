@@ -35,8 +35,7 @@ require_once("./library/employeeManager.php")
       </ul>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Log out</a>
-        </li>
+        <a class="nav-link" href="../src/library/loginManager.php?logOut">Log out</a>
         </ul>
     </div>
   </nav>

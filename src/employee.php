@@ -2,7 +2,11 @@
 <?php 
 session_start();
 
-require_once("./library/employeeManager.php")
+require_once("./library/employeeManager.php");
+require_once('./library/sessionHelper.php');
+if (!isset($_SESSION)) {
+    header("Location : ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +38,7 @@ require_once("./library/employeeManager.php")
       </ul>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="#">Log out</a>
+            <a class="nav-link" href="../src/library/loginManager.php?logOut">Log out</a>
         </li>
         </ul>
     </div>
