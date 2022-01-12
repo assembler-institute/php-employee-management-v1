@@ -14,6 +14,7 @@ function addEmployee(array $newEmployee)
         $newEmployee["id"] = $newId;
         array_push($employees, $newEmployee);
         file_put_contents("../../resources/employees.json", json_encode($employees, JSON_PRETTY_PRINT));
+        return $newEmployee;
 }
 
 

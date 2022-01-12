@@ -43,7 +43,7 @@ require_once("./library/employeeManager.php")
 <h1>Welcome <?php echo $_SESSION["loged"];?></h1>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
-  <form class="w-50 mx-auto" action="">
+  <form class="w-50 mx-auto" method="POST" action=<?= isset($_GET["id"]) ? "./library/employeeController.php?editEmployee ": "./library/employeeController.php?addEmployee_Form" ?>>
       <div class="form-row">
           <div class="form-group col-md-6">
               <label for="inputName">Name</label>
