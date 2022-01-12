@@ -13,7 +13,7 @@ function checkPath() {
 
         default: //dashboard.php
             actual.innerText = "Dashboard";
-            actual.setAttribute("href", "./dashboard.php")
+            alter.setAttribute("href", "./employee.php?newEmployee=true")
             alter.innerText = "Employees";
             break;
     }

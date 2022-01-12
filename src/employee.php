@@ -24,7 +24,7 @@ if (!isset($_SESSION["user"])) {
     <section class="m-0 vh-100 row justify-content-center align-items-center">
         <form id="employeeForm" class="col-6 p-5 text-center bg-light" action="./library/employeeController.php" method="POST">
             <h2>Employee Name</h2>
-            <input id="userId" type="text" value="<?php echo $_GET["userId"] ?>">
+            <input id="userId" type="hidden" value="<?php echo $_GET["userId"] ?>">
             <div class="row">
                 <div class="col ">
                     <label for="inputName" class="form-label">Name</label>
