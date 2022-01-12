@@ -61,8 +61,8 @@ if (!isset($_SESSION)) {
           <div class="form-group col-md-6">
               <label for="inputGender">Gender</label>
               <select id="inputGender" name="gender" class="form-control">
-                <option value="man" <?= isset($_GET["id"]) ? ($employee["gender"] =="man"? "selected" : "") :"" ?>>man</option>
-                <option value="woman" <?= isset($_GET["id"]) ? ($employee["gender"] =="woman"? "selected" : "") :"" ?>>woman</option>
+                <option value="man" <?= isset($_GET["id"]) ? ($employee["gender"] =="man"? "selected" : "") :"" ?>>Man</option>
+                <option value="woman" <?= isset($_GET["id"]) ? ($employee["gender"] =="woman"? "selected" : "") :"" ?>>Woman</option>
                 </select>
           </div>
       </div>
