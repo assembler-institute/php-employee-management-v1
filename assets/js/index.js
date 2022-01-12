@@ -1,10 +1,12 @@
 async function callDataEmploee() {
     let result = []
+    let pruebae=[]
     try {
         result = await $.ajax({
             url: ".././resources/employees.json",
             success: function (data) {
                 $dataEmployee = data;
+                // console.log(data[0].id)
             }
         })
         //console.log(result)
@@ -85,7 +87,23 @@ async function callGrid() {
             $idget = args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
+       
+        onItemInserting: function(args) {
+            console.log($dataEmployee)
+            $dataEmployee.forEach(element => {
+                if(element.email == args.item.email){
+                    console.log("entroaqui")  
+                    args.cancel = true;
+                    alert("Email already in the database");
+                }
+            });
+        },
         onItemInserted: function (args) {
+            if(args.item.name === "erick") {
+                args.cancel = true;
+                alert("Specify the name of the item!");
+                console.log("ejej")
+            }
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?addEmployee",
@@ -94,7 +112,7 @@ async function callGrid() {
                     callGrid();
                 }
             })
-        },
+        }
     });
 
 };

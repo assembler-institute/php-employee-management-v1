@@ -32,7 +32,7 @@ function addEmployee($path)
     } else {
         $lastName = $_POST['lastName'];
     };
-
+    
     $myJson = array(
         'id'   =>   $newid,
         'name'   =>   $_POST['name'],
@@ -72,10 +72,10 @@ function deleteEmployee($id)
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee(array $updateEmployee, $path)
 {
     // TODO implement it
-    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+    $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll1 = json_decode($Allusers);
 
@@ -90,10 +90,10 @@ function updateEmployee(array $updateEmployee)
 }
 
 
-function getEmployee(string $id)
+function getEmployee(string $id, $path)
 {
     // TODO implement it
-    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+    $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll1 = json_decode($Allusers);
 
@@ -120,10 +120,18 @@ function removeAvatar($id)
     // TODO implement it
 }
 
-function jsonEncode()
-{
-    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+function recorrer($path,$post){
+    $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll = json_decode($Allusers);
-    return $usersAll;
+    foreach ($usersAll as $user) {
+        if($user -> email == $post){
+           return true;
+        }else{
+            return false;
+        }
+        // $arraya[] = $user->id;
+    }
 }
+
+

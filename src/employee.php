@@ -4,7 +4,7 @@ include_once "./../assets/html/header.html";
 if (isset($_GET['id'])) {
     $idfin = $_GET['id'];
     require './library/employeeManager.php';
-    getEmployee($idfin);
+    getEmployee($idfin, "./../resources/employees.json");
 }
 ?>
 <link rel="stylesheet" href="../assets/css/main.css">
@@ -58,12 +58,14 @@ if (isset($_GET['id'])) {
         </div>
     </div>
     <?php
+        // require './library/employeeManager.php';
     if (isset($_POST['submitForm'])) {
-        if (isset($_GET['id'])) {
-            echo "Esta cuenta ya esta creada";
-        } else {
-            require './library/employeeManager.php';
-            
+        $seemail= recorrer("../resources/employees.json",$_POST['email']);
+        // echo $prueba;
+        if (isset($_GET['id']) || $seemail ) {
+            echo "This email is already used";
+        } else{
+            echo "entro aqui";
             addEmployee("../resources/employees.json");
         }
     }

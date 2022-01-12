@@ -1,7 +1,7 @@
 <?php
 require_once "./loginManager.php";
 
-$file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+$file = "../../resources/users.json";
 $Allusers = file_get_contents($file);
 $usersAll = json_decode($Allusers);
 $userName = $usersAll->users;
@@ -27,3 +27,4 @@ if (($_POST)) {
 if (isset($_POST["logout"])) {
     sessionlogout();
 }
+?>
