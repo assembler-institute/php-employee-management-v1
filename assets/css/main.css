@@ -1,10 +1,20 @@
 :root{
---primary-color: rgb(239, 239, 245);
+--primary-color: rgb(208, 208, 209);
 --secondary-color: rgb(0, 0, 255);
+}
+
+body{
+  font-family: 'Arimo', sans-serif;
+  font-family: 'Cairo', sans-serif;
+  font-family: 'Kreon', serif;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Literata', serif;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+}
 
 /*---------------------HEADER--------------------------------*/
 
-}
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -25,7 +35,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.nav-link a {
+.nav-item a {
   color: black;
   text-decoration: none;
   padding: 0.5rem;
@@ -34,7 +44,7 @@
   border: 1px solid var(--secondary);
 }
 
-.nav-link a:hover {
+.nav-item a:hover {
   color: black;
   background-color: var(--secondary);
   border: 1px solid white;
@@ -50,7 +60,7 @@
   margin-right: 2.5rem;
 }
 .logout-btn {
-  margin-right: 3rem;
+  margin-right: 5rem;
   color: var(--secondary-color);
 }
 
