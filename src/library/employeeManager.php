@@ -7,11 +7,11 @@
  * @date: 11/06/2020
  */
 // zz
-function addEmployee()
+function addEmployee($path)
 {
 
-    // TODO implement it (array $newEmployee)
-    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+// TODO implement it (array $newEmployee)
+    $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll = json_decode($Allusers);
 

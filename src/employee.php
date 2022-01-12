@@ -63,11 +63,13 @@ if (isset($_GET['id'])) {
             echo "Esta cuenta ya esta creada";
         } else {
             require './library/employeeManager.php';
-            addEmployee();
+            
+            addEmployee("../resources/employees.json");
         }
     }
 
     ?>
+    <form action="../resources/employees.json" method="post"></form>
 </body>
 
 </html>
