@@ -3,12 +3,14 @@
 require "./employeeManager.php";
 
 if (isset($_GET["modifyEmployee"])) {
-    echo "entra?";
     updateEmployee($_POST);
 }
 
 if (isset($_GET['addEmployee'])) {
-    echo "estamos aqui ";
-    //print_r($_POST['name']);
     addEmployee();
+}
+
+if(isset($_GET['delEmployee'])){
+    $idEmployee =  $_POST['id'];
+    deleteEmployee($idEmployee);
 }

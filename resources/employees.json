@@ -91,19 +91,6 @@
         "phoneNumber": "45372788192"
     },
     {
-        "id": 8,
-        "name": "erick",
-        "lastName": "ayala",
-        "email": "erick.ayala.3a@gmail.com",
-        "gender": "man",
-        "age": "30",
-        "streetAddress": "C\/felip 2",
-        "city": "La Sagrera",
-        "state": "Barcelona",
-        "postalCode": "08027",
-        "phoneNumber": "630401004"
-    },
-    {
         "id": 9,
         "name": "JEFF",
         "lastName": "BERTINOTI",
@@ -117,19 +104,6 @@
         "phoneNumber": "3456789078"
     },
     {
-        "id": 10,
-        "name": "ERICK",
-        "lastName": "BOIOLA",
-        "email": "erick@gmail.com",
-        "gender": " ",
-        "age": 23,
-        "streetAddress": "234",
-        "city": "Barcelona",
-        "state": "BCN",
-        "postalCode": "34525",
-        "phoneNumber": "12345678"
-    },
-    {
         "id": 11,
         "name": "Laura",
         "lastName": " ",
@@ -141,18 +115,5 @@
         "state": "sta",
         "postalCode": "34567",
         "phoneNumber": "767654545"
-    },
-    {
-        "id": 12,
-        "name": "Pau",
-        "lastName": " ",
-        "email": "p@mail.com",
-        "gender": " ",
-        "age": 34,
-        "streetAddress": "34",
-        "city": "Cava",
-        "state": "BC",
-        "postalCode": "2345",
-        "phoneNumber": "23423455234"
     }
 ]

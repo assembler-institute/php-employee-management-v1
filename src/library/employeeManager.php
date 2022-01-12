@@ -7,7 +7,8 @@
  * @date: 11/06/2020
  */
 // zz
-function addEmployee(){
+function addEmployee()
+{
 
     // TODO implement it (array $newEmployee)
     $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
@@ -52,9 +53,22 @@ function addEmployee(){
 };
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
     // TODO implement it
+    $file = "C:/xampp/htdocs/PHP/php-employee-management-v1/resources/employees.json";
+    $Allusers = file_get_contents($file);
+    $usersAll = json_decode($Allusers);
+
+    foreach ($usersAll as $user) {
+        if ($user->id != $id) {
+            $newUser[] = $user;
+        } else {
+            echo 'this is the user Deleted <br>';
+        };
+    }
+    $newJson = json_encode($newUser);
+    file_put_contents($file, $newJson);
 }
 
 
