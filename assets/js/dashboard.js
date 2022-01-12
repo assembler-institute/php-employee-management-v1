@@ -1,15 +1,17 @@
 window.addEventListener("DOMContentLoaded", async () => {
   let employeers = await getEmployeers();
-  displayTypeTasks(employeers);
+  displayEmployeers(employeers);
 });
 
+//Request an all employeers
 async function getEmployeers() {
   const response = await fetch(`./library/employeeController.php?getEmployeers`);
   const data = await response.json();
   return data;
 }
 
-function displayTypeTasks(employeers) {
+//Show all operations CRUD from employeers in a table
+function displayEmployeers(employeers) {
   $("#dashboard").jsGrid({
     height: "auto",
     width: "100%",
@@ -39,42 +41,42 @@ function displayTypeTasks(employeers) {
     ],
 
     controller: {
-      insertItem: function name(item) {
+      insertItem: function addEmployee(item) {
         return $.ajax({
           type: "POST",
           url: "./library/employeeController.php?addEmployee",
           data: item,
         }).done(async function (response) {
           let employeers = await getEmployeers();
-          displayTypeTasks(employeers);
+          displayEmployeers(employeers);
         });
       },
-      deleteItem: function name(item) {
+      deleteItem: function deleteEmployee(item) {
         return $.ajax({
           type: "DELETE",
           url: `./library/employeeController.php?delete=${item.id}`,
         }).done(async function (response) {
           console.log(response);
           let employeers = await getEmployeers();
-          displayTypeTasks(employeers);
+          displayEmployeers(employeers);
         });
       },
-      updateItem: function name(item) {
+      updateItem: function updateEmployee(item) {
         return $.ajax({
           type: "POST",
           url: "./library/employeeController.php?modifyEmployee",
-           data: { data: item , '_method':'PUT'},
+          data: { data: item , '_method':'PUT'},
         })
         .done(async function (response) {
             console.log(response);
             let employeers = await getEmployeers();
-            displayTypeTasks(employeers);
+            displayEmployeers(employeers);
           });
         ;
       },
     },
 
-    rowClick: function(args) {
+    rowClick: function editEmployee(args) {
       let id = args["item"].id;
       location.assign(`./employee.php?editEmployee=${id}`);
     }
