@@ -27,4 +27,10 @@ function writeInput(obj){
     $('#inputStreetAddress').val(obj.streetAddress);
     $('#inputPhoneNumber').val(obj.phoneNumber);
     $('#inputAge').val(obj.age);
+
 }
+
+$('#employeeForm').on('submit', function(e){
+    e.preventDefault()
+    console.log(obj)
+})

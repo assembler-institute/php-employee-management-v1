@@ -69,7 +69,7 @@ function updateEmployee(array $updateEmployee)
   $employees=json_encode($employees);
   //overwrite the changes
   file_put_contents("./../../resources/employees.json",$employees,FILE_USE_INCLUDE_PATH);
-  
+
 }
 
 
