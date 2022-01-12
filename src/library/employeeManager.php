@@ -60,7 +60,10 @@ function updateEmployee(array $updateEmployee)
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    $json = file_get_contents('../resources/employees.json');
+    $employees = json_decode($json,true);
+    $employee = $employees[array_search($id, array_column($employees, "id"))];
+    return $employee;
 }
 
 
