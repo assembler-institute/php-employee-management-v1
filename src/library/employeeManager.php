@@ -5,17 +5,12 @@ function getEmployees() {
     return json_decode(file_get_contents('http://localhost/Assembler/php-employee-management-v1/resources/employees.json'), true); // returns an associative array
 }
 
-function createEmployee(array $data) {
-
-}
-
 function addEmployee(array $newEmployee)
 {
     $employees = getEmployees();
     array_push($employees,$newEmployee);
     file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
 }
-
 
 function deleteEmployee(string $id)
 {
@@ -29,7 +24,6 @@ function deleteEmployee(string $id)
     file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
 }
 
-
 function updateEmployee(array $updateEmployee, string $id)
 {
     $employees = getEmployees();
@@ -40,7 +34,6 @@ function updateEmployee(array $updateEmployee, string $id)
     }
     file_put_contents('./../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
 }
-
 
 function getEmployee(string $id)
 {
@@ -53,12 +46,10 @@ function getEmployee(string $id)
     return null;
 }
 
-
 function removeAvatar($id)
 {
 // TODO implement it
 }
-
 
 function getQueryStringParameters()
 {
