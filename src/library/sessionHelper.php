@@ -1,22 +1,43 @@
 <?php
 //Check session
-function passCheck(){
+function logIn()
+{
     $userObject = file_get_contents("../../resources/users.json");
     $json = json_decode($userObject, true);
-    $sUser = $json["users"]["0"]["name"];
-    $sPass = $json["users"]["0"]["password"];
-    $sEmail = $json["users"]["0"]["email"];
     $user = $_POST["login-name"];
     $pass = $_POST["login-pass"];
-    $check = password_verify($pass, $sPass);
 
-    if (($user === $sUser or $user === $sEmail) && $check === true) {
+    $userCheck = userCheck($user, $json["users"]);
+    if ($userCheck !== null) {
+        passCheck($userCheck, $pass);
+        print_r($userCheck);
+    } else {
+        print_r($userCheck);
+        header("Location: ../../index.php?error");
+    }
+}
+
+function userCheck($user, $json)
+{
+    
+    foreach ($json as $object) {
+
+        $check = in_array($user, $object);
+        if ($check === true) {
+            return $object;
+        }
+    }
+}
+
+function passCheck($userArray, $pass)
+{
+    $arrayPass = $userArray["password"];
+    $passCheck = password_verify($pass, $arrayPass);
+    if ($passCheck === true) {
         $inactive = 600;
         ini_set('session.gc_maxlifetime', $inactive); // set the session max lifetime to 10m
         session_start();
-        $_SESSION["user"] = $user;
-        $_SESSION["pass"] = $pass;
-        $_SESSION["expire"] = time();
+        $_SESSION["user"] = $userArray["name"];
         header("Location: ../dashboard.php");
     } else {
         header("Location: ../../index.php?error");
@@ -90,3 +111,4 @@ function outOfTime() {
         header("Location: ../index.php?notLogged");
     }
 }
+
