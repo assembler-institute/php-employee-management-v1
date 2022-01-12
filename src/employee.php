@@ -27,11 +27,11 @@ if (isset($_GET['id'])) {
                         <?php
                         if (isset($_GET['id'])) {
                             if (gender == "man") {
-                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man' checked required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>";
+                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man' checked required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='woman' required>Female <span class='checkmark'></span> </label> </div>";
                             } else if (gender == "woman") {
-                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' checked required>Female <span class='checkmark'></span> </label> </div>";
+                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='woman' checked required>Female <span class='checkmark'></span> </label> </div>";
                             } else {
-                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>";
+                                echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='woman' required>Female <span class='checkmark'></span> </label> </div>";
                             };
                         } else {
                             echo "<div class='d-flex align-items-center mt-2'> <label class='option'> <input type='radio' name='radio' value='man'  required>Male <span class='checkmark'></span> </label> <label class='option ms-4'> <input type='radio' name='radio' value='female' required>Female <span class='checkmark'></span> </label> </div>";
@@ -63,10 +63,14 @@ if (isset($_GET['id'])) {
         $seemail= recorrer("../resources/employees.json",$_POST['email']);
         // echo $prueba;
         if (isset($_GET['id']) || $seemail ) {
-            echo "This email is already used";
+            if($_POST["lastName"] != " " && $_POST["radio"] != " "){
+                updateEmployee($_POST, "../resources/employees.json");
+            }
+            print_r($_POST);
+            // echo "This email is already used";
         } else{
             echo "entro aqui";
-            addEmployee("../resources/employees.json");
+            // addEmployee("../resources/employees.json");
         }
     }
 

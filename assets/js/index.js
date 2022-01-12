@@ -65,6 +65,10 @@ async function callGrid() {
                 type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
+                success: function (data) {
+                    console.log(data);
+                   // callGrid();
+                }
             })
         },
 

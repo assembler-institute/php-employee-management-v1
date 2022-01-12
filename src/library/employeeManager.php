@@ -80,8 +80,24 @@ function updateEmployee(array $updateEmployee, $path)
     $usersAll1 = json_decode($Allusers);
 
     foreach ($usersAll1 as $user) {
-        if ($user->id == $updateEmployee["id"]) {
-            $user = $updateEmployee;
+
+        if ($_GET['id'] == $user->id  ) {
+            $user->id = $_GET['id'];
+            $user->name = $updateEmployee["name"];
+            $user->lastName = $updateEmployee["lastName"];
+            $user->email   = $updateEmployee["email"];
+            $user->gender = $updateEmployee["radio"];
+            $user->streetAddress= $updateEmployee["streetAddress"];
+            $user->postalCode = $updateEmployee["postalCode"];
+            $user->phoneNumber = $updateEmployee["phoneNumber"];
+            $user->age = $updateEmployee["age"];
+            $user->state = $updateEmployee["state"];
+            $user->city = $updateEmployee["city"];
+
+        }else if($updateEmployee["id"] ){
+            if($user->id == $updateEmployee["id"]){
+                $user = $updateEmployee;
+            }
         }
         $customers[] = $user;
     }
