@@ -1,8 +1,14 @@
+let add= document.getElementById("add");
+add.addEventListener("click", addEmployee);
+
+function addEmployee(){
+  $("#modalAdd").modal();
+  //vaciar inputs en modal
+}
 function success(json) {
-   // document.getElementById('after').innerHTML = "AFTER: " + JSON.stringify(json);
-   let table=document.querySelector(".table");
-  
-   for(let i=0;i<json.length;i++){
+  let table=document.querySelector(".table");
+
+  for(let i=0;i<json.length;i++){
     let tr= document.createElement("tr");
     let th= document.createElement("th");
     let td1= document.createElement("td");
@@ -15,20 +21,26 @@ function success(json) {
     let td8= document.createElement("td");
     let td9= document.createElement("td");
     let td10= document.createElement("td");
-    let img=document.createElement("img");
+    let trash=document.createElement("img");
+    let edit=document.createElement("img");
+
     tr.setAttribute("id",json[i].id);
-       th.innerHTML=json[i].id;
-       td1.innerHTML=json[i].name;
-       td2.innerHTML=json[i].lastName;
-       td3.innerHTML=json[i].email;
-       td4.innerHTML=json[i].gender;
-       td5.innerHTML=json[i].city;
-       td6.innerHTML=json[i].streetAddress;
-       td7.innerHTML=json[i].state;
-       td8.innerHTML=json[i].age;
-       td9.innerHTML=json[i].postalCode;
-       td10.innerHTML=json[i].phoneNumber;
-       img.setAttribute("src","https://static.vecteezy.com/system/resources/previews/000/649/132/original/vector-trash-icon-symbol-sign.jpg");
+    th.innerHTML=json[i].id;
+    td1.innerHTML=json[i].name;
+    td2.innerHTML=json[i].lastName;
+    td3.innerHTML=json[i].email;
+    td4.innerHTML=json[i].gender;
+    td5.innerHTML=json[i].city;
+    td6.innerHTML=json[i].streetAddress;
+    td7.innerHTML=json[i].state;
+    td8.innerHTML=json[i].age;
+    td9.innerHTML=json[i].postalCode;
+    td10.innerHTML=json[i].phoneNumber;
+    trash.setAttribute("src","https://static.vecteezy.com/system/resources/previews/000/649/132/original/vector-trash-icon-symbol-sign.jpg");
+    edit.setAttribute("src","https://cdn4.iconfinder.com/data/icons/materia-tools-vol-1/24/023_001_pencil_edit_eraser_kohinor_carandache_tool-512.png");
+    trash.setAttribute("id",json[i].id);
+    edit.setAttribute("id",json[i].id);
+
     table.appendChild(tr);
     tr.appendChild(th);
     tr.appendChild(td1);
@@ -41,29 +53,25 @@ function success(json) {
     tr.appendChild(td8);
     tr.appendChild(td9);
     tr.appendChild(td10);
-    tr.appendChild(img);
-   }
+    tr.appendChild(trash);
+    tr.appendChild(edit);
   }
+}
 
-  function failure(error) {
+function failure(error) {
     //document.getElementById('after').innerHTML = "ERROR: " + error;
     console.log("ERROR: " + error);
-  }
-  
-  function myButtonClick() {
+}
+
+function myButtonClick() {
     var url    = '../resources/employees.json';
-    //var before = {foo: 'Hello World!'};
-    
-   // document.getElementById('before').innerHTML = "BEFORE: " + JSON.stringify(before);
-    //console.log("BEFORE: " + JSON.stringify(before));
-    
     fetch(url, {
-      method: 'POST', 
+      method: 'POST',
       headers:{
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
     .then(response => success(response))
     .catch(error => failure(error));
-  } 
+}
   myButtonClick();

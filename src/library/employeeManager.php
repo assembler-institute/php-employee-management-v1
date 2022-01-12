@@ -8,7 +8,11 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    $current_data=file_get_contents('../../resources/employees.json');
+    $array_data=json_decode($current_data,true);
+    $array_data[]=$newEmployee;
+    $json = json_encode($array_data, JSON_PRETTY_PRINT);
+    file_put_contents('../../resources/employees.json', $json);
 }
 
 
