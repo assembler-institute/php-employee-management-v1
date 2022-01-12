@@ -15,6 +15,7 @@ require_once("./library/employeeManager.php")
 
 </head>
 <body class="d-flex flex-column h-100" data-new-gr-c-s-check-loaded="14.1043.0" data-gr-ext-installed="">
+
     
 <header>
   <!-- Fixed navbar -->
@@ -43,6 +44,16 @@ require_once("./library/employeeManager.php")
 <h1>Welcome <?php echo $_SESSION["loged"];?></h1>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
+    <?php 
+    if(isset($_GET["created"])){
+        echo '<div class="alert alert-success alert-dismissible fade show w-75 mx-auto" role="alert">
+        User <strong>'."name".'</strong> has been added to the database.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>';
+    }
+    ?>
   <form class="w-50 mx-auto" method="POST" action=<?= isset($_GET["id"]) ? "./library/employeeController.php?editEmployee ": "./library/employeeController.php?addEmployee_Form" ?>>
       <div class="form-row">
           <div class="form-group col-md-6">

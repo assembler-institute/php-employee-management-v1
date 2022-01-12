@@ -26,7 +26,7 @@ case "POST":
     if (isset($_GET['addEmployee_Form'])) {
         $newEmployee = $_POST;
         $result = addEmployee($newEmployee);
-        header("Location: ../employee.php?id=".$result["id"]);
+        header("Location: ../employee.php?id=".$result["id"]."&created");
         break;
         }
     if (!isset($_GET['update'])) {
