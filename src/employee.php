@@ -64,7 +64,7 @@ if (isset($_GET['id'])) {
         if (isset($_POST['submitForm'])) {
         $seemail= recorrer("../resources/employees.json", $_POST['email']);
         // echo $prueba;
-        if (isset($_GET['id']) || $seemail ) {
+        if (isset($_GET['id']) ) {
             if($_POST["lastName"] != " " && $_POST["radio"] != " "){
                 updateEmployee($_POST, "../resources/employees.json");
                 // echo "entra?";
@@ -72,9 +72,12 @@ if (isset($_GET['id'])) {
             }
             print_r($_POST);
             // echo "This email is already used";
-        } else{
+        } else if($seemail){
+            echo "this email is already in use";
+        }else{
             addEmployee("../resources/employees.json");
             header("Location:./dashboard.php");
+
         }
     }
 
