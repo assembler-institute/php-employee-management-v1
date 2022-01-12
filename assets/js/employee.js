@@ -1,6 +1,8 @@
-console.log('employee.js')
-var userId=$('#userId').val();
-chargeData(userId);
+
+window.onload = function() {
+    var userId=$('#userId').val();
+    chargeData(userId);
+}
 
 
 async function chargeData(userId){
