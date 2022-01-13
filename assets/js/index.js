@@ -1,4 +1,5 @@
 var a
+var alerstDiv =document.getElementById("alerts");
 window.addEventListener('DOMContentLoaded', async () => {
    a=await empleados()
    $("#Grid").jsGrid({
@@ -44,8 +45,13 @@ controller: {
             return data;
     },
     
-    deleteItem: function name(item) {
-      console.log(item.item.id);
+    deleteItem: async function name(item) {
+      const response = await fetch('./library/employeeController.php?delete='+item.id,
+      { method: 'DELETE'});
+        const data =  await response.json();
+        if(data==true){
+          alertas("se a borrado correctamente");
+        }
     },
 
     updateItem: async function name(item) {
@@ -63,8 +69,13 @@ controller: {
       formData.append('postalCode', item.postalCode);
       const response = await fetch('./library/employeeController.php?edit='+item.id,
       { method: 'POST', body :formData});
+      const data =  await response.json();
+      if(data==true)
+      {
+        alertas("se a cambiado correctamente!");
+      }
     },
-
+    
   },
 })
 
@@ -102,9 +113,20 @@ async function eliminarEmpleados(conte){
 }
 
 
-// setInterval(async () => {
-//     const response = await fetch("./library/sessionHelper.php")
-//     // const data = await response.json()
-//     console.log(response)
-//     // return data
-// }, 1000);
+setInterval(async () => {
+  const response = await fetch("./library/sessionHelper.php")
+  const data = await response.json()
+  if(data==true){
+    window.location.reload();
+  }
+}, 1000);
+
+
+function alertas(str){
+  setTimeout(()=>{
+    alerstDiv.style.visibility='visible';
+    alerstDiv.innerText=str;
+    setTimeout(()=>{
+      alerstDiv.style.visibility='hidden';
+    },3000)},500)
+}

@@ -5,11 +5,14 @@ require_once("./employeeManager.php");
     echo json_encode($empleados);
  }
  if(isset($_GET["delete"])){
+   deleteEmployee($_GET["delete"]);
  }
  if(isset($_GET["add"])){
     
 }
 if(isset($_GET["edit"])){
-   updateEmployee($_GET["edit"]);
+   if(updateEmployee($_GET["edit"])){
+      echo "true";
+   }
 }
 ?>

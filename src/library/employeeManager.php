@@ -15,9 +15,17 @@ function addEmployee(array $newEmployee)
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
-// TODO implement it
+    $newEmployee=[];
+    $empleados=leerempleados();
+    foreach($empleados as $empleado){
+        if(!($empleado->id == $id)){
+            array_push($newEmployee,$empleado);
+        }
+    }
+    enviarempleados($newEmployee);
+    echo "true";
 }
 
 
@@ -40,8 +48,7 @@ function updateEmployee($updateEmployee)
         }
     }
     enviarempleados($empleados);
-
-// TODO implement it
+    return "true";
 }
 
 

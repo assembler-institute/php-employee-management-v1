@@ -26,7 +26,7 @@ function comprovacion(){
 }
 function iniciarSesion($postEmail){
     session_start();
-    $_SESSION['LAST_ACTIVITY'] = time(); 
+    $_SESSION['LAST_ACTIVITY'] = time();
     $_SESSION["email"]= $postEmail;
 }
 function cerrarSesion(){

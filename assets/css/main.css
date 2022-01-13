@@ -1,0 +1,13 @@
+.alerts{
+    z-index: 10;
+    position: absolute;
+    top: 10%;
+    right: 50%;
+    background-color: rgb(94, 151, 94);
+    text-align: center;
+    max-width: 300px;
+    padding: 1em;
+    border: 1px solid black;
+    visibility: hidden;
+
+}
