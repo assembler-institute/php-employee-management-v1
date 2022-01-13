@@ -52,7 +52,7 @@
         echo "<form class='row g-3 needs-validation' action='library/employeeController.php?form=$idvalue'method='POST' novalidate>";
       }
       else{
-        echo "<form class='row g-3 needs-validation' action='library/employeeController.php' method='POST' novalidate>";
+        echo "<form class='row g-3 needs-validation' action='library/employeeController.php?flag=1' method='POST' novalidate>";
       }
     ?>
   <div class="col-md-6">

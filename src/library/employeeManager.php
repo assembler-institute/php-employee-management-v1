@@ -18,6 +18,10 @@ if (!isset($newEmployee['gender'])) {
 if (!isset($newEmployee['lastName'])) {
   $newEmployee['lastName'] = "";
 }
+if (isset($newEmployee["flag"])){
+  unset($newEmployee["flag"]);
+  header("Location:../dashboard.php");
+}
 array_push($newCollections, $newEmployee);
 file_put_contents('../../resources/employees.json', json_encode($newCollections, JSON_PRETTY_PRINT));
 }
@@ -50,7 +54,7 @@ $replaceArray = array($i => $updateEmployee);
 $newCollections = array_replace($newCollections, $replaceArray);
 file_put_contents('../../resources/employees.json', json_encode($newCollections, JSON_PRETTY_PRINT));
 if (isset($updateEmployee["form"])){
-    unset($array["form"]);
+    unset($updateEmployee["form"]);
     header("Location:../dashboard.php");
 }
 }

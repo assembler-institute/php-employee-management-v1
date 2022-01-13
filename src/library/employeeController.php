@@ -24,7 +24,7 @@ if(isset($_GET["form"]) && $method == 'POST'){
   }
   $array["id"] = $idvalue;
   updateEmployee($array);
-};
+}
 
 if($method == 'POST' && !isset($_GET["form"])){
   addEmployee($_REQUEST);
