@@ -1,5 +1,6 @@
 section {
     background-color: blueviolet;
+    height: 88vh;
 }
 
 .sectionBtn{
@@ -13,4 +14,14 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#employeeForm{
+    height: 88vh;
+    padding: 10vh;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 10%;
 }

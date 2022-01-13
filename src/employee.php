@@ -14,8 +14,8 @@
 
 <body>
 
-    <section class="m-0 vh-100 row justify-content-center align-items-center">
-        <form id="employeeForm" class="col-6 p-5 text-center bg-light" action="./library/employeeController.php?update" method="POST">
+    <section class="m-0 row justify-content-center ">
+        <form id="employeeForm" class="col-8 bg-light" action="./library/employeeController.php?update" method="POST">
             <h2>Employee Name</h2>
             <!-- input oculto que recoge el valor del id del objeto soleccionado en el dashboard -->
             <input id="userId" type="hidden" name="id" value="<?php  if( isset ($_GET["userId"])) {   echo $_GET["userId"];      }else{    echo " ";    }?>">
