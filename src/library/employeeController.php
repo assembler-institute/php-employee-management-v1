@@ -29,13 +29,13 @@ case "POST":
         header("Location: ../employee.php?id=".$result["id"]."&created");
         break;
         }
-        elseif (isset($_GET['editEmployee_Form'])) {
-            $newEmployee = $_POST;
-            $result = updateEmployee($newEmployee);
-            header("Location: ../employee.php?id=".$result["id"]."&updated");
-            break;
-            }
-    if (!isset($_GET['update'])) {
+    elseif (isset($_GET['editEmployee_Form'])) {
+        $newEmployee = $_POST;
+        $result = updateEmployee($newEmployee);
+        header("Location: ../employee.php?id=".$result["id"]."&updated");
+        break;
+        }
+    elseif(isset($_GET['addEmployee'])) {
     $newEmployee = $_POST;
     $result = addEmployee($newEmployee);
     break;

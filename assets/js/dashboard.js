@@ -58,7 +58,7 @@ function loadEmployeeTable(employees) {
       insertItem: function name(item) {
         return $.ajax({
           type: "POST",
-          url: "./library/employeeController.php",
+          url: "./library/employeeController.php?addEmployee",
           data: item,
         });
       },
