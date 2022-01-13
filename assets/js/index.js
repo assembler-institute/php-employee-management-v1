@@ -2,6 +2,8 @@ let add= document.getElementById("add");
 add.addEventListener("click", addEmployee);
 let trash= document.getElementsByClassName("trash");
 //trash.addEventListener("click",deleteEmployer);
+let img=document.createElement("img");
+img.className='binImg'
 
 //trash.addEventListener("click", deleteEmployer);
 $(".trash").on('click', function(event){
