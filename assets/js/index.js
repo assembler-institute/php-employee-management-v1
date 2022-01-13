@@ -28,7 +28,7 @@ async function callGrid() {
         sorting: true,
         autoload: true,
         paging: true,
-        pageSize: 5,
+        pageSize: 20,
         pageButtonCount: 5,
         deleteConfirm: 'Do you really Want DELETE THIS DATA? ',
 
@@ -84,8 +84,7 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?delEmployee",
                 data: args.item,
                 success: function (data) {
-                    console.log(data);
-                    // callGrid();
+                    callGrid();
                 }
             });
         },
