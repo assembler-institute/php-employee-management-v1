@@ -33,11 +33,11 @@ async function callGrid() {
 
         fields: [
             { name: "name", type: "text", validate: { validator: "required", message: "Name required" } },
-            { name: "email", type: "text", width: 150, validate: { validator: "required", message: "Email required" } },
+            { name: "email", type: "text", width: 220, validate: { validator: "required", message: "Email required" } },
             { name: "city", type: "text", validate: { validator: "required", message: "City" } },
             { name: "streetAddress", type: "number", validate: { validator: "required", message: "Street Adress required" } },
             { name: "state", type: "text", validate: { validator: "required", message: "State required" } },
-            { name: "age", type: "number", validate: { validator: "range", param: [18, 80] } },
+            { name: "age", type: "number",width: 50, validate: { validator: "range", param: [18, 80] } },
             { name: "postalCode", type: "number", validate: { validator: "required", message: "Postal code required" } },
             { name: "phoneNumber", type: "number", validate: { validator: "required", message: "phone Number required" } },
 
