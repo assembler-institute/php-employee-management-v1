@@ -7,6 +7,6 @@ if (!isset($_SESSION)) {
 //time() is a function that defines the total time until today, we discount the session time logged, a
 //and we have the actual time we stay in session
 
-if(time()-$_SESSION["login_time"]>=600){
-    header("location:./library/loginController.php?timeout");
-}
+//if(time()-$_SESSION["login_time"]>=50){
+//    header("location:./library/loginController.php?timeout");
+//}

@@ -42,7 +42,7 @@ onItemInserting: function(args){
         //     console.log(msg);
         // },
 
-        //sending data when actions like edit, and insert are completed
+        //sending data when actions like edit, and insert are completed, delete functions is under jsgrid
         controller: {
             //the event when you click in the + button
             insertItem: async function (item) {
@@ -50,7 +50,25 @@ onItemInserting: function(args){
                         method: "POST",
                         body: JSON.stringify(item)
                     })
-                    .then(response => console.log(response.text()))
+                    .then(response => {
+                        if (response.ok) {
+                            //appends alert success
+                            $("body").append(`
+                                <div class="alert alert-success insertMsg" role="alert">
+                                    Your employee was added!
+                                </div>
+                            `)
+                        } else {
+                            //appends alert error
+                            $("body").append(`
+                            <div class="alert alert-danger insertMsg"  role="alert">
+                            An error has ocurred, try again!
+                            </div>
+                            `)
+                        }
+                        //function that hides msg
+                        fadeOutMsg($(".successInsert"))
+                    })
             },
             //event when update an item and confirm
             updateItem: async function (item) {
@@ -58,7 +76,27 @@ onItemInserting: function(args){
                         method: "PUT",
                         body: JSON.stringify(item)
                     })
-                    .then(response => response)
+                    .then(response => {
+                        if (response.ok) {
+                            //appends alert
+                            $("body").append(`
+                                <div class="alert alert-success updateMsg" role="alert">
+                                    Your employee was updated!
+                                </div>
+                            `)
+
+                        } else {
+                            //appends alert
+                            $("body").append(`
+                            <div class="alert alert-danger updateMsg" role="alert">
+                                Your employee was updated!
+                            </div>
+                        `)
+                            //function that hides msg
+                            fadeOutMsg($(".updateMsg"))
+                        }
+                    })
+
             },
         },
 
@@ -145,7 +183,7 @@ onItemInserting: function(args){
                 name: "phoneNumber",
                 title: "Phone",
                 type: "number",
-                width: 100,
+                width: 140,
                 validate: {
                     validator: "range",
                     message: function (value, item) {
@@ -164,21 +202,20 @@ onItemInserting: function(args){
 
                 //edit and delete btns
                 itemTemplate: function (value, item) {
-                    var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+                    var result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
                     //edit btn
-                    var $customEditButton = $("<button>").attr({
-                            class: "customGridEditbutton jsgrid-button jsgrid-edit-button",
-                            "data-id": item.id
-                        })
-                        .on("click", changePage);
-                    //delete button
-                    var $customDeleteButton = $("<button>").attr({
-                            class: "customGridDeletebutton jsgrid-button jsgrid-delete-button",
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#deleteModal",
-                            "data-id": item.id
+                    var customEditButton = $("<button>").attr({
+                        class: "btn btn-warning btn-xs",
+                        "data-id": item.id
+                    }).append("<i class='fas fa-user-edit'></i>")
 
-                        })
+
+
+
+                    //delete button, we add some data bs attr 
+                    var customDeleteButton = $("<button>").attr({
+                            class: "btn btn-danger btn-xs"
+                        }).append("<i class='fas fa-trash-alt'></i>")
 
                         .on("click", (e) => {
                             $("#acceptDelete").one("click", () => {
@@ -189,13 +226,16 @@ onItemInserting: function(args){
                                 $("#acceptDelete").off("click", deleteEmployee)
                             })
                             e.stopPropagation()
-                        });
-                    //add button
-                    var $customAddButton = $("<button>").attr({
-                        class: "customGridAddbutton jsgrid-button jsgrid-add-button"
-                    })
+                        })
+                    var customViewButton = $("<button></button>").attr({
+                        class: "btn btn-info btn-xs",
+                        "data-bs-toggle": "modal",
+                        "data-bs-target": "#deleteModal",
+                        "data-id": item.id
+                    }).on("click", changePage).append("<i class='fas fa-eye'></i>");
+
                     //spawn the buttons
-                    return $("<div>").append($customEditButton).append($customDeleteButton);
+                    return $("<div class='iconsRow'>").append(customEditButton).append(customDeleteButton).append(customViewButton);
                 }
             }
         ]
@@ -212,7 +252,7 @@ async function displayEmployees() {
         })
 }
 
-async function changePage(e) {
+function changePage(e) {
     const userName = $(e.target).data("id");
     e.stopPropagation();
     window.location = "employee.php?userId=" + userName;
@@ -224,7 +264,32 @@ async function deleteEmployee(item) {
     await fetch("./library/employeeController.php?delete=" + item, {
             method: "delete"
         })
-        .then(response => response)
+        .then(response => {
+            if (response.ok) {
+                //displays msg alert
+                $("body").append(`
+                <div class="alert alert-success deleteMsg" role="alert">
+                    Your employee was deleted!
+                </div>
+            `)
+            } else {
+                //displays msg alert
+                $("body").append(`
+                    <div class="alert alert-danger deleteMsg" role="alert">
+                        An error has ocurred, try again!
+                    </div>
+                `)
+            }
+            //calls function that fades alert
+            fadeOutMsg($(".deleteMsg"));
+        })
 }
+
+function fadeOutMsg(msg) {
+    setTimeout(function () {
+        msg.fadeOut(1000);
+    }, 5000)
+}
+
 
 window.onload = createTable();

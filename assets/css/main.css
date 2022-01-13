@@ -9,3 +9,8 @@ section {
 .sectionBtn button{
     margin: 5%;
 }
+.iconsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
