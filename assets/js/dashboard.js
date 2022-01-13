@@ -59,6 +59,9 @@ function displayEmployeers(employeers) {
           console.log(response);
           let employeers = await getEmployeers();
           displayEmployeers(employeers);
+          if(response.status = 200){
+            sendMessageOk("Employee deleted sucessfully")
+          }
         });
       },
       updateItem: function updateEmployee(item) {
@@ -71,6 +74,9 @@ function displayEmployeers(employeers) {
             console.log(response);
             let employeers = await getEmployeers();
             displayEmployeers(employeers);
+            if(response.status = 200){
+              sendMessageOk("Employee updated sucessfully")
+            }
           });
         ;
       },
@@ -81,4 +87,37 @@ function displayEmployeers(employeers) {
       location.assign(`./employee.php?editEmployee=${id}`);
     }
   });
+}
+
+function sendMessageOk(text){
+
+  let messageOk = `<div class="alert alert-success msginfo" role="alert">${text}</div>`
+
+  document.querySelector("main").insertAdjacentHTML("afterbegin", messageOk)
+
+  setTimeout(function(){
+
+      document.querySelector(".msginfo").remove()
+
+      }
+
+      ,3000)
+
+}
+
+
+function sendMessageError(text){
+
+  let messageOk = `<div class="alert alert-danger msginfo" role="alert">${text}</div>`
+
+  document.querySelector("main").insertAdjacentHTML("afterbegin", messageOk)
+
+  setTimeout(function(){
+
+      document.querySelector(".msginfo").remove()
+
+      }
+
+      ,3000)
+
 }
