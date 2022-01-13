@@ -17,8 +17,10 @@ async function createTable() {
         height: "70vh",
 //Validator
 onItemInserting: function(args){
+    console.log('validator');
     employees.forEach(element =>{
         if(element.email == args.item.email){
+            console.log('entra');
             args.cancel=true;
             alert("Email already in the database");
         }else if(element.phoneNumber == args.item.phoneNumber){

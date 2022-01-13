@@ -5,9 +5,10 @@ window.onload = function() {
         chargeData(userId); //sends it as a parameter to the function
         saveListenerUpdate();
     }else{
+        $('#nameTitle').text('New Employee'); //fill in the h2 of employee.php
         saveListenerCreate();
     }
-    //header('Location: ./src/dashboard.php');
+    header('Location: src/dashboard.php');
 }
 
 async function chargeData(userId) {
@@ -24,6 +25,7 @@ async function chargeData(userId) {
 function writeInput(obj) {
     //values are printed dynamically in the form
     console.log(obj)
+    $('#nameTitle').text(obj.name+" "+obj.lastName); //fill in the h2 of employee.php
     $('#inputName').val(obj.name);
     $('#inputEmail').val(obj.email);
     $('#inputCity').val(obj.city);
@@ -34,7 +36,6 @@ function writeInput(obj) {
     $('#inputStreetAddress').val(obj.streetAddress);
     $('#inputPhoneNumber').val(obj.phoneNumber);
     $('#inputAge').val(obj.age);
-
 }
 
 function saveListenerUpdate(){
@@ -43,7 +44,7 @@ function saveListenerUpdate(){
         e.preventDefault(); //to avoid sending data by url in the browser
         var obj= getFormValues();
         fetchUpdate(obj);
-        console.log(obj)
+       // header('Location: src/dashboard.php');
     })
 
 }
@@ -54,7 +55,7 @@ function saveListenerCreate(){
         e.preventDefault(); //to avoid sending data by url in the browser
         var obj= getFormValues();
         fetchCreate(obj);
-        console.log(obj)
+        //header('Location: src/dashboard.php');
     })
 
 }
@@ -78,6 +79,7 @@ async function fetchUpdate(obj){
             body: JSON.stringify(obj)
         })
         .then(response=>console.log(response))
+        window.location='dashboard.php';
 }
 
 async function fetchCreate(obj){

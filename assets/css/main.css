@@ -1,6 +1,11 @@
-section {
-    background-color: blueviolet;
-    height: 88vh;
+.gradient {
+    background: rgb(13,0,36);
+background: linear-gradient(120deg, #0a054d, #8a2be2)
+}
+
+section{
+    height: 100%;
+    width: 100%;
 }
 
 .sectionBtn{
@@ -17,7 +22,6 @@ section {
 }
 
 #employeeForm{
-    height: 88vh;
     padding: 10vh;
 }
 

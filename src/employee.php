@@ -10,13 +10,14 @@
     <title>Employee</title>
     <!-- my scripts -->
     <script src="./../assets/js/employee.js" defer></script>
+
 </head>
 
-<body>
+<body class="gradient">
 
-    <section class="m-0 row justify-content-center ">
+    <section class="row justify-content-center">
         <form id="employeeForm" class="col-8 bg-light" action="./library/employeeController.php?update" method="POST">
-            <h2>Employee Name</h2>
+            <h2 id="nameTitle"> </h2>
             <!-- hidden input that collects the value of the id of the object selected in the dashboard -->
             <input id="userId" type="hidden" name="id" value="<?php  if( isset ($_GET["userId"])) {   echo $_GET["userId"];      }else{    echo " ";    }?>">
             <div class="row">
