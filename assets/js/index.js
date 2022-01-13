@@ -49,7 +49,7 @@ async function callGrid() {
                 rowDoubleClick: true,
 
                 headerTemplate: function () {
-                    return $("<button>").attr("type", "button").text("Add")
+                    return $("<button>").attr("type", "button").attr('class', "fas fa-user-plus")
                         .on("click", function () {
                             window.location.assign(`./../src/employee.php`)
                         });
@@ -66,7 +66,7 @@ async function callGrid() {
             })
         },
 
-        onItemDeleted: function(args) {
+        onItemDeleted: function (args) {
             //console.log(args.item);
             $.ajax({
                 type: "POST",
@@ -74,7 +74,7 @@ async function callGrid() {
                 data: args.item,
                 success: function (data) {
                     console.log(data);
-                   // callGrid();
+                    // callGrid();
                 }
             });
         },
@@ -85,23 +85,18 @@ async function callGrid() {
             $idget = args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
-       
-        onItemInserting: function(args) {
-            console.log($dataEmployee)
+
+        onItemInserting: function (args) {
+            //console.log($dataEmployee)
             $dataEmployee.forEach(element => {
-                if(element.email == args.item.email){
-                    console.log("entroaqui")  
+                if (element.email == args.item.email) {
+                    //console.log("entroaqui")  
                     args.cancel = true;
                     alert("Email already in the database");
                 }
             });
         },
         onItemInserted: function (args) {
-            if(args.item.name === "erick") {
-                args.cancel = true;
-                alert("Specify the name of the item!");
-                console.log("ejej")
-            }
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?addEmployee",
@@ -115,12 +110,12 @@ async function callGrid() {
 
 };
 
-function timeSession(){
-    var sessionTime= setTimeout(() => {
+function timeSession() {
+    var sessionTime = setTimeout(() => {
         $.ajax({
-            type:"POST",
-            url:".././src/library/employeeController.php?endSession",
-            
+            type: "POST",
+            url: ".././src/library/employeeController.php?endSession",
+
         })
     }, 15000);
 
@@ -131,14 +126,22 @@ setInterval(() => {
     $.ajax({
         type: "POST",
         url: ".././src/library/sessionHelper.php?info",
-        // data: args.item,
+        //data: args.item,
         success: function (data) {
-            // console.log(data);
-            if(data != ""){
+            console.log(data);
+            if (data != "") {
                 // console.log("entro aqui pasados 10 segundos")
                 window.location.assign(`./../index.php`)
             }
-           // callGrid();
+            // callGrid();
         }
     })
 }, 1000);
+
+// function wlocation() {
+//     var divlocation = document.getElementById('filelocation');
+//     var winloc = window.location.pathname.split('/');
+//     var dirname = winloc[4].split('.');
+//     console.log(dirname[0]);
+//     divlocation.append(dirname[0]);
+// }

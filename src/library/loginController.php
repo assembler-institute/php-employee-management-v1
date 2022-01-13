@@ -11,7 +11,7 @@ if (($_POST)) {
     $postPassword = $_POST["password"];
     foreach ($userName as $user) {
         if ($postEmail == $user->email) {
-            echo "he entrado 1";
+            //echo "he entrado 1";
             $compare = $user->password;
             if (password_verify($postPassword, $user->password)) {
                 // echo "He entrado 2";
