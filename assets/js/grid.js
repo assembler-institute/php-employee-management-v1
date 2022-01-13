@@ -8,7 +8,7 @@ function fillJsGrid(){
             { name: "email", type: "text", title: "Email"},
             { name: "age", type: "number", title: "Age"},
             { name: "phoneNumber", type: "number", title: "Phone Number"},
-            { type: "control" }
+            { type: "control", editButton:false }
         ],
 
         autoload: true,
@@ -25,9 +25,12 @@ function fillJsGrid(){
                 return $.ajax({
                     type: "POST",
                     url: "../src/library/employeeController.php",
-                    data: item,
-                    success: function(data){
-                        console.log(data);
+                    data: { add: item },
+                    success: function(){
+                        $(".alert-success").removeAttr('hidden');
+                        setTimeout(function () {
+                            $(".alert-success").attr('hidden', "hidden")
+                        }, 5000);
                     }
                 });
             },
@@ -35,19 +38,12 @@ function fillJsGrid(){
                 return $.ajax({
                     type: "DELETE",
                     url: "../src/library/employeeController.php",
-                    data: item,
-                    success: function(data){
-                        console.log(data);
-                    }
-                });
-            },
-            updateItem: function(item){
-                return $.ajax({
-                    type: "PUT",
-                    url: "../src/library/employeeController.php",
-                    data: item,
-                    success: function(data){
-                        console.log(data);
+                    data: { delete: item },
+                    success: function(){
+                        $(".alert-success").removeAttr('hidden');
+                        setTimeout(function () {
+                            $(".alert-success").attr('hidden', "hidden")
+                        }, 5000);
                     }
                 });
             }
@@ -58,7 +54,6 @@ function fillJsGrid(){
 
         sorting: true,
         inserting: true,
-        editing: true,
         
         paging: true,
         pageSize: 5,
@@ -79,7 +74,7 @@ function fillJsGrid(){
                 $("<form action='employee.php' method='post'><input type='hidden' name='data' value='" + jsonData  + "'></input></form>").appendTo("body").submit().remove();
             });
         },
-
+  
     });
     
 }

@@ -7,8 +7,8 @@ $(".btn-primary").on("click", function(e){
             type: "POST",
             url: "../src/library/employeeController.php",
             data: { add: employee },
-            success: function(data){
-                console.log(data);
+            success: function(){
+                $(".alert-success").removeAttr('hidden');
             }
         });
     } else {
@@ -16,8 +16,8 @@ $(".btn-primary").on("click", function(e){
             type: "PUT",
             url: "../src/library/employeeController.php",
             data: { edit: employee },
-            success: function(data){
-                console.log(data);
+            success: function(){
+                $(".alert-success").removeAttr('hidden');
             }
         });
     }

@@ -81,6 +81,10 @@
                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-secundary">Return</button> </div>
                         <div class="form-group col-sm-6"> <button type="submit" value="<?=returnData("id")?>" class="btn-block btn-primary">Submit</button> </div>
                     </div>
+                    <br>
+                    <div class="alert alert-success" role="alert" hidden>
+                        Employee created/updated successfully.
+                    </div>
                 </form>
             </div>
         </div>

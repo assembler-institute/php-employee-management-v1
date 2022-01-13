@@ -3,15 +3,30 @@
 function addEmployee($newEmployee)
 {
     $decode_json = getDecodeJson();
-    array_push($decode_json, transformArray($newEmployee, count($decode_json)+1));
 
+    if(gettype($newEmployee) === "array"){
+        array_push($decode_json, transformArray($newEmployee, count($decode_json)+1));
+    } else {
+        $newEmployee->id = count($decode_json)+1;
+        array_push($decode_json, $newEmployee);
+    }
+    
     overwriteJson($decode_json);
+
 }
 
 //Only from jsGrid
-function deleteEmployee()
+function deleteEmployee($deleteEmployee)
 {
-    echo "delete";
+    $decode_json = getDecodeJson();
+    
+    $i = 0;
+    foreach($decode_json as $employee){
+        if($deleteEmployee == $employee) unset($decode_json[$i]);
+        $i++;
+    };
+
+    overwriteJson(array_values($decode_json));
 }
 
 function updateEmployee($updateEmployee)
@@ -32,12 +47,10 @@ function updateEmployee($updateEmployee)
 }
 
 function overwriteJson($decode_json){
-    $json_data = json_encode($decode_json);
-    file_put_contents("../../resources/employees.json", $json_data);
+    file_put_contents("../../resources/employees.json", json_encode($decode_json));
 }
 
 function transformArray($array, $id){
-    $array = json_decode($array);
     $newJson = [];
 
     foreach($array as $employee){
@@ -49,7 +62,7 @@ function transformArray($array, $id){
         else $newJson[$employee->name] = $employee->value;
     };
 
-    return $newJson;
+    return (object)$newJson;
 }
 
 function getEmployees()

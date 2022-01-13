@@ -19,6 +19,9 @@
 </script>
 
 <!-- Grid -->
+<div class="alert alert-success w-25 m-3" role="alert" hidden>
+    Employee created/deleted successfully.
+</div>
 <div id="grid"></div>
 
 <!-- Fill table -->
