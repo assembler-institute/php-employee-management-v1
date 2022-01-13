@@ -6,13 +6,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Jquery -->
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- My styles -->
     <link href="./assets/css/login.css" rel="stylesheet">
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js" defer></script>
+    <script src="./assets/js/index.js" defer></script>
     <title>Employee manager</title>
 </head>
 
 <body>
+    <?php 
+        if(isset($_GET["fail"])){
+            echo '
+                <div class="alert alert-danger" id="loginFailedMsg" role="alert">
+                    Incorrect submited data, please introduce the correct 
+                </div>
+            ';
+        }
+    ?>
 
     <section class="m-0 vh-100 row justify-content-center align-items-center">
         <form method="post" action="./src/library/loginController.php" class="col-auto p-5 text-center bg-light">

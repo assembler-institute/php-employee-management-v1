@@ -214,4 +214,5 @@ async function deleteEmployee(item) {
         .then(response => response)
 }
 
+
 window.onload = createTable();

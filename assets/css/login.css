@@ -1,3 +1,7 @@
 body {
- background-color: blueviolet;
+    background-color: blueviolet;
+}
+
+#loginFailedMsg {
+    width: 50% !important;
 }
