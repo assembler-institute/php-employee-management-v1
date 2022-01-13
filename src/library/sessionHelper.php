@@ -6,7 +6,7 @@ function checkSessionTime()
 {
     session_start();
 if (isset($_SESSION["logintime"])){
-        if (time() >= $_SESSION["logintime"] + 30) {
+        if (time() >= $_SESSION["logintime"] + 600) {
             destroySession();
             header('Location: ../index.php?logout_time_expired');
         }

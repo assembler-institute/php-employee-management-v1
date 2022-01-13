@@ -20,7 +20,7 @@ session_start();
     <div class="login-clean">
     <form action="./src/library/loginController.php?login" method="POST">
             <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+            <div class="illustration"><img class="mb-4" src="./assets/img/assamblericon.png" alt="user icon" width="70" height="70"></i></div>
             <div class="form-floating">
                 <label for="floatingInput">Write your user name</label>
                         <input name="user" type="text" class="form-control" id="floatingInput" placeholder="User name" required>
