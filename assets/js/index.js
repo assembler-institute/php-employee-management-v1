@@ -1,9 +1,20 @@
 let add= document.getElementById("add");
 add.addEventListener("click", addEmployee);
+let trash= document.getElementsByClassName("trash");
+//trash.addEventListener("click",deleteEmployer);
 
+//trash.addEventListener("click", deleteEmployer);
+$(".trash").on('click', function(event){
+ // event.target();
+  //event.stopImmediatePropagation();
+  alert("ASD");
+});
 function addEmployee(){
   $("#modalAdd").modal();
   //vaciar inputs en modal
+}
+function deleteEmployer(){
+alert("ASD");
 }
 function success(json) {
   let table=document.querySelector(".table");
@@ -40,6 +51,9 @@ function success(json) {
     edit.setAttribute("src","https://cdn4.iconfinder.com/data/icons/materia-tools-vol-1/24/023_001_pencil_edit_eraser_kohinor_carandache_tool-512.png");
     trash.setAttribute("id",json[i].id);
     edit.setAttribute("id",json[i].id);
+    trash.setAttribute("class","trash");
+    edit.setAttribute("class","edit");
+    trash.setAttribute("name","delete");
 
     table.appendChild(tr);
     tr.appendChild(th);

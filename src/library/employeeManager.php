@@ -1,10 +1,4 @@
 <?php
-/**
- * EMPLOYEE FUNCTIONS LIBRARY
- *
- * @author: Jose Manuel Orts
- * @date: 11/06/2020
- */
 
 function addEmployee(array $newEmployee)
 {
@@ -18,7 +12,16 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    $current_data=file_get_contents('../../resources/employees.json');
+    $array_data=json_decode($current_data);
+    for($i=0;$i<count($array_data);$i++){
+        if($array_data[$i]->id==$id){
+            unset($array_data[$i]);
+        }
+    }
+    $json = json_encode($array_data, JSON_PRETTY_PRINT);
+    file_put_contents('../../resources/employees.json', $json);
+
 }
 
 

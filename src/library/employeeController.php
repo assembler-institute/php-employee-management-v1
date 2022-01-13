@@ -2,7 +2,7 @@
 require_once("./employeeManager.php");
 
 if(isset($_POST["submitAdd"])){
-  $current_data=file_get_contents('../../resources/employees.json');
+  /*$current_data=file_get_contents('../../resources/employees.json');
   $array_data=json_decode($current_data,true);
   echo(count($array_data));
   $newEmployee=array(
@@ -17,6 +17,11 @@ if(isset($_POST["submitAdd"])){
     "age"=>$_POST["age"],
     "postalCode"=>$_POST["postalCode"],
     "phoneNumber"=>$_POST["phoneNumber"]
-);
-addEmployee($newEmployee);
+);*/
+//addEmployee($newEmployee);
+deleteEmployee(13);
+}
+if(isset($_POST["delete"])){
+//deleteEmployee(13);
+
 }
