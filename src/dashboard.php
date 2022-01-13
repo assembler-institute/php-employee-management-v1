@@ -5,7 +5,6 @@
 require '../assets/html/header.html';
 require "././library/loginManager.php";
 
-<<<<<<< HEAD
 // if (isset($_POST)) {
 
 //     // sessionlogout("Location:../index.php");
@@ -15,12 +14,10 @@ require "././library/loginManager.php";
 //     //echo $_SESSION['email'];
 //     //echo "<script> loadxml(); </script>";
 // }
-=======
 if(isset($_POST)){
     
     // sessionlogout("Location:../index.php");
 }
->>>>>>> parent of d60db9a (merge seguro)
 
 ?>
 <link rel="stylesheet" href="./../node_modules/bootstrap/dist/css/bootstrap.min.css">

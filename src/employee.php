@@ -86,25 +86,12 @@ if (isset($_GET['id'])) {
         </div>
     </div>
     <?php
-<<<<<<< HEAD
-
-    include '../assets/html/footer.html';
-    
-    // require './library/employeeManager.php';
-    
-    if (isset($_POST['submitForm'])) {
-        $seemail = recorrer("../resources/employees.json", $_POST['email']);
-        // echo $prueba;
-        if (isset($_GET['id'])) {
-            if ($_POST["lastName"] != " " && $_POST["radio"] != " ") {
-=======
         // require './library/employeeManager.php';
         if (isset($_POST['submitForm'])) {
         $seemail= recorrer("../resources/employees.json", $_POST['email']);
         // echo $prueba;
         if (isset($_GET['id']) ) {
             if($_POST["lastName"] != " " && $_POST["radio"] != " "){
->>>>>>> parent of d60db9a (merge seguro)
                 updateEmployee($_POST, "../resources/employees.json");
                 // echo "entra?";
                 // header("Location:./dashboard.php");

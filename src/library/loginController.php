@@ -6,11 +6,7 @@ $Allusers = file_get_contents($file);
 $usersAll = json_decode($Allusers);
 $userName = $usersAll->users;
 
-<<<<<<< HEAD
-if (isset($_POST["submit"])) {
-=======
 if (($_POST)) {
->>>>>>> parent of d60db9a (merge seguro)
     $postEmail = $_POST["email"];
     $postPassword = $_POST["password"];
     foreach ($userName as $user) {

@@ -100,7 +100,6 @@ async function callGrid() {
             $idget = args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
-<<<<<<< HEAD
 
         //todo event listener run before insert employees from the table with some validations
         onItemInserting: function (args) {
@@ -111,14 +110,6 @@ async function callGrid() {
             }
             $dataEmployee.forEach(element => {
                 if (element.email == args.item.email) {
-=======
-       
-        onItemInserting: function(args) {
-            console.log($dataEmployee)
-            $dataEmployee.forEach(element => {
-                if(element.email == args.item.email){
-                    console.log("entroaqui")  
->>>>>>> parent of d60db9a (merge seguro)
                     args.cancel = true;
                     alert("Email already in the database");
                 }
@@ -156,8 +147,4 @@ setInterval(() => {
             }
         }
     })
-<<<<<<< HEAD
-}, 10000);
-=======
-}, 1000);
->>>>>>> parent of d60db9a (merge seguro)
+},1000);

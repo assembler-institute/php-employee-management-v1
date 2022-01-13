@@ -8,10 +8,6 @@ if (isset($_GET["modifyEmployee"])) {
     updateEmployee($_POST, "../../resources/employees.json");
 }
 
-<<<<<<< HEAD
-//todo detect when modify employee have changes
-//todo when have changes call PHP function to add employee
-=======
 // if (isset($_GET['modifyEmployee'])) {
    
 //     echo "estamos aqui ";
@@ -23,7 +19,6 @@ if (isset($_GET["modifyEmployee"])) {
 //     updateEmployee($_POST, "../../resources/employees.json");
 // }
 
->>>>>>> parent of d60db9a (merge seguro)
 if (isset($_GET['addEmployee'])) {
     addEmployee("../../resources/employees.json");
 }
