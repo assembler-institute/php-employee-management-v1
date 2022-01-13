@@ -49,6 +49,10 @@ for ($i=0; $i < count($newCollections); $i++) {
 $replaceArray = array($i => $updateEmployee);
 $newCollections = array_replace($newCollections, $replaceArray);
 file_put_contents('../../resources/employees.json', json_encode($newCollections, JSON_PRETTY_PRINT));
+if (isset($updateEmployee["form"])){
+    unset($array["form"]);
+    header("Location:../dashboard.php");
+}
 }
 
 function getEmployee(string $id)
