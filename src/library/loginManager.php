@@ -1,5 +1,5 @@
 <?php
-
+// function to delete the SESSION
 function sessionDestroy($path) {
   session_start();
   unset($_SESSION);
@@ -18,6 +18,3 @@ function sessionDestroy($path) {
 session_destroy();
 header($path);
 }
-
-// session_destroy();
-// header("Location:../../index.php");
