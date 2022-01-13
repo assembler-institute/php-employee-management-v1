@@ -5,17 +5,9 @@ session_start();
 require '../assets/html/header.html';
 require "././library/loginManager.php";
 
-if (isset($_POST)) {
-
-    // sessionlogout("Location:../index.php");
-}
-
-if (isset($_SESSION['email'])) {
-    echo $_SESSION['email'];
-    echo "<script> loadxml(); </script>";
-}
-
 ?>
+
+<!-- todo Import here because if we import in header.html it doesn't work-->
 <!-- todo import from CDN and Others -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,17 +17,20 @@ if (isset($_SESSION['email'])) {
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-
+<!-- todo when the page load call function to fill the table -->
 <body onload=" callGrid(); ">
     <?php
+        //todo add the nav bar by require
         require '../assets/html/navbar.html';
     ?>
 
     <section>
+        <!-- todo main section  -->
         <div id="jsGrid"> </div>
     </section>
 
     <?php
+        //todo add the Footer by require
         require '../assets/html/footer.html';
     ?>
 

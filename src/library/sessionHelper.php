@@ -1,10 +1,14 @@
 <?php
 require "./loginManager.php";
+
+//todo function  to manager session time
 if(isset($_GET["info"])){
-    // echo "pepe";
+    //todo begin session
     session_start();
+    //todo  if $_SESSION['LAST_ACTIVITY'] exists and 
+    //todo LAST_ACTIVITY - actual time > 600 (10min)
     if(isset($_SESSION['LAST_ACTIVITY']) && time() - $_SESSION['LAST_ACTIVITY'] > 600){
-        // echo "pepe";
+        //todo call function to logout Session
         sessionlogout("Location:../../index.php");
     }
 }
