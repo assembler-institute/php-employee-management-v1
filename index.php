@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/login.css">
     <title>Document</title>
 </head>
 <body>
     <?php
         require ("assets/html/header.html");
-        session_start();
-        session_destroy();
     ?>
-<form action="src/library/loginManager.php" method="post">
+<form action="src/library/loginController.php" method="post">
 <section class="vh-100" style="background-color: #6a6a6a;">
 <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -35,16 +34,11 @@
                     <input type="password" id="typePasswordX-2" name="namePassword" class="form-control form-control-lg" />
                 </div>
 
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-start mb-4">
-                <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="form1Example3"
-                />
-            <label class="form-check-label" for="form1Example3"> Remember password </label>
-            </div>
+<?php
+    if ($_SERVER['QUERY_STRING'] == "error=true") {
+        echo "<p id='errorMsg'>The email or the password are incorrects</p>";
+    };
+?>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Log in</button>
                 </div>
             </div>
