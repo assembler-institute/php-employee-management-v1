@@ -17,7 +17,18 @@
 </head>
 <body>
   <?php
+session_start();
+
   require ("./../assets/html/header.html");
+  require ("./library/sessionHelper.php");
+  require ("./library/loginManager.php");
+  // print_r(time());
+  // echo "<br>";
+  // print_r($_SESSION['last_access']);
+  if(isset($_SESSION['last_access']) && time() - $_SESSION['last_access'] > 600){ //llamamos a la funcion que lleva el tiempo establecido que esta en el loginManager
+    sessionDestroy("location:../index.php");
+  }
+
   ?>
   <div class="container">
     <br />
@@ -26,6 +37,7 @@
       <div id="grid_table"></div>
     </div>
   </div>
+  <form action="../index.php" method="post"></form>
   <?php
   require ("./../assets/html/footer.html");
   ?>
