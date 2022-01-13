@@ -17,8 +17,6 @@
         require_once "./library/sessionHelper.php";
         sessionCheck();
         outOfTime();
-        require_once "./library/avatarsApi.php";
-        getAvatarsAPI();
         require_once "./library/employeeManager.php";
         if(isset($_GET["editEmployee"])) {
             $id = $_GET["editEmployee"];
@@ -26,6 +24,7 @@
         }
     ?>
     <main>
+        <?php require_once "./imageGallery.php" ?>
         <form class="employeeForm" action="./library/employeeController.php" method="POST" id="formulary">
             <div class="formFlex">
                 <div class="flexMember">

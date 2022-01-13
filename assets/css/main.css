@@ -31,6 +31,14 @@
     margin-top: 2%;
 }
 
+.carousel-item {
+    height: 400px;
+}
+
+.carousel-item img {
+    height: 90%;
+}
+
 footer {
     position: absolute;
     width: 100%;
