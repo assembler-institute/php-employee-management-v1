@@ -33,10 +33,12 @@
     </div>
 <!-- Login section -->
     <section class="m-0 vh-100 row justify-content-center align-items-center">
-        <form method="post" action="./src/library/loginController.php" class="col-auto p-5 text-center bg-light">
+        <form method="post" action="./src/library/loginController.php" class="col-auto p-5 text-center bg-light login-form">
+            <img src="assets/imgs/user-circle-solid.svg" class="iconUser filter">
+            <h2>Login</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" name="usermail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input type="email" name="usermail" class="form-control iconMail" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 <!-- Display error if email is not correct (see in loginController.php) -->
                 <div class="errorForm">
@@ -52,8 +54,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
-                <!-- Display error if password is not correct (see in loginController.php) -->
+                <input type="password" class="form-control  iconPassword" id="exampleInputPassword1" name="password" required>
                 <div class="errorForm">
                     <?php
                         if(isset($_GET["fail"]) && $_GET["fail"]=="pass") {
