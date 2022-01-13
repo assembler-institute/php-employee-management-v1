@@ -1,14 +1,17 @@
-
-window.onload = function() {
-    if( $('#userId').val()!=" "){ //If the hidden id input contains any values
-        var userId=$('#userId').val(); //get this value
+window.onload = function () {
+    if ($('#userId').val() != " ") { //If the hidden id input contains any values
+        var userId = $('#userId').val(); //get this value
         chargeData(userId); //sends it as a parameter to the function
         saveListenerUpdate();
-    }else{
+    } else {
         $('#nameTitle').text('New Employee'); //fill in the h2 of employee.php
         saveListenerCreate();
     }
-    header('Location: src/dashboard.php');
+    //listener to go back with cancel btn
+    $("#cancelBtn").on("click", function (e) {
+        e.preventDefault();
+        window.location = "dashboard.php";
+    })
 }
 
 async function chargeData(userId) {
@@ -24,8 +27,7 @@ async function chargeData(userId) {
 
 function writeInput(obj) {
     //values are printed dynamically in the form
-    console.log(obj)
-    $('#nameTitle').text(obj.name+" "+obj.lastName); //fill in the h2 of employee.php
+    $('#nameTitle').text(obj.name + " " + obj.lastName); //fill in the h2 of employee.php
     $('#inputName').val(obj.name);
     $('#inputEmail').val(obj.email);
     $('#inputCity').val(obj.city);
@@ -38,34 +40,34 @@ function writeInput(obj) {
     $('#inputAge').val(obj.age);
 }
 
-function saveListenerUpdate(){
+function saveListenerUpdate() {
 
-    $('#employeeForm').on('submit', function(e){
+    $('#employeeForm').on('submit', function (e) {
         e.preventDefault(); //to avoid sending data by url in the browser
-        var obj= getFormValues();
+        var obj = getFormValues();
         fetchUpdate(obj);
-       // header('Location: src/dashboard.php');
+        // header('Location: src/dashboard.php');
     })
 
 }
 
-function saveListenerCreate(){
+function saveListenerCreate() {
 
-    $('#employeeForm').on('submit', function(e){
+    $('#employeeForm').on('submit', function (e) {
         e.preventDefault(); //to avoid sending data by url in the browser
-        var obj= getFormValues();
+        var obj = getFormValues();
         fetchCreate(obj);
         //header('Location: src/dashboard.php');
     })
 
 }
 
-function getFormValues(){
-    var elements = document.getElementById("employeeForm").elements;//we collect the elements of the form
-    var obj ={};
-    for(var i = 0 ; i < elements.length ; i++){//each element is scrolled through leaving the buttons out
+function getFormValues() {
+    var elements = document.getElementById("employeeForm").elements; //we collect the elements of the form
+    var obj = {};
+    for (var i = 0; i < elements.length; i++) { //each element is scrolled through leaving the buttons out
         var item = elements.item(i);
-        if(item.id=="saveBtn" || item.id=="cancelBtn"){
+        if (item.id == "saveBtn" || item.id == "cancelBtn") {
             break
         }
         obj[item.name] = item.value; //All values are collected within an object
@@ -73,19 +75,60 @@ function getFormValues(){
     return obj;
 }
 
-async function fetchUpdate(obj){
+async function fetchUpdate(obj) {
     await fetch("./library/employeeController.php?update=" + obj.id, { //we call the update() function via the object's id
             method: "PUT",
             body: JSON.stringify(obj)
         })
-        .then(response=>console.log(response))
-        window.location='dashboard.php';
+        .then(response => {
+            if (response.ok) {
+                $(".msgContainer").append(`
+                <div class="alert alert-success insertMsg"  role="alert">
+                    Your employee was updated!
+                </div>
+                <div class="alert alert-warning" role="alert">
+                        Returning to dashboard...
+                </div>
+                `)
+                setTimeout(function () {
+                    window.location = 'dashboard.php';
+                }, 4000)
+            } else {
+                $(".msgContainer").append(`
+                <div class="alert alert-danger insertMsg"  role="alert">
+                    An error has ocurred, try again!
+                </div>
+                `)
+            }
+        })
+
 }
 
-async function fetchCreate(obj){
+async function fetchCreate(obj) {
     await fetch("./library/employeeController.php?newEmployee=true", { //we call the function newEmployee()
             method: "POST",
             body: JSON.stringify(obj)
         })
-        .then(response=>console.log(response.text()))
+        .then(response => {
+            if (response.ok) {
+
+                $(".msgContainer").append(`
+                    <div class="alert alert-success insertMsg"  role="alert">
+                        Your employee was created!
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        Returning to dashboard...
+                    </div>
+                    `)
+                setTimeout(function () {
+                    window.location = 'dashboard.php';
+                }, 4000)
+            } else {
+                $(".msgContainer").append(`
+                <div class="alert alert-danger insertMsg"  role="alert">
+                    An error has ocurred, try again!
+                </div>
+                `)
+            }
+        })
 }

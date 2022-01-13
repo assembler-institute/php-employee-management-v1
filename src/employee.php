@@ -10,11 +10,13 @@
     <title>Employee</title>
     <!-- my scripts -->
     <script src="./../assets/js/employee.js" defer></script>
-
 </head>
 
 <body class="gradient">
-
+    <!-- Display of msgs -->
+    <div class="msgContainer">
+            
+            </div>
     <section class="row justify-content-center">
         <form id="employeeForm" class="col-8 bg-light" action="./library/employeeController.php?update" method="POST">
             <h2 id="nameTitle"> </h2>
@@ -48,7 +50,7 @@
             </div>
             <div class="row justify-content-center align-items-center sectionBtn">
                 <button id="saveBtn" type="submit" class="btn btn-warning col-4" name="submit">Save</button>
-                <button  id="cancelBtn"  class="btn btn-warning col-4" name="candelbtn">Cancel</button>
+                <button  id="cancelBtn"  class="btn btn-warning col-4" name="cancelbtn">Cancel</button>
             </div>
         </form>
     </section>

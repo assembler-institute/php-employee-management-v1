@@ -1,31 +1,39 @@
 .gradient {
-    background: rgb(13,0,36);
-background: linear-gradient(120deg, #0a054d, #8a2be2)
+    background: rgb(13, 0, 36);
+    background: linear-gradient(120deg, #0a054d, #8a2be2)
 }
 
-section{
+section {
     height: 100%;
     width: 100%;
 }
 
-.sectionBtn{
-    margin: 3%;
-}
-
-.sectionBtn button{
-    margin: 3%;
-}
-.iconsRow {
+.msgContainer {
+    z-index: 10;
+    position: absolute;
+    top: 2%;
+    right: 50%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
 }
 
-#employeeForm{
+.sectionBtn {
+    margin: 3%;
+}
+
+.sectionBtn button {
+    margin: 3%;
+}
+
+.iconsRow {
+    margin-right: 10px;
+}
+
+#employeeForm {
     padding: 10vh;
 }
 
-h2{
+h2 {
     text-align: center;
     margin-bottom: 10%;
 }

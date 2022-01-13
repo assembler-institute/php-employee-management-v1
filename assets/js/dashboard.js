@@ -15,20 +15,20 @@ async function createTable() {
 
         width: "100%",
         height: "70vh",
-//Validator
-onItemInserting: function(args){
-    console.log('validator');
-    employees.forEach(element =>{
-        if(element.email == args.item.email){
-            console.log('entra');
-            args.cancel=true;
-            alert("Email already in the database");
-        }else if(element.phoneNumber == args.item.phoneNumber){
-            args.cancel=true;
-            alert("Phone Number already in the database");
-        }
-    })
-},
+        //Validator
+        onItemInserting: function (args) {
+            console.log('validator');
+            employees.forEach(element => {
+                if (element.email == args.item.email) {
+                    console.log('entra');
+                    args.cancel = true;
+                    alert("Email already in the database");
+                } else if (element.phoneNumber == args.item.phoneNumber) {
+                    args.cancel = true;
+                    alert("Phone Number already in the database");
+                }
+            })
+        },
         //conditions
         inserting: true,
         editing: true,
@@ -55,14 +55,14 @@ onItemInserting: function(args){
                     .then(response => {
                         if (response.ok) {
                             //appends alert success
-                            $("body").append(`
+                            $(".msgContainer").append(`
                                 <div class="alert alert-success insertMsg" role="alert">
                                     Your employee was added!
                                 </div>
                             `)
                         } else {
                             //appends alert error
-                            $("body").append(`
+                            $(".msgContainer").append(`
                             <div class="alert alert-danger insertMsg"  role="alert">
                             An error has ocurred, try again!
                             </div>
@@ -81,7 +81,7 @@ onItemInserting: function(args){
                     .then(response => {
                         if (response.ok) {
                             //appends alert
-                            $("body").append(`
+                            $(".msgContainer").append(`
                                 <div class="alert alert-success updateMsg" role="alert">
                                     Your employee was updated!
                                 </div>
@@ -89,7 +89,7 @@ onItemInserting: function(args){
 
                         } else {
                             //appends alert
-                            $("body").append(`
+                            $(".msgContainer").append(`
                             <div class="alert alert-danger updateMsg" role="alert">
                                 Your employee was updated!
                             </div>
@@ -113,8 +113,9 @@ onItemInserting: function(args){
             {
                 name: "name",
                 title: "Name",
+                align: "center",
                 type: "text",
-                width: 150,
+                width: 100,
                 validate: {
                     validator: "rangeLength",
                     message: function (value, item) {
@@ -126,6 +127,7 @@ onItemInserting: function(args){
             {
                 name: "email",
                 title: "Email",
+                align: "center",
                 type: "text",
                 width: 200,
                 validate: {
@@ -139,6 +141,7 @@ onItemInserting: function(args){
             {
                 name: "age",
                 title: "Age",
+                align: "center",
                 type: "number",
                 width: 70,
                 validate: {
@@ -153,25 +156,28 @@ onItemInserting: function(args){
                 name: "streetAddress",
                 title: "Street No",
                 type: "number",
-                align: "right",
+                align: "center",
                 width: 100,
             },
             {
                 name: "city",
                 title: "City",
                 type: "text",
+                align: "center",
                 width: 100,
                 validate: "required"
             },
             {
                 name: "state",
                 type: "text",
+                align: "center",
                 width: 60
             },
             {
                 name: "postalCode",
                 title: "Postal Code",
                 type: "number",
+                align: "center",
                 width: 90,
                 validate: {
                     validator: "range",
@@ -184,6 +190,7 @@ onItemInserting: function(args){
             {
                 name: "phoneNumber",
                 title: "Phone",
+                align: "center",
                 type: "number",
                 width: 140,
                 validate: {
@@ -276,14 +283,14 @@ async function deleteEmployee(item) {
         .then(response => {
             if (response.ok) {
                 //displays msg alert
-                $("body").append(`
+                $(".msgContainer").append(`
                 <div class="alert alert-success deleteMsg" role="alert">
                     Your employee was deleted!
                 </div>
             `)
             } else {
                 //displays msg alert
-                $("body").append(`
+                $(".msgContainer").append(`
                     <div class="alert alert-danger deleteMsg" role="alert">
                         An error has ocurred, try again!
                     </div>
@@ -297,6 +304,9 @@ async function deleteEmployee(item) {
 function fadeOutMsg(msg) {
     setTimeout(function () {
         msg.fadeOut(1000);
+        setTimeout(function () {
+            msg.remove();
+        })
     }, 5000)
 }
 

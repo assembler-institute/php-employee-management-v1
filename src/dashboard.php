@@ -17,6 +17,10 @@
 </head>
 
 <body>
+        <!-- Display of msgs -->
+    <div class="msgContainer">
+            
+    </div>
 
     <div id="jsGrid">
 
