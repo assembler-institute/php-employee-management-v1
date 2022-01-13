@@ -19,3 +19,7 @@ if(isset($_GET['delEmployee'])){
 }
 ?>
 <!-- <form action="./." method="post"></form> -->
+
+if (isset($_POST["endSession"])) {
+    sessionlogout();
+}

@@ -7,7 +7,6 @@ require_once "./loginManager.php";
 // $userName = $usersAll->users;
 
 if (isset($_POST["submit"])) {
-    echo "entro?";
     $postEmail = $_POST["email"];
     $postPassword = $_POST["password"];
     sesssioncheck($postEmail, $postPassword, "../../resources/users.json");

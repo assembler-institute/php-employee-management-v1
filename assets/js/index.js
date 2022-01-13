@@ -1,15 +1,12 @@
 async function callDataEmploee() {
     let result = []
-    let pruebae=[]
     try {
         result = await $.ajax({
             url: ".././resources/employees.json",
             success: function (data) {
                 $dataEmployee = data;
-                // console.log(data[0].id)
             }
         })
-        //console.log(result)
         return result;
     } catch (error) {
         console.error("Don't load the Data");
@@ -52,7 +49,7 @@ async function callGrid() {
                 rowDoubleClick: true,
 
                 headerTemplate: function () {
-                    return $("<button>").attr("type", "button").text("Add")
+                    return $("<button>").attr("type", "button").attr('class', "fas fa-user-plus")
                         .on("click", function () {
                             window.location.assign(`./../src/employee.php`)
                         });
@@ -72,7 +69,7 @@ async function callGrid() {
             })
         },
 
-        onItemDeleted: function(args) {
+        onItemDeleted: function (args) {
             //console.log(args.item);
             $.ajax({
                 type: "POST",
@@ -120,19 +117,38 @@ async function callGrid() {
 
 };
 
+function timeSession() {
+    var sessionTime = setTimeout(() => {
+        $.ajax({
+            type: "POST",
+            url: ".././src/library/employeeController.php?endSession",
+
+        })
+    }, 15000);
+
+}
+
 
 setInterval(() => {
     $.ajax({
         type: "POST",
         url: ".././src/library/sessionHelper.php?info",
-        // data: args.item,
+        //data: args.item,
         success: function (data) {
-            // console.log(data);
-            if(data != ""){
+            console.log(data);
+            if (data != "") {
                 // console.log("entro aqui pasados 10 segundos")
                 window.location.assign(`./../index.php`)
             }
-           // callGrid();
+            // callGrid();
         }
     })
 }, 1000);
+
+// function wlocation() {
+//     var divlocation = document.getElementById('filelocation');
+//     var winloc = window.location.pathname.split('/');
+//     var dirname = winloc[4].split('.');
+//     console.log(dirname[0]);
+//     divlocation.append(dirname[0]);
+// }
