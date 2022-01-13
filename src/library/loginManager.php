@@ -17,7 +17,7 @@ function authUser()
         header("Location:../dashboard.php");
     } else {
         $_SESSION["loginError"] = "Wrong email or password!";
-        header("Location:../index.php");
+        header("Location:../../index.php");
     }
 }
 
@@ -47,14 +47,14 @@ function checkSession()
         if (isset($_SESSION["email"])) {
             header("Location:./src/dashboard.php");
         } else {
-            // Check for session error
-            // if ($alert = checkLoginError()) return $alert;
+            //Check for session error
+            if ($alert = checkLoginError()) return $alert;
 
-            // // Check for info session variable
-            // if ($alert = checkLoginInfo()) return $alert;
+            // Check for info session variable
+            if ($alert = checkLoginInfo()) return $alert;
 
-            // // Check for logout
-            // if ($alert = checkLogout()) return $alert;
+            // Check for logout
+            if ($alert = checkLogout()) return $alert;
         }
     } else {
         if (!isset($_SESSION["email"])) {
@@ -94,4 +94,28 @@ function destroySessionCookie()
             $params["httponly"]
         );
     }
+}
+
+// Error messages
+function checkLoginError()
+{
+    if (isset($_SESSION["loginError"])) {
+        $errorText = $_SESSION["loginError"];
+        unset($_SESSION["loginError"]);
+        return ["type" => "danger", "text" => $errorText];
+    }
+}
+
+function checkLoginInfo()
+{
+    if (isset($_SESSION["loginInfo"])) {
+        $infoText = $_SESSION["loginInfo"];
+        unset($_SESSION["loginInfo"]);
+        return ["type" => "primary", "text" => $infoText];
+    }
+}
+
+function checkLogout()
+{
+    if (isset($_GET["logout"]) && !isset($_SESSION["email"])) return ["type" => "primary", "text" => "Logout succesful"];
 }
