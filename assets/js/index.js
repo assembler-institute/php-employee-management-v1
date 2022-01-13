@@ -35,6 +35,18 @@ fields: [
    onItemDeleted: function name(){
      
    },
+   onItemInserted: function name(args) {
+            
+    $.ajax({
+        method: 'POST',
+        url: './library/employeeController.php?add',   // ????????????? ERICK ????? porque tenho que por ADD ??????
+        data: args.item,
+        success: function (pi) {
+            // console.log(pi);
+            console.log(pi);
+        }
+    }); 
+  },
 
 controller: {
     insertItem: async function name(item) {
@@ -94,22 +106,25 @@ async function empleados(){
   return data
 }
 
-async function eliminarEmpleados(id){
-  const response = await fetch("./library/employeeController.php?delete="+id,{
-    method: 'POST',
-    body:a
-  })
-  const data = await response.json()
-  return data
+async function eliminarEmpleados(id) {
+    const response = await fetch(
+        './library/employeeController.php?delete=' + id,
+        {
+            method: 'POST',
+            body: a
+        }
+    );
+    const data = await response.json();
+    return data;
 }
 
-async function eliminarEmpleados(conte){
-  const response = await fetch("./library/employeeController.php?post=",{
-    method: 'POST',
-    body:a
-  })
-  const data = await response.json()
-  return data
+async function eliminarEmpleados(conte) {
+    const response = await fetch('./library/employeeController.php?post=', {
+        method: 'POST',
+        body: a
+    });
+    const data = await response.json();
+    return data;
 }
 
 
