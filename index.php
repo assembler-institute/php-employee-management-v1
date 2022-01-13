@@ -18,7 +18,7 @@ $alert = checkSession();
   
 <main class="form-signin">
     <form action="./src/library/loginController.php?login=1" method="POST">
-      <!-- <img src="../../assets/img/assembler_icon.jfif" width="40" height="40" class="me-3" alt="Assembler School"> -->
+      <img src="./assets/img/assembler.png"  class="w-100 my-5" alt="Assembler School">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
