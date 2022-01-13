@@ -69,7 +69,7 @@ onItemInserting: function(args){
                             `)
                         }
                         //function that hides msg
-                        fadeOutMsg($(".successInsert"))
+                        fadeOutMsg($(".insertMsg"))
                     })
             },
             //event when update an item and confirm
@@ -95,8 +95,8 @@ onItemInserting: function(args){
                             </div>
                         `)
                             //function that hides msg
-                            fadeOutMsg($(".updateMsg"))
                         }
+                        fadeOutMsg($(".updateMsg"))
                     })
 
             },
