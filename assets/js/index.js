@@ -112,44 +112,23 @@ $('#grid_table').jsGrid({
       width: 150,
       validate: "required"
     },
-
-    // {
-    //   name: "gender",
-    //   type: "select",
-    //   items: [{
-    //       Name: "",
-    //       Id: ''
-    //     },
-    //     {
-    //       Name: "Male",
-    //       Id: 'male'
-    //     },
-    //     {
-    //       Name: "Female",
-    //       Id: 'female'
-    //     }
-    //   ],
-    //   valueField: "Id",
-    //   textField: "Name",
-    //   validate: "required"
-    // },
     {
       type: "control"
     }
   ]
 
 });
+
+/*--CHANGE THE HEADER---*/
 let url = window.location.href;
 
 const tabs = ["dashboard", "employee"];
 
 tabs.forEach(e => {
   if (url.indexOf(e + ".php") !== -1) {
-    setActive("tab-" + e);
+    setActive("tab-" + e); //usamos el id que esta en el dashboard
   }
 });
-
 function setActive(id){
   document.getElementById(id).style.fontWeight = "bold";
-
 };
