@@ -7,14 +7,17 @@ function logIn(){
     $password = $_POST['password'];
     $data = json_decode($dataUser, true); //recoger array de users.json
     $admin = $data['users'][0]; //acceder al objeto userId=1 (es una array)
-    if ($admin['email'] == $usermail && password_verify($password , $admin['password'])) {
-        echo 'tiene acceso';
-        session_start();
-        $_SESSION['user'] = $admin['name'];
-        $_SESSION["login_time"] = time(); 
-        header("location: ../dashboard.php");
+    if ($admin['email'] == $usermail) {
+        if( password_verify($password , $admin['password'])){
+            session_start();
+            $_SESSION['user'] = $admin['name'];
+            $_SESSION["login_time"] = time(); 
+            header("location: ../dashboard.php");
+        }else{
+            header("location: ./../../index.php?fail=pass");
+        }
     } else {
-            header("location: ./../../index.php?fail=1");
+            header("location: ./../../index.php?fail=email");
     }
 
 }

@@ -18,15 +18,18 @@
 </head>
 
 <body>
-    <?php 
-        if(isset($_GET["fail"])){
-            echo '
-                <div class="alert alert-danger" id="loginFailedMsg" role="alert">
-                    Incorrect submited data, please introduce the correct 
-                </div>
-            ';
-        }
-    ?>
+    <div class="msgContainer">
+        <?php 
+           if(isset($_GET["notlogged"])){
+                echo '
+                    <div class="alert alert-warning" role="alert">
+                        You need to log in to access
+                    </div>
+                ';
+            }
+        ?>
+            
+    </div>
 
     <section class="m-0 vh-100 row justify-content-center align-items-center">
         <form method="post" action="./src/library/loginController.php" class="col-auto p-5 text-center bg-light">
@@ -34,10 +37,30 @@
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" name="usermail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div class="errorForm">
+                    <?php
+                        if(isset($_GET["fail"]) && $_GET["fail"]=="email") {
+                                    echo '
+                                    <div class="alert alert-danger" role="alert">
+                                        Please introduce the correct email
+                                    </div>';
+                        }
+                ?>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                <div class="errorForm">
+                    <?php
+                        if(isset($_GET["fail"]) && $_GET["fail"]=="pass") {
+                                    echo '
+                                    <div class="alert alert-danger" role="alert">
+                                        Please introduce the correct pass
+                                    </div>';
+                        }
+                    ?>
+                </div>
             </div>
             <button id="submit" type="submit" class="btn btn-warning">Login</button>
         </form>
