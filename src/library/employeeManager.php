@@ -27,7 +27,26 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    $current_data=file_get_contents('../../resources/employees.json');
+    $array_data=json_decode($current_data);
+    for($i=0;$i<count($array_data);$i++){
+        if($array_data[$i]->id==$updateEmployee["id"]){
+            $array_data[$i]->name=$updateEmployee["name"];
+            $array_data[$i]->lastName=$updateEmployee["lastName"];
+            $array_data[$i]->email=$updateEmployee["email"];
+            $array_data[$i]->gender=$updateEmployee["gender"];
+            $array_data[$i]->city=$updateEmployee["city"];
+            $array_data[$i]->streetAddress=$updateEmployee["streetAddress"];
+            $array_data[$i]->state=$updateEmployee["state"];
+            $array_data[$i]->age=$updateEmployee["age"];
+            $array_data[$i]->postalCode=$updateEmployee["postalCode"];
+            $array_data[$i]->phoneNumber=$updateEmployee["phoneNumber"];
+        }
+    }
+    $json = json_encode($array_data, JSON_PRETTY_PRINT);
+    file_put_contents('../../resources/employees.json', $json);
+
+
 }
 
 
