@@ -14,7 +14,6 @@
   require "../assets/html/header.html";
 ?>
 <body>
-  <h1><a href="">sign out</a></h1>
 <table class="table">
   <thead>
     <tr>
