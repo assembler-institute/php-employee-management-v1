@@ -28,7 +28,6 @@ if(isset($_GET["form"]) && $method == 'POST'){
 
 if($method == 'POST' && !isset($_GET["form"])){
   addEmployee($_REQUEST);
-  header("Location:../dashboard.php?flag=1");
 };
 if($method == 'DELETE'){
   $_delete = file_get_contents('php://input');
