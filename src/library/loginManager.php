@@ -7,7 +7,9 @@ function logIn(){
     $password = $_POST['password'];
     $data = json_decode($dataUser, true); //recoger array de users.json
     $admin = $data['users'][0]; //acceder al objeto userId=1 (es una array)
+    //if email don't pass, he back up to  header, indicating that the email is not correct
     if ($admin['email'] == $usermail) {
+        //if email is correct, goes to other if, checking the pass, if it's correct, continue, if not, comeback to index passing get value
         if( password_verify($password , $admin['password'])){
             session_start();
             $_SESSION['user'] = $admin['name'];
