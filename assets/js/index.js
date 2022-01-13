@@ -1,16 +1,14 @@
 let add= document.getElementById("add");
 add.addEventListener("click", addEmployee);
-let trash= document.getElementsByClassName("trash");
-//trash.addEventListener("click",deleteEmployer);
 let img=document.createElement("img");
 img.className='binImg'
 
 //trash.addEventListener("click", deleteEmployer);
-$(".trash").on('click', function(event){
+//$(".trash").on('click', function(event){
  // event.target();
   //event.stopImmediatePropagation();
-  alert("ASD");
-});
+//  alert("ASD");
+//});
 function addEmployee(){
   $("#modalAdd").modal();
   //vaciar inputs en modal
@@ -34,7 +32,15 @@ function success(json) {
     let td8= document.createElement("td");
     let td9= document.createElement("td");
     let td10= document.createElement("td");
+    let buttonTrash = document.createElement("button");
+    let buttonEdit = document.createElement("button");
+    buttonTrash.setAttribute("type", "submit");
+    buttonTrash.setAttribute("name", "submitTrash");
+    buttonTrash.classList.add("buttonTrash");
     let trash=document.createElement("img");
+    buttonEdit.setAttribute("type", "submit");
+    buttonEdit.setAttribute("name", "submitEdit");
+    buttonEdit.classList.add("buttonEdit");
     let edit=document.createElement("img");
 
     tr.setAttribute("id",json[i].id);
@@ -69,10 +75,13 @@ function success(json) {
     tr.appendChild(td8);
     tr.appendChild(td9);
     tr.appendChild(td10);
-    tr.appendChild(trash);
-    tr.appendChild(edit);
+    tr.appendChild(buttonTrash);
+    buttonTrash.appendChild(trash);
+    tr.appendChild(buttonEdit);
+    buttonEdit.appendChild(edit);
   }
 }
+
 
 function failure(error) {
     //document.getElementById('after').innerHTML = "ERROR: " + error;
@@ -91,3 +100,14 @@ function myButtonClick() {
     .catch(error => failure(error));
 }
   myButtonClick();
+
+  let buttonTrashSelect = document.getElementsByClassName("buttonTrash");
+  let buttonEditSelect = document.getElementsByClassName("buttonEdit");
+  console.log(buttonTrashSelect[0])
+  console.log(buttonEditSelect)
+for (let i = 0; i < buttonTrashSelect.length; i++) {
+  buttonTrashSelect[i].addEventListener("click",deleteEmployer);
+}
+for (let i = 0; i < buttonEditSelect.length; i++) {
+  buttonEditSelect[i].addEventListener("click",deleteEmployer);
+}

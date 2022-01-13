@@ -1,8 +1,10 @@
-.binImg {
-  
+img {
     width:30px;
-    height: auto;
 }
+#logoAssembler {
+  width:50%;
+}
+
 .container {
     width: 5px;
     clear: both;
