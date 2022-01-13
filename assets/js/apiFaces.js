@@ -5,16 +5,14 @@ window.addEventListener("DOMContentLoaded", async (e)=> {
 })
 
 function getImage(start, end){
-    let avatars =   $.ajax({
-          url: `./library/employeeController.php?startImage=${start}&&endImage=${end}`,
-        })
-return avatars
-    }
+   let avatars = $.ajax({url: `./library/employeeController.php?startImage=${start}&&endImage=${end}`})
+   return avatars
+}
 
- function printImages(array){
-let carousel = document.getElementById("imgCarousel")
-for (let index = 0; index < array.length; index++) {
-    carousel.insertAdjacentHTML("beforeend", `<img src='${array[index].image_url}'>`)
-    
- }
+function printImages(array){
+   let carousel = document.getElementById("avatarsCarrousel")
+   for (let index = 0; index < array.length; index++) {
+      let template = `<img class="avatarCarrousel" src='${array[index].image_url}'>`;
+      carousel.insertAdjacentHTML("beforeend", template);
+   }
 }

@@ -106,30 +106,6 @@
         "streetAddress": "3"
     },
     {
-        "name": "Manuel",
-        "lastName": "Rodriguez",
-        "email": "manuro@gmail.com",
-        "gender": "male",
-        "city": "Bogota",
-        "streetAddress": "123",
-        "state": "Cundinamarca",
-        "age": "16",
-        "postalCode": "29009",
-        "phoneNumber": "12334312",
-        "id": 11
-    },
-    {
-        "name": "Sergio",
-        "email": "sergio123@gmail.com",
-        "age": "23",
-        "streetAddress": "1234",
-        "city": "Barcelona",
-        "state": "Catalonia",
-        "postalCode": "230004",
-        "phoneNumber": "1234343312",
-        "id": 12
-    },
-    {
         "name": "Aron",
         "email": "tucoelmalote@hotmail.com",
         "age": "24",

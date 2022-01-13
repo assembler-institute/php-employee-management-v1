@@ -16,7 +16,6 @@ function displayEmployeers(employeers) {
     height: "auto",
     width: "100%",
 
-    // filtering: true,
     editing: true,
     inserting: true,
     sorting: true,
@@ -28,19 +27,20 @@ function displayEmployeers(employeers) {
     data: employeers,
 
     fields: [
-      { name: "id", css: "hide", width: 0 },
-      { name: "name", type: "text", title: "Name" },
-      { name: "email", type: "text", title: "Email" },
-      { name: "age", type: "number", title: "Age" },
-      { name: "streetAddress", type: "number", title: "Street No." },
-      { name: "city", type: "text", title: "City" },
-      { name: "state", type: "text", title: "State" },
-      { name: "postalCode", type: "number", title: "Postal Code" },
-      { name: "phoneNumber", type: "number", title: "Phone Number" },
+      { name: "id",type: "hide", width: 0},
+      { name: "name", type: "text", title: "Name", validate: "required" },
+      { name: "email", type: "text", title: "Email", validate: "required" },
+      { name: "age", type: "number", title: "Age", validate: "required" },
+      { name: "streetAddress", type: "number", title: "Street No.", validate: "required" },
+      { name: "city", type: "text", title: "City", validate: "required" },
+      { name: "state", type: "text", title: "State", validate: "required" },
+      { name: "postalCode", type: "number", title: "Postal Code", validate: "required" },
+      { name: "phoneNumber", type: "number", title: "Phone Number", validate: "required" },
       { type: "control", modeSwitchButton: true, editButton: true },
     ],
 
     controller: {
+      //Request a new employee
       insertItem: function addEmployee(item) {
         return $.ajax({
           type: "POST",
@@ -51,6 +51,8 @@ function displayEmployeers(employeers) {
           displayEmployeers(employeers);
         });
       },
+
+      //Request a delete employee
       deleteItem: function deleteEmployee(item) {
         return $.ajax({
           type: "DELETE",
@@ -64,6 +66,7 @@ function displayEmployeers(employeers) {
           }
         });
       },
+      //Request a update employee
       updateItem: function updateEmployee(item) {
         return $.ajax({
           type: "POST",
@@ -82,6 +85,7 @@ function displayEmployeers(employeers) {
       },
     },
 
+    //Click over the row employee selection
     rowClick: function editEmployee(args) {
       let id = args["item"].id;
       location.assign(`./employee.php?editEmployee=${id}`);
@@ -89,35 +93,20 @@ function displayEmployeers(employeers) {
   });
 }
 
+//Show a meesage with complete action
 function sendMessageOk(text){
-
   let messageOk = `<div class="alert alert-success msginfo" role="alert">${text}</div>`
-
   document.querySelector("main").insertAdjacentHTML("afterbegin", messageOk)
-
   setTimeout(function(){
-
       document.querySelector(".msginfo").remove()
-
-      }
-
-      ,3000)
-
+  },3000)
 }
 
-
+//Show a meesage with error action
 function sendMessageError(text){
-
-  let messageOk = `<div class="alert alert-danger msginfo" role="alert">${text}</div>`
-
-  document.querySelector("main").insertAdjacentHTML("afterbegin", messageOk)
-
+  let messageError = `<div class="alert alert-danger msginfo" role="alert">${text}</div>`
+  document.querySelector("main").insertAdjacentHTML("afterbegin", messageError)
   setTimeout(function(){
-
-      document.querySelector(".msginfo").remove()
-
-      }
-
-      ,3000)
-
-}
+    document.querySelector(".msginfo").remove()
+  },3000)
+};

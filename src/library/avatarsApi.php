@@ -14,7 +14,7 @@ function getAvatarsAPI() {
 }
 
 function getIndex($start, $end){
-$avatars = getAvatarsAPI();
-$selectedFaces = array_slice($avatars, $start, $end);
-return array_merge($selectedFaces, array());
+    $avatars = getAvatarsAPI();
+    $selectedFaces = array_slice($avatars, $start, $end);
+    return array_merge($selectedFaces, array());
 }

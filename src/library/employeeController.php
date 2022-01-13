@@ -34,7 +34,7 @@ if(isset($_POST["modifyEmployee"])) {
     unset($_POST["modifyEmployee"]);
     $data = $_POST;
     updateEmployee($data);
- header("Location: ../employee.php?employeeUpdated");
+    header("Location: ../employee.php?employeeUpdated");
 }
 
 //Controller delete employee
@@ -44,6 +44,6 @@ if(isset($_GET["delete"])) {
 }
 
 if(isset($_GET["startImage"])){
-$decodedImages =  getIndex($_GET["startImage"], $_GET["endImage"]);
-echo json_encode($decodedImages);
+    $decodedImages =  getIndex($_GET["startImage"], $_GET["endImage"]);
+    echo json_encode($decodedImages);
 }
