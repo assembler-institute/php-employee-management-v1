@@ -12,7 +12,7 @@ async function getEmployees() {
 function loadEmployeeTable(employees) {
   $("#jsGrid").jsGrid({
     width: "100%",
-    height: "400px", //800max
+    height: "700px", //800max
 
     inserting: true,
     sorting: true,

@@ -27,11 +27,9 @@ require_once("./library/employeeManager.php")
   </div>
 </main>
 
-<footer class="footer mt-auto py-3">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
-</footer>
+<?php
+require(".././assets/html/footer.html");
+?>
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

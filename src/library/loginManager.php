@@ -1,5 +1,6 @@
+<!-- This file will contain the necessary functions so that the user can log in, save their session data and log out.-->
 <?php
-//require("./loginController.php");
+//compare the data introduced in index with user.json and verify
 
 function logincheck() {
 
@@ -17,6 +18,7 @@ $login=validateLoginData(
     $logedUserName,
     $logedUserPassword
 );
+// in case is introduced wrong credentials display notify
 echo($login);
 switch ($login) {
     case "Loged":
@@ -40,13 +42,27 @@ switch ($login) {
 }
 }
 
-function checkLogOut()
-{
-    if (!isset($_SESSION)) {
-        "<div class='alert alert-success' role='alert' style='margin-top: 10px;'>Logged out!</div>";
+function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword){
+
+    switch (true) {
+        case ($launchUser==$logedUser && password_verify($launchPassword,$logedPassword)):
+                return "Loged";
+                break;
+        case (($launchUser!=$logedUser) && !password_verify($launchPassword,$logedPassword)):
+                return "Wrong name and password";
+                break;
+        case (!($launchUser==$logedUser)):
+                return "Wrong name";
+                break;
+        case (!password_verify($launchPassword,$logedPassword)):
+                return "Wrong password";
+                break;
+        default:
+                break;
     }
 }
 
+// functions for logout
 function destroySession()
 {
     session_start();
@@ -71,22 +87,3 @@ function destroySessionCookie()
     }
 }
 
-function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword){
-
-    switch (true) {
-        case ($launchUser==$logedUser && password_verify($launchPassword,$logedPassword)):
-                return "Loged";
-                break;
-        case (($launchUser!=$logedUser) && !password_verify($launchPassword,$logedPassword)):
-                return "Wrong name and password";
-                break;
-        case (!($launchUser==$logedUser)):
-                return "Wrong name";
-                break;
-        case (!password_verify($launchPassword,$logedPassword)):
-                return "Wrong password";
-                break; 
-        default:
-                break;
-    }
-}
