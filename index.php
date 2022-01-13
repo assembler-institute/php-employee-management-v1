@@ -24,6 +24,12 @@
 </head>
 
 <body>
+  <?php
+    if(isset($_GET["flag"])){
+      echo "<div class='alert alert-info' id='logoutLabel' role='alert'>Not a valid user or password!</div>";
+    }
+
+  ?>
   <div id="container-login">
   <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center" id="template-bg-3">
   

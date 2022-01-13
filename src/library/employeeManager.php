@@ -20,7 +20,7 @@ if (!isset($newEmployee['lastName'])) {
 }
 if (isset($newEmployee["flag"])){
   unset($newEmployee["flag"]);
-  header("Location:../dashboard.php");
+  header("Location:../dashboard.php?flag=1");
 }
 array_push($newCollections, $newEmployee);
 file_put_contents('../../resources/employees.json', json_encode($newCollections, JSON_PRETTY_PRINT));

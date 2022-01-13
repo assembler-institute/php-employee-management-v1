@@ -20,5 +20,5 @@ if (password_verify($pass, $paswordDB) && $email == $emailDB){
 }
 else{
     // poner un alert o un pop up!
-    header("Location:../../index.php");
+    header("Location:../../index.php?flag=1");
 }

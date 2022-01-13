@@ -9,6 +9,8 @@
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
   <script src="../assets/js/index.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
   <style>
     .hide {
       display: none;
@@ -27,6 +29,9 @@ session_start();
   // print_r($_SESSION['last_access']);
   if(isset($_SESSION['last_access']) && time() - $_SESSION['last_access'] > 600){ //llamamos a la funcion que lleva el tiempo establecido que esta en el loginManager
     sessionDestroy("location:../index.php");
+  }
+  if(isset($_GET["flag"])){
+    echo "<div class='alert alert-info' id='logoutLabel' role='alert'>New employee added succesfully!</div>";
   }
 
   ?>
