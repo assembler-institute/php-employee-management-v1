@@ -9,12 +9,12 @@ if(isset($_GET["logout"])) {
         header('Location: ../../index.php?logOut=true2');
     }
 
-
+/*
 function startSession()
 {
         $_SESSION["logintime"] = time();
         header("Location:../dashboard.php");
-}
+}*/
 
 /*function deleteSession()
 {

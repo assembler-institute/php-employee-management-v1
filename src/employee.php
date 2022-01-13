@@ -1,16 +1,15 @@
 <!-- TODO Employee view -->
 <?php 
-session_start();
-
+require_once('./library/sessionHelper.php');
+checkSession();
+checkSessionTime();
 require_once("./library/employeeManager.php");
 if(isset($_GET["id"])) {
     $id = $_GET["id"];
     $employee = getEmployee($id);
 }
-require_once('./library/sessionHelper.php');
-if (!isset($_SESSION)) {
-    header("Location : ../index.php");
-}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +25,6 @@ if (!isset($_SESSION)) {
 
     
 <?php require_once "../assets/html/header.php" ?>
-<h1>Welcome <?php echo $_SESSION["loged"];?></h1>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
     <?php 

@@ -16,7 +16,7 @@
         </ul>
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
-              <a class="nav-link" href="../src/library/loginManager.php?logOut">Log out</a>
+              <a class="nav-link" href="../src/library/loginController.php?logout">Log out</a>
           </li>
           </ul>
       </div>

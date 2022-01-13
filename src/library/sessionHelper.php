@@ -2,21 +2,22 @@
 require_once('loginManager.php');
 
 //check sesion & check sesion time
-function checksessiontime()
+function checkSessionTime()
 {
+    session_start();
 if (isset($_SESSION["logintime"])){
-    if (isset($_Get["timeoutcheck"])) {
-        if (time() - $_SESSION["login_time"] >= 30 * 1) {
-            echo "Log out";
+        if (time() >= $_SESSION["login_time"] + (15 * 1000)) {
+            destroySession();
+            header('Location: ../index.php?logout_time_expired');
         }
-    }
 }
 }
 
 function checkSession()
 {
-    if (!isset($_SESSION["email"])) {
+    session_start();
+    if (!isset($_SESSION["userName"])) {
         $_SESSION["loginerror"] = "You cannot access without login";
-        header("location:./index.php");
+        header("location:../index.php");
     }
 }

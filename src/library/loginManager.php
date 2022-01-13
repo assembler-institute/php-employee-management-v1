@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 //require("./loginController.php");
 
 function logincheck() {
@@ -22,7 +20,9 @@ $login=validateLoginData(
 echo($login);
 switch ($login) {
     case "Loged":
-        $_SESSION["loged"]=$logedUserName;
+        session_start();
+        $_SESSION["userName"]=$logedUserName;
+        $_SESSION["logintime"] = time();
         header("Location:../dashboard.php");
         break;
     case "Wrong name and password":
@@ -44,28 +44,15 @@ switch ($login) {
 }
 }
 
-
 /*if(isset($_GET['logOut'])){
     header('Location: ../../index.php?logOut=true2');
     destroySession();
 }*/
 
-
-
-
 function checkLogOut()
 {
     if (!isset($_SESSION)) {
         "<div class='alert alert-success' role='alert' style='margin-top: 10px;'>Logged out!</div>";
-    }
-}
-
-function checkErrors()
-{
-    if (isset($_SESSION["loginerror"])) {
-        $error = $_SESSION["loginerror"];
-        echo "<div class='alert alert-danger' role='alert' style='margin-top: 10px;'>", $error, "</div>";
-        unset($_SESSION["loginerror"]);
     }
 }
 
@@ -84,7 +71,7 @@ function destroySessionCookie()
         setcookie(
             session_name(),
             '',
-            time() - 10,
+            time() - 4200,
             $params["path"],
             $params["domain"],
             $params["secure"],
