@@ -2,7 +2,7 @@
 require_once("./employeeManager.php");
 
 $method = $_SERVER['REQUEST_METHOD']; //Receive the the method of the request(GET, POST, DELETE
-)
+
 switch ($method) {
 
     case "GET":
