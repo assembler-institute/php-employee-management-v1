@@ -16,22 +16,11 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
   $employees = invokeEmployees();
   $newId=getNextIdentifier($employees);
   print_r($newEmployee["id"]);
   //we push into the employees array
   $newEmployee["id"]=$newId;
-  print_r($newEmployee["id"]);
-
-  //fill the empty values
-  //if(count($newEmployee)==6){
-    //$newEmployee["lastname"]="";
-    //$newEmployee["gender"]="";
-    //$newEmployee["state"]="";
-    //$newEmployee["postalCode"]="";
-    //$newEmployee["phoneNumber"]="";
-  //}
   array_push($employees,$newEmployee);
  //encode the json again
   $employees=json_encode($employees);
@@ -43,15 +32,14 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
   $employees = invokeEmployees();
   //we search the key of the employee will be deleted by the id introduced
   $key=array_search($id,array_column($employees,"id"));
-  //delete the key from the array
+  //delete the key from the array if is not found
   if($key!==false){
     unset($employees[$key]);
   }
-  //re-order:
+  //array re-order:
   $employees = array_values($employees);
   //encode the json again
   $employees=json_encode($employees);
@@ -62,7 +50,6 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
   $employees = invokeEmployees();
   //we search the key of the employee will be deleted by the id introduced
   $key=array_search($updateEmployee["id"],array_column($employees,"id"));
@@ -77,13 +64,13 @@ function updateEmployee(array $updateEmployee)
 
 
 function getEmployee(string $id){
-  $dataEmployee=  file_get_contents("./../../resources/employees.json"); //obtiene el contenido del employee.json
-  $arrayObj = json_decode($dataEmployee, true); //guarda en arrayObj el codificado en forma de array asociativo con objetos
-  foreach ($arrayObj as $key => $value) {
+  $dataEmployee=  file_get_contents("./../../resources/employees.json"); //get the content of employees.json
+  $arrayObj = json_decode($dataEmployee, true); //decode json as asociative array and saves in a variable
+  foreach ($arrayObj as $key => $value) { // for each to find the id we passed as parameter
       $employeeObj=$value; // obtiene un solo objeto del array actual
       if($employeeObj["id"]==$id){
-        $employeeObj=json_encode($employeeObj); //convierte el objeto en un json
-          return print_r($employeeObj);
+        $employeeObj=json_encode($employeeObj); //transform the obj in json
+          return print_r($employeeObj); //return in print
       }
   }
 }
@@ -106,7 +93,6 @@ function getQueryStringParameters()
 
 function getNextIdentifier(array $employeesCollection)
 {
-// TODO implement it
 //lets see what is the last employee in array
   $lastEmployee=end($employeesCollection);
   //extract the id to integer and sum 1

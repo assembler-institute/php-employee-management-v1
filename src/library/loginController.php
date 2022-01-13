@@ -1,6 +1,5 @@
 <?php
 require_once("./loginManager.php");
-//require_once("./library/sessionHelper.php");
 if(isset($_POST["logout"]) || isset($_GET["timeout"])){
     logout();
 }

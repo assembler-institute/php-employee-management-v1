@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <!-- If user tries to go somewhere with url, he come to index -->
     <div class="msgContainer">
         <?php 
            if(isset($_GET["notlogged"])){
@@ -30,13 +31,14 @@
         ?>
             
     </div>
-
+<!-- Login section -->
     <section class="m-0 vh-100 row justify-content-center align-items-center">
         <form method="post" action="./src/library/loginController.php" class="col-auto p-5 text-center bg-light">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" name="usermail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <!-- Display error if email is not correct (see in loginController.php) -->
                 <div class="errorForm">
                     <?php
                         if(isset($_GET["fail"]) && $_GET["fail"]=="email") {
@@ -51,6 +53,7 @@
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+                <!-- Display error if password is not correct (see in loginController.php) -->
                 <div class="errorForm">
                     <?php
                         if(isset($_GET["fail"]) && $_GET["fail"]=="pass") {

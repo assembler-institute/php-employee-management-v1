@@ -2,11 +2,11 @@
 
 
 function logIn(){
-    $dataUser = file_get_contents('./../../resources/users.json');//acces to JSON users.json
+    $dataUser = file_get_contents('./../../resources/users.json');//access to JSON users.json
     $usermail = $_POST['usermail'];
     $password = $_POST['password'];
-    $data = json_decode($dataUser, true); //recoger array de users.json
-    $admin = $data['users'][0]; //acceder al objeto userId=1 (es una array)
+    $data = json_decode($dataUser, true); //pick array of users.json
+    $admin = $data['users'][0]; //access to user.json, in echo appears like $data(entire json)->object(users)->array[object 1]
     //if email don't pass, he back up to  header, indicating that the email is not correct
     if ($admin['email'] == $usermail) {
         //if email is correct, goes to other if, checking the pass, if it's correct, continue, if not, comeback to index passing get value
@@ -34,6 +34,7 @@ function logIn(){
                 $params["secure"], $params["httponly"]
             );
         }
+    unset($_SESSION["login_time"]);
     session_destroy();
     header("location: ./../../index.php");
     }

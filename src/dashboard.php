@@ -59,7 +59,6 @@
                 </div>
             </div>
         </article>
-        <!-- ERROR MODAL -->
 </body>
 
 </html>

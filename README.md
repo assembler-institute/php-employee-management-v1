@@ -176,7 +176,6 @@ $decodedResponse = json_decode($apiResponse);
     <li>Jquery -> part of the code is wrote in jquery, because jsgrid conditions.</li>
     <li>Bootstrap -> The styles in this project are done by using bootstrap framework.</li>
     <li>JsGrid -> The purpose of this project is: work with the employees.json (update, delete, etc). To do the html structure we use the jsgrid.</li>
-    <li>json-server -> To do fetchs and all this things to update, display, create, delete. We use the json-server to start a server and work with the jsons.  </li>
 </ul>
 <cite>I recommend you to check the paths in html to ensure all is ok</cite>
 

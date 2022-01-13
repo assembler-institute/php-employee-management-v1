@@ -1,11 +1,11 @@
 window.onload = function () {
-    if ($('#userId').val() != " ") { //If the hidden id input contains any values
+    if ($('#userId').val() != " ") { //If the hidden id input contains any values, if not pass, go to "create employe mode" (else)
         var userId = $('#userId').val(); //get this value
         chargeData(userId); //sends it as a parameter to the function
-        saveListenerUpdate();
+        saveListenerUpdate(); //activate listener to submit (update)
     } else {
-        $('#nameTitle').text('New Employee'); //fill in the h2 of employee.php
-        saveListenerCreate();
+        $('#nameTitle').text('New Employee'); //fill the title(h2) in employee.php
+        saveListenerCreate(); //activate listener to submit (create)
     }
     //listener to go back with cancel btn
     $("#cancelBtn").on("click", function (e) {
@@ -16,11 +16,13 @@ window.onload = function () {
 
 async function chargeData(userId) {
     //the object is retrieved based on the url with that Id
+    //get employee selected
     await fetch("../src/library/employeeController.php?userId=" + userId, {
             method: 'GET'
         })
         .then((response) => response.json())
         .then((data) => {
+            //fill inputs with data obj
             writeInput(data);
         });
 }
@@ -46,7 +48,6 @@ function saveListenerUpdate() {
         e.preventDefault(); //to avoid sending data by url in the browser
         var obj = getFormValues();
         fetchUpdate(obj);
-        // header('Location: src/dashboard.php');
     })
 
 }
@@ -57,7 +58,6 @@ function saveListenerCreate() {
         e.preventDefault(); //to avoid sending data by url in the browser
         var obj = getFormValues();
         fetchCreate(obj);
-        //header('Location: src/dashboard.php');
     })
 
 }
@@ -81,6 +81,7 @@ async function fetchUpdate(obj) {
             body: JSON.stringify(obj)
         })
         .then(response => {
+            //if response is ok, print a success msg, else, print error msg
             if (response.ok) {
                 $(".msgContainer").append(`
                 <div class="alert alert-success insertMsg"  role="alert">
@@ -111,7 +112,7 @@ async function fetchCreate(obj) {
         })
         .then(response => {
             if (response.ok) {
-
+                //if response is ok, print a success msg, else, print error msg
                 $(".msgContainer").append(`
                     <div class="alert alert-success insertMsg"  role="alert">
                         Your employee was created!

@@ -18,6 +18,7 @@
             
             </div>
     <section class="row justify-content-center">
+        <!-- Employee form  -->
         <form id="employeeForm" class="col-8 bg-light" action="./library/employeeController.php?update" method="POST">
             <h2 id="nameTitle"> </h2>
             <!-- hidden input that collects the value of the id of the object selected in the dashboard -->

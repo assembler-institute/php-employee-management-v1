@@ -6,6 +6,7 @@ $("#deleteModal").on("hidden.bs.modal", function () {
     $("#acceptDelete").off();
     $("#cancelDelete").off();
 })
+window.onload = createTable();
 //create table of employees
 async function createTable() {
     //get number of employees
@@ -16,6 +17,7 @@ async function createTable() {
         width: "100%",
         height: "70vh",
         //Validator
+        //if email is already in the database, or phone number already choosen
         onItemInserting: function (args) {
             console.log('validator');
             employees.forEach(element => {
@@ -35,15 +37,6 @@ async function createTable() {
         sorting: true,
         paging: true,
         confirmDeleting: false,
-        //TODO modify alert error
-        // invalidNotify: function (args) {
-        //     $('#alert-error-not-submit').removeClass('hidden');
-        //     args.errors.forEach(element => {
-        //         msg = element.message;
-        //     })
-        //     console.log(msg);
-        // },
-
         //sending data when actions like edit, and insert are completed, delete functions is under jsgrid
         controller: {
             //the event when you click in the + button
@@ -116,6 +109,7 @@ async function createTable() {
                 align: "center",
                 type: "text",
                 width: 100,
+                //validations
                 validate: {
                     validator: "rangeLength",
                     message: function (value, item) {
@@ -207,11 +201,11 @@ async function createTable() {
                 width: 100,
                 editButton: false,
                 deleteButton: false,
-                //insertButton
 
                 //edit and delete btns
                 itemTemplate: function (value, item) {
                     var result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+
                     //edit btn
                     var customEditButton = $("<button>").attr({
                         class: "btn btn-warning btn-xs",
@@ -221,7 +215,7 @@ async function createTable() {
 
 
 
-                    //delete button, we add some data bs attr 
+                    //delete button, we add some data bs attr to open modal
                     var customDeleteButton = $("<button>").attr({
                             class: "btn btn-danger btn-xs",
                             "data-bs-toggle": "modal",
@@ -239,6 +233,7 @@ async function createTable() {
                             })
                             e.stopPropagation()
                         })
+                    //overview of employee(eye btn) 
                     var customViewButton = $("<button></button>").attr({
                         class: "btn btn-info btn-xs",
                         "data-id": item.id
@@ -254,7 +249,7 @@ async function createTable() {
 }
 
 
-
+//fetch to get the employees and put in array, later we display in jsgrid()
 async function displayEmployees() {
     await fetch("./library/employeeController.php?display=true")
         .then(response => response.json())
@@ -264,6 +259,8 @@ async function displayEmployees() {
             })
         })
 }
+
+//change page to employees when you click in the eye
 
 function changePage(e) {
     var userName;
@@ -279,7 +276,7 @@ function changePage(e) {
 }
 
 async function deleteEmployee(item) {
-    //i pass delete key in get with the item value (ID)
+    //i pass delete key in GET with the item value (ID)
     await fetch("./library/employeeController.php?delete=" + item, {
             method: "delete"
         })
@@ -312,6 +309,3 @@ function fadeOutMsg(msg) {
         })
     }, 5000)
 }
-
-
-window.onload = createTable();

@@ -1,7 +1,7 @@
 //if error msg is not null...
-if ($("#loginFailedMsg").length) {
+if ($(".alert-warning").length) {
     setTimeout(function () {
-        $("#loginFailed").fadeOut(1000)
+        $(".alert-warning").fadeOut(1000)
     }, 5000)
 
 }
