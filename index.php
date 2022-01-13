@@ -33,7 +33,7 @@ $alert = checkSession();
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     </form>
   </main>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

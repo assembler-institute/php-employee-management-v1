@@ -1,23 +1,10 @@
 [
     {
-        "id": 2,
-        "name": "John D",
-        "lastName": "Doe",
-        "email": "jhondoe@foo.com",
-        "gender": "male",
-        "city": "New York",
-        "streetAddress": "89",
-        "state": "WA",
-        "age": "34",
-        "postalCode": "09889",
-        "phoneNumber": "1283645645"
-    },
-    {
         "id": 3,
-        "name": "Lweeila",
+        "name": "Lweeilad",
         "lastName": "Mills",
         "email": "mills@leila.com",
-        "gender": "woman",
+        "gender": "male",
         "city": "San Diego",
         "streetAddress": "55",
         "state": "CA",
@@ -27,7 +14,7 @@
     },
     {
         "id": 6,
-        "name": "Brad Pitt",
+        "name": "Brad",
         "lastName": "Simpson",
         "email": "brad@foo.com",
         "gender": "male",

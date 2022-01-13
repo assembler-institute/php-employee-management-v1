@@ -80,7 +80,7 @@ const deleteButtons = document.querySelectorAll("button[data-delete]");
 deleteButtons.forEach(btn=>{
   btn.addEventListener("click",()=>{
     const employeeId = btn.getAttribute("data-delete");
-  fetch(urlDelete,{method:"POST", body:employeeId})
+  fetch(urlDelete,{method:"DELETE", body:employeeId})
   .then(response => response.text())
   .then(data => removeDeletedEmployee(employeeId))
   })
@@ -149,7 +149,7 @@ function updateEmployeeFetch(e,id){
   var updateEmployeeJSON = JSON.stringify(object);
   fetch(urlUpdate+id, {
     body: updateEmployeeJSON,
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
   })
   .then(response => response.text())
   .then(data => displayUpdatedEmployee(JSON.parse(data)))

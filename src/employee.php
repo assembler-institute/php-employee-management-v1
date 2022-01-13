@@ -4,27 +4,17 @@
 include "../assets/html/header.html";
 require_once "./library/loginManager.php";
 checkSession();
-require "./library/employeeManager.php";
-
-// Error message for users that don't exist
-if (!isset($_GET["id"])) {
-    echo "Employee not found";
-    exit;
-}
+require_once "./library/employeeManager.php";
 $employeeId = $_GET["id"];
-
 $employee = getEmployee($employeeId);
-if (!$employee) {
-    echo "Employee not found";
-    exit;
-}
-// Update information
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    updateEmployeeSync($_POST, $employeeId);
-    header("Location: ./dashboard.php");
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    updateEmployeeSync($_POST,$employeeId);
+    header("Location:./dashboard.php");
 }
 
-    ?>
+?>
+
 <!-- NAV -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -49,56 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     </nav>
 
-<!-- VIEW MODE -->
-    <div class="card-body col-6 mx-auto" style="display:<?php if($_GET["v"] == "update") { echo "block"; } else{ echo "none"; }?>">
-        <table class="table">
-            <tbody class="table-bordered">
-                <tr>
-                    <th>Name</th>
-                    <td><?= $employee["name"]?></td>
-                </tr>
-                <tr>
-                    <th>Last Name</th>
-                    <td><?= $employee["lastName"]?></td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td><?= $employee["email"]?></td>
-                </tr>
-                <tr>
-                    <th>Gender</th>
-                    <td><?= $employee["gender"]?></td>
-                </tr>
-                <tr>
-                    <th>City</th>
-                    <td><?= $employee["city"]?></td>
-                </tr>
-                <tr>
-                    <th>Street Address</th>
-                    <td><?= $employee["streetAddress"]?></td>
-                </tr>
-                <tr>
-                    <th>State</th>
-                    <td><?= $employee["state"]?></td>
-                </tr>
-                <tr>
-                    <th>Age</th>
-                    <td><?= $employee["age"]?></td>
-                </tr>
-                <tr>
-                    <th>Postal Code</th>
-                    <td><?= $employee["postalCode"]?></td>
-                </tr>
-                <tr>
-                    <th>Phone Number</th>
-                    <td><?= $employee["phoneNumber"]?></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
 <!-- UPDATE MODE  -->
-    <div class="container" style="display:<?php if($_GET["v"] == "view") { echo "block"; } else{ echo "none"; }?>">
+    <div class="container">
         <form action="" method="POST" enctype="multipart/form">
             <div class="d-flex justify-content-center">
                 <div class="col-4">
