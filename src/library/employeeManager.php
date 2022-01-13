@@ -37,11 +37,14 @@ function updateEmployee($updateEmployee)
     $empleados=leerempleados();
     foreach($empleados as $empleado){
         if($empleado->id == $updateEmployee){
-            $empleado->id = $_POST["id"];
+            foreach($empleados as $empleado2){{
+                if($empleado2->email==$_POST['email']){
+                    return false;
+                }}
+            $empleado->email = $_POST['email'];
             $empleado->name = $_POST["name"];
             $empleado->gender = $_POST["gender"];
             $empleado->lastName = $_POST['lastName'];
-            $empleado->email = $_POST['email'];
             $empleado->age = $_POST['age'];
             $empleado->city = $_POST['city'];
             $empleado->state = $_POST['state'];
@@ -51,8 +54,8 @@ function updateEmployee($updateEmployee)
         }
     }
     enviarempleados($empleados);
-    return "true";
-}
+    return true;
+}}
 
 
 function getEmployee(string $id)
