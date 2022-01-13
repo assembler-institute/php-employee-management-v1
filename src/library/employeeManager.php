@@ -19,8 +19,11 @@ function addEmployee(array $newEmployee)
 // TODO implement it
   $employees = invokeEmployees();
   $newId=getNextIdentifier($employees);
+  print_r($newEmployee["id"]);
   //we push into the employees array
   $newEmployee["id"]=$newId;
+  print_r($newEmployee["id"]);
+
   //fill the empty values
   //if(count($newEmployee)==6){
     //$newEmployee["lastname"]="";
