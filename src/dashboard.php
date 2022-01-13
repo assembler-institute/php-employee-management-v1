@@ -5,8 +5,9 @@ $employees = getEmployees();
 require_once "./library/loginManager.php";
 checkSession();
     ?>
+
 <!-- NAV -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light container-xl">
   <div class="container-fluid">
   <a class="navbar-brand" href="#">
       <img src="../assets/img/logo.jpg" alt="" width="25">
@@ -29,11 +30,11 @@ checkSession();
   </div>
 </nav>
 
-<!-- Read JSON file, convert it into PHP array and then iterate over the array in order to create a table-->
-<div class="container">
-  <table class="table">
+<!-- Main table -->
+<main class="container-xl my-5">
+  <table class="table table-striped table-bordered">
     <thead>
-      <tr>
+      <tr class="table-primary">
         <th>Name</th>
         <th>Email</th>
         <th>Age</th>
@@ -42,7 +43,7 @@ checkSession();
         <th>State</th>
         <th>Postal Code</th>
         <th>Phone Number</th>
-        <th><a id="btn-add-employee"class="btn btn-success" href="#"><i class="fas fa-plus"></i></a></th>
+        <th><button id="btn-add-employee"class="btn btn-primary w-100 text-center" href="#">Create new</button></th>
       </tr>
     </thead>
     <tbody id="employees-table">
@@ -56,15 +57,34 @@ checkSession();
           <td><?= $employee["state"] ?></td>
           <td><?= $employee["postalCode"] ?></td>
           <td><?= $employee["phoneNumber"] ?></td>
-          <td class="d-flex">
-            <a href="./library/employeeController.php?v=view&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
-            <button data-update='<?= $employee["id"]?>' class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
-            <button data-delete = '<?= $employee["id"]?>' class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+          <td class="d-flex justify-content-between">
+            <a href="./library/employeeController.php?v=view&id=<?= $employee["id"]?>" class="btn btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
+            <button data-update='<?= $employee["id"]?>' class="btn btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
+            <a data-delete = '<?= $employee["id"]?>' class="btn btn-outline-danger" href="#deleteModal" data-toggle="modal"><i class="far fa-trash-alt"></i></a>
           </td>
         </tr>
       <?php endforeach; ?>
     </tbody>
   </table>
+</main>
+   
+<!-- Modal HTML -->
+<div id="deleteModal" class="modal fade">
+	<div class="modal-dialog modal-confirm modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header flex-column">				
+				<h4 class="modal-title w-100">Are you sure?</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete these records? This process cannot be undone.</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				<button id="deleteBtnModal" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <?php

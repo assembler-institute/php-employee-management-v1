@@ -2,8 +2,10 @@
 <?php
 
 include "../assets/html/header.html";
+
 require_once "./library/loginManager.php";
 checkSession();
+
 require_once "./library/employeeManager.php";
 $employeeId = $_GET["id"];
 $employee = getEmployee($employeeId);
@@ -12,11 +14,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     updateEmployeeSync($_POST,$employeeId);
     header("Location:./dashboard.php");
 }
-
 ?>
 
 <!-- NAV -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light container-xl">
     <div class="container-fluid">
     <a class="navbar-brand" href="#">
         <img src="../assets/img/logo.jpg" alt="" width="25">
@@ -37,74 +38,82 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <a class="link-primary" href="./library/loginController.php?logout=1">Log out</a>
     </div>
-    </nav>
+</nav>
 
-<!-- UPDATE MODE  -->
-    <div class="container">
-        <form action="" method="POST" enctype="multipart/form">
-            <div class="d-flex justify-content-center">
-                <div class="col-4">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" name="name" value="<?= $employee["name"]?>" class="form-control">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" name="email" value="<?= $employee["email"]?>" class="form-control">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>City</label>
-                        <input type="text" name="city" value="<?= $employee["city"]?>" class="form-control">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>State</label>
-                        <input type="text" name="state" value="<?= $employee["state"]?>" class="form-control">
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Postal Code</label>
-                        <input type="text" name="postalCode" value="<?= $employee["postalCode"]?>" class="form-control">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" name="lastName" value="<?= $employee["lastName"]?>" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Gender</label>
-                        <select name="gender" value="<?= $employee["gender"]?>" class="form-control">
-                            <option value="male">man</option>
-                            <option value="male">woman</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Street Address</label>
-                        <input type="text" name="streetAddress" value="<?= $employee["streetAddress"]?>" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Age</label>
-                        <input type="text" name="age" value="<?= $employee["age"]?>" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" name="phoneNumber" value="<?= $employee["phoneNumber"]?>" class="form-control">
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <a href="./dashboard.php" class="btn btn-secondary mx-2">Cancel</a>
-                        <button class="btn btn-success">Update</button>
-                    </div>
-                </div>
+<!-- Employee details and update  -->
+    <main class="container container-xl my-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Employee details: <b><?= $employee["name"]." ".$employee["lastName"]?></b></h3>
             </div>
-        </form>
-    </div>
+            <div class="card-body">
+                <form action="" method="POST" enctype="multipart/form">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="name" value="<?= $employee["name"]?>" class="form-control" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="text" name="email" value="<?= $employee["email"]?>" class="form-control" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" name="city" value="<?= $employee["city"]?>" class="form-control" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label>State</label>
+                                <input type="text" name="state" value="<?= $employee["state"]?>" class="form-control" required>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input type="text" name="postalCode" value="<?= $employee["postalCode"]?>" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="lastName" value="<?= $employee["lastName"]?>" class="form-control" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select name="gender" value="<?= $employee["gender"]?>" class="form-control" required>
+                                    <option value="male">man</option>
+                                    <option value="male">woman</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Street Address</label>
+                                <input type="text" name="streetAddress" value="<?= $employee["streetAddress"]?>" class="form-control" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input type="text" name="age" value="<?= $employee["age"]?>" class="form-control" required>
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="text" name="phoneNumber" value="<?= $employee["phoneNumber"]?>" class="form-control" required>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="./dashboard.php" class="btn btn-secondary mx-2">Cancel</a>
+                                <button class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</main>
+
 <?php
 include "../assets/html/footer.html"
     ?>
