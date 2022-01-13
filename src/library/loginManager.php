@@ -28,4 +28,10 @@
         header("Location: ../../index.php");
     }
     
+    function logout($email){
+        if (isset($email)) {
+            session_destroy();
+            header("Location: ../../index.php");
+        }
+    }
 ?>
