@@ -1,17 +1,17 @@
 
 window.onload = function() {
-    if( $('#userId').val()!=" "){ //Si el input oculto de id contiene algún valor
-        var userId=$('#userId').val(); //recupera ese valor
-        chargeData(userId); //lo envía como parámetro de la función
+    if( $('#userId').val()!=" "){ //If the hidden id input contains any values
+        var userId=$('#userId').val(); //get this value
+        chargeData(userId); //sends it as a parameter to the function
         saveListenerUpdate();
     }else{
         saveListenerCreate();
     }
-    header('Location: ./src/dashboard.php');
+    //header('Location: ./src/dashboard.php');
 }
 
 async function chargeData(userId) {
-    //se obtiene el objeto en base a la url con ese Id
+    //the object is retrieved based on the url with that Id
     await fetch("../src/library/employeeController.php?userId=" + userId, {
             method: 'GET'
         })
@@ -22,7 +22,7 @@ async function chargeData(userId) {
 }
 
 function writeInput(obj) {
-    //se imprimen los valores en el formulario de manera dinámica
+    //values are printed dynamically in the form
     console.log(obj)
     $('#inputName').val(obj.name);
     $('#inputEmail').val(obj.email);
@@ -40,7 +40,7 @@ function writeInput(obj) {
 function saveListenerUpdate(){
 
     $('#employeeForm').on('submit', function(e){
-        e.preventDefault(); //para evitar enviar los datos por url en el navegador
+        e.preventDefault(); //to avoid sending data by url in the browser
         var obj= getFormValues();
         fetchUpdate(obj);
         console.log(obj)
@@ -51,7 +51,7 @@ function saveListenerUpdate(){
 function saveListenerCreate(){
 
     $('#employeeForm').on('submit', function(e){
-        e.preventDefault(); //para evitar enviar los datos por url en el navegador
+        e.preventDefault(); //to avoid sending data by url in the browser
         var obj= getFormValues();
         fetchCreate(obj);
         console.log(obj)
@@ -60,20 +60,20 @@ function saveListenerCreate(){
 }
 
 function getFormValues(){
-    var elements = document.getElementById("employeeForm").elements;//recogemos los elementos del formulario
+    var elements = document.getElementById("employeeForm").elements;//we collect the elements of the form
     var obj ={};
-    for(var i = 0 ; i < elements.length ; i++){//se recorre cada elemento dejando los botones fuera
+    for(var i = 0 ; i < elements.length ; i++){//each element is scrolled through leaving the buttons out
         var item = elements.item(i);
         if(item.id=="saveBtn" || item.id=="cancelBtn"){
             break
         }
-        obj[item.name] = item.value; //Se recogen todos los valores dentro de un objeto
+        obj[item.name] = item.value; //All values are collected within an object
     }
     return obj;
 }
 
 async function fetchUpdate(obj){
-    await fetch("./library/employeeController.php?update=" + obj.id, { //llamamos a la función update() a través de la id del objeto
+    await fetch("./library/employeeController.php?update=" + obj.id, { //we call the update() function via the object's id
             method: "PUT",
             body: JSON.stringify(obj)
         })
@@ -81,7 +81,7 @@ async function fetchUpdate(obj){
 }
 
 async function fetchCreate(obj){
-    await fetch("./library/employeeController.php?newEmployee=true", { //llamamos a la función newEmployee()
+    await fetch("./library/employeeController.php?newEmployee=true", { //we call the function newEmployee()
             method: "POST",
             body: JSON.stringify(obj)
         })

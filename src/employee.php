@@ -17,7 +17,7 @@
     <section class="m-0 row justify-content-center ">
         <form id="employeeForm" class="col-8 bg-light" action="./library/employeeController.php?update" method="POST">
             <h2>Employee Name</h2>
-            <!-- input oculto que recoge el valor del id del objeto soleccionado en el dashboard -->
+            <!-- hidden input that collects the value of the id of the object selected in the dashboard -->
             <input id="userId" type="hidden" name="id" value="<?php  if( isset ($_GET["userId"])) {   echo $_GET["userId"];      }else{    echo " ";    }?>">
             <div class="row">
                 <div class="col ">
