@@ -245,6 +245,9 @@ onItemInserting: function(args){
 
     });
 }
+
+
+
 async function displayEmployees() {
     await fetch("./library/employeeController.php?display=true")
         .then(response => response.json())
