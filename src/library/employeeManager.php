@@ -101,6 +101,12 @@ function updateEmployee(array $updateEmployee, $path)
             $user->city = $updateEmployee["city"];
             header("Location: ./dashboard.php");
         }
+        // }else if($updateEmployee["id"] ){
+            
+        //     if($user->id == $updateEmployee["id"]){
+        //         $user = $updateEmployee;
+        //     }
+        // }
         $customers[] = $user;
     }
     if($updateEmployee["id"] ){
@@ -109,6 +115,7 @@ function updateEmployee(array $updateEmployee, $path)
             if($user->id == $updateEmployee["id"]){
                 $user = $updateEmployee;
             }
+
             $customers[] = $user;
         }
     }

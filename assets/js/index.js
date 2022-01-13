@@ -65,12 +65,14 @@ async function callGrid() {
         ],
         //todo event listener to update from inline table
         onItemUpdated: function (args) {
+            //console.log(args.item);
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
                 success: function (data) {
-                    alert("Data updated");
+                    console.log(data);
+                   // callGrid();
                 }
             })
         },
@@ -82,7 +84,8 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?delEmployee",
                 data: args.item,
                 success: function (data) {
-                    alert("Data Deleted");
+                    console.log(data);
+                   // callGrid();
                 }
             });
         },
@@ -97,6 +100,7 @@ async function callGrid() {
             $idget = args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
+<<<<<<< HEAD
 
         //todo event listener run before insert employees from the table with some validations
         onItemInserting: function (args) {
@@ -107,6 +111,14 @@ async function callGrid() {
             }
             $dataEmployee.forEach(element => {
                 if (element.email == args.item.email) {
+=======
+       
+        onItemInserting: function(args) {
+            console.log($dataEmployee)
+            $dataEmployee.forEach(element => {
+                if(element.email == args.item.email){
+                    console.log("entroaqui")  
+>>>>>>> parent of d60db9a (merge seguro)
                     args.cancel = true;
                     alert("Email already in the database");
                 }
@@ -115,12 +127,17 @@ async function callGrid() {
 
         //todo event listener to after validations insert the employee in employee.json
         onItemInserted: function (args) {
+            if(args.item.name === "erick") {
+                args.cancel = true;
+                alert("Specify the name of the item!");
+                console.log("ejej")
+            }
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?addEmployee",
                 data: args.item,
                 success: function (data) {
-                    alert("New Data Inserted");
+                    callGrid();
                 }
             })
         }
@@ -139,4 +156,8 @@ setInterval(() => {
             }
         }
     })
+<<<<<<< HEAD
 }, 10000);
+=======
+}, 1000);
+>>>>>>> parent of d60db9a (merge seguro)

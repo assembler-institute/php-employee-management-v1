@@ -7,7 +7,6 @@ if (isset($_GET['id'])) {
 
     getEmployee($idfin, "./../resources/employees.json");
 }
-
 ?>
 
 <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -16,9 +15,12 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+<<<<<<< HEAD
     <?php
         include '../assets/html/navbar.html';
     ?>
+=======
+>>>>>>> parent of d60db9a (merge seguro)
     <div class="wrapper rounded bg-white">
         <div class="form">
             <div class="h3">Registration Form</div>
@@ -84,6 +86,7 @@ if (isset($_GET['id'])) {
         </div>
     </div>
     <?php
+<<<<<<< HEAD
 
     include '../assets/html/footer.html';
     
@@ -94,8 +97,17 @@ if (isset($_GET['id'])) {
         // echo $prueba;
         if (isset($_GET['id'])) {
             if ($_POST["lastName"] != " " && $_POST["radio"] != " ") {
+=======
+        // require './library/employeeManager.php';
+        if (isset($_POST['submitForm'])) {
+        $seemail= recorrer("../resources/employees.json", $_POST['email']);
+        // echo $prueba;
+        if (isset($_GET['id']) ) {
+            if($_POST["lastName"] != " " && $_POST["radio"] != " "){
+>>>>>>> parent of d60db9a (merge seguro)
                 updateEmployee($_POST, "../resources/employees.json");
-
+                // echo "entra?";
+                // header("Location:./dashboard.php");
             }
             print_r($_POST);
             // echo "This email is already used";
