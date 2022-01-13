@@ -1,3 +1,11 @@
 section {
     background-color: blueviolet;
 }
+
+.sectionBtn{
+    margin: 3%;
+}
+
+.sectionBtn button{
+    margin: 5%;
+}

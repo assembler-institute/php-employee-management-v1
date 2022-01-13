@@ -45,7 +45,7 @@
                     <input type="tel" class="form-control" id="inputPhoneNumber" name="phoneNumber" placeholder="Phone number" required>
                 </div>
             </div>
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center sectionBtn">
                 <button id="saveBtn" type="submit" class="btn btn-warning col-4" name="submit">Save</button>
                 <button  id="cancelBtn"  class="btn btn-warning col-4" name="candelbtn">Cancel</button>
             </div>
