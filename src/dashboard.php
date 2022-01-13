@@ -3,6 +3,12 @@
 session_start();
 
 require '../assets/html/header.html';
+require "././library/loginManager.php";
+
+if(isset($_POST)){
+    
+    // sessionlogout("Location:../index.php");
+}
 
  if(isset($_SESSION['email'])){
     echo $_SESSION['email'];
@@ -25,5 +31,5 @@ require '../assets/html/header.html';
 
     <div id="jsGrid"> </div>
 </body>
-
+<!-- <form action="../index.php" method="post"></form> -->
 </html>

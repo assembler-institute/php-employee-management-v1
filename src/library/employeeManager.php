@@ -78,9 +78,8 @@ function updateEmployee(array $updateEmployee, $path)
     $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll1 = json_decode($Allusers);
-
+    
     foreach ($usersAll1 as $user) {
-
         if ($_GET['id'] == $user->id  ) {
             $user->id = $_GET['id'];
             $user->name = $updateEmployee["name"];
@@ -94,12 +93,24 @@ function updateEmployee(array $updateEmployee, $path)
             $user->state = $updateEmployee["state"];
             $user->city = $updateEmployee["city"];
             header("Location: ./dashboard.php");
-        }else if($updateEmployee["id"] ){
+        }
+        // }else if($updateEmployee["id"] ){
+            
+        //     if($user->id == $updateEmployee["id"]){
+        //         $user = $updateEmployee;
+        //     }
+        // }
+        $customers[] = $user;
+    }
+    if($updateEmployee["id"] ){
+        $customers = [];
+        foreach ($usersAll1 as $user) {
             if($user->id == $updateEmployee["id"]){
                 $user = $updateEmployee;
             }
+
+            $customers[] = $user;
         }
-        $customers[] = $user;
     }
     $newinfo = json_encode($customers);
     file_put_contents($file, $newinfo);

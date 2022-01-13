@@ -10,6 +10,7 @@ if (isset($_GET['id'])) {
 ?>
 <link rel="stylesheet" href="../assets/css/main.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="./../assets/js/index.js"></script>
 <title>login</title>
 </head>
 
@@ -63,16 +64,20 @@ if (isset($_GET['id'])) {
         if (isset($_POST['submitForm'])) {
         $seemail= recorrer("../resources/employees.json", $_POST['email']);
         // echo $prueba;
-        if (isset($_GET['id']) || $seemail ) {
+        if (isset($_GET['id']) ) {
             if($_POST["lastName"] != " " && $_POST["radio"] != " "){
                 updateEmployee($_POST, "../resources/employees.json");
+                // echo "entra?";
+                // header("Location:./dashboard.php");
             }
             print_r($_POST);
             // echo "This email is already used";
-        } else{
-            
+        } else if($seemail){
+            echo "this email is already in use";
+        }else{
             addEmployee("../resources/employees.json");
             header("Location:./dashboard.php");
+
         }
     }
 

@@ -13,6 +13,8 @@ async function callDataEmploee() {
     }
 };
 
+
+
 async function callGrid() {
     $("#jsGrid").jsGrid({
         width: "100%",
@@ -125,3 +127,18 @@ function timeSession(){
 }
 
 
+setInterval(() => {
+    $.ajax({
+        type: "POST",
+        url: ".././src/library/sessionHelper.php?info",
+        // data: args.item,
+        success: function (data) {
+            // console.log(data);
+            if(data != ""){
+                // console.log("entro aqui pasados 10 segundos")
+                window.location.assign(`./../index.php`)
+            }
+           // callGrid();
+        }
+    })
+}, 1000);
