@@ -2,24 +2,21 @@
 
 require_once "./employeeManager.php";
 
+//todo detect when modify employee have changes
+//todo when have changes call PHP function to update employee
 if (isset($_GET["modifyEmployee"])) {
-    // echo "entra?";
     updateEmployee($_POST, "../../resources/employees.json");
-    print_r($_POST);
 }
 
+//todo detect when modify employee have changes
+//todo when have changes call PHP function to add employee
 if (isset($_GET['addEmployee'])) {
     addEmployee("../../resources/employees.json");
 }
 
-
+//todo detect when modify employee have changes
+//todo when have changes call PHP function to delete employee by ID
 if(isset($_GET['delEmployee'])){
     $idEmployee =  $_POST['id'];
     deleteEmployee($idEmployee, "../../resources/employees.json");
-}
-?>
-<!-- <form action="./." method="post"></form> -->
-
-if (isset($_POST["endSession"])) {
-    sessionlogout();
 }

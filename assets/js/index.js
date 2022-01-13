@@ -66,7 +66,7 @@ async function callGrid() {
         //todo event listener to update from inline table
         onItemUpdated: function (args) {
             $.ajax({
-                type: "PATCH",
+                type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
                 success: function (data) {
@@ -78,7 +78,7 @@ async function callGrid() {
         //todo event listener to delete row (employee)
         onItemDeleted: function (args) {
             $.ajax({
-                type: "DELETE",
+                type: "POST",
                 url: ".././src/library/employeeController.php?delEmployee",
                 data: args.item,
                 success: function (data) {
@@ -127,7 +127,6 @@ async function callGrid() {
     });
 
 };
-
 
 //todo send each 10 seconds a response to session to verify the time of session
 setInterval(() => {
