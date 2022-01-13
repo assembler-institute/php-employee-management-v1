@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION)) {
+if (!isset($_SESSION["user"])) {
+    
     header("location:./../index.php?notlogged=1");
 }
 //comment this line if you want to stop timeout

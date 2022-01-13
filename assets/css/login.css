@@ -1,10 +1,15 @@
 body {
-    background: rgb(13,0,36);
-background: linear-gradient(120deg, #0a054d, #8a2be2)
+    background: rgb(13, 0, 36);
+    background: linear-gradient(120deg, #0a054d, #8a2be2);
 }
 
-#loginFailedMsg {
-    width: 50% !important;
+.msgContainer {
+    z-index: 10;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 h2{

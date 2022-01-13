@@ -4,14 +4,23 @@
     --grey: #e2e2e2;
 
 }
+
 .gradient {
     background: rgb(13, 0, 36);
     background: linear-gradient(120deg, #0a054d, #8a2be2);
 }
 
+/* EMPLOYEES.PHP STYLES */
 section {
     height: 100%;
     width: 100%;
+}
+
+.msgContainer {
+    z-index: 10;
+    position: absolute;
+    top: 2%;
+    right: 50%;
 }
 
 .sectionBtn {
@@ -23,9 +32,7 @@ section {
 }
 
 .iconsRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    margin-right: 10px;
 }
 
 #employeeForm {
@@ -60,7 +67,7 @@ h2 {
 }
 
 /*hover*/
-.jsgrid-selected-row > .jsgrid-cell {
+.jsgrid-selected-row>.jsgrid-cell {
     background: var(--violet) !important;
     border-color: var(--blue) !important;
     color: white;

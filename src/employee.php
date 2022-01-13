@@ -10,11 +10,13 @@
     <title>Employee</title>
     <!-- my scripts -->
     <script src="./../assets/js/employee.js" defer></script>
-
 </head>
 
 <body class="gradient">
-
+    <!-- Display of msgs -->
+    <div class="msgContainer">
+            
+            </div>
     <section class="row justify-content-center">
         <form id="employeeForm" class="col-8 bg-light" action="./library/employeeController.php?update" method="POST">
             <h2 id="nameTitle"> </h2>
@@ -37,7 +39,11 @@
                     <label for="inputLastName" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Last name" required>
                     <label for="inputGender" class="form-label">Gender</label>
-                    <input type="text" class="form-control" id="inputGender" name="gender" placeholder="Gender">
+                    <select class="form-control" id="inputGender" name="gender">
+                    <option value="" disabled selected hidden>Choose a gender</option>
+                        <option value="man">Man</option>
+                        <option value="woman">Woman</option>
+                    </select>
                     <label for="inputStreetAddress" class="form-label">Street Address</label>
                     <input type="text" class="form-control" id="inputStreetAddress" name="streetAddress" placeholder="Street Adress">
                     <label for="inputAge" class="form-label">Age</label>
@@ -48,7 +54,7 @@
             </div>
             <div class="row justify-content-center align-items-center sectionBtn">
                 <button id="saveBtn" type="submit" class="btn btn-warning col-4" name="submit">Save</button>
-                <button  id="cancelBtn"  class="btn btn-warning col-4" name="candelbtn">Cancel</button>
+                <button  id="cancelBtn"  class="btn btn-warning col-4" name="cancelbtn">Cancel</button>
             </div>
         </form>
     </section>
