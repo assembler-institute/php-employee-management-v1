@@ -6,12 +6,36 @@
  * @date: 11/06/2020
  */
 
+ 
 function addEmployee(array $newEmployee)
 {
-    $file=".././../resources/employees.json";
-    $usersAll=json_encode($newEmployee);
-    file_get_contents($file);
-// TODO implement it
+
+    // echo 'hi';
+    
+    // print_r($newEmployee);
+    // $employeeUrl = "../../resources/employees.json";   
+    // $Allusers= file_get_contents($employeeUrl); 
+    // $usersAll=json_decode($Allusers);  
+    $empleados=leerempleados();
+    $lastEmployee = end($empleados);
+    echo $lastEmployee->id;
+    
+    $newEmployee['id']=$lastEmployee->id + 1;
+    print_r($newEmployee);
+
+    // print_r($empleados);
+    // echo $newEmployee["name"];
+    // $jsp=array(
+    //     "name" => $newEmployee["name"],
+    // );
+    // print_r($usersAll);
+    // print_r($newEmployee);
+    array_push($empleados,  $newEmployee);  
+    // $encodedUsersAll =json_encode($empleados); 
+    // file_put_contents($employeeUrl,$encodedUsersAll);   
+    enviarempleados($empleados);
+    // print_r($usersAll);
+  
 }
 
 
@@ -82,3 +106,4 @@ function enviarempleados($content){
     $usersAll=json_encode($content);
     $Allusers= file_put_contents($file,$usersAll);
 }
+?>
