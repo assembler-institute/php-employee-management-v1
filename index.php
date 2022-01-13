@@ -17,10 +17,21 @@ session_start();
 </head>
 
 <body>
+
     <div class="login-clean">
+    <?php 
+    if(isset($_GET["logout"])){
+        echo '<div class="alert alert-success alert-dismissible fade show w-75 mx-auto" role="alert">
+        The user has been logged out from the webpage.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>';
+    }
+    ?>
     <form action="./src/library/loginController.php?login" method="POST">
             <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+            <div class="illustration"><img class="mb-4" src="./assets/img/assamblericon.png" alt="user icon" width="70" height="70"></i></div>
             <div class="form-floating">
                 <label for="floatingInput">Write your user name</label>
                         <input name="user" type="text" class="form-control" id="floatingInput" placeholder="User name" required>

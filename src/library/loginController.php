@@ -1,3 +1,5 @@
+<!-- This file will handle the user's HTTP requests when they want to log in or log out, therefore, it must call the functions of the "loginManager.php" once the request has been received to carry out the action.
+-->
 <?php
 require_once("./loginManager.php");
 
@@ -6,32 +8,5 @@ if(isset($_GET["login"])) {
     }
 if(isset($_GET["logout"])) {
         destroySession();
-        header('Location: ../../index.php?logOut=true2');
+        header('Location: ../../index.php?logout');
     }
-
-/*
-function startSession()
-{
-        $_SESSION["logintime"] = time();
-        header("Location:../dashboard.php");
-}*/
-
-/*function deleteSession()
-{
-    unset($_SESSION);
-    // destroy session cookie
-    if (ini_get("session.use_cookies")) {
-        $params = session_get_cookie_params();
-        setcookie(
-            session_name(),
-            '',
-            time() - 42000,
-            $params["path"],
-            $params["domain"],
-            $params["secure"],
-            $params["httponly"]
-        );
-    }
-    session_destroy();
-    header("location:./../index.php");
-}*/

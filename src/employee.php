@@ -47,6 +47,7 @@ if(isset($_GET["id"])) {
       </div>';
     }
     ?>
+    
   <form class="w-50 mx-auto" method="POST" action=<?= isset($_GET["id"]) ? "./library/employeeController.php?editEmployee_Form ": "./library/employeeController.php?addEmployee_Form" ?>>
       <div class="form-row">
           <div class="form-group col-md-6">
@@ -110,11 +111,9 @@ if(isset($_GET["id"])) {
   </form>
 </main>
 
-<footer class="footer mt-auto py-3 fixed-bottom">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
-</footer>
+<?php
+require(".././assets/html/footer.html");
+?>
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
