@@ -14,7 +14,7 @@
     },
     {
         "id": 3,
-        "name": "Leila",
+        "name": "Lweeila",
         "lastName": "Mills",
         "email": "mills@leila.com",
         "gender": "woman",
@@ -27,11 +27,11 @@
     },
     {
         "id": 6,
-        "name": "Brad",
+        "name": "Brad pitt",
         "lastName": "Simpson",
         "email": "brad@foo.com",
         "gender": "man",
-        "age": 40,
+        "age": "40",
         "streetAddress": "128",
         "city": "Atlanta",
         "state": "GEO",

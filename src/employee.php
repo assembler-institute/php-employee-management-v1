@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
 <!-- VIEW MODE -->
-    <div class="card-body col-6 mx-auto" style="display:<?php if($_GET["v"] == "view") { echo "block"; } else{ echo "none"; }?>">
+    <div class="card-body col-6 mx-auto" style="display:<?php if($_GET["v"] == "update") { echo "block"; } else{ echo "none"; }?>">
         <table class="table">
             <tbody class="table-bordered">
                 <tr>
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 <!-- UPDATE MODE  -->
-    <div class="container" style="display:<?php if($_GET["v"] == "update") { echo "block"; } else{ echo "none"; }?>">
+    <div class="container" style="display:<?php if($_GET["v"] == "view") { echo "block"; } else{ echo "none"; }?>">
         <form action="" method="POST" enctype="multipart/form">
             <div class="d-flex justify-content-center">
                 <div class="col-4">

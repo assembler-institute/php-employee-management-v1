@@ -30,9 +30,10 @@ function updateEmployee(array $updateEmployee, string $id)
     foreach ($employees as $i => $employee) {
         if ($employee["id"] == $id) {
             $employees[$i] = array_merge($employee, $updateEmployee);
+            echo json_encode($employees[$i]);
         }
     }
-    file_put_contents('./../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
+    file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
 }
 
 function getEmployee(string $id)

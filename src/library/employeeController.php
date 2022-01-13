@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["update"])) {
   $employees = getEmployees();
   $employeeId = $_GET["id"];
   updateEmployee($updatedEmployee, $employeeId);
-  echo json_encode($updatedEmployee);
+  //echo json_encode($updatedEmployee);
 }
 //get employee data
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
