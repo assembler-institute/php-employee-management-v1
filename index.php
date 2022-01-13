@@ -31,10 +31,7 @@ require_once './assets/html/header.html';
                     <br>
                     <label class="form-label" for="typePasswordX"><?= isset($_GET["InvalidPassword"]) ? "Invalid Email or Password" : "" ?></label>
                   </div>
-
-                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit" name="submit">Login</button>
                 </form>
 
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">

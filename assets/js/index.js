@@ -62,14 +62,12 @@ async function callGrid() {
 
         ],
         onItemUpdated: function (args) {
-            //console.log(args.item);
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
                 success: function (data) {
-                    console.log(data);
-                   // callGrid();
+                    alert("Data updated");
                 }
             })
         },
@@ -81,41 +79,40 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?delEmployee",
                 data: args.item,
                 success: function (data) {
-                    console.log(data);
-                   // callGrid();
+                    alert("Data Deleted");
                 }
             });
         },
         rowClick: function (args) {
-
+            
         },
         rowDoubleClick: function (args) {
             $idget = args["item"].id
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
-       
         onItemInserting: function(args) {
-            console.log($dataEmployee)
+            emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            if(!emailRegex.test(args.item.email)){
+                args.cancel = true;
+                alert(`The email: ${args.item.email} is incorrect`);
+            }
+            // console.log($dataEmployee)
             $dataEmployee.forEach(element => {
-                if(element.email == args.item.email){
-                    console.log("entroaqui")  
+                if(element.email == args.item.email){ 
                     args.cancel = true;
                     alert("Email already in the database");
                 }
             });
+            
+            
         },
         onItemInserted: function (args) {
-            if(args.item.name === "erick") {
-                args.cancel = true;
-                alert("Specify the name of the item!");
-                console.log("ejej")
-            }
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?addEmployee",
                 data: args.item,
                 success: function (data) {
-                    callGrid();
+                    alert("New Data Inserted");
                 }
             })
         }

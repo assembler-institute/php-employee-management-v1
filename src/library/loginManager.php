@@ -2,7 +2,25 @@
 
 
 //! Functions
-
+function sesssioncheck($name,$password, $path){
+    $file = $path;
+    $Allusers = file_get_contents($file);
+    $usersAll = json_decode($Allusers);
+    $userName = $usersAll->users;
+    foreach ($userName as $user) {
+        if ($name == $user->email) {
+            echo "he entrado 1";
+            $compare = $user->password;
+            if (password_verify($password, $user->password)) {
+                session_start();
+                $_SESSION['LAST_ACTIVITY'] = time();
+                $_SESSION["email"] = $name;
+                $_SESSION["password"] = $password;
+                header("Location:../dashboard.php");
+            }
+        }
+    }
+}
 
 function sessionlogout($path)
 {
@@ -23,3 +41,4 @@ function sessionlogout($path)
     session_destroy();
     header($path);
 }
+?>
