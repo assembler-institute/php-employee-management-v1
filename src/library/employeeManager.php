@@ -7,20 +7,24 @@
  * @date: 11/06/2020
  */
 // zz
-function addEmployee($path)
-{
 
-// TODO implement it (array $newEmployee)
+//todo PHP function to add employee in employee.json
+function addEmployee($path){
+    //todo this is used to work with json files, to find the path
+    //todo to access the content and decode to work
     $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll = json_decode($Allusers);
 
+    //todo create a new array with id
     foreach ($usersAll as $user) {
         $arraya[] = $user->id;
     }
 
+    //todo find the last id and sum 1
     $newid = max($arraya) + 1;
 
+    //todo if add employee from the table you don't have this fields
     if ($_POST['radio'] ==  null) {
         $radiocheck = ' ';
     } else {
@@ -33,6 +37,8 @@ function addEmployee($path)
         $lastName = $_POST['lastName'];
     };
     
+    //todo to works in employee page and dashboard
+    //todo we pass all data one by one
     $myJson = array(
         'id'   =>   $newid,
         'name'   =>   $_POST['name'],
@@ -47,6 +53,7 @@ function addEmployee($path)
         'phoneNumber'   =>  $_POST['phoneNumber']
     );
 
+    //todo add new employee in the array 
     array_push($usersAll, $myJson);
     $otra = json_encode($usersAll);
     file_put_contents($file, $otra);
@@ -92,7 +99,7 @@ function updateEmployee(array $updateEmployee, $path)
             $user->age = $updateEmployee["age"];
             $user->state = $updateEmployee["state"];
             $user->city = $updateEmployee["city"];
-            header("Location: ./dashboard.php?updated");
+            header("Location: ./dashboard.php");
         }
         $customers[] = $user;
     }
