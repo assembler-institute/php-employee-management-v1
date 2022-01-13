@@ -1,12 +1,8 @@
 <?php 
 require_once("./employeeManager.php");
 
-
-
-
-
-
-$method = $_SERVER['REQUEST_METHOD'];
+$method = $_SERVER['REQUEST_METHOD']; //Receive the the method of the request(GET, POST, DELETE
+)
 switch ($method) {
 
     case "GET":
@@ -29,10 +25,10 @@ switch ($method) {
             break;
             }
         elseif(isset($_GET['addEmployee'])) {
-        $newEmployee = $_POST;
-        $result = addEmployee($newEmployee);
-        break;
-        }
+            $newEmployee = $_POST;
+            $result = addEmployee($newEmployee);
+            break;
+            }
     case "DELETE":
         parse_str(file_get_contents("php://input"),$delete_vars);
         try {
