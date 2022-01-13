@@ -9,6 +9,7 @@ switch ($method) {
         if(isset($_GET["getEmployees"])) {
             $resultArray = getEmployees();
             echo json_encode($resultArray);
+            break;
         }
 
     case "POST":
@@ -37,5 +38,6 @@ switch ($method) {
         } catch (Throwable $th) {
             http_response_code(404);
         }
+        break;
 
 }
