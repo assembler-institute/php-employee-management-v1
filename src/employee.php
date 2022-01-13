@@ -30,7 +30,14 @@
   if(isset($_GET["id"])){
     $idvalue = $_GET["id"];
     $newCollections = json_decode(file_get_contents('../resources/employees.json'), true);
+    // print_r($newCollections[0]);
+
     for ($i=0; $i < count($newCollections) ; $i++) {
+    //   echo "<br>";
+    // print_r($newCollections[$i]["id"]);
+    // echo"<br>";
+    // print_r($idvalue);
+
       if ($newCollections[$i]['id'] == $idvalue){
         $name = $newCollections[$i]['name'];
         $lastName = $newCollections[$i]['lastName'];
