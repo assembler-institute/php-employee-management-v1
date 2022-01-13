@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-require("./loginController.php");
+//require("./loginController.php");
+
+function logincheck() {
 
 $userJson=file_get_contents("../../resources/users.json");
 $users=json_decode($userJson,true); 
@@ -40,20 +42,16 @@ switch ($login) {
         
         break;
 }
+}
 
-if(isset($_GET['logOut'])){
-    header('Location: ../../index.php?logOut=true');
+
+/*if(isset($_GET['logOut'])){
+    header('Location: ../../index.php?logOut=true2');
     destroySession();
-}
+}*/
 
 
-function checkSession()
-{
-    if (!isset($_SESSION["email"])) {
-        $_SESSION["loginerror"] = "You cannot access without login";
-        header("location:./index.php");
-    }
-}
+
 
 function checkLogOut()
 {
@@ -68,5 +66,50 @@ function checkErrors()
         $error = $_SESSION["loginerror"];
         echo "<div class='alert alert-danger' role='alert' style='margin-top: 10px;'>", $error, "</div>";
         unset($_SESSION["loginerror"]);
+    }
+}
+
+function destroySession()
+{
+    session_start();
+    unset($_SESSION);
+    destroySessionCookie();
+    session_destroy();
+}
+
+function destroySessionCookie()
+{
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(),
+            '',
+            time() - 10,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
+        );
+    }
+}
+
+function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword){
+
+
+    switch (true) {
+        case ($launchUser==$logedUser && password_verify($launchPassword,$logedPassword)):
+                return "Loged";
+                break;
+        case (($launchUser!=$logedUser) && !password_verify($launchPassword,$logedPassword)):
+                return "Wrong name and password";
+                break;
+        case (!($launchUser==$logedUser)):
+                return "Wrong name";
+                break;
+        case (!password_verify($launchPassword,$logedPassword)):
+                return "Wrong password";
+                break; 
+        default:
+                break;
     }
 }

@@ -1,6 +1,11 @@
 <!-- TODO Application entry point. Login viewsss -->
 <?php
 session_start();
+
+if(isset($_SESSION)) {
+    // Login time is stored in a session variable
+    $_SESSION["login_time_stamp"] = time(); 
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +21,7 @@ session_start();
 
 <body>
     <div class="login-clean">
-    <form action="./src/library/loginManager.php" method="POST">
+    <form action="./src/library/loginController.php?login" method="POST">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="form-floating">

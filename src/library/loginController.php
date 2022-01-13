@@ -1,32 +1,22 @@
 <?php
-function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword){
+require_once("./loginManager.php");
 
-
-        switch (true) {
-            case ($launchUser==$logedUser && password_verify($launchPassword,$logedPassword)):
-                    return "Loged";
-                    break;
-            case (($launchUser!=$logedUser) && !password_verify($launchPassword,$logedPassword)):
-                    return "Wrong name and password";
-                    break;
-            case (!($launchUser==$logedUser)):
-                    return "Wrong name";
-                    break;
-            case (!password_verify($launchPassword,$logedPassword)):
-                    return "Wrong password";
-                    break; 
-            default:
-                    break;
-        }
+if(isset($_GET["login"])) {
+        logincheck();
     }
+if(isset($_GET["logout"])) {
+        destroySession();
+        header('Location: ../../index.php?logOut=true2');
+    }
+
 
 function startSession()
 {
-        $_SESSION["login_time"] = time();
+        $_SESSION["logintime"] = time();
         header("Location:../dashboard.php");
 }
 
-function deleteSession()
+/*function deleteSession()
 {
     unset($_SESSION);
     // destroy session cookie
@@ -44,4 +34,4 @@ function deleteSession()
     }
     session_destroy();
     header("location:./../index.php");
-}
+}*/

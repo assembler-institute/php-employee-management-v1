@@ -1,29 +1,22 @@
 <?php
-require_once('loginController.php');
-if (!isset($_SESSION)) {
-    session_start();
-}
-function destroySession()
+require_once('loginManager.php');
+
+//check sesion & check sesion time
+function checksessiontime()
 {
-    session_start();
-    unset($_SESSION);
-    destroySessionCookie();
-    session_destroy();
-    header("Location:../../index.php?logOut=true");
+if (isset($_SESSION["logintime"])){
+    if (isset($_Get["timeoutcheck"])) {
+        if (time() - $_SESSION["login_time"] >= 30 * 1) {
+            echo "Log out";
+        }
+    }
+}
 }
 
-function destroySessionCookie()
+function checkSession()
 {
-    if (ini_get("session.use_cookies")) {
-        $params = session_get_cookie_params();
-        setcookie(
-            session_name(),
-            '',
-            time() - 42000,
-            $params["path"],
-            $params["domain"],
-            $params["secure"],
-            $params["httponly"]
-        );
+    if (!isset($_SESSION["email"])) {
+        $_SESSION["loginerror"] = "You cannot access without login";
+        header("location:./index.php");
     }
 }
