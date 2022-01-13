@@ -47,6 +47,7 @@
           <div class="input-group form-group mt-3">
             <input type="password" class="form-control text-center p-3" placeholder="Password" name="pass">
           </div>
+          
           <div class="text-center">
             <input type="submit" value="Sign in" class="btn btn-primary mt-3 w-100 p-2" name="login-btn">
           </div>

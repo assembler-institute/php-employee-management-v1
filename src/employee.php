@@ -26,17 +26,12 @@
 <?php
   require ("./../assets/html/header.html");
 
-
+// GET the variables from the employee wich we want to edit
   if(isset($_GET["id"])){
     $idvalue = $_GET["id"];
     $newCollections = json_decode(file_get_contents('../resources/employees.json'), true);
-    // print_r($newCollections[0]);
 
     for ($i=0; $i < count($newCollections) ; $i++) {
-    //   echo "<br>";
-    // print_r($newCollections[$i]["id"]);
-    // echo"<br>";
-    // print_r($idvalue);
 
       if ($newCollections[$i]['id'] == $idvalue){
         $name = $newCollections[$i]['name'];
@@ -55,6 +50,7 @@
   ?>
   <div class="container-employee">
     <?php
+    //
       if (isset($_GET["id"])){
         echo "<form class='row g-3 needs-validation' action='library/employeeController.php?form=$idvalue'method='POST' novalidate>";
       }
