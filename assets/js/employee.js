@@ -1,8 +1,11 @@
 
 window.onload = function() {
-    if( $('#userId').val()!="undefined"){ //Si el input oculto de id contiene algún valor
+    if( $('#userId').val()!=" "){ //Si el input oculto de id contiene algún valor
         var userId=$('#userId').val(); //recupera ese valor
         chargeData(userId); //lo envía como parámetro de la función
+        saveListenerUpdate();
+    }else{
+        saveListenerCreate();
     }
     console.log($('#userId').val())
 }
@@ -34,9 +37,29 @@ function writeInput(obj) {
 
 }
 
+function saveListenerUpdate(){
 
     $('#employeeForm').on('submit', function(e){
         e.preventDefault(); //para evitar enviar los datos por url en el navegador
+        var obj= getFormValues();
+        fetchUpdate(obj);
+        console.log(obj)
+    })
+
+}
+
+function saveListenerCreate(){
+
+    $('#employeeForm').on('submit', function(e){
+        e.preventDefault(); //para evitar enviar los datos por url en el navegador
+        var obj= getFormValues();
+        fetchCreate(obj);
+        console.log(obj)
+    })
+
+}
+
+function getFormValues(){
     var elements = document.getElementById("employeeForm").elements;//recogemos los elementos del formulario
     var obj ={};
     for(var i = 0 ; i < elements.length ; i++){//se recorre cada elemento dejando los botones fuera
@@ -46,11 +69,21 @@ function writeInput(obj) {
         }
         obj[item.name] = item.value; //Se recogen todos los valores dentro de un objeto
     }
-    fetch("./library/employeeController.php?update=" + obj.id, { //llamamos a la función update() a través de la id del objeto
-        method: "PUT",
-        body: JSON.stringify(obj)
-    })
-    .then(response=>console.log(response))
+    return obj;
+}
 
-    console.log(obj)
-})
+async function fetchUpdate(obj){
+    await fetch("./library/employeeController.php?update=" + obj.id, { //llamamos a la función update() a través de la id del objeto
+            method: "PUT",
+            body: JSON.stringify(obj)
+        })
+        .then(response=>console.log(response))
+}
+
+async function fetchCreate(obj){
+    await fetch("./library/employeeController.php?newEmployee=true", { //llamamos a la función newEmployee()
+            method: "POST",
+            body: JSON.stringify(obj)
+        })
+        .then(response=>console.log(response.text()))
+}
