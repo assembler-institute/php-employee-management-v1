@@ -26,20 +26,16 @@ switch ($login) {
         header("Location:../dashboard.php");
         break;
     case "Wrong name and password":
-        $_SESSION["WEmailPass"]="Wrong email and password";
-        header("Location:../../index.php");
+        header("Location:../../index.php?WEmailPass");
         break;
     case "Wrong name":
-        $_SESSION["WName"]="Wrong name";
-        header("Location:../../index.php");
+        header("Location:../../index.php?WName");
         break;
     case "Wrong password":
-        $_SESSION["WPass"]="Wrong password";
-        header("Location:../../index.php");
-        break;    
+        header("Location:../../index.php?WPass");
+        break;
     default:
-         echo"something wrong";
-        
+        echo"something wrong";
         break;
 }
 }

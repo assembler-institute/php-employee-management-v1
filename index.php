@@ -33,21 +33,21 @@ session_start();
                     </div><br>
                     <?php
                     switch (true) {
-                        case (isset($_SESSION["WEmailPass"])):
+                        case (isset($_GET["WEmailPass"])):
                             echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
-                            echo $_SESSION["WEmailPass"];
+                            echo "Wrong email and password";
                             echo "</div>";
                             break;
 
-                        case (isset($_SESSION["WName"])):
+                        case (isset($_GET["WName"])):
                             echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
-                            echo $_SESSION["WName"];
+                            echo "Wrong name";
                             echo "</div>";
                             break;
 
-                        case (isset($_SESSION["WPass"])):
+                        case (isset($_GET["WPass"])):
                             echo "<div class='alert alert-danger d-flex align-items-center' role='alert'>";
-                            echo $_SESSION["WPass"];
+                            echo "Wrong Password";
                             echo "</div>";
                             break;
 
