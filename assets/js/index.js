@@ -1,15 +1,12 @@
 async function callDataEmploee() {
     let result = []
-    let pruebae=[]
     try {
         result = await $.ajax({
             url: ".././resources/employees.json",
             success: function (data) {
                 $dataEmployee = data;
-                // console.log(data[0].id)
             }
         })
-        //console.log(result)
         return result;
     } catch (error) {
         console.error("Don't load the Data");
@@ -60,15 +57,10 @@ async function callGrid() {
 
         ],
         onItemUpdated: function (args) {
-            //console.log(args.item);
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
-                success: function (data) {
-                    console.log(data);
-                   // callGrid();
-                }
             })
         },
 
@@ -120,5 +112,16 @@ async function callGrid() {
     });
 
 };
+
+function timeSession(){
+    var sessionTime= setTimeout(() => {
+        $.ajax({
+            type:"POST",
+            url:".././src/library/employeeController.php?endSession",
+            
+        })
+    }, 15000);
+
+}
 
 
