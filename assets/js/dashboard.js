@@ -12,8 +12,21 @@ async function createTable() {
     await displayEmployees();
     //jsgrid structure
     $("#jsGrid").jsGrid({
+
         width: "100%",
         height: "70vh",
+//Validator
+onItemInserting: function(args){
+    employees.forEach(element =>{
+        if(element.email == args.item.email){
+            args.cancel=true;
+            alert("Email already in the database");
+        }else if(element.phoneNumber == args.item.phoneNumber){
+            args.cancel=true;
+            alert("Phone Number already in the database");
+        }
+    })
+},
         //conditions
         inserting: true,
         editing: true,

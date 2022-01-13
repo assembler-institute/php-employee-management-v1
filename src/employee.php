@@ -40,7 +40,7 @@
                     <label for="inputStreetAddress" class="form-label">Street Address</label>
                     <input type="text" class="form-control" id="inputStreetAddress" name="streetAddress" placeholder="Street Adress">
                     <label for="inputAge" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="inputAge" name="age" placeholder="Age">
+                    <input type="number" class="form-control" id="inputAge" name="age" placeholder="Age" require>
                     <label for="inputPhoneNumber" class="form-label">PhoneNumber</label>
                     <input type="tel" class="form-control" id="inputPhoneNumber" name="phoneNumber" placeholder="Phone number" required>
                 </div>

@@ -7,7 +7,7 @@ window.onload = function() {
     }else{
         saveListenerCreate();
     }
-    console.log($('#userId').val())
+    header('Location: ./src/dashboard.php');
 }
 
 async function chargeData(userId) {
