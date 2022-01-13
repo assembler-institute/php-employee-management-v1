@@ -32,31 +32,18 @@ fields: [
   rowClick: function name(item) {
     window.location.assign("./employee.php?id="+item.item.id)
    },
-   onItemDeleted: function name(){
-     
-   },
    onItemInserted: function name(args) {
-            
     $.ajax({
         method: 'POST',
         url: './library/employeeController.php?add',   // ????????????? ERICK ????? porque tenho que por ADD ??????
         data: args.item,
         success: function (pi) {
-            // console.log(pi);
-            console.log(pi);
+              alertas("se a creado correctamente");
         }
     }); 
   },
 
-controller: {
-    insertItem: async function name(item) {
-      const response = await fetch('./library/employeeController.php?add',
-      { method: 'POST', body : JSON.stringify(item),
-       headers: {'Content-Type': 'application/json'}});
-            const data =  await response.json();
-            return data;
-    },
-    
+controller: {   
     deleteItem: async function name(item) {
       const response = await fetch('./library/employeeController.php?delete='+item.id,
       { method: 'DELETE'});

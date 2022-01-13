@@ -40,23 +40,54 @@ else header("Location: ../index.php") ;
             <div class="row">
                 <div class="form-group col">
                     <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Name" value=<?= $users->name ?>>
+                    <input type="text" class="form-control" id="inputName" placeholder="Name" value=<?php if(isset($users->name)){
+                        echo $users->name;
+                    } 
+                    ?>>
                 </div>
                 <div class="form-group col">
                     <label for="inputLastName">Last Name</label>
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" value=<?= $users->lastName ?>>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" value=<?php if(isset($users->lastName)){
+                        echo $users->lastName;
+                    } 
+                    ?>>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputEmail">Email Address</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" value=<?= $users->email ?>>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" value=<?php if(isset($users->email)){
+                        echo $users->email;
+                    } 
+                    ?>>
                 </div>
                 <div class="form-group col">
                     <label for="inputGender">Gender</label>
                     <select id="inputGender" name="inputGender" class="form-control">
-                        <option>Choose...</option>
-                        <option  <?php if($users->gender=="Male"){echo "selected";}?> value="Male">Male</option>
+                        <?php 
+                        if(isset($users->gender))
+                        {
+                            if($users->gender=="Male")
+                            {
+                                echo '<option   value="Male">Male</option>';
+                                echo "</br>";
+                                echo '<option   value="Male">Famel</option>';
+                            }
+                            else if($users->gender=="Famel")
+                            {
+                                echo '<option   value="Male">Male</option>';
+                                echo "</br>";
+                                echo '<option   value="Male">Famel</option>';
+                            }
+                        }
+                        else{
+                                echo '<option>Choose...</option>';
+                                echo "</br>";
+                                echo '<option   value="Male">Male</option>';
+                                echo "</br>";
+                                echo '<option   value="Male">Famel</option>';
+                        }?>
+                        <option   value="Male">Male</option>
                         <option  <?php if($users->gender=="Famel"){echo "selected";}?> value="Female">Female</option>
                     </select>
                 </div>
@@ -68,27 +99,42 @@ else header("Location: ../index.php") ;
                 </div>
                 <div class="form-group col">
                     <label for= "inputStreetAddress">Street Address</label>
-                    <input type="text" class="form-control" id="inputStreetAddress" placeholder="1234 Main St" value=<?= $users->streetAddress ?>>
+                    <input type="text" class="form-control" id="inputStreetAddress" placeholder="1234 Main St" value=<?php if(isset($users->city)){
+                        echo $users->city;
+                    } 
+                    ?>>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputState">State</label>
-                    <input type="text" class="form-control" id="inputState" placeholder="State" value=<?= $users->state ?> >
+                    <input type="text" class="form-control" id="inputState" placeholder="State" value=<?php if(isset($users->state)){
+                        echo $users->state;
+                    } 
+                    ?> >
                 </div>
                 <div class="form-group col">
                     <label for="inputAge">Age</label>
-                    <input type="text" class="form-control" id="inputAge" placeholder="Age" value=<?= $users->age ?> >
+                    <input type="text" class="form-control" id="inputAge" placeholder="Age" value=<?php if(isset($users->age)){
+                        echo $users->age;
+                    } 
+                    ?> >
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col">
                     <label for="inputPostalCode">Postal Code</label>
-                    <input type="text" class="form-control" id="inputPostalCode" placeholder="PostalCode" value=<?= $users->postalCode ?> >
+                    <input type="text" class="form-control" id="inputPostalCode" placeholder="PostalCode" value=<?php if(isset($users->postalCode)){
+                        echo $users->postalCode;
+                    } 
+                    ?> >
                 </div>
                 <div class="form-group col">
                     <label for="inputNumber">Phone Number</label>
-                    <input type="number" class="form-control" id="inputNumber" placeholder="Phone Number" value=<?= $users->phoneNumber ?> >
+                    <input type="number" class="form-control" id="inputNumber" placeholder="Phone Number" value=<?php if(isset($users->phoneNumber)){
+                        echo $users->phoneNumber;
+                    } 
+                    ?>>
                 </div>
             </div>
             <div class="form-group mt-4">
