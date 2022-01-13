@@ -201,28 +201,29 @@ async function createTable() {
 
                     //delete button, we add some data bs attr 
                     var customDeleteButton = $("<button>").attr({
-                            class: "btn btn-danger btn-xs"
+                            class: "btn btn-danger btn-xs",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#deleteModal",
+                            "data-id": item.id
                         }).append("<i class='fas fa-trash-alt'></i>")
 
                         .on("click", (e) => {
-                            $("#acceptDelete").one("click", () => {
+                            $("#acceptDelete").on("click", () => {
                                 $("#jsGrid").jsGrid("deleteItem", item);
                                 deleteEmployee(item.id);
                             })
-                            $("#cancelDelete").one("click", function () {
+                            $("#cancelDelete").on("click", function () {
                                 $("#acceptDelete").off("click", deleteEmployee)
                             })
                             e.stopPropagation()
                         })
                     var customViewButton = $("<button></button>").attr({
                         class: "btn btn-info btn-xs",
-                        "data-bs-toggle": "modal",
-                        "data-bs-target": "#deleteModal",
                         "data-id": item.id
                     }).on("click", changePage).append("<i class='fas fa-eye'></i>");
 
                     //spawn the buttons
-                    return $("<div class='iconsRow'>").append(customEditButton).append(customDeleteButton).append(customViewButton);
+                    return $("<div class='iconsRow'>").append(customEditButton).append(customDeleteButton).append(customViewButton)
                 }
             }
         ]
@@ -240,7 +241,13 @@ async function displayEmployees() {
 }
 
 function changePage(e) {
-    const userName = $(e.target).data("id");
+    var userName;
+    //if target was the button
+    if ($(e.target).data("id") != undefined) {
+        userName = $(e.target).data("id");
+    } else { //if target was the icon
+        userName = $(e.target).parent().data("id");
+    }
     e.stopPropagation();
     window.location = "employee.php?userId=" + userName;
 
