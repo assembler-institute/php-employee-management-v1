@@ -30,7 +30,6 @@ function addEmployee(array $newEmployee) {
 
     if(file_exists($fileName)){
         file_put_contents($fileName, json_encode($oldEmployee, JSON_PRETTY_PRINT));
-        header("Location: ../employee.php?newEmployeeAdded");
     }
 }
 
@@ -46,7 +45,6 @@ function deleteEmployee(string $id) {
 
     if(file_exists($fileName)){
         file_put_contents($fileName, json_encode($newArray, JSON_PRETTY_PRINT));
-        header("Location: ../employee.php?newEmployeeAdded");
     }
 }
 

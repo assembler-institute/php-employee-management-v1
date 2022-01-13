@@ -23,6 +23,11 @@
             $id = $_GET["editEmployee"];
             $employee = getEmployee($id);
         }
+        if(isset($_GET["newEmployeeAdded"])){
+            echo "<p class='text-center alert alert-success'>Employee added sucessfully<p>";
+        } else if (isset($_GET["employeeUpdated"])){
+            echo "<p class='text-center alert alert-success'>Employee updated sucessfully<p>";
+        }
     ?>
     <main>
         <form class="employeeForm" action="./library/employeeController.php" method="POST" id="formulary">
