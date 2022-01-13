@@ -39,7 +39,11 @@
                     <label for="inputLastName" class="form-label">Last Name</label>
                     <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Last name" required>
                     <label for="inputGender" class="form-label">Gender</label>
-                    <input type="text" class="form-control" id="inputGender" name="gender" placeholder="Gender">
+                    <select class="form-control" id="inputGender" name="gender">
+                    <option value="" disabled selected hidden>Choose a gender</option>
+                        <option value="man">Man</option>
+                        <option value="woman">Woman</option>
+                    </select>
                     <label for="inputStreetAddress" class="form-label">Street Address</label>
                     <input type="text" class="form-control" id="inputStreetAddress" name="streetAddress" placeholder="Street Adress">
                     <label for="inputAge" class="form-label">Age</label>
