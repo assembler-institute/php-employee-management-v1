@@ -12,3 +12,9 @@ function getAvatarsAPI() {
 
     return json_decode($response, true);
 }
+
+function getIndex($start, $end){
+$avatars = getAvatarsAPI();
+$selectedFaces = array_slice($avatars, $start, $end);
+return array_merge($selectedFaces, array());
+}

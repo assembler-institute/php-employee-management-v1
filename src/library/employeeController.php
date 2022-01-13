@@ -1,6 +1,7 @@
 <?php
 
 require_once("./employeeManager.php");
+require_once "./avatarsApi.php";
 
 //Controller get employees
 if(isset($_GET["getEmployeers"])) {
@@ -39,4 +40,9 @@ if(isset($_POST["modifyEmployee"])) {
 if(isset($_GET["delete"])) {
     $id = $_GET["delete"];
     deleteEmployee($id);
+}
+
+if(isset($_GET["startImage"])){
+$decodedImages =  getIndex($_GET["startImage"], $_GET["endImage"]);
+echo json_encode($decodedImages);
 }
