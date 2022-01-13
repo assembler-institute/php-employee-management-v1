@@ -54,7 +54,7 @@ async function createTable() {
                             `)
                         }
                         //function that hides msg
-                        fadeOutMsg($(".successInsert"))
+                        fadeOutMsg($(".insertMsg"))
                     })
             },
             //event when update an item and confirm
@@ -80,8 +80,8 @@ async function createTable() {
                             </div>
                         `)
                             //function that hides msg
-                            fadeOutMsg($(".updateMsg"))
                         }
+                        fadeOutMsg($(".updateMsg"))
                     })
 
             },
