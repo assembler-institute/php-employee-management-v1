@@ -40,11 +40,6 @@ switch ($login) {
 }
 }
 
-/*if(isset($_GET['logOut'])){
-    header('Location: ../../index.php?logOut=true2');
-    destroySession();
-}*/
-
 function checkLogOut()
 {
     if (!isset($_SESSION)) {
@@ -77,7 +72,6 @@ function destroySessionCookie()
 }
 
 function validateLoginData($launchUser, $launchPassword, $logedUser, $logedPassword){
-
 
     switch (true) {
         case ($launchUser==$logedUser && password_verify($launchPassword,$logedPassword)):
