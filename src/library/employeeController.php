@@ -23,10 +23,23 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
 
 case "POST":
+    if (isset($_GET['addEmployee_Form'])) {
+        $newEmployee = $_POST;
+        $result = addEmployee($newEmployee);
+        header("Location: ../employee.php?id=".$result["id"]."&created");
+        break;
+        }
+        elseif (isset($_GET['editEmployee_Form'])) {
+            $newEmployee = $_POST;
+            $result = updateEmployee($newEmployee);
+            header("Location: ../employee.php?id=".$result["id"]."&updated");
+            break;
+            }
     if (!isset($_GET['update'])) {
     $newEmployee = $_POST;
     $result = addEmployee($newEmployee);
     break;
     }
+
 
 }

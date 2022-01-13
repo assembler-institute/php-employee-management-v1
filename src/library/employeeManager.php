@@ -14,6 +14,7 @@ function addEmployee(array $newEmployee)
         $newEmployee["id"] = $newId;
         array_push($employees, $newEmployee);
         file_put_contents("../../resources/employees.json", json_encode($employees, JSON_PRETTY_PRINT));
+        return $newEmployee;
 }
 
 
@@ -53,13 +54,21 @@ function deleteEmployee(string $id)
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    $employees = getEmployees();
+    $employeeKey = array_search($updateEmployee["id"], array_column($employees, "id"));
+    $employees[$employeeKey] = $updateEmployee;
+    $employees = array_merge($employees, array());
+    file_put_contents("../../resources/employees.json", json_encode($employees, JSON_PRETTY_PRINT));
+    return $updateEmployee;
 }
 
 
 function getEmployee(string $id)
 {
-// TODO implement it
+    $json = file_get_contents('../resources/employees.json');
+    $employees = json_decode($json,true);
+    $employee = $employees[array_search($id, array_column($employees, "id"))];
+    return $employee;
 }
 
 

@@ -20,6 +20,11 @@ function loadEmployeeTable(employees) {
 
     data: employees,
 
+    rowDoubleClick: function (args) {
+      const id = args["item"].id;
+      window.location.assign(`./../src/employee.php?id=${id}`);
+    },
+
     fields: [
       {
         name: "name",
