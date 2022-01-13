@@ -1,3 +1,9 @@
 section {
     background-color: blueviolet;
 }
+
+.iconsRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

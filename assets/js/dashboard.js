@@ -189,21 +189,20 @@ async function createTable() {
 
                 //edit and delete btns
                 itemTemplate: function (value, item) {
-                    var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
+                    var result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
                     //edit btn
-                    var $customEditButton = $("<button>").attr({
-                            class: "customGridEditbutton jsgrid-button jsgrid-edit-button",
-                            "data-id": item.id
-                        })
-                        .on("click", changePage);
-                    //delete button, we add some data bs attr 
-                    var $customDeleteButton = $("<button>").attr({
-                            class: "customGridDeletebutton jsgrid-button jsgrid-delete-button",
-                            "data-bs-toggle": "modal",
-                            "data-bs-target": "#deleteModal",
-                            "data-id": item.id
+                    var customEditButton = $("<button>").attr({
+                        class: "btn btn-warning btn-xs",
+                        "data-id": item.id
+                    }).append("<i class='fas fa-user-edit'></i>")
 
-                        })
+
+
+
+                    //delete button, we add some data bs attr 
+                    var customDeleteButton = $("<button>").attr({
+                            class: "btn btn-danger btn-xs"
+                        }).append("<i class='fas fa-trash-alt'></i>")
 
                         .on("click", (e) => {
                             $("#acceptDelete").one("click", () => {
@@ -214,13 +213,16 @@ async function createTable() {
                                 $("#acceptDelete").off("click", deleteEmployee)
                             })
                             e.stopPropagation()
-                        });
-                    //add button
-                    var $customAddButton = $("<button>").attr({
-                        class: "customGridAddbutton jsgrid-button jsgrid-add-button"
-                    })
+                        })
+                    var customViewButton = $("<button></button>").attr({
+                        class: "btn btn-info btn-xs",
+                        "data-bs-toggle": "modal",
+                        "data-bs-target": "#deleteModal",
+                        "data-id": item.id
+                    }).on("click", changePage).append("<i class='fas fa-eye'></i>");
+
                     //spawn the buttons
-                    return $("<div>").append($customEditButton).append($customDeleteButton);
+                    return $("<div class='iconsRow'>").append(customEditButton).append(customDeleteButton).append(customViewButton);
                 }
             }
         ]
@@ -237,7 +239,7 @@ async function displayEmployees() {
         })
 }
 
-async function changePage(e) {
+function changePage(e) {
     const userName = $(e.target).data("id");
     e.stopPropagation();
     window.location = "employee.php?userId=" + userName;
