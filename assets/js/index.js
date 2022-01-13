@@ -20,7 +20,7 @@ function createRow(){
     <td><input form="form1" type="text" name="state" placeholder = "State"class="form-control"></td>
     <td><input form="form1" type="number" name="postalCode" placeholder = "Postal Code"class="form-control"></td>
     <td><input form="form1" type="number" name="phoneNumber" placeholder = "Phone Number"class="form-control"></td>
-    <td>
+    <td class="d-flex">
       <a id="btn-cancel"class="btn btn-secondary btn-sm " href="#"><i class="fas fa-window-close"></i></a>
       <button form="form1" type="submit" id="btn-success"class="btn btn-success btn-sm"><i class="fas fa-check"></i></button>
       </td>`
@@ -63,7 +63,7 @@ function displayNewEmployee(employee){
   <td>${employee.state}</td>
   <td>${employee.postalCode}</td>
   <td>${employee.phoneNumber}</td>
-  <td>
+  <td class="d-flex">
   <a href='./library/employeeController.php?v=view&id=${employee.id}' class="btn btn-sm btn-outline-info"><i class="far fa-eye"></i></a>
   <button data-update="${employee.id}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
   <button data-delete="${employee.id}" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>
@@ -115,7 +115,7 @@ function updateRow(employee, UpdateId){
     <td><input value = '${employee.state}' form="form2" type="text" name="state" class="form-control"></td>
     <td><input value = '${employee.postalCode}' form="form2" type="number" name="postalCode" class="form-control"></td>
     <td><input value = '${employee.phoneNumber}' form="form2" type="number" name="phoneNumber"class="form-control"></td>
-    <td>
+    <td class="d-flex">
       <a id="btn-cancel-update"class="btn btn-secondary btn-sm " href="#"><i class="fas fa-window-close"></i></a>
       <button form="form2" type="submit" id="btn-success"class="btn btn-success btn-sm"><i class="fas fa-check"></i></button>
       </td>`
@@ -127,7 +127,6 @@ function updateRow(employee, UpdateId){
 
      let updateEmployeeForm = document.querySelector("#form2");
      updateEmployeeForm.addEventListener("submit", (e)=> {updateEmployeeFetch(e,UpdateId)})
-     console.log(UpdateId)
      let cancelUpdateEmployee = document.querySelector("#btn-cancel-update")
      cancelUpdateEmployee.addEventListener("click", ()=>{cancelUpdateEmployeeFun(currentRow)})
 
@@ -157,7 +156,6 @@ function updateEmployeeFetch(e,id){
 }
 
 function displayUpdatedEmployee(employee){
-  console.log(employee)
   let row = document.createElement("tr")
   row.innerHTML=`
   <td>${employee.name}</td>
@@ -168,7 +166,7 @@ function displayUpdatedEmployee(employee){
   <td>${employee.state}</td>
   <td>${employee.postalCode}</td>
   <td>${employee.phoneNumber}</td>
-  <td>
+  <td class="d-flex">
   <a href='./library/employeeController.php?v=view&id=${employee.id}' class="btn btn-sm btn-outline-info"><i class="far fa-eye"></i></a>
   <button data-update="${employee.id}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
   <button data-delete="${employee.id}" class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>

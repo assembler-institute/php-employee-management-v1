@@ -35,6 +35,17 @@ function updateEmployee(array $updateEmployee, string $id)
     }
     file_put_contents('../../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
 }
+function updateEmployeeSync(array $updateEmployee, string $id)
+{
+    $employees = getEmployees();
+    foreach ($employees as $i => $employee) {
+        if ($employee["id"] == $id) {
+            $employees[$i] = array_merge($employee, $updateEmployee);
+            echo json_encode($employees[$i]);
+        }
+    }
+    file_put_contents('./../resources/employees.json', json_encode($employees, JSON_PRETTY_PRINT));
+}
 
 function getEmployee(string $id)
 {

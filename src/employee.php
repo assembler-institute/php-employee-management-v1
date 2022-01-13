@@ -2,8 +2,10 @@
 <?php
 
 include "../assets/html/header.html";
-
+require_once "./library/loginManager.php";
+checkSession();
 require "./library/employeeManager.php";
+
 // Error message for users that don't exist
 if (!isset($_GET["id"])) {
     echo "Employee not found";
@@ -18,7 +20,7 @@ if (!$employee) {
 }
 // Update information
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    updateEmployee($_POST, $employeeId);
+    updateEmployeeSync($_POST, $employeeId);
     header("Location: ./dashboard.php");
 }
 
@@ -43,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </li>
         </ul>
         </div>
+        <a class="link-primary" href="./library/loginController.php?logout=1">Log out</a>
     </div>
     </nav>
 

@@ -1,11 +1,9 @@
 <?php
 include "../assets/html/header.html";
-
 require_once "./library/employeeManager.php";
-
 $employees = getEmployees();
-
-
+require_once "./library/loginManager.php";
+checkSession();
     ?>
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,6 +25,7 @@ $employees = getEmployees();
         </li>
       </ul>
     </div>
+    <a class="link-primary" href="./library/loginController.php?logout=1">Log out</a>
   </div>
 </nav>
 
@@ -57,7 +56,7 @@ $employees = getEmployees();
           <td><?= $employee["state"] ?></td>
           <td><?= $employee["postalCode"] ?></td>
           <td><?= $employee["phoneNumber"] ?></td>
-          <td>
+          <td class="d-flex">
             <a href="./library/employeeController.php?v=view&id=<?= $employee["id"]?>" class="btn btn-sm btn-outline-info"><i class="far fa-eye" data-viewId=<?= $employee["id"]?> ></i></a>
             <button data-update='<?= $employee["id"]?>' class="btn btn-sm btn-outline-secondary"><i class="fas fa-user-edit"></i></button>
             <button data-delete = '<?= $employee["id"]?>' class="btn btn-sm btn-outline-danger"><i class="far fa-trash-alt"></i></button>

@@ -1,3 +1,7 @@
+<?php
+require_once "./src/library/loginManager.php";
+checkSession();
+    ?>
 <!-- TODO Application entry point. Login view -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,17 +15,18 @@
 
 </head>
 <body>
+  
 <main class="form-signin">
-    <form action="./src/library/loginController.php" method="POST">
+    <form action="./src/library/loginController.php?login=1" method="POST">
       <!-- <img src="../../assets/img/assembler_icon.jfif" width="40" height="40" class="me-3" alt="Assembler School"> -->
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
-        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" data-bs-toggle="tooltip" data-bs-html="true" title="imassembler@assemblerschool.com">
+        <input value="admin@assemblerschool.com" name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" data-bs-toggle="tooltip" data-bs-html="true" title="imassembler@assemblerschool.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
-        <input name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password" title="Assemb13r">
+        <input value="123456" name="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password" title="Assemb13r">
         <label for="floatingPassword">Password</label>
       </div>
       <?= ($alert) ? "<div class='alert alert-$alert[type] role='alert'>$alert[text]</div>" : "" ?>
