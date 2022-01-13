@@ -29,7 +29,7 @@ async function createTable() {
         //     console.log(msg);
         // },
 
-        //sending data when actions like edit, and insert are completed
+        //sending data when actions like edit, and insert are completed, delete functions is under jsgrid
         controller: {
             //the event when you click in the + button
             insertItem: async function (item) {
@@ -37,7 +37,25 @@ async function createTable() {
                         method: "POST",
                         body: JSON.stringify(item)
                     })
-                    .then(response => console.log(response.text()))
+                    .then(response => {
+                        if (response.ok) {
+                            //appends alert success
+                            $("body").append(`
+                                <div class="alert alert-success insertMsg" role="alert">
+                                    Your employee was added!
+                                </div>
+                            `)
+                        } else {
+                            //appends alert error
+                            $("body").append(`
+                            <div class="alert alert-danger insertMsg"  role="alert">
+                            An error has ocurred, try again!
+                            </div>
+                            `)
+                        }
+                        //function that hides msg
+                        fadeOutMsg($(".successInsert"))
+                    })
             },
             //event when update an item and confirm
             updateItem: async function (item) {
@@ -45,7 +63,27 @@ async function createTable() {
                         method: "PUT",
                         body: JSON.stringify(item)
                     })
-                    .then(response => response)
+                    .then(response => {
+                        if (response.ok) {
+                            //appends alert
+                            $("body").append(`
+                                <div class="alert alert-success updateMsg" role="alert">
+                                    Your employee was updated!
+                                </div>
+                            `)
+
+                        } else {
+                            //appends alert
+                            $("body").append(`
+                            <div class="alert alert-danger updateMsg" role="alert">
+                                Your employee was updated!
+                            </div>
+                        `)
+                            //function that hides msg
+                            fadeOutMsg($(".updateMsg"))
+                        }
+                    })
+
             },
         },
 
@@ -132,7 +170,7 @@ async function createTable() {
                 name: "phoneNumber",
                 title: "Phone",
                 type: "number",
-                width: 100,
+                width: 140,
                 validate: {
                     validator: "range",
                     message: function (value, item) {
@@ -158,7 +196,7 @@ async function createTable() {
                             "data-id": item.id
                         })
                         .on("click", changePage);
-                    //delete button
+                    //delete button, we add some data bs attr 
                     var $customDeleteButton = $("<button>").attr({
                             class: "customGridDeletebutton jsgrid-button jsgrid-delete-button",
                             "data-bs-toggle": "modal",
@@ -211,7 +249,31 @@ async function deleteEmployee(item) {
     await fetch("./library/employeeController.php?delete=" + item, {
             method: "delete"
         })
-        .then(response => response)
+        .then(response => {
+            if (response.ok) {
+                //displays msg alert
+                $("body").append(`
+                <div class="alert alert-success deleteMsg" role="alert">
+                    Your employee was deleted!
+                </div>
+            `)
+            } else {
+                //displays msg alert
+                $("body").append(`
+                    <div class="alert alert-danger deleteMsg" role="alert">
+                        An error has ocurred, try again!
+                    </div>
+                `)
+            }
+            //calls function that fades alert
+            fadeOutMsg($(".deleteMsg"));
+        })
+}
+
+function fadeOutMsg(msg) {
+    setTimeout(function () {
+        msg.fadeOut(1000);
+    }, 5000)
 }
 
 
