@@ -3,7 +3,7 @@
 session_start();
 isset($_SESSION["email"]) ? header("Location:./src/dashboard.php") : "";
 
-require_once './assets/html/header.html';
+require_once './assets/html/header.php';
 
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -34,7 +34,7 @@ require_once './assets/html/header.html';
 
                   <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit" name="submitLogin">Login</button>
                 </form>
 
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">

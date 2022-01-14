@@ -64,17 +64,17 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
             })
+
         },
 
         onItemDeleted: function(args) {
-            //console.log(args.item);
+            console.log(args.item.id);
             $.ajax({
-                type: "POST",
-                url: ".././src/library/employeeController.php?delEmployee",
-                data: args.item,
+                type: "DELETE",
+                url: `.././src/library/employeeController.php?delEmployee=${args.item.id}`,
                 success: function (data) {
                     console.log(data);
-                   // callGrid();
+                   callGrid();
                 }
             });
         },
@@ -88,20 +88,20 @@ async function callGrid() {
        
         onItemInserting: function(args) {
             console.log($dataEmployee)
+            emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            if (!emailRegex.test(args.item.email)) {
+                args.cancel = true;
+                alert(`The email: ${args.item.email} is incorrect`);
+            }
+
             $dataEmployee.forEach(element => {
-                if(element.email == args.item.email){
-                    console.log("entroaqui")  
+                if(element.email == args.item.email){  
                     args.cancel = true;
                     alert("Email already in the database");
                 }
             });
         },
         onItemInserted: function (args) {
-            if(args.item.name === "erick") {
-                args.cancel = true;
-                alert("Specify the name of the item!");
-                console.log("ejej")
-            }
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?addEmployee",
@@ -115,16 +115,7 @@ async function callGrid() {
 
 };
 
-function timeSession(){
-    var sessionTime= setTimeout(() => {
-        $.ajax({
-            type:"POST",
-            url:".././src/library/employeeController.php?endSession",
-            
-        })
-    }, 15000);
 
-}
 
 
 setInterval(() => {

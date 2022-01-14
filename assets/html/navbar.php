@@ -20,7 +20,7 @@
             </span>
         </div>
         <div class="col d-flex justify-content-end">
-            <form action="./library/loginController.php" method="post">
+            <form action="./library/loginController.php" method="POST">
                 <button class="d-flex justify-content-end btn btn-light " type="submit" name="logout">Log out </button>
             </form>
         </div>

@@ -1,19 +1,10 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php
-session_start();
+// session_start();
 
-require '../assets/html/header.html';
+require '../assets/html/header.php';
 require "././library/loginManager.php";
 
-if (isset($_POST)) {
-
-    // sessionlogout("Location:../index.php");
-}
-
-if (isset($_SESSION['email'])) {
-    echo $_SESSION['email'];
-    echo "<script> loadxml(); </script>";
-}
 
 ?>
 <!-- todo import from CDN and Others -->
@@ -28,7 +19,7 @@ if (isset($_SESSION['email'])) {
 
 <body onload=" callGrid(); ">
     <?php
-        require '../assets/html/navbar.html';
+        require '../assets/html/navbar.php';
     ?>
 
     <section>
@@ -36,7 +27,7 @@ if (isset($_SESSION['email'])) {
     </section>
 
     <?php
-        require '../assets/html/footer.html';
+        require '../assets/html/footer.php';
     ?>
 
 </body>

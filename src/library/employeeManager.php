@@ -78,29 +78,32 @@ function updateEmployee(array $updateEmployee, $path)
     $file = $path;
     $Allusers = file_get_contents($file);
     $usersAll1 = json_decode($Allusers);
-    
-    foreach ($usersAll1 as $user) {
-        if ($_GET['id'] == $user->id  ) {
-            $user->id = $_GET['id'];
-            $user->name = $updateEmployee["name"];
-            $user->lastName = $updateEmployee["lastName"];
-            $user->email   = $updateEmployee["email"];
-            $user->gender = $updateEmployee["radio"];
-            $user->streetAddress= $updateEmployee["streetAddress"];
-            $user->postalCode = $updateEmployee["postalCode"];
-            $user->phoneNumber = $updateEmployee["phoneNumber"];
-            $user->age = $updateEmployee["age"];
-            $user->state = $updateEmployee["state"];
-            $user->city = $updateEmployee["city"];
-            header("Location: ./dashboard.php");
+    if(isset($_GET['id'])){
+        foreach ($usersAll1 as $user) {
+            if ($_GET['id'] == $user->id  ) {
+                $user->id = $_GET['id'];
+                $user->name = $updateEmployee["name"];
+                $user->lastName = $updateEmployee["lastName"];
+                $user->email   = $updateEmployee["email"];
+                $user->gender = $updateEmployee["radio"];
+                $user->streetAddress= $updateEmployee["streetAddress"];
+                $user->postalCode = $updateEmployee["postalCode"];
+                $user->phoneNumber = $updateEmployee["phoneNumber"];
+                $user->age = $updateEmployee["age"];
+                $user->state = $updateEmployee["state"];
+                $user->city = $updateEmployee["city"];
+                header("Location: ./dashboard.php");
+            }
+            // }else if($updateEmployee["id"] ){
+                
+            //     if($user->id == $updateEmployee["id"]){
+            //         $user = $updateEmployee;
+            //     }
+            // }
+            $customers[] = $user;
         }
-        // }else if($updateEmployee["id"] ){
-            
-        //     if($user->id == $updateEmployee["id"]){
-        //         $user = $updateEmployee;
-        //     }
-        // }
-        $customers[] = $user;
+        $newinfo = json_encode($customers);
+        file_put_contents($file, $newinfo);
     }
     if($updateEmployee["id"] ){
         $customers = [];
@@ -108,12 +111,11 @@ function updateEmployee(array $updateEmployee, $path)
             if($user->id == $updateEmployee["id"]){
                 $user = $updateEmployee;
             }
-
             $customers[] = $user;
         }
+        $newinfo = json_encode($customers);
+        file_put_contents($file, $newinfo);
     }
-    $newinfo = json_encode($customers);
-    file_put_contents($file, $newinfo);
 }
 
 
