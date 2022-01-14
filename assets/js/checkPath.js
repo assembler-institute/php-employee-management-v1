@@ -8,13 +8,25 @@ function checkPath() {
     switch (loc) {
         case "/employee.php":
             actual.text("Employees");
-            alter.attr("href", "./dashboard.php");
+            actual.css({
+                color: "black",
+                fontSize: "17px"
+            })
+            alter.attr({
+                href: "./dashboard.php"
+            })
             alter.text("Dashboard");
             break;
 
         default: //dashboard.php
             actual.text("Dashboard");
-            alter.attr("href", "./employee.php?newEmployee=true");
+            actual.css({
+                color: "black",
+                fontSize: "17px"
+            })
+            alter.attr({
+                href: "./employee.php?newEmployee=true",
+            })
             alter.text("Employees");
             break;
     }
