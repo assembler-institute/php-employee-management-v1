@@ -101,13 +101,14 @@ function myButtonClick() {
 }
   myButtonClick();
 
-  let buttonTrashSelect = document.getElementsByClassName("buttonTrash");
-  let buttonEditSelect = document.getElementsByClassName("buttonEdit");
-  console.log(buttonTrashSelect[0])
+  var buttonTrashSelect = document.getElementsByClassName("buttonTrash");
+  var buttonEditSelect = document.getElementsByClassName("buttonEdit");
+  console.log(buttonTrashSelect.item(3))
   console.log(buttonEditSelect)
 for (let i = 0; i < buttonTrashSelect.length; i++) {
-  buttonTrashSelect[i].addEventListener("click",deleteEmployer);
+  buttonTrashSelect.item(i).addEventListener("click",deleteEmployer);
 }
 for (let i = 0; i < buttonEditSelect.length; i++) {
   buttonEditSelect[i].addEventListener("click",deleteEmployer);
 }
+
