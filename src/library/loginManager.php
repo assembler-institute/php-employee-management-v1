@@ -2,7 +2,29 @@
 
 
 //! Functions
-
+function checkUser($path){
+    $file = $path;
+  $Allusers = file_get_contents($file);
+$usersAll = json_decode($Allusers);
+$userName = $usersAll->users;
+$postEmail= $_POST["email"];
+$postPassword = $_POST["password"];
+    foreach ($userName as $user) {
+        if ($postEmail == $user->email) {
+            echo "he entrado 1";
+            $compare = $user->password;
+            if (password_verify($postPassword, $user->password)) {
+                session_start();
+                $_SESSION['LAST_ACTIVITY'] = time();
+                $_SESSION["email"] = $postEmail;
+                $_SESSION["password"] = $postPassword;
+                header("Location:../dashboard.php");
+            }else{
+                header("Location:../../index.php");
+            }
+        }
+    }
+}
 
 function sessionlogout($path)
 {
@@ -23,3 +45,4 @@ function sessionlogout($path)
     session_destroy();
     header($path);
 }
+?>

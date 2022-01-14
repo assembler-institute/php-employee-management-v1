@@ -65,26 +65,25 @@ async function callGrid() {
         ],
         //todo event listener to update from inline table
         onItemUpdated: function (args) {
-            //console.log(args.item);
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
                 success: function (data) {
-                    console.log(data);
                     callGrid();
+                    alert(`The user has been Updated`);
                 }
             })
+
         },
 
-        //todo event listener to delete row (employee)
         onItemDeleted: function (args) {
             $.ajax({
-                type: "POST",
-                url: ".././src/library/employeeController.php?delEmployee",
-                data: args.item,
+                type: "DELETE",
+                url: `.././src/library/employeeController.php?delEmployee=${args.item.id}`,
                 success: function (data) {
                     callGrid();
+                    alert(`The user has been deleted`);
                 }
             });
         },
@@ -100,13 +99,13 @@ async function callGrid() {
             window.location.assign(`./../src/employee.php?id=${$idget}`)
         },
 
-        //todo event listener run before insert employees from the table with some validations
         onItemInserting: function (args) {
             emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             if (!emailRegex.test(args.item.email)) {
                 args.cancel = true;
                 alert(`The email: ${args.item.email} is incorrect`);
             }
+
             $dataEmployee.forEach(element => {
                 if (element.email == args.item.email) {
                     args.cancel = true;

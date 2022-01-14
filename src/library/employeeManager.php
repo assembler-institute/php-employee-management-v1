@@ -124,6 +124,8 @@ function updateEmployee(array $updateEmployee, $path)
             //todo push into array
             $customers[] = $user;
         }
+        $newinfo = json_encode($customers);
+        file_put_contents($file, $newinfo);
     }
     //todo encode and save
     $newinfo = json_encode($customers);
@@ -174,3 +176,4 @@ function recorrer($path, $post)
         }
     }
 }
+?>

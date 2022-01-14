@@ -2,7 +2,7 @@
 <?php
 // session_start();
 
-require '../assets/html/header.html';
+require '../assets/html/header.php';
 require "././library/loginManager.php";
 
 ?>
@@ -20,8 +20,7 @@ require "././library/loginManager.php";
 <!-- todo when the page load call function to fill the table -->
 <body onload=" callGrid(); ">
     <?php
-        //todo add the nav bar by require
-        require '../assets/html/navbar.html';
+        require '../assets/html/navbar.php';
     ?>
 
     <section>
@@ -30,8 +29,7 @@ require "././library/loginManager.php";
     </section>
 
     <?php
-        //todo add the Footer by require
-        require '../assets/html/footer.html';
+        require '../assets/html/footer.php';
     ?>
 
 </body>
