@@ -27,6 +27,12 @@
                         You need to log in to access
                     </div>
                 ';
+            }else if(isset($_GET["logout"])){
+                echo '
+                    <div class="alert alert-success" role="alert">
+                        You successfully logged out
+                    </div>
+                ';
             }
         ?>
             

@@ -36,7 +36,7 @@ function logIn(){
         }
     unset($_SESSION["login_time"]);
     session_destroy();
-    header("location: ./../../index.php");
+    header("location: ./../../index.php?logout");
     }
 
 
