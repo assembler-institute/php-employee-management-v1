@@ -1,19 +1,22 @@
 <?php
 require ("loginManager.php");
 
+function checkSession(){
+    if (!isset($_SESSION["userLogin"])) {
+        header("location: ../../index.php?notSession=true");
+    }}
+
 if (checkLogin()) {
-    header("location: D:/XAMPP/htdocs/Employee management V1/php-employee-management-v1-1/src/dashboard.php"); //correct login
+    header("Location: http://localhost/Employee-management-V1/php-employee-management-v1-1/src/dashboard.php"); //correct login
 } else {
-    header("location: ../../index.php?error=true"); //incorrect login
+    header("Location: ../../index.php?error=true"); //incorrect login
 }
 
 //signout when clicking button signout
 if (isset($_GET["signout"])) {
     endSession();
-    header("location: ../../index.php");
+    header("Location: ../../index.php");
 }
-
-checkSession();
 
 if (timeSessionFinish()) {
     header("location: ../../index.php");

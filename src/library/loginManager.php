@@ -3,7 +3,7 @@
 //Verify passwords and log in
 function checkLogin(){
 session_start();
-$file = 'D:/XAMPP/htdocs/Employee management V1/php-employee-management-v1-1/resources/users.json';
+$file = 'D:/XAMPP/htdocs/Employee-management-V1/php-employee-management-v1-1/resources/users.json';
 $data = file_get_contents($file);
 $result = json_decode($data, true);
 
@@ -16,8 +16,9 @@ $passwordLogin = $_POST["namePassword"];
 $passwordHashed = password_hash($passwordLogin, PASSWORD_DEFAULT);
 
 if (password_verify($passwordLogin, $passwordSaved)) {
-    $_SESSION["userLogin"] = $sessionLogin;
-    $_SESSION['login_time'] = time();
+    $_SESSION["userLogin"] = true;
+    $loginTime = time();
+    $_SESSION['login_time'] = $loginTime;
     return true;
 } else {
     $_SESSION["errorLogin"] = 'error';
@@ -30,18 +31,15 @@ function endSession() {
     session_destroy();
 }
 
-//check if session started
-function checkSession(){
-    if (isset($_SESSION["userLogin"])) {
-        header("location: ../../index.php?notSession=true");
-    }}
-
 //finish session after 10min
 function timeSessionFinish(){
     if(isset($_SESSION["userLogin"])) {
-        if(time()-$_SESSION["login_time"] >600){
-                    session_destroy();
+        session_start();
+        $currentTime = time();
+        if($currentTime-$_SESSION["login_time"] > 10){
+        session_destroy();
+        return true;
         }
     }
-}
+};
 ?>

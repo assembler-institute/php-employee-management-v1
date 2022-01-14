@@ -1,4 +1,24 @@
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<?php
+function checkSession(){
+  session_start();
+  if (!isset($_SESSION["userLogin"])) {
+      header("location: ../index.php?notSession=true");
+      var_dump($_SESSION);
+  }};
+
+  function timeSessionFinish(){
+    if(isset($_SESSION["userLogin"])) {
+        $currentTime = time();
+        if($currentTime-$_SESSION["login_time"] > 600){
+        session_destroy();
+        return true;
+        }
+    }
+};
+
+checkSession();
+timeSessionFinish();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

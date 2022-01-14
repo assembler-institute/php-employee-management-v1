@@ -154,18 +154,5 @@
         "age": "t",
         "postalCode": "t",
         "phoneNumber": "t"
-    },
-    {
-        "id": 13,
-        "name": "ta",
-        "lastName": "te",
-        "email": "ts",
-        "gender": "td",
-        "city": "tg",
-        "streetAddress": "f",
-        "state": "b",
-        "age": "tc",
-        "postalCode": "t x",
-        "phoneNumber": "ta"
     }
 ]
