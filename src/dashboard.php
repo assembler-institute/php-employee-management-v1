@@ -30,6 +30,9 @@ session_start();
   if(isset($_GET["flag"])){
     echo "<div class='alert alert-info' id='logoutLabel' role='alert'>New employee added succesfully!</div>";
   }
+  if(isset($_GET["update"])){
+    echo "<div class='alert alert-info' id='logoutLabel' role='alert'>Employee updated succesfully!</div>";
+  }
 
   ?>
   <div class="container">

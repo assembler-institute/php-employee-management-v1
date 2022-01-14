@@ -50,13 +50,13 @@ for ($i=0; $i < count($newCollections); $i++) {
     break;
   }
 }
+if (isset($updateEmployee["form"])){
+    unset($updateEmployee["form"]);
+    header("Location:../dashboard.php?update=1");
+}
 $replaceArray = array($i => $updateEmployee);
 $newCollections = array_replace($newCollections, $replaceArray);
 file_put_contents('../../resources/employees.json', json_encode($newCollections, JSON_PRETTY_PRINT));
-if (isset($updateEmployee["form"])){
-    unset($updateEmployee["form"]);
-    header("Location:../dashboard.php");
-}
 }
 
 function getEmployee(string $id)
