@@ -1,0 +1,76 @@
+:root {
+    --purple: #590099;
+    --blue: #0a054d;
+    --grey: #eeecec;
+
+}
+
+.gradient {
+    background: rgb(13, 0, 36);
+    background: linear-gradient(120deg, #0a054d, #8a2be2);
+}
+
+/* EMPLOYEES.PHP STYLES */
+section {
+    height: 100%;
+    width: 100%;
+}
+
+.msgContainer {
+    z-index: 10;
+    position: absolute;
+    top: 2%;
+    right: 50%;
+}
+
+.sectionBtn {
+    margin: 3%;
+}
+
+.sectionBtn button {
+    margin: 3%;
+}
+
+.iconsRow {
+    margin-right: 10px;
+}
+
+#employeeForm {
+    padding: 10vh;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+/*JSGRID STYLES*/
+
+/* header row */
+.jsgrid-header-row>.jsgrid-header-cell {
+    background-color: var(--purple) !important;
+    color: white !important;
+}
+
+/* rows */
+.jsgrid-row>.jsgrid-cell {
+    background-color: white;
+    border-color: #3b0066 !important;
+}
+
+/* alternate rows */
+.jsgrid-alt-row>.jsgrid-cell {
+    background-color: var(--grey) !important;
+    border-color: #3b0066 !important;
+}
+
+/* editing row */
+.jsgrid-edit-row>.jsgrid-cell {
+    background-color: #ffd500 !important;
+
+}
+
+/*hover*/
+.jsgrid-selected-row>.jsgrid-cell {
+    background-color: rgb(190, 214, 229) !important;
+}

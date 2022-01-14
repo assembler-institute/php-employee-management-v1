@@ -1,5 +1,5 @@
 # PHP BASIC APPLICATION TO MANAGE AN EMPLOYEES LIST
-
+<a href="#instructions">Go to proyect instruction</a>
 ## Application main points
 
 1. Login and logout with a json file as user storage
@@ -28,102 +28,10 @@ src/
 - Src folder contains PHP files which contain HTML or JS
 - Src/library folder contains PHP files that contain just PHP
 
-**We left to you the project files in their folders to give you a structure which we want you to work with in order to later refactor it.**
-
-We use some naming conventions when create code files. For instance a file which handles HTTP request we name it as `Controller`.
-
-In the other hand we have also the concept of `Manager` which typically implements an abstraction layer over a storage system, in this case as we are going to work with json files for a while (bear on mind later we refactor it to MySQL and then we will also have a `Model` file) we would need to create on it all functions we need to access the json file.
-
-A file called `Model` implements a database layer is a file which interacts directly with a Database. **On future projects we will refactor this project to add Models and much more!!**
-
-We also added the concept of `Helper` which is a class which its finality is to help `Controllers` and `Managers` to be lighter and to keep single responsibility.
-
-```
-index.php // which is the entry point of the application. The login view
-employeeController.php // file which has JUST the php code to handle employees request
-employeeManager.php // In this file we left you a list of named mehtods to implement and use.
-
-loginController.php // here you need to handle all HTTP request of login things
-loginManager.php // same thing here you need to write things as login validation logout etc..
-
-sessionHelper.php // here you can add the code to check if the user session has expired.
-```
-
-The sessionHelper file need to be added to each page we visit in order to check if the user session has expired and if so to call the methods of the loginManager to logout the admin user.
-
-### Including or importing code files to current file
-
-As you have seen in JS there are sentences to import code from other files to the current file we are working. In PHP happens the same thing. And as we want to encapsulate code by concepts( the login page request are managed by a loginController and so on) it is required to import files.
-
-So for instance a dashboard.php page can look like this at the beginning of the file:
-
-```
- <?php
-include "./library/sessionHelper.php";  // we added the code of the helper to check session
-
-include "../assets/html/header.html"; // the header file that we also include it on every page
-?>
-<div id="alert" class="alert alert-danger w-25 mx-auto text-center" data-dismiss="alert" aria-label="Close" role="alert"></div>
-<div id="employeesGrid" class="ml-5"></div>
-<script>
-..............
-```
-
-So when the server returns the processed file, PHP has changed all `include` sentences by the code that is on that files.
-Let's make it clearer. Let's say that we have a sessionHelper which has this code.
-
-```
-session_start();
-if(isset($_SESSION['userId'])) {
-    if(time() - $_SESSION['time'] > $_SESSION['lifeTime']) {
-        logout();
-		....
-  }
-} else {
-	.....
-}
-```
-
-And we want to include it on every page user visits in order to check if his session is still valid. We just need to do this to include it for instance on `dashboard.php` file.
-
-```
-<?php include "./library/sessionHelper.php";?>
-
-<div id="alert" class="alert alert-danger w-25 mx-auto text-center" data-dismiss="alert" aria-label="Close" role="alert"></div>
-..............
-```
-
-So what we have done is to include literally that `if else` of the helper at the top of the `dashboard.php` file. We can do this with all files we need.
-
-### Project key points
-
-The user is stored in `resouces/users.json` file there you have an admin user work with it.
-
-The employees are stored `resouces/employees.json` file you have to make a CRUD over this file
-
-You should follow with coherence the project structure we give you and when you add files or functions make them self-descriptive. As you could see in the methodology we left on the project.
-
-```
-$data = getAllData($id); // get employee data
-$employee = getEmployee($id);// just reading we know that gets employee by id, cool! and clean!
-```
-
-The functions you create have to be coherent, the naming is a serious affair. You can write in such a way that everything describes itself.
-
-Same thing for variables, it is really important to give proper names.
-
-```
-$data = "John";
-$name = 'John;// no words needed
-```
-
-And yeah! also same thing for every file you create give sense and coherence to it.
-
-[About naming](https://dzone.com/articles/naming-conventions-from-uncle-bobs-clean-code-phil)
 
 ## External libraries
 
-All them must be installed with the npm here you have a package.json take a look please.
+We installed the libraries in node_modules with npm. Used the Terminal.
 
 - [Bootstrap](https://getbootstrap.com/)
 - [Bootstrap icons](https://icons.getbootstrap.com/)
@@ -133,7 +41,7 @@ All them must be installed with the npm here you have a package.json take a look
 
 As we explained in the pdf document of this project we will use [this images api](https://uifaces.co/)
 
-This web service in the version free that is which we are going to use has limitations. Five request per minute or thirty in an hour.  
+This web service in the version free that is which we are going to use has limitations. Five request per minute or thirty in an hour.
 So if you want to develop this extra feature it would be cool to have a mocked response to develop at ease. So for this purpose we left in `resources/` folder a file called images_mock which can be used to the implementation of the extra feature once you have your code running well you need to remove this mock and to connect directly with the web service.
 
 [Read the doc!](https://uifaces.co/api-docs)
@@ -261,3 +169,44 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
+####  <h1 id="instruction">Project instructions</h1>
+### Installed frameworks:
+<ul>
+    <li>Jquery -> part of the code is wrote in jquery, because jsgrid conditions.</li>
+    <li>Bootstrap -> The styles in this project are done by using bootstrap framework.</li>
+    <li>JsGrid -> The purpose of this project is: work with the employees.json (update, delete, etc). To do the dashboard logic we used jsgrid.</li>
+</ul>
+<cite>I recommend you to check the paths in header.html to ensure all is ok</cite>
+
+### How project works:
+<ul>
+<li>
+    <p><b>Index.php</b> : Here is the login page. To access, you have to introduce the following values (without quotes) :</p>
+        <ol>
+            <li>email-> "admin@assemblerschool.com" </li>
+            <li>password ->"123456" </li>
+        </ol>
+
+</li>
+<li>
+    <p>The <b>session</b> will have a duration of 10 minutes. (you can comment lines in sessionHelper and this will delete the timeout)</p>
+</li>
+<li><p><b>header.html</b> -> We did a template of the header, it have all the imports from bootstrap, jquery and own styles.</p>
+    <p>This file is imported to the rest of php files, like dashboard and employees.</p>ç
+</li>
+<li>
+   <p> <b>Dashboard.php</b> -> This is the main page, you can work with the employees in this page, if you click one of the employees, the page will display a edit row mode, with this, you can edit the information of the user, all you have to do is click in confirm changes.</p> the rest you can do it in the page without refreshing (we've done it with fetchs in js).</p>
+   <p>The rest of the icons they have functionality of: Delete, add, edit, and view information in employee.php</p>
+   <p>In navbar, you will have the employee apart too, if you click on it, it will redirect to employee.php, but in different way, that condition is: create a new employee</p>
+</li>
+<li>
+   <p> <b>Employees.php</b> -> Information of the user, you can edit the information if you want. (you can access throw the eye in dashboard).</p>
+</li>
+
+### Few tips of the program.
+<p>All the files are commented, We tried to do the code as understandable as possible.</p>
+<p><b>Manager==creation</b> of the functions</p>
+<p><b>Controller==calling</b> the functions depending the condition</p>
+<p>We separate the js in many files because it's better for understand what is working in everymoment, what function is passing, etc. </p>
+<p>In loginManager.php you'll have all the functions related to index.php, login and logout functionality. </p>
+<p>In employeeManager.php it's the same, all the functions are created there</p>
