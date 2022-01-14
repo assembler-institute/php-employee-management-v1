@@ -13,6 +13,11 @@
     <?php
         require "../assets/html/header.html";
     ?>
+    <?php
+      require "./library/employeeController.php";
+      
+    ?>
+    <?php echo $_POST['name']; ?>
 <div class="container-xl grid-2">
 <form class="row g-3 needs-validation" novalidate>
   <div class="col-md-4">

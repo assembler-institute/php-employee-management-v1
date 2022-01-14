@@ -9,6 +9,9 @@ img.className='binImg'
   //event.stopImmediatePropagation();
 //  alert("ASD");
 //});
+
+// en js crear request fetch method delete, data:id
+//en php recibir el id e ir a eliminarlo
 function addEmployee(){
   $("#modalAdd").modal();
   //vaciar inputs en modal
