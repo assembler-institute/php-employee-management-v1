@@ -122,42 +122,16 @@
         "gender": ""
     },
     {
-        "name": "kory",
-        "lastName": "Cardozo",
-        "email": "carlacardozo990@gmail.com",
-        "gender": "woman",
-        "city": "Teneeife",
-        "streetAddress": "asda",
-        "state": "asd",
-        "age": "23",
-        "postalCode": "2342",
-        "phoneNumber": "213342543252",
-        "id": 10
-    },
-    {
-        "name": "kory",
-        "lastName": "Cardozo",
-        "email": "carlacardozo990@gmail.com",
-        "gender": "woman",
-        "city": "Teneeife",
-        "streetAddress": "asda",
-        "state": "asd",
-        "age": "23",
-        "postalCode": "2342",
-        "phoneNumber": "213342543252",
-        "id": 11
-    },
-    {
         "form": "13",
-        "name": "romel",
+        "name": "Go",
         "lastName": "Cardozo",
         "email": "carlacardozo990@gmail.com",
         "gender": "man",
-        "city": "mexico",
+        "city": "Teneeife",
         "streetAddress": "asda",
         "state": "asd",
         "age": "23",
-        "postalCode": "123",
+        "postalCode": "2342",
         "phoneNumber": "2134134",
         "id": "13"
     }
