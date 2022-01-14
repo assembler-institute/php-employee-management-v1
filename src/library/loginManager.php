@@ -3,7 +3,7 @@
 //Verify passwords and log in
 function checkLogin(){
 session_start();
-$file = 'D:/XAMPP/htdocs/Employee-management-V1/php-employee-management-v1-1/resources/users.json';
+$file = '../../resources/users.json';
 $data = file_get_contents($file);
 $result = json_decode($data, true);
 
