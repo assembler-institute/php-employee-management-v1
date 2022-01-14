@@ -5,8 +5,9 @@
 require '../assets/html/header.php';
 require "././library/loginManager.php";
 
-
 ?>
+
+<!-- todo Import here because if we import in header.html it doesn't work-->
 <!-- todo import from CDN and Others -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,13 +17,14 @@ require "././library/loginManager.php";
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-
+<!-- todo when the page load call function to fill the table -->
 <body onload=" callGrid(); ">
     <?php
         require '../assets/html/navbar.php';
     ?>
 
     <section>
+        <!-- todo main section  -->
         <div id="jsGrid"> </div>
     </section>
 

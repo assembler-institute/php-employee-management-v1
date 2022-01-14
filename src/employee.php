@@ -66,6 +66,7 @@ if (isset($_GET['id'])) {
                         <div class="col-md-6 mt-md-0 mt-3"> <label>State</label> <input type="text" class="form-control" name="state" value="<?= isset($_GET["id"]) ?  state : '' ?>"> </div>
                         <div class="col-md-6 mt-md-0 mt-3"> <label>Age</label> <input type="number" class="form-control" name="age" value="<?= isset($_GET["id"]) ?  age : '' ?>"> </div>
                     </div>
+                    <!-- <div class="row d-flex justify-content-around"> -->
                     <div class="row">
                         <div class="col-md-6 mt-md-0 mt-3"> <label>Postal Code</label> <input type="number" class="form-control" name="postalCode" required value="<?=isset($_GET["id"])?postalCode : ''?>"> </div>
                         <div class="col-md-6 mt-md-0 mt-3"> <label>Phone Number</label> <input type="tel" class="form-control" name="phoneNumber" required value="<?=isset($_GET['id']) ?  phoneNumber : ''?>"> </div>
