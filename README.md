@@ -169,5 +169,44 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
-#### Instruction
+####  <h1 id="instruction">Instructions of this project</h1>
+### Installed frameworks:
+<ul>
+    <li>Jquery -> part of the code is wrote in jquery, because jsgrid conditions.</li>
+    <li>Bootstrap -> The styles in this project are done by using bootstrap framework.</li>
+    <li>JsGrid -> The purpose of this project is: work with the employees.json (update, delete, etc). To do the dashboard logic we used jsgrid.</li>
+</ul>
+<cite>I recommend you to check the paths in header.html to ensure all is ok</cite>
 
+### How project works:
+<ul>
+<li>
+    <p><b>Index.php</b> : Here is the login page. To access, you have to introduce the following values (without quotes) :</p>
+        <ol>
+            <li>email-> "admin@assemblerschool.com" </li>
+            <li>password ->"123456" </li>
+        </ol>
+
+</li>
+<li>
+    <p>The <b>session</b> will have a duration of 10 minutes. (you can comment lines in sessionHelper and this will delete the timeout)</p>
+</li>
+<li><p><b>header.html</b> -> We did a template of the header, it have all the imports from bootstrap, jquery and own styles.</p>
+    <p>This file is imported to the rest of php files, like dashboard and employees.</p>ç
+</li>
+<li>
+   <p> <b>Dashboard.php</b> -> This is the main page, you can work with the employees in this page, if you click one of the employees, the page will display a edit row mode, with this, you can edit the information of the user, all you have to do is click in confirm changes.</p> the rest you can do it in the page without refreshing (we've done it with fetchs in js).</p>
+   <p>The rest of the icons they have functionality of: Delete, add, edit, and view information in employee.php</p>
+   <p>In navbar, you will have the employee apart too, if you click on it, it will redirect to employee.php, but in different way, that condition is: create a new employee</p>
+</li>
+<li>
+   <p> <b>Employees.php</b> -> Information of the user, you can edit the information if you want. (you can access throw the eye in dashboard).</p>
+</li>
+
+### Few tips of the program.
+<p>All the files are commented, We tried to do the code as understandable as possible.</p>
+<p><b>Manager==creation</b> of the functions</p>
+<p><b>Controller==calling</b> the functions depending the condition</p>
+<p>We separate the js in many files because it's better for understand what is working in everymoment, what function is passing, etc. </p>
+<p>In loginManager.php you'll have all the functions related to index.php, login and logout functionality. </p>
+<p>In employeeManager.php it's the same, all the functions are created there</p>
