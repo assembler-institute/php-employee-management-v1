@@ -19,6 +19,8 @@ $postPassword = $_POST["password"];
                 $_SESSION["email"] = $postEmail;
                 $_SESSION["password"] = $postPassword;
                 header("Location:../dashboard.php");
+            }else{
+                header("Location:../../index.php");
             }
         }
     }
@@ -43,3 +45,4 @@ function sessionlogout($path)
     session_destroy();
     header($path);
 }
+?>

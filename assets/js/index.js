@@ -71,21 +71,20 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
                 success: function (data) {
-                    console.log(data);
                     // callGrid();
+                    alert(`The user has been Updated`);
                 }
             })
 
         },
 
         onItemDeleted: function(args) {
-            console.log(args.item.id);
             $.ajax({
                 type: "DELETE",
                 url: `.././src/library/employeeController.php?delEmployee=${args.item.id}`,
                 success: function (data) {
-                    console.log(data);
                    callGrid();
+                   alert(`The user has been deleted`);
                 }
             });
         },
@@ -102,7 +101,6 @@ async function callGrid() {
         },
        
         onItemInserting: function(args) {
-            console.log($dataEmployee)
             emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             if (!emailRegex.test(args.item.email)) {
                 args.cancel = true;

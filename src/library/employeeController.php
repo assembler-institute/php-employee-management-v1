@@ -6,7 +6,8 @@ require_once "./employeeManager.php";
 //todo detect when modifyEmployee have changes
 //todo when have changes call PHP function to update employee
 if (isset($_GET["modifyEmployee"])) {
-    updateEmployee($_POST, "../../resources/employees.json");
+    checkUser( "../../resources/employees.json");
+    
 }
 
 if (isset($_GET['addEmployee'])) {

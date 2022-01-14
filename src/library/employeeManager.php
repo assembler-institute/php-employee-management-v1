@@ -177,3 +177,4 @@ function recorrer($path, $post)
         }
     }
 }
+?>
