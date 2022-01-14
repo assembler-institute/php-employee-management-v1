@@ -38,6 +38,9 @@
     if ($_SERVER['QUERY_STRING'] == "error=true") {
         echo "<p id='errorMsg'>The email or the password are incorrects</p>";
     };
+    if ($_SERVER['QUERY_STRING'] == "notSession=true") {
+        echo "<p id='errorMsg'>You have to log in!</p>";
+    };
 ?>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Log in</button>
                 </div>
