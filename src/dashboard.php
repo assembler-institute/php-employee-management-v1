@@ -43,7 +43,7 @@ checkSession();
         <th>State</th>
         <th>Postal Code</th>
         <th>Phone Number</th>
-        <th><button id="btn-add-employee"class="btn btn-primary w-100 text-center" href="#">Create new</button></th>
+        <th><button id="btn-add-employee"class="btn btn-primary w-100 text-center" href="#">Add Empployee</button></th>
       </tr>
     </thead>
     <tbody id="employees-table">
