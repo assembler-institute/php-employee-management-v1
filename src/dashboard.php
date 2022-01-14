@@ -18,14 +18,9 @@ else header("Location: ../index.php") ;
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
     <link type="text/css" rel="stylesheet" href="../assets/css/main.css" />
-
-    
-    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js" defer></script>
-
-
-
     <script src="../assets/js/index.js" defer></script>
+    <script src="../assets/js/location.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -34,5 +29,12 @@ else header("Location: ../index.php") ;
     ?>
     <div class="alerts" id="alerts"></div>
     <div id="Grid"></div>
+
+    <?php 
+    require("../assets/html/footer.php");
+    ?>
+
 </body>
 </html>
+
+<form action="/src/employee.php" method="post"></form>

@@ -1,5 +1,7 @@
 <?php
+
     require_once("./loginManager.php");
+    
     if(isset($_POST["username"])){
         if(comprovacion()){
         session_start();
@@ -9,6 +11,7 @@
             header("location: ../../index.php?error");
         }
     }
+    
     if(isset($_GET["Logout"])){
         session_start();
         cerrarSesion();

@@ -1,37 +1,45 @@
-<?php 
-function leerUsers(){
-    $file="../../resources/users.json";
-    $Allusers= file_get_contents($file);
-    $usersAll=json_decode($Allusers);
+<?php
+
+function leerUsers()
+{
+    $file = "../../resources/users.json";
+    $Allusers = file_get_contents($file);
+    $usersAll = json_decode($Allusers);
     return $usersAll;
 }
-function comprovacion(){
-    if (($_POST)){
-        $postUser= $_POST["username"];
-        $postPassword= $_POST["password"];
-        $usersAll=leerUsers();
-        foreach ($usersAll as $users ) {
-            foreach($users as $user){
-                if($postUser == $user->name){
+
+function comprovacion()
+{
+    if (($_POST)) {
+        $postUser = $_POST["username"];
+        $postPassword = $_POST["password"];
+        $usersAll = leerUsers();
+        foreach ($usersAll as $users) {
+            foreach ($users as $user) {
+                if ($postUser == $user->name) {
                     // return password_verify( $postPassword,$user->password);
-                    if(password_verify( $postPassword,$user->password)){
+                    if (password_verify($postPassword, $user->password)) {
                         return $user->email;
-                    }
-                    else return false;
+                    } else return false;
                 }
             }
         }
         return false;
     }
 }
-function iniciarSesion($postEmail){
+
+function iniciarSesion($postEmail)
+{
     session_start();
     $_SESSION['LAST_ACTIVITY'] = time();
-    $_SESSION["email"]= $postEmail;
+    $_SESSION["email"] = $postEmail;
 }
-function cerrarSesion(){
+
+function cerrarSesion()
+{
     session_start();
     unset($_SESSION);
+    
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
         setcookie(
@@ -46,6 +54,3 @@ function cerrarSesion(){
     }
     session_destroy();
 }
-
-
-?>

@@ -80,6 +80,7 @@ function getNextIdentifier(array $employeesCollection)
 {
 // TODO implement it int
 }
+
 function leerempleados(){
     $file=".././../resources/employees.json";
     $Allusers= file_get_contents($file);
@@ -92,4 +93,5 @@ function enviarempleados($content){
     $usersAll=json_encode($content);
     $Allusers= file_put_contents($file,$usersAll);
 }
+
 ?>

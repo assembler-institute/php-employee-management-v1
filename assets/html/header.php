@@ -1,18 +1,20 @@
 <header class="p-3 bg-dark text-white">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Dashboard</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Employees</a></li>
-        </ul>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-warning"><a href="./library/loginController.php?Logout">LogOut</a></button>
-        </div>
+      <a class="navbar-brand me-2" href="#/">
+        <img src="/php-employee-management-v1/assets/images/IFunny-Logo.png" height="40" alt="Logo" loading="lazy" style="margin-top: -1px;" />
+      </a>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" id="dashPage">Dashboard</li>
+          <li class="breadcrumb-item" id="employeesPage">Employees</li>
+        </ol>
+      </nav>
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btn-link"><a class="link-warning" href="./library/loginController.php?Logout">LogOut</a></button>
       </div>
     </div>
-  </header>
+  </nav>
+
+</header>
