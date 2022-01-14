@@ -54,7 +54,8 @@ if (isset($_GET['id'])) {
                         <div class="col-md-6 mt-md-0 mt-3"> <label>Phone Number</label> <input type="tel" class="form-control" name="phoneNumber" required value=<?= isset($_GET["id"]) ?  phoneNumber : "" ?>> </div>
                     </div>
                     <div class="row">
-                        <button class="btn btn-primary btn-lg" type="submit" name="submitForm"> Submit </button>
+                        <button class="col-5 btn btn-primary btn-lg" type="submit" name="submitForm"> Submit </button>
+                        <button class="col-5 btn btn-secondary btn-lg " id="buttonCancel" onclick="window.location.href='./dashboard.php'"> Cancel </button>
                     </div>
             </form>
         </div>
