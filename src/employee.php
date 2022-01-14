@@ -1,6 +1,6 @@
 <!-- TODO Employee view -->
 <?php
-include_once "./../assets/html/header.html";
+require "../assets/html/header.html";
 require './library/employeeManager.php';
 if (isset($_GET['id'])) {
     $idfin = $_GET['id'];
@@ -15,12 +15,6 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-<<<<<<< HEAD
-    <?php
-        include '../assets/html/navbar.html';
-    ?>
-=======
->>>>>>> parent of d60db9a (merge seguro)
     <div class="wrapper rounded bg-white">
         <div class="form">
             <div class="h3">Registration Form</div>
@@ -71,15 +65,10 @@ if (isset($_GET['id'])) {
                         <div class="col-md-6 mt-md-0 mt-3"> <label>Postal Code</label> <input type="number" class="form-control" name="postalCode" value=<?= isset($_GET["id"]) ?  postalCode : "" ?> required> </div>
                         <div class="col-md-6 mt-md-0 mt-3"> <label>Phone Number</label> <input type="tel" class="form-control" name="phoneNumber" required value=<?= isset($_GET["id"]) ?  phoneNumber : "" ?>> </div>
                     </div>
-                </div>
-                <div class="container">
+                    <!-- <div class="row d-flex justify-content-around"> -->
                     <div class="row">
-                        <div class="col-md-6 ">
-                            <button class="col-md-12 btn btn-primary btn-lg btn-block" type="submit" name="submitForm"> Submit </button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="col-md-12 btn btn-secondary btn-lg btn-block" id="buttonCancel" type="reset" onclick="window.location.href='./dashboard.php'" name="resetForm"> Cancel </button>
-                        </div>
+                        <button class="col-5 btn btn-primary btn-lg" type="submit" name="submitForm"> Submit </button>
+                        <button class="col-5 btn btn-secondary btn-lg " id="buttonCancel" onclick="window.location.href='./dashboard.php'"> Cancel </button>
                     </div>
                 </div>
             </form>

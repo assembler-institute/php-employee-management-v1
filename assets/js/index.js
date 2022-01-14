@@ -27,8 +27,8 @@ async function callGrid() {
         editing: true,
         sorting: true,
         autoload: true,
-        paging: false,
-        pageSize: 10,
+        paging: true,
+        pageSize: 20,
         pageButtonCount: 5,
         deleteConfirm: 'Do you really Want DELETE THIS DATA? ',
 
@@ -72,7 +72,7 @@ async function callGrid() {
                 data: args.item,
                 success: function (data) {
                     console.log(data);
-                   // callGrid();
+                    callGrid();
                 }
             })
         },
@@ -84,8 +84,7 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?delEmployee",
                 data: args.item,
                 success: function (data) {
-                    console.log(data);
-                   // callGrid();
+                    callGrid();
                 }
             });
         },
@@ -118,11 +117,6 @@ async function callGrid() {
 
         //todo event listener to after validations insert the employee in employee.json
         onItemInserted: function (args) {
-            if(args.item.name === "erick") {
-                args.cancel = true;
-                alert("Specify the name of the item!");
-                console.log("ejej")
-            }
             $.ajax({
                 type: "POST",
                 url: ".././src/library/employeeController.php?addEmployee",
@@ -147,4 +141,4 @@ setInterval(() => {
             }
         }
     })
-},1000);
+}, 10000);

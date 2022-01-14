@@ -12,6 +12,8 @@ body{
 }
 
 body {
+    margin: 0 auto !important;
+    width: 90%;
     background: white;
     min-height: 100vh
 }
@@ -135,4 +137,9 @@ span{
 nav{
     margin-top: 5%;
     margin-bottom: 3%;
+}
+
+section{
+    margin: 0 auto;
+    width: 90%;
 }
