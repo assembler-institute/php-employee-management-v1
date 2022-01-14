@@ -13,8 +13,8 @@ if (isset($_SESSION["email"])) {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Yinka Enoch Adedokun">
-	<link rel="stylesheet" href="./assets/css/login.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="./assets/css/login.css">
 	<title>Login Page</title>
 </head>
 
@@ -24,7 +24,7 @@ if (isset($_SESSION["email"])) {
 	<div class="wrapper d-flex align-items-center justify-content-center">
 		<div class="container">
 			
-				<div class="logo"> <img src="/php-employee-management-v1/assets/images/IFunny-Logo.png" alt=""> </div>
+				<div class="logo"> <img src="./assets/images/IFunny-Logo.png" alt=""> </div>
 				<div class="text-center mt-4 name"> M.R. Smile & Co.</div>
 				<form class="p-3 mt-3 form-group" action="./src/library/loginController.php" method="POST">
 					<div class="error text-center"><?php
