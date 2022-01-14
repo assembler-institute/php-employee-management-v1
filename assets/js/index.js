@@ -10,22 +10,18 @@ window.addEventListener('DOMContentLoaded', async () => {
     sorting:true,
     inserting:true,
     paging:true,
-
-    pageSize:10,
-    pageButtonCount:3,// numero de paginas que veras
+    pageSize:15,
+    pageButtonCount:3,
 
     data:a,
 
 fields: [
-    { name: "id", css: "hide", width: 0 },
     { name: "name", type: "text", title: "Name" },
-    { name: "email", type: "text", title: "Email" },
+    { name: "lastName", type: "text", title: "lastName" },
     { name: "age", type: "number", title: "Age" },
-    { name: "streetAddress", type: "number", title: "Street No." },
+    { name: "email", type: "text", title: "Email" },
     { name: "city", type: "text", title: "City" },
-    { name: "state", type: "text", title: "State" },
-    { name: "postalCode", type: "number", title: "Postal Code" },
-    { name: "phoneNumber", type: "number", title: "Phone Number" },
+    { name: "gender", type: "text", title: "gender" },
     { type: "control",rowClick:true, modeSwitchButton: true, editButton: true },
   ],
 
@@ -35,7 +31,7 @@ fields: [
    onItemInserted: function name(args) {
     $.ajax({
         method: 'POST',
-        url: './library/employeeController.php?add',   // ????????????? ERICK ????? porque tenho que por ADD ??????
+        url: './library/employeeController.php?add',
         data: args.item,
         success: function (pi) {
               alertas("se a creado correctamente");
@@ -73,6 +69,8 @@ controller: {
       {
         alertas("se a cambiado correctamente!");
       }
+      else alertas("email no valido");
+      
     },
     
   },
@@ -126,8 +124,8 @@ setInterval(async () => {
 
 function alertas(str){
   setTimeout(()=>{
-    alerstDiv.style.visibility='visible';
     alerstDiv.innerText=str;
+    alerstDiv.style.visibility='visible';
     setTimeout(()=>{
       alerstDiv.style.visibility='hidden';
     },3000)},500)
