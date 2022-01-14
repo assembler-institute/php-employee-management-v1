@@ -1,5 +1,5 @@
 # PHP BASIC APPLICATION TO MANAGE AN EMPLOYEES LIST
-<a href="#instruction">Go to proyect instruction</a>
+<a href="#instructions">Go to proyect instruction</a>
 ## Application main points
 
 1. Login and logout with a json file as user storage
@@ -169,7 +169,7 @@ curl_close($curlHandler);
 
 $decodedResponse = json_decode($apiResponse);
 ```
-####  <h1 id="instruction">Instructions of this project</h1>
+####  <h1 id="instruction">Project instructions</h1>
 ### Installed frameworks:
 <ul>
     <li>Jquery -> part of the code is wrote in jquery, because jsgrid conditions.</li>

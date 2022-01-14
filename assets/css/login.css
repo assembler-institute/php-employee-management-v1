@@ -1,0 +1,47 @@
+body {
+    background: rgb(13, 0, 36);
+    background: linear-gradient(120deg, #0a054d, #8a2be2);
+}
+
+.msgContainer {
+    z-index: 10;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    border-bottom: solid 1px #ccc;
+    padding: 15px;
+}
+
+.login-form {
+    border-radius: 15px;
+}
+
+.iconUser{
+    width:30%;
+}
+
+.filter{
+    filter: invert(9%) sepia(44%) saturate(3721%) hue-rotate(234deg) brightness(94%) contrast(119%);;
+}
+
+.iconMail{
+    background: url(../imgs/envelope-solid.svg) no-repeat 7px 7px;
+    padding-left:30px;
+    background-size: 20px;
+}
+
+
+.iconPassword{
+    background: url(../imgs/key-solid.svg) no-repeat 7px 7px;
+    padding-left:30px;
+    background-size: 20px;
+}
+
+.form-control:hover{
+    box-shadow: inset 0px 0px 10px 0px rgba(10,5,77,0.45);
+}
