@@ -1,6 +1,8 @@
 <?php
+
   require_once("./employeeManager.php");
-  // add employee
+
+  // ADD EMPLOYEE
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newEmployeeData = trim(file_get_contents("php://input"));
     $newEmployee = json_decode($newEmployeeData, true);
@@ -11,7 +13,8 @@
     addEmployee($employee);
     echo json_encode($employee);
   }
-  //update employee
+
+  // UPDATE EMPLOYEE
   if ($_SERVER["REQUEST_METHOD"] == "PUT") {
     if (isset($_GET["update"])){
       $updateEmployeeData = trim(file_get_contents("php://input"));
@@ -20,22 +23,22 @@
       $employeeId = $_GET["id"];
       updateEmployee($updatedEmployee, $employeeId);
     }
-    // Update information sync
   }
-  //get employee data
+
+  // GET EMPLOYEE DATA
   if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $employeeId = $_GET["id"];
     $employee = getEmployee($employeeId);
     echo json_encode($employee);
   }
   
-  
-  // DELETE
+  // DELETE EMPLOYEE
   if ($_SERVER["REQUEST_METHOD"] == "DELETE" ) {
     $id = trim(file_get_contents("php://input"));
     deleteEmployee($id);
   }
   
+  // VIEW EMPLOYEE DETAILS in the Employee section
   if (isset($_GET["v"])) {
     if( $_GET["v"]=="view"){
       $id = $_GET["id"];

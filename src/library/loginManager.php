@@ -63,6 +63,7 @@ function checkSession()
         }
     }
 }
+
 function destroySession()
 {
     // Start session

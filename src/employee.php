@@ -1,22 +1,26 @@
-<!-- TODO Employee view -->
 <?php
 
+// Header
 include "../assets/html/header.html";
 
+// Session checker
 require_once "./library/loginManager.php";
 checkSession();
 
+// Get ID from the URL and the employee array in order to display teh employee details
 require_once "./library/employeeManager.php";
-$employeeId = $_GET["id"];
-$employee = getEmployee($employeeId);
 
+    $employeeId = $_GET["id"];
+    $employee = getEmployee($employeeId);
+
+// If the request is POST (after clicking UPDATE in the form), employee data is changed in the JSON and the user is redirected to the Dashboard
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     updateEmployeeSync($_POST,$employeeId);
     header("Location:./dashboard.php");
 }
 ?>
 
-<!-- NAV -->
+<!-- Nav -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light container-xl">
     <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -47,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <h3>Employee details: <b><?= $employee["name"]." ".$employee["lastName"]?></b></h3>
             </div>
             <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form">
+                <form action="" method="POST" enctype="multipart/form"> 
                     <div class="d-flex justify-content-center">
                         <div class="col-4">
                             <div class="form-group">
@@ -114,6 +118,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 </main>
 
+
+<!-- Footer -->
 <?php
 include "../assets/html/footer.html"
     ?>

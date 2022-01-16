@@ -1,12 +1,19 @@
 <?php
+
+// Header
 include "../assets/html/header.html";
-require_once "./library/employeeManager.php";
-$employees = getEmployees();
+
+// Session checker
 require_once "./library/loginManager.php";
 checkSession();
-    ?>
 
-<!-- NAV -->
+// Get all employees from the JSON as an associative array
+require_once "./library/employeeManager.php";
+$employees = getEmployees();
+
+?>
+
+<!-- Nav -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light container-xl">
   <div class="container-fluid">
   <a class="navbar-brand" href="#">
@@ -30,7 +37,7 @@ checkSession();
   </div>
 </nav>
 
-<!-- Main table -->
+<!-- Main table with employees data -->
 <main class="container-xl my-5">
   <table class="table table-striped table-bordered">
     <thead>
@@ -46,6 +53,7 @@ checkSession();
         <th><button id="btn-add-employee"class="btn btn-primary w-100 text-center" href="#">Add Empployee</button></th>
       </tr>
     </thead>
+    <!-- Loop through all employees in the JSON and create a new row in the table body -->
     <tbody id="employees-table">
       <?php foreach ($employees as $employee) : ?>
         <tr>
@@ -68,7 +76,7 @@ checkSession();
   </table>
 </main>
    
-<!-- Modal HTML -->
+<!-- Confirm delete Modal -->
 <div id="deleteModal" class="modal fade">
 	<div class="modal-dialog modal-confirm modal-dialog-centered">
 		<div class="modal-content">
@@ -87,6 +95,7 @@ checkSession();
 	</div>
 </div>
 
+<!-- Footer -->
 <?php
 include "../assets/html/footer.html"
     ?>
