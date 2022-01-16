@@ -50,7 +50,7 @@ $employees = getEmployees();
         <th>State</th>
         <th>Postal Code</th>
         <th>Phone Number</th>
-        <th><button id="btn-add-employee"class="btn btn-primary w-100 text-center" href="#">Add Empployee</button></th>
+        <th><button id="btn-add-employee"class="btn btn-primary w-100 text-center" href="#">Add Employee</button></th>
       </tr>
     </thead>
     <!-- Loop through all employees in the JSON and create a new row in the table body -->
