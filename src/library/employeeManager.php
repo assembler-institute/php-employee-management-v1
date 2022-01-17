@@ -21,8 +21,7 @@ function getEmployeers(){
 //Add a new employeer on file employees.json
 function addEmployee(array $newEmployee) {
     $oldEmployee = getEmployeers();
-    $arrayKey = count($oldEmployee);
-    $newId = $arrayKey+ 1;
+    $newId = getNextIdentifier( $oldEmployee);
     $newEmployee["id"] = $newId;
     array_push($oldEmployee, $newEmployee);
 
@@ -101,5 +100,6 @@ function getQueryStringParameters(): array {
 }
 
 function getNextIdentifier(array $employeesCollection): int {
-
+    $arrayKey = count($employeesCollection);
+    return $arrayKey + 1;
 }
