@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand me-2" href="#/">
-        <img src="/php-employee-management-v1/assets/images/IFunny-Logo.png" height="40" alt="Logo" loading="lazy" style="margin-top: -1px;" />
+        <img src="../assets/images/IFunny-Logo.png" height="40" alt="Logo" loading="lazy" style="margin-top: -1px;" />
       </a>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
