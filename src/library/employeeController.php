@@ -1,6 +1,6 @@
 <?php
-require_once "./library/employeeManager.php";
-
+require_once "./employeeManager.php";
+//if detected add option
 if(isset($_POST["submitAdd"])){
   $current_data=file_get_contents('../../resources/employees.json');
   $array_data=json_decode($current_data,true);
@@ -20,11 +20,12 @@ if(isset($_POST["submitAdd"])){
 );
 addEmployee($newEmployee);
 }
-
+//detected delete option
 if(isset($_POST["delete"])){
 deleteEmployee($_POST["id"]);
 }
-if (isset($_POST["submitAdd"])){
+//detected update option
+if (isset($_POST["update"])){
   $newEmployee=array(
     "id"=>$_POST["id"],
     "name"=>$_POST["name"],

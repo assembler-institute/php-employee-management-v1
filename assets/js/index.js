@@ -2,14 +2,15 @@ let add= document.getElementById("add");
 add.addEventListener("click", addEmployee);
 let img=document.createElement("img");
 img.className='binImg'
-
+var arrId={};
 //trash.addEventListener("click", deleteEmployer);
 //$(".trash").on('click', function(event){
  // event.target();
   //event.stopImmediatePropagation();
 //  alert("ASD");
 //});
-
+/*crear form table, action a employee.php
+cambiar name y id de img a button*/
 // en js crear request fetch method delete, data:id
 //en php recibir el id e ir a eliminarlo
 function addEmployee(){
@@ -17,8 +18,11 @@ function addEmployee(){
   //vaciar inputs en modal
 }
 function deleteEmployer(){
-alert("ASD");
+  console.log("delete");
 }
+function updateEmployee(){
+  console.log("update");
+  }
 function success(json) {
   let table=document.querySelector(".table");
 
@@ -39,6 +43,7 @@ function success(json) {
     let buttonEdit = document.createElement("button");
     buttonTrash.setAttribute("type", "submit");
     buttonTrash.setAttribute("name", "submitTrash");
+    buttonTrash.setAttribute("id",json[i].id);
     buttonTrash.classList.add("buttonTrash");
     let trash=document.createElement("img");
     buttonEdit.setAttribute("type", "submit");
@@ -60,9 +65,7 @@ function success(json) {
     td10.innerHTML=json[i].phoneNumber;
     trash.setAttribute("src","https://static.vecteezy.com/system/resources/previews/000/649/132/original/vector-trash-icon-symbol-sign.jpg");
     edit.setAttribute("src","https://cdn4.iconfinder.com/data/icons/materia-tools-vol-1/24/023_001_pencil_edit_eraser_kohinor_carandache_tool-512.png");
-    trash.setAttribute("id",json[i].id);
     edit.setAttribute("id",json[i].id);
-    trash.setAttribute("class","trash");
     edit.setAttribute("class","edit");
     trash.setAttribute("name","delete");
 
@@ -79,12 +82,14 @@ function success(json) {
     tr.appendChild(td9);
     tr.appendChild(td10);
     tr.appendChild(buttonTrash);
+
     buttonTrash.appendChild(trash);
+    buttonTrash.addEventListener("click",deleteEmployer);
     tr.appendChild(buttonEdit);
     buttonEdit.appendChild(edit);
+    buttonEdit.addEventListener("click",updateEmployee);
   }
 }
-
 
 function failure(error) {
     //document.getElementById('after').innerHTML = "ERROR: " + error;
@@ -103,15 +108,3 @@ function myButtonClick() {
     .catch(error => failure(error));
 }
   myButtonClick();
-
-  var buttonTrashSelect = document.getElementsByClassName("buttonTrash");
-  var buttonEditSelect = document.getElementsByClassName("buttonEdit");
-  console.log(buttonTrashSelect.item(3))
-  console.log(buttonEditSelect)
-for (let i = 0; i < buttonTrashSelect.length; i++) {
-  buttonTrashSelect.item(i).addEventListener("click",deleteEmployer);
-}
-for (let i = 0; i < buttonEditSelect.length; i++) {
-  buttonEditSelect[i].addEventListener("click",deleteEmployer);
-}
-

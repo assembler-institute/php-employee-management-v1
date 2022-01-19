@@ -65,7 +65,7 @@ timeSessionFinish();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body container">
-      <form action="./employee.php" method="POST" enctype="multipart/form-data">
+      <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data">
         <label>name:<input type="text"id="name" name="name"></label>
         <label>lastName:<input type="text" id="lastName" name="lastName"></label>
         <label>email:<input type="text" id="email" name="email"></label>

@@ -7,7 +7,7 @@ function checkSession(){
     }}
 
 if (checkLogin()) {
-    header("Location: http://localhost/Employee-management-V1/php-employee-management-v1-1/src/dashboard.php"); //correct login
+    header("Location: ../dashboard.php"); //correct login
 } else {
     header("Location: ../../index.php?error=true"); //incorrect login
 }
