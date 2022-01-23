@@ -34,7 +34,8 @@ timeSessionFinish();
   require "../assets/html/header.html";
 ?>
 <body>
-<table class="table">
+<!-- <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data">
+ --><table class="table">
   <thead>
     <tr>
       <th scope="col">id</th>
@@ -54,8 +55,8 @@ timeSessionFinish();
     </tr>
     </thead>
 </table>
-
-
+<!-- </form>
+ -->
 <!-- Modal add employee-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

@@ -25,8 +25,10 @@ if(isset($_POST["delete"])){
 deleteEmployee($_POST["id"]);
 }
 //detected update option
-if (isset($_POST["update"])){
-  $newEmployee=array(
+if (isset($_POST["changeEmployee"])){
+  echo "WORK";echo "<br>";
+  echo $_POST["data"];
+  /*$newEmployee=array(
     "id"=>$_POST["id"],
     "name"=>$_POST["name"],
     "lastName"=>$_POST["lastName"],
@@ -39,6 +41,10 @@ if (isset($_POST["update"])){
     "postalCode"=>$_POST["postalCode"],
     "phoneNumber"=>$_POST["phoneNumber"]
 );
-  updateEmployee($newEmployee);
+  updateEmployee($newEmployee);*/
 }
 
+/*if($_SERVER["REQUEST_METHOD"]=="PUT"){
+  echo "WORK";echo "<br>";
+ //echo parse_str(file_get_contents("php//input"),$_PUT);
+}*/

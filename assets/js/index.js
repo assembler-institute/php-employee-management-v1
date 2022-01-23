@@ -21,8 +21,21 @@ function deleteEmployer(){
   console.log("delete");
 }
 function updateEmployee(){
-  console.log("update");
+  var data=event.srcElement.id;
+  if( data !== '') {
+    console.log(data);
+
+    var url= "../src/library/employeeController.php"
+    $.ajax({
+      url:url,
+      data:{
+        'action':'upload',
+        'upload':data
+      }
+    });
   }
+}
+
 function success(json) {
   let table=document.querySelector(".table");
 
@@ -39,17 +52,25 @@ function success(json) {
     let td8= document.createElement("td");
     let td9= document.createElement("td");
     let td10= document.createElement("td");
+    let trash=document.createElement("img");
+    let edit=document.createElement("img");
     let buttonTrash = document.createElement("button");
     let buttonEdit = document.createElement("button");
+    let form =document.createElement("form");
+    
+    form.setAttribute("action","./library/employeeController.php");
+    form.setAttribute("method","POST");
+    form.setAttribute("enctype","multipart/form-data");
+
     buttonTrash.setAttribute("type", "submit");
     buttonTrash.setAttribute("name", "submitTrash");
     buttonTrash.setAttribute("id",json[i].id);
     buttonTrash.classList.add("buttonTrash");
-    let trash=document.createElement("img");
+
+    buttonEdit.setAttribute("id",json[i].id);
     buttonEdit.setAttribute("type", "submit");
     buttonEdit.setAttribute("name", "submitEdit");
     buttonEdit.classList.add("buttonEdit");
-    let edit=document.createElement("img");
 
     tr.setAttribute("id",json[i].id);
     th.innerHTML=json[i].id;
@@ -63,12 +84,25 @@ function success(json) {
     td8.innerHTML=json[i].age;
     td9.innerHTML=json[i].postalCode;
     td10.innerHTML=json[i].phoneNumber;
+    
     trash.setAttribute("src","https://static.vecteezy.com/system/resources/previews/000/649/132/original/vector-trash-icon-symbol-sign.jpg");
     edit.setAttribute("src","https://cdn4.iconfinder.com/data/icons/materia-tools-vol-1/24/023_001_pencil_edit_eraser_kohinor_carandache_tool-512.png");
-    edit.setAttribute("id",json[i].id);
-    edit.setAttribute("class","edit");
-    trash.setAttribute("name","delete");
 
+    /*table.appendChild(form);
+    form.appendChild(tr);
+    tr.appendChild(th);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+    tr.appendChild(td6);
+    tr.appendChild(td7);
+    tr.appendChild(td8);
+    tr.appendChild(td9);
+    tr.appendChild(td10);
+    tr.appendChild(buttonTrash);*/
+    
     table.appendChild(tr);
     tr.appendChild(th);
     tr.appendChild(td1);
@@ -83,7 +117,7 @@ function success(json) {
     tr.appendChild(td10);
     tr.appendChild(buttonTrash);
 
-    buttonTrash.appendChild(trash);
+  buttonTrash.appendChild(trash);
     buttonTrash.addEventListener("click",deleteEmployer);
     tr.appendChild(buttonEdit);
     buttonEdit.appendChild(edit);
