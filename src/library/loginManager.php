@@ -25,21 +25,9 @@ if (password_verify($passwordLogin, $passwordSaved)) {
     return false;
 }}
 
-//finish the current session
+//finish the current session function
 function endSession() {
     session_start();
     session_destroy();
 }
-
-//finish session after 10min
-function timeSessionFinish(){
-    if(isset($_SESSION["userLogin"])) {
-        session_start();
-        $currentTime = time();
-        if($currentTime-$_SESSION["login_time"] > 10){
-        session_destroy();
-        return true;
-        }
-    }
-};
 ?>

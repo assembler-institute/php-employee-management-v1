@@ -1,22 +1,5 @@
 <?php
-function checkSession(){
-  session_start();
-  if (!isset($_SESSION["userLogin"])) {
-      header("location: ../index.php?notSession=true");
-      var_dump($_SESSION);
-  }};
-
-  function timeSessionFinish(){
-    if(isset($_SESSION["userLogin"])) {
-        $currentTime = time();
-        if($currentTime-$_SESSION["login_time"] > 10){
-        session_destroy();
-        return true;
-        }
-    }
-}
-checkSession();
-timeSessionFinish();
+require "library/sessionHelper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +18,6 @@ timeSessionFinish();
     ?>
     <?php
       require "./library/employeeController.php";
-      
     ?>
     <?php echo $_POST['name']; ?>
 <div class="container-xl grid-2">
