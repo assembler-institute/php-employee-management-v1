@@ -14,8 +14,7 @@ if (isset($_GET['addEmployee'])) {
     addEmployee("../../resources/employees.json");
 }
 
-//todo detect when delEmployee have changes
-//todo when have changes call PHP function to delete employee by ID
+
 if(isset($_GET['delEmployee'])){
     $idEmployee =  $_GET['delEmployee'];
     deleteEmployee($idEmployee, "../../resources/employees.json");
@@ -29,7 +28,7 @@ if (isset($_POST['submitForm'])) {
             }
             print_r($_POST);
         } else if($seemail){
-            echo "this email is already in use";
+            header("Location:../dashboard.php");
         }else{
             addEmployee("../../resources/employees.json");
             header("Location:../dashboard.php");
