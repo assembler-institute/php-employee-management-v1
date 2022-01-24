@@ -13,7 +13,11 @@ if (isset($_GET['id'])) {
 <body>
     <div class="wrapper rounded bg-white">
         <div class="h3">Registration Form</div>
-        <form action="" method="POST">
+        <form action="<?php if(isset($_GET["id"])){
+            echo "./library/employeeController.php?id=$idfin";
+        }else{
+            echo "./library/employeeController.php"; 
+        }?>" method="POST">
             <div class="form">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3"> <label>First Name</label> <input type="text" class="form-control" name="name" required value="<?= isset($_GET["id"]) ?  name : "" ?>"> </div>
@@ -57,23 +61,5 @@ if (isset($_GET['id'])) {
 </div>
 </form>
 </body>
-<?php
-    if (isset($_POST['submitForm'])) {
-    $seemail= recorrer("../resources/employees.json", $_POST['email']);
-    if (isset($_GET['id']) ) {
-        if($_POST["lastName"] != " " && $_POST["radio"] != " "){
-            updateEmployee($_POST, "../resources/employees.json");
-        }
-        print_r($_POST);
-    } else if($seemail){
-        echo "this email is already in use";
-    }else{
-        addEmployee("../resources/employees.json");
-        header("Location:./dashboard.php");
-    }
-}
-if(isset($_POST['Cancel'])){
-    header("Location:./dashboard.php");
-}
-?>
+
 </html>

@@ -106,7 +106,7 @@ function updateEmployee(array $updateEmployee, $path)
             $user->age = $updateEmployee["age"];
             $user->state = $updateEmployee["state"];
             $user->city = $updateEmployee["city"];
-            header("Location: ./dashboard.php");
+            header("Location: ../dashboard.php");
         }
 
         //todo push into a array
