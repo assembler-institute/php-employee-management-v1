@@ -3,7 +3,7 @@
 // session_start();
 
 require '../assets/html/header.php';
-require "././library/loginManager.php";
+// require "././library/loginManager.php";
 
 ?>
 
@@ -16,7 +16,7 @@ require "././library/loginManager.php";
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="../assets/js/index.js"></script>
 <!-- todo when the page load call function to fill the table -->
 <body onload=" callGrid(); ">
     <?php

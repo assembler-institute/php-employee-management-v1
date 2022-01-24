@@ -30,6 +30,7 @@ async function callGrid() {
         paging: true,
         pageSize: 20,
         pageButtonCount: 5,
+        confirmDeleting: true,
         deleteConfirm: 'Do you really Want DELETE THIS DATA? ',
 
         //todo Load data from employees.json
@@ -49,13 +50,13 @@ async function callGrid() {
             // todo controls settings to event listeners
             {
                 type: "control",
-                modeSwitchButton: false,
+                modeSwitchButton: true,
                 editButton: true,
                 rowClick: true,
                 rowDoubleClick: true,
 
                 //todo header button and function
-                headerTemplate: function () {
+                headerTemplate: () => {
                     return $("<button>").attr("type", "button").attr('class', "fas fa-user-plus")
                         .on("click", function () {
                             window.location.assign(`./../src/employee.php`)
@@ -71,27 +72,26 @@ async function callGrid() {
                 url: ".././src/library/employeeController.php?modifyEmployee",
                 data: args.item,
                 success: function (data) {
-                    // callGrid();
+                    console.log(data)
                     alert(`The user has been Updated`);
                 }
             })
 
         },
-
         onItemDeleted: function(args) {
             $.ajax({
                 type: "DELETE",
                 url: `.././src/library/employeeController.php?delEmployee=${args.item.id}`,
                 success: function (data) {
-                   callGrid();
-                   alert(`The user has been deleted`);
+                   alert("The user has been deleted");
+                //    callGrid();
                 }
             });
-        },
+        }
+        ,
 
         //todo this need to be active to works double click
         rowClick: function (args) {
-
         },
 
         //todo event listener to redirect to employee.php with id and charge all data in the form

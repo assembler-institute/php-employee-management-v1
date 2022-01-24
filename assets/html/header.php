@@ -16,6 +16,7 @@
 
         <!-- todo  Import CSS and Javascript-->
         <link rel="stylesheet" href="../assets/css/main.css">
-        <script src="../assets/js/index.js" defer></script>
+        <!-- <script src="../assets/js/index.js" defer></script> -->
+        <!-- <script src="../assert" defer></script> -->
         <title> Rocket Employee Management </title>
     </head>
