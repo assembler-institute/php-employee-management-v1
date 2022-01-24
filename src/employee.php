@@ -55,7 +55,7 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="row d-flex justify-content-around">
 <button class="col-5 dflex btn btn-primary btn-lg" type="submit" name="submitForm"> Submit </button>
-<button class="col-5 btn btn-secondary btn-lg " id="buttonCancel" type="submit" name="Cancel"> Cancel </button>
+<a class="col-5 btn btn-secondary btn-lg" href="./dashboard.php" id="buttonCancel" type="submit" name="Cancel"> Cancel </a>
 </div>
 </div>
 </div>
