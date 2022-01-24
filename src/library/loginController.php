@@ -1,4 +1,7 @@
 <?php
+
+// todo Login Controller
+
 require_once "./loginManager.php";
 
 
@@ -10,5 +13,3 @@ if (isset($_POST["submitLogin"])) {
 if (isset($_POST["logout"])) {
     sessionlogout("Location:../../index.php");
 }
-
-?>

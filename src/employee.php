@@ -1,5 +1,6 @@
-<!-- TODO Employee view -->
 <?php
+//TODO Employee view -->
+
 include_once "./../assets/html/header.php";
 include_once './library/employeeManager.php';
 if (isset($_GET['id'])) {

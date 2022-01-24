@@ -1,4 +1,6 @@
 <?php
+//todo Session activity
+
 require "./loginManager.php";
 
 //todo function  to manager session time

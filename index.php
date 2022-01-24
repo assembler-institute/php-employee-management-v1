@@ -1,5 +1,5 @@
-<!-- TODO Application entry point. Login view -->
 <?php
+//TODO Application entry point. Login view -->
 session_start();
 isset($_SESSION["email"]) ? header("Location:./src/dashboard.php") : "";
 

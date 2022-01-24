@@ -1,4 +1,4 @@
-<!--todo Navbar content -->
+<!--todo html Navbar content --> 
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">

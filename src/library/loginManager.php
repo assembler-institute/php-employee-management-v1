@@ -1,7 +1,7 @@
 <?php
 
 
-//! Functions
+//! all Functions
 function checkUser($path){
     $file = $path;
   $Allusers = file_get_contents($file);
