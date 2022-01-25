@@ -1,6 +1,6 @@
 <?php
 require_once "./employeeManager.php";
-//if detected add option
+//detected add option
 if(isset($_POST["submitAdd"])){
   $current_data=file_get_contents('../../resources/employees.json');
   $array_data=json_decode($current_data,true);
