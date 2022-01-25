@@ -19,6 +19,5 @@ if (password_verify($pass, $paswordDB) && $email == $emailDB){
     header("Location:../dashboard.php");
 }
 else{
-    // poner un alert o un pop up!
     header("Location:../../index.php?flag=1");
 }

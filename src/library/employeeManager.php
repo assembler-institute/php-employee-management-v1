@@ -8,7 +8,7 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+// it receives an array with the information of the new employee form and add it to the json file.
 $newCollections = json_decode(file_get_contents('../../resources/employees.json'), true);
 $newEmployee['id'] = getNextIdentifier($newCollections);
 
@@ -29,7 +29,7 @@ file_put_contents('../../resources/employees.json', json_encode($newCollections,
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+// it receives the id of the employee to delete
 $employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
 intval($id);
 for ($i = 0; $i <count($employeesCollection); $i++){
@@ -43,7 +43,7 @@ file_put_contents('../../resources/employees.json', json_encode($employeesCollec
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+// it receives an array with the information of the employee to update and the it update the json file.
 $newCollections = json_decode(file_get_contents('../../resources/employees.json'), true);
 for ($i=0; $i < count($newCollections); $i++) {
   if ($updateEmployee["id"] == $newCollections[$i]["id"]){
@@ -78,8 +78,7 @@ function getQueryStringParameters(): array
 
 function getNextIdentifier(array $employeesCollection): int
 {
-// TODO implement it
-// $lastId = [];
+// We use this function to get the last identifier and put the new one to the new employee added.
 for ($i=0; $i <= count($employeesCollection); $i++){
   $lastId = $i;
 };

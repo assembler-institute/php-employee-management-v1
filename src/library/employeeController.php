@@ -8,6 +8,8 @@ function before ($xid, $inthat){
 
 $method = $_SERVER['REQUEST_METHOD'];
 
+// depence of the method we are requesting the next lines send you to the right functions that are included in the employee manager.php
+
 if($method == 'GET'){
   echo file_get_contents('../../resources/employees.json');
 }
@@ -15,7 +17,6 @@ if($method == 'GET'){
 if(isset($_GET["form"]) && $method == 'POST'){
   $idvalue = $_GET["form"];
   $array = $_REQUEST;
-  //unset($array["form"]);
   if (!isset($array['gender'])) {
     $array['gender'] = "";
   }

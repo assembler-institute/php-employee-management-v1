@@ -25,6 +25,7 @@
 
 <body>
   <?php
+  // that flag is to implement an alert message when you make a worng log in .
     if(isset($_GET["flag"])){
       echo "<div class='alert alert-info' id='logoutLabel' role='alert'>Not a valid user or password!</div>";
     }
