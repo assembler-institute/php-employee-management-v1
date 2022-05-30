@@ -13,7 +13,7 @@
         "phoneNumber": "7383627627"
     },
     {
-        "id": 2,
+        "id": "2",
         "name": "John",
         "lastName": "Doe",
         "email": "jhondoe@foo.com",
@@ -87,11 +87,11 @@
         "streetAddress": "1",
         "city": "Nashville",
         "state": "TN",
-        "postalCode": "90143",
+        "postalCode": 90143,
         "phoneNumber": "45372788192"
     },
     {
-        "id": 8,
+        "id": "8",
         "name": "Robert",
         "lastName": "Thomson",
         "email": "jackon@network.com",
@@ -100,7 +100,7 @@
         "streetAddress": "126",
         "city": "New Orleans",
         "state": "LU",
-        "postalCode": "63281",
+        "postalCode": 63281,
         "phoneNumber": "91232876454"
     }
 ]
