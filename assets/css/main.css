@@ -1,0 +1,181 @@
+:root {
+  --primary: #fcde67;
+  --secondary: #5bccf6;
+}
+
+body {
+  margin: 0;
+}
+
+.list-container {
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-container li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+/*--------------------------------------------- EMPLOYEE -----------------------------------*/
+
+.user-avatar {
+  width: 15rem;
+}
+
+.avatar-option {
+  width: 8rem;
+  cursor: pointer;
+}
+
+.refresh-button {
+  margin-left: 40%;
+  margin-bottom: 2rem;
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
+}
+
+.logout-btn {
+  color: black;
+  cursor: pointer;
+  margin-right: 3rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
+}
+
+.logout-btn:hover {
+  color: black;
+  background-color: var(--secondary);
+  border: 1px solid white;
+}
+
+/* UTILS */
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+/*--------------------------------------------- HEADER -----------------------------------*/
+
+.main-header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+  background-color: var(--secondary);
+}
+
+.main-header__container > * {
+  padding: 1.5rem;
+  color: white;
+}
+
+.main-header__logo {
+  margin-left: 2rem;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+}
+
+.nav-link a {
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
+}
+
+.nav-link a:hover {
+  color: black;
+  background-color: var(--secondary);
+  border: 1px solid white;
+}
+
+.main-header__title {
+  font-size: 1.5rem;
+}
+
+/*--------------------------------------------- TABLE -----------------------------------*/
+
+.table__header {
+  padding: 0.5rem;
+  height: 3rem;
+  background-color: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
+}
+
+.table__row {
+  border: 1px solid black !important;
+}
+
+/*--------------------------------------------- EMPLOYEE FORM -----------------------------------*/
+
+.employee-form {
+  width: 30%;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.form__input {
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  width: 15rem;
+}
+
+.form__row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-container {
+  margin: 2rem auto;
+}
+
+.btn-submit {
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--secondary);
+}
+
+.refresh-button:hover,
+.btn-submit:hover {
+  color: black;
+  background-color: var(--secondary);
+  border: 1px solid white;
+}
+
+.btn-return {
+  color: black;
+  text-decoration: none;
+  padding: 0.6rem;
+  background-color: var(--secondary);
+  border-radius: 0.3rem;
+  border: 1px solid var(--primary);
+}
+
+.btn-return:hover {
+  color: black;
+  background-color: var(--primary);
+  border: 1px solid white;
+}
