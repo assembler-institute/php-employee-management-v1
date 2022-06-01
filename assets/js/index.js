@@ -13,8 +13,11 @@ async function getEmployees() {
 
 async function createTable() {
     const employees = await getEmployees();
+    const tableBody = document.querySelector("#employee_table");
+    
     const tableData = employees.map((value) => {
-        const { name, lastName, email, age, city, state, streetAddress, id } = value;
+    const { name, lastName, email, age, city, state, streetAddress, id } = value;
+        
         return (
             `<tr>
                 <td data-id=${id}>${name}</td>
@@ -28,8 +31,10 @@ async function createTable() {
         );
     }).join('');
 
-    const tableBody = document.querySelector("#employee_table");
+    
     tableBody.innerHTML = tableData;
+
+
 }
 
 createTable();

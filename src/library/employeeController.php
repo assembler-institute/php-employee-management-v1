@@ -3,14 +3,24 @@
 include_once('./employeeManager.php');
 
 $id = $_GET['id'];
-$update = $_POST['update'];
 
-if (isset($id) && !$update) {
-    header("Location: .././employee.php?id=$id");
+
+var_dump($_POST);
+
+function getUserId($id){
+    if (isset($id) && !$_POST['id']) {
+        header("Location: .././employee.php?id=$id");
+    }
 }
 
+getUserId($id);
 
-if($update){
-    // updateEmployee();
-    echo "he dado update";
+function setEmployee($id){
+    if($_POST['id'] && isset($id)){
+        $employeeInfo = $_POST;
+        unset($employeeInfo['update']);
+        updateEmployee($employeeInfo);
+    }
 }
+
+setEmployee($id);

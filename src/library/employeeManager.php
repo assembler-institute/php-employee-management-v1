@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -8,31 +9,52 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee(array $updateEmployeeId)
 {
-// TODO implement it
-}
+    // TODO implement it
+    $jsonData = file_get_contents('../../resources/employees.json');  //Aquí al movernos de directorio tenemos que tener cuidado
+    $data = json_decode($jsonData, true);
 
+    foreach ($data as $key => $employee) {
+        if (intval($updateEmployeeId['id']) === $employee['id']) {
+            $employee['name'] = $updateEmployeeId['name'];
+            $employee['lastName'] = $updateEmployeeId['lastName'];
+            $employee['gender'] = $updateEmployeeId['gender'];
+            $employee['streetAddress'] = $updateEmployeeId['streetAddress'];
+            $employee['age'] = $updateEmployeeId['age'];
+            $employee['email'] = $updateEmployeeId['email'];
+            $employee['city'] = $updateEmployeeId['city'];
+            $employee['state'] = $updateEmployeeId['state'];
+            $employee['postalCode'] = $updateEmployeeId['postalCode'];
+            $employee['phoneNumber'] = $updateEmployeeId['phoneNumber'];
+        }
+    }
+    
+    $newJsonString = json_encode($data);
+    file_put_contents('../../resources/employees.json', $newJsonString);
+
+    header('location: ../.././index.php');
+}
 
 function getEmployee(string $id)
 {
-// TODO implement it
- 
-    $jsonData = file_get_contents('../resources/employees.json'); 
-    $data = json_decode($jsonData, true); 
+    // TODO implement it
 
-    foreach($data as $key => $employee){
-        if($employee['id'] == $id){
+    $jsonData = file_get_contents('../resources/employees.json');
+    $data = json_decode($jsonData, true);
+
+    foreach ($data as $key => $employee) {
+        if ($employee['id'] == $id) {
             return $employee;
         }
     }
