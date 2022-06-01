@@ -1,7 +1,10 @@
 <!-- TODO Application entry point. Login view -->
 <?php
 
-require_once
+require_once('./src/library/loginManager.php');
+$alert = checkSession();
+
+
 
 ?>
 
@@ -25,7 +28,15 @@ require_once
             <input type="password" name="pass" id="">
         </div>
         <button type="submit" name="login" value="login">Sign in</button>
+
+        <?php
+        echo $alert;
+
+        ?>
+
     </form>
     
 </body>
 </html>
+
+<!-- CRUD => Create, Read, Update and Delete -->
