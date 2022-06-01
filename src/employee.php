@@ -80,61 +80,8 @@
                 <input type="text" class="form-control" placeholder="PhoneNumber" aria-label="PhoneNumber">
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="">Name</label>
-                    <input class="form-control" type="text" name="name" id="">
-                </div>
-                <div class="form-group">
-                    <label for="">Email address</label>
-                    <input class="form-control" type="email" name="email" id="" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                    <label for="">City</label>
-                    <input class="form-control" type="text" name="city" id="">
-                </div>
-                <div class="form-group">
-                    <label for="">State</label>
-                    <input class="form-control" type="text" name="state" id="">
-                </div>
-                <div class="form-group">
-                    <label for="">Postal Code</label>
-                    <input class="form-control" type="number" name="postalCode" id="">
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="">Last name</label>
-                    <input class="form-control" type="text" name="lastName">
-                </div>
-                <div class="form-group">
-                    <label for="">Gender</label>
-                    <select class="form-control" name="gender" id="">
-                        <option value="Man">Man</option>
-                        <option value="Woman">Woman</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="">Street Address</label>
-                    <input class="form-control" type="text" name="address">
-                </div>
-                <div class="form-group">
-                    <label for="">Age</label>
-                    <input class="form-control" type="number" name="age" id="">
-                </div>
-                <div class="form-group">
-                    <label for="">Phone number</label>
-                    <input class="form-control" type="tel" name="phone" id="">
-                </div>
-            </div>
-        </div> -->
-
+        <button type="submit" class="btn btn-info mt-5">Submit</button>
+        <button type="submit" class="btn btn-secondary mt-5">Return</button>
     </form>
 
 
