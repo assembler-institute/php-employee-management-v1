@@ -1,13 +1,29 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hello world
-</body>
-</html>
+<?php 
+include('../assets/html/header.html');
+?>
+<main>
+    <table class="table" id="tableData">
+        <thead id="tableHead">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Street No</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Postal Code</th>
+                <th>Phone Number</th>
+                <th>+</th>
+            </tr>
+        </thead>
+        <!--  -->
+        <tbody id="tableBody">
+        <div id="jsGrid"></div>
+        </tbody>
+    </table>
+</main>
+<?php 
+    include('../assets/html/footer.html');
+?>
+    
