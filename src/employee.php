@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link type="text/css" rel="stylesheet" href="/node_modules/jsgrid/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="/node_modules/jsgrid/jsgrid-theme.min.css" />
+    <link rel="stylesheet" href="../assets/css/main.css">
 
 
 
@@ -26,7 +27,60 @@
 
     <!------------ Employee form------------>
     <form class="container" action="" method="post">
-        <div class="row">
+        <div class="row g-3">
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+            </div>
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+            </div>
+        </div>
+        <div class="row g-3 mt-2">
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="Example@example.com" aria-label="Email">
+            </div>
+            <div class="col">
+                <label for=""></label>
+                <select class="form-control" name="gender" id="">
+                        <option value="Man">Man</option>
+                        <option value="Woman">Woman</option>
+                    </select>
+            </div>
+        </div>
+        <div class="row g-3 mt-2">
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="City" aria-label="City">
+            </div>
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="Street Address" aria-label="Street Address">
+            </div>
+        </div>
+        <div class="row g-3 mt-2">
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="State" aria-label="State">
+            </div>
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="Age" aria-label="Age">
+            </div>
+        </div>
+        <div class="row g-3 mt-2">
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="Postal Code" aria-label="Postal Code">
+            </div>
+            <div class="col">
+                <label for=""></label>
+                <input type="text" class="form-control" placeholder="PhoneNumber" aria-label="PhoneNumber">
+            </div>
+        </div>
+        <!-- <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="">Name</label>
@@ -79,7 +133,7 @@
                     <input class="form-control" type="tel" name="phone" id="">
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </form>
 
