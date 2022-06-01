@@ -74,13 +74,6 @@ $("#wrapper").jsGrid({
             name: "Email",
             type: "text",
             width: 150,
-            validate: function email(mail) {
-                const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
-                if (emailRegex === false) {
-                    console.log("success");
-                }
-                // console.log(emailRegex);
-            }
         },
         {
             name: "Age",
