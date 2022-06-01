@@ -23,8 +23,9 @@
 
 
      <!------------ Table JsGrid ------------>
-     <div id="jsGrid"></div>
-
+    <div id="wrapper">
+        <?php echo "Hello World!"?>
+    </div>
 
 
      <!------------ Footer ------------>
@@ -33,6 +34,9 @@
     ?>
 
     
-     <script type="text/javascript" src="/node_modules/jsgrid/jsgrid.min.js"></script>
+     <!-- <script type="text/javascript" src="/node_modules/jsgrid/jsgrid.min.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" rel="stylesheet" media="all">
+     <script src="/assets/js/script.js"></script>
 </body>
 </html>
