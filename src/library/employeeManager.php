@@ -15,10 +15,10 @@ function addEmployee(array $newEmployee){
     var_dump(json_encode($data));
     array_push($data, (object)$newEmployee);
     $the_file = fopen("../../resources/employees.json","wb");
-    fwrite($the_file, json_encode((object)$data, JSON_THROW_ON_ERROR));
+    fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
     fclose($the_file);
     echo json_encode($data) ;
-    // header("Location: ../dashboard.php");
+    header("Location: ../dashboard.php");
 }
 
 

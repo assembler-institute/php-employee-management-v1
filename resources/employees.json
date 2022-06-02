@@ -1,5 +1,5 @@
-{
-    "0": {
+[
+    {
         "id": 1,
         "name": "Rack",
         "lastName": "Lei",
@@ -12,7 +12,7 @@
         "postalCode": "394221",
         "phoneNumber": "7383627627"
     },
-    "1": {
+    {
         "id": "2",
         "name": "John",
         "lastName": "Doe",
@@ -25,7 +25,7 @@
         "postalCode": "09889",
         "phoneNumber": "1283645645"
     },
-    "2": {
+    {
         "id": 3,
         "name": "Leila",
         "lastName": "Mills",
@@ -38,7 +38,7 @@
         "postalCode": "098765",
         "phoneNumber": "9983632461"
     },
-    "3": {
+    {
         "id": 4,
         "name": "Richard",
         "lastName": "Desmond",
@@ -51,7 +51,7 @@
         "postalCode": "457320",
         "phoneNumber": "90876987654"
     },
-    "4": {
+    {
         "id": 5,
         "name": "Susan",
         "lastName": "Smith",
@@ -64,7 +64,7 @@
         "postalCode": "445321",
         "phoneNumber": "224355488976"
     },
-    "5": {
+    {
         "id": 6,
         "name": "Brad",
         "lastName": "Simpson",
@@ -77,7 +77,7 @@
         "postalCode": "394221",
         "phoneNumber": "6854634522"
     },
-    "6": {
+    {
         "id": 7,
         "name": "Neil",
         "lastName": "Walker",
@@ -90,7 +90,7 @@
         "postalCode": 90143,
         "phoneNumber": "45372788192"
     },
-    "7": {
+    {
         "id": "8",
         "name": "Robert",
         "lastName": "Thomson",
@@ -103,37 +103,7 @@
         "postalCode": 63281,
         "phoneNumber": "91232876454"
     },
-    "8": [
-        "Jes\u00fas Herrera Abad",
-        "heisusin@gmail.com",
-        "3",
-        "C/ Venerable Juan de Santiago, 17, 1\u00baA",
-        "CORDOBA",
-        "C\u00f3rdoba",
-        "14010",
-        "600219775"
-    ],
-    "9": [
-        "Jes\u00fas Herrera Abad",
-        "heisusin@gmail.com",
-        "3",
-        "C/ Venerable Juan de Santiago, 17, 1\u00baA",
-        "CORDOBA",
-        "C\u00f3rdoba",
-        "14010",
-        "600219775"
-    ],
-    "10": [
-        "Jes\u00fas Herrera Abad",
-        "heisusin@gmail.com",
-        "3",
-        "C/ Venerable Juan de Santiago, 17, 1\u00baA",
-        "CORDOBA",
-        "C\u00f3rdoba",
-        "14010",
-        "600219775"
-    ],
-    "11": {
+    {
         "id": "",
         "name": "Jes\u00fas Herrera Abad",
         "lastName": "",
@@ -145,18 +115,5 @@
         "state": "C\u00f3rdoba",
         "postalCode": "14010",
         "phoneNumber": "600219775"
-    },
-    "12": {
-        "id": "",
-        "name": "MERCEDES LOPEZ AGUILAR",
-        "lastName": "",
-        "email": "heisusin@gmail.com",
-        "gender": "",
-        "age": "4",
-        "streetAddress": "CALLE CAMINO DE LA BARCA 4, 2-3",
-        "city": "CORDOBA",
-        "state": "Regional",
-        "postalCode": "14010",
-        "phoneNumber": "600219775"
     }
-}
+]
