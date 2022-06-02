@@ -1,4 +1,4 @@
-let clients = [{
+var clients = [{
         "Name": "Otto Clay",
         "Age": 25,
         "Country": 1,
@@ -35,7 +35,7 @@ let clients = [{
     }
 ];
 
-let countries = [{
+var countries = [{
         Name: "",
         Id: 0
     },
@@ -53,7 +53,7 @@ let countries = [{
     }
 ];
 
-$("#jsGrid").jsGrid({
+$("#wrapper").jsGrid({
     width: "100%",
     height: "400px",
 
@@ -67,31 +67,44 @@ $("#jsGrid").jsGrid({
     fields: [{
             name: "Name",
             type: "text",
-            width: 150,
+            width: 80,
             validate: "required"
+        },
+        {
+            name: "Email",
+            type: "text",
+            width: 150,
         },
         {
             name: "Age",
             type: "number",
-            width: 50
+            width: 40
         },
         {
-            name: "Address",
+            name: "Street No.",
+            type: "number",
+            width: 50,
+        },
+        {
+            name: "City",
             type: "text",
-            width: 200
+            title: "City",
+            width: 80,
         },
         {
-            name: "Country",
-            type: "select",
-            items: countries,
-            valueField: "Id",
-            textField: "Name"
+            name: "State",
+            type: "text",
+            width: 40,
         },
         {
-            name: "Married",
-            type: "checkbox",
-            title: "Is Married",
-            sorting: false
+            name: "Postal Code",
+            type: "number",
+            width: 50,
+        },
+        {
+            name: "Phone Number",
+            type: "number",
+            width: 70,
         },
         {
             type: "control"
