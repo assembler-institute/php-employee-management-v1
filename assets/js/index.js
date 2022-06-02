@@ -7,24 +7,27 @@ if(tableBody.children != 0){
     Array.from(tableBody).forEach(element => {
         tableBody.removeChild(element);
     });
-
     //charge the employees of data base
-    fetch("../resources/employees.json")
-    .then(response => response.json())
-    .then(data =>{
-        let i = 1;
-        data.forEach(element => {
-            //Create each row with Data Employeer with variable i for specify the id of each row
-            let row = createRow(element, i);
-            i++;
-
-            //We add the cell to tr and tr to tbody
-            tableBody.appendChild(row);
-        });
-    })
-    .catch((error)=>console.warn(error));
+    fetch("../src/library/employeeController.php")
+    .then(async response => {
+        try {
+            const data = await response.json();
+            let i = 1;
+            data.forEach(element => {
+                            //Create each row with Data Employeer with variable i for specify the id of each row
+                            let row = createRow(element, i);
+                            i++;
+                
+                            //We add the cell to tr and tr to tbody
+                            tableBody.appendChild(row);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    });
+     
 }else{
-    fetch("../resources/employees.json")
+    fetch("../src/library/employeeController.php")
     .then(response => response.json())
     .then(data =>{
         let i = 1;

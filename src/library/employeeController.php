@@ -2,6 +2,11 @@
 
 include('./employeeManager.php');
 
+//request method is GET, call the getQueryStringParameters() function
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    getQueryStringParameters();
+}
+
 if ($_POST){
     // $name = $_POST["name"];
     // $email = $_POST["email"];

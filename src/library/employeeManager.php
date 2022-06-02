@@ -58,10 +58,14 @@ function removeAvatar($id)
 }
 
 
-function getQueryStringParameters(): array
+function getQueryStringParameters()
 {
-// TODO implement it
+    $data = json_decode(file_get_contents('../../resources/employees.json'), true);
+    echo json_encode($data);
+
 }
+
+
 
 function getNextIdentifier(array $employeesCollection): int
 {
