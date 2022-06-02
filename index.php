@@ -9,7 +9,7 @@
     <script src="./assets/js/index.js" type="module"></script>
 </head>
 <body>
-    <table id=employee_table>
+    <table id=employee_table    >
         <tr>
             <th>Name</th>
             <th>LastName</th>

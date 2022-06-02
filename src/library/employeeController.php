@@ -1,26 +1,19 @@
-<?php
+<?php 
+require('./employeeManager.php');
 
-include_once('./employeeManager.php');
+$req = $_SERVER['REQUEST_METHOD'];
 
-$id = $_GET['id'];
+$db = getQueryStringParameters(); 
+   echo json_encode($db);
 
 
-var_dump($_POST);
 
-function getUserId($id){
-    if (isset($id) && !$_POST['id']) {
-        header("Location: .././employee.php?id=$id");
-    }
+if($req == 'DELETE') {
+    $inputdata = file_get_contents("php://input");
+    echo $inputdata;
+    $newDb = deleteEmployee($inputdata);
+    echo $newDb;
 }
 
-getUserId($id);
 
-function setEmployee($id){
-    if($_POST['id'] && isset($id)){
-        $employeeInfo = $_POST;
-        unset($employeeInfo['update']);
-        updateEmployee($employeeInfo);
-    }
-}
 
-setEmployee($id);
