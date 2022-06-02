@@ -15,6 +15,7 @@ function addEmployee(array $newEmployee)
 function deleteEmployee(string $id)
 {
 // TODO implement it
+
 }
 
 
