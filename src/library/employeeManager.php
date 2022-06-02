@@ -9,15 +9,28 @@
 
 function addEmployee(array $newEmployee){
 
-    $url = 'http://localhost/php-employee-management-v1/resources/employees.json'; 
-
+    //Decoding the json file
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
-    var_dump(json_encode($data));
+
+    //Setting the id of the new employeer
+    $newEmployee["id"] = count($data)+1;
+
+    //Adding the new empployeer to $data array(POST)
     array_push($data, (object)$newEmployee);
+
+    //Open the json
     $the_file = fopen("../../resources/employees.json","wb");
+
+    //Writting the json file with the new employeer
     fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
+
+    //Close the json file
     fclose($the_file);
+
+    //Returning the info
     echo json_encode($data) ;
+
+    //Redirect to dashboard
     header("Location: ../dashboard.php");
 }
 
@@ -25,6 +38,25 @@ function addEmployee(array $newEmployee){
 function deleteEmployee(string $id)
 {
 // TODO implement it
+
+    $data = json_decode(file_get_contents('../../resources/employees.json'), true);
+    array_splice($data, $id-1, 1);
+    //Open the json
+    $the_file = fopen("../../resources/employees.json","wb");
+
+    //Writting the json file with the new employeer
+    fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
+
+    //Close the json file
+    fclose($the_file);
+
+    //Returning the info
+    echo json_encode($data) ;
+
+    //Redirect to dashboard
+    header("Location: ../dashboard.php");
+
+    echo json_encode($data);
 }
 
 

@@ -14,6 +14,9 @@ function createRow(element, i){
     let tableCellPostal = document.createElement("td");
     let tableCellPhone = document.createElement("td");
     let tableCellIcon = document.createElement("td");
+    let formButton = document.createElement("form");
+    let btnDel = document.createElement("button");
+    let icon = document.createElement("i");
 
     //Add class to each tableCell
     tableCellName.classList.add("tbody__employee--td");
@@ -25,6 +28,13 @@ function createRow(element, i){
     tableCellPostal.classList.add("tbody__employee--td");
     tableCellPhone.classList.add("tbody__employee--td");
     tableCellIcon.classList.add("tbody__employee--td");
+    icon.classList.add("bx");
+    icon.classList.add("bxs-trash");
+    formButton.setAttribute("action", "./library/employeeController.php");
+    formButton.setAttribute("method", "post");
+    btnDel.setAttribute("type", "submit");
+    btnDel.setAttribute("name", "delete");
+    btnDel.setAttribute("value", i);
 
     // get the employer name and add to the cell
     tableCellName.append(element.name);
@@ -36,6 +46,10 @@ function createRow(element, i){
     tableCellPostal.append(element.postalCode);
     tableCellPhone.append(element.phoneNumber);
     tableCellIcon.append("-");
+    tableCellIcon.setAttribute("id", "delete-"+i);
+    btnDel.append(icon);
+    formButton.appendChild(btnDel);
+    tableCellIcon.appendChild(formButton);
 
     //Add the data of each cell to row
     tableRow.append(tableCellName,tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone,tableCellIcon);
