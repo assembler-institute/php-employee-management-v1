@@ -7,9 +7,9 @@ if(isset($_POST)){
        if ($username=="" || $password==""){
        echo json_encode("null");
    } else{
-       require_once("./loginManager.php");
-       
-       echo json_encode("ull");
+       require_once("./loginController.php");
+       $loginData=login($_POST);
+       echo json_encode($loginData);
     }}}
 
 

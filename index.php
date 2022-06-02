@@ -16,6 +16,7 @@
           <input type="password" class="form__input" name="password" />
           <input type="submit" name="submit" class="primary__btn" value="LOGIN"/>
         </form>
+        <div id="errorMessage"></div>
       </section>
     </main>
   </body>

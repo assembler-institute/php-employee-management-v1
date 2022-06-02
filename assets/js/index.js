@@ -14,7 +14,12 @@ loginForm.addEventListener("submit", (e) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      if (data.success) {
+        location.replace(data.header);
+      } else {
+        let $errorMessage = document.getElementById("errorMessage");
+        $errorMessage.textContent = data.message;
+      }
     })
     .catch((error) => console.error(error));
 });
