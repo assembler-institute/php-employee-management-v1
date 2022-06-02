@@ -18,15 +18,16 @@
                 <h2 class="text-center text-dark mt-5">Login</h2>
                 <div class="card my-5">
 
-                    <form class="card-body cardbody-color p-lg-5">
+                    <form class="card-body cardbody-color p-lg-5" action="src\library\loginManager.php" method="post" autocomplete="off">
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="Username" aria-describedby="emailHelp" placeholder="Email address">
+                            <input type="text"  id="Username" name="username" aria-describedby="emailHelp" placeholder="User Name">
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" id="password" placeholder="password">
+                            <input type="password" name="password"  id="password" placeholder="password">
                         </div>
-                        <div class="text-center"><button type="submit" class="btn btn-dark px-5 mb-5 w-100">Sign in</button></div>
+                        <div class="text-center"><button type="submit" name="submit" class="btn btn-dark px-5 mb-5 w-100">Login</button></div>
+       
                     </form>
                 </div>
 
