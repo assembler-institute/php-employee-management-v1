@@ -12,7 +12,7 @@ if(isset($_POST)){
 } else{
     require_once("./loginController.php");
     $data= login($_POST);
-echo $data;
+    echo $data;
  }
 }}
 

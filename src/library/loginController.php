@@ -1,9 +1,20 @@
 <?php
-function login($data){
-$registredUserData= userLogindata();
-return json_encode($data);
+function login($loginData){
+$registredUserData= authUser($loginData);
+$alldata= [$loginData, $registredUserData ];
+return json_encode($alldata);
 }
 
-function userLogindata(){
+function authUser($loginData){
     
+     $email = $loginData["email"];
+    //  $password = $loginData["password"];
+    $storage = "../../resources/users.json";
+    $stored_users = json_decode(file_get_contents($storage), true);
+    $emailDB=$stored_users['users'];
+     $data=  $emailDB;
+     return $data;
+     
 }
+
+
