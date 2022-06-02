@@ -16,7 +16,7 @@ include('../assets/html/header.html');
                 <th>Phone Number</th>
                 <th id="add">+</th>
             </tr>
-            <form action="./library/employeeController.php" method="post">
+            <form id="addEmployee" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
                     <td> <input type="text" name="name" id="">
                     </td>

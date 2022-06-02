@@ -35,7 +35,7 @@ function createRow(element, i){
     tableCellState.append(element.state);
     tableCellPostal.append(element.postalCode);
     tableCellPhone.append(element.phoneNumber);
-    tableCellIcon.append("+");
+    tableCellIcon.append("-");
 
     //Add the data of each cell to row
     tableRow.append(tableCellName,tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone,tableCellIcon);
