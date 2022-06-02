@@ -10,9 +10,9 @@ if(isset($_POST)){
  if ($email=="" || $password==""){
      echo json_encode("null");
 } else{
-    require_once("./loginController.php");
-    $data= login($_POST);
-    echo $data;
+    // require_once("./loginController.php");
+    // $data= login($_POST);
+    // echo $data;
  }
 }}
 

@@ -12,7 +12,7 @@
     <main>
       <section class="login__container">
         <form id="loginForm" class="login__form">
-          <input type="text" class="form__input" name="email" />
+          <input type="text" class="form__input" name="username" />
           <input type="password" class="form__input" name="password" />
           <input type="submit" name="submit" class="primary__btn" value="LOGIN"/>
         </form>
