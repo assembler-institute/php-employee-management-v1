@@ -14,16 +14,28 @@ include('../assets/html/header.html');
                 <th>State</th>
                 <th>Postal Code</th>
                 <th>Phone Number</th>
-                <th>+</th>
+                <th id="add">+</th>
             </tr>
+            <form action="./library/employeeController.php" method="post">
+                <tr id="rowInput" class="hide">
+                    <td> <input type="text" name="name" id="">
+                    </td>
+                    <td><input type="email" name="email" id=""> </td>
+                    <td><input type="number" name="age" id=""></td>
+                    <td> <input type="text" name="address"></td>
+                    <td><input type="text" name="city" id=""></td>
+                    <td><input type="text" name="state" id=""></td>
+                    <td> <input type="number" name="postalCode" id=""></td>
+                    <td><input type="tel" name="phone" id=""></td>
+                    <td><button type="submit" name="submit">+</button></td>
+                </tr>
+            </form>
         </thead>
         <!--  -->
         <tbody class="table__tbody--dataEmployer" id="tableBody">
-        <div id="jsGrid"></div>
         </tbody>
     </table>
 </main>
 <?php 
     include('../assets/html/footer.html');
 ?>
-    

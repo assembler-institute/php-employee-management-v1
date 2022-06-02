@@ -8,9 +8,18 @@
     align-items: center;
     list-style: none;
 }
-.table{
+/* .table{
     margin: 0rem 50rem;
-}
-.table__tbody--dataEmployer{
+} */
+/* .table__tbody--dataEmployer{
     text-align: center;
+} */
+
+/* .table__row--input {
+
+} */
+
+.hide {
+    display: none;
 }
+
