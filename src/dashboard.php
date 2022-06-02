@@ -43,30 +43,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr id="employeeTable">
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>admin@admi.com</td>
-                <td>22</td>
-                <td>Doral 120</td>
-                <td>Miami</td>
-                <td>Florida</td>
-                <td>33125</td>
-                <td>212 1238765</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>admin@admi.com</td>
-                <td>22</td>
-                <td>Doral 120</td>
-                <td>Miami</td>
-                <td>Florida</td>
-                <td>33125</td>
-                <td>212 1238765</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
                 <td>Mark</td>
                 <td>admin@admi.com</td>
                 <td>22</td>

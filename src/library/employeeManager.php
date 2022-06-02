@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EMPLOYEE FUNCTIONS LIBRARY
  *
@@ -8,40 +9,44 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
-function getEmployee(string $id)
+function getEmployee()
 {
-// TODO implement it
+    $url = "../../resources/employees.json";
+    $employeesData = json_encode(file_get_contents($url), true);
+    return $employeesData;
 }
+
+
 
 
 function removeAvatar($id)
 {
-// TODO implement it
+    // TODO implement it
 }
 
 
 function getQueryStringParameters(): array
 {
-// TODO implement it
+    // TODO implement it
 }
 
 function getNextIdentifier(array $employeesCollection): int
 {
-// TODO implement it
+    // TODO implement it
 }
