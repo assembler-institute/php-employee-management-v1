@@ -18,7 +18,7 @@ include('../assets/html/header.html');
             </tr>
         </thead>
         <!--  -->
-        <tbody id="tableBody">
+        <tbody class="table__tbody--dataEmployer" id="tableBody">
         <div id="jsGrid"></div>
         </tbody>
     </table>

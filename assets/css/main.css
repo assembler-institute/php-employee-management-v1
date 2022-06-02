@@ -1,3 +1,16 @@
 *{
     border: 1px solid black;
 }
+
+.header__ul--navBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.table{
+    margin: 0rem 50rem;
+}
+.table__tbody--dataEmployer{
+    text-align: center;
+}
