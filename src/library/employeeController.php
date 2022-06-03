@@ -16,10 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // }
     }else if ($_POST["info"]){
         
-        getEmployee($_POST["info"]);
+        $employeeData = getEmployee($_POST["info"]);
+        
+        header ("Location: ../employee.php?name=".$employeeData['name']."&lastName=".$employeeData['lastName']."&email=".$employeeData['email']."&gender=".$employeeData['gender']."&age=".$employeeData['age']."&streetAddress=".$employeeData['streetAddress']."&city=".$employeeData['city']."&state=".$employeeData['state']."&postalCode=".$employeeData['postalCode']."&phoneNumber=".$employeeData['phoneNumber']);
 
     }else{
-
     $newEmployee = array(
         "id" => "",
         "name" => $_POST["name"],
