@@ -1,4 +1,5 @@
 import { createRow} from "./createRow.js";
+import {createListeners} from "./createListeners.js";
 
 const tableBody = document.getElementById("tableBody");
 
@@ -24,11 +25,11 @@ if(tableBody.children != 0){
                             link.append(row);
                             tableBody.appendChild(row);
             });
+            createListeners();
         } catch (error) {
             console.log(error);
         }
     });
-     
 }else{
     fetch("../src/library/employeeController.php")
     .then(response => response.json())
