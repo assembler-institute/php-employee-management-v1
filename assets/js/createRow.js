@@ -3,8 +3,16 @@ function createRow(element, i){
     let tableRow = document.createElement("tr");
     tableRow.classList.add("tbody__emplpoyees--tr");
     tableRow.setAttribute("id", i);
-    let employeeLink = document.createElement("a");
-    employeeLink.setAttribute("href", "./library/employeeController.php?id=" + i);
+    let employeeForm = document.createElement("form");
+    employeeForm.setAttribute("id", "employeeForm-" + i);
+    employeeForm.setAttribute("action", "./library/employeeController.php");
+    employeeForm.setAttribute("method", "post");
+    let inputHidden = document.createElement("input");
+    inputHidden.setAttribute("type", "hidden");
+    inputHidden.setAttribute("name", "info");
+    inputHidden.setAttribute("value", i);
+
+
 
 
 
@@ -54,10 +62,11 @@ function createRow(element, i){
     btnDel.append(icon);
     formButton.appendChild(btnDel);
     tableCellIcon.appendChild(formButton);
-    tableCellName.append(employeeLink);
+    employeeForm.append(inputHidden);
 
     //Add the data of each cell to row
-    tableRow.append(tableCellName, tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone, tableCellIcon);
+    tableRow.append(employeeForm, tableCellName, tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone, tableCellIcon);
+
 
     //return the row created with data employeer
     return tableRow;

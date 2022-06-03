@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         //     $id = explode("-",$_GET["action"])[1];
             deleteEmployee($_POST["delete"]);
         // }
+    }else if ($_POST["info"]){
+        echo "Hola";
     }else{
 
     $newEmployee = array(
