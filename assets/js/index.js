@@ -80,3 +80,7 @@ const clearTable = (e) =>{
         tableBodyEl.removeChild(e.target.parentElement.parentElement)
     }
 }
+
+function getEmployee(){
+    
+}
