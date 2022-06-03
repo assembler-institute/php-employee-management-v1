@@ -9,8 +9,22 @@
 
 function addEmployee(array $newEmployee)
 {
-    // TODO implement it
+    echo "<pre>";
+   print_r($newEmployee);
+   echo "</pre>";
+   unset($newEmployee['submit']);
+   $newEmployee['id'] = uniqid();
+   echo "<pre>";
+   print_r($newEmployee);
+   echo "</pre>";
+
+   $db = getQueryStringParameters();
+   array_push($db, $newEmployee); 
+   $db = json_encode($db);
+   file_put_contents('../.././resources/employees.json', $db);
+   
 }
+
 
 
 function deleteEmployee($id)

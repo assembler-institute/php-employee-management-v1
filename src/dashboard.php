@@ -25,7 +25,9 @@
           <th scope="col">Last</th>
           <th scope="col">Handle</th>
           <th scope="col">state</th>
-          <th scope="col">Delete</th>
+          <th scope="col">
+            <button id='addNewEmp'>+</button>
+          </th>
         </tr>
       </thead>
       <tbody id='table-body'>

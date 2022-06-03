@@ -1,5 +1,7 @@
 const tableBodyEl = document.getElementById('table-body');
 const table = document.getElementById('table');
+const addNewEmpBtnEl = document.getElementById('addNewEmp');
+
 
 
 const deleteEmpId = (e) => {
@@ -84,3 +86,13 @@ const clearTable = (e) =>{
 function getEmployee(){
     
 }
+
+
+const addNewEmp = (e) => {
+    
+}
+
+
+// events
+
+addNewEmpBtnEl.addEventListener('click', addNewEmp)
