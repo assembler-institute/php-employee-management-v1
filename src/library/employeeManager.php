@@ -43,16 +43,43 @@ function deleteEmployee($id)
 function updateEmployee(array $updateEmployeeId)
 {
     // TODO implement it
-    var_dump($updateEmployeeId);
-    var_dump($_POST);
+    
+
+    // var_dump($updateEmployeeId);
+    unset($updateEmployeeId['submit']);
+
+    $db = getQueryStringParameters();
+
+    foreach($db as $key => $value){
+        
+
+        
+        // var_dump($key);
+        // var_dump($value);
+
+
+        if($value['id'] === intval($updateEmployeeId['id'])){
+            intval($updateEmployeeId['id']);
+            $updatedEmployee = array_replace($db[$key], $updateEmployeeId);
+            echo "<pre>";
+        // var_dump($db[$key]);
+        // var_dump($key);
+                // var_dump($value);
+                var_dump($updatedEmployee);
+        echo "</pre>";
+        }
+    }
+
+    // $updateEmployee = json_encode($updateEmployee, JSON_PRETTY_PRINT);
+    // file_put_contents('../.././resources/employees.json',$db);
+    // return $updatedEmployee;
 }
 
 
 // function getEmployee(string $id)
 // {
 //     // TODO implement it
-    
-//     echo $id;
+//     var_dump($id);
 
 // }
 
