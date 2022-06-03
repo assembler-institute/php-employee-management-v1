@@ -14,6 +14,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/dasboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
     <script src="../assets/js/employees.js" defer></script>
     <title>Dashboard</title>
@@ -51,17 +52,6 @@ session_start();
             </tr>
         </thead>
         <tbody id="employeeTable">
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>admin@admi.com</td>
-                <td>22</td>
-                <td>Doral 120</td>
-                <td>Miami</td>
-                <td>Florida</td>
-                <td>33125</td>
-                <td>212 1238765</td>
-            </tr>
         </tbody>
     </table>
 
