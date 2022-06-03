@@ -41,6 +41,8 @@ function deleteEmployee(string $id)
 
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
     array_splice($data, $id-1, 1);
+    $data = updateIdentifiers($data);
+
     //Open the json
     $the_file = fopen("../../resources/employees.json","wb");
 
@@ -57,6 +59,17 @@ function deleteEmployee(string $id)
     header("Location: ../dashboard.php");
 
     echo json_encode($data);
+}
+
+function updateIdentifiers(array $employees):array
+{
+    $i = 1;
+    foreach($employees as $employee){
+        $employee["id"] = $i;
+        $employees[$i-1] = $employee;
+        $i++;
+    }
+    return $employees;
 }
 
 
