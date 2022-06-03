@@ -3,23 +3,18 @@ function createRow(element, i){
     let tableRow = document.createElement("tr");
     tableRow.classList.add("tbody__emplpoyees--tr");
     tableRow.setAttribute("id", i);
-    let employeeLink = document.createElement("a");
-    let employeeLink1 = document.createElement("a");
-    let employeeLink2 = document.createElement("a");
-    let employeeLink3 = document.createElement("a");
-    let employeeLink4 = document.createElement("a");
-    let employeeLink5 = document.createElement("a");
-    let employeeLink6 = document.createElement("a");
-    let employeeLink7 = document.createElement("a");
+    let employeeForm = document.createElement("form");
+    employeeForm.setAttribute("id", "employeeForm-" + i);
+    employeeForm.setAttribute("action", "./library/employeeController.php");
+    employeeForm.setAttribute("method", "post");
+    let inputHidden = document.createElement("input");
+    inputHidden.setAttribute("type", "hidden");
+    inputHidden.setAttribute("name", "info");
+    inputHidden.setAttribute("value", i);
 
-    employeeLink.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink1.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink2.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink3.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink4.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink5.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink6.setAttribute("href", "./library/employeeController.php?id=" + i);
-    employeeLink7.setAttribute("href", "./library/employeeController.php?id=" + i);
+
+
+
 
     //we create the tablecells
     let tableCellName = document.createElement("td");
@@ -83,8 +78,11 @@ function createRow(element, i){
     btnDel.append(icon);
     formButton.appendChild(btnDel);
     tableCellIcon.appendChild(formButton);
+    employeeForm.append(inputHidden);
+
     //Add the data of each cell to row
-    tableRow.append(tableCellName, tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone, tableCellIcon);
+    tableRow.append(employeeForm, tableCellName, tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone, tableCellIcon);
+
 
     //return the row created with data employeer
     return tableRow;
