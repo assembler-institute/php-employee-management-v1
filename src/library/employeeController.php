@@ -3,16 +3,18 @@ require('./employeeManager.php');
 
 $req = $_SERVER['REQUEST_METHOD'];
 
-// $db = getQueryStringParameters(); 
-//    echo json_encode($db);
+$db = getQueryStringParameters(); 
+   echo json_encode($db);
 
 
 
-if($req == 'GET') {
+if($req == 'DELETE') {
     $inputdata = file_get_contents("php://input");
-    echo $inputdata;
-    $newDb = deleteEmployee($inputdata);
-    echo $newDb;
+    $data = json_decode($inputdata);
+
+    deleteEmployee($data);
+
+    
 }
 
 

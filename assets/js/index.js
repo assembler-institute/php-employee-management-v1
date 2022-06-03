@@ -1,18 +1,21 @@
+const tableBodyEl = document.getElementById('table-body');
+const table = document.getElementById('table');
 
 
 const deleteEmpId = (e) => {
     const btnId = e.currentTarget.getAttribute('data');
 
     const sendReq = async () => {
-        const req = await fetch(`../../src/library/employeeController.php`, {
+        const req = await fetch(`.././src/library/employeeController.php`, {
             method: 'DELETE',
             body: JSON.stringify(+btnId)
         });
-        const res = await req.text()
+        const res = await req.json()
         console.log(res)
     }
-    sendReq()
-
+    sendReq();
+    // tableBodyEl.textContent = '';
+    clearTable();
 }
 
 
@@ -67,10 +70,6 @@ const getEmps = async () => {
 
 const showEmp = async () => {
     const emps = await getEmps();
-    const tableBodyEl = document.getElementById('table-body');
-
-    console.log(emps)
-
     emps.map(emp => {
         const { name, lastName, email, id } = emp;
         const empRow = createTableRowWihtEmp(name, lastName, email, id);
@@ -82,4 +81,14 @@ const showEmp = async () => {
 }
 
 
-showEmp()
+showEmp();
+
+
+const clearTable = () =>{
+    if(table.hasChildNodes()){
+        table.removeChild(tableBodyEl);
+        showEmp();
+    }
+   
+}
+

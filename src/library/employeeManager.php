@@ -24,9 +24,10 @@ function deleteEmployee($id)
     }
     $modifiedDb = array_values($db);
     $modifiedDb = json_encode($modifiedDb, JSON_PRETTY_PRINT);
-    file_put_contents('./employee.json',$modifiedDb);
+    file_put_contents('../.././resources/employees.json',$modifiedDb);
     return $modifiedDb;
 }
+
 
 
 function updateEmployee(array $updateEmployeeId)
