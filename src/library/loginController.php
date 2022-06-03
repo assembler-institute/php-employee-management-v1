@@ -1,40 +1,36 @@
 <?php
-session_start();
-function login($data){
+//Check the request mmethod
+if ($_SERVER['REQUEST_METHOD']==='POST') {
 
 
-        $storage = "../../resources/users.json";
-        $userinput = $data['username'];
-        $passinput = $data['password'];
-        $_SESSION['$userinput'] = $userinput;
+
+    
+if(isset($_POST['username']) && isset($_POST['password'])){
+        $username= $_POST['username'];
+        $password=$_POST['password'];
+       if ($username=="" || $password==""){
+        $loginData = ["loginSuccess"=>false,'message'=>"Fill up the form"];
+        echo json_encode($loginData);
+   } else{
+       require_once("./loginManager.php");
+       $loginData=login($_POST);
+       echo json_encode($loginData);
+    }}
+
+    
+// if (isset($_POST['session'])) {
+//     $loginData = ["loginSuccess"=>true,'header'=>"http://localhost/employee-management/php-employee-management-v1/src/dashboard.php"];
+//     echo json_encode($loginData);
+//     }
+//     else{
+//    $loginData = ["success"=>false,'header'=>"http://localhost/employee-management/php-employee-management-v1/",'message'=>"You need to login"];
+//     echo json_encode($loginData);
+// }
+// }
+
+}
 
 
- $stored_users = json_decode(file_get_contents($storage), true);
-    foreach ($stored_users['users'] as $key => $value){
 
-            
-            $encPassword = $value['password'];
 
-           
-            if ($value['name']== $userinput){
-
-                
-                if(password_verify($passinput, $encPassword)){
-                    $_SESSION['name'] = $userinput;
-
-            $login = ["success"=>true,'header'=>"http://localhost/employee-management/php-employee-management-v1/src/dashboard.php"];
-            return $login;
-                
-                }else{
-            $login = ["success"=>false,'message'=>"Wrong  password"];
-            return $login;
-                }
-            } else {
-            
-            $login = ["success"=>false,'message'=>"Wrong email or password"];
-            return $login;
-
-            }
-        }
-    }
 
