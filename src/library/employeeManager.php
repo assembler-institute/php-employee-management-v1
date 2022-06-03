@@ -48,7 +48,7 @@ function getEmployee(string $id)
 
 function getQueryStringParameters(): array
 {
-    $json = file_get_contents('./employee.json');
+    $json = file_get_contents('../.././resources/employees.json');
     $data = json_decode($json,true);
     return $data;
 }
