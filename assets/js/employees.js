@@ -55,7 +55,7 @@ function renderDashboard(data) {
     tdPhone.append(employee.phoneNumber);
     //BUTTON TO DELETE THE EMPLOYEE
     let btnTrash = document.createElement("button");
-    btnTrash.classList.add("btn__trash");
+    btnTrash.classList.add("btn", "btn-danger");
     tr.append(btnTrash);
   });
 }
