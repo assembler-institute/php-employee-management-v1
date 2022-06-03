@@ -15,7 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             deleteEmployee($_POST["delete"]);
         // }
     }else if ($_POST["info"]){
-        echo "Hola";
+        
+        getEmployee($_POST["info"]);
+
     }else{
 
     $newEmployee = array(

@@ -1,6 +1,9 @@
 <!-- TODO Employee view -->
 <?php 
 include('../assets/html/header.html');
+include('./library/employeeManager.php');
+
+// $getEmployee = getEmployee();
 ?>
 
 
@@ -9,7 +12,7 @@ include('../assets/html/header.html');
     <div class="row g-3">
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+            <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="<?php if(isset($data['name'])) {echo $data ['name'];} ?>">
         </div>
         <div class="col">
             <label for=""></label>

@@ -79,9 +79,13 @@ function updateEmployee(array $updateEmployee)
 }
 
 
-function getEmployee(string $id)
-{
-// TODO implement it
+function getEmployee(string $id){
+
+    $data = json_decode(file_get_contents('../../resources/employees.json'), true);
+    $data = $data[$id-1];
+
+    echo $data;
+    header ("Location: ../employee.php");
 }
 
 
