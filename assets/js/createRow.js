@@ -4,9 +4,22 @@ function createRow(element, i){
     tableRow.classList.add("tbody__emplpoyees--tr");
     tableRow.setAttribute("id", i);
     let employeeLink = document.createElement("a");
+    let employeeLink1 = document.createElement("a");
+    let employeeLink2 = document.createElement("a");
+    let employeeLink3 = document.createElement("a");
+    let employeeLink4 = document.createElement("a");
+    let employeeLink5 = document.createElement("a");
+    let employeeLink6 = document.createElement("a");
+    let employeeLink7 = document.createElement("a");
+
     employeeLink.setAttribute("href", "./library/employeeController.php?id=" + i);
-
-
+    employeeLink1.setAttribute("href", "./library/employeeController.php?id=" + i);
+    employeeLink2.setAttribute("href", "./library/employeeController.php?id=" + i);
+    employeeLink3.setAttribute("href", "./library/employeeController.php?id=" + i);
+    employeeLink4.setAttribute("href", "./library/employeeController.php?id=" + i);
+    employeeLink5.setAttribute("href", "./library/employeeController.php?id=" + i);
+    employeeLink6.setAttribute("href", "./library/employeeController.php?id=" + i);
+    employeeLink7.setAttribute("href", "./library/employeeController.php?id=" + i);
 
     //we create the tablecells
     let tableCellName = document.createElement("td");
@@ -41,21 +54,35 @@ function createRow(element, i){
     btnDel.setAttribute("value", i);
 
     // get the employer name and add to the cell
-    tableCellName.append(element.name);
-    tableCellEmail.append(element.email);
-    tableCellAge.append(element.age);
-    tableCellStreet.append(element.streetAddress);
-    tableCellCity.append(element.city);
-    tableCellState.append(element.state);
-    tableCellPostal.append(element.postalCode);
-    tableCellPhone.append(element.phoneNumber);
+    employeeLink.append(element.name);
+    tableCellName.append(employeeLink);
+    //tableCellName.append(element.name);
+    employeeLink1.append(element.email);
+    tableCellEmail.append(employeeLink1);
+    //tableCellEmail.append(element.email);
+    employeeLink2.append(element.age);
+    tableCellAge.append(employeeLink2);
+    //tableCellEmail.append(element.age);
+    employeeLink3.append(element.streetAddress);
+    tableCellStreet.append(employeeLink3);
+    //tableCellStreet.append(element.streetAddress);
+    employeeLink4.append(element.city);
+    tableCellCity.append(employeeLink4);
+    //tableCellCity.append(element.city);
+    employeeLink5.append(element.state);
+    tableCellState.append(employeeLink5);
+    //tableCellState.append(element.state);
+    employeeLink6.append(element.postalCode);
+    tableCellPostal.append(employeeLink6);
+    //tableCellPostal.append(element.postalCode);
+    employeeLink7.append(element.phoneNumber);
+    tableCellPhone.append(employeeLink7);
+    //tableCellPhone.append(element.phoneNumber);
     tableCellIcon.append("-");
     tableCellIcon.setAttribute("id", "delete-"+i);
     btnDel.append(icon);
     formButton.appendChild(btnDel);
     tableCellIcon.appendChild(formButton);
-    tableCellName.append(employeeLink);
-
     //Add the data of each cell to row
     tableRow.append(tableCellName, tableCellEmail,tableCellAge,tableCellStreet,tableCellCity,tableCellState,tableCellPostal,tableCellPhone, tableCellIcon);
 

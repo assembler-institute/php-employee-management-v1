@@ -19,6 +19,9 @@ if(tableBody.children != 0){
                             i++;
                 
                             //We add the cell to tr and tr to tbody
+                            let link = document.createElement("a");
+                            link.setAttribute("href", "./library/employeeController.php?id=", i-1);
+                            link.append(row);
                             tableBody.appendChild(row);
             });
         } catch (error) {
