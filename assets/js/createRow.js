@@ -4,6 +4,7 @@ function createRow(element, i){
     tableRow.classList.add("tbody__emplpoyees--tr");
     tableRow.setAttribute("id", i);
 
+
     //we create the tablecells
     let tableCellName = document.createElement("td");
     let tableCellEmail = document.createElement("td");
@@ -27,7 +28,7 @@ function createRow(element, i){
     tableCellState.classList.add("tbody__employee--td");
     tableCellPostal.classList.add("tbody__employee--td");
     tableCellPhone.classList.add("tbody__employee--td");
-    tableCellIcon.classList.add("tbody__employee--td");
+    tableCellIcon.classList.add("tbody__employee--icon");
     icon.classList.add("bx");
     icon.classList.add("bxs-trash");
     formButton.setAttribute("action", "./library/employeeController.php");
