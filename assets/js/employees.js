@@ -1,10 +1,9 @@
 const url = "../src/library/employeeController.php?action=getDataEmployees";
-const tableBody = document.getElementById("employeeTable");
 
 window.onload = getAllEmployees();
 
 async function getAllEmployees() {
-  const dataEmployee = await fetch(url)
+  await fetch(url)
     .then((response) => response.json())
     .then((data) => {
       const dataObject = JSON.parse(data);
@@ -12,8 +11,10 @@ async function getAllEmployees() {
     });
 }
 
+// function renderDashboard(data) {
+//   data.map((employee) => {
+//     console.log('hello');
+//   });
+// }
 
-function renderDashboard(data) {
-    console.log(data);
-    
-}
+//const tableBody = document.getElementById("employeeTable");

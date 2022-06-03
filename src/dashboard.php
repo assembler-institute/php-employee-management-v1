@@ -50,8 +50,8 @@ session_start();
                         </svg></button></th>
             </tr>
         </thead>
-        <tbody>
-            <tr id="employeeTable">
+        <tbody id="employeeTable">
+            <tr>
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>admin@admi.com</td>
