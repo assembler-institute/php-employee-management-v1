@@ -20,8 +20,6 @@ const deleteEmpId = (e) => {
 
 
 
-
-
 function createTableRowWihtEmp(name, lastName, email, id) {
     const trEl = document.createElement('tr')
     const thEl = document.createElement('th');
@@ -40,16 +38,26 @@ function createTableRowWihtEmp(name, lastName, email, id) {
     const btn = document.createElement('button')
     btn.setAttribute('data', id)
     btn.innerText = 'Delete'
-    deleteBtnEl.appendChild(btn)
+    deleteBtnEl.appendChild(btn);
+
+    const editBtnEl = document.createElement('td');
+    const editBtn = document.createElement('a')
+    editBtn.setAttribute('href', `.././src/library/employeeController.php?id=${id}`)
+    editBtn.innerText = 'Edit'
+    editBtnEl.appendChild(editBtn);
+
 
     trEl.appendChild(thEl);
     trEl.appendChild(nameData);
     trEl.appendChild(lastNameData);
     trEl.appendChild(emailData);
     trEl.appendChild(deleteBtnEl);
+    trEl.appendChild(editBtnEl);
+
 
     return trEl;
 }
+
 
 
 const getEmps = async () => {
@@ -67,9 +75,9 @@ const showEmp = async () => {
         const empRow = createTableRowWihtEmp(name, lastName, email, id);
         tableBodyEl.appendChild(empRow);
     })
-    const btns = document.querySelectorAll('[data]')
-    btns.forEach(btn => btn.addEventListener('click', deleteEmpId))
-
+    const btnsdelete = document.querySelectorAll('[data]')
+    btnsdelete.forEach(btn => btn.addEventListener('click', deleteEmpId));
+    
 }
 
 
@@ -83,16 +91,11 @@ const clearTable = (e) =>{
     }
 }
 
-function getEmployee(){
-    
-}
 
-
-const addNewEmp = (e) => {
-    
-}
 
 
 // events
 
 addNewEmpBtnEl.addEventListener('click', addNewEmp)
+
+

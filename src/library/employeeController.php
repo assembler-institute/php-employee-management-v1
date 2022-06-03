@@ -35,7 +35,12 @@ switch ($req) {
             addEmployee($_POST);
             header("Location: .././dashboard.php");
             break;
-        } else {
-            return;
+        } else if($_POST['id'] != ''){
+            updateEmployee($_POST);
+            header('location: ./employeeManager.php');
+        }
+    case $req == 'GET':
+        if(isset($_GET['id'])){
+            header('Location: .././employee.php?id='.$_GET['id'].'');
         }
 }

@@ -9,14 +9,10 @@
 
 function addEmployee(array $newEmployee)
 {
-    echo "<pre>";
-   print_r($newEmployee);
-   echo "</pre>";
+   
    unset($newEmployee['submit']);
-   $newEmployee['id'] = uniqid();
-   echo "<pre>";
-   print_r($newEmployee);
-   echo "</pre>";
+   $newEmployee['id'] = hexdec(uniqid());
+   
 
    $db = getQueryStringParameters();
    array_push($db, $newEmployee); 
@@ -47,12 +43,18 @@ function deleteEmployee($id)
 function updateEmployee(array $updateEmployeeId)
 {
     // TODO implement it
+    var_dump($updateEmployeeId);
+    var_dump($_POST);
 }
 
-function getEmployee(string $id)
-{
-    // TODO implement it
-}
+
+// function getEmployee(string $id)
+// {
+//     // TODO implement it
+    
+//     echo $id;
+
+// }
 
 
 // function removeAvatar($id)

@@ -26,7 +26,7 @@
           <th scope="col">Handle</th>
           <th scope="col">state</th>
           <th scope="col">
-            <button id='addNewEmp'>+</button>
+            <button id='addNewEmp'><a href="./employee.php">+</a></button>
           </th>
         </tr>
       </thead>
