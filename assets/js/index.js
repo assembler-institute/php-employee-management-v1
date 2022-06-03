@@ -4,7 +4,6 @@ const table = document.getElementById('table');
 
 const deleteEmpId = (e) => {
     const btnId = e.currentTarget.getAttribute('data');
-
     const sendReq = async () => {
         const req = await fetch(`.././src/library/employeeController.php`, {
             method: 'DELETE',
@@ -14,8 +13,7 @@ const deleteEmpId = (e) => {
         console.log(res)
     }
     sendReq();
-    // tableBodyEl.textContent = '';
-    clearTable();
+    clearTable(e);
 }
 
 
@@ -52,20 +50,12 @@ function createTableRowWihtEmp(name, lastName, email, id) {
 }
 
 
-
-
-
-
 const getEmps = async () => {
     const res = await fetch('.././src/library/employeeController.php');
     const data = await res.json()
 
     return data;
 }
-
-
-
-
 
 
 const showEmp = async () => {
@@ -84,11 +74,9 @@ const showEmp = async () => {
 showEmp();
 
 
-const clearTable = () =>{
-    if(table.hasChildNodes()){
-        table.removeChild(tableBodyEl);
-        showEmp();
-    }
-   
-}
+const clearTable = (e) =>{
 
+    if(table.hasChildNodes()){
+        tableBodyEl.removeChild(e.target.parentElement.parentElement)
+    }
+}
