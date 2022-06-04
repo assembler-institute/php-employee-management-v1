@@ -17,8 +17,8 @@ function validate(){
             $_SESSION['email'] = $email;
             $_SESSION['pass'] = $pass;
             // include('./sessionHelper.php');
-            // initCountDown();
-            header ("Location: ../dashboard.php");
+            // a(intval(date('i')), intval(date('s')));
+            header ("Location: ../dashboard.php?min=".date('i')."&sec=".date('s'));
         }else {
             $_SESSION['loginerror'] = 'Incorrect Password';
 
@@ -32,7 +32,6 @@ function validate(){
     }
 
 }   
-
 
 //Check Session
 function checkSession(){
