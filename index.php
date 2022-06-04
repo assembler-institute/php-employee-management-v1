@@ -39,8 +39,11 @@
                         Sign In
                     </span>
                 </div>
+                <?php
 
-                <form class="login100-form validate-form">
+                ?>
+
+                <form class="login100-form validate-form" method="POST" action="src/library/loginController.php">
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                         <span class="label-input100">Username</span>
                         <input class="input100" type="text" name="username" placeholder="Enter username">
@@ -67,9 +70,11 @@
                             </a>
                         </div>
                     </div>
-
+                    <?php
+                    
+                    ?>
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
                             Login
                         </button>
                     </div>
