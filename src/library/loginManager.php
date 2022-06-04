@@ -1,6 +1,4 @@
 <?php
-
-
 //Validate Session
 function validate(){
     
@@ -18,7 +16,8 @@ function validate(){
 
             $_SESSION['email'] = $email;
             $_SESSION['pass'] = $pass;
-            
+            // include('./sessionHelper.php');
+            // initCountDown();
             header ("Location: ../dashboard.php");
         }else {
             $_SESSION['loginerror'] = 'Incorrect Password';
@@ -61,7 +60,8 @@ function checkSession(){
 
 //logOut session
 function logoutSession() {
-
+session_start();
+unset($_SESSION);
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(

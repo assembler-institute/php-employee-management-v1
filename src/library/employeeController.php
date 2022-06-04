@@ -18,8 +18,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         
         $employeeData = getEmployee($_POST["info"]);
         
-        header ("Location: ../employee.php?name=".$employeeData['name']."&lastName=".$employeeData['lastName']."&email=".$employeeData['email']."&gender=".$employeeData['gender']."&age=".$employeeData['age']."&streetAddress=".$employeeData['streetAddress']."&city=".$employeeData['city']."&state=".$employeeData['state']."&postalCode=".$employeeData['postalCode']."&phoneNumber=".$employeeData['phoneNumber']);
+        header ("Location: ../employee.php?id=".$employeeData['id']."&name=".$employeeData['name']."&lastName=".$employeeData['lastName']."&email=".$employeeData['email']."&gender=".$employeeData['gender']."&age=".$employeeData['age']."&streetAddress=".$employeeData['streetAddress']."&city=".$employeeData['city']."&state=".$employeeData['state']."&postalCode=".$employeeData['postalCode']."&phoneNumber=".$employeeData['phoneNumber']);
 
+    }else if(isset($_POST["employee"])){
+        //UpdateEmployee
+        if($_POST["employee"] != "0"){
+            echo "actualizando empleado";
+            $employeeActive = array(
+                "id" => $_POST["employee"],
+                "name" => $_POST["name"],
+                "lastName" => $_POST["lastName"],
+                "email" => $_POST["email"],
+                "gender" =>$_POST["gender"],
+                "age" => $_POST["age"],
+                "streetAddress" => $_POST["streetAddress"],
+                "city" => $_POST["city"],
+                "state" => $_POST["state"],
+                "postalCode" => $_POST["postalCode"],
+                "phoneNumber" => $_POST["phoneNumber"]);
+        
+            updateEmployee($employeeActive);
+        }else{
+            //CreateEmployee
+            echo "creando empleado";
+            $newEmployee = array(
+                "id" => "",
+                "name" => $_POST["name"],
+                "lastName" => $_POST["lastName"],
+                "email" => $_POST["email"],
+                "gender" =>$_POST["gender"],
+                "age" => $_POST["age"],
+                "streetAddress" => $_POST["streetAddress"],
+                "city" => $_POST["city"],
+                "state" => $_POST["state"],
+                "postalCode" => $_POST["postalCode"],
+                "phoneNumber" => $_POST["phoneNumber"]);
+        
+            addEmployee($newEmployee);
+        }
     }else{
     $newEmployee = array(
         "id" => "",

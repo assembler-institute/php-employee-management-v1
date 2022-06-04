@@ -75,7 +75,26 @@ function updateIdentifiers(array $employees):array
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+//Decoding the json file
+$data = json_decode(file_get_contents('../../resources/employees.json'), true);
+
+//updating the data employeer
+$data[$updateEmployee["id"]-1] = (object)$updateEmployee;
+//Open the json
+$the_file = fopen("../../resources/employees.json","wb");
+
+//Writting the json file with the new employeer
+fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
+
+//Close the json file
+fclose($the_file);
+
+//Returning the info
+echo json_encode($data) ;
+
+//Redirect to dashboard
+header("Location: ../dashboard.php");
+
 }
 
 
