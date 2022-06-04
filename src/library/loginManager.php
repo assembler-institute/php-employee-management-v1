@@ -13,7 +13,7 @@ echo "TRUE";
 } 
 else {
   $_SESSION["loginError"] = "Wrong email or password!";
-  header("Location: ../../index.php");
+  header("Location: ../../index.php?login=false");
   echo "FALSE";
 }
 }
