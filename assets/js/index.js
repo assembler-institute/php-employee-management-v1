@@ -139,6 +139,8 @@ const clearTable = () => {
 
 
 const getEmpFormValues = () => {
+    
+    const id = document.getElementById('id').value = '';
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const age = document.getElementById('age').value;
@@ -149,7 +151,7 @@ const getEmpFormValues = () => {
     const phoneNumber = document.getElementById('phoneNumber').value;
 
     const data = {
-       name, email, age, streetAddress, city, state, postalCode, phoneNumber
+       name, email, age, streetAddress, city, state, postalCode, phoneNumber, id
     }
 
     return data;

@@ -37,17 +37,17 @@ switch ($req) {
 
         var_dump($data);
 
-        if(!isset($data['id'])){
+        if(isset($data['id'])){
             echo "CREADO";
             addEmployee($data);
             break;
         }
 
-        // if($req == $_POST && $_POST['id'] != ''){
-        //     echo "ACTUALIZADO";
-        //     updateEmployee($_POST);
-        //     header('location: .././dashboard.php');
-        // }
+        if($_POST['id'] != ''){
+            echo "ACTUALIZADO";
+            updateEmployee($_POST);
+            header('location: .././dashboard.php');
+        }
 
     case $req == 'GET':
         if(isset($_GET['id'])){

@@ -43,7 +43,7 @@ if (!isset($_SESSION['name'])) {
         <tr id="addEmployeeForm" class="toggle">
           <!-- <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data"> -->
           <form id="addEmpForm" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="id" value="" placeholder="">
+          <input type="hidden" name="id" id="id" value="" placeholder=""  >
           <td><input type="text" name="name" id="name" value="" placeholder="name"></td>
           <td><input type="email" name="email" id="email" value="" placeholder="email"></td>
           <td><input type="text" name="age" id="age" value="" placeholder="Age"></td>
