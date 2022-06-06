@@ -8,13 +8,11 @@ $pass = trim($_POST['pass']);
 
 if(checkUser($username, $pass)) {
 header("Location:../dashboard.php");
-echo "TRUE";
 
 } 
 else {
   $_SESSION["loginError"] = "Wrong email or password!";
   header("Location: ../../index.php?login=false");
-  echo "FALSE";
 }
 }
 

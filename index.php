@@ -70,23 +70,23 @@
                             </a>
                         </div>
                     </div>
-                    <?php
-                   if(!isset($_GET['login'])) {
-                     exit();
-                   }
-                   else {
-                       $loginCheck = $_GET['login'];
-                       if($loginCheck == 'false') {
-                           echo '<p class="pb-4 text-danger">Wrong email or password!</p>';
-                       }
-                   }
-                   
-                    ?>
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
                             Login
                         </button>
                     </div>
+                    <?php
+                   if(!isset($_GET['login'])) {
+                     exit('<p class="pt-4">Please, login to the dashboard page.</p>');
+                   }
+                   else {
+                       $loginCheck = $_GET['login'];
+                       if($loginCheck == 'false') {
+                           echo '<p class="pt-4 text-danger">Wrong email or password!</p>';
+                       }
+                   }
+                   
+                    ?>
                 </form>
             </div>
         </div>
