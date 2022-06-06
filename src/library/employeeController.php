@@ -37,7 +37,7 @@ switch ($req) {
             break;
         } else if($_POST['id'] != ''){
             updateEmployee($_POST);
-            // header('location: .././dashboard.php');
+            header('location: .././dashboard.php');
         }
     case $req == 'GET':
         if(isset($_GET['id'])){
