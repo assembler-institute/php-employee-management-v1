@@ -13,7 +13,10 @@ if(isset($_POST['username']) && isset($_POST['password'])){
        login($_POST);
 }}
 }
+if ($_SERVER['REQUEST_METHOD']==='GET') {
 
+
+}
 
 
 
