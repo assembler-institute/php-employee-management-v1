@@ -10,7 +10,6 @@
 function addEmployee(array $newEmployee)
 {
 
-    unset($newEmployee['submit']);
     $newEmployee['id'] = hexdec(uniqid());
 
 
@@ -42,9 +41,6 @@ function deleteEmployee($id)
 function updateEmployee(array $updateEmployeeId)
 {
     // TODO implement it
-
-    unset($updateEmployeeId['submit']);
-
     $db = getQueryStringParameters();
 
     foreach ($db as $key => $value) {
