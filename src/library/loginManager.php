@@ -11,30 +11,31 @@ function login($data){
     //Iterate truh all users inside
     foreach ($stored_users['users'] as $key => $value){
         //Get user encrypted password
+        $encPassword = $value['password'];
         //If Json user matches input user check user info
-          $encPassword = $value['password'];
           //change it to email
           if ($value['name'] === $userinput){
             //If Json password matches input password start session & send data
             if(password_verify($passinput, $encPassword)){
+            // Unset all session variables
+            unset($_SESSION);
             //Start session 
             session_start();
             //Declare user session
-            $_SESSION['name'] = $userinput;
+            $_SESSION['user'] = $userinput;
             //Send login data back to the controller
-            $loginData = ["loginSuccess"=>true,'header'=>"http://localhost/employee-management/php-employee-management-v1/src/dashboard.php"];
-            return $loginData;
+            header("Location: ./src/dashboard.php");
             }
             //If user matches but passowrd don't send login data back to the controller
             else{
-            $loginData = ["loginSuccess"=>false,'message'=>"Wrong  password"];
-            return $loginData;
+            $_SESSION["loginError"] =  "Wrong  password";
+              header("Location: ../../index.php");
             }
-            }
-            //If user & password dont match send login data back to the controller
-            else {
-            $loginData = ["loginSuccess"=>false,'message'=>"Wrong email or password"];
-            return $loginData;
+          }
+          //If user & password dont match send login data back to the controller
+          else {
+            $_SESSION["loginError"] = "Wrong email or password";
+            header("Location: ../../index.php");
             }
         }
 }

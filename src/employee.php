@@ -1,28 +1,10 @@
 <!-- TODO Employee view -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EMPLOYEE</title>
-  </head>
-  <body>
-    <header>
-      <div id="logo" class="logo__container">
-        <img src="" alt="" />
-      </div>
-      <h1>EMPLOYEE MANAGEMENT</h1>
-    </header>
-    <nav>
-      <div class="links__container">
-        <span id="dashboardLink" class="links__container--item">DASHBOARD</span>
-        <span id="employeeLink" class="links__container--item">EMPLOYEE</span>
-      </div>
-      <div class="logout__btn_container">
-        <button id="logoutBtn" class="secondary__btn">LOGOUT</button>
-      </div>
-    </nav>
+<?php
+// require_once("./library/sessionHelper.php");
+// checkSession();
+include_once("header.php");
+?>
+
     <main>
       <sectiion class="employee__form__containeer">
         <form class="employee__form" id="employeeForm">
