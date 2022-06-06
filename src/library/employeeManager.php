@@ -9,8 +9,6 @@
 
 function addEmployee(array $newEmployee)
 {
-
-    unset($newEmployee['submit']);
     $newEmployee['id'] = hexdec(uniqid());
 
 
@@ -43,8 +41,6 @@ function updateEmployee(array $updateEmployeeId)
 {
     // TODO implement it
 
-    unset($updateEmployeeId['submit']);
-
     $db = getQueryStringParameters();
 
     foreach ($db as $key => $value) {
@@ -65,8 +61,6 @@ function updateEmployee(array $updateEmployeeId)
         }
     }
 
-
-    
     file_put_contents('../.././resources/employees.json', json_encode($db, JSON_PRETTY_PRINT));
     return $db;
 }
