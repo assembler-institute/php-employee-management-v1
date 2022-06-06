@@ -31,14 +31,24 @@ switch ($req) {
         deleteEmployee($data);
         break;
     case $req == 'POST': 
-        if($_POST["id"] == "") {
-            addEmployee($_POST);
-            header("Location: .././dashboard.php");
+
+        $inputdata = file_get_contents("php://input");
+        $data = json_decode($inputdata, true);
+
+        var_dump($data);
+
+        if(!isset($data['id'])){
+            echo "CREADO";
+            addEmployee($data);
             break;
-        } else if($_POST['id'] != ''){
-            updateEmployee($_POST);
-            header('location: .././dashboard.php');
         }
+
+        // if($req == $_POST && $_POST['id'] != ''){
+        //     echo "ACTUALIZADO";
+        //     updateEmployee($_POST);
+        //     header('location: .././dashboard.php');
+        // }
+
     case $req == 'GET':
         if(isset($_GET['id'])){
             header('Location: .././employee.php?id='.$_GET['id'].'');

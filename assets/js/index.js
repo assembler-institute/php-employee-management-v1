@@ -1,6 +1,7 @@
 const tableBodyEl = document.getElementById('table-body');
 const table = document.getElementById('table');
 const addNewEmpBtnEl = document.getElementById('addNewEmp');
+const createEmpButton = document.getElementById('createEmpButton');
 
 
 const deleteEmpId = (e) => {
@@ -13,7 +14,7 @@ const deleteEmpId = (e) => {
         showCancelButton: true,
         confirmButtonText: 'Delete',
         denyButtonText: `Don't delete`,
-      }).then((result) => {
+    }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             const sendReq = async () => {
@@ -25,14 +26,14 @@ const deleteEmpId = (e) => {
                 console.log(res)
             }
             sendReq();
-            clearTable(e);
+            clearRow(e);
         } else if (result.isDenied) {
-          Swal.fire('Changes are not saved', '', 'info')
+            Swal.fire('Changes are not saved', '', 'info')
         }
-      })
+    })
 
-    
-    
+
+
 }
 
 
@@ -120,31 +121,79 @@ const showEmp = async () => {
 }
 
 
-showEmp();
 
 
-const clearTable = (e) => {
+
+const clearRow = (e) => {
 
     if (table.hasChildNodes()) {
         tableBodyEl.removeChild(e.target.parentElement.parentElement)
     }
 }
 
+const clearTable = () => {
+    if (table.hasChildNodes()) {
+        table.removeChild(tableBodyEl);
+    }
+}
 
+
+const getEmpFormValues = () => {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const age = document.getElementById('age').value;
+    const streetAddress = document.getElementById('streetAddress').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+    const postalCode = document.getElementById('postalCode').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+
+    const data = {
+       name, email, age, streetAddress, city, state, postalCode, phoneNumber
+    }
+
+    return data;
+}
 
 
 // events
 
+const addNewEmp = (e) => {
 
-
-const addNewEmp = (e)=>{
-    
-    e.preventDefault();
     const addEmployeeForm = document.getElementById('addEmployeeForm');
     addEmployeeForm.classList.toggle('toggle');
+
+    if (addEmployeeForm.classList == 'toggle') {
+        addNewEmpBtnEl.textContent = '+'
+    } else {
+        addNewEmpBtnEl.textContent = 'x'
+    }
+
 }
 
-addNewEmpBtnEl.addEventListener('click', addNewEmp)
+addNewEmpBtnEl.addEventListener('click', addNewEmp);
+
+createEmpButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const newEmp = getEmpFormValues();
+
+    const req = await fetch(`.././src/library/employeeController.php`, {
+        method: 'POST',
+        body: JSON.stringify(newEmp),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const res = await req.text()
+    console.log(res)
+
+    clearTable();
+    showEmp();
+}
+
+)
+
+showEmp();
 
 
 

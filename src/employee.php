@@ -1,8 +1,6 @@
 <?php 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-}else{
-    $id = '';
 }
 ?>
 
@@ -29,7 +27,7 @@ if(isset($_GET['id'])){
         <input type="text" name="age" id="age" value="" placeholder="Age">
         <input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code">
         <input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number">
-        <input type="submit" value="submit">
+        <input type="submit" value="change">
     </form>
 </body>
 </html>

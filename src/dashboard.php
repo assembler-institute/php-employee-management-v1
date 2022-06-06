@@ -21,7 +21,6 @@ if (!isset($_SESSION['name'])) {
 
 <body>
   <div class="container">
-    <button id="load-emp">Load EMP!</button>
     <table class="table" id="table">
       <thead>
         <tr>
@@ -42,7 +41,8 @@ if (!isset($_SESSION['name'])) {
       </thead>
       <tbody id='table-body'>
         <tr id="addEmployeeForm" class="toggle">
-          <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data">
+          <!-- <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data"> -->
+          <form id="addEmpForm" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="id" value="" placeholder="">
           <td><input type="text" name="name" id="name" value="" placeholder="name"></td>
           <td><input type="email" name="email" id="email" value="" placeholder="email"></td>
@@ -52,7 +52,7 @@ if (!isset($_SESSION['name'])) {
           <td><input type="text" name="state" id="state" value="" placeholder="State"></td>
           <td><input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code"></td>
           <td><input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number"></td>
-          <td><input type="submit"></td>
+          <td><input type="submit" value="Crear" id="createEmpButton"></td>
           </form>
         </tr>
       </tbody>
@@ -66,3 +66,4 @@ if (!isset($_SESSION['name'])) {
 </body>
 
 </html>
+
