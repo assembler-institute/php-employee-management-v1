@@ -99,3 +99,5 @@ const clearTable = (e) =>{
 addNewEmpBtnEl.addEventListener('click', addNewEmp)
 
 
+
+

@@ -9,7 +9,6 @@
 
 function addEmployee(array $newEmployee)
 {
-
     $newEmployee['id'] = hexdec(uniqid());
 
 
@@ -61,8 +60,6 @@ function updateEmployee(array $updateEmployeeId)
         }
     }
 
-
-    
     file_put_contents('../.././resources/employees.json', json_encode($db, JSON_PRETTY_PRINT));
     return $db;
 }
