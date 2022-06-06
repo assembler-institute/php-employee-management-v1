@@ -18,7 +18,7 @@ if(isset($_GET['id'])){
 <body>
     <form action="../src/library/employeeController.php" method="POST" enctype="multipart/form-data">
         <!-- dynamic id here -->
-        <input type="hidden" name="id" id="" value="<?=$id?>" placeholder=""> 
+        <input type="hidden" name="id" id="" value="<?=$id?>" placeholder="">
         <input type="text" name="name" id="name" value="" placeholder="name">
         <input type="text" name="lastName" id="lastName" value="" placeholder="Last Name">
         <input type="email" name="email" id="email" value="" placeholder="email">
