@@ -37,7 +37,6 @@ function addEmployee(array $newEmployee){
 
 function deleteEmployee(string $id)
 {
-// TODO implement it
 
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
     array_splice($data, $id-1, 1);
