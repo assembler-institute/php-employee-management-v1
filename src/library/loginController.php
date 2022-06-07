@@ -21,26 +21,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET') {
   header("location: ../../index.php");
 }
 
-   function logout()
 
-    {
-
-    // unset($_SESSION);
-    //     if (ini_get("session.use_cookies")) {
-    //     $params = session_get_cookie_params();
-    //     setcookie(
-    //     session_name(),
-    //     '',
-    //     time() - 42000,
-    //     $params["path"],
-    //     $params["name"],
-    //     $params["domain"],
-    //     $params["secure"],
-    //     $params["httpponly"],
-    //     );
-    // }
-   
-    };
 
 
 
