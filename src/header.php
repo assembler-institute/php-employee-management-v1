@@ -20,8 +20,8 @@
           <span id="employeeLink" class="links__container--item">EMPLOYEE</span>
         </div>
         <div class="logout__btn_container">
-          <button id="logoutBtn" class="secondary__btn">LOGOUT</button>
-        </div>
+        <a href="../src/library/loginController.php?logout=true" name="logout">LogOut</a>
+      </div>
     <div>
       <?= $_SESSION["user"] ?>
     </div>
