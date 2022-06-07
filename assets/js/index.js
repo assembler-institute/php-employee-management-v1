@@ -1,7 +1,5 @@
-let logoutBtn = document.getElementById("logoutBtn");
-
 window.onload = () => {
-  updateEmployees();
+  checkCurrentUrl();
 };
 
 const getCurrentUrl = () => {
@@ -9,11 +7,26 @@ const getCurrentUrl = () => {
   return urlFile.substring(urlFile.lastIndexOf("/") + 1);
 };
 
-const updateEmployees = () => {
+const checkCurrentUrl = () => {
   let currentUrl = getCurrentUrl();
   if (currentUrl === "dashboard.php") {
     getEmployees();
+    addEvents();
+  } else {
+    addEmployee();
   }
+};
+
+const addEvents = () => {
+  document
+    .getElementById("dashboardAddNewEmployee")
+    .addEventListener("click", () => {
+      redirectEmployeePage();
+    });
+
+  document.getElementById("employeeLink").addEventListener("click", () => {
+    redirectEmployeePage();
+  });
 };
 
 const getEmployees = () => {
@@ -61,7 +74,6 @@ const employeTableData = (employe, tableRow) => {
     employe.phoneNumber,
   ];
   employeeData.map((element) => {
-    console.log(element);
     let tableData = document.createElement("td");
     tableData.textContent = element;
     tableRow.appendChild(tableData);
@@ -72,4 +84,30 @@ const employeTableData = (employe, tableRow) => {
   btn.textContent = "DELETE";
   tableDataBtn.appendChild(btn);
   tableRow.appendChild(tableDataBtn);
+};
+const redirectEmployeePage = () => {
+  window.location.replace(
+    "http://localhost/employee-management/php-employee-management-v1/src/employee.php"
+  );
+};
+const addEmployee = () => {
+  let employeeForm = document.getElementById("employeeForm");
+  document.getElementById("submitForm").addEventListener("click", (event) => {
+    event.preventDefault();
+    let formData = new FormData(employeeForm);
+    fetch(
+      "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.error(error));
+  });
 };

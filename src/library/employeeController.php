@@ -4,5 +4,12 @@ if ($_SERVER['REQUEST_METHOD']==='GET') {
     $storedEmployes= getEmployeesData();
     echo json_encode($storedEmployes);
    
+}
 
+if ($_SERVER['REQUEST_METHOD']==='POST'){
+if(isset($_POST['newEmployee'])){
+    // echo json_encode($_POST);
+    require_once("./employeeManager.php");
+    addEmployee($_POST);
+}
 }

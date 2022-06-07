@@ -6,9 +6,11 @@
  * @date: 11/06/2020
  */
 
-function addEmployee(array $newEmployee)
+function addEmployee($newEmployee)
 {
+    var_dump($newEmployee);
 // TODO implement it
+header("Location: ../dashboard.php");
 }
 
 
