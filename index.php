@@ -84,8 +84,7 @@
                        if($loginCheck == 'false') {
                            echo '<p class="pt-4 text-danger">Wrong email or password!</p>';
                        }
-                   }
-                   
+                   } 
                     ?>
                 </form>
             </div>
