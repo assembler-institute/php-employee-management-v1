@@ -53,6 +53,10 @@ function checkSession(){
             }
                 return $errorLog = '';
         }
+    }else if($urlFile === 'dashboard.php'){
+        if(!isset($_SESSION["email"])){
+            header("Location: ../index.php");
+        }
     }
 }
 

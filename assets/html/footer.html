@@ -3,9 +3,11 @@
     <script>
             const iniSession = parseInt(document.getElementById("timeStart").getAttribute("value"));
             const currentSession = parseInt(document.getElementById("timeCurrent").getAttribute("value"));
+            console.log(iniSession);
+            console.log(currentSession);
             setTimeout(function(){
                 window.location.replace("./library/sessionHelper.php");
-            }, 6000000 - (currentSession-iniSession)*1000);
+            }, 10000 - (currentSession-iniSession)*1000);
         </script>
 </footer></body>
 </html>

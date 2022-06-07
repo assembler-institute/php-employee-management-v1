@@ -1,9 +1,11 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php 
 include('../assets/html/header.html');
+include("./library/loginManager.php");
+checkSession();
 ?>
 <main>
-    <input type="hidden" value="<?php session_start(); echo $_SESSION["time"]; ?>" id="timeStart">
+    <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table" id="tableData">
         <thead id="tableHead">
