@@ -1,7 +1,7 @@
 <!-- TODO Employee view -->
 <?php
-// require_once("./library/sessionHelper.php");
-// checkSession();
+require_once("./library/sessionHelper.php");
+checkSession();
 include_once("header.php");
 ?>
 

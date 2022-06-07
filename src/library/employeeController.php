@@ -1,6 +1,8 @@
 <?php
-require_once("./loginManager.php");
-session_start();
-if (isset($_SESSION['name'])){
-    var_dump($_SESSION['name']);
+if ($_SERVER['REQUEST_METHOD']==='GET') {
+    require_once("./employeeManager.php");
+    $storedEmployes= getEmployeesData();
+    echo json_encode($storedEmployes);
+   
+
 }

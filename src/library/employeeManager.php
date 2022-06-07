@@ -21,6 +21,7 @@ function deleteEmployee(string $id)
 function updateEmployee(array $updateEmployee)
 {
 // TODO implement it
+
 }
 
 
@@ -44,4 +45,11 @@ function getQueryStringParameters(): array
 function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
+}
+function getEmployeesData(){
+    //Read json data
+    $storedEmployes = "../../resources/employees.json";
+    //Decode Json data
+    $stored_employees = json_decode(file_get_contents($storedEmployes), true);
+    return $stored_employees;
 }

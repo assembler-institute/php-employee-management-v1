@@ -6,7 +6,7 @@ include_once("header.php");
 ?>
     <main>
       <sectiion class="dashboard__table__containeer">
-        <table class="dashboard__employee__table">
+        <table id="dashboardEmployeeTable" class="dashboard__employee__table">
           <tr class="dashboard__employe__th">
             <th>NAME</th>
             <th>EMAIL</th>
@@ -20,7 +20,7 @@ include_once("header.php");
               <button id="dashboardAddNewEmployee">+</button>
             </th>
           </tr>
-          <tr id="employeeID" class="dashboard__employee__td">
+          <tr id="employeeID" class="dashboard__employee__tr">
             <td>Juan</td>
             <td>juan@huan.com</td>
             <td>22</td>

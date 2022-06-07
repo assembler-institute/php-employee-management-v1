@@ -6,6 +6,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $username= $_POST['username'];
         $password=$_POST['password'];
        if ($username=="" || $password==""){
+           session_start();
             $_SESSION["loginError"] =  "Fill up the form";
               header("Location: ../../index.php");
    } else{

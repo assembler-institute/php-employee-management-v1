@@ -18,8 +18,8 @@ function checkSession(){
         }
     } else {
         if (!isset($_SESSION["user"])) {
-            $_SESSION["loginError"] = "You don't have permission to enter the dashboard. Please Login.";
-            header("Location:../../index.php");
+            $_SESSION["loginError"] = "You don't have permission to enter. Please Login.";
+            header("Location:../index.php");
         }
     }
 

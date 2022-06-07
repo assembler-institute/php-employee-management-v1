@@ -24,17 +24,19 @@ function login($data){
             //Declare user session
             $_SESSION['user'] = $userinput;
             //Send login data back to the controller
-            header("Location: ./src/dashboard.php");
+            header("Location: ./dashboard.php");
             }
             //If user matches but passowrd don't send login data back to the controller
             else{
+              session_start();
             $_SESSION["loginError"] =  "Wrong  password";
               header("Location: ../../index.php");
             }
           }
           //If user & password dont match send login data back to the controller
           else {
-            $_SESSION["loginError"] = "Wrong email or password";
+            session_start();
+            $_SESSION["loginError"] = "Wrong user or password";
             header("Location: ../../index.php");
             }
         }

@@ -19,7 +19,16 @@ require_once("src/library/sessionHelper.php");
           <input type="password" class="form__input" name="password" />
           <button class="primary__btn" id="loginFormSubmitBtn">LOGIN</button>
         </form>
-        <?php $_SESSION["loginError"] ?>
+        <div>
+
+        <?php 
+
+        if(isset($_SESSION["loginError"] )){
+          echo $_SESSION["loginError"];
+        }
+        
+        ?>
+        </div>
       
       </section>
     </main>
