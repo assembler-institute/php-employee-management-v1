@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             updateEmployee($employeeActive);
         }else{
             //CreateEmployee
-            echo "creando empleado";
             $newEmployee = array(
                 "id" => "",
                 "name" => $_POST["name"],
@@ -54,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 "phoneNumber" => $_POST["phoneNumber"]);
         
             addEmployee($newEmployee);
+
         }
     }else{
     $newEmployee = array(
@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         "phoneNumber" => $_POST["phone"]);
 
     addEmployee($newEmployee);
+
     }
 
 }

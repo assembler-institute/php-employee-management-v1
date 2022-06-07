@@ -2,9 +2,24 @@
 <?php 
 include('../assets/html/header.html');
 include("./library/loginManager.php");
+include("./library/employeeManager.php");
 checkSession();
+
+// if (isset($_SESSION["message"])) {
+//     $deleted = true;
+//     unset ($_SESSION["message"]);
+// }
+
+
+
+
 ?>
 <main>
+<?php if(isset($deleted)) {
+    //echo an script alert message
+    // echo "<script>alert('Employee deleted successfully');</script>";
+} ?>
+
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table" id="tableData">

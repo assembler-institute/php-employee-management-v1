@@ -1,5 +1,5 @@
 import { createRow} from "./createRow.js";
-import {createListeners} from "./createListeners.js";
+import {createListeners, confirmDelete} from "./createListeners.js";
 
 const tableBody = document.getElementById("tableBody");
 
@@ -23,6 +23,7 @@ if(tableBody.children != 0){
                             tableBody.appendChild(row);
             });
             createListeners();
+            confirmDelete();
         } catch (error) {
             console.log(error);
         }
