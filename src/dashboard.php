@@ -10,14 +10,26 @@ checkSession();
 //     unset ($_SESSION["message"]);
 // }
 
-
+if (isset($_SESSION["userAdded"])){
+    $userAdded = true;
+    $message = $_SESSION["userAdded"];
+    unset ($_SESSION["userAdded"]);
+}
 
 
 ?>
 <main>
-<?php if(isset($deleted)) {
-    //echo an script alert message
-    // echo "<script>alert('Employee deleted successfully');</script>";
+<?php if(isset($userAdded)) {
+    echo "
+    <p id='message' class='alert alert-success'>$message</p>
+
+    <script>
+        setTimeout(function(){
+            document.getElementById('message').style.display = 'none';
+        }, 3000);
+    </script>
+    ";
+
 } ?>
 
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">

@@ -31,6 +31,7 @@ function addEmployee(array $newEmployee){
     //Returning the info
     echo json_encode($data) ;
 
+    $_SESSION["userAdded"] = "Employee successfully saved";
 
     //Redirect to dashboard
     header("Location: ../dashboard.php");
