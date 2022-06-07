@@ -24,7 +24,7 @@ if (!isset($_SESSION['name'])) {
   <?php
   if (isset($_GET['updated'])) {
     if (isset($_GET['updated'])) {
-      echo "<div class='alert alert-success' role='alert'>
+      echo "<div class='alert alert-success fade-out' role='alert'>
     The employee has been update
   </div>";
     }
