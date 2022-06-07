@@ -8,7 +8,6 @@ if (isset($_GET["info"])) {
     $info = true;
     $employee = $_SESSION["employeeData"];
 }
-
 ?>
 
 
