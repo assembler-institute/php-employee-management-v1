@@ -12,15 +12,12 @@
 </head>
 <body>
     <header>
-        <!-- <script>
-            setTimeout(function(){
-                window.location.replace("./library/sessionHelper.php");
-            }, 5000);
-        </script> -->
         <ul class="header__ul--navBar">
             <li class="navBar__ul--li"><a href="./dashboard.php">Dashboard</a></li>
             <li class="navBar__ul--li"><a href="./employee.php">Employees</a></li>
-            <li class="navBar__ul--liLogOut"><a href="#">Log Out</a></li>
+            <form action="./library/sessionHelper.php" method="post">
+                <button class="navBar__ul--liLogOut" type="submit" name="destroy">Sign out</button>
+            </form>
         </ul>
     </header>
 

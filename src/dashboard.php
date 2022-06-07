@@ -1,8 +1,6 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php 
 include('../assets/html/header.html');
-// include("./library/sessionHelper.php");
-// var_dump(a($_GET['min'], $_GET['sec']));
 ?>
 <main>
     <input type="hidden" value="<?php session_start(); echo $_SESSION["time"]; ?>" id="timeStart">
