@@ -115,6 +115,7 @@ const getEmps = async () => {
 
 const showEmp = async () => {
     const emps = await getEmps();
+    
     emps.map(emp => {
         const { id, name, email, age, streetAddress, city, state, postalCode, phoneNumber, gender, lastName } = emp;
         const empRow = createTableRowWihtEmp(id, name, email, age, streetAddress, city, state, postalCode, phoneNumber, gender, lastName);
@@ -176,12 +177,43 @@ const getEmpFormValues = () => {
 }
 
 const validateForm = () => {
-    const addEmployeeForm = document.getElementById('addEmployeeForm');
-    Array.from(addEmployeeForm.children).forEach(child => console.log(Array.from(child).forEach(inp => {
-        if(inp.value = '') {
-            return false;
-        }
-    })))
+    let error = false;
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const age = document.getElementById('age').value;
+    const streetNumber = document.getElementById('streetAddress').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+    const postalCode = document.getElementById('postalCode').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+
+    if(name === ''){
+        error = true;
+    }
+    if(email === ''){
+        error = true;
+    }
+    if(age === ''){
+        error = true;
+    }
+    if(streetNumber === ''){
+        error = true;
+    }
+    if(city === ''){
+        error = true;
+    }
+    if(state === ''){
+        error = true;
+    }
+    if(postalCode === ''){
+        error = true;
+    }
+    if(phoneNumber === ''){
+        error = true;
+    }
+
+    return error;
 }
 
 
@@ -204,28 +236,38 @@ addNewEmpBtnEl.addEventListener('click', addNewEmp);
 
 createEmpButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    const isValidate = validateForm()
-    console.log(isValidate)
+    const validate = validateForm();
     const newEmp = getEmpFormValues();
 
-    const req = await fetch(`.././src/library/employeeController.php`, {
-        method: 'POST',
-        body: JSON.stringify(newEmp),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    const res = await req.text()
-    console.log(res)
+    if(validate === true){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Fill the fields',
+          })
+    }else{
+        const req = await fetch(`.././src/library/employeeController.php`, {
+            method: 'POST',
+            body: JSON.stringify(newEmp),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const res = await req.text()
+        console.log(res)
+    
+        clearTable()
+        clearForm();
+        Swal.fire(
+            'Success!',
+            'Employee was added correctly',
+            'success'
+          )
+        showEmp();
+    }
+    
 
-    clearTable()
-    clearForm();
-    Swal.fire(
-        'Success!',
-        'Employee was added correctly',
-        'success'
-      )
-    showEmp();
+    
 }
 
 )
