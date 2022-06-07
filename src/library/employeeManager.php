@@ -8,7 +8,6 @@
 
 function addEmployee($newEmployee)
 {
-    var_dump($newEmployee);
 // TODO implement it
 header("Location: ../dashboard.php");
 }

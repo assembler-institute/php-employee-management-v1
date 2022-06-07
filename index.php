@@ -15,7 +15,6 @@ require_once("src/library/sessionHelper.php");
     <main>
       <section class="login__container">
         <form id="loginForm" method="POST" action="src/library/loginController.php" class="login__form">
-          <label for="username">adriaaaaaaa</label>
           <input type="text" class="form__input" name="username" />
           <input type="password" class="form__input" name="password" />
           <button class="primary__btn" id="loginFormSubmitBtn">LOGIN</button>

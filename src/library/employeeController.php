@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET') {
 if ($_SERVER['REQUEST_METHOD']==='POST'){
 if(isset($_POST['newEmployee'])){
     // echo json_encode($_POST);
+    var_dump($_POST);
     require_once("./employeeManager.php");
     addEmployee($_POST);
 }

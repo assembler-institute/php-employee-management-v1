@@ -101,13 +101,13 @@ const addEmployee = () => {
         method: "POST",
         body: formData,
       }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => console.error(error));
+    );
+    // .then((response) => {
+    //   return response.json();
+    // })
+    // .then((data) => {
+    //   console.log(data);
+    // })
+    // .catch((error) => console.error(error));
   });
 };
