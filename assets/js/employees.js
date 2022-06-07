@@ -56,8 +56,22 @@ function renderDashboard(data) {
     //BUTTON TO DELETE THE EMPLOYEE
     let btnTrash = document.createElement("button");
     btnTrash.classList.add("btn__trash");
+    btnTrash.setAttribute('id','btnDelete');
+    btnTrash.setAttribute('data-id', employee.id);
+    btnTrash.addEventListener('click', deleteEmployee);
     tr.append(btnTrash);
   });
 }
 
-//const tableBody = document.getElementById("employeeTable");
+
+function deleteEmployee(e) {
+  const btn = e.currentTarget.getAttribute('data-id');
+  
+  const sendReq = async () => {
+    const req = await fetch(`.././src/library/employeeController.php`, {
+        method: 'DELETE',
+        body: JSON.stringify(+btn)
+    });
+}
+sendReq();
+}

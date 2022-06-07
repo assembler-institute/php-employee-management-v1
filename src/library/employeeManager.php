@@ -13,10 +13,25 @@ function addEmployee(array $newEmployee)
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($dataId)
 {
-// TODO implement it
+// read json file
+    $data = file_get_contents("../../resources/employees.json");
 
+// decode json to associative array
+    $jsonArray = json_decode($data, true);
+    $indexArray = array();
+    
+foreach($jsonArray as $key => $value){
+    if ($value['id'] == $dataId) {
+        unset($jsonArray[$key]);
+    }
+}
+$indexArray = array_values($jsonArray);
+
+// encode array to json and save to file
+file_put_contents("../../resources/employees.json", json_encode($indexArray));
+return $indexArray;
 }
 
 
