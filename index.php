@@ -81,7 +81,7 @@
                    }
                    else {
                        $loginCheck = $_GET['login'];
-                       if($loginCheck == 'false') {
+                       if($loginCheck == 'error') {
                            echo '<p class="pt-4 text-danger">Wrong email or password!</p>';
                        }
                    } 

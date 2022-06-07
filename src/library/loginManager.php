@@ -10,11 +10,11 @@ $pass = trim($_POST['pass']);
 
 if(checkUser($username, $pass)) {
 $username = $_SESSION['username'];
-header("Location:../dashboard.php?login=true");
+header("Location:../dashboard.php");
 } 
 else {
   $_SESSION["loginError"] = "Wrong email or password!";
-  header("Location: ../../index.php?login=false");
+  header("Location: ../../index.php?login=error");
 }
 }
 
