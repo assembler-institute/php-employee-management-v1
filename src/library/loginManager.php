@@ -24,7 +24,7 @@ function login($data){
             //Declare user session
             $_SESSION['user'] = $userinput;
             //Send login data back to the controller
-            header("Location: ./dashboard.php");
+            header("Location: ../dashboard.php");
             }
             //If user matches but passowrd don't send login data back to the controller
             else{
