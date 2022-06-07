@@ -111,8 +111,8 @@ const getEmps = async () => {
 const showEmp = async () => {
     const emps = await getEmps();
     emps.map(emp => {
-        const { id, name, email, age, streetAddress, city, state, postalCode, phoneNumber } = emp;
-        const empRow = createTableRowWihtEmp(id, name, email, age, streetAddress, city, state, postalCode, phoneNumber);
+        const { id, name, email, age, streetAddress, city, state, postalCode, phoneNumber, gender, lastName } = emp;
+        const empRow = createTableRowWihtEmp(id, name, email, age, streetAddress, city, state, postalCode, phoneNumber, gender, lastName);
         tableBodyEl.appendChild(empRow);
     })
     const btnsdelete = document.querySelectorAll('[data]')
@@ -142,6 +142,8 @@ const getEmpFormValues = () => {
     
     const id = document.getElementById('id').value = '';
     const name = document.getElementById('name').value;
+    const lastName = document.getElementById('lastName').value = '';
+    const gender = document.getElementById('gender').value = '';
     const email = document.getElementById('email').value;
     const age = document.getElementById('age').value;
     const streetAddress = document.getElementById('streetAddress').value;
@@ -151,11 +153,12 @@ const getEmpFormValues = () => {
     const phoneNumber = document.getElementById('phoneNumber').value;
 
     const data = {
-       name, email, age, streetAddress, city, state, postalCode, phoneNumber, id
+       id, name, lastName, email, age, gender, streetAddress, city, state, postalCode, phoneNumber
     }
 
     return data;
 }
+
 
 
 // events

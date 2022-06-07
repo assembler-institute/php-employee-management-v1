@@ -45,6 +45,8 @@ if (!isset($_SESSION['name'])) {
           <form id="addEmpForm" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="id" id="id" value="" placeholder=""  >
           <td><input type="text" name="name" id="name" value="" placeholder="name"></td>
+          <input type="hidden" name="lastName" id="lastName" value="" placeholder="lastname">
+          <input type="hidden" name="gender" id="gender" value="" placeholder="gender">
           <td><input type="email" name="email" id="email" value="" placeholder="email"></td>
           <td><input type="text" name="age" id="age" value="" placeholder="Age"></td>
           <td><input type="text" name="streetAddress" id="streetAddress" value="" placeholder="Street Address"></td>

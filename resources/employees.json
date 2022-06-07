@@ -91,30 +91,6 @@
         "phoneNumber": "91232876454"
     },
     {
-        "id": 1734623032286074,
-        "name": "sefi",
-        "lastName": "asasas",
-        "email": "sefi@cohen.com",
-        "gender": "male",
-        "city": "as",
-        "streetAddress": "asasas",
-        "state": "sas",
-        "age": "asa",
-        "postalCode": "assa",
-        "phoneNumber": "as"
-    },
-    {
-        "name": "prueba",
-        "email": "prueba@prueba.com",
-        "age": "ads",
-        "streetAddress": "asda",
-        "city": "sas",
-        "state": "",
-        "postalCode": "",
-        "phoneNumber": "",
-        "id": 1734898341214765
-    },
-    {
         "name": "Josephi Cohen",
         "email": "seficohen1@gmail.com",
         "age": "",
@@ -126,5 +102,18 @@
         "id": 1734901024521204,
         "lastName": "",
         "gender": ""
+    },
+    {
+        "id": 1734961326165946,
+        "name": "julio",
+        "lastName": "macias",
+        "email": "julio@julio.com",
+        "age": 23,
+        "gender": "male",
+        "streetAddress": "asd123",
+        "city": "mirandilla",
+        "state": "aSSAAS",
+        "postalCode": "1234",
+        "phoneNumber": "adxc"
     }
 ]

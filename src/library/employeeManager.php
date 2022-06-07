@@ -54,7 +54,7 @@ function updateEmployee(array $updateEmployeeId)
             $db[$key]['streetAddress'] = $updateEmployeeId['streetAddress'];
 
             $db[$key]['state'] = $updateEmployeeId['state'];
-            $db[$key]['age'] = $updateEmployeeId['age'];
+            $db[$key]['age'] = intval($updateEmployeeId['age']);
             $db[$key]['postalCode'] = $updateEmployeeId['postalCode'];
             $db[$key]['phoneNumber'] = $updateEmployeeId['phoneNumber'];
         }
@@ -65,12 +65,19 @@ function updateEmployee(array $updateEmployeeId)
 }
 
 
-// function getEmployee(string $id)
-// {
-//     // TODO implement it
-//     var_dump($id);
-
-// }
+function getEmployee(string $id)
+{
+    // TODO implement it
+    $json = file_get_contents('.././resources/employees.json');
+    $data = json_decode($json, true);
+    
+    foreach($data as $key => $value){
+        
+        if(intval($id) === $value['id']){
+            return $value;
+        }
+    }
+}
 
 
 // function removeAvatar($id)
