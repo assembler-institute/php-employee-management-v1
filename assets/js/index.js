@@ -2,6 +2,7 @@ import { createRow} from "./createRow.js";
 import {createListeners} from "./createListeners.js";
 
 const tableBody = document.getElementById("tableBody");
+const inputNextPage = document.getElementById("nextPage");
 
 //check if table has employees and create the table data
 if(tableBody.children != 0){
@@ -18,10 +19,13 @@ if(tableBody.children != 0){
                             //Create each row with Data Employeer with variable i for specify the id of each row
                             let row = createRow(element, i);
                             i++;
-                
                             //We add the cell to tr and tr to tbody
                             tableBody.appendChild(row);
             });
+            let employeesShown = document.querySelectorAll(".tbody__emplpoyees--tr");
+            let lastEmployee = employeesShown[employeesShown.length-1].getAttribute("id");
+            console.log(lastEmployee);
+            inputNextPage.setAttribute("value", lastEmployee);
             createListeners();
         } catch (error) {
             console.log(error);

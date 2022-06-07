@@ -39,6 +39,10 @@ checkSession();
         <tbody class="table__tbody--dataEmployer" id="tableBody">
         </tbody>
     </table>
+    <form action="./library/employeeController.php" method="post">
+        <input type="hidden" name="page" value="" id="nextPage">
+        <button type="submit" name ="next-page">Next</button>
+    </form>
 </main>
 <?php 
     include('../assets/html/footer.html');

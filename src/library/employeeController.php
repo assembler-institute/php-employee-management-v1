@@ -5,7 +5,7 @@ include('./employeeManager.php');
 //request method is GET, call the getQueryStringParameters() function
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    getQueryStringParameters();
+    getQueryStringParameters(0);
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($_POST["delete"]){
 
@@ -55,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         
             addEmployee($newEmployee);
         }
+    }else if($_POST["page"]){
+        getQueryStringParameters($_POST["page"]);
     }else{
     $newEmployee = array(
         "id" => "",
