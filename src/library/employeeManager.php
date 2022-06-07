@@ -21,7 +21,7 @@ function deleteEmployee($dataId)
 // decode json to associative array
     $jsonArray = json_decode($data, true);
     $indexArray = array();
-    
+
 foreach($jsonArray as $key => $value){
     if ($value['id'] == $dataId) {
         unset($jsonArray[$key]);
