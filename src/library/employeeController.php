@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include('./employeeManager.php');
 
 //request method is GET, call the getQueryStringParameters() function
@@ -8,17 +8,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     getQueryStringParameters();
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($_POST["delete"]){
-        echo "entrando";
-        // $res = explode("-",$_GET["action"])[0];
-        // if($res === 'delete'){
-        //     $id = explode("-",$_GET["action"])[1];
+
             deleteEmployee($_POST["delete"]);
-        // }
+
     }else if ($_POST["info"]){
         
         $employeeData = getEmployee($_POST["info"]);
+        $_SESSION["employeeData"] = $employeeData;
         
-        header ("Location: ../employee.php?name=".$employeeData['name']."&lastName=".$employeeData['lastName']."&email=".$employeeData['email']."&gender=".$employeeData['gender']."&age=".$employeeData['age']."&streetAddress=".$employeeData['streetAddress']."&city=".$employeeData['city']."&state=".$employeeData['state']."&postalCode=".$employeeData['postalCode']."&phoneNumber=".$employeeData['phoneNumber']);
+        
+        header ("Location: ../employee.php?info=true");
 
     }else{
     $newEmployee = array(
