@@ -15,7 +15,9 @@ export function createListeners(){
 
 
 export function confirmDelete() {
-    const btnDel = document.getElementsByClassName("bx bxs-trash");
+    //Get all the delete buttons
+    const btnDel = document.querySelectorAll('[name="delete"]');
+    //Add event listener to each button to confirm deletion
     Array.from(btnDel).map(btn => {
         btn.addEventListener("click", (event) => {
             if (confirm("Are you sure you want to delete this employee?")) {
