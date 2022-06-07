@@ -44,8 +44,9 @@ if (isset($_GET['id'])) {
         <input type="text" name="age" id="age" value="<?= $age ?>" placeholder="Age">
         <input type="text" name="postalCode" id="postalCode" value="<?= $postalCode ?>" placeholder="Postal Code">
         <input type="text" name="phoneNumber" id="phoneNumber" value="<?= $phoneNumber ?>" placeholder="Phone Number">
-        <input type="submit" value="change">
+        <input type="submit" value="change" id="updateEmployeeButton">
     </form>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

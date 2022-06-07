@@ -46,7 +46,7 @@ switch ($req) {
         if($_POST['id'] != ''){
             echo "ACTUALIZADO";
             updateEmployee($_POST);
-            header('location: .././dashboard.php');
+            header('location: .././dashboard.php?updated=1');
         }
 
     case $req == 'GET':

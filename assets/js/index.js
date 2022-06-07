@@ -9,13 +9,14 @@ const deleteEmpId = (e) => {
     const btnId = e.currentTarget.getAttribute('data');
 
     Swal.fire({
-        title: 'Do you want to save the changes?',
-        showDenyButton: true,
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Delete',
-        denyButtonText: `Don't delete`,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
             const sendReq = async () => {
                 const req = await fetch(`.././src/library/employeeController.php`, {
@@ -27,8 +28,12 @@ const deleteEmpId = (e) => {
             }
             sendReq();
             clearRow(e);
-        } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
+
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
         }
     })
 
@@ -139,7 +144,7 @@ const clearTable = () => {
 
 
 const getEmpFormValues = () => {
-    
+
     const id = document.getElementById('id').value = '';
     const name = document.getElementById('name').value;
     const lastName = document.getElementById('lastName').value = '';
@@ -153,7 +158,7 @@ const getEmpFormValues = () => {
     const phoneNumber = document.getElementById('phoneNumber').value;
 
     const data = {
-       id, name, lastName, email, age, gender, streetAddress, city, state, postalCode, phoneNumber
+        id, name, lastName, email, age, gender, streetAddress, city, state, postalCode, phoneNumber
     }
 
     return data;

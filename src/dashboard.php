@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['name'])) {
   header('location: .././index.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +21,15 @@ if (!isset($_SESSION['name'])) {
 </head>
 
 <body>
+  <?php
+  if (isset($_GET['updated'])) {
+    if (isset($_GET['updated'])) {
+      echo "<div class='alert alert-success' role='alert'>
+    The employee has been update
+  </div>";
+    }
+  }
+  ?>
   <div class="container">
     <table class="table" id="table">
       <thead>
@@ -43,18 +53,18 @@ if (!isset($_SESSION['name'])) {
         <tr id="addEmployeeForm" class="toggle">
           <!-- <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data"> -->
           <form id="addEmpForm" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="id" id="id" value="" placeholder=""  >
-          <td><input type="text" name="name" id="name" value="" placeholder="name"></td>
-          <input type="hidden" name="lastName" id="lastName" value="" placeholder="lastname">
-          <input type="hidden" name="gender" id="gender" value="" placeholder="gender">
-          <td><input type="email" name="email" id="email" value="" placeholder="email"></td>
-          <td><input type="text" name="age" id="age" value="" placeholder="Age"></td>
-          <td><input type="text" name="streetAddress" id="streetAddress" value="" placeholder="Street Address"></td>
-          <td><input type="text" name="city" id="city" value="" placeholder="city"></td>
-          <td><input type="text" name="state" id="state" value="" placeholder="State"></td>
-          <td><input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code"></td>
-          <td><input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number"></td>
-          <td><input type="submit" value="Crear" id="createEmpButton"></td>
+            <input type="hidden" name="id" id="id" value="" placeholder="">
+            <td><input type="text" name="name" id="name" value="" placeholder="name"></td>
+            <input type="hidden" name="lastName" id="lastName" value="" placeholder="lastname">
+            <input type="hidden" name="gender" id="gender" value="" placeholder="gender">
+            <td><input type="email" name="email" id="email" value="" placeholder="email"></td>
+            <td><input type="text" name="age" id="age" value="" placeholder="Age"></td>
+            <td><input type="text" name="streetAddress" id="streetAddress" value="" placeholder="Street Address"></td>
+            <td><input type="text" name="city" id="city" value="" placeholder="city"></td>
+            <td><input type="text" name="state" id="state" value="" placeholder="State"></td>
+            <td><input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code"></td>
+            <td><input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number"></td>
+            <td><input type="submit" value="Crear" id="createEmpButton"></td>
           </form>
         </tr>
       </tbody>
@@ -68,4 +78,3 @@ if (!isset($_SESSION['name'])) {
 </body>
 
 </html>
-
