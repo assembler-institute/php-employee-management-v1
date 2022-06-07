@@ -125,6 +125,14 @@ const showEmp = async () => {
 
 }
 
+const clearForm = () => {
+    const newEmpFormEl = document.getElementById('addEmployeeForm');
+    Array.from(newEmpFormEl.children).map(el => {
+        Array.from(el.children).forEach(el => el.value = '')
+    })
+    newEmpFormEl.classList.toggle('toggle');
+    addNewEmpBtnEl.textContent = '+';
+}
 
 
 
@@ -137,10 +145,13 @@ const clearRow = (e) => {
 }
 
 const clearTable = () => {
-    if (table.hasChildNodes()) {
-        table.removeChild(tableBodyEl);
-    }
+    Array.from(tableBodyEl.children).map(el => {
+        if(!el.hasAttribute('id')) {
+            tableBodyEl.removeChild(el)
+        }
+    })
 }
+
 
 
 const getEmpFormValues = () => {
@@ -164,6 +175,14 @@ const getEmpFormValues = () => {
     return data;
 }
 
+const validateForm = () => {
+    const addEmployeeForm = document.getElementById('addEmployeeForm');
+    Array.from(addEmployeeForm.children).forEach(child => console.log(Array.from(child).forEach(inp => {
+        if(inp.value = '') {
+            return false;
+        }
+    })))
+}
 
 
 // events
@@ -185,6 +204,8 @@ addNewEmpBtnEl.addEventListener('click', addNewEmp);
 
 createEmpButton.addEventListener('click', async (e) => {
     e.preventDefault();
+    const isValidate = validateForm()
+    console.log(isValidate)
     const newEmp = getEmpFormValues();
 
     const req = await fetch(`.././src/library/employeeController.php`, {
@@ -197,13 +218,22 @@ createEmpButton.addEventListener('click', async (e) => {
     const res = await req.text()
     console.log(res)
 
-    clearTable();
+    clearTable()
+    clearForm();
+    Swal.fire(
+        'Success!',
+        'Employee was added correctly',
+        'success'
+      )
     showEmp();
 }
 
 )
 
+
+
 showEmp();
+
 
 
 
