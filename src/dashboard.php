@@ -4,7 +4,7 @@ include('../assets/html/header.html');
 include("./library/loginManager.php");
 checkSession();
 ?>
-<main>
+<main id="main_container">
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table" id="tableData">
@@ -39,10 +39,10 @@ checkSession();
         <tbody class="table__tbody--dataEmployer" id="tableBody">
         </tbody>
     </table>
-    <form action="./library/employeeController.php" method="post">
-        <input type="hidden" name="page" value="" id="nextPage">
+    <!-- <form action="./library/employeeController.php" method="post" id="form-navigation">
+        <input type="hidden" name="page" value="" id="nextPage" onclick="../../assets/js/index.js">
         <button type="submit" name ="next-page">Next</button>
-    </form>
+    </form> -->
 </main>
 <?php 
     include('../assets/html/footer.html');

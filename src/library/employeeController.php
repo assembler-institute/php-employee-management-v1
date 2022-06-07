@@ -5,8 +5,12 @@ include('./employeeManager.php');
 //request method is GET, call the getQueryStringParameters() function
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    getQueryStringParameters(0);
+    getQueryStringParameters($_GET["empl"]);
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // if($_POST["page"]){
+    //     getQueryStringParameters($_POST["page"]);
+    //     //header("Location: ../dashboard.php")
+    // }
     if($_POST["delete"]){
 
             deleteEmployee($_POST["delete"]);
@@ -55,8 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         
             addEmployee($newEmployee);
         }
-    }else if($_POST["page"]){
-        getQueryStringParameters($_POST["page"]);
     }else{
     $newEmployee = array(
         "id" => "",

@@ -117,10 +117,10 @@ function getQueryStringParameters($NextEmployee)
 {
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
     $limit = 10;
-    if(count($data)- $limit > intval($NextEmployee)){
-        $limit = $NextEmployee;
-    }
-    echo json_encode(array_slice($data, intval($NextEmployee), $NextEmployee));
+     if(count($data)- $limit < intval($NextEmployee)){
+         $limit = count($data)- $limit;
+     }
+    echo json_encode(array_slice($data, intval($NextEmployee), $limit));
 
 }
 
