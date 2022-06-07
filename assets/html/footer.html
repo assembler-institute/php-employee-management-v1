@@ -1,4 +1,11 @@
 <footer>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, quam?</p>  
+      <script>
+            const iniSession = parseInt(document.getElementById("timeStart").getAttribute("value"));
+            const currentSession = parseInt(document.getElementById("timeCurrent").getAttribute("value"));
+            setTimeout(function(){
+                window.location.replace("./library/sessionHelper.php");
+            }, 10000 - (currentSession-iniSession)*1000);
+        </script>
 </footer></body>
 </html>

@@ -5,6 +5,8 @@ include('../assets/html/header.html');
 // var_dump(a($_GET['min'], $_GET['sec']));
 ?>
 <main>
+    <input type="hidden" value="<?php session_start(); echo $_SESSION["time"]; ?>" id="timeStart">
+    <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table" id="tableData">
         <thead id="tableHead">
             <tr>

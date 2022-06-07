@@ -16,6 +16,7 @@ function validate(){
 
             $_SESSION['email'] = $email;
             $_SESSION['pass'] = $pass;
+            $_SESSION["time"] = time();
             header ("Location: ../dashboard.php");
         }else {
             $_SESSION['loginerror'] = 'Incorrect Password';
@@ -40,7 +41,7 @@ function checkSession(){
 
     if($urlFile === 'index.php') {
         if(isset($_SESSION['email'])) {
-
+    
             header ("Location: ../dashboard.php");
 
         }else {

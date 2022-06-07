@@ -72,11 +72,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     addEmployee($newEmployee);
     }
 
-}else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
-    echo "entrando";
-    $res = explode("-",$_GET["action"])[0];
-    if($res === 'delete'){
-        $id = explode("-",$_GET["action"])[1];
-        deleteEmployee($id);
-    }
 }

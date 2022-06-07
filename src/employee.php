@@ -13,21 +13,23 @@ if (isset($_GET["info"])) {
 
 <!------------ Employee form------------>
 <form class="container" action="./library/employeeController.php" method="post">
+    <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
+    <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <input type="hidden" name="employee" value="<?php if(isset($info)) {echo $employee['id'];}else{echo "0";} ?>">
     <div class="row g-3">
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name" value="<?php if(isset($info)) {echo $employee['name'];} ?>">
+            <input type="text" class="form-control" name="name" placeholder="First name" aria-label="First name" value="<?php if(isset($info)) {echo $employee['name'];} ?>">
         </div>
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" value="<?php if(isset($info)) {echo $employee['lastName'];} ?>">
+            <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name" value="<?php if(isset($info)) {echo $employee['lastName'];} ?>">
         </div>
     </div>
     <div class="row g-3 mt-2">
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="Example@example.com" aria-label="Email" value="<?php if(isset($info)) {echo $employee['email'];} ?>">
+            <input type="text" class="form-control" name="email" placeholder="Example@example.com" aria-label="Email" value="<?php if(isset($info)) {echo $employee['email'];} ?>">
         </div>
         <div class="col">
             <label for=""></label>
@@ -40,31 +42,31 @@ if (isset($_GET["info"])) {
     <div class="row g-3 mt-2">
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="City" aria-label="City" value="<?php if(isset($info)) {echo $employee['city'];} ?>">
+            <input type="text" class="form-control" name="city" placeholder="City" aria-label="City" value="<?php if(isset($info)) {echo $employee['city'];} ?>">
         </div>
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="Street Address" aria-label="Street Address" value="<?php if(isset($info)) {echo $employee['streetAddress'];} ?>">
-        </div>
-    </div>
-    <div class="row g-3 mt-2">
-        <div class="col">
-            <label for=""></label>
-            <input type="text" class="form-control" placeholder="State" aria-label="State" value="<?php if(isset($info)) {echo $employee['state'];} ?>">
-        </div>
-        <div class="col">
-            <label for=""></label>
-            <input type="text" class="form-control" placeholder="Age" aria-label="Age" value="<?php if(isset($info)) {echo $employee['age'];} ?>">
+            <input type="text" class="form-control" name="streetAddress" placeholder="Street Address" aria-label="Street Address" value="<?php if(isset($info)) {echo $employee['streetAddress'];} ?>">
         </div>
     </div>
     <div class="row g-3 mt-2">
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="Postal Code" aria-label="Postal Code" value="<?php if(isset($info)) {echo $employee['postalCode'];} ?>">
+            <input type="text" class="form-control" name="state" placeholder="State" aria-label="State" value="<?php if(isset($info)) {echo $employee['state'];} ?>">
         </div>
         <div class="col">
             <label for=""></label>
-            <input type="text" class="form-control" placeholder="PhoneNumber" aria-label="PhoneNumber" value="<?php if(isset($info)) {echo $employee['phoneNumber'];} ?>">
+            <input type="text" class="form-control" name="age" placeholder="Age" aria-label="Age" value="<?php if(isset($info)) {echo $employee['age'];} ?>">
+        </div>
+    </div>
+    <div class="row g-3 mt-2">
+        <div class="col">
+            <label for=""></label>
+            <input type="text" class="form-control" name="postalCode" placeholder="Postal Code" aria-label="Postal Code" value="<?php if(isset($info)) {echo $employee['postalCode'];} ?>">
+        </div>
+        <div class="col">
+            <label for=""></label>
+            <input type="text" class="form-control" name="phoneNumber" placeholder="PhoneNumber" aria-label="PhoneNumber" value="<?php if(isset($info)) {echo $employee['phoneNumber'];} ?>">
         </div>
     </div>
     <button type="submit" class="btn btn-info mt-5">Submit</button>
