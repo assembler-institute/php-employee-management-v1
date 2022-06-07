@@ -1,9 +1,8 @@
-[
-    {
+[{
         "id": 1,
-        "name": "Rack",
+        "name": "Walber",
         "lastName": "Lei",
-        "email": "jackon@network.com",
+        "email": "Walber@example.com",
         "gender": "man",
         "city": "San Jone",
         "streetAddress": "126",
