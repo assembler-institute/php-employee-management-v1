@@ -39,10 +39,14 @@ checkSession();
         <tbody class="table__tbody--dataEmployer" id="tableBody">
         </tbody>
     </table>
-    <!-- <form action="./library/employeeController.php" method="post" id="form-navigation">
-        <input type="hidden" name="page" value="" id="nextPage" onclick="../../assets/js/index.js">
-        <button type="submit" name ="next-page">Next</button>
-    </form> -->
+    <form action="./library/employeeController.php" method="post" id="form-navigation">
+        <input type="hidden" name="page" value="" id="nextPage">
+        Next
+    </form>
+    <form action="./library/employeeController.php" method="post" id="form-navigation-back">
+        <input type="hidden" name="page" value="" id="backPage">
+        Back
+    </form>
 </main>
 <?php 
     include('../assets/html/footer.html');

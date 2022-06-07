@@ -4,8 +4,11 @@ include('./employeeManager.php');
 
 //request method is GET, call the getQueryStringParameters() function
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
+    if(isset($_GET["leng"])){
+        getLengthDataBs();
+    }else{
     getQueryStringParameters($_GET["empl"]);
+    }
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
     // if($_POST["page"]){
     //     getQueryStringParameters($_POST["page"]);

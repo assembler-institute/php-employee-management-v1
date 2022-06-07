@@ -3,36 +3,42 @@ import {createListeners} from "./createListeners.js";
 
 const tableBody = document.getElementById("tableBody");
 const mainContainer = document.getElementById("main_container");
-let formNav = document.getElementById("form-navigation");
-console.log(formNav);
 const inputNextPage = document.getElementById("nextPage");
+let dataLength;
 
 refreshTable(0);
 function refreshTable(empl){
+    console.log(empl);
 //check if table has employees and create the table data
 if(tableBody.children != 0){
-    Array.from(tableBody).forEach(element => {
-        tableBody.removeChild(element);
-    });
+    console.log(tableBody.children);
+    // Array.from(tableBody.children).forEach(element => {
+    //     console.log("eliminando");
+    //     tableBody.removeChild(element);
+    // });
+    console.log(tableBody);
     //charge the employees of data base
     fetch("../src/library/employeeController.php?empl="+empl)
     .then(async response => {
         try {
-            
-            console.log("hola");
+    
             const data = await response.json();
-            let i = 1;
-            data.forEach(element => {
-                            //Create each row with Data Employeer with variable i for specify the id of each row
-                            let row = createRow(element, i);
-                            i++;
-                            //We add the cell to tr and tr to tbody
-                            tableBody.appendChild(row);
-            });
-            // let employeesShown = document.querySelectorAll(".tbody__emplpoyees--tr");
-            // let lastEmployee = employeesShown[employeesShown.length-1].getAttribute("id");
-            //console.log(lastEmployee);
-            //inputNextPage.setAttribute("value", lastEmployee);
+            if(data.length != 0){
+                Array.from(tableBody.children).forEach(element => {
+                    console.log("eliminando");
+                    tableBody.removeChild(element);
+                });
+        
+
+                let i = 1;
+                data.forEach(element => {
+                        //Create each row with Data Employeer with variable i for specify the id of each row
+                        let row = createRow(element, element.id);
+                        i++;
+                        //We add the cell to tr and tr to tbody
+                        tableBody.appendChild(row);
+                });
+            }
             createListeners();
             test();
         } catch (error) {
@@ -59,30 +65,62 @@ if(tableBody.children != 0){
 }
 
 function test(){
-if(formNav == null){
-    let formNav = document.createElement("form");
-    const input = document.createElement("input");
-    let employeesShown = document.querySelectorAll(".tbody__emplpoyees--tr");
-    console.log(employeesShown);
-    let lastEmployee = employeesShown[employeesShown.length-1].getAttribute("id");
-
-    formNav.setAttribute("id", "form-navigation");
-    formNav.setAttribute("action", "./library/employeeController.php");
-    formNav.setAttribute("method", "post");
-
-    input.setAttribute("type", "hidden");
-    input.setAttribute("name", "page");
-    input.setAttribute("value", lastEmployee);
-
-    formNav.append(input, "Next");
-    mainContainer.append(formNav);
-
-    formNav.addEventListener("click",(event)=>{
-        //formNav.submit();
-        refreshTable(lastEmployee);
-    })
-}
+let input = document.getElementById("nextPage");
+let inputBack = document.getElementById("backPage");
+let employeesShown = document.querySelectorAll(".tbody__emplpoyees--tr");
+console.log(employeesShown);
+let lastEmployee = employeesShown[employeesShown.length-1].getAttribute("id");
+let firstEmployee = employeesShown[0].getAttribute("id");
+console.log(employeesShown[employeesShown.length-1]);
+console.log(employeesShown[employeesShown.length-1].getAttribute("id"));
+input.setAttribute("value", lastEmployee);
+inputBack.setAttribute("value", firstEmployee);
+console.log(input);
 }
 
+let formNav = document.getElementById("form-navigation");
+formNav.addEventListener("click",(event)=>{
+    let input = document.getElementById("nextPage");
+    console.log("enviando "+input.getAttribute("value"));
+    //async function leng(){ const li = await jsonLength(); console.log(li); };
+    //let l = await jsonLength();
+    //console.log(await leng());
+    //if(input.getAttribute("value") !== leng().toString()){
+       // console.log(await leng());
+        refreshTable(input.getAttribute("value"));
+    //}
+})
+
+let formNavBack = document.getElementById("form-navigation-back");
+formNavBack.addEventListener("click",(event)=>{
+    let inputBack = document.getElementById("backPage");
+    console.log("enviando "+inputBack.getAttribute("value"));
+    if(inputBack.getAttribute("value")!=="1"){
+        refreshTable("-"+inputBack.getAttribute("value"));
+    }
+})
 
 
+async function jsonLength(){
+    fetch("../src/library/employeeController.php?leng=true")
+    .then(async response => {
+        try {
+    
+            const data = await response.json();
+            let i = 1;
+            // data.forEach(element => {
+            //                 //Create each row with Data Employeer with variable i for specify the id of each row
+            //                 let row = createRow(element, element.id);
+            //                 i++;
+            //                 //We add the cell to tr and tr to tbody
+            //                 tableBody.appendChild(row);
+            // });
+            // createListeners();
+            // test();
+            console.log(data.length);
+            return data.length;
+        } catch (error) {
+            console.log(error);
+        }
+    });
+}
