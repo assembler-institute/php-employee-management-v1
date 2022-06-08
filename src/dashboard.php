@@ -33,14 +33,14 @@ if (isset($_SESSION["userAdded"])){
     <table class="table" id="tableData">
         <thead id="tableHead">
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Street No</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Postal Code</th>
-                <th>Phone Number</th>
+                <th class="menu__title--table">Name</th>
+                <th class="menu__title--table">Email</th>
+                <th class="menu__title--table">Age</th>
+                <th class="menu__title--table">Street No</th>
+                <th class="menu__title--table">City</th>
+                <th class="menu__title--table">State</th>
+                <th class="menu__title--table">Postal Code</th>
+                <th class="menu__title--table">Phone Number</th>
                 <th id="add">+</th>
             </tr>
             <form id="addEmployee" action="./library/employeeController.php" method="post">

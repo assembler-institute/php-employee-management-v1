@@ -1,3 +1,4 @@
+/* @import url(dashboard.css); */
 @import url(normalize.css);
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
 
@@ -99,3 +100,47 @@ body {
     cursor: pointer;
 }
 
+.logout__success--container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 -1rem 0;
+}
+
+.logout__success--p {
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #fcbc46;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0056a7;
+}
+
+.email__error--container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 -1rem 0;
+}
+
+.email__error--p {
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #df5f3f;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #fcfcfc;
+}
+
+.pass__error--container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 -1rem 0;
+}
+
+.pass__error--p {
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem;
+    background-color: #df3f3f;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #fcfcfc;
+}

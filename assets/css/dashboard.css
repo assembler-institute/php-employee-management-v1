@@ -1,0 +1,63 @@
+@import url(./normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-font:'Karla', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: var(--main-font);
+    font-size: 0.8rem;
+    background-color: #ffffff;
+}
+
+.navBar__container {
+    display: flex;
+    align-items: center;
+    width: 80rem;
+    background-color: #393E46;
+}
+
+.navBar__menu--logo img {
+    width: 18rem;
+    padding: 0.6rem 0;
+}
+
+.navBar__menu--buttons {
+    margin: 1rem 0 0;
+}
+
+.navBar__menu--dashboard a,
+.navBar__menu--employee a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 200;
+}
+
+.navBar__menu--dashboard a:hover,
+.navBar__menu--employee a:hover {
+    color: #4ECCA3;
+}
+
+.navBar__button--logout {
+    margin-left: 4rem;
+    padding: 0.2rem 1rem;
+    background-color: #4ECCA3;
+    border-radius: .3rem;
+    color: #EEEEEE;
+    font-size: 0.7rem;
+    font-weight: 300;
+    border: none;
+}
