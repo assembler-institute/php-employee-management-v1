@@ -23,7 +23,7 @@ checkSession();
             <th>POSTAL CODE</th>
             <th>PHONE NUMBER</th>
             <th>
-              <button id="dashboardAddNewEmployee">+</button>
+              <button id="dashboardAddNewEmployee">Add Employee</button>
             </th>
           </tr>
         </table>

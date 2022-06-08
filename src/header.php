@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/main.css">
     <script type="module" src="../assets/js/index.js"></script>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-</style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');</style>
     <title>Document</title>
   </head>
   <body>
