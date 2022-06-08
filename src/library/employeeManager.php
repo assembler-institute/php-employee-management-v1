@@ -130,7 +130,7 @@ function removeAvatar($id)
 function getQueryStringParameters($NextEmployee)
 {
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
-    $limit = 25;
+    $limit = 10;
 
     if(intval($NextEmployee) >= 0){
         if(count($data)-intval($NextEmployee)<$limit){

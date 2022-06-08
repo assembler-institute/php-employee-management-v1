@@ -12,8 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if($_POST["delete"]){
-
-            deleteEmployee($_POST["delete"]);
+        // $deletedEmployee = file_get_contents('php://input');
+        // print_r($deletedEmployee);
+        // $deletedEmployee = json_decode($deletedEmployee, true);
+        // //deleteEmployee($deletedEmployee);
 
     }else if ($_POST["info"]){
         
@@ -60,9 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         }
     }else{
-        $newEmployee = file_get_contents('php://input');
-        $newEmployee = json_decode($newEmployee, true);
-        addEmployee($newEmployee);
+    $data = count(json_decode(file_get_contents('php://input'), true));
+        if ($data > 1) {
+            $newEmployee = file_get_contents('php://input');
+            $newEmployee = json_decode($newEmployee, true);
+            addEmployee($newEmployee);
+        } else {
+            $deletedEmployee = file_get_contents('php://input');
+            $deletedEmployee = json_decode($deletedEmployee, true);
+            deleteEmployee($deletedEmployee['id']);
+        }
     }
-
 }

@@ -1,3 +1,6 @@
+import { refreshTable } from "./index.js";
+
+
 export function createListeners(){
     const tr = (document.getElementsByClassName("tbody__emplpoyees--tr"));
     Array.from(tr).map(row=>{
@@ -19,13 +22,29 @@ export function confirmDelete() {
     const btnDel = document.querySelectorAll('[name="delete"]');
     //Add event listener to each button to confirm deletion
     Array.from(btnDel).map(btn => {
-        btn.addEventListener("click", (event) => {
+        btn.addEventListener("click", async (event) => {
+            event.preventDefault();
             if (confirm("Are you sure you want to delete this employee?")) {
-                let employeeId = event.target.parentElement.parentElement.id;
-                let form = document.getElementById("employeeForm-" + employeeId);
-                form.submit();
-            } else {
-                event.preventDefault();
+                try{
+                    let employeeId = btn.value;
+                    let data = {
+                        id: employeeId
+                    };
+                    const req = await fetch("../src/library/employeeController.php", {
+                        method: "POST",
+                        header: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    const response = await req.text();
+                    console.log(response);
+                    refreshTable(0);
+
+                }
+                catch(error){
+                    console.log(error);
+                }
             }
         });
     });

@@ -44,9 +44,9 @@ function createRow(element, i){
     icon.classList.add("bxs-trash");
     formButton.setAttribute("action", "./library/employeeController.php");
     formButton.setAttribute("method", "post");
-    btnDel.setAttribute("type", "submit");
     btnDel.setAttribute("name", "delete");
     btnDel.setAttribute("value", i);
+    btnDel.setAttribute("id", "btnDel-" + i);
 
     // get the employer name and add to the cell
     tableCellName.append(element.name);
