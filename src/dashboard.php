@@ -1,9 +1,34 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php 
 include('../assets/html/header.html');
+include("./library/loginManager.php");
+include("./library/employeeManager.php");
+checkSession();
+
+
+if (isset($_SESSION["userAdded"])){
+    $userAdded = true;
+    $message = $_SESSION["userAdded"];
+    unset ($_SESSION["userAdded"]);
+}
+
+
 ?>
 <main>
-    <input type="hidden" value="<?php session_start(); echo $_SESSION["time"]; ?>" id="timeStart">
+<?php if(isset($userAdded)) {
+    echo "
+    <p id='message' class='alert alert-success'>$message</p>
+
+    <script>
+        setTimeout(function(){
+            document.getElementById('message').style.display = 'none';
+        }, 3000);
+    </script>
+    ";
+
+} ?>
+
+    <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table" id="tableData">
         <thead id="tableHead">
@@ -37,6 +62,14 @@ include('../assets/html/header.html');
         <tbody class="table__tbody--dataEmployer" id="tableBody">
         </tbody>
     </table>
+    <form action="./library/employeeController.php" method="post" id="form-navigation">
+        <input type="hidden" name="page" value="" id="nextPage">
+        Next
+    </form>
+    <form action="./library/employeeController.php" method="post" id="form-navigation-back">
+        <input type="hidden" name="page" value="" id="backPage">
+        Back
+    </form>
 </main>
 <?php 
     include('../assets/html/footer.html');

@@ -26,9 +26,12 @@ function addEmployee(array $newEmployee){
 
     //Close the json file
     fclose($the_file);
+    
 
     //Returning the info
     echo json_encode($data) ;
+
+    $_SESSION["userAdded"] = "Employee successfully saved";
 
     //Redirect to dashboard
     header("Location: ../dashboard.php");
@@ -54,10 +57,12 @@ function deleteEmployee(string $id)
     //Returning the info
     echo json_encode($data) ;
 
+    //create a message in a $_SESSION variable to show it in the dashboard
+    $_SESSION["message"] = "Employee deleted";
+
     //Redirect to dashboard
     header("Location: ../dashboard.php");
 
-    echo json_encode($data);
 }
 
 function updateIdentifiers(array $employees):array
@@ -113,11 +118,35 @@ function removeAvatar($id)
 }
 
 
-function getQueryStringParameters()
+function getQueryStringParameters($NextEmployee)
 {
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
-    echo json_encode($data);
+    $limit = 3;
 
+    if(intval($NextEmployee) >= 0){
+        if(count($data)-intval($NextEmployee)<$limit){
+            $limit = count($data)-intval($NextEmployee);
+        }
+
+        $dataNew = array();
+        for($i = intval($NextEmployee); $i < $limit+intval($NextEmployee); $i++){
+            array_push($dataNew, (object)$data[$i]);
+        }
+    }
+    if(intval($NextEmployee) < 0){
+        $dataNew = array();
+        for($i = (intval($NextEmployee)*-1)-$limit-1; $i < (intval($NextEmployee)*-1)-1; $i++){
+            array_push($dataNew, (object)$data[$i]);
+        }
+    }
+
+    echo json_encode($dataNew);
+
+}
+
+function getLengthDataBs(){
+    $data = json_decode(file_get_contents('../../resources/employees.json'), true);
+    echo json_encode($data);
 }
 
 
@@ -126,3 +155,5 @@ function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
 }
+
+?>
