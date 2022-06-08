@@ -1,6 +1,7 @@
 import { refreshTable } from "./index.js";
 const displayForm = document.getElementById("displayForm");
 const addBtn = document.getElementById('addBtn');
+const newEmployeeMessage = document.getElementById('newEmployeeMessage');
 
 // Add Employee form listener
 displayForm.addEventListener("click", () =>{
@@ -33,6 +34,10 @@ addBtn.addEventListener("click", async (event) => {
     const rowInput = document.getElementById("rowInput");
     rowInput.classList.toggle("hide");
     refreshTable(0);
+    newEmployeeMessage.classList.toggle("hide");
+    setTimeout(function(){
+    newEmployeeMessage.classList.toggle("hide");
+    }, 3000);
 }
 );
 
