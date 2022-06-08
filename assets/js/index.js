@@ -34,6 +34,8 @@ const deleteEmpId = (e) => {
                 'Your file has been deleted.',
                 'success'
             )
+
+
         }
     })
 
@@ -44,7 +46,8 @@ const deleteEmpId = (e) => {
 
 
 function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state, postalCode, phoneNumber) {
-    const trEl = document.createElement('tr')
+    const trEl = document.createElement('tr');
+    trEl.setAttribute('class', 'trtable__emp');
     // const thEl = document.createElement('th');
     // thEl.setAttribute('scope', 'row');
 
@@ -75,15 +78,22 @@ function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state,
 
 
     const deleteBtnEl = document.createElement('td');
-    const btn = document.createElement('button')
+    // const iconDeleteEl = document.createElement('i');
+    const btn = document.createElement('button');
     btn.setAttribute('data', id)
-    btn.innerText = 'Delete'
+    btn.setAttribute('class', 'delete__Button')
+    // iconDeleteEl.setAttribute('class', 'fa-solid fa-trash')
+    // btn.append(iconDeleteEl)
     deleteBtnEl.appendChild(btn);
 
     const editBtnEl = document.createElement('td');
     const editBtn = document.createElement('a')
+    const iconEditEl = document.createElement('i');
     editBtn.setAttribute('href', `.././src/library/employeeController.php?id=${id}`)
-    editBtn.innerText = 'Edit'
+    editBtn.setAttribute('class', 'edit__button')
+    iconEditEl.setAttribute('class', 'fa-solid fa-pen-to-square')
+    // editBtn.innerHTML = "edit"
+    editBtn.append(iconEditEl)
     editBtnEl.appendChild(editBtn);
 
 
@@ -226,8 +236,10 @@ const addNewEmp = (e) => {
 
     if (addEmployeeForm.classList == 'toggle') {
         addNewEmpBtnEl.textContent = '+'
+        addNewEmpBtnEl.style.background = "green";
     } else {
-        addNewEmpBtnEl.textContent = 'x'
+        addNewEmpBtnEl.textContent = 'x';
+        addNewEmpBtnEl.style.background = "#F55353";
     }
 
 }
