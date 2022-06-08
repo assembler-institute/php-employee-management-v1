@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": 1,
     "name": "Rack",
     "lastName": "Lei",
@@ -10,7 +11,8 @@
     "age": "24",
     "postalCode": "394221",
     "phoneNumber": "7383627627"
-}, {
+  },
+  {
     "id": 2,
     "name": "John",
     "lastName": "Doe",
@@ -22,7 +24,8 @@
     "age": "34",
     "postalCode": "09889",
     "phoneNumber": "1283645645"
-}, {
+  },
+  {
     "id": 3,
     "name": "Leila",
     "lastName": "Mills",
@@ -34,7 +37,8 @@
     "age": "29",
     "postalCode": "098765",
     "phoneNumber": "9983632461"
-}, {
+  },
+  {
     "id": 4,
     "name": "Richard",
     "lastName": "Desmond",
@@ -46,7 +50,8 @@
     "state": "UT",
     "postalCode": "457320",
     "phoneNumber": "90876987654"
-}, {
+  },
+  {
     "id": 5,
     "name": "Susan",
     "lastName": "Smith",
@@ -58,7 +63,8 @@
     "state": "KNT",
     "postalCode": "445321",
     "phoneNumber": "224355488976"
-}, {
+  },
+  {
     "id": 6,
     "name": "Brad",
     "lastName": "Simpson",
@@ -70,7 +76,8 @@
     "state": "GEO",
     "postalCode": "394221",
     "phoneNumber": "6854634522"
-}, {
+  },
+  {
     "id": 7,
     "name": "Neil",
     "lastName": "Walker",
@@ -82,7 +89,8 @@
     "state": "TN",
     "postalCode": "90143",
     "phoneNumber": "45372788192"
-}, {
+  },
+  {
     "id": 8,
     "name": "Robert",
     "lastName": "Thomson",
@@ -94,7 +102,8 @@
     "state": "LU",
     "postalCode": "63281",
     "phoneNumber": "91232876454"
-}, {
+  },
+  {
     "id": 9,
     "name": "will",
     "lastName": "smith",
@@ -106,4 +115,5 @@
     "state": "spain",
     "postalCode": "0222",
     "phoneNumber": "666666666"
-}]
+  }
+]

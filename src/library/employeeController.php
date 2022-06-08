@@ -9,12 +9,14 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
     
 $_post = json_decode(file_get_contents('php://input'),true);
 if(isset($_POST['newEmployee'])){
-    require_once("./employeeManager.php");
-    addEmployee($_POST);
+require_once("./employeeManager.php");
+addEmployee($_POST);
 }
+
 if(isset($_post['userId'])){
+    
     require_once("./employeeManager.php");
-    $newList=deleteEmployee($_post);
+    $newList=deleteEmployee($_post['userId']);
     echo json_encode($newList);
 }
 

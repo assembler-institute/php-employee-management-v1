@@ -55,6 +55,7 @@ const listEmployees = (employe) => {
 const createTd = (employe) => {
   let tableRow = document.createElement("tr");
   tableRow.id = employe.id;
+  tableRow.dataset.employe = "employee";
   tableRow.classList = "dashboard__employee__tr";
   employeTableData(employe, tableRow);
   return tableRow;
@@ -88,6 +89,7 @@ const employeTableData = (employe, tableRow) => {
 const redirectEmployeePage = () => {
   window.location.replace("../src/employee.php");
 };
+
 const removeEmployee = () => {
   const removeBtn = document.querySelectorAll("[data-remove]");
   removeBtn.forEach((btn) => {
@@ -106,11 +108,17 @@ const removeEmployee = () => {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
+          clearTable();
+          renderEmployees(data);
         })
         .catch((error) => console.error(error));
     });
   });
 };
 
-true.addEventListener('click');
+const clearTable = () => {
+  const tableElement = document.querySelectorAll("[data-employe]");
+  tableElement.forEach((element) => {
+    element.remove();
+  });
+};
