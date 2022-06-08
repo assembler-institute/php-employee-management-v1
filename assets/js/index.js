@@ -1,5 +1,4 @@
-
-
+// GLOBAL VARIABLES
 const tableBodyEl = document.getElementById('table-body');
 const table = document.getElementById('table');
 const addNewEmpBtnEl = document.getElementById('addNewEmp');
@@ -7,6 +6,16 @@ const createEmpButton = document.getElementById('createEmpButton');
 const empFormInputs = document.querySelectorAll('[form-emp]');
 
 
+// Functions
+
+
+
+const getEmps = async () => {
+    const res = await fetch('.././src/library/employeeController.php');
+    const data = await res.json()
+  
+    return data;
+  }
 const deleteEmpId = (e) => {
 
     const btnId = e.currentTarget.getAttribute('data');
@@ -41,8 +50,50 @@ const deleteEmpId = (e) => {
     })
 
 }
+  
+// Toggeling add button 
+const addEmpFormHandler = () => {
 
+    const addEmployeeForm = document.getElementById('addEmployeeForm');
+    addEmployeeForm.classList.toggle('toggle');
 
+    if (addEmployeeForm.classList == 'toggle') {
+        addNewEmpBtnEl.textContent = '+'
+        addNewEmpBtnEl.style.background = "green";
+    } else {
+        addNewEmpBtnEl.textContent = 'x';
+        addNewEmpBtnEl.style.background = "#F55353";
+    }
+
+}
+const createNewEmp = async (e) => {
+    e.preventDefault();
+    const validation = await validateForm();
+    const newEmp = getEmpFormValues();
+    if(!validation){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please verify all details are correct and that your email does not exsit already',
+          })
+    }else{
+        const req = await fetch(`.././src/library/employeeController.php`, {
+            method: 'POST',
+            body: JSON.stringify(newEmp),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        clearTable()
+        clearForm();
+        Swal.fire(
+            'Success!',
+            'Employee was added correctly',
+            'success'
+          )
+        showEmp();
+    }
+  }
 
 function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state, postalCode, phoneNumber) {
     const trEl = document.createElement('tr')
@@ -74,12 +125,10 @@ function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state,
 
 
     const deleteBtnEl = document.createElement('td');
-    // const iconDeleteEl = document.createElement('i');
     const btn = document.createElement('button');
     btn.setAttribute('data', id)
     btn.setAttribute('class', 'delete__Button')
-    // iconDeleteEl.setAttribute('class', 'fa-solid fa-trash')
-    // btn.append(iconDeleteEl)
+
     deleteBtnEl.appendChild(btn);
 
     const editBtnEl = document.createElement('td');
@@ -88,12 +137,11 @@ function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state,
     editBtn.setAttribute('href', `.././src/library/employeeController.php?id=${id}`)
     editBtn.setAttribute('class', 'edit__button')
     iconEditEl.setAttribute('class', 'fa-solid fa-pen-to-square')
-    // editBtn.innerHTML = "edit"
+
     editBtn.append(iconEditEl)
     editBtnEl.appendChild(editBtn);
 
 
-    // trEl.appendChild(thEl);
     trEl.appendChild(nameData);
     trEl.appendChild(emailData);
     trEl.appendChild(ageData);
@@ -107,15 +155,6 @@ function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state,
 
 
     return trEl;
-}
-
-
-
-const getEmps = async () => {
-    const res = await fetch('.././src/library/employeeController.php');
-    const data = await res.json()
-
-    return data;
 }
 
 
@@ -142,8 +181,6 @@ const clearForm = () => {
 }
 
 
-
-
 const clearRow = (e) => {
 
     if (table.hasChildNodes()) {
@@ -158,7 +195,6 @@ const clearTable = () => {
         }
     })
 }
-
 
 
 const getEmpFormValues = () => {
@@ -182,20 +218,7 @@ const getEmpFormValues = () => {
     return data;
 }
 
-const checkEmail = async (email) => {
-    let isEmailOK = false;
-    const emps = await getEmps();
-    emps.forEach(emp => {
-        const {email: dbEmail} = emp
-        const comparedEmail = email.trim()
-        if(dbEmail === comparedEmail) {
-            isEmailOK = false
-        } else {
-            isEmailOK = true
-        }
-    })
-    return isEmailOK;
-}
+// Validation helpers
 
 const validateForm = async () => {
     const validationArr = new Array()
@@ -252,61 +275,34 @@ const validateForm = async () => {
     return validationArr.length == 8 ? true : false;
 }
 
+const checkEmail = async (email) => {
+    let isEmailOK = false;
+    const emps = await getEmps();
+    emps.forEach(emp => {
+        const {email: dbEmail} = emp
+        const comparedEmail = email.trim()
+        if(dbEmail === comparedEmail) {
+            isEmailOK = false
+        } else {
+            isEmailOK = true
+        }
+    })
+    return isEmailOK;
+}
 
 
 
 // events
 
-const addNewEmp = (e) => {
 
-    const addEmployeeForm = document.getElementById('addEmployeeForm');
-    addEmployeeForm.classList.toggle('toggle');
 
-    if (addEmployeeForm.classList == 'toggle') {
-        addNewEmpBtnEl.textContent = '+'
-        addNewEmpBtnEl.style.background = "green";
-    } else {
-        addNewEmpBtnEl.textContent = 'x';
-        addNewEmpBtnEl.style.background = "#F55353";
-    }
+addNewEmpBtnEl.addEventListener('click', addEmpFormHandler);
 
-}
-
-addNewEmpBtnEl.addEventListener('click', addNewEmp);
-
-createEmpButton.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const validation = await validateForm();
-    const newEmp = getEmpFormValues();
-    if(!validation){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Please verify all details are correct and that your email does not exsit already',
-          })
-    }else{
-        const req = await fetch(`.././src/library/employeeController.php`, {
-            method: 'POST',
-            body: JSON.stringify(newEmp),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        clearTable()
-        clearForm();
-        Swal.fire(
-            'Success!',
-            'Employee was added correctly',
-            'success'
-          )
-        showEmp();
-    }
-
-}
-)
+createEmpButton.addEventListener('click', createNewEmp)
 
 
 
+//  on load
 showEmp();
 
 

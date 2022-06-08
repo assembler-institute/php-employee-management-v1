@@ -104,8 +104,12 @@
 
 .delete__Button{
   background-image: url('../img/3669361_delete_ic_icon.png');
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  color: var(--secondary);
+  border: none;
+  cursor: pointer;
 }
 
 .fa-check{
@@ -122,10 +126,14 @@
 
 input{
   padding-left: 0.3rem;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   outline: none;
   border: 1px solid black;
 }
 
 
 
+.fa-pen-to-square {
+    width: 24px;
+    height: 24px;
+}

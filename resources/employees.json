@@ -1,18 +1,5 @@
 [
     {
-        "id": 3,
-        "name": "Leila",
-        "lastName": "Mills",
-        "email": "mills@leila.com",
-        "gender": "woman",
-        "city": "San Diego",
-        "streetAddress": "55",
-        "state": "CA",
-        "age": 29,
-        "postalCode": "098765",
-        "phoneNumber": "9983632461"
-    },
-    {
         "id": 4,
         "name": "Richard",
         "lastName": "Desmond",
@@ -39,28 +26,15 @@
         "phoneNumber": "224355488976"
     },
     {
-        "id": 1735063694827633,
-        "name": "asas",
-        "lastName": "",
-        "email": "rackjackson@gmail.com",
-        "age": "as",
-        "gender": "",
-        "streetAddress": "asasas",
-        "city": "sas",
-        "state": "as",
-        "postalCode": "s",
-        "phoneNumber": "asasas"
-    },
-    {
         "id": 1735063706210515,
-        "name": "prueba",
-        "lastName": "",
+        "name": "Josephi",
+        "lastName": "Cohen",
         "email": "rackjackson@gmail.com",
-        "age": "asa",
-        "gender": "",
+        "age": 22,
+        "gender": "male",
         "streetAddress": "asasas",
         "city": "sas",
-        "state": "as",
+        "state": "Madrid",
         "postalCode": "s",
         "phoneNumber": "asasas"
     },
@@ -77,6 +51,4 @@
         "postalCode": "63281",
         "phoneNumber": "91232876454"
     }
-    
- 
 ]

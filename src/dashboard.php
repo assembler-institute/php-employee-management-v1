@@ -67,16 +67,16 @@ if(isset($_SESSION['name'])) {
           <!-- <form action="./library/employeeController.php" method="POST" enctype="multipart/form-data"> -->
           <form id="addEmpForm" method="POST" enctype="multipart/form-data" class="newEmpForm__table">
             <input type="hidden" name="id" id="id" value="" placeholder="">
-            <td><input type="text" name="name" id="name" class="name__input" value="" placeholder="name" require></td>
+            <td><input type="text" name="name" id="name" class="name__input" value="" placeholder="name" form-emp require></td>
             <input type="hidden" name="lastName" id="lastName" value="" placeholder="lastname">
             <input type="hidden" name="gender" id="gender" value="" placeholder="gender">
-            <td><input type="email" name="email" id="email" class="email__input" value="" placeholder="email" require></td>
-            <td><input type="text" name="age" id="age" value="" class="age__input" placeholder="Age" require></td>
-            <td><input type="text" name="streetAddress" id="streetAddress" class="address__input" value="" placeholder="Street Address" require></td>
-            <td><input type="text" name="city" id="city" value="" class="city__input" placeholder="city" require></td>
-            <td><input type="text" name="state" id="state" value="" class="state__input" placeholder="State" require></td>
-            <td><input type="text" name="postalCode" id="postalCode" value="" class="postalCode__input" placeholder="Postal Code" require></td>
-            <td><input type="text" name="phoneNumber" id="phoneNumber" value="" class="nphone__input" placeholder="Phone Number" require></td>
+            <td><input type="email" name="email" id="email" class="email__input" value="" placeholder="email" form-emp require></td>
+            <td><input type="text" name="age" id="age" value="" class="age__input" placeholder="Age" form-emp require></td>
+            <td><input type="text" name="streetAddress" id="streetAddress" class="address__input" value="" form-emp placeholder="Street Address" require></td>
+            <td><input type="text" name="city" id="city" value="" class="city__input" placeholder="city" form-emp require></td>
+            <td><input type="text" name="state" id="state" value="" class="state__input" placeholder="State" form-emp require></td>
+            <td><input type="text" name="postalCode" id="postalCode" value="" class="postalCode__input" form-emp placeholder="Postal Code" require></td>
+            <td><input type="text" name="phoneNumber" id="phoneNumber" value="" class="nphone__input" form-emp placeholder="Phone Number" require></td>
             <td><button type="submit" id="createEmpButton" class="createEmp__button"><i class="fa-solid fa-check"></i></button></td>
           </form>
         </tr>
