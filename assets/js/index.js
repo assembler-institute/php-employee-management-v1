@@ -27,11 +27,9 @@ const deleteEmpId = (e) => {
                     body: JSON.stringify(+btnId)
                 });
                 const res = await req.json()
-                console.log(res)
             }
             sendReq();
             clearRow(e);
-
             Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',
@@ -40,16 +38,12 @@ const deleteEmpId = (e) => {
         }
     })
 
-
-
 }
 
 
 
 function createTableRowWihtEmp(id, name, email, age, streetAddress, city, state, postalCode, phoneNumber) {
     const trEl = document.createElement('tr')
-    // const thEl = document.createElement('th');
-    // thEl.setAttribute('scope', 'row');
 
     const nameData = document.createElement('td');
     nameData.textContent = name;
@@ -185,14 +179,16 @@ const checkEmail = async (email) => {
     emps.forEach(emp => {
         const {email: dbEmail} = emp
         const comparedEmail = email.trim()
-        const compare = dbEmail.localeCompare(comparedEmail);
-        compare == 0 ? isEmailOK = true : isEmailOK = false;
+        if(dbEmail === comparedEmail) {
+            isEmailOK = false
+        } else {
+            isEmailOK = true
+        }
     })
     return isEmailOK;
 }
 
-
-const validateForm = () => {
+const validateForm = async () => {
     const validationArr = new Array()
 
     const name = empFormInputs[0]
@@ -219,7 +215,11 @@ const validateForm = () => {
         validationArr.push(true)
     }
     if(emailReg.test(email.value)){
-        validationArr.push(true)
+        const isEmailDuplicated = await checkEmail(email.value)
+        if(isEmailDuplicated) {
+            validationArr.push(true)
+        }
+       
     }
     if(ageReg.test(age.value)) {
         validationArr.push(true)
@@ -265,12 +265,9 @@ addNewEmpBtnEl.addEventListener('click', addNewEmp);
 
 createEmpButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    const validation = validateForm();
-    const emailDuplication = await checkEmail(empFormInputs[1].value)
-    console.log(emailDuplication);
+    const validation = await validateForm();
     const newEmp = getEmpFormValues();
-    
-    if(!validation && !emailDuplication){
+    if(!validation){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -284,9 +281,6 @@ createEmpButton.addEventListener('click', async (e) => {
                 'Content-Type': 'application/json'
             }
         });
-        const res = await req.text()
-        console.log(res)
-    
         clearTable()
         clearForm();
         Swal.fire(
@@ -296,11 +290,8 @@ createEmpButton.addEventListener('click', async (e) => {
           )
         showEmp();
     }
-    
 
-    
 }
-
 )
 
 
