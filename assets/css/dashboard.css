@@ -52,12 +52,17 @@ body {
 }
 
 .navBar__button--logout {
+    width: 5rem;
     margin-left: 4rem;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 0;
     background-color: #4ECCA3;
     border-radius: .3rem;
     color: #EEEEEE;
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 400;
     border: none;
+}
+
+.navBar__button--logout:hover {
+    background-color: #20b684;
 }

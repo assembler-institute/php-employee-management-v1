@@ -30,7 +30,7 @@ if (isset($_SESSION["userAdded"])){
 
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
-    <table class="table" id="tableData">
+    <table class="table-sm table-hover" id="tableData">
         <thead id="tableHead">
             <tr>
                 <th class="menu__title--table">Name</th>
