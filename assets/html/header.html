@@ -13,12 +13,16 @@
 </head>
 <body>
     <header>
-        <ul class="header__ul--navBar">
-            <li class="navBar__ul--li"><a href="./dashboard.php">Dashboard</a></li>
-            <li class="navBar__ul--li"><a href="./employee.php">Employees</a></li>
+        <nav aria-label="breadcrumb">
+        <ol class="header__ul--navBar breadcrumb">
+            <li  class="navBar__ul--li"><a id="dashboardTag" href="./dashboard.php">Dashboard</a></li>
+            <li  class="navBar__ul--li"><a id="employeeTag" href="./employee.php">Employees</a></li>
             <form action="./library/sessionHelper.php" method="post">
                 <button class="navBar__ul--liLogOut" type="submit" name="destroy">Sign out</button>
             </form>
-        </ul>
+        </ol>
+    </nav>
     </header>
 
+
+  

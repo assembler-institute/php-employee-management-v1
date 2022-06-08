@@ -76,6 +76,15 @@ if (isset($_GET["info"])) {
     <button type="submit" class="btn btn-secondary mt-5">Return</button>
 </form>
 
+<script>
+    const dashboardTag = document.getElementById("dashboardTag");
+    const employeeTag = document.getElementById("employeeTag");
+    if (window.location.href.includes("employee.php")) {
+        dashboardTag.classList.remove("active");
+        employeeTag.classList.add("active");
+    }
+</script>
+
 <?php 
     include('../assets/html/footer.html');
 ?>
