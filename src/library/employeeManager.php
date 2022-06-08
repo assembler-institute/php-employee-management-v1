@@ -117,30 +117,24 @@ function getQueryStringParameters($NextEmployee)
 {
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
     $limit = 3;
-    //  if(count($data)- $limit < intval($NextEmployee)){
-    //      $limit = count($data);
-    //  }else{
-    //      if((count($data)- $limit > $limit) && $NextEmployee!=0){
-    //          $limit = $limit+intval($NextEmployee);
-    //      }
-    //  }
-    if(intval($NextEmployee) >= 0){
-     if(count($data)-intval($NextEmployee)<$limit){
-        $limit = count($data)-intval($NextEmployee);
-     }
 
-     $dataNew = array();
-     for($i = intval($NextEmployee); $i < $limit+intval($NextEmployee); $i++){
-         array_push($dataNew, (object)$data[$i]);
-     }
+    if(intval($NextEmployee) >= 0){
+        if(count($data)-intval($NextEmployee)<$limit){
+            $limit = count($data)-intval($NextEmployee);
+        }
+
+        $dataNew = array();
+        for($i = intval($NextEmployee); $i < $limit+intval($NextEmployee); $i++){
+            array_push($dataNew, (object)$data[$i]);
+        }
     }
-     if(intval($NextEmployee) < 0){
+    if(intval($NextEmployee) < 0){
         $dataNew = array();
         for($i = (intval($NextEmployee)*-1)-$limit-1; $i < (intval($NextEmployee)*-1)-1; $i++){
             array_push($dataNew, (object)$data[$i]);
         }
-     }
-    //echo json_encode(array_slice($data, intval($NextEmployee), $limit));
+    }
+
     echo json_encode($dataNew);
 
 }
