@@ -42,7 +42,7 @@ if (isset($_SESSION["userAdded"])){
                 <th class="menu__title--table">State</th>
                 <th class="menu__title--table">Postal Code</th>
                 <th class="menu__title--table">Phone Number</th>
-                <th id="add">+</th>
+                <th id="displayForm">+</th>
             </tr>
             <form id="addEmployeeForm" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
