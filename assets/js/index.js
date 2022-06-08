@@ -4,7 +4,7 @@ import {createListeners, confirmDelete} from "./createListeners.js";
 const tableBody = document.getElementById("tableBody");
 
 refreshTable(0);
-function refreshTable(empl){
+export function refreshTable(empl){
 //check if table has employees and create the table data
 if(tableBody.children != 0){
     //charge the employees of data base

@@ -36,16 +36,15 @@ function addEmployee(array $newEmployee){
 
         //Close the json file
         fclose($the_file);
+        
     }
-    
-
     //Returning the info
     echo json_encode($data) ;
 
-    //$_SESSION["userAdded"] = "Employee successfully saved";
-
     //Redirect to dashboard
     header("Location: ../dashboard.php");
+    
+
 }
 
 function deleteEmployee(string $id)
@@ -131,7 +130,7 @@ function removeAvatar($id)
 function getQueryStringParameters($NextEmployee)
 {
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
-    $limit = 10;
+    $limit = 25;
 
     if(intval($NextEmployee) >= 0){
         if(count($data)-intval($NextEmployee)<$limit){
