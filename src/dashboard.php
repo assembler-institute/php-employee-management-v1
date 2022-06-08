@@ -63,16 +63,18 @@ if (isset($_SESSION["userAdded"])){
         <tbody class="table__tbody--dataEmployer" id="tableBody">
         </tbody>
     </table>
-    <form action="./library/employeeController.php" method="post" id="form-navigation">
-        <input type="hidden" name="page" value="" id="nextPage">
-        Next
-    </form>
-    <form action="./library/employeeController.php" method="post" id="form-navigation-back">
-        <input type="hidden" name="page" value="" id="backPage">
-        Back
-    </form>
+    
 </main>
-
+<div class="div-btn-navigation">
+<form action="./library/employeeController.php" method="post" id="form-navigation">
+    <input type="hidden" name="page" value="" id="nextPage">
+    Next
+</form>
+<form action="./library/employeeController.php" method="post" id="form-navigation-back">
+    <input type="hidden" name="page" value="" id="backPage">
+    Back
+</form>
+</div>
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
     const employeeTag = document.getElementById("employeeTag");

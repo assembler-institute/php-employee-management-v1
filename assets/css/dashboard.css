@@ -30,6 +30,20 @@ body {
     background-color: #393E46;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+    
+    width: 100rem;
+}
+
+.div-btn-navigation{
+    display: flex;
+    margin-left: 0rem;
+    justify-content: left;
+    gap: 2rem;
+}
+
 .navBar__menu--logo img {
     width: 18rem;
     padding: 0.6rem 0;
@@ -70,4 +84,23 @@ body {
 
 .hide {
     display: none;
+}
+
+.table-sm{
+    width: 80rem;
+    height: 35rem;
+}
+
+input{
+    width: 5rem;
+}
+
+.table-sm .tbody__employee--td{
+    padding: 0.3rem;
+    
+    width: 10rem;
+}
+
+.tbody__employ--icon{
+    width: 1rem;
 }
