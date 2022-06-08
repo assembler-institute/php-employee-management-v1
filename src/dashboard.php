@@ -5,10 +5,6 @@ include("./library/loginManager.php");
 include("./library/employeeManager.php");
 checkSession();
 
-// if (isset($_SESSION["message"])) {
-//     $deleted = true;
-//     unset ($_SESSION["message"]);
-// }
 
 if (isset($_SESSION["userAdded"])){
     $userAdded = true;
