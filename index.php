@@ -76,7 +76,10 @@
                         </button>
                     </div>
                     <?php
-                   if(!isset($_GET['login'])) {
+                   if(isset($_GET['logout']) && !isset($_GET['login'])) {
+                    echo '<p class="pt-4"><strong>Logout Success!</strong><br/> Please, login to the dashboard again.</p>';
+                   } 
+                   else if(!isset($_GET['login'])&& !isset($_GET['logout=true'])) {
                      exit('<p class="pt-4">Please, login to the dashboard page.</p>');
                    }
                    else {
@@ -84,7 +87,8 @@
                        if($loginCheck == 'error') {
                            echo '<p class="pt-4 text-danger">Wrong email or password!</p>';
                        }
-                   } 
+                   }
+
                     ?>
                 </form>
             </div>

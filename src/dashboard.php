@@ -17,7 +17,7 @@
     <!------------ Header ------------>
     <?php
   include ('./library/sessionHelper.php');
-  checkSession();
+  checkSessionExpire();
 
     ?>
 
@@ -42,5 +42,21 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
      <script src="../assets/js/script.js"></script>
+     <script>
+setInterval(function() {
+    checkUser();
+},10000);
+function checkUser() {
+    jQuery.ajax({
+        url:'library/sessionHelper.php',
+        type:'POST',
+        data:{action: 'test'},
+        success: function(result) {
+                //window.location.href = '../index.php';
+            
+        }
+    })
+}
+     </script>
 </body>
 </html>

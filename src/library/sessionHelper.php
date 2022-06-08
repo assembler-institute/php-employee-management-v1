@@ -1,34 +1,32 @@
 <?php
+if(isset($_GET['logout'])) {
+  return logOut();
+}
 
-  //$urlFile = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);     //dashboard.php
-   //$urlFile = basename($_SERVER['QUERY_STRING']);                                   //login=true
-   //$urlFile = basename($_SERVER['REQUEST_URI']);                                    //dashboard.php?login=true
-
-   
-   function checkSession() {
-
-    session_start(); 
+   //EXPIRE SESSION
+   function checkSessionExpire() {
  
     $urlFile = basename($_SERVER['REQUEST_URI']);                                   
  
-    if(($urlFile == "dashboard.php?login=true")) {
- 
+    if(($urlFile == "dashboard.php")) {
     //Check the session start time is set or not
     if(!isset($_SESSION['start']))
     {
-        //Set the session start time
+    //Set the session start time
         $_SESSION['start'] = time();
     }
- 
     //Check the session is expired or not
     checkTime();
    
    }
  }
 
+
  function checkTime(){
- if (isset($_SESSION['start']) && (time() - $_SESSION['start'] > 10)) {
-  logOut();
+
+ if (isset($_SESSION['start']) && isset($_POST['action']) && (time() - $_SESSION['start'] > 10)) {
+  session_unset();
+  session_destroy();
   echo "Session is expired.<br/>";
   header("Location: ../index.php?logout");
 }
@@ -37,10 +35,31 @@ else
 
 }
 
+
+
+//LOGOUT SECTION
+function destroySessionCookie()
+{
+if (ini_get("session.use_cookies")) {
+  $params = session_get_cookie_params();
+  setcookie(
+      session_name(),
+      '',
+      time() - 42000,
+      $params["path"],
+      $params["domain"],
+      $params["secure"],
+      $params["httponly"]
+  );
+}
+  
+}
+
 function logOut(){
-  session_start(); 
   destroySessionCookie();
   session_unset();
   session_destroy();
-  header("Location: ../index.php?logout");
+  header("Location: ../../index.php?logout=true");
 }
+
+

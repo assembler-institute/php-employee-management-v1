@@ -1,17 +1,17 @@
 <?php
+include ("sessionHelper.php");
 
 
 function authUser() {
-include ("sessionHelper.php");
 session_start();
-//Login input
+
 $username = trim($_POST['username']);
 $pass = trim($_POST['pass']);
 
 if(checkUser($username, $pass)) {
 $username = $_SESSION['username'];
 header("Location:../dashboard.php");
-} 
+}
 else {
   $_SESSION["loginError"] = "Wrong email or password!";
   header("Location: ../../index.php?login=error");
@@ -33,20 +33,5 @@ return true;
 }
 }
 
-function destroySessionCookie()
-{
-if (ini_get("session.use_cookies")) {
-  $params = session_get_cookie_params();
-  setcookie(
-      session_name(),
-      '',
-      time() - 42000,
-      $params["path"],
-      $params["domain"],
-      $params["secure"],
-      $params["httponly"]
-  );
-}
-  
-}
+
 

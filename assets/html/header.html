@@ -24,7 +24,11 @@
         </div>
       </div>
       <div>
-        <button type="button" class="btn btn-warning">Logout</button>
+        <form method="GET" action="library/sessionHelper.php">
+          <button type="submit" class="btn btn-warning" name="logout">
+            Logout
+          </button>
+        </form>
       </div>
     </header>
   </body>
