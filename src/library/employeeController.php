@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 "postalCode" => $_POST["postalCode"],
                 "phoneNumber" => $_POST["phoneNumber"]);
         
-            updateEmployee($employeeActive);
+            print_r(updateEmployee($employeeActive));
         }else{
             //CreateEmployee
             $newEmployee = array(

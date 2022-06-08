@@ -113,9 +113,18 @@ header("Location: ../dashboard.php");
 
 function getEmployee(string $id){
 
+    // $data = json_decode(file_get_contents('../../resources/employees.json'), true);
+    // $data = $data[$id-1];
+
+    // return $data;
+    $url = "https://pixabay.com/api/?key=15187030-5dd150b11fa43e2de5dddfff6&q=persons";
+    
+    $avatars = json_decode( file_get_contents('https://pixabay.com/api/?key=15187030-5dd150b11fa43e2de5dddfff6&q=persons'), true );
+    
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
     $data = $data[$id-1];
-
+    array_push($data, "url:".$avatars["hits"][random_int(0,20)]["webformatURL"]);
+    var_dump($data);
     return $data;
     
 }
