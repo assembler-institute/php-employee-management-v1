@@ -1,9 +1,9 @@
-.header__ul--navBar{
+/* .header__ul--navBar{
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-}
+} */
 /* .table{
     margin: 0rem 50rem;
 } */
@@ -15,14 +15,11 @@
 
 } */
 
-.hide {
-    display: none;
-}
 
   
 
 
-.navBar__ul--li:visited, .navBar__ul--li:link, .navBar__ul--li:active {
+/* .navBar__ul--li:visited, .navBar__ul--li:link, .navBar__ul--li:active {
     text-decoration: none;
 
 }
@@ -36,4 +33,4 @@
 .active {
     font-weight: bold;
     color: black;
-}
+} */

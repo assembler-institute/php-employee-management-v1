@@ -15,6 +15,7 @@ if (isset($_SESSION["userAdded"])){
 
 ?>
 <main>
+<p id='newEmployeeMessage' class='alert alert-success hide'>Employee succesfully saved!</p>
 <?php if(isset($userAdded)) {
     echo "
     <p id='message' class='alert alert-success'>$message</p>
@@ -43,18 +44,18 @@ if (isset($_SESSION["userAdded"])){
                 <th class="menu__title--table">Phone Number</th>
                 <th id="add">+</th>
             </tr>
-            <form id="addEmployee" action="./library/employeeController.php" method="post">
+            <form id="addEmployeeForm" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
-                    <td> <input type="text" name="name" id="">
+                    <td> <input type="text" name="name" id="" required>
                     </td>
-                    <td><input type="email" name="email" id=""> </td>
-                    <td><input type="number" name="age" id=""></td>
-                    <td> <input type="text" name="address"></td>
-                    <td><input type="text" name="city" id=""></td>
-                    <td><input type="text" name="state" id=""></td>
-                    <td> <input type="number" name="postalCode" id=""></td>
-                    <td><input type="tel" name="phone" id=""></td>
-                    <td><button type="submit" name="submit">+</button></td>
+                    <td><input type="email" name="email" id="" required> </td>
+                    <td><input type="number" name="age" id="" maxlength="2" required></td>
+                    <td> <input type="text" name="streetAddress" required></td>
+                    <td><input type="text" name="city" id="" required></td>
+                    <td><input type="text" name="state" id="" required></td>
+                    <td> <input type="number" name="postalCode" id="" maxlength="5" required></td>
+                    <td><input type="tel" name="phoneNumber" id="" maxlength="9" required></td>
+                    <td><button id="addBtn" name="newEmployee" required>+</button></td>
                 </tr>
             </form>
         </thead>
@@ -71,6 +72,17 @@ if (isset($_SESSION["userAdded"])){
         Back
     </form>
 </main>
+
+<script>
+    const dashboardTag = document.getElementById("dashboardTag");
+    const employeeTag = document.getElementById("employeeTag");
+    // Adds the class to give style depending the page you are
+    if (window.location.href.includes("dashboard.php")) {
+    dashboardTag.classList.add("active");
+    employeeTag.classList.remove("active");
+} 
+</script>
+
 <?php 
     include('../assets/html/footer.html');
 ?>

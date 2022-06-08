@@ -1,3 +1,4 @@
+//function to create each row for table dashboard to show data
 function createRow(element, i){
     //Create row, add class and id for the future listener
     let tableRow = document.createElement("tr");
@@ -44,9 +45,9 @@ function createRow(element, i){
     icon.classList.add("bxs-trash");
     formButton.setAttribute("action", "./library/employeeController.php");
     formButton.setAttribute("method", "post");
-    btnDel.setAttribute("type", "submit");
     btnDel.setAttribute("name", "delete");
     btnDel.setAttribute("value", i);
+    btnDel.setAttribute("id", "btnDel-" + i);
 
     // get the employer name and add to the cell
     tableCellName.append(element.name);

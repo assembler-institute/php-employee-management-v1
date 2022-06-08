@@ -66,3 +66,8 @@ body {
 .navBar__button--logout:hover {
     background-color: #20b684;
 }
+
+
+.hide {
+    display: none;
+}
