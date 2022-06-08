@@ -20,17 +20,6 @@ include_once("header.php");
               <button id="dashboardAddNewEmployee">+</button>
             </th>
           </tr>
-          <tr id="employeeID" class="dashboard__employee__tr">
-            <td>Juan</td>
-            <td>juan@huan.com</td>
-            <td>22</td>
-            <td>xxxx</td>
-            <td>xxxxx</td>
-            <td>xxxxx</td>
-            <td>xxxxx</td>
-            <td>666666666</td>
-            <td><button id="dashboardRemoveEmployee">DELETE</button></td>
-          </tr>
         </table>
       </sectiion>
     </main>

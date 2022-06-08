@@ -7,10 +7,10 @@ include_once("header.php");
 
     <main>
       <sectiion class="employee__form__containeer">
-        <form class="employee__form" id="employeeForm">
+        <form method="POST" action="./library/employeeController.php"  class="employee__form" id="employeeForm">
           <input type="hidden" name="newEmployee">
           <input type="text" name="name" placeholder="Name" class="form__input" />
-          <input type="text" name="lastname" placeholder="Last Name" class="form__input" />
+          <input type="text" name="lastName" placeholder="Last Name" class="form__input" />
           <input type="email" name="email" placeholder="Email" class="form__input" />
           <select name="gender" class="form__input">
             <option selected value="man">Male</option>
@@ -24,9 +24,9 @@ include_once("header.php");
           <input type="tel" name="phoneNumber" placeholder="Phone Number" class="form__input" />
           <div class="employee__form__btn__container">
             <button type="submit" id="submitForm" class="formSubmitBtn primary__btn">SUBMIT</button>
-            <button id="formReturnBtn" class="primary__btn">RETURN</button>
           </div>
         </form>
+        <button id="formReturnBtn" class="primary__btn">RETURN</button>
       </sectiion>
     </main>
   </body>

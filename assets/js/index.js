@@ -13,7 +13,6 @@ const checkCurrentUrl = () => {
     getEmployees();
     addEvents();
   } else {
-    addEmployee();
   }
 };
 
@@ -46,6 +45,7 @@ const renderEmployees = (storedEmployees) => {
   storedEmployees.map((employe) => {
     listEmployees(employe);
   });
+  removeEmployee();
 };
 
 const listEmployees = (employe) => {
@@ -81,6 +81,7 @@ const employeTableData = (employe, tableRow) => {
   let tableDataBtn = document.createElement("td");
   let btn = document.createElement("button");
   btn.dataset.remove = "removeEmployee";
+  btn.id = `remove-${employe.id}`;
   btn.textContent = "DELETE";
   tableDataBtn.appendChild(btn);
   tableRow.appendChild(tableDataBtn);
@@ -90,24 +91,30 @@ const redirectEmployeePage = () => {
     "http://localhost/employee-management/php-employee-management-v1/src/employee.php"
   );
 };
-const addEmployee = () => {
-  let employeeForm = document.getElementById("employeeForm");
-  document.getElementById("submitForm").addEventListener("click", (event) => {
-    event.preventDefault();
-    let formData = new FormData(employeeForm);
-    fetch(
-      "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-    // .then((response) => {
-    //   return response.json();
-    // })
-    // .then((data) => {
-    //   console.log(data);
-    // })
-    // .catch((error) => console.error(error));
+const removeEmployee = () => {
+  const removeBtn = document.querySelectorAll("[data-remove]");
+  removeBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      let id = btn.id.substring(btn.id.lastIndexOf("-") + 1);
+      const data = { userId: id };
+      fetch(
+        "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php",
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => console.error(error));
+    });
   });
 };
