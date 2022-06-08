@@ -30,7 +30,7 @@ const addEvents = () => {
 
 const getEmployees = () => {
   fetch(
-    "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php"
+    "http://localhost/php-employee-management-v1/src/library/employeeController.php"
   )
     .then((response) => {
       return response.json();
@@ -88,7 +88,7 @@ const employeTableData = (employe, tableRow) => {
 };
 const redirectEmployeePage = () => {
   window.location.replace(
-    "http://localhost/employee-management/php-employee-management-v1/src/employee.php"
+    "http://localhost/php-employee-management-v1/src/employee.php"
   );
 };
 const removeEmployee = () => {
@@ -98,7 +98,7 @@ const removeEmployee = () => {
       let id = btn.id.substring(btn.id.lastIndexOf("-") + 1);
       const data = { userId: id };
       fetch(
-        "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php",
+        "http://localhost/php-employee-management-v1/src/library/employeeController.php",
         {
           method: "POST",
           body: JSON.stringify(data),
