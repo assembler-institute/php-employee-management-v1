@@ -47,6 +47,7 @@ if (isset($_GET['id'])) {
         <input type="submit" value="change" id="updateEmployeeButton">
     </form>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

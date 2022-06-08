@@ -1,9 +1,24 @@
 <?php
 session_start();
+
+
+require '../src/library/sessionHelper.php';
+
 if (!isset($_SESSION['name'])) {
   header('location: .././index.php');
 }
 
+if(isset($_SESSION['name'])) {
+  $timeOut = 600;
+  ini_set('session.gc_maxlifetime', $timeOut);
+  if (isset($_SESSION['start']) && (time() - $_SESSION['start'] > $timeOut)) {
+   closeSession();
+   
+}
+
+}
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +29,7 @@ if (!isset($_SESSION['name'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="../assets/js/index.js" defer></script>
+  <script src="../assets/js/index.js" type="module" defer></script>
   <link href="../assets/css/main.css" rel="stylesheet">
   <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" type="module"></script> -->
   <title>Document</title>
@@ -54,16 +69,16 @@ if (!isset($_SESSION['name'])) {
           <form id="addEmpForm" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" id="id" value="" placeholder="">
             <td><input type="text" name="name" id="name" value="" placeholder="name"
-            require></td>
+            require form-emp></td>
             <input type="hidden" name="lastName" id="lastName" value="" placeholder="lastname">
             <input type="hidden" name="gender" id="gender" value="" placeholder="gender">
-            <td><input type="email" name="email" id="email" value="" placeholder="email" require></td>
-            <td><input type="text" name="age" id="age" value="" placeholder="Age" require></td>
-            <td><input type="text" name="streetAddress" id="streetAddress" value="" placeholder="Street Address" require></td>
-            <td><input type="text" name="city" id="city" value="" placeholder="city" require></td>
-            <td><input type="text" name="state" id="state" value="" placeholder="State" require></td>
-            <td><input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code" require></td>
-            <td><input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number" require></td>
+            <td><input type="email" name="email" id="email" value="" placeholder="email" require form-emp></td>
+            <td><input type="text" name="age" id="age" value="" placeholder="Age" require form-emp></td>
+            <td><input type="text" name="streetAddress" id="streetAddress" value="" placeholder="Street Address" require form-emp></td>
+            <td><input type="text" name="city" id="city" value="" placeholder="city" require form-emp></td>
+            <td><input type="text" name="state" id="state" value="" placeholder="State" require form-emp></td>
+            <td><input type="text" name="postalCode" id="postalCode" value="" placeholder="Postal Code" require form-emp></td>
+            <td><input type="text" name="phoneNumber" id="phoneNumber" value="" placeholder="Phone Number" require form-emp></td>
             <td><button type="submit" id="createEmpButton">Crear</button></td>
           </form>
         </tr>

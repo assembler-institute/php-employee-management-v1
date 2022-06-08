@@ -1,7 +1,10 @@
+
+
 const tableBodyEl = document.getElementById('table-body');
 const table = document.getElementById('table');
 const addNewEmpBtnEl = document.getElementById('addNewEmp');
 const createEmpButton = document.getElementById('createEmpButton');
+const empFormInputs = document.querySelectorAll('[form-emp]');
 
 
 const deleteEmpId = (e) => {
@@ -176,45 +179,71 @@ const getEmpFormValues = () => {
     return data;
 }
 
-const validateForm = () => {
-    let error = false;
-
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const age = document.getElementById('age').value;
-    const streetNumber = document.getElementById('streetAddress').value;
-    const city = document.getElementById('city').value;
-    const state = document.getElementById('state').value;
-    const postalCode = document.getElementById('postalCode').value;
-    const phoneNumber = document.getElementById('phoneNumber').value;
-
-    if(name === ''){
-        error = true;
-    }
-    if(email === ''){
-        error = true;
-    }
-    if(age === ''){
-        error = true;
-    }
-    if(streetNumber === ''){
-        error = true;
-    }
-    if(city === ''){
-        error = true;
-    }
-    if(state === ''){
-        error = true;
-    }
-    if(postalCode === ''){
-        error = true;
-    }
-    if(phoneNumber === ''){
-        error = true;
-    }
-
-    return error;
+const checkEmail = async (email) => {
+    let isEmailOK = false;
+    const emps = await getEmps();
+    emps.forEach(emp => {
+        const {email: dbEmail} = emp
+        const comparedEmail = email.trim()
+        const compare = dbEmail.localeCompare(comparedEmail);
+        compare == 0 ? isEmailOK = true : isEmailOK = false;
+    })
+    return isEmailOK;
 }
+
+
+const validateForm = () => {
+    const validationArr = new Array()
+
+    const name = empFormInputs[0]
+    const email = empFormInputs[1]
+    const age = empFormInputs[2]
+    const streetAddress = empFormInputs[3]
+    const city = empFormInputs[4]
+    const state = empFormInputs[5]
+    const postalCode = empFormInputs[6]
+    const phoneNumber = empFormInputs[7]
+
+    const regex = {
+        emailReg: /^\w+([\.-\_]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, //checking for correct address
+        firstNameReg: /^[a-zA-ZÀ-ÿ\s]{1,20}$/, // not allwoing numbers
+        ageReg: /^(1[89]|[2-9]\d)$/, // age from 18 - 99
+        phoneNumberReg: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, // allowing coutnry code and (-)
+        addressReg: /[A-Za-z0-9'\.\-\s\,]/, // eliminates symbols which are not part of an address
+        cityReg: /^[a-zA-Z\u0080-\u024F\s\/\-\)\(\`\.\"\']+$/, // allowing cities with special carachters
+        stateReg: /^[a-zA-Z\u0080-\u024F\s\/\-\)\(\`\.\"\']+$/, // allowing states with special carachters
+    }
+    
+    const { emailReg, firstNameReg, ageReg, addressReg, cityReg, stateReg, phoneNumberReg } = regex;
+    if(firstNameReg.test(name.value)){
+        validationArr.push(true)
+    }
+    if(emailReg.test(email.value)){
+        validationArr.push(true)
+    }
+    if(ageReg.test(age.value)) {
+        validationArr.push(true)
+    }
+    if(addressReg.test(streetAddress.value)) {
+        validationArr.push(true)
+    }
+    if(cityReg.test(city.value)) {
+        validationArr.push(true)
+    }
+    if(stateReg.test(state.value)) {
+        validationArr.push(true)
+    }
+    if(phoneNumberReg.test(phoneNumber.value)) {
+        validationArr.push(true)
+    }
+    if(postalCode.value.length != 0) {
+        validationArr.push(true)
+    }
+
+    return validationArr.length == 8 ? true : false;
+}
+
+
 
 
 // events
@@ -236,14 +265,16 @@ addNewEmpBtnEl.addEventListener('click', addNewEmp);
 
 createEmpButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    const validate = validateForm();
+    const validation = validateForm();
+    const emailDuplication = await checkEmail(empFormInputs[1].value)
+    console.log(emailDuplication);
     const newEmp = getEmpFormValues();
-
-    if(validate === true){
+    
+    if(!validation && !emailDuplication){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Fill the fields',
+            text: 'Please verify all details are correct and that your email does not exsit already',
           })
     }else{
         const req = await fetch(`.././src/library/employeeController.php`, {

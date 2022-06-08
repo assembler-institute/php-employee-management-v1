@@ -12,6 +12,7 @@ function login()
         if ($value['email'] === $email && password_verify($password, $value['password'])) {
             session_start();
             $_SESSION['name'] = $value['name'];
+            $_SESSION['start'] = time();
             header('location: .././dashboard.php');
         } else {
             header('location: ../.././index.php?login=false');
