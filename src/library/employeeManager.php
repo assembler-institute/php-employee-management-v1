@@ -48,7 +48,6 @@ function addEmployee(array $newEmployee){
     header("Location: ../dashboard.php");
 }
 
-
 function deleteEmployee(string $id)
 {
 
