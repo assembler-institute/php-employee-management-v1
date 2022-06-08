@@ -45,16 +45,16 @@ if (isset($_SESSION["userAdded"])){
             </tr>
             <form id="addEmployee" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
-                    <td> <input type="text" name="name" id="">
+                    <td> <input type="text" name="name" id="" required>
                     </td>
-                    <td><input type="email" name="email" id=""> </td>
-                    <td><input type="number" name="age" id=""></td>
-                    <td> <input type="text" name="address"></td>
-                    <td><input type="text" name="city" id=""></td>
-                    <td><input type="text" name="state" id=""></td>
-                    <td> <input type="number" name="postalCode" id=""></td>
-                    <td><input type="tel" name="phone" id=""></td>
-                    <td><button type="submit" name="submit">+</button></td>
+                    <td><input type="email" name="email" id="" required> </td>
+                    <td><input type="number" name="age" id="" maxlength="2" required></td>
+                    <td> <input type="text" name="address" required></td>
+                    <td><input type="text" name="city" id="" required></td>
+                    <td><input type="text" name="state" id="" required></td>
+                    <td> <input type="number" name="postalCode" id="" maxlength="5" required></td>
+                    <td><input type="tel" name="phone" id="" maxlength="9" required></td>
+                    <td><button type="submit" name="submit" required>+</button></td>
                 </tr>
             </form>
         </thead>

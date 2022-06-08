@@ -9,29 +9,40 @@
 
 function addEmployee(array $newEmployee){
 
+    $_SESSION["userAdded"] = "Employee successfully saved";
+
     //Decoding the json file
     $data = json_decode(file_get_contents('../../resources/employees.json'), true);
 
-    //Setting the id of the new employeer
-    $newEmployee["id"] = count($data)+1;
+    foreach($data as $element => $el){
+        if(in_array($newEmployee["email"], $data[$element])){
+            $_SESSION["userAdded"] = "Employee already exists";
+            break;
+        }
+    }
 
-    //Adding the new empployeer to $data array(POST)
-    array_push($data, (object)$newEmployee);
+    if($_SESSION["userAdded"] == "Employee successfully saved"){
+        //Setting the id of the new employeer
+        $newEmployee["id"] = count($data)+1;
 
-    //Open the json
-    $the_file = fopen("../../resources/employees.json","wb");
+        //Adding the new empployeer to $data array(POST)
+        array_push($data, (object)$newEmployee);
 
-    //Writting the json file with the new employeer
-    fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
+        //Open the json
+        $the_file = fopen("../../resources/employees.json","wb");
 
-    //Close the json file
-    fclose($the_file);
+        //Writting the json file with the new employeer
+        fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
+
+        //Close the json file
+        fclose($the_file);
+    }
     
 
     //Returning the info
     echo json_encode($data) ;
 
-    $_SESSION["userAdded"] = "Employee successfully saved";
+    //$_SESSION["userAdded"] = "Employee successfully saved";
 
     //Redirect to dashboard
     header("Location: ../dashboard.php");
