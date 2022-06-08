@@ -6,24 +6,25 @@
  * @date: 11/06/2020
  */
 
-    //Read json data
-    $storedEmployes = "../../resources/employees.json";
-    //Decode Json data
-    $stored_employees = json_decode(file_get_contents($storedEmployes), true);
-    $employeesId= array();
-    $i=1;
-    foreach ($stored_employees as $key => $value) {
-       array_push($employeesId,$value['id']);
-    }
-   
 
 
 function addEmployee($employeeData)
 {
-//Read json data
-$storedEmployes = "../../resources/employees.json";
-//Decode Json data
-$stored_employees = json_decode(file_get_contents($storedEmployes), true);
+//Get all employees from Json file    
+$stored_employees = getEmployeesData();
+//Structure new employee with recived data
+$newEmployee =createNewEmployeeArray($employeeData);
+//Add new emplye to the Json array
+$stored_employees[]=$newEmployee;
+//Encode the new employees data 
+$new_employees_list = json_encode($stored_employees);
+//Update json file
+updateEmployee($new_employees_list);
+//redirect to dashboard
+header("Location: ../dashboard.php");
+}
+
+function createNewEmployeeArray($employeeData){
 $id=addId();
 $newEmployee= array(
     'id'=> $id,
@@ -38,56 +39,56 @@ $newEmployee= array(
     "postalCode"=>$employeeData['postalCode'],
     "phoneNumber"=>$employeeData['phoneNumber'],
 );
-
-$stored_employees[]=$newEmployee;
-$new_employees_list = json_encode($stored_employees);
-file_put_contents($storedEmployes, $new_employees_list);
-
-
-// TODO implement it
-
-
-header("Location: ../dashboard.php");
+return $newEmployee;
 }
-    function addId(){
-        if (in_array($GLOBALS['i'], $GLOBALS['employeesId'])) {
-            $GLOBALS['i']++;
-            addId();
-        }
-      return $GLOBALS['i'];       
+
+
+function getAllId(){
+    $stored_employees = getEmployeesData();
+    $employeesId= array();
+    foreach ($stored_employees as $key => $value) {
+       array_push($employeesId,$value['id']);
     }
+    return $employeesId;
+}
+//Global variables
+$i=1;
+$employeesId= getAllId();
+function addId(){
+    if (in_array($GLOBALS['i'], $GLOBALS['employeesId'])) {
+        $GLOBALS['i']++;
+        addId();
+    }
+    return $GLOBALS['i'];       
+}
 
 
 
-
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
-    //Read json data
-    $storedEmployes = "../../resources/employees.json";
-    //Decode Json data
-    $stored_employees = json_decode(file_get_contents($storedEmployes), true);
-// TODO implement it
-$id="11";
-$i=0;
-foreach($stored_employees as $element) {
     
-   if($element['id']==$id){
-      unset($stored_employees[$i]);
-      echo "ok";
-   }
-   $i++;
-}
-    $newStoredEmployes = "../../resources/employees.json";
-    //Decode Json data
-    $newStored_employees = json_decode(file_get_contents($newStoredEmployes), true);
-   return $newStored_employees;  
+//Read json data
+ $storedEmployes = "../../resources/employees.json";
+ //Decode Json data
+$stored_employees = json_decode(file_get_contents($storedEmployes));
+foreach($stored_employees as $key => $value) {
+if($value->id==$id){
+  unset($stored_employees[$key]);
+  updateEmployee(json_encode($stored_employees));
+ }
+ }
+$data=getEmployeesData();
+return $data;
 }
 
 
-function updateEmployee(array $updateEmployee)
+
+function updateEmployee($updateEmployee)
 {
-// TODO implement it
-
+//Read json data
+$storedEmployes = "../../resources/employees.json";
+//Send json data
+file_put_contents($storedEmployes, $updateEmployee);
 }
 
 
@@ -119,3 +120,5 @@ function getEmployeesData(){
     $stored_employees = json_decode(file_get_contents($storedEmployes), true);
     return $stored_employees;
 }
+
+

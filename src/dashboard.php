@@ -13,7 +13,7 @@ checkSession();
       <br>
       <sectiion class="dashboard__table__containeer">
         <table id="dashboardEmployeeTable" class="dashboard__employee__table" style="border-spacing: 0px;">
-          <tr class="dashboard__employe__th">
+          <tr id="employeFields" class="dashboard__employe__th">
             <th>NAME</th>
             <th>EMAIL</th>
             <th>AGE</th>
