@@ -82,6 +82,7 @@ const employeTableData = (employe, tableRow) => {
   btn.dataset.remove = "removeEmployee";
   btn.id = `remove-${employe.id}`;
   btn.textContent = "DELETE";
+  btn.className = "deleteBtn";
   tableDataBtn.appendChild(btn);
   tableRow.appendChild(tableDataBtn);
 };
