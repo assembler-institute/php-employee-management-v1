@@ -26,9 +26,12 @@ function addEmployee(array $newEmployee){
 
     //Close the json file
     fclose($the_file);
+    
 
     //Returning the info
     echo json_encode($data) ;
+
+    $_SESSION["userAdded"] = "Employee successfully saved";
 
     //Redirect to dashboard
     header("Location: ../dashboard.php");
@@ -54,10 +57,12 @@ function deleteEmployee(string $id)
     //Returning the info
     echo json_encode($data) ;
 
+    //create a message in a $_SESSION variable to show it in the dashboard
+    $_SESSION["message"] = "Employee deleted";
+
     //Redirect to dashboard
     header("Location: ../dashboard.php");
 
-    echo json_encode($data);
 }
 
 function updateIdentifiers(array $employees):array
@@ -150,3 +155,5 @@ function getNextIdentifier(array $employeesCollection): int
 {
 // TODO implement it
 }
+
+?>

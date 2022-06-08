@@ -2,9 +2,32 @@
 <?php 
 include('../assets/html/header.html');
 include("./library/loginManager.php");
+include("./library/employeeManager.php");
 checkSession();
+
+
+if (isset($_SESSION["userAdded"])){
+    $userAdded = true;
+    $message = $_SESSION["userAdded"];
+    unset ($_SESSION["userAdded"]);
+}
+
+
 ?>
-<main id="main_container">
+<main>
+<?php if(isset($userAdded)) {
+    echo "
+    <p id='message' class='alert alert-success'>$message</p>
+
+    <script>
+        setTimeout(function(){
+            document.getElementById('message').style.display = 'none';
+        }, 3000);
+    </script>
+    ";
+
+} ?>
+
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
     <table class="table" id="tableData">

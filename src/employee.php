@@ -1,8 +1,11 @@
 <!-- TODO Employee view -->
 <?php 
-session_start();
 include('../assets/html/header.html');
 include('./library/employeeManager.php');
+include("./library/loginManager.php");
+
+checkSession();
+
 
 if (isset($_GET["info"])) {
     $info = true;
