@@ -71,6 +71,17 @@ if (isset($_SESSION["userAdded"])){
         Back
     </form>
 </main>
+
+<script>
+    const dashboardTag = document.getElementById("dashboardTag");
+    const employeeTag = document.getElementById("employeeTag");
+
+    if (window.location.href.includes("dashboard.php")) {
+    dashboardTag.classList.add("active");
+    employeeTag.classList.remove("active");
+} 
+</script>
+
 <?php 
     include('../assets/html/footer.html');
 ?>
