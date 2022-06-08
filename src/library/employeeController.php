@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET') {
    
 }
 if ($_SERVER['REQUEST_METHOD']==='POST'){
+    
 $_post = json_decode(file_get_contents('php://input'),true);
 if(isset($_POST['newEmployee'])){
     require_once("./employeeManager.php");
@@ -14,7 +15,7 @@ if(isset($_POST['newEmployee'])){
 if(isset($_post['userId'])){
     require_once("./employeeManager.php");
     $newList=deleteEmployee($_post);
-    echo json_encode($_post);
+    echo json_encode($newList);
 }
 
 }

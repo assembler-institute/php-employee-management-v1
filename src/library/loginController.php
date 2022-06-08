@@ -15,10 +15,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 }}
 }
 if ($_SERVER['REQUEST_METHOD']==='GET') {
-    session_start();
-    unset($_SESSION);
- session_destroy();
-  header("location: ../../index.php");
+    require_once("./loginManager.php");
+    logout();
+
 }
 
 

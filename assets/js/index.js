@@ -29,9 +29,7 @@ const addEvents = () => {
 };
 
 const getEmployees = () => {
-  fetch(
-    "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php"
-  )
+  fetch("../src/library/employeeController.php")
     .then((response) => {
       return response.json();
     })
@@ -87,9 +85,7 @@ const employeTableData = (employe, tableRow) => {
   tableRow.appendChild(tableDataBtn);
 };
 const redirectEmployeePage = () => {
-  window.location.replace(
-    "http://localhost/employee-management/php-employee-management-v1/src/employee.php"
-  );
+  window.location.replace("../src/employee.php");
 };
 const removeEmployee = () => {
   const removeBtn = document.querySelectorAll("[data-remove]");
@@ -97,17 +93,14 @@ const removeEmployee = () => {
     btn.addEventListener("click", () => {
       let id = btn.id.substring(btn.id.lastIndexOf("-") + 1);
       const data = { userId: id };
-      fetch(
-        "http://localhost/employee-management/php-employee-management-v1/src/library/employeeController.php",
-        {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      fetch("../src/library/employeeController.php", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
         .then((response) => {
           return response.json();
         })

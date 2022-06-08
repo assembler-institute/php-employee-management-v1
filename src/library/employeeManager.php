@@ -67,14 +67,20 @@ function deleteEmployee(string $id)
     //Decode Json data
     $stored_employees = json_decode(file_get_contents($storedEmployes), true);
 // TODO implement it
+$id="11";
 $i=0;
 foreach($stored_employees as $element) {
-   //check the property of every element
-   if(){
+    
+   if($element['id']==$id){
       unset($stored_employees[$i]);
+      echo "ok";
    }
    $i++;
 }
+    $newStoredEmployes = "../../resources/employees.json";
+    //Decode Json data
+    $newStored_employees = json_decode(file_get_contents($newStoredEmployes), true);
+   return $newStored_employees;  
 }
 
 
