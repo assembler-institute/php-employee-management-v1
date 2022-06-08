@@ -14,5 +14,9 @@ if ($httpMethod === "GET") {
     echo json_encode($employees);
 }
 
+if($httpMethod === "POST"){
+    $newEmployee = $_POST;
+    addEmployee($newEmployee);   
+    
+}
 
-?>

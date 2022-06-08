@@ -8,7 +8,26 @@
 
 function addEmployee(array $newEmployee)
 {
-// TODO implement it
+	  //New Employee form data
+	  print_r(json_encode($newEmployee));
+	  $employee_data = (json_encode($newEmployee));
+
+		 //DB Employee data - JSON
+		 $db_Employee = json_decode(file_get_contents('../../resources/employees.json'));
+     
+		 array_push($db_Employee, $employee_data);
+		 $jsonData = json_encode($db_Employee);
+		 file_put_contents('../../resources/employees.json', $jsonData);
+    
+		//  $employees_id = [];
+		//  foreach($db_Employee as $employees) {
+		// 		 $employees = $employees->id;
+		// 		 array_push($employees_id, $employees);
+		//  }
+ 
+		//  for($i = 0; $i < count($employees_id); $i++){
+				 
+		//  }
 }
 
 
