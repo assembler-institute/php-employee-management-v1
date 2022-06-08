@@ -56,6 +56,36 @@ function removeAvatar($id)
 // TODO implement it
 }
 
+function callType (){
+    if(isset($_GET['call_type']))
+{
+	$call_type = $_GET['call_type'];
+
+	if($call_type == "dashboard")
+	{
+		echo json_encode(array(
+			'status'=>'success',
+			'title'=> 'Dashboard',
+			'description' => 'Home description',
+			'url' => $call_type.'.php' ,
+			'data'=> file_get_contents('dashboard.php'),
+		));
+	}
+	else if($call_type == "employee")
+	{
+        
+        // header('employee.php');
+		echo json_encode(array(
+			'status'=>'success',
+			'title'=> 'Employee ',
+			'description' => 'Employee',
+			'url' => $call_type.'.php',
+			'data'=> file_get_contents('employee.php'),
+		));
+	}
+}
+}
+
 
 // function getQueryStringParameters(): array
 // {
