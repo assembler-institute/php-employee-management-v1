@@ -3,6 +3,7 @@
 require_once("./library/sessionHelper.php");
 checkSession();
 
+
 ?>
     <main>
       <div>

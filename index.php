@@ -20,14 +20,23 @@ require_once("src/library/sessionHelper.php");
         <div class="subtitle">To your Dashboard!</div>
 
         <div class="input-container ic1">
-            <input autocomplete="off" type="text" class="form__input input" name="username" placeholder=" " />
+            <input require autocomplete="off" type="text" class="form__input input" name="username" placeholder=" " />
             <div class="cut"></div>
             <label for=username class=placeholder>Username</label>
         </div>
           <div class="input-container ic2">
-          <input type="password" class="form__input input" name="password" placeholder=" "  />
+          <input require type="password" class="form__input input" name="password" placeholder=" "  />
           <div class="cut"></div>
           <label for="password" class="placeholder">Password</label>
+          </div>
+          <div class="test"> <br>
+          <?php 
+
+          if(isset($_SESSION["loginError"] )){
+            echo $_SESSION["loginError"];
+          }
+
+          ?>
           </div>
           <div>
           <button type="submit" class="primary__btn submit" name="login" id="loginFormSubmitBtn">LOGIN</button>
@@ -35,13 +44,7 @@ require_once("src/library/sessionHelper.php");
         </form>
         <div>
 
-        <?php 
-
-        if(isset($_SESSION["loginError"] )){
-          echo $_SESSION["loginError"];
-        }
-        
-        ?>
+       
         </div>
       
       </section>

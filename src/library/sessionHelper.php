@@ -6,9 +6,9 @@ function checkSession(){
     session_start();
 
     $urlFile = basename($_SERVER['REQUEST_URI']);
-    
+
     if ($urlFile == "index.php" || $urlFile == "php-employee-management-v1" ){
-      
+
         if (isset($_SESSION["user"])) {
             header("Location: ./src/dashboard.php");
         } else {

@@ -112,3 +112,5 @@ const removeEmployee = () => {
     });
   });
 };
+
+true.addEventListener('click');
