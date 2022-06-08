@@ -1,6 +1,6 @@
 import { refreshTable } from "./index.js";
 
-
+//Create listener for each row to show the employee info
 export function createListeners(){
     const tr = (document.getElementsByClassName("tbody__emplpoyees--tr"));
     Array.from(tr).map(row=>{
@@ -16,7 +16,7 @@ export function createListeners(){
 });
 }
 
-
+//function to confirm delete before deleting the employee with an async call
 export function confirmDelete() {
     //Get all the delete buttons
     const btnDel = document.querySelectorAll('[name="delete"]');

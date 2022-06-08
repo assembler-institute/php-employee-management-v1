@@ -4,21 +4,13 @@ include('./employeeManager.php');
 
 //request method is GET, call the getQueryStringParameters() function
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if(isset($_GET["leng"])){
-        getLengthDataBs();
-    }else{
+    
     getQueryStringParameters($_GET["empl"]);
-    }
+    
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if($_POST["delete"]){
-        // $deletedEmployee = file_get_contents('php://input');
-        // print_r($deletedEmployee);
-        // $deletedEmployee = json_decode($deletedEmployee, true);
-        // //deleteEmployee($deletedEmployee);
-
-    }else if ($_POST["info"]){
-        
+    if ($_POST["info"]){
+        //gte the info to Show in employee.php
         $employeeData = getEmployee($_POST["info"]);
         $_SESSION["employeeData"] = $employeeData;
         
@@ -62,12 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         }
     }else{
-    $data = count(json_decode(file_get_contents('php://input'), true));
-        if ($data > 1) {
+        //Make the post for delete or add employee, the array in fecth will take 1 element if wants to delete employee or more elements in other case
+        $data = count(json_decode(file_get_contents('php://input'), true));
+        if ($data > 1) {//Add employ 
             $newEmployee = file_get_contents('php://input');
             $newEmployee = json_decode($newEmployee, true);
             addEmployee($newEmployee);
-        } else {
+        } else {//Delete employee
             $deletedEmployee = file_get_contents('php://input');
             $deletedEmployee = json_decode($deletedEmployee, true);
             deleteEmployee($deletedEmployee['id']);

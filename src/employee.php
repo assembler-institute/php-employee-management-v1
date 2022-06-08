@@ -6,7 +6,7 @@ include("./library/loginManager.php");
 
 checkSession();
 
-
+// Get the empployee info with get request
 if (isset($_GET["info"])) {
     $info = true;
     $employee = $_SESSION["employeeData"];
@@ -80,6 +80,7 @@ if (isset($_GET["info"])) {
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
     const employeeTag = document.getElementById("employeeTag");
+    // Adds the class to give style depending the page you are
     if (window.location.href.includes("employee.php")) {
         dashboardTag.classList.remove("active");
         employeeTag.classList.add("active");

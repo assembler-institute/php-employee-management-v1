@@ -1,3 +1,4 @@
+//function to create each row for table dashboard to show data
 function createRow(element, i){
     //Create row, add class and id for the future listener
     let tableRow = document.createElement("tr");
