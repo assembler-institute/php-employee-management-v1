@@ -41,20 +41,20 @@ if (isset($_SESSION["userAdded"])){
                 <th>State</th>
                 <th>Postal Code</th>
                 <th>Phone Number</th>
-                <th id="add">+</th>
+                <th id="displayForm">+</th>
             </tr>
-            <form id="addEmployee" action="./library/employeeController.php" method="post">
+            <form id="addEmployeeForm" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
                     <td> <input type="text" name="name" id="" required>
                     </td>
                     <td><input type="email" name="email" id="" required> </td>
                     <td><input type="number" name="age" id="" maxlength="2" required></td>
-                    <td> <input type="text" name="address" required></td>
+                    <td> <input type="text" name="streetAddress" required></td>
                     <td><input type="text" name="city" id="" required></td>
                     <td><input type="text" name="state" id="" required></td>
                     <td> <input type="number" name="postalCode" id="" maxlength="5" required></td>
-                    <td><input type="tel" name="phone" id="" maxlength="9" required></td>
-                    <td><button type="submit" name="submit" required>+</button></td>
+                    <td><input type="tel" name="phoneNumber" id="" maxlength="9" required></td>
+                    <td><button id="addBtn" name="newEmployee" required>+</button></td>
                 </tr>
             </form>
         </thead>

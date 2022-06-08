@@ -10,10 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     getQueryStringParameters($_GET["empl"]);
     }
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // if($_POST["page"]){
-    //     getQueryStringParameters($_POST["page"]);
-    //     //header("Location: ../dashboard.php")
-    // }
+
     if($_POST["delete"]){
 
             deleteEmployee($_POST["delete"]);
@@ -63,21 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         }
     }else{
-    $newEmployee = array(
-        "id" => "",
-        "name" => $_POST["name"],
-        "lastName" => "",
-        "email" => $_POST["email"],
-        "gender" => "",
-        "age" => $_POST["age"],
-        "streetAddress" => $_POST["address"],
-        "city" => $_POST["city"],
-        "state" => $_POST["state"],
-        "postalCode" => $_POST["postalCode"],
-        "phoneNumber" => $_POST["phone"]);
-
-    addEmployee($newEmployee);
-
+        $newEmployee = file_get_contents('php://input');
+        $newEmployee = json_decode($newEmployee, true);
+        addEmployee($newEmployee);
     }
 
 }
