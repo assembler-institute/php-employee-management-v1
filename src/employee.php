@@ -15,7 +15,7 @@ if (isset($_GET["info"])) {
 
 
 <!------------ Employee form------------>
-<img class="image-avatar" src="<?php if(isset($info)) {echo "https".explode("https",$employee[0])[1];} ?>">
+<div class="user__avatar"><img class="image-avatar" src="<?php if(isset($info)) {echo "https".explode("https",$employee[0])[1];} ?>"></div>
 <form class="container" action="./library/employeeController.php" method="post">
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
@@ -73,8 +73,8 @@ if (isset($_GET["info"])) {
             <input type="text" class="form-control" name="phoneNumber" placeholder="PhoneNumber" aria-label="PhoneNumber" value="<?php if(isset($info)) {echo $employee['phoneNumber'];} ?>" maxlength="9" required>
         </div>
     </div>
-    <button type="submit" class="btn btn-info mt-5">Submit</button>
-    <a href="./dashboard.php" class="btn btn-secondary mt-5">Return</a>
+    <a href="./dashboard.php" class="btn btn-secondary mt-5 return__button">Return</a>
+    <button type="submit" class="btn btn-info mt-5 submit__button">Submit</button>
 </form>
 
 <script>

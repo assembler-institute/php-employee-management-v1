@@ -31,9 +31,9 @@ if (isset($_SESSION["userAdded"])){
 
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
-    <table class="table-sm table-hover" id="tableData">
+    <table class="table-sm" id="tableData"><!-- class table-hover -->
         <thead id="tableHead">
-            <tr>
+            <tr class="menu__title--container">
                 <th class="menu__title--table">Name</th>
                 <th class="menu__title--table">Email</th>
                 <th class="menu__title--table">Age</th>
@@ -42,20 +42,20 @@ if (isset($_SESSION["userAdded"])){
                 <th class="menu__title--table">State</th>
                 <th class="menu__title--table">Postal Code</th>
                 <th class="menu__title--table">Phone Number</th>
-                <th id="displayForm">+</th>
+                <th id="displayForm"><i class='bx bxs-user-plus add__user--button'></i></th>
             </tr>
-            <form id="addEmployeeForm" action="./library/employeeController.php" method="post">
+            <form class="create__user--container" id="addEmployeeForm" action="./library/employeeController.php" method="post">
                 <tr id="rowInput" class="hide">
-                    <td> <input type="text" name="name" id="" required>
+                    <td> <input class="create__user--input" type="text" name="name" id="" required>
                     </td>
-                    <td><input type="email" name="email" id="" required> </td>
-                    <td><input type="number" name="age" id="" maxlength="2" required></td>
-                    <td> <input type="text" name="streetAddress" required></td>
-                    <td><input type="text" name="city" id="" required></td>
-                    <td><input type="text" name="state" id="" required></td>
-                    <td> <input type="number" name="postalCode" id="" maxlength="5" required></td>
-                    <td><input type="tel" name="phoneNumber" id="" maxlength="9" required></td>
-                    <td><button id="addBtn" name="newEmployee" required>+</button></td>
+                    <td><input class="create__user--input" type="email" name="email" id="" required> </td>
+                    <td><input class="create__user--input" type="number" name="age" id="" maxlength="2" required></td>
+                    <td> <input class="create__user--input" type="text" name="streetAddress" required></td>
+                    <td><input class="create__user--input" type="text" name="city" id="" required></td>
+                    <td><input class="create__user--input" type="text" name="state" id="" required></td>
+                    <td> <input class="create__user--input" type="number" name="postalCode" id="" maxlength="5" required></td>
+                    <td><input class="create__user--input" type="tel" name="phoneNumber" id="" maxlength="9" required></td>
+                    <td><button class="create__user--button" id="addBtn" name="newEmployee" required><i class='bx bx-plus-medical'></i></button></td>
                 </tr>
             </form>
         </thead>
@@ -66,14 +66,14 @@ if (isset($_SESSION["userAdded"])){
     
 </main>
 <div class="div-btn-navigation">
-<form action="./library/employeeController.php" method="post" id="form-navigation">
-    <input type="hidden" name="page" value="" id="nextPage">
-    Next
-</form>
-<form action="./library/employeeController.php" method="post" id="form-navigation-back">
-    <input type="hidden" name="page" value="" id="backPage">
-    Back
-</form>
+    <form class="back__btn" action="./library/employeeController.php" method="post" id="form-navigation-back">
+        <input type="hidden" name="page" value="" id="backPage">
+        <i class='bx bx-left-arrow' ></i>Back
+    </form>
+    <form class="next__btn" action="./library/employeeController.php" method="post" id="form-navigation">
+        <input type="hidden" name="page" value="" id="nextPage">
+        Next<i class='bx bx-right-arrow' ></i>
+    </form>
 </div>
 <script>
     const dashboardTag = document.getElementById("dashboardTag");
