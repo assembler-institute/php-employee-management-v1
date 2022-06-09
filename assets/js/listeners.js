@@ -34,6 +34,7 @@ addBtn.addEventListener("click", async (event) => {
     const rowInput = document.getElementById("rowInput");
     rowInput.classList.toggle("hide");
     refreshTable(0);
+    newEmployeeMessage.textContent = "Employee added successfully";
     newEmployeeMessage.classList.toggle("hide");
     setTimeout(function(){
     newEmployeeMessage.classList.toggle("hide");

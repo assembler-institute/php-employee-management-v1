@@ -40,6 +40,11 @@ export function confirmDelete() {
                     const response = await req.text();
                     console.log(response);
                     refreshTable(0);
+                    newEmployeeMessage.textContent = "Employee deleted successfully";
+                    newEmployeeMessage.classList.toggle("hide");
+                    setTimeout(function(){
+                    newEmployeeMessage.classList.toggle("hide");
+                    }, 3000);
                 }
                 catch(error){
                     console.log(error);

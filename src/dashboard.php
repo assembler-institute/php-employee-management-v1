@@ -15,7 +15,7 @@ if (isset($_SESSION["userAdded"])){
 
 ?>
 <main>
-<p id='newEmployeeMessage' class='alert alert-success hide'>Employee succesfully saved!</p>
+<p id='newEmployeeMessage' class='alert alert-success hide'></p>
 <?php if($userAdded) {
     echo "
     <p id='message' class='alert alert-success '>$message</p>

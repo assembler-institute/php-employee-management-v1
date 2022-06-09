@@ -71,8 +71,8 @@ function deleteEmployee(string $id)
     echo json_encode($data) ;
 
     //create a message in a $_SESSION variable to show it in the dashboard
-    $_SESSION["userAdded"] = "Employee deleted";
-    return $_SESSION["userAdded"];
+    // $_SESSION["userAdded"] = "Employee deleted";
+    // return $_SESSION["userAdded"];
 
 }
 
