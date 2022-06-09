@@ -15,6 +15,7 @@ if ($httpMethod === "GET") {
 }
 
 if($httpMethod === "POST"){
+
     $newEmployee = $_POST;
     addEmployee($newEmployee);   
     

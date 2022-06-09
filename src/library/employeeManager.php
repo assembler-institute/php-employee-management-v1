@@ -8,26 +8,36 @@
 
 function addEmployee(array $newEmployee)
 {
-	  //New Employee form data
-	  print_r(json_encode($newEmployee));
-	  $employee_data = (json_encode($newEmployee));
-
-		 //DB Employee data - JSON
-		 $db_Employee = json_decode(file_get_contents('../../resources/employees.json'));
+		 //DB data 
+		 $db_Employee = json_decode(file_get_contents('../../resources/employees.json'), true);
+		 $last = end($db_Employee);
+		 $id = $last['id']; //8
      
-		 array_push($db_Employee, $employee_data);
-		 $jsonData = json_encode($db_Employee);
-		 file_put_contents('../../resources/employees.json', $jsonData);
+		
+		 	//Form data
+			//*HOW INCREMENT ID WITH FORM DATA?
+		  $employee_data = (json_encode($newEmployee));
+		
+		  $db_Employee[] = array (
+			"id" => ++$id,
+			"name"=> $_POST["name"],
+			"lastName"=> $_POST["lastName"],
+			"email"=> $_POST["email"],
+			"gender"=> $_POST["gender"],
+			"age"=> $_POST["city"],
+			"streetAddress"=> $_POST["streetAddress"],
+			"city"=> $_POST["state"],
+			"state"=> $_POST["age"],
+			"postalCode"=> $_POST["postalCode"],
+			"phoneNumber"=> $_POST["phoneNumber"]
+	   );
     
-		//  $employees_id = [];
-		//  foreach($db_Employee as $employees) {
-		// 		 $employees = $employees->id;
-		// 		 array_push($employees_id, $employees);
-		//  }
- 
-		//  for($i = 0; $i < count($employees_id); $i++){
-				 
-		//  }
+		$jsonData = json_encode($db_Employee,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+		file_put_contents('../../resources/employees.json', $jsonData);
+
+		//*HOW AVOID REFRESH PAGE AFTER
+		header("Location: ../employee.php");
+		 
 }
 
 

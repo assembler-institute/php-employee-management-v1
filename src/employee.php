@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="/node_modules/jsgrid/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="/node_modules/jsgrid/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../assets/css/main.css">
-
+    <script src="../assets/js/index.js" defer></script>
 
 
     <title>Employee Management</title>
@@ -27,7 +27,7 @@
 
 
     <!------------ Employee form------------>
-    <form class="container" action="../src/library/employeeController.php" method="post">
+    <form class="container" action="../src/library/employeeController.php" method="post" role="form" targe="_blank">
         <div class="row g-3">
             <div class="col">
                 <label for=""></label>
@@ -81,10 +81,10 @@
                 <input type="text" name="phoneNumber" class="form-control" placeholder="PhoneNumber" aria-label="PhoneNumber">
             </div>
         </div>
-        <button type="submit" class="btn btn-info mt-5">Submit</button>
+        <button id="btn-submit" type="submit" class="btn btn-info mt-5">Submit</button>
         <button type="submit" class="btn btn-secondary mt-5">Return</button>
     </form>
-
+    
 
    
     <!------------ Footer ------------>
