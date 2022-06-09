@@ -7,8 +7,7 @@
  */
 
 
-function addEmployee(array $newEmployee){
-
+function addEmployee(array $newEmployee, $action){
     $_SESSION["userAdded"] = "Employee successfully saved";
 
     //Decoding the json file
@@ -16,7 +15,9 @@ function addEmployee(array $newEmployee){
 
     foreach($data as $element => $el){
         if(in_array($newEmployee["email"], $data[$element])){
+            print_r($_SESSION["userAdded"]);
             $_SESSION["userAdded"] = "Employee already exists";
+            print_r($_SESSION["userAdded"]);
             break;
         }
     }
@@ -39,11 +40,14 @@ function addEmployee(array $newEmployee){
         
     }
     //Returning the info
+    if($action != 0){
     echo json_encode($data) ;
-
+    return $_SESSION["userAdded"];
+    }
     //Redirect to dashboard
+    if($action == 0){
     header("Location: ../dashboard.php");
-    
+    }
 
 }
 
@@ -67,10 +71,8 @@ function deleteEmployee(string $id)
     echo json_encode($data) ;
 
     //create a message in a $_SESSION variable to show it in the dashboard
-    $_SESSION["message"] = "Employee deleted";
-
-    //Redirect to dashboard
-    header("Location: ../dashboard.php");
+    $_SESSION["userAdded"] = "Employee deleted";
+    return $_SESSION["userAdded"];
 
 }
 
@@ -102,9 +104,6 @@ fwrite($the_file, json_encode($data, JSON_THROW_ON_ERROR));
 
 //Close the json file
 fclose($the_file);
-
-//Returning the info
-echo json_encode($data) ;
 
 //Redirect to dashboard
 header("Location: ../dashboard.php");

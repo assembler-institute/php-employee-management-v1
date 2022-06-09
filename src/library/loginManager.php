@@ -17,6 +17,7 @@ function validate(){
             $_SESSION['email'] = $email;
             $_SESSION['pass'] = $pass;
             $_SESSION["time"] = time();//set the start time session
+           
             header ("Location: ../dashboard.php");
         }else {
             $_SESSION['loginerror'] = 'Incorrect Password';
@@ -55,7 +56,7 @@ function checkSession(){
         }
     }else{
         if(!isset($_SESSION["email"])){
-            header("Location: ../index.php");
+            header("Location: ./index.php");
         }
     }
 }

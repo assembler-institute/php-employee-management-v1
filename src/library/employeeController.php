@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
 } else if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if ($_POST["info"]){
+    if (isset($_POST["info"])){
         //gte the info to Show in employee.php
         $employeeData = getEmployee($_POST["info"]);
         $_SESSION["employeeData"] = $employeeData;
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 "postalCode" => $_POST["postalCode"],
                 "phoneNumber" => $_POST["phoneNumber"]);
         
-            print_r(updateEmployee($employeeActive));
+            updateEmployee($employeeActive);
         }else{
             //CreateEmployee
             $newEmployee = array(
@@ -49,8 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 "state" => $_POST["state"],
                 "postalCode" => $_POST["postalCode"],
                 "phoneNumber" => $_POST["phoneNumber"]);
-        
-            addEmployee($newEmployee);
+            addEmployee($newEmployee, 0);
 
         }
     }else{
@@ -59,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if ($data > 1) {//Add employ 
             $newEmployee = file_get_contents('php://input');
             $newEmployee = json_decode($newEmployee, true);
-            addEmployee($newEmployee);
+            addEmployee($newEmployee, 1);
         } else {//Delete employee
             $deletedEmployee = file_get_contents('php://input');
             $deletedEmployee = json_decode($deletedEmployee, true);

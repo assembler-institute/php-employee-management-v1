@@ -40,7 +40,6 @@ export function confirmDelete() {
                     const response = await req.text();
                     console.log(response);
                     refreshTable(0);
-
                 }
                 catch(error){
                     console.log(error);

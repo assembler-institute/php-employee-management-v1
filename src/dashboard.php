@@ -5,7 +5,7 @@ include("./library/loginManager.php");
 include("./library/employeeManager.php");
 checkSession();
 
-
+$userAdded=false;
 if (isset($_SESSION["userAdded"])){
     $userAdded = true;
     $message = $_SESSION["userAdded"];
@@ -16,9 +16,9 @@ if (isset($_SESSION["userAdded"])){
 ?>
 <main>
 <p id='newEmployeeMessage' class='alert alert-success hide'>Employee succesfully saved!</p>
-<?php if(isset($userAdded)) {
+<?php if($userAdded) {
     echo "
-    <p id='message' class='alert alert-success'>$message</p>
+    <p id='message' class='alert alert-success '>$message</p>
 
     <script>
         setTimeout(function(){

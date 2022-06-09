@@ -19,8 +19,8 @@
         <div class="navBar__container container-fluid">
             <div class="col navBar__menu--logo"><img src="../assets/img/buddies-logo.png" alt=""></div>
             <div class="row navBar__menu--buttons">
-                <div class="col navBar__menu--dashboard"><a href="./dashboard.php">Dashboard</a></div>
-                <div class="col navBar__menu--employee"><a href="./employee.php">Employees</a></div>
+                <div class="col navBar__menu--dashboard"><a id="dashboardTag" href="./dashboard.php">Dashboard</a></div>
+                <div class="col navBar__menu--employee"><a  id="employeeTag" href="./employee.php">Employees</a></div>
                 <form class="button__logout col" action="./library/sessionHelper.php" method="post">
                     <button class="navBar__button--logout" type="submit" name="destroy">LOGOUT <i class='bx bx-log-out bx-rotate-180' ></i></button>
                 </form>
