@@ -173,8 +173,26 @@ input{
     background-color: #EEE;
 }
 
-.tbody__employee--td {
+.create__user--container {
+    border-bottom: 1px solid black;
+}
 
+.create__user--button {
+    border: none;
+    background-color: transparent;
+    color: #20b684;
+}
+
+.create__user--input {
+    width: 8rem;
+    height: 1.4rem;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.create__user--input:focus{
+    background-color: #ecfdf8;
 }
 
 .tbody__employee--td:nth-child(2){
@@ -247,4 +265,16 @@ input{
     background-color: #9c9c9c;
     border: none;
     border-radius: 0.4rem;
+}
+
+.user__avatar{
+    display: flex;
+    justify-content: flex-start;
+    width: 69.2rem;
+    padding: 2rem 0 1.3rem 0;
+}
+
+.image-avatar {
+    height: 9rem;
+    border-radius: 0.3rem;
 }

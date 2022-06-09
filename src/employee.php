@@ -15,7 +15,7 @@ if (isset($_GET["info"])) {
 
 
 <!------------ Employee form------------>
-<img class="image-avatar" src="<?php if(isset($info)) {echo "https".explode("https",$employee[0])[1];} ?>">
+<div class="user__avatar"><img class="image-avatar" src="<?php if(isset($info)) {echo "https".explode("https",$employee[0])[1];} ?>"></div>
 <form class="container" action="./library/employeeController.php" method="post">
     <input type="hidden" value="<?php echo $_SESSION["time"]; ?>" id="timeStart">
     <input type="hidden" value="<?php echo time(); ?>" id="timeCurrent">
