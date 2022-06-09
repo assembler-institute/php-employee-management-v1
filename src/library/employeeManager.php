@@ -11,12 +11,12 @@ function addEmployee(array $newEmployee)
 		 //DB data 
 		 $db_Employee = json_decode(file_get_contents('../../resources/employees.json'), true);
 		 $last = end($db_Employee);
-		 $id = $last['id']; //8
+		 $id = $last['id']; 
      
-		
 		 	//Form data
 			//*HOW INCREMENT ID WITH FORM DATA?
 		  $employee_data = (json_encode($newEmployee));
+			print_r($employee_data);
 		
 		  $db_Employee[] = array (
 			"id" => ++$id,
@@ -24,10 +24,10 @@ function addEmployee(array $newEmployee)
 			"lastName"=> $_POST["lastName"],
 			"email"=> $_POST["email"],
 			"gender"=> $_POST["gender"],
-			"age"=> $_POST["city"],
+			"age"=> $_POST["age"],
 			"streetAddress"=> $_POST["streetAddress"],
-			"city"=> $_POST["state"],
-			"state"=> $_POST["age"],
+			"city"=> $_POST["city"],
+			"state"=> $_POST["state"],
 			"postalCode"=> $_POST["postalCode"],
 			"phoneNumber"=> $_POST["phoneNumber"]
 	   );
@@ -36,7 +36,7 @@ function addEmployee(array $newEmployee)
 		file_put_contents('../../resources/employees.json', $jsonData);
 
 		//*HOW AVOID REFRESH PAGE AFTER
-		header("Location: ../employee.php");
+		// header("Location: ../employee.php");
 		 
 }
 
