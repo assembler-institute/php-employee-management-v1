@@ -20,8 +20,8 @@ if(isset($_GET['logout'])) {
    
    }
  }
-
-
+//* HOW IMPLEMENT EXPIRE SESSION
+//
  function checkTime(){
 
  if (isset($_SESSION['start']) && isset($_POST['action']) && (time() - $_SESSION['start'] > 10)) {
@@ -30,8 +30,8 @@ if(isset($_GET['logout'])) {
   echo "Session is expired.<br/>";
   header("Location: ../index.php?logout");
 }
-else
-  echo "Current session exists.<br/>";
+// else
+  // echo "Current session exists.<br/>";
 
 }
 

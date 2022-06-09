@@ -36,7 +36,7 @@ function addEmployee(array $newEmployee)
 		file_put_contents('../../resources/employees.json', $jsonData);
 
 		//*HOW AVOID REFRESH PAGE AFTER
-		// header("Location: ../employee.php");
+		header("Location: ../employee.php");
 		 
 }
 
