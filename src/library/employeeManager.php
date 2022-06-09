@@ -11,12 +11,12 @@ function addEmployee(array $newEmployee)
 		 //DB data 
 		 $db_Employee = json_decode(file_get_contents('../../resources/employees.json'), true);
 		 $last = end($db_Employee);
-		 $id = $last['id']; //8
+		 $id = $last['id']; 
      
-		
 		 	//Form data
 			//*HOW INCREMENT ID WITH FORM DATA?
 		  $employee_data = (json_encode($newEmployee));
+			print_r($employee_data);
 		
 		  $db_Employee[] = array (
 			"id" => ++$id,
@@ -36,7 +36,7 @@ function addEmployee(array $newEmployee)
 		file_put_contents('../../resources/employees.json', $jsonData);
 
 		//*HOW AVOID REFRESH PAGE AFTER
-		header("Location: ../employee.php");
+		// header("Location: ../employee.php");
 		 
 }
 

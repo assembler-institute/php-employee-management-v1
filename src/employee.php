@@ -12,7 +12,6 @@
     <link type="text/css" rel="stylesheet" href="/node_modules/jsgrid/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="/node_modules/jsgrid/jsgrid-theme.min.css" />
     <link rel="stylesheet" href="../assets/css/main.css">
-    <script src="../assets/js/index.js" defer></script>
 
 
     <title>Employee Management</title>

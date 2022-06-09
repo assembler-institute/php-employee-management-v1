@@ -13,7 +13,7 @@
     "phoneNumber": "7383627627"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "John",
     "lastName": "Doe",
     "email": "jhondoe@foo.com",
@@ -91,7 +91,7 @@
     "phoneNumber": "45372788192"
   },
   {
-    "id": 8,
+    "id": "8",
     "name": "Robert",
     "lastName": "Thomson",
     "email": "jackon@network.com",
