@@ -20,11 +20,11 @@
 
                     <form class="card-body cardbody-color p-lg-5" action="src\library\loginManager.php" method="post" autocomplete="off">
 
-                        <div class="mb-5">
-                            <input type="text"  id="Username" name="username" aria-describedby="emailHelp" placeholder="User Name">
+                        <div class="mb-5 d-flex justify-content-center">
+                            <input class="w-75 " type="text"  id="Username" name="username" aria-describedby="emailHelp" placeholder="User Name">
                         </div>
-                        <div class="mb-5">
-                            <input type="password" name="password"  id="password" placeholder="password">
+                        <div class="mb-5  d-flex justify-content-center">
+                            <input class="w-75" type="password" name="password"  id="password" placeholder="password">
                         </div>
                         <div class="text-center"><button type="submit" name="submit" class="btn btn-dark px-5 mb-5 w-100">Login</button></div>
        
