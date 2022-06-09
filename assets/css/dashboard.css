@@ -55,14 +55,14 @@ main{
 }
 
 .navBar__menu--dashboard {
-    background-color: #c8fff6;
+    color: #fff;
     padding-bottom: 1rem;
     border-radius: 0.2rem 0.2rem 0 0;
-    font-weight: 700;
+    font-weight: 200;
 }
 
 .navBar__menu--dashboard a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -74,6 +74,18 @@ main{
 
 .navBar__menu--employee a:hover {
     color: #4ECCA3;
+}
+
+.navBar-active{
+    color: black;
+    background-color: #c8fff6;
+    font-weight: 700;
+}
+
+.navBar-active a{
+    color: black;
+    background-color: #c8fff6;
+    font-weight: 700;
 }
 
 .navBar__button--logout {

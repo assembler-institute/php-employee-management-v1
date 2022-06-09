@@ -82,8 +82,8 @@ if (isset($_GET["info"])) {
     const employeeTag = document.getElementById("employeeTag");
     // Adds the class to give style depending the page you are
     if (window.location.href.includes("employee.php")) {
-        dashboardTag.classList.remove("active");
-        employeeTag.classList.add("active");
+        dashboardTag.classList.remove("navBar-active");
+        employeeTag.classList.add("navBar-active");
     }
 </script>
 

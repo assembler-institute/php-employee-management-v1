@@ -80,8 +80,8 @@ if (isset($_SESSION["userAdded"])){
     const employeeTag = document.getElementById("employeeTag");
     // Adds the class to give style depending the page you are
     if (window.location.href.includes("dashboard.php")) {
-    dashboardTag.classList.add("active");
-    employeeTag.classList.remove("active");
+    dashboardTag.classList.add("navBar-active");
+    employeeTag.classList.remove("navBar-active");
 } 
 </script>
 
