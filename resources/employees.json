@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": 1,
         "name": "Walber",
         "lastName": "Lei",
@@ -12,7 +13,7 @@
         "phoneNumber": "7383627627"
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "John",
         "lastName": "Doe",
         "email": "jhondoe@foo.com",
@@ -90,7 +91,7 @@
         "phoneNumber": "45372788192"
     },
     {
-        "id": "8",
+        "id": 8,
         "name": "Robert",
         "lastName": "Thomson",
         "email": "jackon@network.com",
@@ -101,5 +102,18 @@
         "state": "LU",
         "postalCode": 63281,
         "phoneNumber": "91232876454"
+    },
+    {
+        "id": 9,
+        "name": "Walber",
+        "lastName": "Melo",
+        "email": "dev4wm@gmail.com",
+        "gender": "Man",
+        "age": "tenerife",
+        "streetAddress": "av. el gran poder",
+        "city": "Santa Cruz de Tenerife",
+        "state": "37",
+        "postalCode": "38250",
+        "phoneNumber": "644609339"
     }
 ]

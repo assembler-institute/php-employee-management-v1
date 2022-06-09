@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+
   <head>
     <link
       rel="stylesheet"
       href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="../css/main.css" />
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -17,10 +17,12 @@
       </div>
       <div class="nav-head d-flex">
         <div class="dash">
-          <h2>Dashboard</h2>
+          <span class="btn_load_screen" call_type="dashboard">Dashboard</span>
+          <!-- <a href="./dashboard.php" class="btn_load_screen" call_type="dashboard"><h2>Dashboard</h2></a> -->
         </div>
         <div class="employ">
-          <h2>Employee</h2>
+          <span class="btn_load_screen" call_type="employee">Employee</span>
+          <!-- <a href="./employee.php"><h2>Employee</h2></a> -->
         </div>
       </div>
       <div>
@@ -30,6 +32,47 @@
           </button>
         </form>
       </div>
+      <div class="test">
+
+      </div>
     </header>
+    <script>
+      $(document).ready(function ($) {
+  let page_url = '<?php echo $app_url?>/';
+
+  $(document).on('click', '.btn_load_home', function (event) {
+      event.preventDefault();
+
+      $(document).attr("title", 'dashboard');
+      $(document).find('meta[name=description]').attr('content', data.description);
+
+      window.history.pushState("", "", page_url);
+      // $(document).find('.container').html(" ");
+  });
+
+  $(document).on('click', '.btn_load_screen', function (event) {
+      event.preventDefault();
+
+      let call_type = $(this).attr('call_type');
+
+      $.getJSON(page_url + 'library/employeeController.php', {
+          call_type: call_type
+      }, function (data, textStatus, xhr) {
+          console.log(data);
+
+          $(document).attr("title", data.title);
+          $(document).find('meta[name=description]').attr('content', data.description);
+
+          // $(document).find('.container').html(data.data);
+
+          window.history.pushState("", "", page_url + data.url);
+
+          
+      });
+  });
+
+
+});
+  </script>
   </body>
 </html>

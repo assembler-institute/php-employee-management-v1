@@ -1,4 +1,25 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<<<<<<< HEAD
+=======
+<?php
+require_once ('./library/employeeManager.php');
+
+if (isset($_SERVER['HTTPS']) &&
+    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $ssl = 'https';
+}
+else {
+  $ssl = 'http';
+}
+
+$app_url = ($ssl  )
+          . "://".$_SERVER['HTTP_HOST']
+          . (dirname($_SERVER["SCRIPT_NAME"]) == DIRECTORY_SEPARATOR ? "" : "/")
+          . trim(str_replace("\\", "/", dirname($_SERVER["SCRIPT_NAME"])), "/");
+?>
+>>>>>>> addEmployee
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +27,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- <meta http-equiv="refresh" content= "10; ../index.php?logout.php"/> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+<<<<<<< HEAD
     <script type="text/javascript" src="../assets/js/index.js"></script>
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" integrity="sha512-o/MhoRPVLExxZjCFVBsm17Pkztkzmh7Dp8k7/3JrtNCHh0AQ489kwpfA3dPSHzKDe8YCuEhxXq3Y71eb/o6amg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+ 
+>>>>>>> addEmployee
     <title>Document</title>
 </head>
 <body>
@@ -41,6 +68,7 @@
     
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+<<<<<<< HEAD
      <script src="../assets/js/script.js"></script>
      <script>
 setInterval(function() {
@@ -58,5 +86,10 @@ function checkUser() {
     })
 }
      </script>
+=======
+    <script src="../assets/js/script.js"></script>
+    <!-- <script src="../assets/js/index.js"></script> -->
+
+>>>>>>> addEmployee
 </body>
 </html>
