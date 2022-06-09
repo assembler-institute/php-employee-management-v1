@@ -43,6 +43,7 @@ function createRow(element, i){
     tableCellIcon.classList.add("tbody__employee--icon");
     icon.classList.add("bx");
     icon.classList.add("bxs-trash");
+    btnDel.classList.add("btn__trash--icon")
     formButton.setAttribute("action", "./library/employeeController.php");
     formButton.setAttribute("method", "post");
     btnDel.setAttribute("name", "delete");

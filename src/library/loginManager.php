@@ -19,13 +19,13 @@ function validate(){
             $_SESSION["time"] = time();//set the start time session
             header ("Location: ../dashboard.php");
         }else {
-            $_SESSION['loginerror'] = 'Incorrect Password';
+            $_SESSION['loginerror'] = "<div class='pass__error--container'><p class='pass__error--p'>Incorrect Password</p></div>";
 
             header ("Location: ../../index.php");
         }
 
     }else {
-        $_SESSION['loginerror'] = 'Incorrect Email';
+        $_SESSION['loginerror'] = "<div class='email__error--container'><p class='email__error--p'>Incorrect Email</p></div>";
 
         header ("Location: ../../index.php");
     }
@@ -94,6 +94,8 @@ function checkLoginError(){
 function checkLoginOut(){
 
     if(isset($_GET['logout']) && !isset($_SESSION['email'])){
-        return "<p>Logout successfully</p>";
+        return "<div class='logout__success--container'>
+            <p class='logout__success--p'>Logout successfully</p>
+        </div>";
     }
 }
