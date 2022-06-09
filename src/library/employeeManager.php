@@ -24,10 +24,10 @@ function addEmployee(array $newEmployee)
 			"lastName"=> $_POST["lastName"],
 			"email"=> $_POST["email"],
 			"gender"=> $_POST["gender"],
-			"age"=> $_POST["city"],
+			"age"=> $_POST["age"],
 			"streetAddress"=> $_POST["streetAddress"],
-			"city"=> $_POST["state"],
-			"state"=> $_POST["age"],
+			"city"=> $_POST["city"],
+			"state"=> $_POST["state"],
 			"postalCode"=> $_POST["postalCode"],
 			"phoneNumber"=> $_POST["phoneNumber"]
 	   );
