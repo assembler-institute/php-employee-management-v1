@@ -3,21 +3,23 @@ require_once "./employeeManager.php";
 
 $httpMethod = $_SERVER["REQUEST_METHOD"];
 
-if ($httpMethod === "GET") {
-
-    if(isset($_GET['call_type'])){
-        callType();
-        exit;
-    }
-
-    $employees = getEmployees();
-    echo json_encode($employees);
-}
-
-if($httpMethod === "POST"){
-
+switch($httpMethod){
+    case 'POST':
     $newEmployee = $_POST;
-    addEmployee($newEmployee);   
-    
-}
-
+    addEmployee($newEmployee); 
+    if (isset($_POST['lastName'])) {
+        header("Location: ../employee.php?status=employeeUpdated");
+    }
+    break;
+    case 'PUT':
+    parse_str(file_get_contents("php://input"), $updateEmployee);
+    updateEmployee($updateEmployee);
+    break;
+    case 'DELETE':
+     // Get the database connection file
+     parse_str(file_get_contents("php://input"), $delete);
+     deleteEmployee($delete["id"]);
+     break;
+    default:
+     break;
+} 

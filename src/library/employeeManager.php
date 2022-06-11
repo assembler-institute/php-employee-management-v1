@@ -8,13 +8,12 @@
 
 function addEmployee(array $newEmployee)
 {
-		 //DB data 
+		 //Get Data Base file, then convert JSON format to PHP array 
 		 $db_Employee = json_decode(file_get_contents('../../resources/employees.json'), true);
 		 $last = end($db_Employee);
 		 $id = $last['id']; 
      
 		 	//Form data
-			//*HOW INCREMENT ID WITH FORM DATA?
 		  $employee_data = (json_encode($newEmployee));
 			print_r($employee_data);
 		
@@ -43,14 +42,35 @@ function addEmployee(array $newEmployee)
 
 function deleteEmployee(string $id)
 {
+ //Get Data Base file, then convert JSON format to PHP array 
+ $db_Employee = json_decode(file_get_contents('../../resources/employees.json'), true);
 
-
+ foreach($db_Employee as $employee) {
+	//check for employee exist
+	if($employee['id'] == $id) {
+		//delete employee
+		array_splice($db_Employee, array_search($employee, $db_Employee), 1);
+	}
+	$jsonData = json_encode($db_Employee,  JSON_PRETTY_PRINT);
+		file_put_contents('../../resources/employees.json', $jsonData);
 }
-
+}
 
 function updateEmployee(array $updateEmployee)
 {
-// TODO implement it
+ //Get Data Base file, then convert JSON format to PHP array 
+ $db_Employee = json_decode(file_get_contents('../../resources/employees.json'), true);
+ 
+ foreach($db_Employee as $employee) {
+	 //check for employee exist
+	 if($employee['id'] == $updateEmployee['id']) {
+		 //update employee
+		 array_splice($db_Employee, array_search($employee, $db_Employee), 1, [$updateEmployee]);
+	 }
+
+	 $jsonData = json_encode($db_Employee,  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+		file_put_contents('../../resources/employees.json', $jsonData);
+ }
 }
 
 

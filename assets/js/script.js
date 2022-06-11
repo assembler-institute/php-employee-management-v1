@@ -1,123 +1,198 @@
-// var clients = [{
-//         "Name": "Otto Clay",
-//         "Age": 25,
-//         "Country": 1,
-//         "Address": "Ap #897-1459 Quam Avenue",
-//         "Married": false
-//     },
-//     {
-//         "Name": "Connor Johnston",
-//         "Age": 45,
-//         "Country": 2,
-//         "Address": "Ap #370-4647 Dis Av.",
-//         "Married": true
-//     },
-//     {
-//         "Name": "Lacey Hess",
-//         "Age": 29,
-//         "Country": 3,
-//         "Address": "Ap #365-8835 Integer St.",
-//         "Married": false
-//     },
-//     {
-//         "Name": "Timothy Henson",
-//         "Age": 56,
-//         "Country": 1,
-//         "Address": "911-5143 Luctus Ave",
-//         "Married": true
-//     },
-//     {
-//         "Name": "Ramona Benton",
-//         "Age": 32,
-//         "Country": 3,
-//         "Address": "Ap #614-689 Vehicula Street",
-//         "Married": false
-//     }
-// ];
-
-// var countries = [{
-//         Name: "",
-//         Id: 0
-//     },
-//     {
-//         Name: "United States",
-//         Id: 1
-//     },
-//     {
-//         Name: "Canada",
-//         Id: 2
-//     },
-//     {
-//         Name: "United Kingdom",
-//         Id: 3
-//     }
-// ];
+const getEmployeeJSON = async () => {
+  const url = "../resources/employees.json";
+  try {
+    const rawData = await fetch(url);
+    const data = await rawData.json();
+    return data;
+  } catch (error) {
+    alert("Data not found in the Data Base");
+  }
+};
 
 $("#wrapper").jsGrid({
-    width: "100%",
-    height: "400px",
-
-    inserting: true,
-    editing: true,
-    sorting: true,
-    paging: true,
-    autoload: true,
-
-    controller: {
-        loadData: function () {
-            return $.ajax({
-                url: './library/employeeController.php',
-                type: 'GET',
-                dataType: 'json'
-            })
-        }
+  width: "100%",
+  height: "auto",
+  inserting: true,
+  editing: true,
+  sorting: true,
+  paging: true,
+  autoload: true,
+  pageSize: 8,
+  pageButtonCount: 5,
+  deleteConfirm: "Do you wanna delete data?",
+  controller: {
+    /* Function to load data into the table */
+    loadData: function () {
+      let d = $.Deferred();
+      return $.ajax({
+        url: "../resources/employees.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          return d.resolve(data);
+        },
+      });
     },
 
+    /* Function to add a new employee */
+    insertItem: async function (item) {
+      let d = $.Deferred();
+      let res = await getEmployeeJSON();
+      let newID = res[res.length - 1].id + 1;
+      console.log(newID);
+      item["id"] = newID;
+      return $.ajax({
+        type: "POST",
+        url: "../src/library/employeeController.php",
+        data: item,
+        success: function (data) {
+          return d.resolve(data);
+        },
+      });
+    },
+    /* Function to update an employee's data */
+    updateItem: function (item) {
+      var d = $.Deferred();
+      console.log(item);
+      return $.ajax({
+        type: "PUT",
+        url: "../src/library/employeeController.php",
+        data: item,
+        success: function (data) {
+          return d.resolve(data);
+        },
+      });
+    },
+    /* Function to delete an employee's data */
+    deleteItem: function (item) {
+      return $.ajax({
+        type: "DELETE",
+        url: "./library/employeeController.php",
+        data: item,
+      }).done(function () {
+        console.log("data deleted");
+      });
+    },
+  },
 
-    fields: [{
-            name: "name",
-            type: "text",
-            width: 80,
-            validate: "required"
-        },
-        {
-            name: "email",
-            type: "text",
-            width: 150,
-        },
-        {
-            name: "age",
-            type: "number",
-            width: 40
-        },
-        {
-            name: "Street No.",
-            type: "number",
-            width: 50,
-        },
-        {
-            name: "City",
-            type: "text",
-            title: "City",
-            width: 80,
-        },
-        {
-            name: "State",
-            type: "text",
-            width: 40,
-        },
-        {
-            name: "Postal Code",
-            type: "number",
-            width: 50,
-        },
-        {
-            name: "Phone Number",
-            type: "number",
-            width: 70,
-        },
-        {
-            type: "control"
+  fields: [
+    {
+      name: "id",
+      title: "ID",
+    },
+    {
+      name: "name",
+      title: "Name",
+      type: "text",
+      headercss: "table-header",
+      css: "table-row",
+      width: 35,
+      validate: "required",
+    },
+    {
+      name: "email",
+      title: "Email",
+      type: "text",
+      headercss: "table-header",
+      css: "table-row",
+      width: 75,
+      validate: "required",
+    },
+    {
+      name: "age",
+      title: "Age",
+      type: "number",
+      headercss: "table-header",
+      css: "table-row",
+      width: 20,
+      validate: function (age) {
+        if (age > 0) {
+          return true;
         }
-    ]
+      },
+    },
+    {
+      name: "streetAddress",
+      title: "Street address",
+      type: "text",
+      headercss: "table-header",
+      css: "table-row",
+      width: 25,
+    },
+    {
+      name: "city",
+      title: "City",
+      type: "text",
+      headercss: "table-header",
+      css: "table-row",
+      width: 60,
+    },
+    {
+      name: "state",
+      title: "State",
+      type: "text",
+      headercss: "table-header",
+      css: "table-row",
+      width: 20,
+    },
+    {
+      name: "postalCode",
+      title: "Postal code",
+      type: "number",
+      headercss: "table-header",
+      css: "table-row",
+      width: 30,
+    },
+    {
+      name: "phoneNumber",
+      title: "Phone number",
+      type: "number",
+      headercss: "table-header",
+      css: "table-row",
+      width: 45,
+    },
+    {
+      type: "control",
+      headercss: "table-header",
+      css: "table-row",
+    },
+  ],
+  /* Redirects to the employee page with the employee's data. */
+  rowClick: function (employeeId) {
+    location.href = "./employee.php?employee=" + employeeId.item.id;
+  },
+  /* Redirects to the employee page with the employee's data. */
+  onItemUpdated: function () {
+    let toast = document.getElementById("update-toast");
+    toast.classList.remove("toast");
+    setTimeout(() => {
+      toast.classList.add("toast");
+    }, 3000);
+  },
+  /* Displays a message when deleting employee data */
+  onItemDeleted: function () {
+    let toast = document.getElementById("delete-toast");
+    toast.classList.remove("toast");
+    setTimeout(() => {
+      toast.classList.add("toast");
+    }, 3000);
+  },
 });
+
+/* Hide the id field */
+$("#wrapper").jsGrid("fieldOption", "id", "visible", false);
+
+const editBtn = document.getElementById("editBtn");
+editBtn.addEventListener("click", successUpdate());
+
+/* Function to display a message when updating employee data */
+function successUpdate() {
+  const div = document.getElementById("success");
+  if (div) {
+    let success = "<b>Success!</b> Employee added successfully";
+    div.innerHTML = success;
+    setTimeout(() => {
+      div.remove();
+    }, 3000);
+  }
+}
