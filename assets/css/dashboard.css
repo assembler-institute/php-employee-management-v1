@@ -235,7 +235,8 @@ input{
 }
 
 .back__btn:hover {
-    background-color: #20b684
+    background-color: #20b684;
+    cursor: pointer;
 }
 
 .next__btn {
@@ -258,6 +259,7 @@ input{
 
 .next__btn:hover {
     background-color: #20b684;
+    cursor: pointer;
 }
 
 .submit__button {
