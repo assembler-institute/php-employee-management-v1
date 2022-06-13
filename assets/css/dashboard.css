@@ -128,6 +128,10 @@ input{
     width: 10rem;
 }
 
+.tbody__employee--td:hover {
+    cursor: pointer;
+}
+
 .tbody__employ--icon{
     width: 1rem;
 }
