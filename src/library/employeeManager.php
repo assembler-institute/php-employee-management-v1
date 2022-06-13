@@ -41,13 +41,14 @@ function addEmployee(array $newEmployee, $action){
     }
     //Returning the info
     if($action != 0){
-    echo json_encode($data) ;
-    return $_SESSION["userAdded"];
-    }
+        echo json_encode($data);
+        unset ($_SESSION["userAdded"]);
+        }
     //Redirect to dashboard
     if($action == 0){
     header("Location: ../dashboard.php");
-    }
+    return $_SESSION["userAdded"];
+        }
 
 }
 
