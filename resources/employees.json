@@ -1,9 +1,9 @@
 [
     {
-        "id": 1,
-        "name": "Rack",
+        "id": "1",
+        "name": "Borja",
         "lastName": "Lei",
-        "email": "jackon@network.com",
+        "email": "borja@example.com",
         "gender": "man",
         "city": "San Jone",
         "streetAddress": "126",
@@ -11,19 +11,6 @@
         "age": "24",
         "postalCode": "394221",
         "phoneNumber": "7383627627"
-    },
-    {
-        "id": "2",
-        "name": "John",
-        "lastName": "Doe",
-        "email": "jhondoe@foo.com",
-        "gender": "man",
-        "city": "New York",
-        "streetAddress": "89",
-        "state": "WA",
-        "age": "34",
-        "postalCode": "09889",
-        "phoneNumber": "1283645645"
     },
     {
         "id": 3,
@@ -44,7 +31,7 @@
         "lastName": "Desmond",
         "email": "dismond@foo.com",
         "gender": "man",
-        "age": 30,
+        "age": "30",
         "streetAddress": "90",
         "city": "Salt lake city",
         "state": "UT",
@@ -57,7 +44,7 @@
         "lastName": "Smith",
         "email": "susanmith@baz.com",
         "gender": "woman",
-        "age": 28,
+        "age": "28",
         "streetAddress": "43",
         "city": "Louisville",
         "state": "KNT",
@@ -70,7 +57,7 @@
         "lastName": "Simpson",
         "email": "brad@foo.com",
         "gender": "man",
-        "age": 40,
+        "age": "40",
         "streetAddress": "128",
         "city": "Atlanta",
         "state": "GEO",
@@ -83,24 +70,11 @@
         "lastName": "Walker",
         "email": "walkerneil@baz.com",
         "gender": "man",
-        "age": 42,
+        "age": "42",
         "streetAddress": "1",
         "city": "Nashville",
         "state": "TN",
-        "postalCode": 90143,
+        "postalCode": "90143",
         "phoneNumber": "45372788192"
-    },
-    {
-        "id": "8",
-        "name": "Robert",
-        "lastName": "Thomson",
-        "email": "jackon@network.com",
-        "gender": "man",
-        "age": 24,
-        "streetAddress": "126",
-        "city": "New Orleans",
-        "state": "LU",
-        "postalCode": 63281,
-        "phoneNumber": "91232876454"
     }
 ]
