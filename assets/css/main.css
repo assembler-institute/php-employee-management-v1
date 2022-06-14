@@ -1,0 +1,16 @@
+img {
+    width:30px;
+}
+#logoAssembler {
+  width:50%;
+}
+
+.container {
+    width: 5px;
+    clear: both;
+  }
+  
+  .container input {
+    width: 100%;
+    clear: both;
+  }
