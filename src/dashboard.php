@@ -1,1 +1,33 @@
-<!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+<!-- Imports -->
+<?php
+    require_once("./library/sessionHelper.php");
+    checkSession();
+?>
+
+<!-- jsGrid -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+
+<!-- JS -->
+<script src="../assets/js/grid.js"></script>
+
+<!-- Change Header -->
+<script>
+    $(".dashboard").removeClass("a-non-active");
+    $(".employee").addClass("a-non-active");
+</script>
+
+<!-- Grid -->
+<div class="alert alert-success w-25 m-3" role="alert" hidden>
+    Employee created/deleted successfully.
+</div>
+<div id="grid"></div>
+
+<!-- Fill table -->
+<script>
+    fillJsGrid();
+</script>
+
+<!-- Footer -->
+<?php include("../assets/html/footer.html"); ?>
