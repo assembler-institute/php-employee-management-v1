@@ -1,32 +1,19 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <div id="logo" class="logo__container">
-        <img src="" alt="" />
-      </div>
-      <h1>EMPLOYEE MANAGEMENT</h1>
-    </header>
-    <nav>
-      <div class="links__container">
-        <span id="dashboardLink" class="links__container--item">DASHBOARD</span>
-        <span id="employeeLink" class="links__container--item">EMPLOYEE</span>
-      </div>
-      <div class="logout__btn_container">
-        <button id="logoutBtn" class="secondary__btn">LOGOUT</button>
-      </div>
-    </nav>
+<?php
+require_once("./library/sessionHelper.php");
+checkSession();
+
+?>
     <main>
+      <div>
+      <?php
+      include_once("header.php");
+      ?>
+      </div>
+      <br>
       <sectiion class="dashboard__table__containeer">
-        <table class="dashboard__employee__table">
-          <tr class="dashboard__employe__th">
+        <table id="dashboardEmployeeTable" class="dashboard__employee__table" style="border-spacing: 0px;">
+          <tr id="employeFields" class="dashboard__employe__th">
             <th>NAME</th>
             <th>EMAIL</th>
             <th>AGE</th>
@@ -36,19 +23,8 @@
             <th>POSTAL CODE</th>
             <th>PHONE NUMBER</th>
             <th>
-              <button id="dashboardAddNewEmployee">+</button>
+              <button id="dashboardAddNewEmployee">Add Employee</button>
             </th>
-          </tr>
-          <tr id="employeeID" class="dashboard__employee__td">
-            <td>Juan</td>
-            <td>juan@huan.com</td>
-            <td>22</td>
-            <td>xxxx</td>
-            <td>xxxxx</td>
-            <td>xxxxx</td>
-            <td>xxxxx</td>
-            <td>666666666</td>
-            <td><button id="dashboardRemoveEmployee">DELETE</button></td>
           </tr>
         </table>
       </sectiion>
