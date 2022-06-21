@@ -92,9 +92,19 @@ file_put_contents($storedEmployes, $updateEmployee);
 }
 
 
-function getEmployee(string $id)
+function getEmployee($id)
 {
-// TODO implement it
+ //Read json data
+ $storedEmployes = "../../resources/employees.json";
+ //Decode Json data
+$stored_employees = json_decode(file_get_contents($storedEmployes));
+foreach($stored_employees as $key => $value) {
+if($value->id==$id){
+  $employeeData=$stored_employees[$key];
+ }
+ }
+ header("Location: ../employee.php");
+
 }
 
 

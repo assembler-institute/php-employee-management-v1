@@ -15,8 +15,10 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 }}
 }
 if ($_SERVER['REQUEST_METHOD']==='GET') {
+    if (isset($_REQUEST["logout"])) {
     require_once("./loginManager.php");
     logout();
+    }
 
 }
 

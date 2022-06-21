@@ -12,8 +12,14 @@ const checkCurrentUrl = () => {
   if (currentUrl === "dashboard.php") {
     getEmployees();
     addEvents();
-  } else {
+  } else if (currentUrl === "employee.php") {
+    returnDashboard();
   }
+};
+const returnDashboard = () => {
+  document.getElementById("formReturnBtn").addEventListener("click", () => {
+    redirectDashboardPage();
+  });
 };
 
 const addEvents = () => {
@@ -78,16 +84,25 @@ const employeTableData = (employe, tableRow) => {
     tableRow.appendChild(tableData);
   });
   let tableDataBtn = document.createElement("td");
-  let btn = document.createElement("button");
-  btn.dataset.remove = "removeEmployee";
-  btn.id = `remove-${employe.id}`;
-  btn.textContent = "DELETE";
-  btn.className = "deleteBtn";
-  tableDataBtn.appendChild(btn);
+  tableDataBtn.classList = "userActionContainer";
+  let deleteBtn = document.createElement("button");
+  deleteBtn.dataset.remove = "removeEmployee";
+  deleteBtn.id = `remove-${employe.id}`;
+  deleteBtn.textContent = "DELETE";
+  deleteBtn.className = "deleteBtn";
+  let editBtn = document.createElement("a");
+  editBtn.classList = "editBtn";
+  editBtn.textContent = "EDIT";
+  editBtn.href = `../src/library/employeeController.php?edit=${employe.id}`;
+  tableDataBtn.appendChild(editBtn);
+  tableDataBtn.appendChild(deleteBtn);
   tableRow.appendChild(tableDataBtn);
 };
 const redirectEmployeePage = () => {
   window.location.replace("../src/employee.php");
+};
+const redirectDashboardPage = () => {
+  window.location.replace("../src/dashboard.php");
 };
 
 const removeEmployee = () => {
@@ -121,4 +136,23 @@ const clearTable = () => {
   tableElement.forEach((element) => {
     element.remove();
   });
+};
+
+const editEmployee = (id) => {
+  const data = { editUser: id };
+  fetch("../src/library/employeeController.php", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => console.error(error));
 };
