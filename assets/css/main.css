@@ -1,0 +1,157 @@
+body {
+  align-items: center;
+  background-color: rgb(214, 247, 240);
+  padding: 10vh;
+  justify-content: center;
+  height: 50vh;
+  font-family: "Lato", sans-serif;
+}
+
+.logout__btn {
+  float: right;
+  width: 201px;
+  height: 40px;
+  background: #08d;
+  margin-bottom: 20px;
+  margin-right: 45px;
+  padding-top: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+#dashboardEmployeeTable {
+  font-family: "Lato", sans-serif;
+  width: 100%;
+  text-align: center;
+  background-color: #15172b;
+  border: 50px solid #15172b;
+  color: white;
+  border-radius: 30px;
+  font-size: 1vw;
+}
+
+#dashboardEmployeeTable td,
+#dashboardEmployeeTable th {
+  /* border: 1px solid #ddd; */
+  padding: 8px;
+}
+
+#dashboardEmployeeTable tr:nth-child(even) {
+  background-color: #15172b;
+  border-radius: 5px;
+}
+
+#dashboardEmployeeTable tr:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
+
+#dashboardEmployeeTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #15172b;
+  color: rgb(61, 193, 241);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1vw;
+}
+
+.formSubmitBtn {
+  width: 20%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1vw;
+}
+
+.formSubmitBtn:hover {
+  background-color: #45a049;
+}
+
+.formReturn {
+  width: 20%;
+  background-color: #dc4848;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1vw;
+}
+
+.formReturn:hover {
+  background-color: #b33f3f;
+}
+
+.container {
+  background-color: #15172b;
+  border-radius: 20px;
+  width: 30%;
+  padding: 40px 70px;
+  margin: 0 auto;
+}
+
+.employee__form {
+  padding-top: 80px;
+}
+
+.deleteBtn {
+  width: 50%;
+  background-color: #dc4848;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1vw;
+}
+.editBtn {
+  width: 50%;
+  background-color: #08d;
+  color: white;
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1vw;
+}
+
+#dashboardAddNewEmployee {
+  width: 50%;
+  background-color: #46dc3c;
+  color: rgb(0, 0, 0);
+  padding: 14px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1vw;
+}
+.userActionContainer {
+  display: flex;
+  gap: 1rem;
+}
