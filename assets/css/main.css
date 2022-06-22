@@ -1,0 +1,30 @@
+.form-control-file {
+    width: 25%;
+}
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    margin:20px 0;
+
+}
+input{
+    margin-right: ;
+}
+.form{
+    width: 80%;
+    margin-left: 10%;
+    padding: 20px 20px;
+    border: solid rgb(221, 220, 220) 2px;
+    border-radius: 0px;
+}
+.title{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+button{
+    margin: 0 20px;
+}
