@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <?php require_once "../assets/html/header.html" ?>
+    <?php require_once "../assets/html/header.html"; ?>
 
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">

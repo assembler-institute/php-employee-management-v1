@@ -31,6 +31,7 @@
             </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
             <?php require_once "" ?>
             <tr>
                 <th scope="row">1</th>
@@ -54,6 +55,10 @@
                 <td>394221</td>
                 <td>7383627627</td>
             </tr>
+=======
+            <?php require_once "./library/employeeController.php"; ?>
+            
+>>>>>>> develop
         </tbody>
     </table>
 

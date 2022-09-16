@@ -71,7 +71,7 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form method="POST" action="./src/library/loginManager.php">
+        <form method="POST" action="./src/library/loginController.php">
             <img class="mb-4" src="./assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
 
             <h1 class="h3 mb-3 fw-normal">Please login</h1>
