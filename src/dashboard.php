@@ -31,7 +31,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php // require_once "" ?>
+            <?php require_once "" ?>
             <tr>
                 <th scope="row">1</th>
                 <td>Rack</td>
