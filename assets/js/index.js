@@ -11,9 +11,9 @@ form.addEventListener('submit', e => {
     })
         .then(res => res.json())
         .then(data => { 
-            if (data === 'You need to fill in all the information') {
+            if (data === 'Blank') {
                 let alert = document.createElement('span');
-                alert.innerHTML = data;
+                alert.innerHTML = 'You need to fill in all the information';
                 alert.className = 'alert alert-danger';
                 while(alertBox.hasChildNodes()){
                     alertBox.removeChild(alertBox.firstChild);
@@ -21,9 +21,9 @@ form.addEventListener('submit', e => {
                 alertBox.appendChild(alert);
             } else if (data === 'OK') {
                 window.location.replace("http://localhost/assembler_projects/php_module/php-employee-management-v1/src/dashboard.php");
-            } else if (data === 'Error: Not matching data found') {
+            } else if (data === 'No match') {
                 let noMatch = document.createElement('span');
-                noMatch.innerHTML = data;
+                noMatch.innerHTML = 'Error: No matching data found';
                 noMatch.className = 'alert alert-danger';
                 while(alertBox.hasChildNodes()){
                     alertBox.removeChild(alertBox.firstChild);

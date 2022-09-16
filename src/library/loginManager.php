@@ -5,7 +5,7 @@
         $adminsInfo = json_decode(file_get_contents('../../resources/users.json'),true)['users'];
     
         if ($name === '' || $pass === ''){
-            echo json_encode('You need to fill in all the information');       
+            echo json_encode('Blank');       
         } else {
             foreach ($adminsInfo as $admin) {
                 if (($name === $admin['name']) || 
@@ -15,10 +15,10 @@
                         $adminId = $admin['userId'];
                         $_SESSION['user'] = $adminId;
                     } else {
-                        echo json_encode('Error: Not matching data found');
+                        echo json_encode('No match');
                     }
                 } else {
-                    echo json_encode('Error: Not matching data found');
+                    echo json_encode('No match');
                 }
             }
         }

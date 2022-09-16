@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    margin-top: 200px;
+    width: 20vw;
+}
+
+.logo-box {
+    display: flex;
+    justify-content: center;
+}
+
+#alertBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
