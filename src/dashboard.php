@@ -31,29 +31,8 @@
             </tr>
         </thead>
         <tbody>
-            <?php // require_once "" ?>
-            <tr>
-                <th scope="row">1</th>
-                <td>Rack</td>
-                <td>jackon@network.com</td>
-                <td>24</td>
-                <td>126</td>
-                <td>San Jone</td>
-                <td>CA</td>
-                <td>394221</td>
-                <td>7383627627</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Rack</td>
-                <td>jackon@network.com</td>
-                <td>24</td>
-                <td>126</td>
-                <td>San Jone</td>
-                <td>CA</td>
-                <td>394221</td>
-                <td>7383627627</td>
-            </tr>
+            <?php  require_once "library/employeeController.php" ?>
+            
         </tbody>
     </table>
 

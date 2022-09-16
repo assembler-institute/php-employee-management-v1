@@ -5,6 +5,8 @@ save their session data and log out. */
 
 session_start();
 
+function login(){
+
 $usersJson = file_get_contents('../../resources/users.json');
 $decodedJson = json_decode($usersJson, true);
 $users = $decodedJson["users"];
@@ -27,3 +29,6 @@ if (isset($_POST["login"])) {
         // disparar alerta
     }
 }
+
+}
+
