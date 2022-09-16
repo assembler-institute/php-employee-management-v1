@@ -1,19 +1,24 @@
 const 
-    form            = document.getElementById('loginForm'),
-    alertBox        = document.getElementById('alert-box');
+    form = document.getElementById('login'),
+    alertBox = document.getElementById('alertBox');
 
-let data = new FormData(form);
-let username = data.get('username');
-let pass = data.get('pass');
-
-fetch('src/library/loginController.php', {
-    method: 'POST',
-    body: username
-})
-    .then(res => res.json())
-    .then(data => {
-        let info = document.createElement('div');
-        info.className = "//clase de Boostrap";
-        info.innerHTML = data;
-        alertBox.appendChild(info);
+form.addEventListener('submit', e => {
+    e.preventDefault(); 
+    let loginData = new FormData(form);
+    fetch('src/library/loginController.php',{
+        method:'POST',  
+        body: loginData,        
     })
+        .then(res => res.json())
+        .then(data => { 
+            let alert = document.createElement('span');
+            alert.innerHTML = data;
+            alert.className = 'alert alert-danger';
+            while(alertBox.hasChildNodes()){
+                alertBox.removeChild(alertBox.firstChild);
+            };
+            alertBox.appendChild(alert);
+        });
+});
+
+
