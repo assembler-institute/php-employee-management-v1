@@ -31,7 +31,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php  require_once "library/employeeController.php" ?>
+            <?php require_once "./library/employeeController.php"; ?>
             
         </tbody>
     </table>
