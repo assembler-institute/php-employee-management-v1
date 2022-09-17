@@ -5,8 +5,5 @@ therefore, it must call the functions of the "loginManager.php" once the request
 been received to carry out the action. */
 
 require_once "loginManager.php";
-<<<<<<< HEAD
-=======
 
 login();
->>>>>>> develop
