@@ -9,7 +9,10 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous" defer></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <title>Dashboard</title>
 </head>
 
@@ -28,7 +31,7 @@
                 <th scope="col">Phone State</th>
                 <th scope="col">Phone Postal Code</th>
                 <th scope="col">Phone Number</th>
-                <th scope="col"><a href="">+</a></th>
+                <th scope="col" title="New employee"><a href=""><i class="bi bi-plus-circle-fill"></i></a></th>
             </tr>
         </thead>
         <tbody>
@@ -70,20 +73,22 @@
                 $employeePostalCode = $employee["postalCode"];
                 $employeePhoneNumber = $employee["phoneNumber"];
                 ?>
-        
-                <tr>
-                    <th scope="row"><?php echo $employeeId ?></th>
-                    <td><?php echo $employeeName ?></td>
-                    <td><?php echo $employeeEmail ?></td>
-                    <td><?php echo $employeeAge ?></td>
-                    <td><?php echo $employeeStreetAdress ?></td>
-                    <td><?php echo $employeeCity ?></td>
-                    <td><?php echo $employeeState ?></td>
-                    <td><?php echo $employeePostalCode ?></td>
-                    <td><?php echo $employeePhoneNumber ?></td>
-                    <td scope="col"><a href="">delete icon</a></td>
-                </tr>
-        
+
+                <!-- <a href="./employee.php"> -->
+                    <tr>
+                        <th scope="row"><?php echo $employeeId ?></th>
+                        <td><?php echo $employeeName ?></td>
+                        <td><?php echo $employeeEmail ?></td>
+                        <td><?php echo $employeeAge ?></td>
+                        <td><?php echo $employeeStreetAdress ?></td>
+                        <td><?php echo $employeeCity ?></td>
+                        <td><?php echo $employeeState ?></td>
+                        <td><?php echo $employeePostalCode ?></td>
+                        <td><?php echo $employeePhoneNumber ?></td>
+                        <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
+                    </tr>
+                <!-- </a> -->
+                
                 <?php
             }
             ?>
