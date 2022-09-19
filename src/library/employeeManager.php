@@ -7,8 +7,7 @@
  */
 
     function addEmployee(array $newEmployee){
-    // TODO implement it
-        
+    // TODO implement it  
     }
 
 
@@ -27,17 +26,20 @@
         $employees = json_decode(file_get_contents('../../resources/employees.json'), true);
         foreach ($employees as $employee){
             if (strval($employee['id']) === $id){
-                return $employee;
+                $id = $employee['id'];
+                $form = <<<form
+                <form>
+                <input value="$id">
+                </form>
+                form;
+                echo $form;
             }
         }
-        return $employees;
     }
-
 
     function removeAvatar($id){
     // TODO implement it
     }
-
 
     function getQueryStringParameters():array{
     // TODO implement it

@@ -13,6 +13,7 @@
     <script src="assets/js/index.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/main.css" >
+    <script src="../assets/js/dashboard.js" defer></script>
   </head>
   <body>
     <header>
@@ -22,36 +23,19 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Email
-            </th>
-            <th>
-              Age
-            </th>
-            <th>
-              Street No.
-            </th>
-            <th>
-              City
-            </th>
-            <th>
-              State
-            </th>
-            <th>
-              Postal Code
-            </th>
-            <th>
-              Phone Number
-            </th>
-            <th>
-              +(Icon)
-            </th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Street No.</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postal Code</th>
+            <th>Phone Number</th>
+            <th>+(Icon)</th>
           </tr>
         </thead>
         <tbody id="tbody">
+
         </tbody>
       </table>
     </main>
