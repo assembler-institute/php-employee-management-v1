@@ -1,9 +1,8 @@
 <!-- TODO Employee view -->
 <?php 
     session_start();
-    if (!isset($_SESSION['user'])) {
-        header('location: ../index.php');
-    }
+    require_once('library/sessionHelper.php');
+    userConnected();
 ?>
 <!doctype html>
 <html lang="en">

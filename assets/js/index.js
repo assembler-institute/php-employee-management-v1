@@ -13,7 +13,7 @@ form.addEventListener('submit', e => {
         .then(data => { 
             if (data === 'Blank') {
                 let alert = document.createElement('span');
-                alert.innerHTML = 'You need to fill in all the information';
+                alert.textContent = 'You need to fill in all the information';
                 alert.className = 'alert alert-danger';
                 while(alertBox.hasChildNodes()){
                     alertBox.removeChild(alertBox.firstChild);
@@ -23,7 +23,7 @@ form.addEventListener('submit', e => {
                 window.location.replace("src/dashboard.php");
             } else if (data === 'No match') {
                 let noMatch = document.createElement('span');
-                noMatch.innerHTML = 'Error: No matching data found';
+                noMatch.textContent = 'Error: No matching data found';
                 noMatch.className = 'alert alert-danger';
                 while(alertBox.hasChildNodes()){
                     alertBox.removeChild(alertBox.firstChild);
