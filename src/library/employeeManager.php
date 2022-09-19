@@ -36,7 +36,7 @@ function employeeDashboard() {
         $employeePostalCode = $employee["postalCode"];
         $employeePhoneNumber = $employee["phoneNumber"];
         ?>
-
+        
         <tr>
             <th scope="row"><?php echo $employeeId ?></th>
             <td><?php echo $employeeName ?></td>
@@ -47,6 +47,7 @@ function employeeDashboard() {
             <td><?php echo $employeeState ?></td>
             <td><?php echo $employeePostalCode ?></td>
             <td><?php echo $employeePhoneNumber ?></td>
+            <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
 
         <?php
