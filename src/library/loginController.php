@@ -3,7 +3,7 @@
     $password = $_POST['password'];
     $hash = password_hash($password,PASSWORD_DEFAULT);
     $verify = password_verify($password, $hash);
-    $fileContents = file_get_contents('');
+    $fileContents = file_get_contents('./resources');
     // echo $fileContents;
     // $adminsInfo = json_decode($fileContents,true)['users'];
     
