@@ -20,7 +20,83 @@
     </header>
     <main>
         <div>
-            Esto es el Employee
+            <form>
+              <div class="row">
+                <div class="col-6">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="col-6">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" name="lastName">
+                </div>
+              </div>
+                
+              <div class="row">
+                <div class="col-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                </div>
+
+                <div class="col-6">
+                  <label for="gender" class="form-label">Gender</label>
+                  <div>
+                  <select name="gender" id="gender">
+                    <option value="man">Man</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" name="city">
+                </div>
+
+                <div class="col-6">
+                  <label for="address" class="form-label">Street Address</label>
+                  <input type="text" class="form-control" id="address" name="address">
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col-6">
+                  <label for="state" class="form-label">State</label>
+                  <input type="text" class="form-control" id="state" name="state">
+                </div>
+
+                <div class="col-6">
+
+                  <label for="age" class="form-label">Age</label>
+                  <input type="number" class="form-control" id="age" name="age">
+                </div>
+              </div>
+
+              <div class="row">
+
+                <div class="col-6">
+                  <label for="postalCode" class="form-label">Postal Code</label>
+                  <input type="number" class="form-control" id="postalCode" name="postalCode">
+                </div>
+
+                <div class="col-6">
+                  <label for="phoneNumber" class="form-label">Phone Number</label>
+                  <input type="number" class="form-control" id="phoneNumber" name="phoneNumber">
+                </div>
+              </div>
+
+              
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary">Return</button>
+              
+
+              </form>
         </div>
     </main>
     <footer>
