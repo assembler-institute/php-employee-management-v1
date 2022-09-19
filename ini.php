@@ -72,7 +72,7 @@
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
         <form method="POST" action="./src/library/loginController.php">
-            <img class="mb-4" src="./assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
+            <img class="mb-4" src="./assets/brand/working-vector.ico" alt="" width="72" height="57" />
 
             <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
@@ -94,7 +94,7 @@
 
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
 
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
         </form>
     </main>
 </body>
