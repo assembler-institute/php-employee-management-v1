@@ -20,7 +20,7 @@ form.addEventListener('submit', e => {
                 };
                 alertBox.appendChild(alert);
             } else if (data === 'OK') {
-                window.location.replace("http://localhost/assembler_projects/php_module/php-employee-management-v1/src/dashboard.php");
+                window.location.replace("src/dashboard.php");
             } else if (data === 'No match') {
                 let noMatch = document.createElement('span');
                 noMatch.innerHTML = 'Error: No matching data found';
