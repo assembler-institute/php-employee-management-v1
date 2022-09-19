@@ -31,13 +31,15 @@
             <th>State</th>
             <th>Postal Code</th>
             <th>Phone Number</th>
-            <th>+(Icon)</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody id="tbody">
 
         </tbody>
       </table>
+      <button>Add employee</button>
     </main>
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
