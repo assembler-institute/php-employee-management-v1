@@ -11,7 +11,7 @@
 // session_start();
 
 function employeeDashboard() {
-    $employeesJson = file_get_contents('../../resources/employees.json');
+    $employeesJson = file_get_contents('../resources/employees.json');
     $employeesDecodedJson = json_decode($employeesJson, true);
 
     // echo "<pre>";
@@ -37,6 +37,7 @@ function employeeDashboard() {
         $employeePhoneNumber = $employee["phoneNumber"];
         ?>
         
+        <!-- <a href="./employee.php"> -->
         <tr>
             <th scope="row"><?php echo $employeeId ?></th>
             <td><?php echo $employeeName ?></td>
@@ -49,11 +50,11 @@ function employeeDashboard() {
             <td><?php echo $employeePhoneNumber ?></td>
             <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
         </tr>
+        <!-- </a> -->
 
         <?php
     }
 } 
-
 
 // function addEmployee(array $newEmployee)
 // {

@@ -35,6 +35,8 @@
             </tr>
         </thead>
         <tbody>
+            <?php require_once "./library/employeeController.php"; ?>
+
             <!-- <tr>
                 <th scope="row">1</th>
                 <td>Rack</td>
@@ -57,44 +59,6 @@
                 <td>394221</td>
                 <td>7383627627</td>
             </tr> -->
-
-            <?php # todo este código debería ejecutarse en la función employeeDashboard() del archivo employeeManager.php, pero al hacerlo de esa manera nos da dos errores que aún no se han podido solucionar.
-            $employeesJson = file_get_contents('../resources/employees.json');
-            $employeesDecodedJson = json_decode($employeesJson, true);
-        
-            foreach ($employeesDecodedJson as $employee) {
-                $employeeId = $employee["id"];
-                $employeeName = $employee["name"];
-                $employeeEmail = $employee["email"];
-                $employeeAge = $employee["age"];
-                $employeeStreetAdress = $employee["streetAddress"];
-                $employeeCity = $employee["city"];
-                $employeeState = $employee["state"];
-                $employeePostalCode = $employee["postalCode"];
-                $employeePhoneNumber = $employee["phoneNumber"];
-                ?>
-
-                <!-- <a href="./employee.php"> -->
-                    <tr>
-                        <th scope="row"><?php echo $employeeId ?></th>
-                        <td><?php echo $employeeName ?></td>
-                        <td><?php echo $employeeEmail ?></td>
-                        <td><?php echo $employeeAge ?></td>
-                        <td><?php echo $employeeStreetAdress ?></td>
-                        <td><?php echo $employeeCity ?></td>
-                        <td><?php echo $employeeState ?></td>
-                        <td><?php echo $employeePostalCode ?></td>
-                        <td><?php echo $employeePhoneNumber ?></td>
-                        <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
-                    </tr>
-                <!-- </a> -->
-                
-                <?php
-            }
-            ?>
-            
-            <?php # require_once "./library/employeeController.php"; ?>
-            
         </tbody>
     </table>
 
