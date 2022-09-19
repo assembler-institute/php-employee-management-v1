@@ -15,8 +15,3 @@ main{
     grid-column: 2;
     grid-row: 2;
 }
-#alertBox{
-    width: 100%;
-    display: flex;
-    margin-top: 20px;
-}

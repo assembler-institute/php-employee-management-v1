@@ -11,13 +11,25 @@ form.addEventListener('submit', e => {
     })
         .then(res => res.json())
         .then(data => { 
-            let alert = document.createElement('span');
-            alert.innerHTML = data;
-            alert.className = 'alert alert-danger';
-            while(alertBox.hasChildNodes()){
-                alertBox.removeChild(alertBox.firstChild);
-            };
-            alertBox.appendChild(alert);
+            if (data === 'Blank') {
+                let alert = document.createElement('span');
+                alert.innerHTML = 'You need to fill in all the information';
+                alert.className = 'alert alert-danger';
+                while(alertBox.hasChildNodes()){
+                    alertBox.removeChild(alertBox.firstChild);
+                };
+                alertBox.appendChild(alert);
+            } else if (data === 'OK') {
+                window.location.replace("src/dashboard.php");
+            } else if (data === 'No match') {
+                let noMatch = document.createElement('span');
+                noMatch.innerHTML = 'Error: No matching data found';
+                noMatch.className = 'alert alert-danger';
+                while(alertBox.hasChildNodes()){
+                    alertBox.removeChild(alertBox.firstChild);
+                };
+                alertBox.appendChild(noMatch);
+            }
         });
 });
 
