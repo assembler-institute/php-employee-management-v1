@@ -19,9 +19,41 @@
       <?php require_once('../assets/html/header.html') ?>
     </header>
     <main>
-      <div>
-        Esto es el Dashboard
-      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+              Age
+            </th>
+            <th>
+              Street No.
+            </th>
+            <th>
+              City
+            </th>
+            <th>
+              State
+            </th>
+            <th>
+              Postal Code
+            </th>
+            <th>
+              Phone Number
+            </th>
+            <th>
+              +(Icon)
+            </th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
     </main>
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
