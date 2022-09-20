@@ -4,6 +4,12 @@
 therefore, it must call the functions of the "loginManager.php" once the request has 
 been received to carry out the action. */
 
-require_once "loginManager.php";
+require_once "./loginManager.php";
 
-login();
+if ($_GET["action"] == "login") {
+    login();
+} 
+
+if ($_GET["action"] == "logout") {
+    logout();
+}

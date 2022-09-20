@@ -13,6 +13,8 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
 
+    <script src="./assets/js/index.js"></script>
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -66,7 +68,6 @@
             -webkit-overflow-scrolling: touch;
         }
     </style>
-
 </head>
 
 <body class="text-center">
@@ -93,6 +94,7 @@
             </div>
 
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
+            <!-- <button type="submit">Login</button> -->
 
             <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
         </form>

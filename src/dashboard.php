@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="../assets/js/dashboard.js" defer></script>
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -15,6 +16,9 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <title>Dashboard</title>
 </head>
 
@@ -37,30 +41,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php require_once "./library/employeeController.php"; ?>
-
-            <!-- <tr>
-                <th scope="row">1</th>
-                <td>Rack</td>
-                <td>jackon@network.com</td>
-                <td>24</td>
-                <td>126</td>
-                <td>San Jone</td>
-                <td>CA</td>
-                <td>394221</td>
-                <td>7383627627</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Rack</td>
-                <td>jackon@network.com</td>
-                <td>24</td>
-                <td>126</td>
-                <td>San Jone</td>
-                <td>CA</td>
-                <td>394221</td>
-                <td>7383627627</td>
-            </tr> -->
+            <?php #require_once "./library/employeeController.php"; ?>
         </tbody>
     </table>
 

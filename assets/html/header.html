@@ -68,7 +68,7 @@
 		</style>
 
 		<!-- Custom styles for this template -->
-		<link href="headers.css" rel="stylesheet" />
+		<!-- <link href="headers.css" rel="stylesheet" /> -->
 	</head>
 	<body>
 		<svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -138,9 +138,9 @@
       </ul> -->
 
 					<div class="col-md-3 text-end">
-						<button type="button" class="btn btn-outline-primary me-2">
-							Logout
-						</button>
+						<form method="post" action="../src/library/loginController.php?action=logout">
+							<input type="submit" class="btn btn-outline-primary me-2" value="Logout" name="logout" />
+						</form>
 					</div>
 				</header>
 			</div>
