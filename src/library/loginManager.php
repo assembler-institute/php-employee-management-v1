@@ -25,7 +25,7 @@ function login() {
                 header("Location: ../dashboard.php");
             }
         } else {
-            header("Location: ../../ini.php?action=loginError");
+            header("Location: ../../loginController.php?action=loginError");
             // TODO disparar alerta
         }
     }
@@ -34,6 +34,10 @@ function login() {
 function logout() {
     if (isset($_POST["logout"])) {
         // session_destroy();
-        header("Location: http://localhost/php-workspace/php-employee-management-v1/ini.php");
+        header("Location: ../../ini.php");
     }
+}
+
+function loginError(){
+    header("Location: ../../ini.php?action=loginError");
 }
