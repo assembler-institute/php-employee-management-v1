@@ -10,6 +10,7 @@ html, body {
 }
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #fbfbfb;
     display: grid;
     grid-template: 80px 1fr 50px / 1fr 4fr 1fr;
 }
@@ -29,6 +30,7 @@ header .logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 20px;
 }
 header .logo span {
     font-weight: bold;
