@@ -33,13 +33,6 @@
     }
 
 
-<<<<<<< HEAD
-function updateEmployee(array $updateEmployee)
-{
-// TODO implement it
-
-}
-=======
     function getEmployee(string $id){
     // TODO implement it
         $employees = json_decode(file_get_contents('../../resources/employees.json'), true);
@@ -55,7 +48,6 @@ function updateEmployee(array $updateEmployee)
             }
         }
     }
->>>>>>> ef2c503b14e49d6013378c6efb247b653c9b66ed
 
     function removeAvatar($id){
     // TODO implement it
