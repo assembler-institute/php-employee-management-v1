@@ -1,10 +1,35 @@
 <?php
+    session_start();
+
     require_once('./employeeManager.php'); 
 
-    printEmployees();
+    if (isset($_GET['action']) && $_GET['action'] === 'list') {
+        printEmployees();
 
-    // More functions to be added. Fix compatibility with JS fetch. 
-    
+    } else if (isset($_GET['action']) && $_GET['action'] === 'create') {
+        
+        $newEmployee = [
+            "id"            => 0, 
+            "name"          => $_POST['name'],
+            "lastName"      => $_POST['lastName'],
+            "email"         => $_POST['email'],
+            "gender"        => $_POST['gender'],
+            "city"          => $_POST['city'],
+            "address"       => $_POST['address'],
+            "state"         => $_POST['state'],
+            "age"           => $_POST['age'],
+            "postalCode"    => $_POST['postalCode'],
+            "phoneNumber"   => $_POST['phoneNumber'],
+        ];
+        addEmployee($newEmployee);
+
+    } else if (isset($_GET['action']) && $_GET['action'] === 'read') {
+
+    } else if (isset($_GET['action']) && $_GET['action'] === 'update') {
+
+    } else if (isset($_GET['action']) && $_GET['action'] === 'delete') {
+        
+    }
     
     
    
