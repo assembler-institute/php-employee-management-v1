@@ -1,0 +1,17 @@
+.del{
+    cursor: pointer;
+    
+}
+.del:hover,.update:hover{
+    color: navy;
+}
+.update{
+    color: black;
+    text-decoration: none;
+}
+.table tr:nth-child(2n+2){
+    background-color: #eee;
+}
+.table th{
+    background-color: #ddd;
+}

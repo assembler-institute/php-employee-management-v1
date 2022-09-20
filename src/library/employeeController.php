@@ -28,7 +28,8 @@
     } else if (isset($_GET['action']) && $_GET['action'] === 'update') {
 
     } else if (isset($_GET['action']) && $_GET['action'] === 'delete') {
-
+        $employeeId = $_GET['id'];
+        deleteEmployee($employeeId);
     }
     
     

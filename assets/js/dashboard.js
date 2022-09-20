@@ -22,8 +22,8 @@ const
                         <td>${data[i].state}</td>
                         <td>${data[i].postalCode}</td>
                         <td>${data[i].phoneNumber}</td>
-                        <td><a href="./employee.php?id=${data[i].id}">Update</a></td>
-                        <td id="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                        <td><a class="update" href="./employee.php?id=${data[i].id}">Update</a></td>
+                        <td class="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
                     `
                     tbody.appendChild(tr);
                 }
@@ -31,13 +31,30 @@ const
     }
 
     function deleteEmployee(idNum) {
-        fetch ('../src/library/employeeController.php')
+        fetch (`../src/library/employeeController.php?action=delete&id=${idNum}`)
             .then(res => res.json())
             .then(data => {
                 data.forEach(employee => {
-                    if(employee.id === idNum) {
-                        
+                    while(tbody.hasChildNodes()) {
+                        tbody.removeChild(tbody.firstChild);
                     }
+                    for(let i = data.length - 1; i >= 0; i--) {
+                        let tr = document.createElement('tr');
+                        tr.innerHTML = `
+                        <td>${data[i].name}</td>
+                        <td>${data[i].email}</td>
+                            <td>${data[i].age}</td>
+                            <td>${data[i].streetAddress}</td>
+                            <td>${data[i].city}</td>
+                            <td>${data[i].state}</td>
+                            <td>${data[i].postalCode}</td>
+                            <td>${data[i].phoneNumber}</td>
+                            <td><a class="update" href="./employee.php?id=${data[i].id}">Update</a></td>
+                            <td class="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                        `
+                        tbody.appendChild(tr);
+                    }
+                
                 });
             })
     }
@@ -68,8 +85,8 @@ const
                         <td>${data[i].state}</td>
                         <td>${data[i].postalCode}</td>
                         <td>${data[i].phoneNumber}</td>
-                        <td><a href="./employee.php?id=${data[i].id}">Update</a></td>
-                        <td id="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                        <td><a class="update" href="./employee.php?id=${data[i].id}">Update</a></td>
+                        <td class="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
                     `
                     tbody.appendChild(tr);
                 }
