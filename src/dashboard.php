@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="../assets/css/main.css" >
     <link rel="stylesheet" href="../assets/css/dashboard.css" >
+    <script src="https://kit.fontawesome.com/fe24ce668c.js" crossorigin="anonymous" defer></script>
     <script src="../assets/js/dashboard.js" defer></script>
   </head>
   <body>

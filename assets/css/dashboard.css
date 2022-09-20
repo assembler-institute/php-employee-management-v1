@@ -1,18 +1,34 @@
-.del {
-    cursor: pointer;
-}
 .update {
-    color: black;
+    color: navy;
     text-decoration: none;
 }
-.del:hover, .update:hover {
-    color: navy;
+.fa-pen {
+    transition: 300ms;
+    font-size: 1.2em;
 }
+.update:hover {
+    color: rgb(22, 22, 182);
+}
+.update:hover .fa-pen {
+    transform: scale(1.1);
+}
+
+.fa-trash {
+    color: rgb(161, 0, 0);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 300ms;
+}
+.fa-trash:hover {
+    color: rgb(191, 19, 19);
+    transform: scale(1.1);
+} 
 
 .table tr:nth-child(2n+2) {
     background-color: #eee;
 }
 .table th {
+    font-size: 1.2em;
     background-color: #ddd;
 }
 .add-button-box {
@@ -21,6 +37,7 @@
     align-items: center;
 }
 .add-button-box button {
+    font-weight: bold;
     width: 10vw;
     transition: 300ms;
 }

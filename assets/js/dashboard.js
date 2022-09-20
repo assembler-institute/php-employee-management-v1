@@ -22,8 +22,8 @@ const
                         <td>${data[i].state}</td>
                         <td>${data[i].postalCode}</td>
                         <td>${data[i].phoneNumber}</td>
-                        <td><a class="update" href="./employee.php?id=${data[i].id}">Update</a></td>
-                        <td class="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                        <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-pen"></i></a></td>
+                        <td onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
                     `
                     tbody.appendChild(tr);
                 }
@@ -49,8 +49,8 @@ const
                             <td>${data[i].state}</td>
                             <td>${data[i].postalCode}</td>
                             <td>${data[i].phoneNumber}</td>
-                            <td><a class="update" href="./employee.php?id=${data[i].id}">Update</a></td>
-                            <td class="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                            <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-pen"></i></a></td>
+                            <td class="del" onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
                         `
                         tbody.appendChild(tr);
                     }
@@ -85,8 +85,8 @@ const
                         <td>${data[i].state}</td>
                         <td>${data[i].postalCode}</td>
                         <td>${data[i].phoneNumber}</td>
-                        <td><a class="update" href="./employee.php?id=${data[i].id}">Update</a></td>
-                        <td class="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                        <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-pen"></i></a></td>
+                        <td class="del" onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
                     `
                     tbody.appendChild(tr);
                 }
