@@ -10,51 +10,31 @@
 
 // session_start();
 
-function employeeDashboard() {
-    $employeesJson = file_get_contents('../resources/employees.json');
-    $employeesDecodedJson = json_decode($employeesJson, true);
+function loadAllEmployees(){
+    $employeesJson = file_get_contents('../../resources/employees.json');
+    return $employeesJson;
+}
 
-    // echo "<pre>";
-    // echo "<h3>Array entero</h3>";
-    // var_dump($employeesDecodedJson);
 
-    // echo "<h3>2a posición del array</h3>";
-    // var_dump($employeesDecodedJson[1]);
+// function employeeDashboard() {
+//     $employeesJson = file_get_contents('../resources/employees.json');
+//     $employeesDecodedJson = json_decode($employeesJson, true); // convert a json string to an array.
+//     #echo json_encode($employeesDecodedJson);
 
-    // echo "<h3>id de la 2a posición del array</h3>";
-    // echo $employeesDecodedJson[1]["id"]; // 2
-    // echo "</pre>";
+//     foreach ($employeesDecodedJson as $employee) {
+//         $employeeId = $employee["id"];
+//         $employeeName = $employee["name"];
+//         $employeeEmail = $employee["email"];
+//         $employeeAge = $employee["age"];
+//         $employeeStreetAdress = $employee["streetAddress"];
+//         $employeeCity = $employee["city"];
+//         $employeeState = $employee["state"];
+//         $employeePostalCode = $employee["postalCode"];
+//         $employeePhoneNumber = $employee["phoneNumber"];
+//     }
+// } 
 
-    foreach ($employeesDecodedJson as $employee) {
-        $employeeId = $employee["id"];
-        $employeeName = $employee["name"];
-        $employeeEmail = $employee["email"];
-        $employeeAge = $employee["age"];
-        $employeeStreetAdress = $employee["streetAddress"];
-        $employeeCity = $employee["city"];
-        $employeeState = $employee["state"];
-        $employeePostalCode = $employee["postalCode"];
-        $employeePhoneNumber = $employee["phoneNumber"];
-        ?>
-        
-        <!-- <a href="./employee.php"> -->
-        <tr>
-            <th scope="row"><?php echo $employeeId ?></th>
-            <td><?php echo $employeeName ?></td>
-            <td><?php echo $employeeEmail ?></td>
-            <td><?php echo $employeeAge ?></td>
-            <td><?php echo $employeeStreetAdress ?></td>
-            <td><?php echo $employeeCity ?></td>
-            <td><?php echo $employeeState ?></td>
-            <td><?php echo $employeePostalCode ?></td>
-            <td><?php echo $employeePhoneNumber ?></td>
-            <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
-        </tr>
-        <!-- </a> -->
 
-        <?php
-    }
-} 
 
 // function addEmployee(array $newEmployee)
 // {

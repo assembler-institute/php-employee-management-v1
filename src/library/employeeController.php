@@ -1,5 +1,8 @@
 <?php
 
-require_once "./library/employeeManager.php"; // la ruta tiene que iniciar en dashboard.
+require_once "./employeeManager.php"; // la ruta tiene que iniciar en dashboard.
 
-employeeDashboard();
+if (isset($_GET["action"]) && $_GET["action"] == "listEmployees") {
+    // employeeDashboard();
+    echo loadAllEmployees(); // file_get_contents('../../resources/employees.json')
+}
