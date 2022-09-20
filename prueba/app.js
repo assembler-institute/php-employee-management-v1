@@ -1,6 +1,5 @@
 // console.log('Funcionando');
 
-
 // java script detecte el form
 let formulario = document.getElementById('formulario');
 // detectar cuando el usuario  pulse el boton
