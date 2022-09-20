@@ -51,7 +51,7 @@
                   
                 </div>
               </div>
-
+    
               <div class="row">
                 <div class="col-6">
                   <label for="city" class="form-label">City</label>
