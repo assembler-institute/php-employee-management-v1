@@ -36,9 +36,14 @@ function loadAllEmployees(){
 
 
 
-// function addEmployee(array $newEmployee)
-// {
-// // TODO implement it
+// function addEmployee(array $newEmployee){
+
+//     $employeesJson = file_get_contents('../../resources/employees.json');
+//     $employeesDecodedJson = json_decode($employeesJson, true);
+
+//     jsonData json_encode($employeesDecodedJson);
+//     file_put_contents('../../resources/employees.json', jsonData);
+//     include("../../assets/js/prueba.js")
 // }
 
 
