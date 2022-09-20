@@ -1,16 +1,17 @@
 const 
-    tbody = document.getElementById('tbody');
+    tbody = document.getElementById('tbody'),
+    createForm = document.getElementById('createForm');
 
-    window.onload = () => dashboardPrint();
+    dashboardPrint();
 
     function dashboardPrint(){
-        fetch ('../src/library/employeeController.php')
+        fetch ('./library/employeeController.php?action=list')
             .then(res => res.json())
             .then(data => {
                 while(tbody.hasChildNodes()) {
                     tbody.removeChild(tbody.firstChild);
                 }
-                for(let i = 0; i < data.length; i++ ) {
+                for(let i = data.length - 1; i >= 0; i--) {
                     let tr = document.createElement('tr');
                     tr.innerHTML = `
                     <td>${data[i].name}</td>
@@ -27,11 +28,10 @@ const
                     tbody.appendChild(tr);
                 }
             })
-        }
+    }
 
-
-        function deleteEmployee(idNum) {
-            fetch ('../src/library/employeeController.php')
+    function deleteEmployee(idNum) {
+        fetch ('../src/library/employeeController.php')
             .then(res => res.json())
             .then(data => {
                 data.forEach(employee => {
@@ -40,4 +40,40 @@ const
                     }
                 });
             })
-        }
+    }
+
+    createForm.addEventListener("submit", e => {
+        e.preventDefault();
+        let formData = new FormData(createForm); 
+        let create = formData.get('create'); //null
+        let num = formData.get('num');
+
+        fetch('../src/library/employeeController.php?action=create', {
+            method: 'POST',
+            body: formData,
+        })
+            .then (res => res.json())
+            .then (data => {
+                while(tbody.hasChildNodes()) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+                for(let i = data.length - 1; i >= 0; i--) {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = `
+                    <td>${data[i].name}</td>
+                    <td>${data[i].email}</td>
+                        <td>${data[i].age}</td>
+                        <td>${data[i].streetAddress}</td>
+                        <td>${data[i].city}</td>
+                        <td>${data[i].state}</td>
+                        <td>${data[i].postalCode}</td>
+                        <td>${data[i].phoneNumber}</td>
+                        <td><a href="./employee.php?id=${data[i].id}">Update</a></td>
+                        <td id="del" onclick="deleteEmployee(${data[i].id})">Delete</td>
+                    `
+                    tbody.appendChild(tr);
+                }
+            })
+        
+    })
+
