@@ -57,7 +57,7 @@ const
                 while(tbody.hasChildNodes()) {
                     tbody.removeChild(tbody.firstChild);
                 }
-                for(let i = 0; i < data.length; i++ ) {
+                for(let i = data.length - 1; i >= 0; i--) {
                     let tr = document.createElement('tr');
                     tr.innerHTML = `
                     <td>${data[i].name}</td>
@@ -74,5 +74,6 @@ const
                     tbody.appendChild(tr);
                 }
             })
+        
     })
 

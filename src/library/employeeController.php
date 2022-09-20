@@ -15,7 +15,7 @@
             "email"         => $_POST['email'],
             "gender"        => $_POST['gender'],
             "city"          => $_POST['city'],
-            "address"       => $_POST['address'],
+            "streetAddress" => $_POST['address'],
             "state"         => $_POST['state'],
             "age"           => $_POST['age'],
             "postalCode"    => $_POST['postalCode'],
@@ -28,7 +28,7 @@
     } else if (isset($_GET['action']) && $_GET['action'] === 'update') {
 
     } else if (isset($_GET['action']) && $_GET['action'] === 'delete') {
-        
+
     }
     
     

@@ -10,7 +10,7 @@
         $newEmployee["id"] = $employees[count($employees) - 1]['id'] + 1;       
         // $newEmployeeId = array("id" => $newId);
         // $newEmployeeFinal = $newEmployeeId + $newEmployee; // It won't merge both arrays !!
-        $newEmployeeFinal = (object) $newEmployee; 
+        $newEmployeeFinal = (object) $newEmployee;
         array_push($employees, $newEmployeeFinal);
         file_put_contents('../../resources/employees.json', json_encode($employees));
         echo json_encode($employees);  
