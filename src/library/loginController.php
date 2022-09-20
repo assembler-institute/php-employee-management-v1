@@ -15,8 +15,8 @@ if (isset($_GET["action"])) {
         logout();
     }
     
-    if ($_GET["action"] == "loginError") {
-        loginError();
-    }
+    // if ($_GET["action"] == "loginError") {
+    //     loginError();
+    // }
 }
 

@@ -25,7 +25,8 @@ function login() {
                 header("Location: ../dashboard.php");
             }
         } else {
-            header("Location: ../../loginController.php?action=loginError");
+            header("Location: ../../ini.php?action=loginError");
+            // header("Location: ./loginController?action=loginError");
             // TODO disparar alerta
         }
     }
@@ -38,6 +39,11 @@ function logout() {
     }
 }
 
-function loginError(){
-    header("Location: ../../ini.php?action=loginError");
-}
+#function loginError(){
+    // header("Location: ../../ini.php?action=loginError");
+    ?>
+    <!-- <div class="alert alert-danger" role="alert">
+        Incorrect credentials
+    </div> -->
+    <?php
+#}

@@ -13,7 +13,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/" />
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
 
-    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/index.js" defer></script>
 
     <style>
         .bd-placeholder-img {
@@ -87,10 +87,6 @@
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <!-- <div class="alert alert-danger" role="alert">
-                Incorrect credentials
-            </div> -->
-
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me" /> Remember me
@@ -99,6 +95,17 @@
 
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
             <!-- <button type="submit">Login</button> -->
+
+            <?php
+                #require_once "./src/library/loginController.php";
+                if (isset($_GET["action"]) && $_GET["action"] == "loginError") {
+                    ?>
+                    <div class="alert alert-danger incorrect-credentials-alert" role="alert">
+                        Incorrect credentials
+                    </div>
+                    <?php
+                }
+            ?>
 
             <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
         </form>
