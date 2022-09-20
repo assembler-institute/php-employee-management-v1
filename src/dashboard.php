@@ -34,7 +34,7 @@
             <th>State</th>
             <th>Postal Code</th>
             <th>Phone Number</th>
-            <th>Edit</th>
+            <th>Open</th>
             <th>Delete</th>
           </tr>
         </thead>

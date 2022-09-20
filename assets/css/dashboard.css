@@ -2,14 +2,14 @@
     color: navy;
     text-decoration: none;
 }
-.fa-pen {
+.fa-magnifying-glass {
     transition: 300ms;
     font-size: 1.2em;
 }
 .update:hover {
     color: rgb(22, 22, 182);
 }
-.update:hover .fa-pen {
+.update:hover .fa-magnifying-glass {
     transform: scale(1.1);
 }
 
