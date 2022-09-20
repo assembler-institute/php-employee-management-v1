@@ -72,7 +72,7 @@
 
 <body class="text-center">
     <main class="form-signin w-100 m-auto">
-        <form method="POST" action="./src/library/loginController.php">
+        <form id="login-form" method="post" action="./src/library/loginController.php?action=login">
             <img class="mb-4" src="./assets/brand/working-vector.ico" alt="" width="72" height="57" />
 
             <h1 class="h3 mb-3 fw-normal">Please login</h1>
