@@ -78,14 +78,18 @@
             <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user-email" />
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="user-email" required />
                 <label for="floatingInput">Email address</label>
             </div>
 
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user-password" />
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="user-password" required />
                 <label for="floatingPassword">Password</label>
             </div>
+
+            <!-- <div class="alert alert-danger" role="alert">
+                Incorrect credentials
+            </div> -->
 
             <div class="checkbox mb-3">
                 <label>

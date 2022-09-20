@@ -6,10 +6,17 @@ been received to carry out the action. */
 
 require_once "./loginManager.php";
 
-if ($_GET["action"] == "login") {
-    login();
-} 
-
-if ($_GET["action"] == "logout") {
-    logout();
+if (isset($_GET["action"])) {
+    if ($_GET["action"] == "login") {
+        login();
+    }
+    
+    if ($_GET["action"] == "logout") {
+        logout();
+    }
+    
+    if ($_GET["action"] == "loginError") {
+        loginError();
+    }
 }
+
