@@ -8,7 +8,7 @@
         "city": "San Jone",
         "streetAddress": "126",
         "state": "CA",
-        "age": "24",
+        "age": 24,
         "postalCode": "394221",
         "phoneNumber": "7383627627"
     },
@@ -21,7 +21,7 @@
         "city": "New York",
         "streetAddress": "89",
         "state": "WA",
-        "age": "34",
+        "age": 34,
         "postalCode": "09889",
         "phoneNumber": "1283645645"
     },
@@ -34,7 +34,7 @@
         "city": "San Diego",
         "streetAddress": "55",
         "state": "CA",
-        "age": "29",
+        "age": 29,
         "postalCode": "098765",
         "phoneNumber": "9983632461"
     },
@@ -102,5 +102,57 @@
         "state": "LU",
         "postalCode": 63281,
         "phoneNumber": "91232876454"
+    },
+    {
+        "id": 9,
+        "name": "cansado",
+        "email": "joelmarfas@gmail.com",
+        "age": 23,
+        "streetAddress": "4",
+        "city": "fgdfgfgd",
+        "state": "sgsfgfg",
+        "postalCode": "13",
+        "phoneNumber": "67576989",
+        "gender": "",
+        "lastName": ""
+    },
+    {
+        "id": 10,
+        "name": "Joel",
+        "email": "hoel@gmai.com",
+        "age": 34,
+        "streetAddress": "43442",
+        "city": "fgdffg",
+        "state": "gf",
+        "postalCode": "4535",
+        "phoneNumber": "565474676",
+        "gender": "",
+        "lastName": ""
+    },
+    {
+        "id": 11,
+        "name": "lala",
+        "email": "lala@gmail.com",
+        "age": 77,
+        "streetAddress": "89",
+        "city": "JOJO",
+        "state": "JA",
+        "postalCode": "453",
+        "phoneNumber": "5645646",
+        "gender": "",
+        "lastName": ""
+    },
+    {
+        "id": 12,
+        "name": "putolocoyloca",
+        "email": "putoloco@gmail.com",
+        "age": "56",
+        "streetAddress": "355",
+        "city": "DC",
+        "state": "DE",
+        "postalCode": "445",
+        "phoneNumber": "654635",
+        "gender": "",
+        "lastName": ""
     }
 ]
