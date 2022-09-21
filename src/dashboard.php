@@ -121,7 +121,7 @@
                   </div>
                 </div>
 
-                <div class="modal-footer mt-4">
+                <div class="modal-footer mt-4 btn-box">
                   <input id="submit" name="create" value="Save changes" type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
                 </div>
               </form>

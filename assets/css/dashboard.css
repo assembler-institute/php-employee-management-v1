@@ -51,3 +51,21 @@
     text-decoration: underline;
     font-weight: bold;
 }
+form label {
+    font-weight: bold;
+    margin-top: 20px;
+}
+form select, form input {
+    width: 100%;
+    border: 1px solid #cccccf;
+    border-radius: 7px;
+    padding: 7px 12px;
+}
+.btn-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-box input {
+    width: 50%;
+}
