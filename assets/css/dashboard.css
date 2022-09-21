@@ -37,6 +37,7 @@
     align-items: center;
 }
 .add-button-box button {
+    margin-top: 20px;
     font-weight: bold;
     width: 10vw;
     transition: 300ms;

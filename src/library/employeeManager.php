@@ -29,19 +29,22 @@
     function updateEmployee(array $updateEmployee){
         $employees = json_decode(file_get_contents('../../resources/employees.json'), true); 
         for ($i = 0; $i < count($employees); $i++) {
-            if ($employees[$i]["id"] === $updateEmployeeFinal["id"]){
-                $employeePos = array_search($employees[$i], $employees);
-                array_splice($employees, $employeePos, 1);
-                $updateEmployeeFinal = (object) $updateEmployee;
-                array_replace ($employees[$i], $updateEmployeeFinal);
-                file_put_contents('../../resources/employees.json', json_encode($employees));
-                // echo "<pre>";
-                // print_r($updateEmployeeFinal);
+            if ($employees[$i]["id"] == $updateEmployee["id"]){
+                $employees[$i]['name']           = $updateEmployee['name'];
+                $employees[$i]['lastName']       = $updateEmployee['lastName'];
+                $employees[$i]['email']          = $updateEmployee['email'];
+                $employees[$i]['gender']         = $updateEmployee['gender'];
+                $employees[$i]['city']           = $updateEmployee['city'];
+                $employees[$i]['streetAddress']  = $updateEmployee['streetAddress'];
+                $employees[$i]['state']          = $updateEmployee['state'];
+                $employees[$i]['age']            = $updateEmployee['age'];
+                $employees[$i]['postalCode']     = $updateEmployee['postalCode'];
+                $employees[$i]['phoneNumber']    = $updateEmployee['phoneNumber'];
             }
+            file_put_contents('../../resources/employees.json', json_encode($employees));
             header('Location: ../dashboard.php');
         }
     }
-
 
     function getEmployee(string $id){
     // TODO implement it
@@ -92,7 +95,7 @@
                 $options = selectGender($gender);
 
                 $form = <<<form
-                <form class="mt-5" action="library/employeeController.php?action=update&id=$id" method="POST">
+                <form class="mt-3" action="library/employeeController.php?action=update&id=$id" method="POST">
                     <div class="row">
                         <div class="col-6">
                             <label for="name" class="form-label">Name</label>
