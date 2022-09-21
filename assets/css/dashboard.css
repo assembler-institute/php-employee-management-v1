@@ -40,11 +40,13 @@
     font-weight: bold;
     width: 10vw;
     transition: 300ms;
+    transform: scale(1.1);
 }
 .add-button-box button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 .dashboard-tab {
     transform: scale(1.2);
     text-decoration: underline;
+    font-weight: bold;
 }

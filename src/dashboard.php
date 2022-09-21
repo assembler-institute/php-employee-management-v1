@@ -1,8 +1,8 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
 <?php 
-    session_start();
-    require_once('library/sessionhelper.php');
-    userConnected();
+  session_start();
+  require_once('library/sessionhelper.php');
+  userConnected();
 ?>
 <!doctype html>
 <html lang="en">
@@ -78,7 +78,7 @@
                     <div>
                     <select name="gender" id="gender" required>
                       <option value="man">Man</option>
-                      <option value="female">Female</option>
+                      <option value="woman">Woman</option>
                       <option value="other">Other</option>
                     </select>
                     </div>
