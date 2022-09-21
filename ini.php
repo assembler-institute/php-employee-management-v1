@@ -87,17 +87,10 @@
                 <label for="floatingPassword">Password</label>
             </div>
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me" /> Remember me
-                </label>
-            </div>
-
             <input class="w-100 btn btn-lg btn-primary" type="submit" value="Login" name="login" />
-            <!-- <button type="submit">Login</button> -->
 
             <?php
-                #require_once "./src/library/loginController.php";
+                #require_once "./src/library/loginController.php"; //manager o controller??
                 if (isset($_GET["action"]) && $_GET["action"] == "loginError") {
                     ?>
                     <div class="alert alert-danger incorrect-credentials-alert" role="alert">

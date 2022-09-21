@@ -15,28 +15,45 @@ function loadAllEmployees(){
     return $employeesJson;
 }
 
+function addNewEmployee($createdEmployee){
 
-// function employeeDashboard() {
-//     $employeesJson = file_get_contents('../resources/employees.json');
-//     $employeesDecodedJson = json_decode($employeesJson, true); // convert a json string to an array.
-//     #echo json_encode($employeesDecodedJson);
+    $employeesJson = file_get_contents('../../resources/employees.json');
+    $employeesDecodedJson = json_decode($employeesJson, true);
+    $createdEmployee["id"] = end($employeesDecodedJson)["id"] + 1;
+    array_push($employeesDecodedJson, $createdEmployee);
+    $employeeEncodedJson = json_encode($employeesDecodedJson);
+    file_put_contents("../../resources/employees.json", $employeeEncodedJson);
 
-//     foreach ($employeesDecodedJson as $employee) {
-//         $employeeId = $employee["id"];
-//         $employeeName = $employee["name"];
-//         $employeeEmail = $employee["email"];
-//         $employeeAge = $employee["age"];
-//         $employeeStreetAdress = $employee["streetAddress"];
-//         $employeeCity = $employee["city"];
-//         $employeeState = $employee["state"];
-//         $employeePostalCode = $employee["postalCode"];
-//         $employeePhoneNumber = $employee["phoneNumber"];
-//     }
-// } 
+    return $employeeEncodedJson;
+    
+
+    // $employeeEmail = $_POST["employee-email"];
+
+    // $createdEmployee = array(
+    //     "age" => $_POST["employee-age"], // es el name del input.
+    //     "city" => $_POST["employee-city"],
+    //     "email" => $_POST["employee-email"],
+    //     "gender" => $_POST["employee-gender"],
+    //     "id" => $_POST["employee-id"],
+    //     "lastName" => $_POST["employee-gender"],
+    //     "name" => $_POST["employee-name"],
+    //     "phoneNumber" => $_POST["employee-phone-number"],
+    //     "postalCode" => $_POST["employee-postal-code"],
+    //     "state" => $_POST["employee-state"],
+    //     "streetAddress" => $_POST["employee-street-address"]
+    // );
+
+    // return json_encode($createdEmployee);
+    // return json_encode("Employee email: " . $employeeEmail); //enviar respuesta en formato json.
+}
 
 
 
-// function addEmployee(array $newEmployee){
+
+
+
+
+// function addEmployee(array $createdEmployee){
 
 //     $employeesJson = file_get_contents('../../resources/employees.json');
 //     $employeesDecodedJson = json_decode($employeesJson, true);
