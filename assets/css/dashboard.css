@@ -39,7 +39,7 @@
 .add-button-box button {
     margin-top: 20px;
     font-weight: bold;
-    width: 10vw;
+    width: 25vw;
     transition: 300ms;
     transform: scale(1.1);
 }
@@ -67,5 +67,5 @@ form select, form input {
     align-items: center;
 }
 .btn-box input {
-    width: 50%;
+    width: 25vw;
 }
