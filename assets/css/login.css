@@ -6,7 +6,8 @@ main {
 
 form {
     margin-top: 2vw;
-    width: 20vw;
+    min-width: 250px;
+    width: 25vw;
 }
 
 .logo-box {

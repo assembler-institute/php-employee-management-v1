@@ -29,11 +29,11 @@
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Age</th>
-            <th>Street No.</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Postal Code</th>
+            <th class="extra-info">Age</th>
+            <th class="extra-info">Street No.</th>
+            <th class="extra-info">City</th>
+            <th class="extra-info">State</th>
+            <th class="extra-info">Postal Code</th>
             <th>Phone Number</th>
             <th>Open</th>
             <th>Delete</th>
@@ -47,7 +47,7 @@
       <div id="alertTimer"></div>
       
       <div class="add-button-box">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add employee</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>Add employee </span><i class="fa-solid fa-plus"></i></button>
       </div>
 
       <!-- MODAL ADDING NEW EMPLOYEE -->

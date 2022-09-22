@@ -48,11 +48,11 @@ function dashboardPrint(){
                 tr.innerHTML = `
                 <td>${data[i].name}</td>
                 <td>${data[i].email}</td>
-                    <td>${data[i].age}</td>
-                    <td>${data[i].streetAddress}</td>
-                    <td>${data[i].city}</td>
-                    <td>${data[i].state}</td>
-                    <td>${data[i].postalCode}</td>
+                    <td class="extra-info">${data[i].age}</td>
+                    <td class="extra-info">${data[i].streetAddress}</td>
+                    <td class="extra-info">${data[i].city}</td>
+                    <td class="extra-info">${data[i].state}</td>
+                    <td class="extra-info">${data[i].postalCode}</td>
                     <td>${data[i].phoneNumber}</td>
                     <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
                     <td onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
@@ -75,12 +75,12 @@ function deleteEmployee(idNum) {
                     tr.innerHTML = `
                     <td>${data[i].name}</td>
                     <td>${data[i].email}</td>
-                        <td>${data[i].age}</td>
-                        <td>${data[i].streetAddress}</td>
-                        <td>${data[i].city}</td>
-                        <td>${data[i].state}</td>
-                        <td>${data[i].postalCode}</td>
-                        <td>${data[i].phoneNumber}</td>
+                        <td class="extra-info">${data[i].age}</td>
+                        <td class="extra-info">${data[i].streetAddress}</td>
+                        <td class="extra-info">${data[i].city}</td>
+                        <td class="extra-info">${data[i].state}</td>
+                        <td class="extra-info">${data[i].postalCode}</td>
+                        <td class="extra-info">${data[i].phoneNumber}</td>
                         <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
                         <td onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
                     `
@@ -110,12 +110,12 @@ createForm.addEventListener("submit", e => {
                 tr.innerHTML = `
                 <td>${data[i].name}</td>
                 <td>${data[i].email}</td>
-                    <td>${data[i].age}</td>
-                    <td>${data[i].streetAddress}</td>
-                    <td>${data[i].city}</td>
-                    <td>${data[i].state}</td>
-                    <td>${data[i].postalCode}</td>
-                    <td>${data[i].phoneNumber}</td>
+                    <td class="extra-info">${data[i].age}</td>
+                    <td class="extra-info">${data[i].streetAddress}</td>
+                    <td class="extra-info">${data[i].city}</td>
+                    <td class="extra-info">${data[i].state}</td>
+                    <td class="extra-info">${data[i].postalCode}</td>
+                    <td class="extra-info">${data[i].phoneNumber}</td>
                     <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
                     <td class="del" onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
                 `

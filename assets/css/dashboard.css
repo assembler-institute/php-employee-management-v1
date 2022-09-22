@@ -40,8 +40,12 @@
     margin-top: 20px;
     font-weight: bold;
     width: 25vw;
+    margin-bottom: 30px;
     transition: 300ms;
     transform: scale(1.1);
+}
+.add-button-box button i {
+    display: none;
 }
 .add-button-box button:hover {
     transform: scale(1.2);
@@ -68,4 +72,37 @@ form select, form input {
 }
 .btn-box input {
     width: 25vw;
+}
+
+@media screen and (max-width: 850px) {
+    .table th {
+        font-size: .8em;
+    }
+    .table td {
+        font-size: .8em;
+    }
+    .table .extra-info {
+        display: none;
+    }
+    .add-button-box button {
+        max-width: 100px;
+    }
+    .add-button-box button i {
+        display: block;
+    }
+    .add-button-box button span {
+        display: none;
+    }
+
+    
+}
+@media screen and (max-width: 475px) {
+    .table th {
+        font-size: .7em;
+    }
+    .table td {
+        font-size: .6em;
+    }
+    
+
 }
