@@ -5,10 +5,10 @@ require_once "./employeeManager.php"; // la ruta tiene que iniciar en dashboard.
 if (isset($_GET["action"])) {
 
     if ($_GET["action"] == "listEmployees") {
-        echo loadAllEmployees(); // file_get_contents('../../resources/employees.json')
-    }
 
-    if ($_GET["action"] == "addEmployee") { 
+        echo loadAllEmployees(); // file_get_contents('../../resources/employees.json')
+
+    } else if ($_GET["action"] == "addEmployee") { 
 
         $createdEmployee = [
             "age" => $_POST["employee-age"], // es el name del input.
@@ -24,6 +24,7 @@ if (isset($_GET["action"])) {
         ];
 
         addNewEmployee($createdEmployee);
-        // echo addNewEmployee($createdEmployee);
-    }
+
+    } 
 }
+

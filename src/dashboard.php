@@ -38,10 +38,10 @@
                 <th scope="col">Phone State</th>
                 <th scope="col">Phone Postal Code</th>
                 <th scope="col">Phone Number</th>
-                <th id="btn-add-employee" scope="col" title="Add employee">
+                <th id="th-add-employee" scope="col" title="Add employee">
                     <!-- Button trigger modal -->
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="bi bi-plus-circle-fill"></i>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-add-employee">
+                        <i class="bi bi-person-plus-fill"></i>
                     </button>
                 </th>
 
