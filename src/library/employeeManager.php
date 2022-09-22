@@ -18,10 +18,11 @@
         $employees = json_decode(file_get_contents('../../resources/employees.json'), true);
         for($i = 0; $i < count($employees); $i++){
             if(strval($employees[$i]['id']) === $id) {
-                unset($employees[$i]);
+                $employeePos = array_search($employees[$i], $employees);
+                array_splice($employees, $employeePos, 1);
             }
+            file_put_contents('../../resources/employees.json', json_encode($employees));
         }
-        file_put_contents('../../resources/employees.json', json_encode($employees));
         echo json_encode($employees);
     }
 
