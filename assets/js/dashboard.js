@@ -97,6 +97,8 @@ function renderAllEmployees(data){
         console.log(employee.name);
 
         const tableRow = document.createElement("tr");
+        tableRow.addEventListener("click", ()=> loadEmployee(employee.id)); // ()=> para que no se dispare automáticamente.
+
         tableRow.innerHTML = `
             <th scope="row">${employee.id}</th>
             <td>${employee.name}</td>
@@ -107,10 +109,15 @@ function renderAllEmployees(data){
             <td>${employee.state}</td>
             <td>${employee.postalCode}</td>
             <td>${employee.phoneNumber}</td>
-            <td scope="col" title="Remove employee"><a href=""><i class="bi bi-trash3-fill"></i></a></td>
+            <td scope="col" title="Remove employee"><a href="" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a></td>
         `
         tableBody.appendChild(tableRow);
     });
+}
+
+function loadEmployee(id){
+    // window.location.href = `./library/employeeController.php?id=${id}`;
+    window.location.href = `./employee.php?id=${id}`;
 }
 
 
