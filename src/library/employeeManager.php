@@ -15,8 +15,8 @@ function loadAllEmployees(){
     return $employeesJson;
 }
 
-function addNewEmployee($createdEmployee){
-
+function addNewEmployee($createdEmployee){ //function addEmployee(array $createdEmployee)
+    
     $employeesJson = file_get_contents('../../resources/employees.json');
     $employeesDecodedJson = json_decode($employeesJson, true);
 
@@ -33,16 +33,17 @@ function addNewEmployee($createdEmployee){
     // return json_encode("Employee email: " . $employeeEmail); //enviar respuesta en formato json.
 }
 
+// foreach ($employeesDecodedJson as $employee) {
+    //     $employeeName = $employee["name"];
+    //     $employeeLastName = $employee["lastName"];
+    //     $employeeEmail = $employee["email"];
+    // }
 
-// function addEmployee(array $createdEmployee){
+    // if ($createdEmployee["email"] != $employeeEmail {
+        // if ($createdEmployee["name"] != $employeeName && $createdEmployee["lastName"] != $employeeLastName){
 
-//     $employeesJson = file_get_contents('../../resources/employees.json');
-//     $employeesDecodedJson = json_decode($employeesJson, true);
-
-//     jsonData json_encode($employeesDecodedJson);
-//     file_put_contents('../../resources/employees.json', jsonData);
-//     include("../../assets/js/prueba.js")
-// }
+        // }
+    // }
 
 
 // function deleteEmployee(string $id)
