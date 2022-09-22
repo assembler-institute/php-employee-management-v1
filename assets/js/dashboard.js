@@ -1,4 +1,4 @@
-// tenemos que usarlo para hacer la parte del dashboard. 
+// tenemos que usarlo para hacer la parte del dashboard.
 // este js se encargará de hacer los fetch al empoloyeeController.php.
 
 // let loginForm = document.getElementById("login-form");
@@ -25,7 +25,7 @@ addEmployeeForm.addEventListener("submit", (e) => {
     // console.log(newEmployeeData);
     // console.log(newEmployeeData.get("employee-name"));
 
-    fetch("./library/employeeController.php?action=addEmployee", { 
+    fetch("./library/employeeController.php?action=addEmployee", {
         method: "POST",
         body: newEmployeeData
     })
@@ -33,7 +33,7 @@ addEmployeeForm.addEventListener("submit", (e) => {
         .then(data => {
             // console.log(data);
             renderAllEmployees(data);
-        });
+        })
 });
 
 function addNewEmployee() {
@@ -71,9 +71,9 @@ function addNewEmployee() {
     //         data.push(createdEmployee);
     //         console.log(data);
     //     });
-    
-    // fetch("./library/employeeController.php?action=addEmployee", { 
-    //     method: "POST", 
+
+    // fetch("./library/employeeController.php?action=addEmployee", {
+    //     method: "POST",
     //     body: createdEmployee
     // })
     //     .then(response => response.json())
@@ -90,6 +90,8 @@ function renderAllEmployees(data){
     console.log(data);
 
     const tableBody = document.querySelector("tbody");
+
+    tableBody.innerHTML = "";
 
     data.forEach((employee) => {
         console.log(employee.name);

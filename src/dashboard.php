@@ -105,13 +105,6 @@
                                         Please provide a valid zip.
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-3">
-                                    <label for="validationCustom05" class="form-label">Street Address</label>
-                                    <input type="text" class="form-control" id="validationCustom05" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
-                                </div> -->
                                 <div class="col-md-3">
                                     <label for="validationCustom05" class="form-label">State</label>
                                     <input type="text" class="form-control" id="validationCustom05" name="employee-state" required>
@@ -141,8 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer mt-3">
-                                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                                    <button type="submit" class="btn btn-primary">Add employee</button>
+                                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add employee</button>
                                 </div>
                             </form>
                         </div>
