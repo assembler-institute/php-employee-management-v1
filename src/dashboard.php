@@ -56,7 +56,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Add new employee</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button id="closeModalBtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form id="createForm">
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="modal-footer mt-4 btn-box">
-                  <input id="submit" name="create" value="Save changes" type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+                  <input id="submit" name="create" value="Save changes" type="submit" class="btn btn-primary">
                 </div>
               </form>
             </div>

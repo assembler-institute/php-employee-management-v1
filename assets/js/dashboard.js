@@ -2,6 +2,7 @@ const
     tbody = document.getElementById('tbody'),
     createForm = document.getElementById('createForm'),
     alertTimer = document.getElementById('alertTimer'),
+    closeModalBtn = document.getElementById('closeModalBtn'),
     exitSession = document.getElementById('exitSession');
 
 dashboardPrint();
@@ -120,6 +121,7 @@ createForm.addEventListener("submit", e => {
                 `
                 tbody.appendChild(tr);
             }
+            closeModalBtn.click();
         })
 })
 

@@ -23,6 +23,7 @@
       <?php require_once('../assets/html/header.html') ?>
     </header>
     <main>
+      <div id="alertTimer"></div>
       <?php
         if (isset($_GET['id'])) {
           $employeeId = $_GET['id'];
@@ -30,7 +31,6 @@
           getEmployee($employeeId);
         }
       ?>
-      <div id="alertTimer"></div>
     </main>
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
