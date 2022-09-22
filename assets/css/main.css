@@ -25,6 +25,9 @@ header {
     width: 100%;
     background-color: #eee;
 }
+header button{
+    grid-column: 3;
+}
 header .logo {
     grid-column: 1;
     display: flex;

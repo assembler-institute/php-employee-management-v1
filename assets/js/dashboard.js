@@ -1,6 +1,7 @@
-const 
+const
     tbody = document.getElementById('tbody'),
-    createForm = document.getElementById('createForm');
+    createForm = document.getElementById('createForm'),
+    exitSession = document.getElementById('exitSession');
 
     dashboardPrint();
 
@@ -54,14 +55,13 @@ const
                         `
                         tbody.appendChild(tr);
                     }
-                
                 });
             })
     }
 
     createForm.addEventListener("submit", e => {
         e.preventDefault();
-        let formData = new FormData(createForm); 
+        let formData = new FormData(createForm);
         let create = formData.get('create'); //null
         let num = formData.get('num');
 
@@ -91,6 +91,17 @@ const
                     tbody.appendChild(tr);
                 }
             })
-        
     })
+    exitSession.addEventListener('click',closeSession);
 
+
+    function closeSession(){
+        console.log('click');
+        fetch('./library/sessionHelper.php?action=exit')
+            .then(res => res.json())
+            .then(data => {
+                if(data === 'ok'){
+                    location.reload();
+                }
+            })
+    }

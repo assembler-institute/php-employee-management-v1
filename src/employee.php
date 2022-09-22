@@ -3,6 +3,7 @@
   session_start();
   require_once('library/sessionHelper.php');
   userConnected();
+  exitSessionTimer();
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,6 +18,7 @@
     <script src="https://kit.fontawesome.com/fe24ce668c.js" crossorigin="anonymous" defer></script>
   </head>
   <body>
+
     <header>
       <?php require_once('../assets/html/header.html') ?>
     </header>
@@ -27,7 +29,7 @@
           require_once("library/employeeManager.php");
           getEmployee($employeeId);
         }
-      ?>  
+      ?>
     </main>
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
