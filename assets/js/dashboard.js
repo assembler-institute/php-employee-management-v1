@@ -50,7 +50,7 @@ const
                             <td>${data[i].postalCode}</td>
                             <td>${data[i].phoneNumber}</td>
                             <td><a class="update" href="./employee.php?id=${data[i].id}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
-                            <td class="del" onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
+                            <td onclick="deleteEmployee(${data[i].id})"><i class="fa-solid fa-trash"></i></td>
                         `
                         tbody.appendChild(tr);
                     }
