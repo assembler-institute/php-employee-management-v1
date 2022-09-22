@@ -36,8 +36,10 @@
     }
     
     function exitSessionTimer(){
+        session_start();
         if (isset($_SESSION['start']) && (time() - $_SESSION['start'] > 600)){
             session_destroy();
+            echo json_encode('ok');
         }
     }
 

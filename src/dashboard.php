@@ -4,7 +4,6 @@
   require_once('library/sessionhelper.php');
   userConnected();
   startTimer();
-  exitSessionTimer();
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,9 +40,12 @@
           </tr>
         </thead>
         <tbody id="tbody">
-
+          
         </tbody>
       </table>
+
+      <div id="alertTimer"></div>
+      
       <div class="add-button-box">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add employee</button>
       </div>
@@ -131,6 +133,7 @@
         </div>
       </div>
     </main>
+    
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
     </footer>

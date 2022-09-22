@@ -3,6 +3,8 @@
 
     if (isset($_GET['action']) && $_GET['action'] === 'exit') {
         exitSession();
-    }else {
+    } else if (isset($_GET['action']) && $_GET['action'] === 'timer') {
+        exitSessionTimer();
+    } else {
         userConnected();
     }

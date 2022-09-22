@@ -3,7 +3,6 @@
   session_start();
   require_once('library/sessionHelper.php');
   userConnected();
-  exitSessionTimer();
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" >
     <link rel="stylesheet" href="../assets/css/employee.css" >
     <script src="https://kit.fontawesome.com/fe24ce668c.js" crossorigin="anonymous" defer></script>
+    <script src="../assets/js/employee.js" defer></script>
   </head>
   <body>
 
@@ -30,6 +30,7 @@
           getEmployee($employeeId);
         }
       ?>
+      <div id="alertTimer"></div>
     </main>
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
