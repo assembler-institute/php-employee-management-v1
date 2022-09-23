@@ -1,7 +1,10 @@
 .employee-tab {
-    transform: scale(1.2);
+    transform: scale(1.3);
     text-decoration: underline;
     font-weight: bold;
+}
+.dashboard-tab i {
+    display: none;
 }
 .btns-box {
     display: flex;
