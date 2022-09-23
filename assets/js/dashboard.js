@@ -104,12 +104,11 @@ function renderAllEmployees(data){
             <td>${employee.name}</td>
             <td>${employee.email}</td>
             <td>${employee.age}</td>
-            <td>${employee.streetAddress}</td>
             <td>${employee.city}</td>
             <td>${employee.state}</td>
             <td>${employee.postalCode}</td>
             <td>${employee.phoneNumber}</td>
-            <td scope="col" title="Remove employee"><a href="" class="btn btn-outline-danger me-2"><i class="bi bi-trash3-fill"></i></a></td>
+            <td scope="col" title="Remove employee"><a href="" class="btn btn-outline-danger me-2 btn-sm"><i class="bi bi-trash3-fill"></i></a></td>
         `
         tableBody.appendChild(tableRow);
     });

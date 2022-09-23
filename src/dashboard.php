@@ -33,14 +33,13 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Age</th>
-                <th scope="col">Street</th>
                 <th scope="col">City</th>
-                <th scope="col">Phone State</th>
-                <th scope="col">Phone Postal Code</th>
+                <th scope="col">State</th>
+                <th scope="col">Postal Code</th>
                 <th scope="col">Phone Number</th>
                 <th id="th-add-employee" scope="col" title="Add employee">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-add-employee">
+                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-add-employee">
                         <i class="bi bi-person-plus-fill"></i>
                     </button>
                 </th>
@@ -58,80 +57,37 @@
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label">Name</label>
                                     <input type="text" class="form-control" id="validationCustom01" name="employee-name" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Last name</label>
                                     <input type="text" class="form-control" id="validationCustom02" name="employee-last-name" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustomUsername" class="form-label">Email address</label>
                                     <div class="input-group has-validation">
                                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                                         <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" name="employee-email" required>
-                                        <div class="invalid-feedback">
-                                            Please choose a username.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="validationCustom04" class="form-label">Gender</label>
-                                    <select class="form-select" id="validationCustom04" name="employee-gender">
-                                        <option selected disabled value="">Choose...</option>
-                                        <option>Female</option>
-                                        <option>Male</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a valid state.
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom03" class="form-label">City</label>
                                     <input type="text" class="form-control" id="validationCustom03" name="employee-city" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid city.
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="validationCustom05" class="form-label">Street Address</label>
-                                    <input type="text" class="form-control" id="validationCustom05" name="employee-street-address" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="validationCustom05" class="form-label">State</label>
                                     <input type="text" class="form-control" id="validationCustom05" name="employee-state" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="validationCustom05" class="form-label">Age</label>
                                     <input type="text" class="form-control" id="validationCustom05" name="employee-age" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="validationCustom05" class="form-label">Postal Code</label>
                                     <input type="number" class="form-control" id="validationCustom05" name="employee-postal-code" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="validationCustom05" class="form-label">Phone Number</label>
                                     <input type="number" class="form-control" id="validationCustom05" name="employee-phone-number" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
                                 </div>
                                 <div class="modal-footer mt-3">
                                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add employee</button>
@@ -144,7 +100,7 @@
                 </div>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             
         </tbody>
     </table>
