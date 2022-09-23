@@ -148,7 +148,7 @@ function getEmployee($id){ //(string $id)
             <?php
         }
 
-        break;
+       
     }
 }
 
