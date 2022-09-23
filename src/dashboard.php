@@ -3,6 +3,7 @@
   session_start();
   require_once('library/sessionhelper.php');
   userConnected();
+  startTimer();
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,23 +29,25 @@
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Age</th>
-            <th>Street No.</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Postal Code</th>
+            <th class="extra-info">Age</th>
+            <th class="extra-info">Street No.</th>
+            <th class="extra-info">City</th>
+            <th class="extra-info">State</th>
+            <th class="extra-info">Postal Code</th>
             <th>Phone Number</th>
             <th>Open</th>
             <th>Delete</th>
           </tr>
         </thead>
         <tbody id="tbody">
-
+          
         </tbody>
       </table>
+
+      <div id="alertTimer"></div>
       
       <div class="add-button-box">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add employee</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>Add employee </span><i class="fa-solid fa-plus"></i></button>
       </div>
 
       <!-- MODAL ADDING NEW EMPLOYEE -->
@@ -53,7 +56,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Add new employee</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button id="closeModalBtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form id="createForm">
@@ -122,14 +125,15 @@
                 </div>
 
                 <div class="modal-footer mt-4 btn-box">
-                  <input id="submit" name="create" value="Save changes" type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+                  <input id="submit" name="create" value="Save changes" type="submit" class="btn btn-primary">
                 </div>
               </form>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
     </main>
+    
     <footer>
       <?php require_once('../assets/html/footer.html') ?>
     </footer>

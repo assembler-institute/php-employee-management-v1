@@ -15,19 +15,22 @@
     <link rel="stylesheet" href="../assets/css/main.css" >
     <link rel="stylesheet" href="../assets/css/employee.css" >
     <script src="https://kit.fontawesome.com/fe24ce668c.js" crossorigin="anonymous" defer></script>
+    <script src="../assets/js/employee.js" defer></script>
   </head>
   <body>
+
     <header>
       <?php require_once('../assets/html/header.html') ?>
     </header>
     <main>
+      <div id="alertTimer"></div>
       <?php
         if (isset($_GET['id'])) {
           $employeeId = $_GET['id'];
           require_once("library/employeeManager.php");
           getEmployee($employeeId);
         }
-      ?>  
+      ?>
     </main>
     <footer>
       <?php require_once('../assets/html/footer.html') ?>

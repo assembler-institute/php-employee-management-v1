@@ -53,7 +53,7 @@
         $employees = json_decode(file_get_contents('../resources/employees.json'), true);
         foreach ($employees as $employee){
             if (strval($employee['id']) === $id){
-                $id = $employee['id'];
+                $id            = $employee['id'];
                 $name          = $employee['name'];
                 $lastName      = $employee['lastName'];
                 $email         = $employee['email'];
