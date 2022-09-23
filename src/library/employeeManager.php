@@ -21,8 +21,9 @@
                 $employeePos = array_search($employees[$i], $employees);
                 array_splice($employees, $employeePos, 1);
             }
-            file_put_contents('../../resources/employees.json', json_encode($employees));
         }
+        file_put_contents('../../resources/employees.json', json_encode($employees));
+
         echo json_encode($employees);
     }
 
