@@ -15,6 +15,7 @@ function loadAllEmployees(){
     return $employeesJson;
 }
 
+
 function addNewEmployee($createdEmployee){ // function addEmployee(array $createdEmployee)
 
     $employeesJson = file_get_contents('../../resources/employees.json');
@@ -44,6 +45,7 @@ function addNewEmployee($createdEmployee){ // function addEmployee(array $create
     // $employeeEmail = $_POST["employee-email"];
     // return json_encode("Employee email: " . $employeeEmail); //enviar respuesta en formato json.
 }
+
 
 function getEmployee($id){ // (string $id)
     #echo $id;
@@ -137,51 +139,30 @@ function getEmployee($id){ // (string $id)
     }
 }
 
+
 function updateEmployee(array $updateEmployee){
     echo "<pre>";
     print_r($updateEmployee);
     echo "</pre>";
 
-    $updateEmployeeId = $updateEmployee["id"];
-    #echo $updateEmployeeId;
-
     $employeesJson = file_get_contents('../../resources/employees.json');
     $employeesDecodedJson = json_decode($employeesJson, true);
-    echo "<pre>";
-    print_r($employeesDecodedJson);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($employeesDecodedJson);
+    // echo "</pre>";
 
-    foreach ($employeesDecodedJson as $employee) {
+    for ($i=0; $i < count($employeesDecodedJson); $i++) {
 
-        $employeeId = $employee["id"]; // the value of this variable changes with each loop through the json id's.
-        #echo $employeeId;
-
-        if ($updateEmployeeId == $employeeId) {
-            echo $updateEmployeeId, " es igual a ", $employeeId;
-            echo "<pre>";
-            print_r($employee);
-            print_r($updateEmployee);
-            echo "</pre>";
-
-            // $employee = $updateEmployee;
-            // echo "UPDATED";
-            // echo "<pre>";
-            // print_r($employee);
-            // echo "</pre>";
-
-            print_r(array_replace($employee, $updateEmployee));
-
-            // array_push($employeesDecodedJson, $employee);
-
-            $employeeEncodedJson = json_encode($employeesDecodedJson);
-            echo "<pre>";
-            print_r($employeeEncodedJson);
-            echo "</pre>";
-
-            file_put_contents("../../resources/employees.json", $employeeEncodedJson);
-
+        if ($employeesDecodedJson[$i]["id"] == $updateEmployee["id"]) {
+            // echo $employeesDecodedJson[$i]["id"], " es igual a ", $updateEmployee["id"];
+            $employeesDecodedJson[$i] = $updateEmployee;
         }
     }
+
+    $employeeEncodedJson = json_encode($employeesDecodedJson);
+    file_put_contents("../../resources/employees.json", $employeeEncodedJson); 
+
+    header("Location: ../dashboard.php");
 }
 
 
