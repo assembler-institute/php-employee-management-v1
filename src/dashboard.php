@@ -44,10 +44,26 @@
         </tbody>
       </table>
 
+      <div id="alertDelete"></div>
       <div id="alertTimer"></div>
       
       <div class="add-button-box">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><span>Add employee </span><i class="fa-solid fa-plus"></i></button>
+      </div>
+
+      <!-- MODAL DELETE WARNING -->
+      <div class="modal fade" class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl alert alert-warning">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete employee</h5>
+              <button id="closeModalBtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="bodyModalDelete" class="modal-body">
+              
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- MODAL ADDING NEW EMPLOYEE -->

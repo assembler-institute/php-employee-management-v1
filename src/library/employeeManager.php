@@ -95,7 +95,6 @@
                 }
 
                 $options = selectGender($gender);
-
                 $form = <<<form
                 <form class="mt-3" action="library/employeeController.php?action=update&id=$id" method="POST">
                     <div class="row">
@@ -161,7 +160,7 @@
                     </div>
 
                     <div class="modal-footer mt-4 btns-box">
-                        <input id="submit" value="Update Employee" type="submit" class="btn btn-primary">
+                        <input id="submit" value="Update" type="submit" class="btn btn-primary">
                         <button class="btn btn-secondary"><a href="../src/dashboard.php">Return</a></button>
                     </div>
                 </form>
