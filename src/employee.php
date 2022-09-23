@@ -17,10 +17,10 @@
 
     <?php 
         require_once "../assets/html/header.html"; 
-        require_once "./library/employeeManager.php";
         
         if (isset($_GET["id"]) ) {
             $id = $_GET["id"];
+            require_once "./library/employeeManager.php";
             getEmployee($id); 
         }
         
