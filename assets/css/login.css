@@ -1,0 +1,24 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    margin-top: 2vw;
+    min-width: 250px;
+    width: 25vw;
+}
+
+.logo-box {
+    display: flex;
+    justify-content: center;
+}
+
+#alertBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
